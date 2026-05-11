@@ -139,7 +139,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
             <div class="header-left">
                 <button id="hamburger-btn" onclick="toggleTOC()" aria-label="Table of Contents">☰</button>
                 <h1 id="main-title">{page_title}</h1>
-                <span class="munk-label">Salomon Munk</span>
+                <span class="munk-label">Dalalat al-Ha'irin</span>
             </div>
             <div class="theme-controls">
                 <button onclick="setTheme('light')" title="Light" class="theme-btn" id="btn-light">☀️</button>

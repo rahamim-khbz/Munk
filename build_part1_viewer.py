@@ -397,7 +397,7 @@ def build_viewer():
             <div class="header-left">
                 <button id="hamburger-btn" onclick="toggleTOC()" aria-label="Table of Contents">☰</button>
                 <div>
-                    <h1>Salomon Munk - Guide for the Perplexed</h1>
+                    <h1>Dalalat al-Ha'irin - Guide for the Perplexed</h1>
                     <p id="current-chapter-label">Parallel Reader: Modern English & Makbili Hebrew</p>
                 </div>
             </div>
