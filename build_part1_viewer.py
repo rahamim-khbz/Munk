@@ -334,7 +334,7 @@ def build_viewer():
             flex: 1; overflow-y: auto; padding: 16px 24px;
             font-size: 0.95rem; line-height: 1.7; color: var(--text);
         }}
-        .mediumGrey {{ color: var(--text-muted); font-size: 0.85em; display: block; margin-bottom: 5px; }}
+        .mediumGrey {{ color: var(--accent); font-size: 0.95em; display: block; margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }}
     </style>
 </head>
 <body>

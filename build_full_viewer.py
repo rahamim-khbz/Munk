@@ -99,7 +99,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
         }}
         .header-row {{ border-bottom: none; padding-bottom: 0; padding-top: 32px; }}
         .header-row .he-cell {{ border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }}
-        .mediumGrey {{ color: var(--accent); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }}
+        .mediumGrey {{ color: var(--accent); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; display: block; margin-top: 1.5em; margin-bottom: 0.5em; }}
         .toc-landing-page {{ padding: 40px 0; max-width: 900px; margin: 0 auto; }}
         .landing-title {{ font-family: var(--font-hebrew); font-size: 3rem; margin-bottom: 8px; color: var(--text); text-align: center; }}
         .landing-subtitle {{ text-align: center; color: var(--text-muted); margin-bottom: 60px; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; }}
@@ -410,55 +410,13 @@ def build_viewer():
         return repair_tags(en_processed)
 
     def render_row(he_text, en_text, key=None):
-        # Split Hebrew if it contains headers
-        if '<span class="mediumGrey">' in he_text:
-            parts = re.split(r'(<span class="mediumGrey">.*?</span>)', he_text)
-            
-            # Find the non-header part with the maximum length to attach the English text
-            max_len = -1
-            en_target_idx = -1
-            for i, p in enumerate(parts):
-                if not p.strip().startswith('<span class="mediumGrey">'):
-                    if len(p) > max_len:
-                        max_len = len(p)
-                        en_target_idx = i
-
-            rows = ""
-            for i, part in enumerate(parts):
-                part = part.strip()
-                if not part: continue
-                
-                if part.startswith('<span class="mediumGrey">'):
-                    # Header row
-                    rows += f"""
-                    <div class="parallel-row header-row">
-                        <div class="en-cell"></div>
-                        <div class="he-cell">{part}</div>
-                    </div>
-                    """
-                else:
-                    # Text row
-                    # Remove leading/trailing <br> from the part
-                    clean_he = re.sub(r'^(<br>)+|(<br>)+$', '', part).strip()
-                    if not clean_he: continue
-                    
-                    row_id = f'id="row-{key}"' if key else ""
-                    cell_en = en_text if i == en_target_idx else ""
-                    rows += f"""
-                    <div class="parallel-row" {row_id}>
-                        <div class="en-cell">{cell_en}</div>
-                        <div class="he-cell">{repair_tags(clean_he)}</div>
-                    </div>
-                    """
-            return rows
-        else:
-            row_id = f'id="row-{key}"' if key else ""
-            return f"""
-            <div class="parallel-row" {row_id}>
-                <div class="en-cell">{en_text}</div>
-                <div class="he-cell">{repair_tags(he_text)}</div>
-            </div>
-            """
+        row_id = f'id="row-{key}"' if key else ""
+        return f"""
+        <div class="parallel-row" {row_id}>
+            <div class="en-cell">{en_text}</div>
+            <div class="he-cell">{repair_tags(he_text)}</div>
+        </div>
+        """
 
     # 4. Prepare Footnotes JSON & Chapter Index
     footnotes_json = json.dumps(english_footnotes)
