@@ -89,12 +89,52 @@ def build_viewer():
             en_processed = re.sub(r"\[\[fn:(\d+)\]\]", replace_fn, en_text)
             en_processed = re.sub(r"\[\[t:\d+\]\]", "", en_processed)
 
-            rows_html += f"""
-            <div class="parallel-row" id="row-{key}">
-                <div class="en-cell">{en_processed}</div>
-                <div class="he-cell">{he_text}</div>
-            </div>
-            """
+            # Smart splitting logic for Hebrew and English
+            if '<span class="mediumGrey">' in he_text:
+                parts = re.split(r'(<span class="mediumGrey">.*?</span>)', he_text)
+                text_blocks_indices = [idx for idx, p in enumerate(parts) if not p.strip().startswith('<span class="mediumGrey">') and p.strip()]
+                
+                en_parts = [p.strip() for p in re.split(r'\s+—\s+|\s+-\s+', en_processed)]
+                
+                if len(en_parts) == len(text_blocks_indices) and len(en_parts) > 1:
+                    en_mapping = {idx: en_parts[j] for j, idx in enumerate(text_blocks_indices)}
+                else:
+                    max_len = -1
+                    en_target_idx = -1
+                    for idx in text_blocks_indices:
+                        if len(parts[idx]) > max_len:
+                            max_len = len(parts[idx])
+                            en_target_idx = idx
+                    en_mapping = {en_target_idx: en_processed}
+                    
+                for j, part in enumerate(parts):
+                    part = part.strip()
+                    if not part: continue
+                    
+                    if part.startswith('<span class="mediumGrey">'):
+                        rows_html += f"""
+                        <div class="parallel-row header-row">
+                            <div class="en-cell"></div>
+                            <div class="he-cell">{part}</div>
+                        </div>
+                        """
+                    else:
+                        clean_he = re.sub(r'^(<br>)+|(<br>)+$', '', part).strip()
+                        if not clean_he: continue
+                        cell_en = en_mapping.get(j, "")
+                        rows_html += f"""
+                        <div class="parallel-row" id="row-{key}">
+                            <div class="en-cell">{cell_en}</div>
+                            <div class="he-cell">{clean_he}</div>
+                        </div>
+                        """
+            else:
+                rows_html += f"""
+                <div class="parallel-row" id="row-{key}">
+                    <div class="en-cell">{en_processed}</div>
+                    <div class="he-cell">{he_text}</div>
+                </div>
+                """
         rows_html += "</section>"
 
     # 4. Prepare Footnotes JSON & Chapter Index
@@ -334,7 +374,9 @@ def build_viewer():
             flex: 1; overflow-y: auto; padding: 16px 24px;
             font-size: 0.95rem; line-height: 1.7; color: var(--text);
         }}
-        .mediumGrey {{ color: var(--accent); font-size: 0.95em; display: block; margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }}
+        .header-row {{ border-bottom: none; padding-bottom: 0; padding-top: 32px; }}
+        .header-row .he-cell {{ border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }}
+        .mediumGrey {{ color: var(--accent); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }}
     </style>
 </head>
 <body>
