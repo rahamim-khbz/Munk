@@ -5,11 +5,11 @@
   - [x] Spec compliance review
   - [x] Code quality review
   - [x] Commit
-- [ ] **Task 2: Service Worker (`sw.js`)**
-  - [ ] Implement `sw.js` with Stale-While-Revalidate caching
-  - [ ] Spec compliance review
-  - [ ] Code quality review
-  - [ ] Commit
+- [x] **Task 2: Service Worker (`sw.js`)**
+  - [x] Implement `sw.js` with Stale-While-Revalidate caching
+  - [x] Spec compliance review
+  - [x] Code quality review
+  - [x] Commit
 - [ ] **Task 3: Viewer Template Wiring**
   - [ ] Inject manifest link, service worker registration, update toasts, and GitHub footer into `build_full_viewer.py`
   - [ ] Verification script execution
