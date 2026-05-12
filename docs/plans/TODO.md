@@ -1,10 +1,10 @@
 # PWA Implementation Todo Tracker
 
-- [ ] **Task 1: App Shell Manifest**
-  - [ ] Implement `manifest.json`
-  - [ ] Spec compliance review
-  - [ ] Code quality review
-  - [ ] Commit
+- [x] **Task 1: App Shell Manifest**
+  - [x] Implement `manifest.json`
+  - [x] Spec compliance review
+  - [x] Code quality review
+  - [x] Commit
 - [ ] **Task 2: Service Worker (`sw.js`)**
   - [ ] Implement `sw.js` with Stale-While-Revalidate caching
   - [ ] Spec compliance review
