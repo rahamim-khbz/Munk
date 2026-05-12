@@ -44,7 +44,7 @@ A "Suggest Edit" button opens a lightweight modal with a form that submits direc
 ## 5. Decision Record
 * **Decided:** Lazy-load runtime caching (PWA without aggressive upfront download).
 * **Decided:** SWR caching strategy with version invalidation to allow seamless corpus updates.
-* **Pending:** Feedback mechanism (see open questions).
+* **Decided:** Option A (GitHub Issues link) for reader feedback mechanism.
 
 ## 6. Open Questions
-- Do you prefer the **GitHub Issue** approach (Option A) or the **Formspree/Email** approach (Option B) for the feedback mechanism? *(user)*
+* None remaining. Design fully approved.
