@@ -10,9 +10,9 @@
   - [x] Spec compliance review
   - [x] Code quality review
   - [x] Commit
-- [ ] **Task 3: Viewer Template Wiring**
-  - [ ] Inject manifest link, service worker registration, update toasts, and GitHub footer into `build_full_viewer.py`
-  - [ ] Verification script execution
-  - [ ] Spec compliance review
-  - [ ] Code quality review
-  - [ ] Commit
+- [x] **Task 3: Viewer Template Wiring**
+  - [x] Inject manifest link, service worker registration, update toasts, and GitHub footer into `build_full_viewer.py`
+  - [x] Verification script execution
+  - [x] Spec compliance review
+  - [x] Code quality review
+  - [x] Commit
