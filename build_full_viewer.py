@@ -24,7 +24,9 @@ def generate_nav_links(prev_ch, next_ch):
     html += '</div>'
     return html
 
-def render_html(page_title, main_content_html, chapter_index_js, footnotes_json):
+def render_html(page_title, main_content_html, chapter_index_js, footnotes_json, display_title=None):
+    if display_title is None:
+        display_title = page_title
     # This template uses double curly braces for CSS/JS that aren't f-string variables
     return f"""
 <!DOCTYPE html>
@@ -34,6 +36,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{page_title} - Munk Viewer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.json">
     <style>
         :root {{
             --bg: #fdfcfb; --surface: #ffffff; --text: #1a1a1a; --text-muted: #6b7280;
@@ -80,8 +83,9 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
         .content {{ padding: 20px 40px; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }}
         .parallel-row {{ display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 24px 0; border-bottom: 1px solid var(--border); transition: background 0.2s; }}
         .parallel-row:hover {{ background: var(--row-hover); }}
-        .en-cell {{ font-family: var(--font-english), var(--font-hebrew); font-size: 1.1rem; line-height: 1.7; text-align: justify; }}
+        .en-cell {{ font-family: var(--font-english), var(--font-hebrew); font-size: 1.1rem; line-height: 1.7; text-align: left; }}
         .he-cell {{ font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; direction: rtl; text-align: right; color: var(--text); }}
+        .fr-cell {{ font-family: var(--font-english); font-size: 1.1rem; line-height: 1.7; text-align: left; }}
         .chapter-header {{ grid-column: span 2; padding: 40px 0 20px; border-bottom: 2px solid var(--accent); margin-bottom: 20px; }}
         .chapter-header h2 {{ margin: 0; color: var(--accent); font-weight: 700; }}
         .poem-segment {{ color: var(--text-muted); font-size: 0.95rem; font-style: italic; }}
@@ -92,6 +96,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
             .theme-controls {{ display: none; }}
             .parallel-row {{ display: flex; flex-direction: column; gap: 12px; padding: 16px 0; }}
             .en-cell {{ font-size: 1rem; padding-top: 8px; border-top: 1px dashed var(--border); }}
+            .fr-cell {{ font-size: 1rem; }}
             .he-cell {{ font-size: 1.2rem; order: -1; }}
             .chapter-header {{ padding: 24px 0 12px; order: -2; }}
             .chapter-header h2 {{ font-size: 1.4rem; }}
@@ -117,6 +122,11 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
         .fn-panel-body {{ font-family: var(--font-english), var(--font-hebrew); padding: 16px 24px; overflow-y: auto; flex: 1; font-size: 1rem; line-height: 1.7; color: var(--text); }}
         .fn-ref {{ color: var(--accent); cursor: pointer; font-weight: 600; transition: background 0.15s; padding: 0 2px; border-radius: 2px; }}
         .fn-ref:hover {{ background: var(--fn-ref-hover); }}
+        .feedback-footer {{ margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }}
+        .feedback-footer a {{ display: inline-block; padding: 10px 20px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: all 0.2s; }}
+        .feedback-footer a:hover {{ background: var(--accent); color: white; border-color: var(--accent); }}
+        .update-toast {{ position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--surface); padding: 12px 20px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; cursor: pointer; display: none; align-items: center; gap: 10px; }}
+        .update-toast:hover {{ opacity: 0.9; }}
     </style>
 </head>
 <body>
@@ -138,7 +148,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
         <div class="header">
             <div class="header-left">
                 <button id="hamburger-btn" onclick="toggleTOC()" aria-label="Table of Contents">☰</button>
-                <h1 id="main-title">{page_title}</h1>
+                <h1 id="main-title">{display_title}</h1>
                 <span class="munk-label">Dalalat al-Ha'irin</span>
             </div>
             <div class="theme-controls">
@@ -149,6 +159,9 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
         </div>
         <div class="content">
             {main_content_html}
+            <div class="feedback-footer">
+                <a href="https://github.com/rayhabbaz/Munk-Guide/issues/new?title=Correction:%20{display_title}" target="_blank" rel="noopener noreferrer">Propose an Edit on GitHub</a>
+            </div>
         </div>
     </div>
     <div id="fn-panel" class="fn-panel">
@@ -172,7 +185,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
         setTheme(localStorage.getItem('munk-theme') || 'light');
         function buildTOC() {{
             const body = document.getElementById('toc-body');
-            const groups = {{ 'Introductions': ['Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [] }};
+            const groups = {{ 'Introductions': ["Munk's Introduction", "Note On The Title", 'Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [] }};
             chapterIndex.forEach(ch => {{
                 const m = ch.title.match(/^Part (\\d) - (Chapter \\d+|Introduction)$/);
                 if (m) {{
@@ -235,7 +248,25 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json)
         }}
         function closeFnPanel() {{ document.getElementById('fn-panel').classList.remove('open'); document.querySelector('.main-container').classList.remove('fn-open'); }}
         window.addEventListener('DOMContentLoaded', () => {{ buildTOC(); }});
+        if ('serviceWorker' in navigator) {{
+            window.addEventListener('load', () => {{
+                navigator.serviceWorker.register('../sw.js').then(reg => {{
+                    reg.addEventListener('updatefound', () => {{
+                        const newWorker = reg.installing;
+                        newWorker.addEventListener('statechange', () => {{
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {{
+                                const toast = document.getElementById('update-toast');
+                                if (toast) toast.style.display = 'flex';
+                            }}
+                        }});
+                    }});
+                }}).catch(() => {{}});
+            }});
+        }}
     </script>
+    <div id="update-toast" class="update-toast" onclick="window.location.reload()">
+        <span>🔄 Update available. Click to refresh.</span>
+    </div>
 </body>
 </html>
 """
@@ -266,6 +297,50 @@ def build_viewer():
 
     # --- Part 1 Section ---
     
+    # Handle Munk's Introduction
+    munk_intro_segments = []
+    try:
+        with open("preface_resegmented.json", "r", encoding="utf-8") as f:
+            french_paras = json.load(f)
+        with open("preface_english_final.json", "r", encoding="utf-8") as f:
+            english_paras = json.load(f)
+            
+        for i in range(len(french_paras)):
+            munk_intro_segments.append({
+                "he": french_paras[i],
+                "en": english_paras[i] if i < len(english_paras) else "[Translation Missing]"
+            })
+        unified_chapters.append({
+            "title": "Munk's Introduction",
+            "is_french_intro": True,
+            "custom_segments": munk_intro_segments
+        })
+    except FileNotFoundError:
+        pass
+
+    # Handle Note On The Title
+    try:
+        with open("munk_title_note.json", "r", encoding="utf-8") as f:
+            title_note_data = json.load(f)
+            
+        if "footnote_en" in title_note_data:
+            english_footnotes["fn.3000"] = title_note_data["footnote_en"]
+            
+        title_note_segments = []
+        for i in range(len(title_note_data["fr"])):
+            title_note_segments.append({
+                "he": title_note_data["fr"][i],
+                "en": title_note_data["en"][i]
+            })
+        unified_chapters.append({
+            "title": "Note On The Title",
+            "display_title": title_note_data.get("title_en", "Note On The Title"),
+            "is_french_intro": True,
+            "custom_segments": title_note_segments
+        })
+    except FileNotFoundError:
+        pass
+    
     # Handle Letter to R Joseph (Special Split)
     letter_he = hebrew_data["text"]["Letter to R Joseph son of Judah"]
     # The first element contains both the poem and the invocation.
@@ -284,7 +359,7 @@ def build_viewer():
     # Segment 1: Poem
     letter_segments.append({
         "he": poem_he,
-        "en": '[Not found in Munk]<br><i>My knowledge goes forth to guide a straight path, to pave its course.<br>O every wanderer in the field of Torah, turn aside, and tread its path.<br>The unclean and the fool shall not pass over it; it shall be called the way of holiness.</i>',
+        "en": get_en_text("root.text.Letter to R Joseph son of Judah.Poem", 'My thought will guide you on the path of truth, and smooth the way.<br>Come, walk along its path, O all you who wander in the field of religion!<br>The impure and the ignorant shall not pass over it; it shall be called the sacred way.'),
         "is_poem": True
     })
     
@@ -402,10 +477,11 @@ def build_viewer():
     def process_en(en_text):
         def replace_fn(match):
             fn_id_num = match.group(1)
+            label = match.group(2) if match.lastindex >= 2 and match.group(2) else fn_id_num
             full_id = f"fn.{fn_id_num}"
-            return f'<sup class="fn-ref" title="View Footnote" onclick="showFn(\'{full_id}\')">{fn_id_num}</sup>'
+            return f'<sup class="fn-ref" title="View Footnote" onclick="showFn(\'{full_id}\')">{label}</sup>'
         
-        en_processed = re.sub(r"\[\[fn:(\d+)\]\]", replace_fn, en_text)
+        en_processed = re.sub(r"\[\[fn:(\d+)(?:\|([^\]]+))?\]\]", replace_fn, en_text)
         en_processed = re.sub(r"\[\[t:\d+\]\]", "", en_processed)
         return repair_tags(en_processed)
 
@@ -462,8 +538,24 @@ def build_viewer():
             </div>
             """
 
+
     # 4. Prepare Footnotes JSON & Chapter Index
-    footnotes_json = json.dumps(english_footnotes)
+    # Consolidate sub-footnotes (fn.X.sub_Y) into fn.X
+    consolidated_footnotes = {}
+    for key, text in english_footnotes.items():
+        if ".sub_" in key:
+            main_key = key.split(".sub_")[0]
+            if main_key not in consolidated_footnotes:
+                consolidated_footnotes[main_key] = ""
+            # Append with a space if it's not the first part
+            if consolidated_footnotes[main_key]:
+                consolidated_footnotes[main_key] += " "
+            consolidated_footnotes[main_key] += text
+        else:
+            consolidated_footnotes[key] = text
+            
+    footnotes_json = json.dumps(consolidated_footnotes)
+
     chapter_index_js = json.dumps([
         {"id": f"chapter-{ch['title'].replace(' ', '-').replace('/', '-')}", "title": ch['title']}
         for ch in unified_chapters
@@ -475,14 +567,22 @@ def build_viewer():
         chapter_rows_html = f"""<div class='chapter-header'><h2>{ch['title']}</h2></div>"""
         
         if "custom_segments" in ch:
+            is_french_intro = ch.get("is_french_intro", False)
             for seg in ch['custom_segments']:
                 en_processed = process_en(seg['en'])
-                en_class = "en-cell poem-segment" if seg.get("is_poem") else "en-cell"
                 if seg.get("is_poem"):
+                    en_processed = re.sub(r'</?i>', '', en_processed)
                     chapter_rows_html += f"""
                     <div class="parallel-row poem-row">
-                        <div class="{en_class}">{en_processed}</div>
+                        <div class="en-cell">{en_processed}</div>
                         <div class="he-cell">{seg['he']}</div>
+                    </div>
+                    """
+                elif is_french_intro:
+                    chapter_rows_html += f"""
+                    <div class="parallel-row">
+                        <div class="fr-cell">{repair_tags(seg['he'])}</div>
+                        <div class="en-cell">{en_processed}</div>
                     </div>
                     """
                 else:
@@ -502,7 +602,8 @@ def build_viewer():
         chapter_rows_html += generate_nav_links(prev_ch, next_ch)
         
         # Render and Save
-        full_html = render_html(ch['title'], chapter_rows_html, chapter_index_js, footnotes_json)
+        disp_title = process_en(ch.get('display_title', ch['title']))
+        full_html = render_html(ch['title'], chapter_rows_html, chapter_index_js, footnotes_json, display_title=disp_title)
         filename = get_filename(ch['title'])
         with open(os.path.join("viewer", filename), "w") as f:
             f.write(full_html)
