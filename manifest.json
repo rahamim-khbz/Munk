@@ -1,0 +1,16 @@
+{
+  "name": "Dalalat al-Ha'irin Reader",
+  "short_name": "Munk Reader",
+  "description": "Parallel scholarly viewer for Munk's translation and Makbili's Hebrew edition of the Guide for the Perplexed.",
+  "start_url": "./fulltext.html",
+  "display": "standalone",
+  "background_color": "#F2EBE1",
+  "theme_color": "#8C1D04",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/google/material-design-icons/master/png/action/book/materialicons/24dp/2x/baseline_book_black_24dp.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }
+  ]
+}
