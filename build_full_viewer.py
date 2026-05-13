@@ -185,7 +185,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         setTheme(localStorage.getItem('munk-theme') || 'light');
         function buildTOC() {{
             const body = document.getElementById('toc-body');
-            const groups = {{ "Munk's Prefaces": ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"], 'Introductions': ['Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [] }};
+            const groups = {{ "Munk's Prefaces": ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"], "Munk's Endnotes": ["Endnotes to Volume I", "Endnotes to Volume II", "Endnotes to Volume III"], 'Introductions': ['Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [] }};
             chapterIndex.forEach(ch => {{
                 const m = ch.title.match(/^Part (\\d) - (Chapter \\d+|Introduction)$/);
                 if (m) {{
@@ -195,14 +195,14 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                 }}
             }});
             for (const [groupName, chapters] of Object.entries(groups)) {{
-                if (groupName !== 'Introductions' && groupName !== "Munk's Prefaces" && chapters.length === 0) continue;
+                if (groupName !== 'Introductions' && groupName !== "Munk's Prefaces" && groupName !== "Munk's Endnotes" && chapters.length === 0) continue;
                 const btn = document.createElement('button');
                 btn.className = 'toc-section-btn';
                 btn.innerHTML = `${{groupName}} <span class="arrow">›</span>`;
                 body.appendChild(btn);
                 const panel = document.createElement('div');
                 panel.style.display = 'none';
-                if (groupName === 'Introductions' || groupName === "Munk's Prefaces") {{
+                if (groupName === 'Introductions' || groupName === "Munk's Prefaces" || groupName === "Munk's Endnotes") {{
                     groups[groupName].forEach(title => {{
                         if (!chapterIndex.some(c => c.title === title)) return;
                         const tile = document.createElement('div');
@@ -227,7 +227,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                 }}
                 btn.onclick = () => {{
                     const isHidden = panel.style.display === 'none';
-                    const isListGroup = groupName === 'Introductions' || groupName === "Munk's Prefaces";
+                    const isListGroup = groupName === 'Introductions' || groupName === "Munk's Prefaces" || groupName === "Munk's Endnotes";
                     panel.style.display = isHidden ? (isListGroup ? 'grid' : 'block') : 'none';
                     btn.classList.toggle('open', isHidden);
                 }};
@@ -399,6 +399,30 @@ def build_viewer():
         })
     except FileNotFoundError:
         pass
+
+    # Handle Munk's Endnotes Volumes I, II, and III
+    endnote_files = [
+        ("endnotes_vol1.json", "Endnotes to Volume I"),
+        ("endnotes_vol2.json", "Endnotes to Volume II"),
+        ("endnotes_vol3.json", "Endnotes to Volume III")
+    ]
+    for fn, en_title in endnote_files:
+        try:
+            with open(fn, "r", encoding="utf-8") as f:
+                en_data = json.load(f)
+            en_segments = []
+            for i in range(len(en_data["fr"])):
+                en_segments.append({
+                    "he": en_data["fr"][i],
+                    "en": en_data["en"][i]
+                })
+            unified_chapters.append({
+                "title": en_title,
+                "is_french_intro": True,
+                "custom_segments": en_segments
+            })
+        except FileNotFoundError:
+            pass
     
     # Handle Letter to R Joseph (Special Split)
     letter_he = hebrew_data["text"]["Letter to R Joseph son of Judah"]
@@ -693,12 +717,14 @@ def build_viewer():
 
     # --- Generate TOC Landing Page (index.html) ---
     landing_grid_html = ""
-    landing_groups = { "Munk's Prefaces": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [] }
+    landing_groups = { "Munk's Prefaces": [], "Munk's Endnotes": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [] }
     for ch in unified_chapters:
         m = re.search(r"Part (\d)", ch["title"])
         if m: landing_groups[f"Part {m.group(1)}"].append(ch)
         elif ch["title"] in ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"]:
             landing_groups["Munk's Prefaces"].append(ch)
+        elif ch["title"] in ["Endnotes to Volume I", "Endnotes to Volume II", "Endnotes to Volume III"]:
+            landing_groups["Munk's Endnotes"].append(ch)
         else:
             landing_groups["Introductions"].append(ch)
             
