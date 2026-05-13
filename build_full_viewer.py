@@ -185,7 +185,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         setTheme(localStorage.getItem('munk-theme') || 'light');
         function buildTOC() {{
             const body = document.getElementById('toc-body');
-            const groups = {{ 'Introductions': ["Munk's Introduction", "Note On The Title", 'Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [] }};
+            const groups = {{ "Munk's Prefaces": ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"], 'Introductions': ['Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [] }};
             chapterIndex.forEach(ch => {{
                 const m = ch.title.match(/^Part (\\d) - (Chapter \\d+|Introduction)$/);
                 if (m) {{
@@ -195,15 +195,16 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                 }}
             }});
             for (const [groupName, chapters] of Object.entries(groups)) {{
-                if (groupName !== 'Introductions' && chapters.length === 0) continue;
+                if (groupName !== 'Introductions' && groupName !== "Munk's Prefaces" && chapters.length === 0) continue;
                 const btn = document.createElement('button');
                 btn.className = 'toc-section-btn';
                 btn.innerHTML = `${{groupName}} <span class="arrow">›</span>`;
                 body.appendChild(btn);
                 const panel = document.createElement('div');
                 panel.style.display = 'none';
-                if (groupName === 'Introductions') {{
-                    groups['Introductions'].forEach(title => {{
+                if (groupName === 'Introductions' || groupName === "Munk's Prefaces") {{
+                    groups[groupName].forEach(title => {{
+                        if (!chapterIndex.some(c => c.title === title)) return;
                         const tile = document.createElement('div');
                         tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '8px'; tile.style.aspectRatio = 'auto';
                         let displayTitle = title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '').replace('Letter to R Joseph son of Judah', 'Letter to R. Joseph');
@@ -226,7 +227,8 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                 }}
                 btn.onclick = () => {{
                     const isHidden = panel.style.display === 'none';
-                    panel.style.display = isHidden ? (groupName === 'Introductions' ? 'grid' : 'block') : 'none';
+                    const isListGroup = groupName === 'Introductions' || groupName === "Munk's Prefaces";
+                    panel.style.display = isHidden ? (isListGroup ? 'grid' : 'block') : 'none';
                     btn.classList.toggle('open', isHidden);
                 }};
                 body.appendChild(panel);
@@ -237,16 +239,22 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             const filename = title === 'Contents' ? 'index.html' : title.replace(/ /g, '-').replace(/\\//g, '-').replace(/\\./g, '') + '.html';
             window.location.href = filename;
         }}
+        let activeFnId = null;
         function showFn(id) {{
+            const panel = document.getElementById('fn-panel');
+            if (panel.classList.contains('open') && activeFnId === id) {{
+                closeFnPanel();
+                return;
+            }}
+            activeFnId = id;
             const raw = footnotes[id];
-            const num = id.replace('fn.', '');
             const text = raw ? raw.replace(/\\[\\[t:\\d+\\]\\]/g, '').replace(/\\[\\[fn:\\d+\\]\\]/g, '') : null;
-            document.getElementById('fn-panel-label').textContent = `Note ${{num}}`;
+            document.getElementById('fn-panel-label').textContent = 'Note';
             document.getElementById('fn-panel-body').innerHTML = text || '<em>Footnote translation still in progress...</em>';
-            document.getElementById('fn-panel').classList.add('open');
+            panel.classList.add('open');
             document.querySelector('.main-container').classList.add('fn-open');
         }}
-        function closeFnPanel() {{ document.getElementById('fn-panel').classList.remove('open'); document.querySelector('.main-container').classList.remove('fn-open'); }}
+        function closeFnPanel() {{ activeFnId = null; document.getElementById('fn-panel').classList.remove('open'); document.querySelector('.main-container').classList.remove('fn-open'); }}
         window.addEventListener('DOMContentLoaded', () => {{ buildTOC(); }});
         if ('serviceWorker' in navigator) {{
             window.addEventListener('load', () => {{
@@ -275,22 +283,21 @@ def build_viewer():
     with open("Guide for the Perplexed - he - Makbili Edition, Mif'al Mishneh Torah, 2024.json", "r") as f:
         hebrew_data = json.load(f)
     
-    with open("checkpoint_main_text_groq.json", "r") as f:
-        english_main = json.load(f)
-        
-    with open("checkpoint_footnotes_rehab_groq.json", "r") as f:
-        english_footnotes = json.load(f)
+    with open("munk_production_v1.json", "r", encoding="utf-8") as f:
+        prod_data = json.load(f)
+        english_main = prod_data["text"]
+        english_footnotes = prod_data["footnotes"]
 
     def get_en_text(key, default="[Translation Missing]"):
         if key in english_main:
             return english_main[key]
-        if f"{key}.sub_0" in english_main:
-            parts = []
-            i = 0
-            while f"{key}.sub_{i}" in english_main:
-                parts.append(english_main[f"{key}.sub_{i}"])
-                i += 1
-            return " ".join(parts)
+        sub_idx = 0
+        merged_parts = []
+        while f"{key}.sub_{sub_idx}" in english_main:
+            merged_parts.append(english_main[f"{key}.sub_{sub_idx}"])
+            sub_idx += 1
+        if merged_parts:
+            return " ".join(merged_parts)
         return default
 
     unified_chapters = []
@@ -311,9 +318,61 @@ def build_viewer():
                 "en": english_paras[i] if i < len(english_paras) else "[Translation Missing]"
             })
         unified_chapters.append({
-            "title": "Munk's Introduction",
+            "title": "Introduction to Volume I",
             "is_french_intro": True,
             "custom_segments": munk_intro_segments
+        })
+        
+        # Inject Munk's Introduction Footnotes
+        english_footnotes["fn.3001"] = "In some manuscripts, the غ is rendered by ג̇ or ג̄, and the ج by ג."
+        english_footnotes["fn.3002"] = "See the translation, p. 50, n. 3, and p. 351, n. 4."
+        english_footnotes["fn.3003"] = "See the translation, p. 19, n. 2."
+        english_footnotes["fn.3004"] = "Sometimes, to render the sentence clearer, I have added explanatory words in ( ) that are not found in the text; the parentheses of the original text have been indicated by [ ]."
+        english_footnotes["fn.3005"] = "The importance that I believed I should attach to these indications did not permit me to shrink from the difficulties that my current situation opposes to such a task, and I have not hesitated in all my research, often taking a few vague memories as my starting point, to listen to long readings in order to achieve the desired goal. There are, I believe, in this first volume, only three citations whose location I have been unable to indicate: page 14, a passage from the Midrash or Haggadah (To expound the power, etc.), which is also cited by R. Moses ben Nahman in his Commentary on Genesis, but which perhaps no longer exists in our Midrashim; page 107, a passage from Alexander of Aphrodisias, which I did not have at my disposal; page 381, words attributed by the author to Galen regarding time."
+    except FileNotFoundError:
+        pass
+
+    # Handle Introduction to Volume II
+    try:
+        with open("preface_vol2.json", "r", encoding="utf-8") as f:
+            vol2_data = json.load(f)
+            
+        if "footnote_en" in vol2_data:
+            english_footnotes["fn.3006"] = vol2_data["footnote_en"]
+            
+        vol2_segments = []
+        for i in range(len(vol2_data["fr"])):
+            vol2_segments.append({
+                "he": vol2_data["fr"][i],
+                "en": vol2_data["en"][i]
+            })
+        unified_chapters.append({
+            "title": "Introduction to Volume II",
+            "is_french_intro": True,
+            "custom_segments": vol2_segments
+        })
+    except FileNotFoundError:
+        pass
+
+    # Handle Introduction to Volume III
+    try:
+        with open("preface_vol3.json", "r", encoding="utf-8") as f:
+            vol3_data = json.load(f)
+            
+        if "footnotes_en" in vol3_data:
+            for fn_id, fn_text in vol3_data["footnotes_en"].items():
+                english_footnotes[f"fn.{fn_id}"] = fn_text
+            
+        vol3_segments = []
+        for i in range(len(vol3_data["fr"])):
+            vol3_segments.append({
+                "he": vol3_data["fr"][i],
+                "en": vol3_data["en"][i]
+            })
+        unified_chapters.append({
+            "title": "Introduction to Volume III",
+            "is_french_intro": True,
+            "custom_segments": vol3_segments
         })
     except FileNotFoundError:
         pass
@@ -474,12 +533,19 @@ def build_viewer():
             html += f'</{tag}>'
         return html
 
-    def process_en(en_text):
+    def process_en(en_text, is_asterisk=False, fn_counter=None):
         def replace_fn(match):
             fn_id_num = match.group(1)
-            label = match.group(2) if match.lastindex >= 2 and match.group(2) else fn_id_num
             full_id = f"fn.{fn_id_num}"
-            return f'<sup class="fn-ref" title="View Footnote" onclick="showFn(\'{full_id}\')">{label}</sup>'
+            if is_asterisk:
+                marker = "*"
+            else:
+                if fn_counter is not None:
+                    fn_counter[0] += 1
+                    marker = str(fn_counter[0])
+                else:
+                    marker = match.group(2) if match.lastindex >= 2 and match.group(2) else fn_id_num
+            return f'<sup class="fn-ref" title="View Footnote" onclick="showFn(\'{full_id}\')">{marker}</sup>'
         
         en_processed = re.sub(r"\[\[fn:(\d+)(?:\|([^\]]+))?\]\]", replace_fn, en_text)
         en_processed = re.sub(r"\[\[t:\d+\]\]", "", en_processed)
@@ -493,7 +559,16 @@ def build_viewer():
             # Attempt to split English text by em-dash or en-dash
             en_parts = [p.strip() for p in re.split(r'\s+—\s+|\s+-\s+', en_text)]
             
-            if len(en_parts) == len(text_blocks_indices) and len(en_parts) > 1:
+            if key == "root.text.Prefatory Remarks.26":
+                split_marker = "I implore, by God the Most High"
+                if split_marker in en_text:
+                    idx_split = en_text.index(split_marker)
+                    en_part1 = en_text[:idx_split].strip()
+                    en_part2 = en_text[idx_split:].strip()
+                    en_mapping = {2: en_part1, 4: en_part2}
+                else:
+                    en_mapping = {4: en_text}
+            elif len(en_parts) == len(text_blocks_indices) and len(en_parts) > 1:
                 en_mapping = {idx: en_parts[i] for i, idx in enumerate(text_blocks_indices)}
             else:
                 max_len = -1
@@ -512,8 +587,8 @@ def build_viewer():
                 if part.startswith('<span class="mediumGrey">'):
                     rows += f"""
                     <div class="parallel-row header-row">
-                        <div class="en-cell"></div>
                         <div class="he-cell">{part}</div>
+                        <div class="en-cell"></div>
                     </div>
                     """
                 else:
@@ -524,8 +599,8 @@ def build_viewer():
                     cell_en = en_mapping.get(i, "")
                     rows += f"""
                     <div class="parallel-row" {row_id}>
-                        <div class="en-cell">{cell_en}</div>
                         <div class="he-cell">{repair_tags(clean_he)}</div>
+                        <div class="en-cell">{cell_en}</div>
                     </div>
                     """
             return rows
@@ -533,8 +608,8 @@ def build_viewer():
             row_id = f'id="row-{key}"' if key else ""
             return f"""
             <div class="parallel-row" {row_id}>
-                <div class="en-cell">{en_text}</div>
                 <div class="he-cell">{repair_tags(he_text)}</div>
+                <div class="en-cell">{en_text}</div>
             </div>
             """
 
@@ -566,22 +641,25 @@ def build_viewer():
     for idx, ch in enumerate(unified_chapters):
         chapter_rows_html = f"""<div class='chapter-header'><h2>{ch['title']}</h2></div>"""
         
+        is_asterisk = ch['title'] in ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"]
+        fn_counter = None if is_asterisk else [0]
+        
         if "custom_segments" in ch:
             is_french_intro = ch.get("is_french_intro", False)
             for seg in ch['custom_segments']:
-                en_processed = process_en(seg['en'])
+                en_processed = process_en(seg['en'], is_asterisk=is_asterisk, fn_counter=fn_counter)
                 if seg.get("is_poem"):
                     en_processed = re.sub(r'</?i>', '', en_processed)
                     chapter_rows_html += f"""
                     <div class="parallel-row poem-row">
-                        <div class="en-cell">{en_processed}</div>
                         <div class="he-cell">{seg['he']}</div>
+                        <div class="en-cell">{en_processed}</div>
                     </div>
                     """
                 elif is_french_intro:
                     chapter_rows_html += f"""
                     <div class="parallel-row">
-                        <div class="fr-cell">{repair_tags(seg['he'])}</div>
+                        <div class="fr-cell">{process_en(seg['he'], is_asterisk=is_asterisk, fn_counter=fn_counter)}</div>
                         <div class="en-cell">{en_processed}</div>
                     </div>
                     """
@@ -591,7 +669,7 @@ def build_viewer():
             for i, he_text in enumerate(ch['segments']):
                 key = f"{ch['key_prefix']}.{i}"
                 en_text = get_en_text(key, "[Translation Missing]")
-                en_processed = process_en(en_text)
+                en_processed = process_en(en_text, is_asterisk=is_asterisk, fn_counter=fn_counter)
                 chapter_rows_html += render_row(he_text, en_processed, key)
         
         full_rows_html += f'<section id="full-{idx}">{chapter_rows_html}</section>'
@@ -602,7 +680,7 @@ def build_viewer():
         chapter_rows_html += generate_nav_links(prev_ch, next_ch)
         
         # Render and Save
-        disp_title = process_en(ch.get('display_title', ch['title']))
+        disp_title = process_en(ch.get('display_title', ch['title']), is_asterisk=is_asterisk)
         full_html = render_html(ch['title'], chapter_rows_html, chapter_index_js, footnotes_json, display_title=disp_title)
         filename = get_filename(ch['title'])
         with open(os.path.join("viewer", filename), "w") as f:
@@ -615,11 +693,14 @@ def build_viewer():
 
     # --- Generate TOC Landing Page (index.html) ---
     landing_grid_html = ""
-    landing_groups = { "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [] }
+    landing_groups = { "Munk's Prefaces": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [] }
     for ch in unified_chapters:
         m = re.search(r"Part (\d)", ch["title"])
         if m: landing_groups[f"Part {m.group(1)}"].append(ch)
-        else: landing_groups["Introductions"].append(ch)
+        elif ch["title"] in ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"]:
+            landing_groups["Munk's Prefaces"].append(ch)
+        else:
+            landing_groups["Introductions"].append(ch)
             
     for group_name, chapters in landing_groups.items():
         if not chapters: continue
@@ -639,8 +720,8 @@ def build_viewer():
         
         <div style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
             Sources: 
-            <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> | 
-            <a href="https://www.sefaria.org/Guide_for_the_Perplexed%2C_Hebrew_Translation_by_Michael_Schwarz" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a>
+            <a href="https://www.sefaria.org/Guide_for_the_Perplexed%2C_Letter_to_R_Joseph_son_of_Judah.2?ven=french|Guide_des_%C3%A9gar%C3%A9s,_trans._by_Salomon_Munk,_Paris,_1856_[fr]&amp;vhe=hebrew|Makbili_Edition,_Mif%27al_Mishneh_Torah,_2024&amp;lang=en&amp;with=Translations&amp;lang2=en" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> | 
+            <a href="https://www.sefaria.org/Guide_for_the_Perplexed%2C_Letter_to_R_Joseph_son_of_Judah.2?vhe=hebrew|Makbili_Edition,_Mif%27al_Mishneh_Torah,_2024&amp;lang=he&amp;with=all&amp;lang2=en" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a>
             <br>
             <p style="max-width: 600px; margin: 10px auto; font-style: italic;">
                 This digital edition is created for research and educational purposes. 
