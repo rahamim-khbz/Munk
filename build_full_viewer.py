@@ -595,13 +595,45 @@ def build_viewer():
             elif len(en_parts) == len(text_blocks_indices) and len(en_parts) > 1:
                 en_mapping = {idx: en_parts[i] for i, idx in enumerate(text_blocks_indices)}
             else:
-                max_len = -1
-                en_target_idx = -1
-                for idx in text_blocks_indices:
-                    if len(parts[idx]) > max_len:
-                        max_len = len(parts[idx])
-                        en_target_idx = idx
-                en_mapping = {en_target_idx: en_text}
+                # Proportional sentence-aware distribution fallback
+                he_lengths = [len(repair_tags(parts[idx])) for idx in text_blocks_indices]
+                total_he_len = sum(he_lengths) or 1
+                target_acc_lengths = []
+                acc = 0
+                for h_len in he_lengths[:-1]:
+                    acc += len(en_text) * h_len / total_he_len
+                    target_acc_lengths.append(acc)
+                
+                # Find valid sentence boundaries in en_text
+                candidate_splits = []
+                # Match period, question mark, exclamation mark, optionally followed by closing quotes/brackets/footnotes
+                for m in re.finditer(r'(\.|\?|\!)(?:\]\])*[\"\'”’]*(?:\s+|$)', en_text):
+                    idx_end = m.end()
+                    # Ensure we don't split inside a footnote tag [[ ... ]]
+                    if en_text[:idx_end].count('[[') == en_text[:idx_end].count(']]'):
+                        candidate_splits.append(idx_end)
+                
+                if not candidate_splits or candidate_splits[-1] != len(en_text):
+                    candidate_splits.append(len(en_text))
+                
+                # Select closest candidate split for each target accumulated length
+                chosen_splits = [0]
+                for target in target_acc_lengths:
+                    valid_cands = [cs for cs in candidate_splits if cs > chosen_splits[-1] and cs < len(en_text)]
+                    if valid_cands:
+                        best_split = min(valid_cands, key=lambda cs: abs(cs - target))
+                        chosen_splits.append(best_split)
+                    else:
+                        fallback_split = min(int(target), len(en_text))
+                        if fallback_split > chosen_splits[-1]:
+                            chosen_splits.append(fallback_split)
+                chosen_splits.append(len(en_text))
+                
+                en_mapping = {}
+                for i, idx in enumerate(text_blocks_indices):
+                    start_idx = chosen_splits[i] if i < len(chosen_splits) else len(en_text)
+                    end_idx = chosen_splits[i+1] if i+1 < len(chosen_splits) else len(en_text)
+                    en_mapping[idx] = en_text[start_idx:end_idx].strip()
 
             rows = ""
             for i, part in enumerate(parts):
