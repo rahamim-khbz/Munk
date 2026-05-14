@@ -2,9 +2,9 @@
 
 > **For Antigravity:** REQUIRED SUB-SKILL: Load executing-plans to implement this plan task-by-task.
 
-**Goal:** Expand the static HTML pipeline to ingest Ibn Tibon, Judeo-Arabic, and French JSON source editions, inject client-side CSS column toggles for zero-latency multi-language navigation, and style inline subheadings with full-width bottom underlines natively responsive to Light/Sepia/Dark theme modes.
+**Goal:** Expand the static HTML pipeline to ingest Ibn Tibon, Judeo-Arabic, and French JSON source editions, inject client-side CSS column toggles for zero-latency multi-language navigation, style inline subheadings with bottom underlines responsive to Theme modes, and ensure flawless responsive vertical layout stacking on mobile screens.
 
-**Architecture:** Implement Option A (Nested Language Spans) by rendering exactly one unified parallel row container per Sefaria text segment. Inside each column cell, embed all target language versions within dedicated wrapper spans. Purge legacy row fragmentation logic entirely. A top selection bar updates container layout attributes, allowing optimized CSS rules to instantaneously switch text layers. All components utilize semantic variables to synchronize beautifully with Light/Sepia/Dark visual modes.
+**Architecture:** Implement Option A (Nested Language Spans) by rendering exactly one unified parallel row container per Sefaria text segment. Inside each column cell, embed all target language versions within dedicated wrapper spans. Purge legacy row fragmentation logic entirely. A top selection bar updates container layout attributes, allowing optimized CSS rules to instantaneously switch text layers. All components utilize semantic variables to synchronize beautifully with visual theme modes and transition natively to full-width vertically stacked modules under `@media (max-width: 768px)`.
 
 **Tech Stack:** Python, Vanilla CSS, Vanilla JavaScript, Sefaria JSON Datasets.
 
@@ -113,7 +113,7 @@ Commit ingestion additions.
 - Modify: `build_full_viewer.py` `render_row` definition section
 
 **Step 1: Write failing verification test**
-Create a verification script asserting that `render_row` maps segments directly 1:1 into single `.parallel-row` divs without breaking subheadings into fragmented sub-rows, and embeds target language wrapper spans.
+Create a verification script asserting that `render_row` maps segments directly 1:1 into single `.parallel-row` divs housing target language wrapper spans.
 
 **Step 2: Run verification command**
 Run the row rendering verification suite.
@@ -152,20 +152,20 @@ Commit unified row mapping logic.
 
 ---
 
-### Task 3: Injecting Column Dropdown Selectors, Full-Width Subheading Styles, & Multi-Theme Support
+### Task 3: Injecting Column Dropdown Selectors, Full-Width Subheadings, & Responsive Mobile Layouts
 
 **Files:**
 - Create: `tests/test_viewer_toggles.py`
 - Modify: `build_full_viewer.py` template styles and UI selector component blocks
 
 **Step 1: Write failing verification test**
-Create verification script asserting that generated viewing bundles embed the `.column-selectors-bar` component, full-width `.mediumGrey` border layout rules, and dynamic layer display matching rules.
+Create verification script asserting that generated viewing bundles embed the `.column-selectors-bar` component, full-width subheading styles, dynamic layer display styles, and responsive `@media (max-width: 768px)` vertical stacking layouts.
 
 **Step 2: Run verification command**
 Execute verification script to establish baseline failure.
 
 **Step 3: Implement the change**
-Inject full-width subheading styles and dynamic column matching styles into `render_html` stylesheet strings. All settings map to semantic theme tokens to support Sepia/Dark modes flawlessly.
+Inject styles supporting dynamic column visibility, full-width subheading underlines, and seamless responsive vertical stacking viewports into the template block.
 ```css
         /* Dynamic Column Visibility Rules */
         .main-container[data-col1="en"] .col1-variant:not(.variant-en) { display: none !important; }
@@ -200,8 +200,15 @@ Inject full-width subheading styles and dynamic column matching styles into `ren
         .column-selectors-bar label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
         .column-selectors-bar select { flex: 1; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95rem; font-weight: 600; cursor: pointer; outline: none; transition: border-color 0.2s, background 0.2s, color 0.2s; }
         .column-selectors-bar select:hover, .column-selectors-bar select:focus { border-color: var(--accent); }
+
+        /* Mobile Layout Optimizations */
+        @media (max-width: 768px) {
+            .column-selectors-bar { display: flex; flex-direction: column; gap: 12px; gap: 16px; }
+            .column-selectors-bar div { width: 100%; justify-content: space-between; }
+            .column-selectors-bar select { width: auto; flex: 1; margin-left: 12px; }
+        }
 ```
-Inject inline selector layout markup into `render_html` body output directly inside `.content`:
+Inject inline selector layout markup directly inside `.content`:
 ```html
         <div class="content">
             <div class="column-selectors-bar">
@@ -227,7 +234,7 @@ Inject inline selector layout markup into `render_html` body output directly ins
 Set container initial attribute defaults: `<div class="main-container" data-col1="en" data-col2="makbili">`.
 
 **Step 4: Run verification command**
-Run `python build_full_viewer.py` to compile all target standalone pages, then run toggle verification confirming flawless multi-theme generation.
+Run `python build_full_viewer.py` to compile all target pages, confirming flawless responsive compilation.
 
 **Step 5: Commit changes**
-Commit template compilation updates.
+Commit layout template updates.
