@@ -278,6 +278,56 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
 </body>
 </html>
 """
+
+# Load French Original
+french_main = {}
+if os.path.exists("French.json"):
+    with open("French.json", "r", encoding="utf-8") as f:
+        french_main = json.load(f).get("text", {})
+
+# Load Judeo-Arabic Edition
+jrb_main = {}
+jrb_path = "Guide for the Perplexed - he - Judeo Arabic, Paris, 1856 [jrb].json"
+if os.path.exists(jrb_path):
+    with open(jrb_path, "r", encoding="utf-8") as f:
+        jrb_main = json.load(f).get("text", {})
+
+# Load Ibn Tibon Edition
+tibon_local_path = "Guide for the Perplexed - he - Moreh Nevuchim, translated by Ibn Tibon.json"
+tibon_main = {}
+if os.path.exists(tibon_local_path):
+    with open(tibon_local_path, "r", encoding="utf-8") as f:
+        tibon_main = json.load(f).get("text", {})
+
+def get_variant_text(lang_main, key, default="[Text Missing in this Edition]"):
+    if not lang_main or not key:
+        return default
+    parts = key.split(".")
+    if len(parts) < 3: return default
+    
+    if len(parts) == 4: # e.g. root.text.Prefatory Remarks.3
+        sec = parts[2]
+        try:
+            idx = int(parts[3])
+            if sec in lang_main and isinstance(lang_main[sec], list) and idx < len(lang_main[sec]):
+                return lang_main[sec][idx]
+        except ValueError: pass
+    elif len(parts) == 5: # e.g. root.text.Part 1.Introduction.4
+        part_name, sub_name = parts[2], parts[3]
+        try:
+            idx = int(parts[4])
+            if part_name in lang_main and sub_name in lang_main[part_name] and idx < len(lang_main[part_name][sub_name]):
+                return lang_main[part_name][sub_name][idx]
+        except ValueError: pass
+    elif len(parts) == 6 and parts[3] == '': # e.g. root.text.Part 1..0.5
+        part_name = parts[2]
+        try:
+            ch_idx, seg_idx = int(parts[4]), int(parts[5])
+            if part_name in lang_main and "" in lang_main[part_name] and ch_idx < len(lang_main[part_name][""]) and seg_idx < len(lang_main[part_name][""][ch_idx]):
+                return lang_main[part_name][""][ch_idx][seg_idx]
+        except ValueError: pass
+    return default
+
 def build_viewer():
     # 1. Load Data
     with open("Guide for the Perplexed - he - Makbili Edition, Mif'al Mishneh Torah, 2024.json", "r") as f:

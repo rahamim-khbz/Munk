@@ -106,66 +106,21 @@ Commit ingestion additions.
 
 ---
 
-### Task 2: Purging Legacy Row Fragmentation & Implementing Unified Span Cells
-
-**Files:**
-- Create: `tests/test_row_rendering.py`
-- Modify: `build_full_viewer.py` `render_row` definition section
-
-**Step 1: Write failing verification test**
-Create a verification script asserting that `render_row` maps segments directly 1:1 into single `.parallel-row` divs housing target language wrapper spans.
-
-**Step 2: Run verification command**
-Run the row rendering verification suite.
-
-**Step 3: Implement the change**
-Completely replace `render_row` to eliminate legacy em-dash splitting and sub-row fragmentation. Let every segment output exactly one robust parallel row cell housing the span variants. Inline subheadings remain exactly inside the text flow.
-```python
-    def render_row(he_text, en_text, key=None):
-        fr_text = get_variant_text(french_main, key) if key else ""
-        jrb_text = get_variant_text(jrb_main, key) if key else ""
-        tibon_text = get_variant_text(tibon_main, key) if key else ""
-        
-        row_id = f'id="row-{key}"' if key else ""
-        
-        c1_html = f'<span class="col1-variant variant-en">{en_text}</span>'
-        if fr_text: c1_html += f'<span class="col1-variant variant-fr" style="display:none;">{fr_text}</span>'
-        
-        c2_html = f'<span class="col2-variant variant-makbili">{repair_tags(he_text)}</span>'
-        if jrb_text: c2_html += f'<span class="col2-variant variant-jrb" style="display:none;">{repair_tags(jrb_text)}</span>'
-        if tibon_text: c2_html += f'<span class="col2-variant variant-tibon" style="display:none;">{repair_tags(tibon_text)}</span>'
-        if fr_text: c2_html += f'<span class="col2-variant variant-fr" style="display:none;">{fr_text}</span>'
-        
-        return f"""
-        <div class="parallel-row" {row_id}>
-            <div class="he-cell">{c2_html}</div>
-            <div class="en-cell">{c1_html}</div>
-        </div>
-        """
-```
-
-**Step 4: Run verification command**
-Run suite confirming pristine 1:1 segment string construction.
-
-**Step 5: Commit changes**
-Commit unified row mapping logic.
-
----
-
-### Task 3: Injecting Column Dropdown Selectors, Full-Width Subheadings, & Responsive Mobile Layouts
+### Task 3: Transitioning to Single-Page Application (SPA) Output, Dynamic Selectors, & Mobile Layout Stacking
 
 **Files:**
 - Create: `tests/test_viewer_toggles.py`
-- Modify: `build_full_viewer.py` template styles and UI selector component blocks
+- Modify: `build_full_viewer.py` template generation loops, JavaScript router, and CSS blocks
 
 **Step 1: Write failing verification test**
-Create verification script asserting that generated viewing bundles embed the `.column-selectors-bar` component, full-width subheading styles, dynamic layer display styles, and responsive `@media (max-width: 768px)` vertical stacking layouts.
+Create verification script asserting that generated output writes a single production bundle `Munk Viewer.html` directly in the root directory. It should assert presence of the `.column-selectors-bar` component, full-width subheading styles, dynamic layer display styles, hidden chapter `<section>` wrappers, and responsive `@media (max-width: 768px)` vertical stacking layouts.
 
 **Step 2: Run verification command**
 Execute verification script to establish baseline failure.
 
 **Step 3: Implement the change**
-Inject styles supporting dynamic column visibility, full-width subheading underlines, and seamless responsive vertical stacking viewports into the template block.
+Refactor the loop inside `build_full_viewer.py` to accumulate all generated chapters into a single master HTML string. Wrap each chapter's row compilation in `<section class="chapter-section" id="chapter-..." data-title="..." style="display:none;">`.
+Inject styles supporting dynamic column visibility, full-width subheading underlines, and seamless responsive vertical stacking viewports into the template block:
 ```css
         /* Dynamic Column Visibility Rules */
         .main-container[data-col1="en"] .col1-variant:not(.variant-en) { display: none !important; }
@@ -203,12 +158,18 @@ Inject styles supporting dynamic column visibility, full-width subheading underl
 
         /* Mobile Layout Optimizations */
         @media (max-width: 768px) {
-            .column-selectors-bar { display: flex; flex-direction: column; gap: 12px; gap: 16px; }
+            .column-selectors-bar { display: flex; flex-direction: column; gap: 16px; }
             .column-selectors-bar div { width: 100%; justify-content: space-between; }
             .column-selectors-bar select { width: auto; flex: 1; margin-left: 12px; }
+            
+            .parallel-row { display: flex; flex-direction: column; gap: 12px; padding: 16px 0; }
+            .en-cell { font-size: 1rem; padding-bottom: 8px; border-bottom: 1px dashed var(--border); }
+            .he-cell { font-size: 1.2rem; }
+            .chapter-header { padding: 24px 0 12px; }
+            .chapter-header h2 { font-size: 1.4rem; }
         }
 ```
-Inject inline selector layout markup directly inside `.content`:
+Inject inline selector layout markup directly inside `.content` above the accumulated chapter sections:
 ```html
         <div class="content">
             <div class="column-selectors-bar">
@@ -229,12 +190,33 @@ Inject inline selector layout markup directly inside `.content`:
                     </select>
                 </div>
             </div>
-            {main_content_html}
+            {accumulated_sections_html}
 ```
-Set container initial attribute defaults: `<div class="main-container" data-col1="en" data-col2="makbili">`.
+Update JavaScript routing helper `navigateToChapter(title)` to switch active display state directly without full page reload:
+```javascript
+        let activeChapterId = null;
+        function navigateToChapter(title) {
+            const id = 'chapter-' + title.replace(/ /g, '-').replace(/\//g, '-').replace(/\./g, '');
+            document.querySelectorAll('.chapter-section').forEach(s => {
+                s.style.display = s.id === id ? 'block' : 'none';
+            });
+            activeChapterId = id;
+            const titleElem = document.getElementById('main-title');
+            if (titleElem) titleElem.textContent = title;
+            
+            document.querySelectorAll('.toc-tile').forEach(t => {
+                t.classList.toggle('active', t.dataset.chapterId === id);
+            });
+            const drawer = document.getElementById('toc-drawer');
+            if (drawer && drawer.classList.contains('open')) toggleTOC();
+            const mainCont = document.querySelector('.main-container');
+            if (mainCont) mainCont.scrollTop = 0;
+        }
+```
+Save the master production bundle to `Munk Viewer.html` in the root workspace directory.
 
 **Step 4: Run verification command**
-Run `python build_full_viewer.py` to compile all target pages, confirming flawless responsive compilation.
+Run `python build_full_viewer.py` to compile the unified file, confirming clean output generation.
 
 **Step 5: Commit changes**
-Commit layout template updates.
+Commit final Single-Page Application integration updates.
