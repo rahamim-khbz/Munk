@@ -263,7 +263,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         setTheme(localStorage.getItem('munk-theme') || 'light');
         function buildTOC() {{
             const body = document.getElementById('toc-body');
-            const groups = {{ "Munk's Prefaces": ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"], "Munk's Endnotes": ["Endnotes to Volume I", "Endnotes to Volume II", "Endnotes to Volume III"], 'Introductions': ['Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [] }};
+            const groups = {{ "Munk's Prefaces": ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"], 'Introductions': ['Letter to R Joseph son of Judah', 'Prefatory Remarks'], 'Part 1': [], 'Part 2': [], 'Part 3': [], "Munk's Endnotes": ["Endnotes to Volume I", "Endnotes to Volume II", "Endnotes to Volume III"] }};
             chapterIndex.forEach(ch => {{
                 const m = ch.title.match(/^Part (\\d) - (Chapter \\d+|Introduction)$/);
                 if (m) {{
@@ -333,11 +333,16 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                 mainCont.setAttribute('data-right-col', rightVal);
             }}
             
+            const isMunk = activeChapterId && (activeChapterId.includes('Introduction-to-Volume') || 
+                                               activeChapterId.includes('Note-On-The-Title') || 
+                                               activeChapterId.includes('Endnotes-to-Volume'));
+            const restrictedVariants = ['makbili', 'tibon', 'jrb'];
+            
             Array.from(leftSel.options).forEach(opt => {{
-                opt.disabled = (opt.value === rightVal);
+                opt.disabled = (opt.value === rightVal) || (isMunk && restrictedVariants.includes(opt.value));
             }});
             Array.from(rightSel.options).forEach(opt => {{
-                opt.disabled = (opt.value === leftVal);
+                opt.disabled = (opt.value === leftVal) || (isMunk && restrictedVariants.includes(opt.value));
             }});
         }}
 
@@ -982,7 +987,7 @@ def build_viewer():
     
     # First, let's compile the landing grid HTML to place as the 'Contents' chapter section!
     landing_grid_html = ""
-    landing_groups = { "Munk's Prefaces": [], "Munk's Endnotes": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [] }
+    landing_groups = { "Munk's Prefaces": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [], "Munk's Endnotes": [] }
     for ch in unified_chapters:
         m = re.search(r"Part (\d)", ch["title"])
         if m: landing_groups[f"Part {m.group(1)}"].append(ch)
