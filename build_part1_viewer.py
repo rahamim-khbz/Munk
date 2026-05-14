@@ -96,7 +96,16 @@ def build_viewer():
                 
                 en_parts = [p.strip() for p in re.split(r'\s+—\s+|\s+-\s+', en_processed)]
                 
-                if len(en_parts) == len(text_blocks_indices) and len(en_parts) > 1:
+                if key == "root.text.Prefatory Remarks.26":
+                    split_marker = "I implore, by God the Most High"
+                    if split_marker in en_processed:
+                        idx_split = en_processed.index(split_marker)
+                        en_part1 = en_processed[:idx_split].strip()
+                        en_part2 = en_processed[idx_split:].strip()
+                        en_mapping = {2: en_part1, 4: en_part2}
+                    else:
+                        en_mapping = {4: en_processed}
+                elif len(en_parts) == len(text_blocks_indices) and len(en_parts) > 1:
                     en_mapping = {idx: en_parts[j] for j, idx in enumerate(text_blocks_indices)}
                 else:
                     max_len = -1

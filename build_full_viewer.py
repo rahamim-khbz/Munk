@@ -13,12 +13,12 @@ def get_filename(title):
 def generate_nav_links(prev_ch, next_ch):
     html = '<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:40px; padding-top:20px; border-top:1px solid var(--border);">'
     if prev_ch:
-        html += f'<a href="{get_filename(prev_ch["title"])}" class="nav-btn" style="text-decoration:none; color:var(--accent); font-weight:bold;">← Previous: {prev_ch["title"]}</a>'
+        html += f'<a href="javascript:void(0)" onclick="navigateToChapter(\'{prev_ch["title"]}\')" class="nav-btn" style="text-decoration:none; color:var(--accent); font-weight:bold;">← Previous: {prev_ch["title"]}</a>'
     else:
         html += '<div></div>'
         
     if next_ch:
-        html += f'<a href="{get_filename(next_ch["title"])}" class="nav-btn" style="text-decoration:none; color:var(--accent); font-weight:bold;">Next: {next_ch["title"]} →</a>'
+        html += f'<a href="javascript:void(0)" onclick="navigateToChapter(\'{next_ch["title"]}\')" class="nav-btn" style="text-decoration:none; color:var(--accent); font-weight:bold;">Next: {next_ch["title"]} →</a>'
     else:
         html += '<div></div>'
     html += '</div>'
@@ -34,7 +34,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{page_title} - Munk Viewer</title>
+    <title>{page_title} - Munk Parallel Reader</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
     <link rel="manifest" href="../manifest.json">
     <style>
@@ -55,6 +55,21 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             --panel-bg: #1a1a2e; --header-bg: #16162a;
         }}
         body {{ background: var(--bg); color: var(--text); font-family: var(--font-english); margin: 0; display: flex; height: 100vh; overflow: hidden; transition: background 0.3s, color 0.3s; }}
+        
+        /* Dynamic Column Visibility Rules */
+        .main-container[data-col1="en"] .col1-variant:not(.variant-en) {{ display: none !important; }}
+        .main-container[data-col1="fr"] .col1-variant:not(.variant-fr) {{ display: none !important; }}
+
+        .main-container[data-col2="makbili"] .col2-variant:not(.variant-makbili) {{ display: none !important; }}
+        .main-container[data-col2="jrb"] .col2-variant:not(.variant-jrb) {{ display: none !important; }}
+        .main-container[data-col2="tibon"] .col2-variant:not(.variant-tibon) {{ display: none !important; }}
+        .main-container[data-col2="fr"] .col2-variant:not(.variant-fr) {{ display: none !important; }}
+
+        /* Typography & Direction Overrides */
+        .col2-variant.variant-fr {{ direction: ltr; text-align: left; font-family: var(--font-english); font-size: 1.1rem; display: block; }}
+        .col1-variant.variant-fr {{ direction: ltr; text-align: left; font-family: var(--font-english); display: block; }}
+        .col1-variant.variant-en, .col2-variant:not(.variant-fr) {{ display: block; }}
+
         .toc-drawer {{ position: fixed; top: 0; left: 0; width: 320px; height: 100vh; background: var(--panel-bg); border-right: 1px solid var(--border); z-index: 500; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-shadow: 4px 0 20px rgba(0,0,0,0.15); }}
         .toc-drawer.open {{ transform: translateX(0); }}
         .toc-header-bar {{ display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--border); font-weight: bold; color: var(--text); }}
@@ -81,6 +96,14 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         .theme-btn {{ background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; cursor: pointer; font-size: 1rem; color:var(--text); }}
         .theme-btn.active {{ border-color: var(--accent); background: var(--row-hover); }}
         .content {{ padding: 20px 40px; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }}
+        
+        /* Responsive UI Header Components */
+        .column-selectors-bar {{ display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--border); }}
+        .column-selectors-bar div {{ display: flex; align-items: center; gap: 12px; }}
+        .column-selectors-bar label {{ font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }}
+        .column-selectors-bar select {{ flex: 1; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95rem; font-weight: 600; cursor: pointer; outline: none; transition: border-color 0.2s, background 0.2s, color 0.2s; }}
+        .column-selectors-bar select:hover, .column-selectors-bar select:focus {{ border-color: var(--accent); }}
+
         .parallel-row {{ display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 24px 0; border-bottom: 1px solid var(--border); transition: background 0.2s; }}
         .parallel-row:hover {{ background: var(--row-hover); }}
         .en-cell {{ font-family: var(--font-english), var(--font-hebrew); font-size: 1.1rem; line-height: 1.7; text-align: left; }}
@@ -89,7 +112,13 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         .chapter-header {{ grid-column: span 2; padding: 40px 0 20px; border-bottom: 2px solid var(--accent); margin-bottom: 20px; }}
         .chapter-header h2 {{ margin: 0; color: var(--accent); font-weight: 700; }}
         .poem-segment {{ color: var(--text-muted); font-size: 0.95rem; font-style: italic; }}
+        
+        /* Mobile Layout Optimizations */
         @media (max-width: 768px) {{
+            .column-selectors-bar {{ display: flex; flex-direction: column; gap: 16px; }}
+            .column-selectors-bar div {{ width: 100%; justify-content: space-between; }}
+            .column-selectors-bar select {{ width: auto; flex: 1; margin-left: 12px; }}
+            
             .header {{ padding: 10px 16px; }}
             .header .munk-label {{ display: none; }}
             .header h1 {{ font-size: 1.1rem; }}
@@ -104,14 +133,27 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         }}
         .header-row {{ border-bottom: none; padding-bottom: 0; padding-top: 32px; }}
         .header-row .he-cell {{ border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }}
-        .mediumGrey {{ color: var(--accent); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }}
+        
+        /* Unified Subheading Line-Underneath Styles */
+        .mediumGrey {{
+            display: block;
+            color: var(--accent);
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 6px;
+            margin-bottom: 16px;
+            margin-top: 12px;
+            width: 100%;
+        }}
+        
         .toc-landing-page {{ padding: 40px 0; max-width: 900px; margin: 0 auto; }}
         .landing-title {{ font-family: var(--font-hebrew); font-size: 3rem; margin-bottom: 8px; color: var(--text); text-align: center; }}
         .landing-subtitle {{ text-align: center; color: var(--text-muted); margin-bottom: 60px; font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; }}
         .landing-section {{ margin-bottom: 40px; }}
         .landing-section h3 {{ border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 20px; font-size: 1.2rem; color: var(--accent); }}
         .landing-links {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }}
-        .landing-links a {{ color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 4px; background: var(--surface); border: 1px solid var(--border); font-size: 0.9rem; transition: all 0.2s; }}
+        .landing-links a {{ color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 4px; background: var(--surface); border: 1px solid var(--border); font-size: 0.9rem; transition: all 0.2s; display: block; text-align: center; }}
         .landing-links a:hover {{ background: var(--accent); color: white; border-color: var(--accent); }}
         .fn-panel {{ position: fixed; bottom: 0; left: 0; right: 0; height: 0; max-height: 35vh; background: var(--panel-bg); border-top: 2px solid var(--accent); z-index: 400; overflow: hidden; transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 20px rgba(0,0,0,0.12); display: flex; flex-direction: column; }}
         .fn-panel.open {{ height: 25vh; }}
@@ -134,7 +176,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
     <nav id="toc-drawer" class="toc-drawer">
         <div class="toc-header-bar">
             <span onclick="navigateToChapter('Contents')" style="cursor:pointer">Contents</span>
-            <a href="fulltext.html" style="color:var(--text-muted); text-decoration:none; font-size:0.8rem; margin-left:10px; border:1px solid var(--border); padding:2px 6px; border-radius:4px;">Full Text</a>
+            <span onclick="showAllChapters()" style="color:var(--text-muted); cursor:pointer; font-size:0.8rem; margin-left:10px; border:1px solid var(--border); padding:2px 6px; border-radius:4px;">Full Text</span>
             <button onclick="toggleTOC()">✕</button>
         </div>
         <div class="mobile-theme-panel">
@@ -144,7 +186,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         </div>
         <div id="toc-body" class="toc-body"></div>
     </nav>
-    <div class="main-container">
+    <div class="main-container" data-col1="en" data-col2="makbili">
         <div class="header">
             <div class="header-left">
                 <button id="hamburger-btn" onclick="toggleTOC()" aria-label="Table of Contents">☰</button>
@@ -158,6 +200,24 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             </div>
         </div>
         <div class="content">
+            <div class="column-selectors-bar">
+                <div class="col2-selector">
+                    <label for="select-col2">Column 2:</label>
+                    <select id="select-col2" onchange="document.querySelector('.main-container').setAttribute('data-col2', this.value)">
+                        <option value="makbili" selected>Makbili (Hebrew)</option>
+                        <option value="jrb">Judeo-Arabic</option>
+                        <option value="tibon">Ibn Tibon (Hebrew)</option>
+                        <option value="fr">French Original</option>
+                    </select>
+                </div>
+                <div class="col1-selector">
+                    <label for="select-col1">Column 1:</label>
+                    <select id="select-col1" onchange="document.querySelector('.main-container').setAttribute('data-col1', this.value)">
+                        <option value="en" selected>English Translation</option>
+                        <option value="fr">French Original</option>
+                    </select>
+                </div>
+            </div>
             {main_content_html}
             <div class="feedback-footer">
                 <a href="https://github.com/rayhabbaz/Munk-Guide/issues/new?title=Correction:%20{display_title}" target="_blank" rel="noopener noreferrer">Propose an Edit on GitHub</a>
@@ -209,6 +269,8 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                         tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '8px'; tile.style.aspectRatio = 'auto';
                         let displayTitle = title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '').replace('Letter to R Joseph son of Judah', 'Letter to R. Joseph');
                         tile.textContent = displayTitle;
+                        const chId = 'chapter-' + title.replace(/ /g, '-').replace(/\\//g, '-').replace(/\\./g, '');
+                        tile.dataset.chapterId = chId;
                         tile.onclick = () => navigateToChapter(title);
                         panel.appendChild(tile);
                     }});
@@ -235,10 +297,37 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             }}
         }}
         function toggleTOC() {{ document.getElementById('toc-drawer').classList.toggle('open'); document.getElementById('toc-backdrop').classList.toggle('visible'); }}
+        
+        let activeChapterId = null;
         function navigateToChapter(title) {{
-            const filename = title === 'Contents' ? 'index.html' : title.replace(/ /g, '-').replace(/\\//g, '-').replace(/\\./g, '') + '.html';
-            window.location.href = filename;
+            const id = title === 'Contents' ? 'chapter-Contents' : 'chapter-' + title.replace(/ /g, '-').replace(/\\//g, '-').replace(/\\./g, '');
+            document.querySelectorAll('.chapter-section').forEach(s => {{
+                s.style.display = s.id === id ? 'block' : 'none';
+            }});
+            activeChapterId = id;
+            const titleElem = document.getElementById('main-title');
+            if (titleElem) titleElem.textContent = title;
+            
+            document.querySelectorAll('.toc-tile').forEach(t => {{
+                t.classList.toggle('active', t.dataset.chapterId === id);
+            }});
+            const drawer = document.getElementById('toc-drawer');
+            if (drawer && drawer.classList.contains('open')) toggleTOC();
+            const mainCont = document.querySelector('.main-container');
+            if (mainCont) mainCont.scrollTop = 0;
         }}
+        
+        function showAllChapters() {{
+            document.querySelectorAll('.chapter-section').forEach(s => {{
+                s.style.display = 'block';
+            }});
+            const titleElem = document.getElementById('main-title');
+            if (titleElem) titleElem.textContent = 'Full Text Reader';
+            if (document.getElementById('toc-drawer').classList.contains('open')) toggleTOC();
+            const mainCont = document.querySelector('.main-container');
+            if (mainCont) mainCont.scrollTop = 0;
+        }}
+
         let activeFnId = null;
         function showFn(id) {{
             const panel = document.getElementById('fn-panel');
@@ -255,7 +344,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             document.querySelector('.main-container').classList.add('fn-open');
         }}
         function closeFnPanel() {{ activeFnId = null; document.getElementById('fn-panel').classList.remove('open'); document.querySelector('.main-container').classList.remove('fn-open'); }}
-        window.addEventListener('DOMContentLoaded', () => {{ buildTOC(); }});
+        window.addEventListener('DOMContentLoaded', () => {{ buildTOC(); navigateToChapter('Contents'); }});
         if ('serviceWorker' in navigator) {{
             window.addEventListener('load', () => {{
                 navigator.serviceWorker.register('../sw.js').then(reg => {{
@@ -625,99 +714,35 @@ def build_viewer():
         en_processed = re.sub(r"\[\[t:\d+\]\]", "", en_processed)
         return repair_tags(en_processed)
 
-    def render_row(he_text, en_text, key=None):
-        if '<span class="mediumGrey">' in he_text:
-            parts = re.split(r'(<span class="mediumGrey">.*?</span>)', he_text)
-            text_blocks_indices = [i for i, p in enumerate(parts) if not p.strip().startswith('<span class="mediumGrey">') and p.strip()]
+    def render_row(he_text, en_text, key=None, is_asterisk=False, fn_counter=None):
+        clean_he = re.sub(r'^(<br>)+|(<br>)+$', '', he_text).strip()
+        row_id = f'id="row-{key}"' if key else ""
+        
+        # Load column alternative variant texts safely
+        jrb_text = get_variant_text(jrb_main, key) if key else "[Text Missing in this Edition]"
+        tibon_text = get_variant_text(tibon_main, key) if key else "[Text Missing in this Edition]"
+        fr_text_raw = get_variant_text(french_main, key) if key else "[Text Missing in this Edition]"
+        
+        # Process French text to ensure any footnote references are clickable without advancing the shared counter
+        saved_counter = fn_counter[0] if fn_counter is not None else None
+        fr_processed = process_en(fr_text_raw, is_asterisk=is_asterisk, fn_counter=fn_counter)
+        if fn_counter is not None and saved_counter is not None:
+            fn_counter[0] = saved_counter
             
-            # Attempt to split English text by em-dash or en-dash
-            en_parts = [p.strip() for p in re.split(r'\s+—\s+|\s+-\s+', en_text)]
-            
-            if key == "root.text.Prefatory Remarks.26":
-                split_marker = "I implore, by God the Most High"
-                if split_marker in en_text:
-                    idx_split = en_text.index(split_marker)
-                    en_part1 = en_text[:idx_split].strip()
-                    en_part2 = en_text[idx_split:].strip()
-                    en_mapping = {2: en_part1, 4: en_part2}
-                else:
-                    en_mapping = {4: en_text}
-            elif len(en_parts) == len(text_blocks_indices) and len(en_parts) > 1:
-                en_mapping = {idx: en_parts[i] for i, idx in enumerate(text_blocks_indices)}
-            else:
-                # Proportional sentence-aware distribution fallback
-                he_lengths = [len(repair_tags(parts[idx])) for idx in text_blocks_indices]
-                total_he_len = sum(he_lengths) or 1
-                target_acc_lengths = []
-                acc = 0
-                for h_len in he_lengths[:-1]:
-                    acc += len(en_text) * h_len / total_he_len
-                    target_acc_lengths.append(acc)
-                
-                # Find valid sentence boundaries in en_text
-                candidate_splits = []
-                # Match period, question mark, exclamation mark, optionally followed by closing quotes/brackets/footnotes
-                for m in re.finditer(r'(\.|\?|\!)(?:\]\])*[\"\'”’]*(?:\s+|$)', en_text):
-                    idx_end = m.end()
-                    # Ensure we don't split inside a footnote tag [[ ... ]]
-                    if en_text[:idx_end].count('[[') == en_text[:idx_end].count(']]'):
-                        candidate_splits.append(idx_end)
-                
-                if not candidate_splits or candidate_splits[-1] != len(en_text):
-                    candidate_splits.append(len(en_text))
-                
-                # Select closest candidate split for each target accumulated length
-                chosen_splits = [0]
-                for target in target_acc_lengths:
-                    valid_cands = [cs for cs in candidate_splits if cs > chosen_splits[-1] and cs < len(en_text)]
-                    if valid_cands:
-                        best_split = min(valid_cands, key=lambda cs: abs(cs - target))
-                        chosen_splits.append(best_split)
-                    else:
-                        fallback_split = min(int(target), len(en_text))
-                        if fallback_split > chosen_splits[-1]:
-                            chosen_splits.append(fallback_split)
-                chosen_splits.append(len(en_text))
-                
-                en_mapping = {}
-                for i, idx in enumerate(text_blocks_indices):
-                    start_idx = chosen_splits[i] if i < len(chosen_splits) else len(en_text)
-                    end_idx = chosen_splits[i+1] if i+1 < len(chosen_splits) else len(en_text)
-                    en_mapping[idx] = en_text[start_idx:end_idx].strip()
-
-            rows = ""
-            for i, part in enumerate(parts):
-                part = part.strip()
-                if not part: continue
-                
-                if part.startswith('<span class="mediumGrey">'):
-                    rows += f"""
-                    <div class="parallel-row header-row">
-                        <div class="he-cell">{part}</div>
-                        <div class="en-cell"></div>
-                    </div>
-                    """
-                else:
-                    clean_he = re.sub(r'^(<br>)+|(<br>)+$', '', part).strip()
-                    if not clean_he: continue
-                    
-                    row_id = f'id="row-{key}"' if key else ""
-                    cell_en = en_mapping.get(i, "")
-                    rows += f"""
-                    <div class="parallel-row" {row_id}>
-                        <div class="he-cell">{repair_tags(clean_he)}</div>
-                        <div class="en-cell">{cell_en}</div>
-                    </div>
-                    """
-            return rows
-        else:
-            row_id = f'id="row-{key}"' if key else ""
-            return f"""
-            <div class="parallel-row" {row_id}>
-                <div class="he-cell">{repair_tags(he_text)}</div>
-                <div class="en-cell">{en_text}</div>
+        return f"""
+        <div class="parallel-row" {row_id}>
+            <div class="he-cell">
+                <span class="col2-variant variant-makbili">{repair_tags(clean_he)}</span>
+                <span class="col2-variant variant-jrb">{repair_tags(jrb_text)}</span>
+                <span class="col2-variant variant-tibon">{repair_tags(tibon_text)}</span>
+                <span class="col2-variant variant-fr">{fr_processed}</span>
             </div>
-            """
+            <div class="en-cell">
+                <span class="col1-variant variant-en">{en_text}</span>
+                <span class="col1-variant variant-fr">{fr_processed}</span>
+            </div>
+        </div>
+        """
 
 
     # 4. Prepare Footnotes JSON & Chapter Index
@@ -743,61 +768,9 @@ def build_viewer():
     ] + [{"id": "chapter-TOC", "title": "Contents"}])
 
     # 5. Generate Chapter Files
-    full_rows_html = ""
-    for idx, ch in enumerate(unified_chapters):
-        chapter_rows_html = f"""<div class='chapter-header'><h2>{ch['title']}</h2></div>"""
-        
-        is_asterisk = ch['title'] in ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"]
-        fn_counter = None if is_asterisk else [0]
-        
-        if "custom_segments" in ch:
-            is_french_intro = ch.get("is_french_intro", False)
-            for seg in ch['custom_segments']:
-                en_processed = process_en(seg['en'], is_asterisk=is_asterisk, fn_counter=fn_counter)
-                if seg.get("is_poem"):
-                    en_processed = re.sub(r'</?i>', '', en_processed)
-                    chapter_rows_html += f"""
-                    <div class="parallel-row poem-row">
-                        <div class="he-cell">{seg['he']}</div>
-                        <div class="en-cell">{en_processed}</div>
-                    </div>
-                    """
-                elif is_french_intro:
-                    chapter_rows_html += f"""
-                    <div class="parallel-row">
-                        <div class="fr-cell">{process_en(seg['he'], is_asterisk=is_asterisk, fn_counter=fn_counter)}</div>
-                        <div class="en-cell">{en_processed}</div>
-                    </div>
-                    """
-                else:
-                    chapter_rows_html += render_row(seg['he'], en_processed)
-        else:
-            for i, he_text in enumerate(ch['segments']):
-                key = f"{ch['key_prefix']}.{i}"
-                en_text = get_en_text(key, "[Translation Missing]")
-                en_processed = process_en(en_text, is_asterisk=is_asterisk, fn_counter=fn_counter)
-                chapter_rows_html += render_row(he_text, en_processed, key)
-        
-        full_rows_html += f'<section id="full-{idx}">{chapter_rows_html}</section>'
-        
-        # Add Navigation
-        prev_ch = unified_chapters[idx-1] if idx > 0 else None
-        next_ch = unified_chapters[idx+1] if idx < len(unified_chapters)-1 else None
-        chapter_rows_html += generate_nav_links(prev_ch, next_ch)
-        
-        # Render and Save
-        disp_title = process_en(ch.get('display_title', ch['title']), is_asterisk=is_asterisk)
-        full_html = render_html(ch['title'], chapter_rows_html, chapter_index_js, footnotes_json, display_title=disp_title)
-        filename = get_filename(ch['title'])
-        with open(os.path.join("viewer", filename), "w") as f:
-            f.write(full_html)
-
-    # --- Generate Full Text Page ---
-    full_text_html = render_html("Full Text", full_rows_html, chapter_index_js, footnotes_json)
-    with open(os.path.join("viewer", "fulltext.html"), "w") as f:
-        f.write(full_text_html)
-
-    # --- Generate TOC Landing Page (index.html) ---
+    accumulated_sections_html = ""
+    
+    # First, let's compile the landing grid HTML to place as the 'Contents' chapter section!
     landing_grid_html = ""
     landing_groups = { "Munk's Prefaces": [], "Munk's Endnotes": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [] }
     for ch in unified_chapters:
@@ -812,11 +785,11 @@ def build_viewer():
             
     for group_name, chapters in landing_groups.items():
         if not chapters: continue
-        landing_grid_html += f"<div class=\"landing-section\"><h3>{group_name}</h3><div class=\"landing-links\">"
+        landing_grid_html += f'<div class="landing-section"><h3>{group_name}</h3><div class="landing-links">'
         for ch in chapters:
             display_name = ch["title"].replace("Part 1 - ", "").replace("Part 2 - ", "").replace("Part 3 - ", "")
             if display_name == "Letter to R Joseph son of Judah": display_name = "Letter to R. Joseph"
-            landing_grid_html += f"<a href=\"{get_filename(ch["title"])}\">{display_name}</a>"
+            landing_grid_html += f'<a href="javascript:void(0)" onclick="navigateToChapter(\'{ch["title"]}\')">{display_name}</a>'
         landing_grid_html += "</div></div>"
 
     toc_landing_page_html = f"""
@@ -842,11 +815,58 @@ def build_viewer():
     </div>
     """
     
-    index_html = render_html("The Guide for the Perplexed", toc_landing_page_html, chapter_index_js, footnotes_json)
-    with open(os.path.join("viewer", "index.html"), "w") as f:
-        f.write(index_html)
+    # Wrap the Contents landing page in the default visible chapter section
+    accumulated_sections_html += f'<section class="chapter-section" id="chapter-Contents" data-title="Contents" style="display:block;">{toc_landing_page_html}</section>'
     
-    print(f"Success! Multi-page viewer generated in \"viewer/\" directory.")
+    # Now accumulate all individual unified_chapters
+    for idx, ch in enumerate(unified_chapters):
+        chapter_rows_html = f"<div class='chapter-header'><h2>{ch['title']}</h2></div>"
+        
+        is_asterisk = ch['title'] in ["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"]
+        fn_counter = None if is_asterisk else [0]
+        
+        if "custom_segments" in ch:
+            is_french_intro = ch.get("is_french_intro", False)
+            for seg in ch['custom_segments']:
+                en_processed = process_en(seg['en'], is_asterisk=is_asterisk, fn_counter=fn_counter)
+                if seg.get("is_poem"):
+                    en_processed = re.sub(r'</?i>', '', en_processed)
+                    chapter_rows_html += f"""
+                    <div class="parallel-row poem-row">
+                        <div class="he-cell">{seg['he']}</div>
+                        <div class="en-cell">{en_processed}</div>
+                    </div>
+                    """
+                elif is_french_intro:
+                    chapter_rows_html += f"""
+                    <div class="parallel-row">
+                        <div class="fr-cell">{process_en(seg['he'], is_asterisk=is_asterisk, fn_counter=fn_counter)}</div>
+                        <div class="en-cell">{en_processed}</div>
+                    </div>
+                    """
+                else:
+                    chapter_rows_html += render_row(seg['he'], en_processed, key=None, is_asterisk=is_asterisk, fn_counter=fn_counter)
+        else:
+            for i, he_text in enumerate(ch['segments']):
+                key = f"{ch['key_prefix']}.{i}"
+                en_text = get_en_text(key, "[Translation Missing]")
+                en_processed = process_en(en_text, is_asterisk=is_asterisk, fn_counter=fn_counter)
+                chapter_rows_html += render_row(he_text, en_processed, key=key, is_asterisk=is_asterisk, fn_counter=fn_counter)
+        
+        # Add Navigation
+        prev_ch = unified_chapters[idx-1] if idx > 0 else None
+        next_ch = unified_chapters[idx+1] if idx < len(unified_chapters)-1 else None
+        chapter_rows_html += generate_nav_links(prev_ch, next_ch)
+        
+        ch_id = 'chapter-' + ch['title'].replace(' ', '-').replace('/', '-').replace('.', '')
+        accumulated_sections_html += f'<section class="chapter-section" id="{ch_id}" data-title="{ch["title"]}" style="display:none;">{chapter_rows_html}</section>'
+        
+    # Render final master HTML bundle
+    master_html = render_html("The Guide for the Perplexed", accumulated_sections_html, chapter_index_js, footnotes_json)
+    with open("Munk Viewer.html", "w", encoding="utf-8") as f:
+        f.write(master_html)
+        
+    print("Success! Unified Single-Page Application bundle generated as 'Munk Viewer.html'.")
 
 if __name__ == "__main__":
     build_viewer()

@@ -11,6 +11,7 @@
 ---
 
 ### Task 1: Ingesting Alternative Source JSON Datasets
+**Status: COMPLETED**
 
 **Files:**
 - Create: `tests/test_data_ingestion.py`
@@ -107,6 +108,7 @@ Commit ingestion additions.
 ---
 
 ### Task 3: Transitioning to Single-Page Application (SPA) Output, Dynamic Selectors, & Mobile Layout Stacking
+**Status: COMPLETED**
 
 **Files:**
 - Create: `tests/test_viewer_toggles.py`
