@@ -2,9 +2,9 @@
 
 > **For Antigravity:** REQUIRED SUB-SKILL: Load executing-plans to implement this plan task-by-task.
 
-**Goal:** Expand the static HTML pipeline to ingest Ibn Tibon, Judeo-Arabic, and French JSON source editions and inject client-side CSS column toggles for zero-latency multi-language navigation.
+**Goal:** Expand the static HTML pipeline to ingest Ibn Tibon, Judeo-Arabic, and French JSON source editions, inject client-side CSS column toggles for zero-latency multi-language navigation, and style inline subheadings with full-width bottom underlines natively responsive to Light/Sepia/Dark theme modes.
 
-**Architecture:** Implement Option A (Nested Language Spans) by rendering all target language variants into Sefaria wrapper spans inside each segment row container. A top-level selection bar updates layout container attributes, allowing optimized CSS rules to instantaneously show the selected texts and hide inactive layers.
+**Architecture:** Implement Option A (Nested Language Spans) by rendering exactly one unified parallel row container per Sefaria text segment. Inside each column cell, embed all target language versions within dedicated wrapper spans. Purge legacy row fragmentation logic entirely. A top selection bar updates container layout attributes, allowing optimized CSS rules to instantaneously switch text layers. All components utilize semantic variables to synchronize beautifully with Light/Sepia/Dark visual modes.
 
 **Tech Stack:** Python, Vanilla CSS, Vanilla JavaScript, Sefaria JSON Datasets.
 
@@ -17,7 +17,7 @@
 - Modify: `build_full_viewer.py:280-305`
 
 **Step 1: Write failing verification test**
-Create `tests/test_data_ingestion.py` to assert that the three alternative JSON corpuses are successfully loaded into global/module dictionaries mapped by standard Sefaria section keys. Provide verification logic asserting that target text segment arrays are fully accessible.
+Create `tests/test_data_ingestion.py` to assert that the three alternative JSON corpuses are successfully loaded into module dictionaries mapped by standard Sefaria section keys. Provide verification logic asserting that target text segment arrays are fully accessible.
 ```python
 import os
 import sys
@@ -31,7 +31,6 @@ def test_ingestion():
     # Load build script context safely
     sys.path.insert(0, os.path.abspath("."))
     import build_full_viewer
-    # Function will verify parsing logic integration
     print("Ingestion verification suite scaffolded successfully.")
 
 if __name__ == "__main__":
@@ -103,115 +102,70 @@ Modify `build_full_viewer.py` to copy/load the Ibn Tibon file from Downloads if 
 Run `python tests/test_data_ingestion.py` to confirm successful ingestion integration.
 
 **Step 5: Commit changes**
-Commit ingestion pipeline additions.
+Commit ingestion additions.
 
 ---
 
-### Task 2: Upgrading HTML Row Generation Logic (Option A Spans Integration)
+### Task 2: Purging Legacy Row Fragmentation & Implementing Unified Span Cells
 
 **Files:**
 - Create: `tests/test_row_rendering.py`
 - Modify: `build_full_viewer.py` `render_row` definition section
 
 **Step 1: Write failing verification test**
-Create a test script asserting that output HTML rows embed the four target language wrapper spans inside `.he-cell` and two spans inside `.en-cell`.
+Create a verification script asserting that `render_row` maps segments directly 1:1 into single `.parallel-row` divs without breaking subheadings into fragmented sub-rows, and embeds target language wrapper spans.
 
 **Step 2: Run verification command**
 Run the row rendering verification suite.
 
 **Step 3: Implement the change**
-Update `render_row` to pull secondary variants via `get_variant_text` using `key`, wrap text contents in respective language span classes, and distribute variants cleanly across legacy sub-block divisions.
+Completely replace `render_row` to eliminate legacy em-dash splitting and sub-row fragmentation. Let every segment output exactly one robust parallel row cell housing the span variants. Inline subheadings remain exactly inside the text flow.
 ```python
     def render_row(he_text, en_text, key=None):
         fr_text = get_variant_text(french_main, key) if key else ""
         jrb_text = get_variant_text(jrb_main, key) if key else ""
         tibon_text = get_variant_text(tibon_main, key) if key else ""
         
-        if '<span class="mediumGrey">' in he_text:
-            parts = re.split(r'(<span class="mediumGrey">.*?</span>)', he_text)
-            text_blocks_indices = [i for i, p in enumerate(parts) if not p.strip().startswith('<span class="mediumGrey">') and p.strip()]
-            
-            # Legacy English mapping logic retained here...
-            # (Insert mapping selection block identical to existing script)
-            
-            rows = ""
-            for i, part in enumerate(parts):
-                part = part.strip()
-                if not part: continue
-                if part.startswith('<span class="mediumGrey">'):
-                    rows += f"""
-                    <div class="parallel-row header-row">
-                        <div class="he-cell"><span class="col2-variant variant-makbili">{part}</span></div>
-                        <div class="en-cell"></div>
-                    </div>
-                    """
-                else:
-                    clean_he = re.sub(r'^(<br>)+|(<br>)+$', '', part).strip()
-                    if not clean_he: continue
-                    row_id = f'id="row-{key}"' if key else ""
-                    cell_en = en_mapping.get(i, "")
-                    
-                    is_first = (i == text_blocks_indices[0]) if text_blocks_indices else False
-                    c1_fr = fr_text if is_first else ""
-                    c2_jrb = jrb_text if is_first else ""
-                    c2_tibon = tibon_text if is_first else ""
-                    c2_fr = fr_text if is_first else ""
-                    
-                    c1_html = f'<span class="col1-variant variant-en">{cell_en}</span>'
-                    if c1_fr: c1_html += f'<span class="col1-variant variant-fr" style="display:none;">{c1_fr}</span>'
-                    
-                    c2_html = f'<span class="col2-variant variant-makbili">{repair_tags(clean_he)}</span>'
-                    if c2_jrb: c2_html += f'<span class="col2-variant variant-jrb" style="display:none;">{repair_tags(c2_jrb)}</span>'
-                    if c2_tibon: c2_html += f'<span class="col2-variant variant-tibon" style="display:none;">{repair_tags(c2_tibon)}</span>'
-                    if c2_fr: c2_html += f'<span class="col2-variant variant-fr" style="display:none;">{c2_fr}</span>'
-                    
-                    rows += f"""
-                    <div class="parallel-row" {row_id}>
-                        <div class="he-cell">{c2_html}</div>
-                        <div class="en-cell">{c1_html}</div>
-                    </div>
-                    """
-            return rows
-        else:
-            row_id = f'id="row-{key}"' if key else ""
-            c1_html = f'<span class="col1-variant variant-en">{en_text}</span>'
-            if fr_text: c1_html += f'<span class="col1-variant variant-fr" style="display:none;">{fr_text}</span>'
-            
-            c2_html = f'<span class="col2-variant variant-makbili">{repair_tags(he_text)}</span>'
-            if jrb_text: c2_html += f'<span class="col2-variant variant-jrb" style="display:none;">{repair_tags(jrb_text)}</span>'
-            if tibon_text: c2_html += f'<span class="col2-variant variant-tibon" style="display:none;">{repair_tags(tibon_text)}</span>'
-            if fr_text: c2_html += f'<span class="col2-variant variant-fr" style="display:none;">{fr_text}</span>'
-            
-            return f"""
-            <div class="parallel-row" {row_id}>
-                <div class="he-cell">{c2_html}</div>
-                <div class="en-cell">{c1_html}</div>
-            </div>
-            """
+        row_id = f'id="row-{key}"' if key else ""
+        
+        c1_html = f'<span class="col1-variant variant-en">{en_text}</span>'
+        if fr_text: c1_html += f'<span class="col1-variant variant-fr" style="display:none;">{fr_text}</span>'
+        
+        c2_html = f'<span class="col2-variant variant-makbili">{repair_tags(he_text)}</span>'
+        if jrb_text: c2_html += f'<span class="col2-variant variant-jrb" style="display:none;">{repair_tags(jrb_text)}</span>'
+        if tibon_text: c2_html += f'<span class="col2-variant variant-tibon" style="display:none;">{repair_tags(tibon_text)}</span>'
+        if fr_text: c2_html += f'<span class="col2-variant variant-fr" style="display:none;">{fr_text}</span>'
+        
+        return f"""
+        <div class="parallel-row" {row_id}>
+            <div class="he-cell">{c2_html}</div>
+            <div class="en-cell">{c1_html}</div>
+        </div>
+        """
 ```
 
 **Step 4: Run verification command**
-Run suite confirming output strings format successfully.
+Run suite confirming pristine 1:1 segment string construction.
 
 **Step 5: Commit changes**
-Commit updated row building logic.
+Commit unified row mapping logic.
 
 ---
 
-### Task 3: Injecting Column Dropdown Selectors and Dynamic Toggle CSS
+### Task 3: Injecting Column Dropdown Selectors, Full-Width Subheading Styles, & Multi-Theme Support
 
 **Files:**
 - Create: `tests/test_viewer_toggles.py`
-- Modify: `build_full_viewer.py` HTML string layout styles and DOM assembly blocks
+- Modify: `build_full_viewer.py` template styles and UI selector component blocks
 
 **Step 1: Write failing verification test**
-Create verification script asserting that generated viewing bundles embed the `.column-selectors-bar` component, `switchCol1`/`switchCol2` inline script handlers, and dedicated container layer matching selectors.
+Create verification script asserting that generated viewing bundles embed the `.column-selectors-bar` component, full-width `.mediumGrey` border layout rules, and dynamic layer display matching rules.
 
 **Step 2: Run verification command**
-Execute verification to establish baseline failure.
+Execute verification script to establish baseline failure.
 
 **Step 3: Implement the change**
-Inject structural dynamic display rules into `render_html` stylesheet block. Inject the multi-select header control directly above the chapter rows inside `.content`.
+Inject full-width subheading styles and dynamic column matching styles into `render_html` stylesheet strings. All settings map to semantic theme tokens to support Sepia/Dark modes flawlessly.
 ```css
         /* Dynamic Column Visibility Rules */
         .main-container[data-col1="en"] .col1-variant:not(.variant-en) { display: none !important; }
@@ -227,12 +181,27 @@ Inject structural dynamic display rules into `render_html` stylesheet block. Inj
         .col1-variant.variant-fr { direction: ltr; text-align: left; font-family: var(--font-english); display: block; }
         .col1-variant.variant-en, .col2-variant:not(.variant-fr) { display: block; }
         
+        /* Unified Subheading Line-Underneath Styles */
+        .mediumGrey {
+            display: block;
+            color: var(--accent);
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 6px;
+            margin-bottom: 16px;
+            margin-top: 12px;
+            width: 100%;
+        }
+
+        /* Responsive UI Header Components */
         .column-selectors-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--border); }
         .column-selectors-bar div { display: flex; align-items: center; gap: 12px; }
         .column-selectors-bar label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
-        .column-selectors-bar select { flex: 1; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95rem; font-weight: 600; cursor: pointer; outline: none; }
+        .column-selectors-bar select { flex: 1; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95rem; font-weight: 600; cursor: pointer; outline: none; transition: border-color 0.2s, background 0.2s, color 0.2s; }
+        .column-selectors-bar select:hover, .column-selectors-bar select:focus { border-color: var(--accent); }
 ```
-Inject inline selector layout markup into `render_html` body output:
+Inject inline selector layout markup into `render_html` body output directly inside `.content`:
 ```html
         <div class="content">
             <div class="column-selectors-bar">
@@ -258,7 +227,7 @@ Inject inline selector layout markup into `render_html` body output:
 Set container initial attribute defaults: `<div class="main-container" data-col1="en" data-col2="makbili">`.
 
 **Step 4: Run verification command**
-Run `python build_full_viewer.py` to compile all target standalone pages, then run toggle verification scripts confirming zero build failures.
+Run `python build_full_viewer.py` to compile all target standalone pages, then run toggle verification confirming flawless multi-theme generation.
 
 **Step 5: Commit changes**
 Commit template compilation updates.
