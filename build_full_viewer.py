@@ -56,19 +56,30 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         }}
         body {{ background: var(--bg); color: var(--text); font-family: var(--font-english); margin: 0; display: flex; height: 100vh; overflow: hidden; transition: background 0.3s, color 0.3s; }}
         
-        /* Dynamic Column Visibility Rules */
-        .main-container[data-col1="en"] .col1-variant:not(.variant-en) {{ display: none !important; }}
-        .main-container[data-col1="fr"] .col1-variant:not(.variant-fr) {{ display: none !important; }}
+        /* Dynamic Symmetrical Column Visibility Rules */
+        .left-cell .variant-span, .right-cell .variant-span {{ display: none; }}
+        
+        .main-container[data-left-col="en"] .left-cell .variant-en {{ display: block; }}
+        .main-container[data-left-col="fr"] .left-cell .variant-fr {{ display: block; }}
+        .main-container[data-left-col="makbili"] .left-cell .variant-makbili {{ display: block; }}
+        .main-container[data-left-col="tibon"] .left-cell .variant-tibon {{ display: block; }}
+        .main-container[data-left-col="jrb"] .left-cell .variant-jrb {{ display: block; }}
 
-        .main-container[data-col2="makbili"] .col2-variant:not(.variant-makbili) {{ display: none !important; }}
-        .main-container[data-col2="jrb"] .col2-variant:not(.variant-jrb) {{ display: none !important; }}
-        .main-container[data-col2="tibon"] .col2-variant:not(.variant-tibon) {{ display: none !important; }}
-        .main-container[data-col2="fr"] .col2-variant:not(.variant-fr) {{ display: none !important; }}
+        .main-container[data-right-col="en"] .right-cell .variant-en {{ display: block; }}
+        .main-container[data-right-col="fr"] .right-cell .variant-fr {{ display: block; }}
+        .main-container[data-right-col="makbili"] .right-cell .variant-makbili {{ display: block; }}
+        .main-container[data-right-col="tibon"] .right-cell .variant-tibon {{ display: block; }}
+        .main-container[data-right-col="jrb"] .right-cell .variant-jrb {{ display: block; }}
 
-        /* Typography & Direction Overrides */
-        .col2-variant.variant-fr {{ direction: ltr; text-align: left; font-family: var(--font-english); font-size: 1.1rem; display: block; }}
-        .col1-variant.variant-fr {{ direction: ltr; text-align: left; font-family: var(--font-english); display: block; }}
-        .col1-variant.variant-en, .col2-variant:not(.variant-fr) {{ display: block; }}
+        /* Decoupled Variant Typography & Direction Rules */
+        .variant-en {{ font-family: var(--font-english), var(--font-hebrew); font-size: 1.1rem; line-height: 1.7; text-align: left; direction: ltr; }}
+        .variant-fr {{ font-family: var(--font-english); font-size: 1.1rem; line-height: 1.7; text-align: left; direction: ltr; }}
+        .variant-makbili {{ font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }}
+        .variant-tibon {{ font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }}
+        .variant-jrb {{ font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }}
+
+        .left-cell, .right-cell {{ width: 100%; box-sizing: border-box; }}
+        .en-cell, .he-cell, .fr-cell {{ width: 100%; box-sizing: border-box; }}
 
         .toc-drawer {{ position: fixed; top: 0; left: 0; width: 320px; height: 100vh; background: var(--panel-bg); border-right: 1px solid var(--border); z-index: 500; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-shadow: 4px 0 20px rgba(0,0,0,0.15); }}
         .toc-drawer.open {{ transform: translateX(0); }}
@@ -96,43 +107,27 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         .theme-btn {{ background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; cursor: pointer; font-size: 1rem; color:var(--text); }}
         .theme-btn.active {{ border-color: var(--accent); background: var(--row-hover); }}
         .content {{ padding: 20px 40px; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }}
-        
-        /* Responsive UI Header Components */
-        .column-selectors-bar {{ display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--border); }}
-        .column-selectors-bar div {{ display: flex; align-items: center; gap: 12px; }}
-        .column-selectors-bar label {{ font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }}
-        .column-selectors-bar select {{ flex: 1; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95rem; font-weight: 600; cursor: pointer; outline: none; transition: border-color 0.2s, background 0.2s, color 0.2s; }}
-        .column-selectors-bar select:hover, .column-selectors-bar select:focus {{ border-color: var(--accent); }}
 
         .parallel-row {{ display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 24px 0; border-bottom: 1px solid var(--border); transition: background 0.2s; }}
         .parallel-row:hover {{ background: var(--row-hover); }}
-        .en-cell {{ font-family: var(--font-english), var(--font-hebrew); font-size: 1.1rem; line-height: 1.7; text-align: left; }}
-        .he-cell {{ font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; direction: rtl; text-align: right; color: var(--text); }}
-        .fr-cell {{ font-family: var(--font-english); font-size: 1.1rem; line-height: 1.7; text-align: left; }}
         .chapter-header {{ grid-column: span 2; padding: 40px 0 20px; border-bottom: 2px solid var(--accent); margin-bottom: 20px; }}
         .chapter-header h2 {{ margin: 0; color: var(--accent); font-weight: 700; }}
         .poem-segment {{ color: var(--text-muted); font-size: 0.95rem; font-style: italic; }}
         
         /* Mobile Layout Optimizations */
         @media (max-width: 768px) {{
-            .column-selectors-bar {{ display: flex; flex-direction: column; gap: 16px; }}
-            .column-selectors-bar div {{ width: 100%; justify-content: space-between; }}
-            .column-selectors-bar select {{ width: auto; flex: 1; margin-left: 12px; }}
-            
             .header {{ padding: 10px 16px; }}
             .header .munk-label {{ display: none; }}
             .header h1 {{ font-size: 1.1rem; }}
             .theme-controls {{ display: none; }}
-            .parallel-row {{ display: flex; flex-direction: column; gap: 12px; padding: 16px 0; }}
-            .en-cell {{ font-size: 1rem; padding-top: 8px; border-top: 1px dashed var(--border); }}
-            .fr-cell {{ font-size: 1rem; }}
-            .he-cell {{ font-size: 1.2rem; order: -1; }}
+            .parallel-row {{ display: flex; flex-direction: column; gap: 16px; padding: 20px 0; }}
+            .right-cell {{ border-top: 1px solid var(--border); padding-top: 12px; }}
             .chapter-header {{ padding: 24px 0 12px; order: -2; }}
             .chapter-header h2 {{ font-size: 1.4rem; }}
             .content {{ padding: 10px 16px; }}
         }}
         .header-row {{ border-bottom: none; padding-bottom: 0; padding-top: 32px; }}
-        .header-row .he-cell {{ border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }}
+        .header-row .he-cell, .header-row .right-cell {{ border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }}
         
         /* Unified Subheading & Thematic Title Styles */
         .chapter-thematic-title {{
@@ -847,15 +842,19 @@ def build_viewer():
             
         return f"""
         <div class="parallel-row" {row_id}>
-            <div class="en-cell">
-                <span class="col1-variant variant-en">{en_text}</span>
-                <span class="col1-variant variant-fr">{fr_processed}</span>
+            <div class="left-cell">
+                <span class="variant-span variant-en">{en_text}</span>
+                <span class="variant-span variant-fr">{fr_processed}</span>
+                <span class="variant-span variant-makbili">{repair_tags(clean_he)}</span>
+                <span class="variant-span variant-jrb">{repair_tags(jrb_text)}</span>
+                <span class="variant-span variant-tibon">{repair_tags(tibon_text)}</span>
             </div>
-            <div class="he-cell">
-                <span class="col2-variant variant-makbili">{repair_tags(clean_he)}</span>
-                <span class="col2-variant variant-jrb">{repair_tags(jrb_text)}</span>
-                <span class="col2-variant variant-tibon">{repair_tags(tibon_text)}</span>
-                <span class="col2-variant variant-fr">{fr_processed}</span>
+            <div class="right-cell">
+                <span class="variant-span variant-en">{en_text}</span>
+                <span class="variant-span variant-fr">{fr_processed}</span>
+                <span class="variant-span variant-makbili">{repair_tags(clean_he)}</span>
+                <span class="variant-span variant-jrb">{repair_tags(jrb_text)}</span>
+                <span class="variant-span variant-tibon">{repair_tags(tibon_text)}</span>
             </div>
         </div>
         """
@@ -956,15 +955,40 @@ def build_viewer():
                     en_processed = re.sub(r'</?i>', '', en_processed)
                     chapter_rows_html += f"""
                     <div class="parallel-row poem-row">
-                        <div class="en-cell">{en_processed}</div>
-                        <div class="he-cell">{seg['he']}</div>
+                        <div class="left-cell">
+                            <span class="variant-span variant-en">{en_processed}</span>
+                            <span class="variant-span variant-fr">[Translation Missing]</span>
+                            <span class="variant-span variant-makbili">{seg['he']}</span>
+                            <span class="variant-span variant-jrb">[Translation Missing]</span>
+                            <span class="variant-span variant-tibon">[Translation Missing]</span>
+                        </div>
+                        <div class="right-cell">
+                            <span class="variant-span variant-en">{en_processed}</span>
+                            <span class="variant-span variant-fr">[Translation Missing]</span>
+                            <span class="variant-span variant-makbili">{seg['he']}</span>
+                            <span class="variant-span variant-jrb">[Translation Missing]</span>
+                            <span class="variant-span variant-tibon">[Translation Missing]</span>
+                        </div>
                     </div>
                     """
                 elif is_french_intro:
+                    fr_intro_processed = process_en(seg['he'], is_asterisk=is_asterisk, fn_counter=fn_counter)
                     chapter_rows_html += f"""
                     <div class="parallel-row">
-                        <div class="en-cell">{en_processed}</div>
-                        <div class="fr-cell">{process_en(seg['he'], is_asterisk=is_asterisk, fn_counter=fn_counter)}</div>
+                        <div class="left-cell">
+                            <span class="variant-span variant-en">{en_processed}</span>
+                            <span class="variant-span variant-fr">{fr_intro_processed}</span>
+                            <span class="variant-span variant-makbili">[Translation Missing]</span>
+                            <span class="variant-span variant-jrb">[Translation Missing]</span>
+                            <span class="variant-span variant-tibon">[Translation Missing]</span>
+                        </div>
+                        <div class="right-cell">
+                            <span class="variant-span variant-en">{en_processed}</span>
+                            <span class="variant-span variant-fr">{fr_intro_processed}</span>
+                            <span class="variant-span variant-makbili">[Translation Missing]</span>
+                            <span class="variant-span variant-jrb">[Translation Missing]</span>
+                            <span class="variant-span variant-tibon">[Translation Missing]</span>
+                        </div>
                     </div>
                     """
                 else:
