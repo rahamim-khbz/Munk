@@ -316,6 +316,28 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         }}
         function toggleTOC() {{ document.getElementById('toc-drawer').classList.toggle('open'); document.getElementById('toc-backdrop').classList.toggle('visible'); }}
         
+        function updateColumnSelectors() {{
+            const leftSel = document.getElementById('select-left-col');
+            const rightSel = document.getElementById('select-right-col');
+            if (!leftSel || !rightSel) return;
+            
+            const leftVal = leftSel.value;
+            const rightVal = rightSel.value;
+            
+            const mainCont = document.querySelector('.main-container');
+            if (mainCont) {{
+                mainCont.setAttribute('data-left-col', leftVal);
+                mainCont.setAttribute('data-right-col', rightVal);
+            }}
+            
+            Array.from(leftSel.options).forEach(opt => {{
+                opt.disabled = (opt.value === rightVal);
+            }});
+            Array.from(rightSel.options).forEach(opt => {{
+                opt.disabled = (opt.value === leftVal);
+            }});
+        }}
+
         let activeChapterId = null;
         function navigateToChapter(title) {{
             const id = title === 'Contents' ? 'chapter-Contents' : 'chapter-' + title.replace(/ /g, '-').replace(/\\//g, '-').replace(/\\./g, '');
@@ -329,6 +351,37 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             document.querySelectorAll('.toc-tile').forEach(t => {{
                 t.classList.toggle('active', t.dataset.chapterId === id);
             }});
+            
+            // Dynamic variant navigation validation & fallback auto-switching
+            const isRestrictedSection = title.startsWith('Introduction to Volume') || title === 'Note On The Title' || title.startsWith('Endnotes to Volume');
+            const restrictedVariants = ['makbili', 'tibon', 'jrb'];
+            
+            const leftSel = document.getElementById('select-left-col');
+            const rightSel = document.getElementById('select-right-col');
+            
+            if (leftSel && rightSel) {{
+                [leftSel, rightSel].forEach(sel => {{
+                    Array.from(sel.options).forEach(opt => {{
+                        if (restrictedVariants.includes(opt.value)) {{
+                            opt.disabled = isRestrictedSection;
+                        }} else {{
+                            opt.disabled = false;
+                        }}
+                    }});
+                }});
+                
+                if (isRestrictedSection) {{
+                    if (restrictedVariants.includes(leftSel.value)) {{
+                        leftSel.value = (rightSel.value === 'en') ? 'fr' : 'en';
+                    }}
+                    if (restrictedVariants.includes(rightSel.value)) {{
+                        rightSel.value = (leftSel.value === 'fr') ? 'en' : 'fr';
+                    }}
+                }}
+                
+                updateColumnSelectors();
+            }}
+            
             const drawer = document.getElementById('toc-drawer');
             if (drawer && drawer.classList.contains('open')) toggleTOC();
             const mainCont = document.querySelector('.main-container');
@@ -341,6 +394,16 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             }});
             const titleElem = document.getElementById('main-title');
             if (titleElem) titleElem.textContent = 'Full Text Reader';
+            
+            const leftSel = document.getElementById('select-left-col');
+            const rightSel = document.getElementById('select-right-col');
+            if (leftSel && rightSel) {{
+                [leftSel, rightSel].forEach(sel => {{
+                    Array.from(sel.options).forEach(opt => {{ opt.disabled = false; }});
+                }});
+                updateColumnSelectors();
+            }}
+            
             if (document.getElementById('toc-drawer').classList.contains('open')) toggleTOC();
             const mainCont = document.querySelector('.main-container');
             if (mainCont) mainCont.scrollTop = 0;
@@ -362,10 +425,10 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             const cleanFr = rawFr ? rawFr.replace(/\\[\\[t:\\d+\\]\\]/g, '').replace(/\\[\\[fn:\\d+\\]\\]/g, '') : '<em>[French footnote missing]</em>';
             
             const mainCont = document.querySelector('.main-container');
-            const col1 = mainCont.getAttribute('data-col1') || 'en';
-            const col2 = mainCont.getAttribute('data-col2') || 'makbili';
+            const col1 = mainCont.getAttribute('data-left-col') || 'en';
+            const col2 = mainCont.getAttribute('data-right-col') || 'makbili';
             
-            const enInView = (col1 === 'en');
+            const enInView = (col1 === 'en' || col2 === 'en');
             const frInView = (col1 === 'fr' || col2 === 'fr');
             
             let contentHtml = '';
@@ -394,7 +457,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             mainCont.classList.add('fn-open');
         }}
         function closeFnPanel() {{ activeFnId = null; document.getElementById('fn-panel').classList.remove('open'); document.querySelector('.main-container').classList.remove('fn-open'); }}
-        window.addEventListener('DOMContentLoaded', () => {{ buildTOC(); navigateToChapter('Contents'); }});
+        window.addEventListener('DOMContentLoaded', () => {{ buildTOC(); navigateToChapter('Contents'); updateColumnSelectors(); }});
         if ('serviceWorker' in navigator) {{
             window.addEventListener('load', () => {{
                 navigator.serviceWorker.register('../sw.js').then(reg => {{
