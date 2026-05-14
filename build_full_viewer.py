@@ -316,6 +316,9 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         }}
         function toggleTOC() {{ document.getElementById('toc-drawer').classList.toggle('open'); document.getElementById('toc-backdrop').classList.toggle('visible'); }}
         
+        let previousStandardLeft = 'en';
+        let previousStandardRight = 'makbili';
+
         function updateColumnSelectors() {{
             const leftSel = document.getElementById('select-left-col');
             const rightSel = document.getElementById('select-right-col');
@@ -340,6 +343,17 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
 
         let activeChapterId = null;
         function navigateToChapter(title) {{
+            // Determine if we are currently inside a standard multi-variant view prior to this navigation
+            const wasInStandardSection = !activeChapterId || (!activeChapterId.includes('Introduction-to-Volume') && 
+                                                              !activeChapterId.includes('Note-On-The-Title') && 
+                                                              !activeChapterId.includes('Endnotes-to-Volume'));
+
+            // Dynamically hide column configuration panel on landing page
+            const columnPanel = document.querySelector('.toc-column-panel');
+            if (columnPanel) {{
+                columnPanel.style.display = (title === 'Contents') ? 'none' : 'block';
+            }}
+
             const id = title === 'Contents' ? 'chapter-Contents' : 'chapter-' + title.replace(/ /g, '-').replace(/\\//g, '-').replace(/\\./g, '');
             document.querySelectorAll('.chapter-section').forEach(s => {{
                 s.style.display = s.id === id ? 'block' : 'none';
@@ -352,33 +366,44 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                 t.classList.toggle('active', t.dataset.chapterId === id);
             }});
             
-            // Dynamic variant navigation validation & fallback auto-switching
-            const isRestrictedSection = title.startsWith('Introduction to Volume') || title === 'Note On The Title' || title.startsWith('Endnotes to Volume');
+            // Dynamic variant navigation validation, grayscale filtering & persistent default forcing
+            const isMunkSection = title.startsWith('Introduction to Volume') || 
+                                  title === 'Note On The Title' || 
+                                  title.startsWith('Endnotes to Volume');
             const restrictedVariants = ['makbili', 'tibon', 'jrb'];
             
             const leftSel = document.getElementById('select-left-col');
             const rightSel = document.getElementById('select-right-col');
             
             if (leftSel && rightSel) {{
+                // Process grayscale filtering: gray out restricted original choices in Munk segments
                 [leftSel, rightSel].forEach(sel => {{
                     Array.from(sel.options).forEach(opt => {{
                         if (restrictedVariants.includes(opt.value)) {{
-                            opt.disabled = isRestrictedSection;
+                            opt.disabled = isMunkSection;
                         }} else {{
                             opt.disabled = false;
                         }}
                     }});
                 }});
                 
-                if (isRestrictedSection) {{
-                    if (restrictedVariants.includes(leftSel.value)) {{
-                        leftSel.value = (rightSel.value === 'en') ? 'fr' : 'en';
+                // Enforce section-specific default mapping alignment
+                if (isMunkSection) {{
+                    // Cache prior custom multi-variant configurations only if leaving a standard section
+                    if (wasInStandardSection && title !== 'Contents') {{
+                        previousStandardLeft = leftSel.value;
+                        previousStandardRight = rightSel.value;
                     }}
-                    if (restrictedVariants.includes(rightSel.value)) {{
-                        rightSel.value = (leftSel.value === 'fr') ? 'en' : 'fr';
-                    }}
+                    // Force specific defaults for Munk prefaces and endnotes
+                    leftSel.value = 'fr';
+                    rightSel.value = 'en';
+                }} else if (title !== 'Contents') {{
+                    // Restore custom multi-variant configurations directly from internal cache variables
+                    leftSel.value = previousStandardLeft;
+                    rightSel.value = previousStandardRight;
                 }}
                 
+                // Synchronize main container CSS reveal tokens and opposite column grayouts
                 updateColumnSelectors();
             }}
             
