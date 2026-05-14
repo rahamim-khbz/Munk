@@ -7,22 +7,26 @@ def test_spa_output():
     with open(output_path, "r", encoding="utf-8") as f:
         content = f.read()
         
-    # Check for column selectors bar
-    assert 'class="column-selectors-bar"' in content, "Column selectors bar missing"
-    assert 'data-col1' in content and 'data-col2' in content, "data-col1/data-col2 attributes missing"
+    # Check for container data attributes
+    assert 'data-left-col="en"' in content, "data-left-col attribute missing"
+    assert 'data-right-col="makbili"' in content, "data-right-col attribute missing"
     
-    # Check for dynamic visibility CSS rules
-    assert 'data-col1="en"' in content, "Dynamic visibility rules for col1 missing"
-    assert 'data-col2="makbili"' in content, "Dynamic visibility rules for col2 missing"
+    # Check for TOC drawer column layout panel integration
+    assert 'id="select-left-col"' in content and 'id="select-right-col"' in content, "Left/Right column dropdowns missing"
     
-    # Check for subheading underline styles
-    assert 'border-bottom:' in content or 'mediumGrey' in content, "Subheading underline styles missing"
+    # Check for new symmetrical cell wrapper classes
+    assert 'class="left-cell"' in content and 'class="right-cell"' in content, "Symmetrical cell containers missing"
     
-    # Check for responsive mobile vertical stacking viewport override
+    # Check for pure CSS visibility rules targeting left/right cell spans
+    assert '.left-cell .variant-en' in content, "Pure CSS visibility rules for variant-en missing"
+    assert '.right-cell .variant-makbili' in content, "Pure CSS visibility rules for variant-makbili missing"
+    
+    # Check for JS mutual exclusion coordination function
+    assert 'function updateColumnSelectors()' in content, "updateColumnSelectors JS logic missing"
+    
+    # Check for responsive mobile vertical stacking viewport override with soft divider
     assert '@media (max-width: 768px)' in content, "Mobile stacking viewport overrides missing"
-    
-    # Check for section-based hidden chapters
-    assert 'class="chapter-section"' in content, "Chapter sections missing"
+    assert '.right-cell {' in content and 'border-top:' in content, "Mobile view right-cell soft line divider rule missing"
 
 if __name__ == "__main__":
     test_spa_output()
