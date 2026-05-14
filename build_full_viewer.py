@@ -40,7 +40,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
     <style>
         :root {{
             --bg: #fdfcfb; --surface: #ffffff; --text: #1a1a1a; --text-muted: #6b7280;
-            --accent: #8b5cf6; --border: #e5e7eb; --row-hover: #f9fafb; --fn-ref-hover: #f3e8ff;
+            --accent: #1e3a8a; --border: #e5e7eb; --row-hover: #f9fafb; --fn-ref-hover: #eff6ff;
             --panel-bg: #ffffff; --header-bg: #ffffff; --font-hebrew: 'Frank Ruhl Libre', serif;
             --font-english: 'Inter', sans-serif;
         }}
@@ -134,7 +134,17 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         .header-row {{ border-bottom: none; padding-bottom: 0; padding-top: 32px; }}
         .header-row .he-cell {{ border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }}
         
-        /* Unified Subheading Line-Underneath Styles */
+        /* Unified Subheading & Thematic Title Styles */
+        .chapter-thematic-title {{
+            display: block;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            margin-top: 4px;
+            width: 100%;
+        }}
+        
         .mediumGrey {{
             display: block;
             color: var(--accent);
@@ -169,6 +179,13 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
         .feedback-footer a:hover {{ background: var(--accent); color: white; border-color: var(--accent); }}
         .update-toast {{ position: fixed; bottom: 20px; right: 20px; background: var(--text); color: var(--surface); padding: 12px 20px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; cursor: pointer; display: none; align-items: center; gap: 10px; }}
         .update-toast:hover {{ opacity: 0.9; }}
+        .fn-dual-container {{ display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }}
+        .fn-col {{ display: flex; flex-direction: column; }}
+        .fn-lang-label {{ font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }}
+        @media (max-width: 768px) {{
+            .fn-dual-container {{ display: flex; flex-direction: column; gap: 16px; }}
+            .fn-col-fr {{ border-bottom: 2px solid var(--accent); padding-bottom: 12px; }}
+        }}
     </style>
 </head>
 <body>
@@ -184,9 +201,33 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             <button onclick="setTheme('sepia')" class="theme-btn">📜 Sepia</button>
             <button onclick="setTheme('dark')"  class="theme-btn">🌙 Dark</button>
         </div>
+        <div class="toc-column-panel" style="padding: 16px 20px; border-bottom: 1px solid var(--border); background: var(--header-bg);">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <label for="select-left-col" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Left Column</label>
+                    <select id="select-left-col" onchange="updateColumnSelectors()" style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; width: 160px;">
+                        <option value="en" selected>Munk (AI-English)</option>
+                        <option value="fr">Munk (French)</option>
+                        <option value="makbili">מקבילי</option>
+                        <option value="tibon">אבן תיבון</option>
+                        <option value="jrb">Judeo-Arabic</option>
+                    </select>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <label for="select-right-col" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Right Column</label>
+                    <select id="select-right-col" onchange="updateColumnSelectors()" style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; width: 160px;">
+                        <option value="en">Munk (AI-English)</option>
+                        <option value="fr">Munk (French)</option>
+                        <option value="makbili" selected>מקבילי</option>
+                        <option value="tibon">אבן תיבון</option>
+                        <option value="jrb">Judeo-Arabic</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         <div id="toc-body" class="toc-body"></div>
     </nav>
-    <div class="main-container" data-col1="en" data-col2="makbili">
+    <div class="main-container" data-left-col="en" data-right-col="makbili">
         <div class="header">
             <div class="header-left">
                 <button id="hamburger-btn" onclick="toggleTOC()" aria-label="Table of Contents">☰</button>
@@ -200,24 +241,6 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             </div>
         </div>
         <div class="content">
-            <div class="column-selectors-bar">
-                <div class="col2-selector">
-                    <label for="select-col2">Column 2:</label>
-                    <select id="select-col2" onchange="document.querySelector('.main-container').setAttribute('data-col2', this.value)">
-                        <option value="makbili" selected>Makbili (Hebrew)</option>
-                        <option value="jrb">Judeo-Arabic</option>
-                        <option value="tibon">Ibn Tibon (Hebrew)</option>
-                        <option value="fr">French Original</option>
-                    </select>
-                </div>
-                <div class="col1-selector">
-                    <label for="select-col1">Column 1:</label>
-                    <select id="select-col1" onchange="document.querySelector('.main-container').setAttribute('data-col1', this.value)">
-                        <option value="en" selected>English Translation</option>
-                        <option value="fr">French Original</option>
-                    </select>
-                </div>
-            </div>
             {main_content_html}
             <div class="feedback-footer">
                 <a href="https://github.com/rayhabbaz/Munk-Guide/issues/new?title=Correction:%20{display_title}" target="_blank" rel="noopener noreferrer">Propose an Edit on GitHub</a>
@@ -336,12 +359,44 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                 return;
             }}
             activeFnId = id;
-            const raw = footnotes[id];
-            const text = raw ? raw.replace(/\\[\\[t:\\d+\\]\\]/g, '').replace(/\\[\\[fn:\\d+\\]\\]/g, '') : null;
+            const fnData = footnotes[id] || {{}};
+            const rawEn = typeof fnData === 'string' ? fnData : (fnData.en || '');
+            const rawFr = typeof fnData === 'string' ? '' : (fnData.fr || '');
+            
+            const cleanEn = rawEn ? rawEn.replace(/\\[\\[t:\\d+\\]\\]/g, '').replace(/\\[\\[fn:\\d+\\]\\]/g, '') : '<em>[English footnote missing]</em>';
+            const cleanFr = rawFr ? rawFr.replace(/\\[\\[t:\\d+\\]\\]/g, '').replace(/\\[\\[fn:\\d+\\]\\]/g, '') : '<em>[French footnote missing]</em>';
+            
+            const mainCont = document.querySelector('.main-container');
+            const col1 = mainCont.getAttribute('data-col1') || 'en';
+            const col2 = mainCont.getAttribute('data-col2') || 'makbili';
+            
+            const enInView = (col1 === 'en');
+            const frInView = (col1 === 'fr' || col2 === 'fr');
+            
+            let contentHtml = '';
+            if (enInView && frInView) {{
+                contentHtml = `
+                <div class="fn-dual-container">
+                    <div class="fn-col fn-col-en">
+                        <div class="fn-lang-label">English Translation</div>
+                        <div class="fn-text-content">${{cleanEn}}</div>
+                    </div>
+                    <div class="fn-col fn-col-fr">
+                        <div class="fn-lang-label">Munk French</div>
+                        <div class="fn-text-content">${{cleanFr}}</div>
+                    </div>
+                </div>
+                `;
+            }} else if (frInView) {{
+                contentHtml = cleanFr;
+            }} else {{
+                contentHtml = cleanEn;
+            }}
+            
             document.getElementById('fn-panel-label').textContent = 'Note';
-            document.getElementById('fn-panel-body').innerHTML = text || '<em>Footnote translation still in progress...</em>';
+            document.getElementById('fn-panel-body').innerHTML = contentHtml;
             panel.classList.add('open');
-            document.querySelector('.main-container').classList.add('fn-open');
+            mainCont.classList.add('fn-open');
         }}
         function closeFnPanel() {{ activeFnId = null; document.getElementById('fn-panel').classList.remove('open'); document.querySelector('.main-container').classList.remove('fn-open'); }}
         window.addEventListener('DOMContentLoaded', () => {{ buildTOC(); navigateToChapter('Contents'); }});
@@ -368,9 +423,12 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
 </html>
 """
 
-# Load French Original
+# Load French Original / Enriched
 french_main = {}
-if os.path.exists("French.json"):
+if os.path.exists("French_Healed_Enriched.json"):
+    with open("French_Healed_Enriched.json", "r", encoding="utf-8") as f:
+        french_main = json.load(f).get("text", {})
+elif os.path.exists("French.json"):
     with open("French.json", "r", encoding="utf-8") as f:
         french_main = json.load(f).get("text", {})
 
@@ -426,6 +484,7 @@ def build_viewer():
         prod_data = json.load(f)
         english_main = prod_data["text"]
         english_footnotes = prod_data["footnotes"]
+        french_footnotes = {}
 
     def get_en_text(key, default="[Translation Missing]"):
         if key in english_main:
@@ -716,6 +775,10 @@ def build_viewer():
 
     def render_row(he_text, en_text, key=None, is_asterisk=False, fn_counter=None):
         clean_he = re.sub(r'^(<br>)+|(<br>)+$', '', he_text).strip()
+        # Surgically convert embedded initial thematic chapter titles in Makbili text into styled muted gray headings
+        clean_he = re.sub(r'^<b[^>]*>(.*?)</b>(?:\s*<br\s*/?>)+', r'<span class="chapter-thematic-title">\1</span>', clean_he)
+        # Surgically remove any line break that immediately follows a mediumGrey Makbili subheading
+        clean_he = re.sub(r'(<span[^>]*class="[^"]*mediumGrey[^"]*"[^>]*>.*?</span>)(?:\s*<br\s*/?>)+', r'\1', clean_he)
         row_id = f'id="row-{key}"' if key else ""
         
         # Load column alternative variant texts safely
@@ -723,23 +786,76 @@ def build_viewer():
         tibon_text = get_variant_text(tibon_main, key) if key else "[Text Missing in this Edition]"
         fr_text_raw = get_variant_text(french_main, key) if key else "[Text Missing in this Edition]"
         
-        # Process French text to ensure any footnote references are clickable without advancing the shared counter
+        # Extract French footnotes dynamically mapping to corresponding English footnote IDs
+        en_fn_ids = re.findall(r"showFn\('fn\.([^']+)'\)", en_text)
+        cleaned_parts = []
+        curr_idx = 0
+        fn_count = 0
+        while True:
+            pos = fr_text_raw.find('<sup class="footnote-marker">', curr_idx)
+            if pos == -1:
+                cleaned_parts.append(fr_text_raw[curr_idx:])
+                break
+            cleaned_parts.append(fr_text_raw[curr_idx:pos])
+            sup_end = fr_text_raw.find('</sup>', pos)
+            if sup_end == -1:
+                cleaned_parts.append(fr_text_raw[pos:])
+                break
+            marker = fr_text_raw[pos + len('<sup class="footnote-marker">'):sup_end].strip()
+            
+            i_start = fr_text_raw.find('<i class="footnote">', sup_end)
+            if i_start != -1:
+                content_start = i_start + len('<i class="footnote">')
+                depth = 1
+                scan_idx = content_start
+                while depth > 0 and scan_idx < len(fr_text_raw):
+                    next_open = fr_text_raw.find('<i', scan_idx)
+                    next_close = fr_text_raw.find('</i>', scan_idx)
+                    if next_close == -1:
+                        break
+                    if next_open != -1 and next_open < next_close:
+                        if fr_text_raw[next_open+2:next_open+3] in ('', ' ', '>'):
+                            depth += 1
+                            scan_idx = next_open + 2
+                        else:
+                            scan_idx = next_open + 2
+                    else:
+                        depth -= 1
+                        scan_idx = next_close + 4
+                        if depth == 0:
+                            content_end = next_close
+                            break
+                else:
+                    content_end = scan_idx
+                    scan_idx = len(fr_text_raw)
+                
+                fn_content = fr_text_raw[content_start:content_end]
+                fn_id = en_fn_ids[fn_count] if fn_count < len(en_fn_ids) else f"fr_extra_{key}_{fn_count}"
+                french_footnotes[f"fn.{fn_id}"] = fn_content
+                
+                cleaned_parts.append(f'<sup class="fn-ref" title="View Footnote" onclick="showFn(\'fn.{fn_id}\')">{marker}</sup>')
+                fn_count += 1
+                curr_idx = scan_idx
+            else:
+                curr_idx = sup_end + 6
+                
+        fr_extracted = "".join(cleaned_parts)
         saved_counter = fn_counter[0] if fn_counter is not None else None
-        fr_processed = process_en(fr_text_raw, is_asterisk=is_asterisk, fn_counter=fn_counter)
+        fr_processed = process_en(fr_extracted, is_asterisk=is_asterisk, fn_counter=fn_counter)
         if fn_counter is not None and saved_counter is not None:
             fn_counter[0] = saved_counter
             
         return f"""
         <div class="parallel-row" {row_id}>
+            <div class="en-cell">
+                <span class="col1-variant variant-en">{en_text}</span>
+                <span class="col1-variant variant-fr">{fr_processed}</span>
+            </div>
             <div class="he-cell">
                 <span class="col2-variant variant-makbili">{repair_tags(clean_he)}</span>
                 <span class="col2-variant variant-jrb">{repair_tags(jrb_text)}</span>
                 <span class="col2-variant variant-tibon">{repair_tags(tibon_text)}</span>
                 <span class="col2-variant variant-fr">{fr_processed}</span>
-            </div>
-            <div class="en-cell">
-                <span class="col1-variant variant-en">{en_text}</span>
-                <span class="col1-variant variant-fr">{fr_processed}</span>
             </div>
         </div>
         """
@@ -760,7 +876,14 @@ def build_viewer():
         else:
             consolidated_footnotes[key] = text
             
-    footnotes_json = json.dumps(consolidated_footnotes)
+    combined_footnotes = {}
+    for k in set(consolidated_footnotes.keys()).union(french_footnotes.keys()):
+        combined_footnotes[k] = {
+            "en": consolidated_footnotes.get(k, ""),
+            "fr": french_footnotes.get(k, "")
+        }
+            
+    footnotes_json = json.dumps(combined_footnotes)
 
     chapter_index_js = json.dumps([
         {"id": f"chapter-{ch['title'].replace(' ', '-').replace('/', '-')}", "title": ch['title']}
@@ -833,15 +956,15 @@ def build_viewer():
                     en_processed = re.sub(r'</?i>', '', en_processed)
                     chapter_rows_html += f"""
                     <div class="parallel-row poem-row">
-                        <div class="he-cell">{seg['he']}</div>
                         <div class="en-cell">{en_processed}</div>
+                        <div class="he-cell">{seg['he']}</div>
                     </div>
                     """
                 elif is_french_intro:
                     chapter_rows_html += f"""
                     <div class="parallel-row">
-                        <div class="fr-cell">{process_en(seg['he'], is_asterisk=is_asterisk, fn_counter=fn_counter)}</div>
                         <div class="en-cell">{en_processed}</div>
+                        <div class="fr-cell">{process_en(seg['he'], is_asterisk=is_asterisk, fn_counter=fn_counter)}</div>
                     </div>
                     """
                 else:
