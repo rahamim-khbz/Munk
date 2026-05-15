@@ -136,7 +136,8 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             .header h1 {{ font-size: 1.1rem; }}
             .theme-controls {{ display: none; }}
             .parallel-row {{ display: flex; flex-direction: column; gap: 16px; padding: 20px 0; }}
-            .right-cell {{ border-top: 1px solid var(--border); padding-top: 12px; }}
+            .left-cell {{ order: var(--left-order, 1); }}
+            .right-cell {{ order: var(--right-order, 2); border-top: 1px solid var(--border); padding-top: 12px; }}
             .chapter-header {{ padding: 24px 0 12px; order: -2; }}
             .chapter-header h2 {{ font-size: 1.4rem; }}
             .content {{ padding: 10px 16px; }}
