@@ -81,6 +81,15 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .content { padding: 20px 40px; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }
 .parallel-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 24px 0; border-bottom: 1px solid var(--border); transition: background 0.2s; }
 .parallel-row:hover { background: var(--row-hover); }
+
+/* Single Column Mode */
+.main-container[data-right-col="none"] .parallel-row { grid-template-columns: 1fr; }
+.main-container[data-right-col="none"] .right-cell { display: none; }
+
+/* Vertical Stacking Mode */
+.main-container[data-layout-mode="vertical"] .parallel-row { display: flex; flex-direction: column; gap: 24px; }
+.main-container[data-layout-mode="vertical"] .left-cell { order: var(--left-order, 1); }
+.main-container[data-layout-mode="vertical"] .right-cell { order: var(--right-order, 2); border-top: 1px solid var(--border); padding-top: 16px; }
 .chapter-header { grid-column: span 2; padding: 40px 0 20px; border-bottom: 2px solid var(--accent); margin-bottom: 20px; }
 .chapter-header h2 { margin: 0; color: var(--accent); font-weight: 700; }
 .poem-segment { color: var(--text-muted); font-size: 0.95rem; font-style: italic; }
@@ -214,8 +223,8 @@ function showFn(id) {
     const mainCont = document.querySelector('.main-container');
     const col1 = mainCont.getAttribute('data-left-col');
     const col2 = mainCont.getAttribute('data-right-col');
-    const enInView = (col1 === 'en' || col2 === 'en');
-    const frInView = (col1 === 'fr' || col2 === 'fr');
+    const enInView = (col1 === 'en' || (col2 === 'en' && col2 !== 'none'));
+    const frInView = (col1 === 'fr' || (col2 === 'fr' && col2 !== 'none'));
     
     let contentHtml = '';
     const rawEn = data.en;
@@ -297,13 +306,53 @@ function updateColumnSelectors() {
     const leftVal = leftSel.value;
     const rightVal = rightSel.value;
     const mainCont = document.querySelector('.main-container');
-    mainCont.setAttribute('data-left-col', leftVal);
-    mainCont.setAttribute('data-right-col', rightVal);
+    if (mainCont) {
+        mainCont.setAttribute('data-left-col', leftVal);
+        mainCont.setAttribute('data-right-col', rightVal);
+
+        // Smart Ordering for Vertical Mode
+        const semitic = ['makbili', 'tibon', 'jrb'];
+        const isLeftSemitic = semitic.includes(leftVal);
+        const isRightSemitic = semitic.includes(rightVal);
+        
+        if (isRightSemitic && !isLeftSemitic) {
+            mainCont.style.setProperty('--left-order', '2');
+            mainCont.style.setProperty('--right-order', '1');
+        } else {
+            mainCont.style.setProperty('--left-order', '1');
+            mainCont.style.setProperty('--right-order', '2');
+        }
+    }
+}
+
+function toggleLayoutMode() {
+    const mainCont = document.querySelector('.main-container');
+    const btn = document.getElementById('layout-toggle-btn');
+    if (!mainCont || !btn) return;
+
+    const isVertical = mainCont.getAttribute('data-layout-mode') === 'vertical';
+    const newMode = isVertical ? 'side-by-side' : 'vertical';
+    
+    mainCont.setAttribute('data-layout-mode', newMode);
+    btn.innerHTML = newMode === 'vertical' ? '📜 Stacked' : '📖 Parallel';
+    localStorage.setItem('munk-layout-mode', newMode);
 }
 
 function navigateToLanding() { window.location.href = 'index.html'; }
 
-document.addEventListener('DOMContentLoaded', () => { init(); setTheme(localStorage.getItem('munk-theme') || 'light'); });
+document.addEventListener('DOMContentLoaded', () => { 
+    init(); 
+    setTheme(localStorage.getItem('munk-theme') || 'light');
+    const savedLayout = localStorage.getItem('munk-layout-mode') || 'side-by-side';
+    if (savedLayout === 'vertical') {
+        const mainCont = document.querySelector('.main-container');
+        const btn = document.getElementById('layout-toggle-btn');
+        if (mainCont && btn) {
+            mainCont.setAttribute('data-layout-mode', 'vertical');
+            btn.innerHTML = '📜 Stacked';
+        }
+    }
+});
 """
 
 READER_HTML = """<!DOCTYPE html>
@@ -346,6 +395,7 @@ READER_HTML = """<!DOCTYPE html>
                 <div style="display: flex; align-items: center; justify-content: space-between;">
                     <label for="select-right-col" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Right Column</label>
                     <select id="select-right-col" onchange="updateColumnSelectors()" style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; width: 160px;">
+                        <option value="none">None (Single Column)</option>
                         <option value="en">Munk (AI-English)</option>
                         <option value="fr">Munk (French)</option>
                         <option value="makbili" selected>&#x05DE;&#x05E7;&#x05D1;&#x05D9;&#x05DC;&#x05D9;</option>
@@ -365,6 +415,7 @@ READER_HTML = """<!DOCTYPE html>
                 <span class="munk-label">Dalalat al-Ha'irin</span>
             </div>
             <div class="theme-controls">
+                <button onclick="toggleLayoutMode()" title="Toggle Layout" class="theme-btn" id="layout-toggle-btn">📖 Parallel</button>
                 <button onclick="setTheme('light')" title="Light" class="theme-btn" id="btn-light">&#9728;&#65039;</button>
                 <button onclick="setTheme('sepia')" title="Sepia" class="theme-btn" id="btn-sepia">&#128220;</button>
                 <button onclick="setTheme('dark')"  title="Dark"  class="theme-btn" id="btn-dark">&#127769;</button>
