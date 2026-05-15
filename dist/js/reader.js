@@ -83,15 +83,18 @@ function showFn(id) {
     const frInView = (col1 === 'fr' || col2 === 'fr');
     
     let contentHtml = '';
-    if (enInView && frInView) {
+    const rawEn = data.en;
+    const rawFr = data.fr;
+    
+    if (rawEn && rawFr) {
         contentHtml = `<div class="fn-dual-container">
-            <div class="fn-col"><span class="fn-lang-label">English</span><div>${data.en}</div></div>
-            <div class="fn-col"><span class="fn-lang-label">French</span><div>${data.fr || '[Munk Original Missing]'}</div></div>
+            <div class="fn-col"><span class="fn-lang-label">English</span><div>${rawEn}</div></div>
+            <div class="fn-col"><span class="fn-lang-label">French</span><div>${rawFr}</div></div>
         </div>`;
-    } else if (frInView && data.fr) {
-        contentHtml = `<span class="fn-lang-label">French</span><div>${data.fr}</div>`;
+    } else if (rawFr) {
+        contentHtml = `<div>${rawFr}</div>`;
     } else {
-        contentHtml = `<span class="fn-lang-label">English</span><div>${data.en}</div>`;
+        contentHtml = `<div>${rawEn || 'Note missing.'}</div>`;
     }
     
     contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')" style="cursor:pointer;">${label || '*'}</sup>`);

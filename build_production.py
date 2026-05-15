@@ -1,6 +1,7 @@
 import json
 import os
 import shutil
+import re
 
 # --- Configuration ---
 WORKSPACE = "/Users/rayhabbaz/Munk's Guide"
@@ -85,8 +86,11 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .poem-segment { color: var(--text-muted); font-size: 0.95rem; font-style: italic; }
 .header-row { border-bottom: none; padding-bottom: 0; padding-top: 32px; }
 .header-row .he-cell, .header-row .right-cell { border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }
-.chapter-thematic-title { display: block; color: var(--text-muted); font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; margin-top: 4px; width: 100%; }
-.mediumGrey { display: block; color: var(--accent); font-size: 1.15rem; font-weight: 700; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 16px; margin-top: 12px; width: 100%; }
+.chapter-thematic-title { display: block; color: var(--accent); font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; margin-top: 4px; width: 100%; }
+.mediumGrey { display: block; color: #6b7280; font-size: 1.15rem; font-weight: 700; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 16px; margin-top: 12px; width: 100%; }
+.variant-makbili b, .variant-makbili strong { color: #6b7280; }
+.variant-en b, .variant-en strong { color: #6b7280; }
+.fn-lang-label { display: none !important; }
 @media (max-width: 768px) {
     .header { padding: 10px 16px; }
     .header .munk-label { display: none; }
@@ -106,8 +110,9 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .landing-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
 .landing-links a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 4px; background: var(--surface); border: 1px solid var(--border); font-size: 0.9rem; transition: all 0.2s; display: block; text-align: center; }
 .landing-links a:hover { background: var(--accent); color: white; border-color: var(--accent); }
-.fn-panel { position: fixed; bottom: 0; left: 0; right: 0; height: 0; max-height: 35vh; background: var(--panel-bg); border-top: 2px solid var(--accent); z-index: 400; overflow: hidden; transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 20px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
-.fn-panel.open { height: 25vh; }
+.fn-panel { position: fixed; bottom: 0; left: 0; right: 0; height: 0; max-height: 45vh; background: var(--panel-bg); border-top: 1px solid var(--accent); z-index: 400; overflow: hidden; transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; border-radius: 16px 16px 0 0; }
+.fn-panel.open { height: 35vh; }
+.fn-handle { width: 36px; height: 4px; background: var(--border); border-radius: 2px; margin: 8px auto 0; flex-shrink: 0; }
 .fn-panel-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; border-bottom: 1px solid var(--border); background: var(--header-bg); flex-shrink: 0; }
 .fn-panel-label { font-weight: 700; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .fn-panel-close { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; cursor: pointer; color: var(--text-muted); font-size: 0.8rem; transition: all 0.2s; }
@@ -117,10 +122,9 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .fn-ref:hover { background: var(--fn-ref-hover); }
 .fn-dual-container { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .fn-col { display: flex; flex-direction: column; }
-.fn-lang-label { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
-@media (max-width: 768px) {
+.fn-lang-label { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; display: block !important; }
+@media (max-width: 640px) {
     .fn-dual-container { display: flex; flex-direction: column; gap: 16px; }
-    .fn-col-fr { border-bottom: 2px solid var(--accent); padding-bottom: 12px; }
 }
 .feedback-footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
 .feedback-footer a { display: inline-block; padding: 10px 20px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: all 0.2s; }
@@ -214,15 +218,18 @@ function showFn(id) {
     const frInView = (col1 === 'fr' || col2 === 'fr');
     
     let contentHtml = '';
-    if (enInView && frInView) {
+    const rawEn = data.en;
+    const rawFr = data.fr;
+    
+    if (rawEn && rawFr) {
         contentHtml = `<div class="fn-dual-container">
-            <div class="fn-col"><span class="fn-lang-label">English</span><div>${data.en}</div></div>
-            <div class="fn-col"><span class="fn-lang-label">French</span><div>${data.fr || '[Munk Original Missing]'}</div></div>
+            <div class="fn-col"><span class="fn-lang-label">English</span><div>${rawEn}</div></div>
+            <div class="fn-col"><span class="fn-lang-label">French</span><div>${rawFr}</div></div>
         </div>`;
-    } else if (frInView && data.fr) {
-        contentHtml = `<span class="fn-lang-label">French</span><div>${data.fr}</div>`;
+    } else if (rawFr) {
+        contentHtml = `<div>${rawFr}</div>`;
     } else {
-        contentHtml = `<span class="fn-lang-label">English</span><div>${data.en}</div>`;
+        contentHtml = `<div>${rawEn || 'Note missing.'}</div>`;
     }
     
     contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')" style="cursor:pointer;">${label || '*'}</sup>`);
@@ -303,8 +310,12 @@ READER_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Guide for the Perplexed - Munk Parallel Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Munk Guide">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/book/materialicons/24dp/2x/baseline_book_black_24dp.png">
+    <title>Reader - Munk Parallel Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reader.css">
 </head>
@@ -362,8 +373,9 @@ READER_HTML = """<!DOCTYPE html>
         <div class="content" id="chapter-content"></div>
     </div>
     <div id="fn-panel" class="fn-panel">
+        <div class="fn-handle"></div>
         <div class="fn-panel-header">
-            <span class="fn-panel-label">Scholarly Note</span>
+            <span class="fn-panel-label">Note</span>
             <button class="fn-panel-close" onclick="closeFnPanel()">Close</button>
         </div>
         <div id="fn-panel-body" class="fn-panel-body"></div>
@@ -376,7 +388,11 @@ LANDING_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Munk Guide">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/book/materialicons/24dp/2x/baseline_book_black_24dp.png">
     <title>The Guide for the Perplexed - Munk Parallel Reader</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reader.css">
@@ -427,6 +443,52 @@ def build():
         prod_data = json.load(f)
         english_main = prod_data["text"]
         english_footnotes = prod_data["footnotes"]
+    
+    # Modernize terminology: Replace 'Doctors' with 'Sages' in all English text
+    for key in english_main:
+        if isinstance(english_main[key], str):
+            english_main[key] = re.sub(r'\bDoctors\b', 'Sages', english_main[key])
+    for key in english_footnotes:
+        if isinstance(english_footnotes[key], str):
+            english_footnotes[key] = re.sub(r'\bDoctors\b', 'Sages', english_footnotes[key])
+
+    # Patch English phrasing per user request
+    awkward_key = "root.text.Part 2..43.0"
+    if awkward_key in english_main:
+        english_main[awkward_key] = re.sub(r'Prophecy takes not place save by means of', 'Prophecy only takes place by means of', english_main[awkward_key])
+    
+    all_extracted_fr_fns = {}
+    def process_fr_text(text, row_key):
+        if not text or not isinstance(text, str): return text
+        res = []
+        search_ptr = 0
+        while True:
+            # More flexible regex to catch markers with or without parens, spaces, etc.
+            m = re.search(r'<sup[^>]*class=["\']footnote-marker["\'][^>]*>\s*\(?(.*?)\)?\s*</sup>\s*<i[^>]*class=["\']footnote["\'][^>]*>', text[search_ptr:])
+            if not m:
+                res.append(text[search_ptr:])
+                break
+            res.append(text[search_ptr:search_ptr + m.start()])
+            marker = m.group(1).strip()
+            fn_start = search_ptr + m.end()
+            depth = 1
+            content_ptr = fn_start
+            while depth > 0 and content_ptr < len(text):
+                next_open = text.find('<i', content_ptr)
+                next_close = text.find('</i>', content_ptr)
+                if next_close == -1:
+                    content_ptr = len(text); depth = 0; break
+                if next_open != -1 and next_open < next_close:
+                    depth += 1; content_ptr = next_open + 2
+                else:
+                    depth -= 1; content_ptr = next_close + 4
+            fn_end = content_ptr - 4
+            content = text[fn_start:fn_end]
+            fn_id = f"{row_key}.fn_{marker}"
+            all_extracted_fr_fns[fn_id] = content
+            res.append(f'<sup class="fn-ref" onclick="showFn(\'{fn_id}\')">({marker})</sup>')
+            search_ptr = content_ptr
+        return "".join(res)
     
     variants = {}
     for v_name, v_path in [("fr", "French_Healed_Enriched.json"), ("jrb", "Guide for the Perplexed - he - Judeo Arabic, Paris, 1856 [jrb].json"), ("tibon", "Guide for the Perplexed - he - Moreh Nevuchim, translated by Ibn Tibon.json")]:
@@ -494,17 +556,35 @@ def build():
         slug = get_slug(ch["title"])
         rows = []
         if "custom_segments" in ch:
-            for seg in ch["custom_segments"]:
-                rows.append({"key": seg.get("key"), "variants": {"en": seg["en"], "fr": seg["he"] if ch.get("is_munk_intro") else "[Text Missing]", "makbili": seg["he"] if not ch.get("is_munk_intro") else "[Text Missing]", "jrb": "[Text Missing]", "tibon": "[Text Missing]"}})
+            for s_idx, seg in enumerate(ch["custom_segments"]):
+                rk = seg.get("key") or f"custom.{idx}.{s_idx}"
+                fr_val = seg["he"] if ch.get("is_munk_intro") else "[Text Missing]"
+                rows.append({"key": rk, "variants": {"en": seg["en"], "fr": process_fr_text(fr_val, rk), "makbili": seg["he"] if not ch.get("is_munk_intro") else "[Text Missing]", "jrb": "[Text Missing]", "tibon": "[Text Missing]"}})
         else:
             for i, he_text in enumerate(ch["segments"]):
-                key = f"{ch['key_prefix']}.{i}"; rows.append({"key": key, "variants": {"en": get_en_text(key), "makbili": he_text, "fr": get_var_text("fr", key), "jrb": get_var_text("jrb", key), "tibon": get_var_text("tibon", key)}})
+                key = f"{ch['key_prefix']}.{i}"
+                fr_raw = get_var_text("fr", key)
+                fr_processed = process_fr_text(fr_raw, key)
+                rows.append({"key": key, "variants": {"en": get_en_text(key), "makbili": he_text, "fr": fr_processed, "jrb": get_var_text("jrb", key), "tibon": get_var_text("tibon", key)}})
         ch_data = {"title": ch["title"], "rows": rows, "prev": {"title": unified_chapters[idx-1]["title"], "slug": get_slug(unified_chapters[idx-1]["title"])} if idx > 0 else None, "next": {"title": unified_chapters[idx+1]["title"], "slug": get_slug(unified_chapters[idx+1]["title"])} if idx < len(unified_chapters)-1 else None}
         with open(f"{DIST}/data/{slug}.json", "w", encoding="utf-8") as f: json.dump(ch_data, f)
         chapter_index.append({"title": ch["title"], "slug": slug, "category": ch["category"]})
     
     with open(f"{DIST}/data/chapters.json", "w", encoding="utf-8") as f: json.dump(chapter_index, f)
-    with open(f"{DIST}/data/footnotes.json", "w", encoding="utf-8") as f: json.dump({k: {"en": v, "fr": ""} for k, v in english_footnotes.items()}, f)
+    # Merge footnotes
+    merged_footnotes = {}
+    # 1. Start with English footnotes from production JSON
+    for k, v in english_footnotes.items():
+        merged_footnotes[k] = {"en": v, "fr": ""}
+    
+    # 2. Add extracted French footnotes, matching keys if possible or adding new ones
+    for k, v in all_extracted_fr_fns.items():
+        # Match "root.text.Part 2..43.0.fn_1" to English "fn.2321" or similar? 
+        # Actually, let's just use the extracted keys directly for now to ensure they show up.
+        # We also try to map them if the marker is unique in the row.
+        merged_footnotes[k] = {"en": "", "fr": v}
+
+    with open(f"{DIST}/data/footnotes.json", "w", encoding="utf-8") as f: json.dump(merged_footnotes, f)
     with open(f"{DIST}/reader.html", "w", encoding="utf-8") as f: f.write(READER_HTML)
     with open(f"{DIST}/index.html", "w", encoding="utf-8") as f: f.write(LANDING_HTML)
     with open(f"{DIST}/css/reader.css", "w", encoding="utf-8") as f: f.write(CSS_CONTENT)

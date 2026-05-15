@@ -68,8 +68,11 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .poem-segment { color: var(--text-muted); font-size: 0.95rem; font-style: italic; }
 .header-row { border-bottom: none; padding-bottom: 0; padding-top: 32px; }
 .header-row .he-cell, .header-row .right-cell { border-bottom: 2px solid var(--accent); display: inline-block; width: auto; padding-bottom: 4px; }
-.chapter-thematic-title { display: block; color: var(--text-muted); font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; margin-top: 4px; width: 100%; }
-.mediumGrey { display: block; color: var(--accent); font-size: 1.15rem; font-weight: 700; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 16px; margin-top: 12px; width: 100%; }
+.chapter-thematic-title { display: block; color: var(--accent); font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; margin-top: 4px; width: 100%; }
+.mediumGrey { display: block; color: #6b7280; font-size: 1.15rem; font-weight: 700; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 16px; margin-top: 12px; width: 100%; }
+.variant-makbili b, .variant-makbili strong { color: #6b7280; }
+.variant-en b, .variant-en strong { color: #6b7280; }
+.fn-lang-label { display: none !important; }
 @media (max-width: 768px) {
     .header { padding: 10px 16px; }
     .header .munk-label { display: none; }
@@ -89,8 +92,9 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .landing-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
 .landing-links a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 4px; background: var(--surface); border: 1px solid var(--border); font-size: 0.9rem; transition: all 0.2s; display: block; text-align: center; }
 .landing-links a:hover { background: var(--accent); color: white; border-color: var(--accent); }
-.fn-panel { position: fixed; bottom: 0; left: 0; right: 0; height: 0; max-height: 35vh; background: var(--panel-bg); border-top: 2px solid var(--accent); z-index: 400; overflow: hidden; transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 20px rgba(0,0,0,0.12); display: flex; flex-direction: column; }
-.fn-panel.open { height: 25vh; }
+.fn-panel { position: fixed; bottom: 0; left: 0; right: 0; height: 0; max-height: 45vh; background: var(--panel-bg); border-top: 1px solid var(--accent); z-index: 400; overflow: hidden; transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 -4px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; border-radius: 16px 16px 0 0; }
+.fn-panel.open { height: 35vh; }
+.fn-handle { width: 36px; height: 4px; background: var(--border); border-radius: 2px; margin: 8px auto 0; flex-shrink: 0; }
 .fn-panel-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; border-bottom: 1px solid var(--border); background: var(--header-bg); flex-shrink: 0; }
 .fn-panel-label { font-weight: 700; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .fn-panel-close { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; cursor: pointer; color: var(--text-muted); font-size: 0.8rem; transition: all 0.2s; }
@@ -100,10 +104,9 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .fn-ref:hover { background: var(--fn-ref-hover); }
 .fn-dual-container { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .fn-col { display: flex; flex-direction: column; }
-.fn-lang-label { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
-@media (max-width: 768px) {
+.fn-lang-label { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; display: block !important; }
+@media (max-width: 640px) {
     .fn-dual-container { display: flex; flex-direction: column; gap: 16px; }
-    .fn-col-fr { border-bottom: 2px solid var(--accent); padding-bottom: 12px; }
 }
 .feedback-footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
 .feedback-footer a { display: inline-block; padding: 10px 20px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: all 0.2s; }
