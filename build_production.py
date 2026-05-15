@@ -239,10 +239,12 @@ function showFn(id) {
             <div class="fn-col"><span class="fn-lang-label">English</span><div>${rawEn}</div></div>
             <div class="fn-col"><span class="fn-lang-label">French</span><div>${rawFr}</div></div>
         </div>`;
-    } else if (rawFr) {
+    } else if (rawEn && (col1 === 'en' || col2 === 'en')) {
+        contentHtml = `<div>${rawEn}</div>`;
+    } else if (rawFr && (col1 === 'fr' || col2 === 'fr')) {
         contentHtml = `<div>${rawFr}</div>`;
     } else {
-        contentHtml = `<div>${rawEn || 'Note missing.'}</div>`;
+        contentHtml = `<div>${rawEn || rawFr || 'Note missing.'}</div>`;
     }
     
     contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')" style="cursor:pointer;">${label || '*'}</sup>`);

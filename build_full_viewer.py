@@ -523,7 +523,7 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
             );
             
             let contentHtml = '';
-            if (rawEn && rawFr && isComparingEnglishFrench) {
+            if (rawEn && rawFr && isComparingEnglishFrench) {{
                 contentHtml = `
                 <div class="fn-dual-container">
                     <div class="fn-col">
@@ -536,10 +536,12 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
                     </div>
                 </div>
                 `;
-            }} else if (rawFr) {{
+            }} else if (rawEn && (col1 === 'en' || col2 === 'en')) {{
+                contentHtml = cleanEn;
+            }} else if (rawFr && (col1 === 'fr' || col2 === 'fr')) {{
                 contentHtml = cleanFr;
             }} else {{
-                contentHtml = cleanEn;
+                contentHtml = cleanEn || cleanFr || '<em>[Note missing]</em>';
             }}
             
             document.getElementById('fn-panel-label').textContent = 'Note';
