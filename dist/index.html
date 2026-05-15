@@ -12,22 +12,11 @@
 <body style="overflow-y:auto; height:auto; display:block;">
     <div class="content">
         <div class="toc-landing-page">
-            <h1 class="landing-title" style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px; text-align:center;">
-                AI-Assisted Translation of Salomon Munk's French Translation of the Guide to the Perplexed;<br>
-                <span style="font-size: 1.5rem; opacity: 0.8;">Hebrew from Makbili Edition</span>
-            </h1>
-            
-            <div style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
-                Sources: 
-                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> | 
-                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a>
-                <br>
-                <p style="max-width: 600px; margin: 10px auto; font-style: italic;">
-                    This digital edition is optimized for the iPad Mini, providing a high-fidelity parallel reading experience
-                    of Salomon Munk's scholarly edition of the Guide for the Perplexed.
-                </p>
+            <h1 class="landing-title">AI-Assisted Translation of Salomon Munk's French Translation of the Guide to the Perplexed;<br><span style="font-size: 1.5rem; opacity: 0.8;">Hebrew from Makbili Edition</span></h1>
+            <div style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: var(--text-muted);">
+                Sources: <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> | <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a>
+                <p style="max-width: 600px; margin: 10px auto; font-style: italic;">This digital edition is optimized for the iPad Mini, providing a high-fidelity parallel reading experience of Salomon Munk's scholarly edition.</p>
             </div>
-
             <div id="landing-grid" class="landing-grid"></div>
         </div>
     </div>
@@ -35,32 +24,9 @@
         fetch('data/chapters.json').then(r => r.json()).then(chapters => {
             const grid = document.getElementById('landing-grid');
             const groups = { "Munk's Prefaces": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [], "Munk's Endnotes": [] };
-            
-            chapters.forEach(ch => {
-                if (ch.title.includes("Introduction to Volume") || ch.title === "Note On The Title") groups["Munk's Prefaces"].push(ch);
-                else if (ch.title.includes("Endnotes to Volume")) groups["Munk's Endnotes"].push(ch);
-                else if (ch.title.startsWith("Part 1")) groups["Part 1"].push(ch);
-                else if (ch.title.startsWith("Part 2")) groups["Part 2"].push(ch);
-                else if (ch.title.startsWith("Part 3")) groups["Part 3"].push(ch);
-                else groups["Introductions"].push(ch);
-            });
-
-            // Helper to determine group name more precisely
-            function getGroupName(title) {
-                if (title.includes("Introduction to Volume") || title === "Note On The Title") return "Munk's Prefaces";
-                if (title.includes("Endnotes to Volume")) return "Munk's Endnotes";
-                if (title.startsWith("Part 1")) return "Part 1";
-                if (title.startsWith("Part 2")) return "Part 2";
-                if (title.startsWith("Part 3")) return "Part 3";
-                return "Introductions";
-            }
-
-            // Re-group using helper to be safe
-            const finalGroups = { "Munk's Prefaces": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [], "Munk's Endnotes": [] };
-            chapters.forEach(ch => finalGroups[getGroupName(ch.title)].push(ch));
-
+            chapters.forEach(ch => { if (groups[ch.category]) groups[ch.category].push(ch); });
             let html = '';
-            for (const [name, list] of Object.entries(finalGroups)) {
+            for (const [name, list] of Object.entries(groups)) {
                 if (list.length === 0) continue;
                 html += `<div class="landing-section"><h3>${name}</h3><div class="landing-links">`;
                 list.forEach(ch => {

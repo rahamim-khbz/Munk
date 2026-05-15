@@ -2,7 +2,6 @@
 let footnotes = {};
 let chapterIndex = [];
 let activeChapterId = null;
-let activeFnId = null;
 
 async function init() {
     try {
@@ -30,9 +29,6 @@ async function init() {
 function setTheme(mode) {
     document.documentElement.className = mode === 'light' ? '' : mode;
     localStorage.setItem('munk-theme', mode);
-    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-    const btn = document.getElementById('btn-' + mode);
-    if(btn) btn.classList.add('active');
 }
 
 function toggleTOC() {
@@ -44,21 +40,11 @@ function buildTOC() {
     const body = document.getElementById('toc-body');
     if (!body) return;
     body.innerHTML = '';
-    const groups = { "Munk's Prefaces": [], 'Introductions': [], 'Part 1': [], 'Part 2': [], 'Part 3': [], "Munk's Endnotes": [] };
     
+    const groups = { "Munk's Prefaces": [], 'Introductions': [], 'Part 1': [], 'Part 2': [], 'Part 3': [], "Munk's Endnotes": [] };
     chapterIndex.forEach(ch => {
-        const m = ch.title.match(/^Part (\d) - (Chapter \d+|Introduction)$/);
-        if (m) {
-            const isIntro = m[2] === 'Introduction';
-            let num = isIntro ? 'Intro' : parseInt(m[2].replace('Chapter ', ''));
-            groups[`Part ${m[1]}`].push({ title: ch.title, slug: ch.slug, num: num, id: ch.id, isIntro: isIntro });
-        } else if (["Introduction to Volume I", "Introduction to Volume II", "Introduction to Volume III", "Note On The Title"].includes(ch.title)) {
-            groups["Munk's Prefaces"].push(ch);
-        } else if (["Endnotes to Volume I", "Endnotes to Volume II", "Endnotes to Volume III"].includes(ch.title)) {
-            groups["Munk's Endnotes"].push(ch);
-        } else {
-            groups["Introductions"].push(ch);
-        }
+        const cat = ch.category || "Introductions";
+        if (groups[cat]) groups[cat].push(ch);
     });
 
     for (const [groupName, chapters] of Object.entries(groups)) {
@@ -71,11 +57,13 @@ function buildTOC() {
         const panel = document.createElement('div');
         panel.style.display = 'none';
         
-        if (["Introductions", "Munk's Prefaces", "Munk's Endnotes"].includes(groupName)) {
+        const isGrid = groupName.startsWith("Part");
+        if (!isGrid) {
             chapters.forEach(ch => {
                 const tile = document.createElement('div');
                 tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '8px'; tile.style.aspectRatio = 'auto';
-                tile.textContent = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
+                let name = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
+                tile.textContent = name;
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 panel.appendChild(tile);
             });
@@ -85,8 +73,10 @@ function buildTOC() {
             grid.className = 'toc-tile-grid';
             chapters.forEach(ch => {
                 const tile = document.createElement('div');
-                tile.className = 'toc-tile'; tile.textContent = ch.num;
-                if (ch.isIntro) { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '8px'; }
+                tile.className = 'toc-tile'; 
+                let num = ch.title.match(/Chapter (\d+)/) ? ch.title.match(/Chapter (\d+)/)[1] : "Intro";
+                tile.textContent = num;
+                if (num === "Intro") { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '8px'; }
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 grid.appendChild(tile);
             });
@@ -94,7 +84,7 @@ function buildTOC() {
         }
         btn.onclick = () => {
             const isHidden = panel.style.display === 'none';
-            panel.style.display = isHidden ? (["Introductions", "Munk's Prefaces", "Munk's Endnotes"].includes(groupName) ? 'grid' : 'block') : 'none';
+            panel.style.display = isHidden ? (isGrid ? 'block' : 'grid') : 'none';
             btn.classList.toggle('open', isHidden);
         };
         body.appendChild(panel);
@@ -116,8 +106,7 @@ function showFn(id) {
     } else if (frInView && data.fr) contentHtml = data.fr;
     else contentHtml = data.en;
     
-    // Process internal links/references if any
-    contentHtml = contentHtml.replace(/\[\[fn:(\d+)\]\]/g, (m, n) => `<sup class="fn-marker">[*]</sup>`);
+    contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-marker">${label || '*'}</sup>`);
     
     document.getElementById('fn-panel-body').innerHTML = contentHtml;
     panel.classList.add('open');
@@ -137,7 +126,6 @@ async function loadChapter(slug) {
         const res = await fetch(`data/${slug}.json`);
         const data = await res.json();
         
-        activeChapterId = data.id;
         document.getElementById('main-title').textContent = data.title;
         document.title = data.title + " - Munk's Guide";
         
@@ -146,13 +134,13 @@ async function loadChapter(slug) {
             html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
                 <div class="left-cell">
                     ${Object.entries(row.variants).map(([v, t]) => {
-                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
+                        let processed = t.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (match, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">${label || '*'}</sup>`);
                         return `<span class="variant-span variant-${v}">${processed}</span>`;
                     }).join('')}
                 </div>
                 <div class="right-cell">
                     ${Object.entries(row.variants).map(([v, t]) => {
-                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
+                        let processed = t.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (match, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">${label || '*'}</sup>`);
                         return `<span class="variant-span variant-${v}">${processed}</span>`;
                     }).join('')}
                 </div>
@@ -175,7 +163,7 @@ async function loadChapter(slug) {
 }
 
 function updateSelectionState(title) {
-    const isMunkSection = title.startsWith('Introduction to Volume') || title === 'Note On The Title' || title.startsWith('Endnotes to Volume');
+    const isMunkSection = title.includes('Volume') || title === 'Note On The Title';
     const restrictedVariants = ['makbili', 'tibon', 'jrb'];
     const leftSel = document.getElementById('select-left-col');
     const rightSel = document.getElementById('select-right-col');
@@ -202,55 +190,6 @@ function updateColumnSelectors() {
     Array.from(leftSel.options).forEach(opt => opt.disabled = opt.value === rightVal);
     Array.from(rightSel.options).forEach(opt => opt.disabled = opt.value === leftVal);
 }
-
-    let contentHtml = '';
-    if (enInView && frInView) {
-        contentHtml = `<div class="fn-dual-container"><div class="fn-col"><div class="fn-lang-label">English</div><div>${data.en}</div></div><div class="fn-col"><div class="fn-lang-label">French</div><div>${data.fr}</div></div></div>`;
-    } else if (frInView) contentHtml = data.fr;
-    else contentHtml = data.en;
-    
-    // Process internal links/references if any
-    contentHtml = contentHtml.replace(/\[\[fn:(\d+)\]\]/g, (m, n) => `<sup class="fn-marker">[*]</sup>`);
-    
-    document.getElementById('fn-panel-body').innerHTML = contentHtml;
-    panel.classList.add('open');
-    mainCont.classList.add('fn-open');
-}
-
-function closeFnPanel() {
-    document.getElementById('fn-panel').classList.remove('open');
-    document.querySelector('.main-container').classList.remove('fn-open');
-}
-
-async function loadChapter(slug) {
-    const content = document.getElementById('chapter-content');
-    content.innerHTML = '<div style="padding:40px; text-align:center;">Loading Text...</div>';
-    
-    try {
-        const res = await fetch(`data/${slug}.json`);
-        const data = await res.json();
-        
-        activeChapterId = data.id;
-        document.getElementById('main-title').textContent = data.title;
-        document.title = data.title + " - Munk's Guide";
-        
-        let html = `<div class='chapter-header'><h2>${data.title}</h2></div>`;
-        data.rows.forEach(row => {
-            html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
-                <div class="left-cell">
-                    ${Object.entries(row.variants).map(([v, t]) => {
-                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
-                        return `<span class="variant-span variant-${v}">${processed}</span>`;
-                    }).join('')}
-                </div>
-                <div class="right-cell">
-                    ${Object.entries(row.variants).map(([v, t]) => {
-                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
-                        return `<span class="variant-span variant-${v}">${processed}</span>`;
-                    }).join('')}
-                </div>
-            </div>`;
-        });
 
 document.addEventListener('DOMContentLoaded', () => {
     init();
