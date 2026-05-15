@@ -457,38 +457,39 @@ def build():
     if awkward_key in english_main:
         english_main[awkward_key] = re.sub(r'Prophecy takes not place save by means of', 'Prophecy only takes place by means of', english_main[awkward_key])
     
-    all_extracted_fr_fns = {}
-    def process_fr_text(text, row_key):
-        if not text or not isinstance(text, str): return text
-        res = []
-        search_ptr = 0
+    all_unified_footnotes = {}
+    def process_row_footnotes(en_text, fr_text, row_key):
+        if not row_key: return en_text, fr_text
+        final_en = en_text; final_fr = fr_text
+        
+        # English
+        en_matches = list(re.finditer(r"\[\[fn:(\d+)(?:\|([^\]]+))?\]\]", final_en))
+        for i in range(len(en_matches)-1, -1, -1):
+            m = en_matches[i]; u_id = f"{row_key}.fn_{i+1}"; old_id = f"fn.{m.group(1)}"
+            if u_id not in all_unified_footnotes: all_unified_footnotes[u_id] = {"en": "", "fr": ""}
+            all_unified_footnotes[u_id]["en"] = english_footnotes.get(old_id, "")
+            label = m.group(2) or str(i+1)
+            final_en = final_en[:m.start()] + f'<sup class="fn-ref" onclick="showFn(\'{u_id}\')">{label}</sup>' + final_en[m.end():]
+
+        # French
+        fr_matches = []; search_ptr = 0
         while True:
-            # More flexible regex to catch markers with or without parens, spaces, etc.
-            m = re.search(r'<sup[^>]*class=["\']footnote-marker["\'][^>]*>\s*\(?(.*?)\)?\s*</sup>\s*<i[^>]*class=["\']footnote["\'][^>]*>', text[search_ptr:])
-            if not m:
-                res.append(text[search_ptr:])
-                break
-            res.append(text[search_ptr:search_ptr + m.start()])
-            marker = m.group(1).strip()
-            fn_start = search_ptr + m.end()
-            depth = 1
-            content_ptr = fn_start
-            while depth > 0 and content_ptr < len(text):
-                next_open = text.find('<i', content_ptr)
-                next_close = text.find('</i>', content_ptr)
-                if next_close == -1:
-                    content_ptr = len(text); depth = 0; break
-                if next_open != -1 and next_open < next_close:
-                    depth += 1; content_ptr = next_open + 2
-                else:
-                    depth -= 1; content_ptr = next_close + 4
-            fn_end = content_ptr - 4
-            content = text[fn_start:fn_end]
-            fn_id = f"{row_key}.fn_{marker}"
-            all_extracted_fr_fns[fn_id] = content
-            res.append(f'<sup class="fn-ref" onclick="showFn(\'{fn_id}\')">({marker})</sup>')
-            search_ptr = content_ptr
-        return "".join(res)
+            m = re.search(r'<sup[^>]*class=["\']footnote-marker["\'][^>]*>\s*\(?(.*?)\)?\s*</sup>\s*<i[^>]*class=["\']footnote["\'][^>]*>', final_fr[search_ptr:])
+            if not m: break
+            s = search_ptr+m.start(); marker = m.group(1).strip(); f_s = search_ptr+m.end(); d = 1; c = f_s
+            while d > 0 and c < len(final_fr):
+                no = final_fr.find('<i', c); nc = final_fr.find('</i>', c)
+                if nc == -1: c = len(final_fr); d = 0; break
+                if no != -1 and no < nc: d += 1; c = no+2
+                else: d -= 1; c = nc+4
+            fr_matches.append({"start": s, "end": c, "content": final_fr[f_s:c-4], "marker": marker}); search_ptr = c
+
+        for i in range(len(fr_matches)-1, -1, -1):
+            m = fr_matches[i]; u_id = f"{row_key}.fn_{i+1}"
+            if u_id not in all_unified_footnotes: all_unified_footnotes[u_id] = {"en": "", "fr": ""}
+            all_unified_footnotes[u_id]["fr"] = m["content"]
+            final_fr = final_fr[:m["start"]] + f'<sup class="fn-ref" onclick="showFn(\'{u_id}\')">({m["marker"]})</sup>' + final_fr[m["end"]:]
+        return final_en, final_fr
     
     variants = {}
     for v_name, v_path in [("fr", "French_Healed_Enriched.json"), ("jrb", "Guide for the Perplexed - he - Judeo Arabic, Paris, 1856 [jrb].json"), ("tibon", "Guide for the Perplexed - he - Moreh Nevuchim, translated by Ibn Tibon.json")]:
@@ -559,32 +560,21 @@ def build():
             for s_idx, seg in enumerate(ch["custom_segments"]):
                 rk = seg.get("key") or f"custom.{idx}.{s_idx}"
                 fr_val = seg["he"] if ch.get("is_munk_intro") else "[Text Missing]"
-                rows.append({"key": rk, "variants": {"en": seg["en"], "fr": process_fr_text(fr_val, rk), "makbili": seg["he"] if not ch.get("is_munk_intro") else "[Text Missing]", "jrb": "[Text Missing]", "tibon": "[Text Missing]"}})
+                en_p, fr_p = process_row_footnotes(seg["en"], fr_val, rk)
+                rows.append({"key": rk, "variants": {"en": en_p, "fr": fr_p, "makbili": seg["he"] if not ch.get("is_munk_intro") else "[Text Missing]", "jrb": "[Text Missing]", "tibon": "[Text Missing]"}})
         else:
             for i, he_text in enumerate(ch["segments"]):
                 key = f"{ch['key_prefix']}.{i}"
+                en_raw = get_en_text(key)
                 fr_raw = get_var_text("fr", key)
-                fr_processed = process_fr_text(fr_raw, key)
-                rows.append({"key": key, "variants": {"en": get_en_text(key), "makbili": he_text, "fr": fr_processed, "jrb": get_var_text("jrb", key), "tibon": get_var_text("tibon", key)}})
+                en_p, fr_p = process_row_footnotes(en_raw, fr_raw, key)
+                rows.append({"key": key, "variants": {"en": en_p, "makbili": he_text, "fr": fr_p, "jrb": get_var_text("jrb", key), "tibon": get_var_text("tibon", key)}})
         ch_data = {"title": ch["title"], "rows": rows, "prev": {"title": unified_chapters[idx-1]["title"], "slug": get_slug(unified_chapters[idx-1]["title"])} if idx > 0 else None, "next": {"title": unified_chapters[idx+1]["title"], "slug": get_slug(unified_chapters[idx+1]["title"])} if idx < len(unified_chapters)-1 else None}
         with open(f"{DIST}/data/{slug}.json", "w", encoding="utf-8") as f: json.dump(ch_data, f)
         chapter_index.append({"title": ch["title"], "slug": slug, "category": ch["category"]})
     
     with open(f"{DIST}/data/chapters.json", "w", encoding="utf-8") as f: json.dump(chapter_index, f)
-    # Merge footnotes
-    merged_footnotes = {}
-    # 1. Start with English footnotes from production JSON
-    for k, v in english_footnotes.items():
-        merged_footnotes[k] = {"en": v, "fr": ""}
-    
-    # 2. Add extracted French footnotes, matching keys if possible or adding new ones
-    for k, v in all_extracted_fr_fns.items():
-        # Match "root.text.Part 2..43.0.fn_1" to English "fn.2321" or similar? 
-        # Actually, let's just use the extracted keys directly for now to ensure they show up.
-        # We also try to map them if the marker is unique in the row.
-        merged_footnotes[k] = {"en": "", "fr": v}
-
-    with open(f"{DIST}/data/footnotes.json", "w", encoding="utf-8") as f: json.dump(merged_footnotes, f)
+    with open(f"{DIST}/data/footnotes.json", "w", encoding="utf-8") as f: json.dump(all_unified_footnotes, f)
     with open(f"{DIST}/reader.html", "w", encoding="utf-8") as f: f.write(READER_HTML)
     with open(f"{DIST}/index.html", "w", encoding="utf-8") as f: f.write(LANDING_HTML)
     with open(f"{DIST}/css/reader.css", "w", encoding="utf-8") as f: f.write(CSS_CONTENT)
