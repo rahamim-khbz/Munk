@@ -93,13 +93,16 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .chapter-header { padding: 40px 0 20px; border-bottom: 2px solid var(--accent); margin-bottom: 20px; }
 .chapter-header h2 { margin: 0; color: var(--accent); }
 
+.toc-landing-page { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+.landing-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
 .landing-title { font-family: 'Frank Ruhl Libre', serif; font-size: 3rem; margin-bottom: 8px; text-align: center; }
 .landing-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; font-size: 1.1rem; text-transform: uppercase; }
 .landing-section { margin-bottom: 40px; }
 .landing-section h3 { border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 20px; font-size: 1.2rem; color: var(--accent); }
-.landing-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-.landing-links a { text-decoration: none; color: var(--text); padding: 10px; border: 1px solid var(--border); border-radius: 4px; text-align: center; transition: background 0.2s; }
-.landing-links a:hover { background: var(--accent); color: white; }
+.landing-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.landing-links a { text-decoration: none; color: var(--text); padding: 12px; border: 1px solid var(--border); border-radius: 8px; text-align: center; transition: all 0.2s; background: var(--surface); font-weight: 500; font-size: 0.95rem; }
+.landing-links a:hover { background: var(--accent); color: white; border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
 .fn-dual-container { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .fn-lang-label { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.fn-marker { color: var(--accent); font-weight: bold; cursor: help; }

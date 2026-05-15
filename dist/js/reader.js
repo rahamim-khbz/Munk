@@ -101,6 +101,34 @@ function buildTOC() {
     }
 }
 
+function showFn(id) {
+    const panel = document.getElementById('fn-panel');
+    const data = footnotes[id] || {en: 'Note content missing.', fr: ''};
+    const mainCont = document.querySelector('.main-container');
+    const col1 = mainCont.getAttribute('data-left-col');
+    const col2 = mainCont.getAttribute('data-right-col');
+    const enInView = (col1 === 'en' || col2 === 'en');
+    const frInView = (col1 === 'fr' || col2 === 'fr');
+    
+    let contentHtml = '';
+    if (enInView && frInView) {
+        contentHtml = `<div class="fn-dual-container"><div class="fn-col"><div class="fn-lang-label">English</div><div>${data.en}</div></div><div class="fn-col"><div class="fn-lang-label">French</div><div>${data.fr}</div></div></div>`;
+    } else if (frInView && data.fr) contentHtml = data.fr;
+    else contentHtml = data.en;
+    
+    // Process internal links/references if any
+    contentHtml = contentHtml.replace(/\[\[fn:(\d+)\]\]/g, (m, n) => `<sup class="fn-marker">[*]</sup>`);
+    
+    document.getElementById('fn-panel-body').innerHTML = contentHtml;
+    panel.classList.add('open');
+    mainCont.classList.add('fn-open');
+}
+
+function closeFnPanel() {
+    document.getElementById('fn-panel').classList.remove('open');
+    document.querySelector('.main-container').classList.remove('fn-open');
+}
+
 async function loadChapter(slug) {
     const content = document.getElementById('chapter-content');
     content.innerHTML = '<div style="padding:40px; text-align:center;">Loading Text...</div>';
@@ -117,10 +145,16 @@ async function loadChapter(slug) {
         data.rows.forEach(row => {
             html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
                 <div class="left-cell">
-                    ${Object.entries(row.variants).map(([v, t]) => `<span class="variant-span variant-${v}">${t}</span>`).join('')}
+                    ${Object.entries(row.variants).map(([v, t]) => {
+                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
+                        return `<span class="variant-span variant-${v}">${processed}</span>`;
+                    }).join('')}
                 </div>
                 <div class="right-cell">
-                    ${Object.entries(row.variants).map(([v, t]) => `<span class="variant-span variant-${v}">${t}</span>`).join('')}
+                    ${Object.entries(row.variants).map(([v, t]) => {
+                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
+                        return `<span class="variant-span variant-${v}">${processed}</span>`;
+                    }).join('')}
                 </div>
             </div>`;
         });
@@ -169,20 +203,14 @@ function updateColumnSelectors() {
     Array.from(rightSel.options).forEach(opt => opt.disabled = opt.value === leftVal);
 }
 
-function showFn(id) {
-    const panel = document.getElementById('fn-panel');
-    const data = footnotes[id] || {en: '', fr: ''};
-    const mainCont = document.querySelector('.main-container');
-    const col1 = mainCont.getAttribute('data-left-col');
-    const col2 = mainCont.getAttribute('data-right-col');
-    const enInView = (col1 === 'en' || col2 === 'en');
-    const frInView = (col1 === 'fr' || col2 === 'fr');
-    
     let contentHtml = '';
     if (enInView && frInView) {
         contentHtml = `<div class="fn-dual-container"><div class="fn-col"><div class="fn-lang-label">English</div><div>${data.en}</div></div><div class="fn-col"><div class="fn-lang-label">French</div><div>${data.fr}</div></div></div>`;
     } else if (frInView) contentHtml = data.fr;
     else contentHtml = data.en;
+    
+    // Process internal links/references if any
+    contentHtml = contentHtml.replace(/\[\[fn:(\d+)\]\]/g, (m, n) => `<sup class="fn-marker">[*]</sup>`);
     
     document.getElementById('fn-panel-body').innerHTML = contentHtml;
     panel.classList.add('open');
@@ -193,6 +221,36 @@ function closeFnPanel() {
     document.getElementById('fn-panel').classList.remove('open');
     document.querySelector('.main-container').classList.remove('fn-open');
 }
+
+async function loadChapter(slug) {
+    const content = document.getElementById('chapter-content');
+    content.innerHTML = '<div style="padding:40px; text-align:center;">Loading Text...</div>';
+    
+    try {
+        const res = await fetch(`data/${slug}.json`);
+        const data = await res.json();
+        
+        activeChapterId = data.id;
+        document.getElementById('main-title').textContent = data.title;
+        document.title = data.title + " - Munk's Guide";
+        
+        let html = `<div class='chapter-header'><h2>${data.title}</h2></div>`;
+        data.rows.forEach(row => {
+            html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
+                <div class="left-cell">
+                    ${Object.entries(row.variants).map(([v, t]) => {
+                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
+                        return `<span class="variant-span variant-${v}">${processed}</span>`;
+                    }).join('')}
+                </div>
+                <div class="right-cell">
+                    ${Object.entries(row.variants).map(([v, t]) => {
+                        let processed = t.replace(/\[\[fn:(\d+)\]\]/g, (match, n) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">[*]</sup>`);
+                        return `<span class="variant-span variant-${v}">${processed}</span>`;
+                    }).join('')}
+                </div>
+            </div>`;
+        });
 
 document.addEventListener('DOMContentLoaded', () => {
     init();
