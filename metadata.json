@@ -1,5 +1,0 @@
-{
-  "name": "The Tourgeman",
-  "description": "A reading mode application that provides side-by-side translation using Gemini, with paragraph-level alignment.",
-  "requestFramePermissions": []
-}
