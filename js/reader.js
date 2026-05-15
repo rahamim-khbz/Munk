@@ -1,4 +1,5 @@
 
+// Version: 1.0.1 - Footnote Priority Fix
 let footnotes = {};
 let chapterIndex = [];
 
