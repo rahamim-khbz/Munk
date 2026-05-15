@@ -79,14 +79,16 @@ function showFn(id) {
     const mainCont = document.querySelector('.main-container');
     const col1 = mainCont.getAttribute('data-left-col');
     const col2 = mainCont.getAttribute('data-right-col');
-    const enInView = (col1 === 'en' || (col2 === 'en' && col2 !== 'none'));
-    const frInView = (col1 === 'fr' || (col2 === 'fr' && col2 !== 'none'));
+    const isComparingEnglishFrench = (
+        (col1 === 'en' && col2 === 'fr') || 
+        (col1 === 'fr' && col2 === 'en')
+    );
     
     let contentHtml = '';
     const rawEn = data.en;
     const rawFr = data.fr;
     
-    if (rawEn && rawFr) {
+    if (rawEn && rawFr && isComparingEnglishFrench) {
         contentHtml = `<div class="fn-dual-container">
             <div class="fn-col"><span class="fn-lang-label">English</span><div>${rawEn}</div></div>
             <div class="fn-col"><span class="fn-lang-label">French</span><div>${rawFr}</div></div>
@@ -161,10 +163,20 @@ function updateColumnSelectors() {
     if (!leftSel) return;
     const leftVal = leftSel.value;
     const rightVal = rightSel.value;
+    
+    // (2) Force English Left / Hebrew Right swap logic
+    const hebrewVariants = ['makbili', 'tibon', 'jrb'];
+    if (hebrewVariants.includes(leftVal) && rightVal === 'en') {
+        leftSel.value = 'en';
+        rightSel.value = leftVal;
+        updateColumnSelectors();
+        return;
+    }
+
     const mainCont = document.querySelector('.main-container');
     if (mainCont) {
-        mainCont.setAttribute('data-left-col', leftVal);
-        mainCont.setAttribute('data-right-col', rightVal);
+        mainCont.setAttribute('data-left-col', leftSel.value);
+        mainCont.setAttribute('data-right-col', rightSel.value);
 
         // Smart Ordering for Vertical Mode
         const semitic = ['makbili', 'tibon', 'jrb'];
