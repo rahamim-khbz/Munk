@@ -29,6 +29,8 @@ async function init() {
 function setTheme(mode) {
     document.documentElement.className = mode === 'light' ? '' : mode;
     localStorage.setItem('munk-theme', mode);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + mode)?.classList.add('active');
 }
 
 function toggleTOC() {
@@ -61,13 +63,12 @@ function buildTOC() {
         if (!isGrid) {
             chapters.forEach(ch => {
                 const tile = document.createElement('div');
-                tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '8px'; tile.style.aspectRatio = 'auto';
-                let name = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
-                tile.textContent = name;
+                tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '8px 16px'; tile.style.aspectRatio = 'auto';
+                tile.textContent = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 panel.appendChild(tile);
             });
-            panel.style.padding = '0 12px 16px'; panel.style.display = 'grid'; panel.style.gap = '6px';
+            panel.style.padding = '8px 20px 20px'; panel.style.display = 'grid'; panel.style.gap = '8px';
         } else {
             const grid = document.createElement('div');
             grid.className = 'toc-tile-grid';
@@ -76,7 +77,7 @@ function buildTOC() {
                 tile.className = 'toc-tile'; 
                 let num = ch.title.match(/Chapter (\d+)/) ? ch.title.match(/Chapter (\d+)/)[1] : "Intro";
                 tile.textContent = num;
-                if (num === "Intro") { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '8px'; }
+                if (num === "Intro") { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '10px'; }
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 grid.appendChild(tile);
             });
@@ -120,7 +121,7 @@ function closeFnPanel() {
 
 async function loadChapter(slug) {
     const content = document.getElementById('chapter-content');
-    content.innerHTML = '<div style="padding:40px; text-align:center;">Loading Text...</div>';
+    content.innerHTML = '<div style="padding:100px; text-align:center; font-style:italic; opacity:0.6;">Loading Manuscript...</div>';
     
     try {
         const res = await fetch(`data/${slug}.json`);
@@ -147,18 +148,18 @@ async function loadChapter(slug) {
             </div>`;
         });
         
-        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:40px; padding-top:20px; border-top:1px solid var(--border);">`;
-        if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="nav-btn" style="text-decoration:none; color:var(--accent); font-weight:bold;">← Previous: ${data.prev.title}</a>`;
-        else html += '<div></div>';
-        if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="nav-btn" style="text-decoration:none; color:var(--accent); font-weight:bold;">Next: ${data.next.title} →</a>`;
-        else html += '<div></div>';
+        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:60px; padding:40px 0; border-top:2px solid var(--border);">`;
+        if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="landing-links a" style="flex:1; margin-right:10px;">← ${data.prev.title}</a>`;
+        else html += '<div style="flex:1;"></div>';
+        if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="landing-links a" style="flex:1; margin-left:10px;">${data.next.title} →</a>`;
+        else html += '<div style="flex:1;"></div>';
         html += `</div>`;
         
         content.innerHTML = html;
         document.querySelector('.main-container').scrollTop = 0;
         updateSelectionState(data.title);
     } catch (e) {
-        content.innerHTML = '<div style="padding:40px; text-align:center; color:red;">Failed to load chapter.</div>';
+        content.innerHTML = '<div style="padding:100px; text-align:center; color:red;">Failed to retrieve segment data.</div>';
     }
 }
 

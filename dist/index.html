@@ -7,15 +7,17 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="assets/icon-mini.png">
     <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reader.css">
 </head>
 <body style="overflow-y:auto; height:auto; display:block;">
     <div class="content">
         <div class="toc-landing-page">
-            <h1 class="landing-title">AI-Assisted Translation of Salomon Munk's French Translation of the Guide to the Perplexed;<br><span style="font-size: 1.5rem; opacity: 0.8;">Hebrew from Makbili Edition</span></h1>
-            <div style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: var(--text-muted);">
-                Sources: <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> | <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a>
-                <p style="max-width: 600px; margin: 10px auto; font-style: italic;">This digital edition is optimized for the iPad Mini, providing a high-fidelity parallel reading experience of Salomon Munk's scholarly edition.</p>
+            <h1 class="landing-title">Salomon Munk's Guide for the Perplexed</h1>
+            <div class="landing-subtitle">Digital Scholarly Edition</div>
+            <div style="text-align: center; margin-bottom: 60px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                Parallel translation of the French original with Makbili Hebrew sources.<br>
+                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent-gold); font-weight:700; text-decoration:none;">Open Source via Sefaria</a>
             </div>
             <div id="landing-grid" class="landing-grid"></div>
         </div>
@@ -32,7 +34,7 @@
                 list.forEach(ch => {
                     let displayName = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
                     if (displayName === "Letter to R Joseph son of Judah") displayName = "Letter to R. Joseph";
-                    html += `<a href="reader.html?ch=${ch.slug}">${displayName}</a>`;
+                    html += `<a href="reader.html?ch=${ch.slug}" class="glass-panel">${displayName}</a>`;
                 });
                 html += '</div></div>';
             }

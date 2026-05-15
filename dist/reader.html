@@ -12,24 +12,32 @@
 </head>
 <body>
     <div id="toc-backdrop" class="toc-backdrop" onclick="toggleTOC()"></div>
-    <nav id="toc-drawer" class="toc-drawer">
-        <div class="toc-header-bar"><a href="index.html" style="text-decoration:none; color:var(--text);">Contents</a><button onclick="toggleTOC()">✕</button></div>
+    <nav id="toc-drawer" class="toc-drawer glass-panel">
+        <div class="toc-header-bar"><span>Munk's Guide</span><button onclick="toggleTOC()">✕</button></div>
         <div class="toc-column-panel" style="padding: 16px 20px; border-bottom: 1px solid var(--border);">
-            <select id="select-left-col" onchange="updateColumnSelectors()" style="width:100%; margin-bottom:10px;">
+            <select id="select-left-col" onchange="updateColumnSelectors()" style="width:100%; margin-bottom:10px; padding:8px; border-radius:8px; border:1px solid var(--border);">
                 <option value="en">Munk (English)</option><option value="fr">Munk (French)</option><option value="makbili">Makbili</option><option value="tibon">Ibn Tibon</option><option value="jrb">Judeo-Arabic</option>
             </select>
-            <select id="select-right-col" onchange="updateColumnSelectors()" style="width:100%;">
+            <select id="select-right-col" onchange="updateColumnSelectors()" style="width:100%; padding:8px; border-radius:8px; border:1px solid var(--border);">
                 <option value="en">Munk (English)</option><option value="fr">Munk (French)</option><option value="makbili" selected>Makbili</option><option value="tibon">Ibn Tibon</option><option value="jrb">Judeo-Arabic</option>
             </select>
         </div>
         <div id="toc-body" class="toc-body"></div>
     </nav>
     <div class="main-container" data-left-col="en" data-right-col="makbili">
-        <div class="header"><button onclick="toggleTOC()">☰</button><h1 id="main-title">Loading...</h1></div>
+        <div class="header">
+            <button onclick="toggleTOC()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--accent);">☰</button>
+            <h1 id="main-title">Munk's Guide</h1>
+            <div class="theme-controls">
+                <button id="btn-light" class="theme-btn" onclick="setTheme('light')" style="background:#fdfcfb;"></button>
+                <button id="btn-sepia" class="theme-btn" onclick="setTheme('sepia')" style="background:#f4ecd8;"></button>
+                <button id="btn-dark" class="theme-btn" onclick="setTheme('dark')" style="background:#0f172a;"></button>
+            </div>
+        </div>
         <div class="content" id="chapter-content"></div>
     </div>
-    <div id="fn-panel" class="fn-panel">
-        <div class="fn-panel-header"><span>Note</span><button onclick="closeFnPanel()">✕</button></div>
+    <div id="fn-panel" class="fn-panel glass-panel">
+        <div class="fn-panel-header"><span>Scholarly Note</span><button onclick="closeFnPanel()" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--accent-gold);">✕</button></div>
         <div id="fn-panel-body" class="fn-panel-body"></div>
     </div>
     <script src="js/reader.js"></script>
