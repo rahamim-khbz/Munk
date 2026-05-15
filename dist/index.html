@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Munk's Guide</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="assets/icon-mini.png">
-    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reader.css">
 </head>
@@ -15,12 +12,6 @@
         <div class="toc-landing-page">
             <h1 class="landing-title">Salomon Munk's Guide for the Perplexed</h1>
             <div class="landing-subtitle">Digital Scholarly Experience</div>
-            <div style="text-align: center; margin-bottom: 80px; font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width:700px; margin-left:auto; margin-right:auto;">
-                A high-fidelity parallel edition of the French translation, <br>harmonized with Makbili Hebrew sources for the iPad Mini.
-                <div style="margin-top:20px;">
-                    <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent-gold); font-weight:800; text-decoration:none; text-transform:uppercase; letter-spacing:1px; font-size:0.8rem;">Open Source via Sefaria</a>
-                </div>
-            </div>
             <div id="landing-grid" class="landing-grid"></div>
         </div>
     </div>
@@ -33,11 +24,7 @@
             for (const [name, list] of Object.entries(groups)) {
                 if (list.length === 0) continue;
                 html += `<div class="landing-section"><h3>${name}</h3><div class="landing-links">`;
-                list.forEach(ch => {
-                    let displayName = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
-                    if (displayName === "Letter to R Joseph son of Judah") displayName = "Letter to R. Joseph";
-                    html += `<a href="reader.html?ch=${ch.slug}" class="glass-panel">${displayName}</a>`;
-                });
+                list.forEach(ch => { html += `<a href="reader.html?ch=${ch.slug}" class="glass-panel">${ch.title}</a>`; });
                 html += '</div></div>';
             }
             grid.innerHTML = html;

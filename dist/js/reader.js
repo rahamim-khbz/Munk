@@ -4,23 +4,14 @@ let chapterIndex = [];
 
 async function init() {
     try {
-        const [fnRes, indexRes] = await Promise.all([
-            fetch('data/footnotes.json'),
-            fetch('data/chapters.json')
-        ]);
+        const [fnRes, indexRes] = await Promise.all([fetch('data/footnotes.json'), fetch('data/chapters.json')]);
         footnotes = await fnRes.json();
         chapterIndex = await indexRes.json();
-        
         buildTOC();
-        
         const params = new URLSearchParams(window.location.search);
         const slug = params.get('ch');
-        if (slug) {
-            loadChapter(slug);
-        } else if (window.location.pathname.endsWith('reader.html')) {
-            loadChapter(chapterIndex[0].slug);
-        }
-        
+        if (slug) loadChapter(slug);
+        else if (window.location.pathname.endsWith('reader.html')) loadChapter(chapterIndex[0].slug);
         updateColumnSelectors();
     } catch (e) { console.error("Init failed", e); }
 }
@@ -41,23 +32,16 @@ function buildTOC() {
     const body = document.getElementById('toc-body');
     if (!body) return;
     body.innerHTML = '';
-    
     const groups = { "Munk's Prefaces": [], 'Introductions': [], 'Part 1': [], 'Part 2': [], 'Part 3': [], "Munk's Endnotes": [] };
-    chapterIndex.forEach(ch => {
-        const cat = ch.category || "Introductions";
-        if (groups[cat]) groups[cat].push(ch);
-    });
-
+    chapterIndex.forEach(ch => { if (groups[ch.category]) groups[ch.category].push(ch); });
     for (const [groupName, chapters] of Object.entries(groups)) {
         if (chapters.length === 0) continue;
         const btn = document.createElement('button');
         btn.className = 'toc-section-btn';
         btn.innerHTML = `${groupName} <span class="arrow">›</span>`;
         body.appendChild(btn);
-        
         const panel = document.createElement('div');
         panel.style.display = 'none';
-        
         const isGrid = groupName.startsWith("Part");
         if (!isGrid) {
             chapters.forEach(ch => {
@@ -69,11 +53,9 @@ function buildTOC() {
             });
             panel.style.padding = '8px 32px 24px'; panel.style.display = 'grid'; panel.style.gap = '8px';
         } else {
-            const grid = document.createElement('div');
-            grid.className = 'toc-tile-grid';
+            const grid = document.createElement('div'); grid.className = 'toc-tile-grid';
             chapters.forEach(ch => {
-                const tile = document.createElement('div');
-                tile.className = 'toc-tile'; 
+                const tile = document.createElement('div'); tile.className = 'toc-tile'; 
                 let num = ch.title.match(/Chapter (\d+)/) ? ch.title.match(/Chapter (\d+)/)[1] : "Intro";
                 tile.textContent = num;
                 if (num === "Intro") { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '12px'; }
@@ -102,11 +84,17 @@ function showFn(id) {
     
     let contentHtml = '';
     if (enInView && frInView) {
-        contentHtml = `<div class="fn-dual-container"><div class="fn-col"><div class="fn-lang-label">English</div><div>${data.en}</div></div><div class="fn-col"><div class="fn-lang-label">French</div><div>${data.fr}</div></div></div>`;
-    } else if (frInView && data.fr) contentHtml = data.fr;
-    else contentHtml = data.en;
+        contentHtml = `<div class="fn-dual-container">
+            <div class="fn-col"><span class="fn-lang-label">English</span><div>${data.en}</div></div>
+            <div class="fn-col"><span class="fn-lang-label">French</span><div>${data.fr || '[Munk Original Missing]'}</div></div>
+        </div>`;
+    } else if (frInView && data.fr) {
+        contentHtml = `<span class="fn-lang-label">French</span><div>${data.fr}</div>`;
+    } else {
+        contentHtml = `<span class="fn-lang-label">English</span><div>${data.en}</div>`;
+    }
     
-    contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-marker">${label || '*'}</sup>`);
+    contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-marker" style="color:var(--accent-gold); font-weight:800; padding:0 2px;">${label || '*'}</sup>`);
     
     document.getElementById('fn-panel-body').innerHTML = contentHtml;
     panel.classList.add('open');
@@ -120,15 +108,12 @@ function closeFnPanel() {
 
 async function loadChapter(slug) {
     const content = document.getElementById('chapter-content');
-    content.innerHTML = '<div style="padding:150px; text-align:center; font-style:italic; opacity:0.4; letter-spacing:1px;">Retrieving Manuscript...</div>';
-    
+    content.innerHTML = '<div style="padding:150px; text-align:center; font-style:italic; opacity:0.4;">Retrieving Manuscript...</div>';
     try {
         const res = await fetch(`data/${slug}.json`);
         const data = await res.json();
-        
         document.getElementById('main-title').textContent = data.title;
         document.title = data.title + " - Munk's Guide";
-        
         let html = `<div class='chapter-header' style="padding:60px 0 30px; border-bottom:3px solid var(--accent); margin-bottom:40px;"><h2 style="margin:0; color:var(--accent); font-family:var(--font-hebrew); font-weight:400; font-size:2.4rem;">${data.title}</h2></div>`;
         data.rows.forEach(row => {
             html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
@@ -146,35 +131,24 @@ async function loadChapter(slug) {
                 </div>
             </div>`;
         });
-        
         html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:100px; padding:60px 0; border-top:2px solid var(--border);">`;
         if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="landing-links a" style="flex:1; margin-right:15px; border-radius:20px; font-size:0.9rem;">← ${data.prev.title}</a>`;
         else html += '<div style="flex:1;"></div>';
         if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="landing-links a" style="flex:1; margin-left:15px; border-radius:20px; font-size:0.9rem;">${data.next.title} →</a>`;
         else html += '<div style="flex:1;"></div>';
         html += `</div>`;
-        
         content.innerHTML = html;
         document.querySelector('.main-container').scrollTop = 0;
         updateSelectionState(data.title);
-    } catch (e) {
-        content.innerHTML = '<div style="padding:150px; text-align:center; color:var(--accent-gold); font-weight:700;">Chapter unavailable in modular index.</div>';
-    }
+    } catch (e) { content.innerHTML = '<div style="padding:150px; text-align:center; color:var(--accent-gold); font-weight:700;">Chapter unavailable.</div>'; }
 }
 
 function updateSelectionState(title) {
     const isMunkSection = title.includes('Volume') || title === 'Note On The Title';
-    const restrictedVariants = ['makbili', 'tibon', 'jrb'];
     const leftSel = document.getElementById('select-left-col');
     const rightSel = document.getElementById('select-right-col');
     if (!leftSel) return;
-    
     if (isMunkSection) { leftSel.value = 'fr'; rightSel.value = 'en'; }
-    [leftSel, rightSel].forEach(sel => {
-        Array.from(sel.options).forEach(opt => {
-            opt.disabled = isMunkSection && restrictedVariants.includes(opt.value);
-        });
-    });
     updateColumnSelectors();
 }
 
@@ -187,11 +161,6 @@ function updateColumnSelectors() {
     const mainCont = document.querySelector('.main-container');
     mainCont.setAttribute('data-left-col', leftVal);
     mainCont.setAttribute('data-right-col', rightVal);
-    Array.from(leftSel.options).forEach(opt => opt.disabled = opt.value === rightVal);
-    Array.from(rightSel.options).forEach(opt => opt.disabled = opt.value === leftVal);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    init();
-    setTheme(localStorage.getItem('munk-theme') || 'light');
-});
+document.addEventListener('DOMContentLoaded', () => { init(); setTheme(localStorage.getItem('munk-theme') || 'light'); });
