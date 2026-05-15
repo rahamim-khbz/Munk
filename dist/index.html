@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Munk's Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <title>The Guide for the Perplexed - Munk Parallel Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reader.css">
 </head>
 <body style="overflow-y:auto; height:auto; display:block;">
     <div class="content">
         <div class="toc-landing-page">
-            <h1 class="landing-title">Salomon Munk's Guide for the Perplexed</h1>
-            <div class="landing-subtitle">Digital Scholarly Experience</div>
-            <div id="landing-grid" class="landing-grid"></div>
+            <h1 class="landing-title" style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px;">
+                AI-Assisted Translation of Salomon Munk&#x2019;s French Translation of the Guide to the Perplexed;<br>
+                <span style="font-size: 1.5rem; opacity: 0.8;">Hebrew from Makbili Edition</span>
+            </h1>
+            <div style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                Sources:
+                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> |
+                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a><br>
+                <p style="max-width: 600px; margin: 10px auto; font-style: italic;">
+                    This digital edition is created for research and educational purposes.
+                    The underlying source texts are utilized in accordance with their respective open licenses
+                    and the principles of scholarly fair use.
+                </p>
+            </div>
+            <div id="landing-grid"></div>
         </div>
     </div>
     <script>
@@ -23,8 +35,8 @@
             let html = '';
             for (const [name, list] of Object.entries(groups)) {
                 if (list.length === 0) continue;
-                html += `<div class="landing-section"><h3>${name}</h3><div class="landing-links">`;
-                list.forEach(ch => { html += `<a href="reader.html?ch=${ch.slug}" class="glass-panel">${ch.title}</a>`; });
+                html += '<div class="landing-section"><h3>' + name + '</h3><div class="landing-links">';
+                list.forEach(ch => { html += '<a href="reader.html?ch=' + ch.slug + '">' + ch.title + '</a>'; });
                 html += '</div></div>';
             }
             grid.innerHTML = html;

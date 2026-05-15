@@ -94,7 +94,7 @@ function showFn(id) {
         contentHtml = `<span class="fn-lang-label">English</span><div>${data.en}</div>`;
     }
     
-    contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-marker" style="color:var(--accent-gold); font-weight:800; padding:0 2px;">${label || '*'}</sup>`);
+    contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')" style="cursor:pointer;">${label || '*'}</sup>`);
     
     document.getElementById('fn-panel-body').innerHTML = contentHtml;
     panel.classList.add('open');
@@ -114,7 +114,7 @@ async function loadChapter(slug) {
         const data = await res.json();
         document.getElementById('main-title').textContent = data.title;
         document.title = data.title + " - Munk's Guide";
-        let html = `<div class='chapter-header' style="padding:60px 0 30px; border-bottom:3px solid var(--accent); margin-bottom:40px;"><h2 style="margin:0; color:var(--accent); font-family:var(--font-hebrew); font-weight:400; font-size:2.4rem;">${data.title}</h2></div>`;
+        let html = `<div class="chapter-header"><h2>${data.title}</h2></div>`;
         data.rows.forEach(row => {
             html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
                 <div class="left-cell">
@@ -131,16 +131,16 @@ async function loadChapter(slug) {
                 </div>
             </div>`;
         });
-        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:100px; padding:60px 0; border-top:2px solid var(--border);">`;
-        if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="landing-links a" style="flex:1; margin-right:15px; border-radius:20px; font-size:0.9rem;">← ${data.prev.title}</a>`;
-        else html += '<div style="flex:1;"></div>';
-        if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="landing-links a" style="flex:1; margin-left:15px; border-radius:20px; font-size:0.9rem;">${data.next.title} →</a>`;
-        else html += '<div style="flex:1;"></div>';
+        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:40px; padding-top:20px; border-top:1px solid var(--border);">`;
+        if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="chapter-nav-link">← ${data.prev.title}</a>`;
+        else html += '<div></div>';
+        if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="chapter-nav-link">${data.next.title} →</a>`;
+        else html += '<div></div>';
         html += `</div>`;
         content.innerHTML = html;
         document.querySelector('.main-container').scrollTop = 0;
         updateSelectionState(data.title);
-    } catch (e) { content.innerHTML = '<div style="padding:150px; text-align:center; color:var(--accent-gold); font-weight:700;">Chapter unavailable.</div>'; }
+    } catch (e) { content.innerHTML = '<div style="padding:80px; text-align:center; color:var(--text-muted);">Chapter unavailable.</div>'; }
 }
 
 function updateSelectionState(title) {
@@ -162,5 +162,7 @@ function updateColumnSelectors() {
     mainCont.setAttribute('data-left-col', leftVal);
     mainCont.setAttribute('data-right-col', rightVal);
 }
+
+function navigateToLanding() { window.location.href = 'index.html'; }
 
 document.addEventListener('DOMContentLoaded', () => { init(); setTheme(localStorage.getItem('munk-theme') || 'light'); });
