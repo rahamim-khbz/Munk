@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 63 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 63</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..62.0">
+                <div class="he-cell"><b>השם "אהיה אשר אהיה"</b><br><span class="mediumGrey">שלוש שאלות</span><br><sup>1</sup> נקדים הקדמה ונאמר: <br><sup>שאלה א)</sup> מה שאמר (משה) עליו השלום, "<b>וְאָמְרוּ לִי מַה שְּׁמוֹ, מָה אֹמַר אֲלֵהֶם</b>" (שמות ג,יג), כיצד השאלה היתה קשורה לעניין, כדי שישאל איך ישיב עליה? אמנם דבריו "<b>וְהֵן לֹא יַאֲמִינוּ לִי וְלֹא יִשְׁמְעוּ בְּקֹלִי, כִּי יֹאמְרוּ לֹא נִרְאָה אֵלֶיךָ ה'</b>" (שם ד,א) ברורים מאוד, כי כך יש לומר לכל מי שטוען לנבואה, עד שיביא ראיה. <br><sup>שאלה ב)</sup> ועוד, אילו היה הדבר כפי שנראה לכאורה, שזהו רק שם שהוגים אותו, הרי אחת משתיים: או ש<b>ישראל</b> כבר ידעו את השם הזה, או שלא שמעו אותו מעולם. אם היה ידוע להם – הרי אין לו ראיה בכך שיגיד אותו, כי ידיעתו אותו היא כידיעתם. ואם לא שמעו אותו, מה הראיה שזהו שם ה', בהנחה שידיעת שמו היא ראיה (להתגלותו)? <br><sup>שאלה ג)</sup> ועוד, שלאחר שהודיע לו יתעלה את השם הזה, אמר לו: "<b>לֵךְ וְאָסַפְתָּ אֶת זִקְנֵי יִשְׂרָאֵל [</b>וְאָמַרְתָּ אֲלֵהֶם ה' אֱלֹהֵי אֲבֹתֵיכֶם נִרְאָה אֵלַי אֱלֹהֵי אַבְרָהָם יִצְחָק וְיַעֲקֹב לֵאמֹר פָּקֹד פָּקַדְתִּי אֶתְכֶם...] <b>וְשָׁמְעוּ לְקֹלֶךָ [</b>וּבָאתָ אַתָּה וְזִקְנֵי יִשְׂרָאֵל אֶל מֶלֶךְ מִצְרַיִם...]" (שמות ג,טז-יח). ואחר כך השיב הוא עליו השלום ואמר: "<b>וְהֵן לֹא יַאֲמִינוּ לִי וְלֹא יִשְׁמְעוּ בְּקֹלִי</b>" (שמות ד,א), כשכבר לפני כן אמר לו יתעלה: "<b>וְשָׁמְעוּ לְקֹלֶךָ</b>". ולאחר מכן אמר לו יתעלה: "<b>מַה זֶּה בְיָדֶךָ, וַיֹּאמֶר מַטֶּה</b>" (שמות ד,ב).</div>
+                <div class="en-cell">We shall first make a preliminary observation. Concerning those words (of Moses): <i>If they shall say to me: What is His name? what shall I say unto them?</i> (Exodus, iii, 13); (one might first inquire:) how could the matter in hand lead to such a question (on the part of the Hebrews), that Moses should find it necessary to ask what answer he should return? [As for those words: <i>But, behold, they will not believe me, nor hearken unto my voice: for they will say, The Lord has not appeared unto thee</i> (<i>Ibid</i>., iv, 1), they are right clear; for such is that which must be said to any one who claims to be a prophet, until he produce proof thereof.] Furthermore<sup class="fn-ref" onclick="showFn('fn.724')">724</sup>, if, as it seems (at first sight), it be simply a matter of a name to be pronounced, it must needs be admitted, either that the Israelites already knew this name, or that they had never heard it. Now, if it were known to them, the utterance thereof could not serve Moses as an argument, since he knew naught of it save what they themselves knew; if, on the contrary, they had never heard tell of it, what then would prove that this was indeed the name of God, even supposing that the mere knowledge of the name could serve as a proof (in favour of Moses)? Finally, God, after having taught him the name in question, said unto him: <i>Go, and gather the elders of Israel together..... and they shall hearken to thy voice</i> (<i>Ibid</i>., iii, 16 and 18); then Moses answered Him, saying: <i>But, behold, they will not believe me, nor hearken unto my voice</i>, although God had already said unto him: <i>and they shall hearken to thy voice</i>. And thereupon God said unto him: <i>What is that in thine hand?</i> and he said: <i>A rod</i> (<i>Ibid.</i>, 4, 2).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..62.1">
+                <div class="he-cell"><span class="mediumGrey">מהפכת התגלות של שליחות</span><br><sup>2</sup> מה שעליך לדעת, שיבהיר לך את כל הקושי הזה, הוא מה שאומר לך. ידוע לך שבאותם זמנים היו מפורסמות תורות הצאבים, ושכל האנשים אז מלבד בודדים היו <b>עובדי עבודה זרה</b>, כוונתי להאמנה בישויות רוחניות ובהורדתן ובעשיית טליסמאות. וכל מי שטען למשהו (תאולוגי) בכל הדורות, הרי או שטען שהוא השיג עיון וראיות המורים שיש אלוה לעולם כולו, כ<b>אברהם</b>; או שטען שירדה עליו רוחניות של כוכב או מלאך וכיוצא בזה. אבל אדם הטוען לנבואה בכך שה' דיבר אליו ושלח אותו – דבר כזה לא נשמע מעולם לפני <b>משה רבינו</b>. ואל יטעה אותך מה שנאמר על ה<b>אבות</b>, שה' דיבר אליהם והתגלה אליהם. כי לא תמצא דרך זו של נבואה של קריאה לבני האדם (לעבודת ה') או הדרכת אחרים, כך ש<b>אברהם</b> או <b>יצחק</b> או <b>יעקב</b> או מי שקדם להם יאמרו לאנשים: "אמר לי האל: עשו", או "אל תעשו", או "שלחני אליכם". זה לא היה מעולם. אלא הדיבור אליהם היה במה שמיוחד להם ותו לא, כלומר בשלמותם והנחייתם למה שיעשו, ולבשר להם מה שיקרה לזרעם ותו לא. והם היו קוראים לבני האדם על ידי עיון ולימוד, כמבואר אצלנו על הכתוב "<b>וְאֶת הַנֶּפֶשׁ אֲשֶׁר עָשׂוּ בְחָרָן</b>" (בראשית יב,ה; ראו ספרי דברים פיסקא לב; בראשית רבה פרשה פד).</div>
+                <div class="en-cell">That which must be known, so that all these obscurities may be enlightened for thee, is what I am about to tell thee. Thou knowest how prevalent in those times were the opinions of the Sabians<sup class="fn-ref" onclick="showFn('fn.725')">725</sup>, and that all men then, with the exception of a few, were given over to idolatry, I mean that they believed in the spirits (of the stars) and in incantations, and that they fashioned talismans<sup class="fn-ref" onclick="showFn('fn.726')">726</sup>. The pretension<sup class="fn-ref" onclick="showFn('fn.727')">727</sup> of whosoever arrogated to himself (a divine mission) had from all time been limited to this: either he maintained that by meditating and seeking for proofs it had been demonstrated to him that one single God presided over the whole universe,—and thus did Abraham,—or he claimed that the spirit of a star, or an angel, or some other similar being, had revealed itself unto him. But that any one should claim to be a prophet, (saying) that God had spoken to him and had sent him, is a thing which had never been heard of before Moses, our master. Thou must not let thyself be led into error by what is related of the patriarchs, saying that God addressed His word to them and that He manifested Himself unto them; for thou wilt not find this kind of prophetic mission (which consists) in making an appeal to men or in guiding others, so that Abraham, or Isaac, or Jacob, or those who preceded them, should have said to men: “God has told me that ye must do or not do (such a thing)”, or else: “He has sent me unto you”. Never did such a thing occur; on the contrary, there was spoken to them naught else but what concerned them personally, I mean, (that it was a matter) of making them perfect, of directing them in what they should do, and of announcing to them what would be the future of their race, but naught besides; and they themselves called men by means of study and instruction<sup class="fn-ref" onclick="showFn('fn.728')">728</sup>, which, according to us, is clearly indicated in these words: <i>and the souls that they had gotten in Haran</i> (Genesis, xii, 5)<sup class="fn-ref" onclick="showFn('fn.729')">729</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..62.2">
+                <div class="he-cell"><span class="mediumGrey">מענה לשאלות ופירוש השם "אהיה אשר אהיה"</span><br><sup>3</sup> וכאשר נגלה, יתרומם ויתהדר, אל <b>משה רבינו</b>, וציווהו לקרוא לבני האדם ושיביא את השליחות הזו אליהם, אמר: <br><sup>תשובה לשאלה א)</sup> מה שישאלו אותי בתחילה הוא שאאמת להם שיש בנמצא אלוה לעולם, ואחר כך אטען שהוא שלחני. כי באותם הימים כל בני האדם, מלבד יחידים, לא ידעו את מציאות האלוה, ושיא עיונם לא עבר את הגלגל וכוחותיו ופעולותיו, כי הם לא עזבו את המוחש ולא הגיעו לשלמות שכלית.<br><sup>4</sup> <sup>תשובה לשאלה ב)</sup> על כן לימד אותו אז ה' ידיעה שעליו להביא אליהם, שתאמת עבורם את מציאות האלוה, והיא "<b>אֶהְיֶה אֲשֶׁר אֶהְיֶה</b>" (שמות ג,יד), והוא שם נגזר מ"<b>היה</b>", שהוא המציאות. כי משמעותו של "<b>היה</b>" היא "כַּאן" (בערבית: היה), ואין הבדל בין "היה" ("כאן") או "נמצא" ("וג'ד") בלשון העברית. והסוד כולו הוא בכך שכפל אותה מילה עצמה המורה על המציאות, בתור תואר. כי "<b>אשר</b>" מחייב להזכיר את התואר הכרוך בו, כי הוא שם חסר המצריך פסוקית זיקה, במשמעות של "אלד'י" ו"אלתי" בערבית (="אשר", לזכר ולנקבה, בהתאמה). על כן עשה את השם הראשון, שהוא המתואר, "<b>אהיה</b>"; ואת השם השני, שתיאר אותו בו, "<b>אהיה</b>" – והוא הוא בעצמו. הרי זה כאילו אמר במפורש שהמתואר הוא התואר בעצמו. אם כן זה היה ביאור משמעות היותו מצוי ולא בִּמציאות. נמצא שסיכום העניין הזה ופירושו הגיע לכדי כך: "המצוי אשר הוא המצוי", כלומר מחויב המציאות. זה מה שההוכחה מביאה אליו, שיש דבר מחויב המציאות שאינו נעדר ולא ייעדר, כפי שאבאר את ההוכחה לכך (ב,א).</div>
+                <div class="en-cell">When, therefore, God manifested Himself to Moses, our master, and commanded him to call these men (to the faith) and to bring them the message in question: “But,” he replied, “that which they will first ask of me is to establish for them that there exists a God for the universe, and then I may maintain that He has sent me.” In truth, all men then, with the exception of a few, were ignorant of the existence of God, and their highest meditation went not beyond the celestial sphere, its forces and its effects; for they detached not themselves from sensible things and possessed no intellectual perfection. God, therefore, gave him then a knowledge which he was to communicate to them, in order to establish for them the existence of God, and that is (what is expressed by the words) <small>EHYE</small> <i>asher</i> <small>EHYE</small> (<i>I am that I am</i>); this is a name derived from <small>HAYA</small> (<span dir="rtl">היה</span>), which denots <i>existence</i>, for <small>HAYA</small> signifies <i>he was</i>, and, in the Hebrew tongue, no distinction is made between <i>being</i> and <i>existing.</i> The whole mystery lies in the repetition, in the form of an attribute, of this very word which denots <i>existence;</i> for the word <i>asher</i> (<span dir="rtl">אשר</span>, <i>which</i>), being an incomplete noun which requirs an <i>adjunct</i> and having the sense of the words <i>alladhī</i> <span dir="rtl">(الذى)</span> and <i>allatī</i> <span dir="rtl">(التي)</span> in Arabic, requirs that the attribute which is <i>conjoined</i><sup class="fn-ref" onclick="showFn('fn.730')">730</sup> to it be expressed; and, by expressing the first noun, which is the subject, by <small>EHYE</small>, and the second noun, which serves as its attribute, by this same word <small>EHYE</small>, it has been, as it were, declared that the subject is identically the same thing as the attribute. This is, therefore, an explanation of this idea: that God <i>exists, but not by existence</i><sup class="fn-ref" onclick="showFn('fn.731')">731</sup>; so that this idea is thus summed up and interpreted: <i>the Being who is the Being</i>, that is to say, <i>the Necessary Being.</i> And it is indeed that which can be rigorously established by the demonstrative way<sup class="fn-ref" onclick="showFn('fn.732')">732</sup>, (to wit) that there is something whose existence is necessary, which has never been <i>non-existent</i> and which shall never be so, even as I shall set forth the demonstration thereof (elsewhere).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..62.3">
+                <div class="he-cell"><sup>5</sup> <sup>תשובה לשאלה ג)</sup> וכשלימד אותו יתעלה את הראיות שתתבסס בהן מציאותו אצל חכמיהם – כי לאחר מכן נאמר: "<b>לֵךְ וְאָסַפְתָּ אֶת זִקְנֵי יִשְׂרָאֵל</b>" (שמות ג,טז) – והבטיח לו: הם יבינו מה שאמרתי לך ויקבלוהו, והם דבריו "<b>וְשָׁמְעוּ לְקֹלֶךָ</b>" (שמות ג,יח), חזר עליו השלום ואמר: הם יקבלו אם כן שיש אלוה מצוי על ידי ההוכחות השכליות האלה; מה תהיה ראייתי שהאלוה המצוי הזה שלחני? על כן ניתן לו המופת.<br><sup>6</sup> <sup>ליטוש התשובה לשאלה א)</sup> הרי התבאר שמשמעות דבריו "<b>מַה שְּׁמוֹ</b>" אינה אלא: "מי הוא זה שאתה טוען ששלח אותך?". הוא אמר "<b>מַה שְּׁמוֹ</b>" רק כפנייה של רוממות והדר, כאילו אמר: את עצמותך ואמיתתך אין מי שאינו יודע, אך אם ישאלוני על שמך, מהי משמעות הדבר שהשם מורה עליו? הוא חשב זאת לגנאי אם יאמר בפנייתו שיש מי שאינו יודע את המצוי הזה (=ה'), ויִיחס את אי ידיעתם לשמו, במקום למי שקרוי בו.</div>
+                <div class="en-cell">God therefore having made known unto Moses the proofs whereby His existence might be established for their <i>learned men</i> [for it is said further on: <i>Go, and gather the</i> <small>ELDERS</small> <i>of Israel</i> together], and having promised him that they would apprehend that which He had taught him<sup class="fn-ref" onclick="showFn('fn.733')">733</sup> and would accept it [which is expressed by these words: <i>and they shall hearken to thy voice</i>]: "If it be true," Moses replied, "that, by these demonstrations proceeding from the intellect, they shall admit that there is a God, by what means shall I prove that this God who exists has sent me?" Thereupon he was put in possession of a miracle<sup class="fn-ref" onclick="showFn('fn.734')">734</sup>.—It is therefore manifest that the words <i>what is his name</i> signify naught else but: <i>who is he by whom thou claimest to be sent?</i> If he said: <i>what is his name?</i> 'twas but to express himself in a respectful manner when addressing the Deity<sup class="fn-ref" onclick="showFn('fn.735')">735</sup>; 'tis as though he had said: Thine actual essence, no man can be ignorant thereof, but if I be asked<sup class="fn-ref" onclick="showFn('fn.736')">736</sup> Thy name, what is the idea signified by that name? For, deeming it unseemly to say, when speaking (to God), that there might be any one to whom that Being was unknown, he attributed their ignorance to His name, and not to Him who was designated by that name.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..62.4">
+                <div class="he-cell"><span class="mediumGrey">שמות אחרים של ה' הנגזרים מפעולותיו</span><br><sup>7</sup> וכן לשם "<b>יה</b>" יש משמעות של מציאות נצחית (=אל־זמנית). ו"<b>שדי</b>" – יש בו גזירה מ"<b>די</b>", שהוא מספיק: "<b>וְהַמְּלָאכָה הָיְתָה דַיָּם</b>" (שמות לו,ז), וה<b>שי"ן</b> היא במשמעות "<b>אשר</b>", כמו "<b>שֶׁכְּבָר</b>" (קהלת ד,ב), ואם כן משמעותו היא "<b>אשר די</b>". והכוונה בזה שאין הוא נזקק לזולתו ביצירת מה שיצר ולא בהתמדתו, אלא מציאותו יתעלה מספיקה לכך. וכן השם "<b>חֲסִין</b>" (תהילים פט,ט) נגזר מכוח: "<b>וְחָסֹן הוּא כָּאַלּוֹנִים</b>" (עמוס ב,ט). וכן "<b>צור</b>" הוא שם רב־משמעי, כמו שביארנו (א,טז).</div>
+                <div class="en-cell">Similarly, the name YAH (יה) implies the idea of eternal existence<sup class="fn-ref" onclick="showFn('fn.737')">737</sup>. — SCHADDAY (שדי) is derived from DAY (די), which signifies sufficiency, — e.g.: the matter was דיס sufficient for them (Exodus, 26, 7)—; the shin has the meaning of asher (אשר), as, e.g., in she-kebar (שכבר, who already, Ecclesiastes, IV, 2), so that the meaning (of the said name) is אשר די, who is sufficient, which signifies that He requires no (being) outside of Himself for that which He produces to come into existence and to continue to exist<sup class="fn-ref" onclick="showFn('fn.738')">738</sup>, but that the mere existence of God suffices for this. ’HASÎN (חםין), likewise, is a derived name, (having the meaning) of strength, e.g., and He is strong (חםׂן) like the oaks (Amos, 2, 9). Similarly ÇOUR (צור) <sup class="fn-ref" onclick="showFn('fn.739')">739</sup> is a homonym, as we have explained.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..62.5">
+                <div class="he-cell"><sup>8</sup> הרי התבאר לך שכל השמות הם נגזרים, או שהם נאמרים בשיתוף דוגמת "<b>צור</b>" ו"<b>אמת</b>" (ירמיהו י,י) (נוסח אחר: "צור" ודומיו). ואין לו יתעלה <b>שם</b> שאינו נגזר מלבד <b>שם בן ארבע אותיות</b>, שהוא <b>השם המפורש</b>, משום שאין הוא מורה על תואר אלא על מציאות בלבד ותו לא. ובכלל המציאות המוחלטת היא שהוא נצחי, כלומר מחויב המציאות.</div>
+                <div class="en-cell">It is therefore clear that all the names (of God) are either derived, or else are pronounced by homonymy like ÇOUR (צור) and its counterparts<sup class="fn-ref" onclick="showFn('fn.740')">740</sup>. Finally, there is no name of God that is not derived, with the exception of the tetragrammaton, which is the schem ha-mephorasch; for this name does not signify an attribute, but a simple existence, and nothing else. Absolute existence encompasses the idea of that which is always, I mean of the necessary Being.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..62.6">
+                <div class="he-cell">הבן אם כן עד היכן הגיעה האמירה הזו.</div>
+                <div class="en-cell">Imprint well upon thy mind all that we have said hitherto.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.724" style="display: none;">
+                <strong>Note 724:</strong> The preceding phrase should be considered as a parenthesis, where the author, in order to better highlight the obscurity of the words of Moses cited at the beginning of the chapter, opposes to them the clarity of other words reported in the same biblical account. Here he reprises the difficulties offered by the words cited first.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.725" style="display: none;">
+                <strong>Note 725:</strong> By the term [[t:0]]צאבה̈[[t:1]] [[t:2]](صابة)[[t:3]] , [[t:4]]Sabiens[[t:5]] or [[t:6]]Sabéens[[t:7]], our author, following the example of other Arab writers, refers to the worshippers of the stars, and in general, idolaters; details on the Sabians can be found in the III[[t:8]]rd[[t:9]] part of this work, chap. XXIX, where the author states that the Sabian religion [[t:10]]embraced the entire earth.[[t:11]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.726" style="display: none;">
+                <strong>Note 726:</strong> By [[t:0]]روحانية[[t:1]], one understands the [[t:2]]spirit[[t:3]] which presides over a star or a constellation, as well as the appearance of this spirit; the faculty of causing the spirits of the stars to descend into idols or talismans is termed [[t:4]]استنزال الروحانيات[[t:5]] or simply [[t:6]]استنزال[[t:7]]. [[t:8]]Talismans[[t:9]] ([[t:10]]τε έσματα[[t:11]]) are figures engraved upon a stone or a plate, representing certain constellations under whose influence one desires to place oneself.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.727" style="display: none;">
+                <strong>Note 727:</strong> In the version of Ibn-Tibbon one must read [[t:0]]davar[[t:1]], and not [[t:2]]kabhar[[t:3]], as most editions have; one must also read [[t:4]]bazmanim kolam[[t:5]] and erase the pronoun [[t:6]]hem[[t:7]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.728" style="display: none;">
+                <strong>Note 728:</strong> That is to say: in order to summon men to them and to cause them to partake of their own conviction, they employed the means of study and instruction. Instead of [[t:0]]ידעון[[t:1]], Ibn-Tibbon perhaps read [[t:2]]ירשדון[[t:3]], for his translation bears [[t:4]]היו מישרים[[t:5]], [[t:6]]they directed.[[t:7]] Al-’Harizi translates: [[t:8]]היו מיהרים[[t:9]], which offers no suitable meaning; one may presume that there is here a copyist's error in the unique manuscript of Al-’Harizi's version.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.729" style="display: none;">
+                <strong>Note 729:</strong> The author understands by these words the persons whom Abraham and Sarah had instructed and converted to their belief. The Chaldaic version of Onkelos similarly states: [[t:0]]וית נפשתא דשעבדו לאוריתא בחרן[[t:1]], '[[t:2]]and the persons whom they had brought into subjection to the religious Law in Haran.[[t:3]]' It is in the same sense that this passage has been explained by the ancient rabbis; vide Babylonian Talmud, [[t:4]]Sanhedrin[[t:5]], fol. 99 [[t:6]]b:[[t:7]] [[t:8]]כל המלמד את בן חברו הורה מעלה עליו הכתוב כאילו עשאו שנאמר ואת הנפש אשר עשו בחרן[[t:9]] Cf. [[t:10]]Bereshit Rabbah[[t:11]], section 39, towards the end.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.730" style="display: none;">
+                <strong>Note 730:</strong> In the system of the Arab grammarians, the relative pronoun is a species of [[t:0]]conjunction[[t:1]] or of [[t:2]]conjunctive adjective[[t:3]] [[t:4]](اسم موصول)[[t:5]] , which necessarily requirs after it, for complement, a conjunctive proposition, termed in Arabic [[t:6]]صِلَةُ[[t:7]] , [[t:8]]adjonction;[[t:9]] vide Silv. de Sacy, [[t:10]]Grammaire arabe[[t:11]], Vol. I, pp. 443 and 444 (2[[t:12]]e[[t:13]] Edition). In the words [[t:14]]אהיה אשר אהיה[[t:15]], the second [[t:16]]אהיה[[t:17]] forms the [[t:18]]adjonction[[t:19]] of the conjunctive adjective [[t:20]]אשר[[t:21]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.731" style="display: none;">
+                <strong>Note 731:</strong> See above, chapter LVII, p. 232.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.732" style="display: none;">
+                <strong>Note 732:</strong> Literally: [[t:0]]and it is to this that the demonstration necessarily leads.[[t:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.733" style="display: none;">
+                <strong>Note 733:</strong> The Arabic text reads: [[t:0]]מא אלקיתה אליך[[t:1]] , [[t:2]]that which I have taught thee[[t:3]], and likewise the version of Ibn-Tibbon: [[t:4]]מה שהורעתיו לך[[t:5]]; concerning this irregular construction, in which the conjunction [[t:6]]أنّ[[t:7]] serves to introduce direct discourse, and where it replacs the verb [[t:8]]saying[[t:9]], vide Silv. de Sacy, [[t:10]]Grammaire arabe[[t:11]] (2[[t:12]]e[[t:13]] Edition), Vol. I, p. 568, and Vol. II, p. 468 (No. 843). One finds the same construction a little further on: [[t:14]]כאנה יקול אן דׄאתך וחקיקתך לא יגׄהלהא אחד[[t:15]]. The Greek conjunction [[t:16]]ὅτι[[t:17]] is sometimes employed in the like manner, especially in the New Testament, and likewise the Syriac conjunction [[t:18]]די[[t:19]] or [[t:20]]ד[[t:21]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.734" style="display: none;">
+                <strong>Note 734:</strong> This is the miracle of the transformation of the staff, to which the author has alluded earlier.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.735" style="display: none;">
+                <strong>Note 735:</strong> Literally: [[t:0]]to exalt and glorify[[t:1]] ([[t:2]]God[[t:3]]) [[t:4]]by speaking to Him.[[t:5]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.736" style="display: none;">
+                <strong>Note 736:</strong> All manuscripts bear  but, this verb being obviously in the passive, we have written more correctly  (sūʾilat).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.737" style="display: none;">
+                <strong>Note 737:</strong> The author, who does not express himself with clarity, appears here to indicate that the name [[t:0]]YAH[[t:1]] ([[t:2]]יה[[t:3]]) is, like [[t:4]]EHYÉ[[t:5]] ([[t:6]]אהיה[[t:7]]), derived from the verb [[t:8]]היה[[t:9]], [[t:10]]to be;[[t:11]] elsewhere, however, he does declare that [[t:12]]יה[[t:13]] is [[t:14]]a part of the tetragrammaton[[t:15]] ([[t:16]]מקצת שם המפורש[[t:17]], vide Compendium of the Talmud, treatise [[t:18]]Yesôdé ha-Tôrâ[[t:19]], Chap. VI, § 4). Be that as it may, this name, says the author, indicats eternal existence and expresses the idea of the [[t:20]]necessary being[[t:21]] which the author finds in the name [[t:22]]EHYÉ[[t:23]]; it is this selfsame meaning that the author, at the close of this chapter, does expressly attribute to the [[t:24]]schem ha-mephorasch[[t:25]], albeit higher up (Chap. LXI) he pronounced himself on this matter but doubtfully (vide above, pp. 269 and 270). Concerning these diverse names, cf. [[t:26]]Khozari[[t:27]], Book IV, § 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.738" style="display: none;">
+                <strong>Note 738:</strong> Instead of [[t:0]]אםתמרארה[[t:1]], several manuscripts carry [[t:2]]אםתמרארה[[t:3]] (with [[t:4]]resch[[t:5]]), which is roughly the same thing; cf. below, at the end of chap. LXIX.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.739" style="display: none;">
+                <strong>Note 739:</strong> That is, the word [[t:0]]צור[[t:1]], which means [[t:2]]rock[[t:3]], and is sometimes used to designate God. See above, chap. XVI.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.740" style="display: none;">
+                <strong>Note 740:</strong> In Ibn-Tibbon's version, one does read [[t:0]]צור ואמת[[t:1]]; but the word [[t:2]]אמת[[t:3]], [[t:4]]truth[[t:5]], is never employed as a [[t:6]]name[[t:7]] of God. It is true that some Arabic manuscripts likewise possess [[t:8]]צור ואמת[[t:9]]; but [[t:10]]ואמת[[t:11]] appears to be but an abbreviation of the Arabic word [[t:12]]ואמתׄאלה[[t:13]], which one does read in several Arabic manuscripts. Al-’Harizi has not rendered this word.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

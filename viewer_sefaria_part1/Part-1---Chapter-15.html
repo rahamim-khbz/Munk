@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 15 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 15</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..14.0">
+                <div class="he-cell"><b>המונח ניצב</b><br><span class="mediumGrey">שתי משמעויות</span><br><sup>1</sup> "נצב" או "יצב". אף שאלו שני שורשים שונים משמעותם אחת, כידוע לך, בכל נטיותיהם.</div>
+                <div class="en-cell">Naçab (נצב) or yaçab (יצב). — Although these two roots are different, they have, as you know, the same meaning in all their conjugational forms.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..14.1">
+                <div class="he-cell">זהו מונח רב־משמעי: <br><sup>א)</sup> לעתים משמעותו היא עמידה והתייצבות: "וַתֵּתַצַּב אֲחֹתוֹ מֵרָחֹק" (שמות ב,ד), "יִתְיַצְּבוּ מַלְכֵי אֶרֶץ" (תהילים ב,ב), "יָצְאוּ נִצָּבִים" (במדבר טז,כז). <br><sup>ב)</sup> ולעתים משמעותו היא קביעות ותמידות: "דְּבָרְךָ נִצָּב בַּשָּׁמָיִם" (תהילים קיט,פט), כלומר קבוע וקיים.</div>
+                <div class="en-cell">It is a homonym which sometimes has the meaning of standing upright, rising; e.g.: And his sister stood (ותתצב) from afar (Exodus, 2, 4); The kings of the earth rise (יתיצבו) (Ps. II. 2); …. went out, placing themselves upright (נצבים) (Numbers, 16, 27); sometimes that of being stable, permanent; e.g.: Your word stands (נצב) in the heaven (Ps. 119, 89), meaning stable and permanent.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..14.2">
+                <div class="he-cell"><span class="mediumGrey">סולם יעקב</span><br><sup>2</sup> כל אימת שהמונח הזה נאמר על הבורא, הוא במשמעות הזו: "[וַיַּחֲלֹם וְהִנֵּה סֻלָּם מֻצָּב אַרְצָה וְרֹאשׁוֹ מַגִּיעַ הַשָּׁמָיְמָה וְהִנֵּה מַלְאֲכֵי אֱלֹהִים עֹלִים וְיֹרְדִים בּוֹ] <b>וְהִנֵּה ה' נִצָּב עָלָיו</b>" (בראשית כח,יג) – קבוע וקיים עליו, כלומר על הסולם שקצהו האחד בשמים וקצהו השני על הארץ ובו מטפס ועולה כל העולה עד שישיג בהכרח את מי שעליו, שהוא קבוע וקיים על ראש הסולם.</div>
+                <div class="en-cell">Every time this word is used in relation to the Creator, it has the latter meaning; e.g.: And behold the Lord standing (נצב) above (Genesis, 28, 13), being stable and permanent above it, that is to say above the ladder whose one end is in heaven and the other on earth, and where all those who ascend <sup class="fn-ref" onclick="showFn('fn.128')">128</sup> and climb, in order to perceive the one who is above necessarily <sup class="fn-ref" onclick="showFn('fn.129')">129</sup>; for He is stable and permanent at the head of the ladder.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..14.3">
+                <div class="he-cell">וברור הוא שמה שאמרתי כאן "עליו", הוא בהתאם למשל האמור. ו"<b>מַלְאֲכֵי אֱלֹהִים</b>" (שם שם,יב) – הנביאים, שנאמר עליהם במפורש "<b>וַיִּשְׁלַח מַלְאָךְ</b> [וַיֹּצִאֵנוּ מִמִּצְרָיִם]" (במדבר כ,טז), "<b>וַיַּעַל מַלְאַךְ ה' מִן הַגִּלְגָּל אֶל הַבֹּכִים</b>" (שופטים ב,א).<br><sup>3</sup> כמה מדויקים דבריו "<b>עֹלִים וְיֹרְדִים</b>" (בראשית כח,יב) – ה<b>עליה</b> לפני ה<b>ירידה</b>. כי לאחר ה<b>עליה</b> וההגעה אל שלב ידוע בסולם, באה הירידה בהתאם לציווי להנהיג את אנשי הארץ וללמד אותם, מה שמכונה "<b>ירידה</b>" כמו שביארנו (א,י3).</div>
+                <div class="en-cell">It is clear, furthermore, that, if I say here above it, it is with respect to the allegory that has been employed <sup class="fn-ref" onclick="showFn('fn.130')">130</sup>. The messengers of God are the prophets <sup class="fn-ref" onclick="showFn('fn.131')">131</sup>, thus called clearly (in these passages): And He sent a messenger (Numbers, 20, 16); And a messenger of the Lord went up from Gilgal to Bochim (Judges, 2, 1). And how justly has it been expressed in saying went up and came down, (that is to say, by using) the verb to go up before the verb to come down, for (the prophet), after having gone up and attained certain degrees of the ladder, comes down afterwards with what he has learned to guide the inhabitants of the earth and instruct them, which is designated by the verb to come down, as we have explained <sup class="fn-ref" onclick="showFn('fn.132')">132</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..14.4">
+                <div class="he-cell"><span class="mediumGrey">מעמד משה בצור</span><br><sup>4</sup> אחזור אל מטרתנו, ש"<b>נִצָּב עָלָיו</b>" – (פירושו) קבוע, תמידי וקיים, ולא התייצבות גוף. ובמשמעות הזו: "<b>וְנִצַּבְתָּ עַל הַצּוּר</b>" (שמות לג,כא). הנה כבר התבאר לך שהמשמעות של "<b>נצב</b>" ו"<b>עמד</b>" אחת היא לעניין זה, וכבר נאמר: "<b>הִנְנִי עֹמֵד לְפָנֶיךָ שָּׁם עַל הַצּוּר בְּחֹרֵב</b>" (שמות יז,ו).</div>
+                <div class="en-cell">I return to our subject, namely that (in the passage in question), נצב means stable, perpetual, permanent, and not to stand like a body. In the same sense also (this passage must be explained): And you shall stand (ונצבת) upon the rock (Exodus, 33, 21) <sup class="fn-ref" onclick="showFn('fn.133')">133</sup>; for you have already understood that naçab (נצב) and ’amad (עמד) have the same meaning <sup class="fn-ref" onclick="showFn('fn.134')">134</sup> in this regard, and indeed God has said: Behold, I will stand (עומד) before you upon the rock, at Horeb (Ibid., 17, 6) <sup class="fn-ref" onclick="showFn('fn.135')">135</sup>.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.128" style="display: none;">
+                <strong>Note 128:</strong> The word [[t:0]]יתםלק[[t:1]] found in all the mss. was not rendered in Ibn-Tibbon's version.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.129" style="display: none;">
+                <strong>Note 129:</strong> The adverb [[t:0]]צׄרורה̈[[t:1]] does not relate to [[t:2]]ידרך[[t:3]], but to [[t:4]]מן עליה[[t:5]]; the meaning is: [[t:6]]that which[[t:7]] is [[t:8]]necessarily[[t:9]] above, the absolute and necessary Being.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.130" style="display: none;">
+                <strong>Note 130:</strong> The author means that, by rendering the word [[t:0]]עליו[[t:1]] as [[t:2]]above it[[t:3]], and by placing God in a sort of local and material relationship with the ladder, he has merely harmonized this word with the literal meaning of the passage, without regard for the allegory it contains; for the head of the ladder signifies the higher sphere set in motion by the first mover, or God, who is said allegorically [[t:4]]to stand above it[[t:5]]. See ch. LXX of this [[t:6]]book[[t:7]] part.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.131" style="display: none;">
+                <strong>Note 131:</strong> The author states that the word [[t:0]]מלאך[[t:1]] (angel) must be taken here in its primitive sense of [[t:2]]messenger[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.132" style="display: none;">
+                <strong>Note 132:</strong> See above, ch. X.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.133" style="display: none;">
+                <strong>Note 133:</strong> The author sees in this passage an allusion to the perpetual contemplation of God by Moses. See the following chapter on the word [[t:0]]צור[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.134" style="display: none;">
+                <strong>Note 134:</strong> That is to say, the two verbs are used figuratively when it concerns something stable and imperishable.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.135" style="display: none;">
+                <strong>Note 135:</strong> By this last example, the author intends to show that the verb [[t:0]]'amad[[t:1]], in relation to the substantive [[t:2]]צור[[t:3]], [[t:4]]rock[[t:5]], forms an allegory representing the permanence of God's action in the universe and of His inspiration being communicated to Moses; he infers from this that, in the previously cited verse, the word [[t:6]]naçab[[t:7]], in relation to the same substantive, must form an analogous allegory. Here it is God's spirit that penetrates Moses, there it is Moses' intelligence uniting with God through contemplation.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

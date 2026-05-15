@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 19 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 19</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..18.0">
+                <div class="he-cell"><b>המונח מלא</b><br><span class="mediumGrey">שלוש משמעויות. משמעויות א-ב: מלוא המקום והשלמת זמן</span><br><sup>1</sup> "מלא" – זהו מונח רב־משמעי. <br><sup>א)</sup> דוברי השפה משתמשים בו לגבי גוף הנמצא בתוך גוף וממלא אותו: "וַתְּמַלֵּא כַדָּהּ" (בראשית כד,טז), "מְלֹא הָעֹמֶר לָאֶחָד" (שילוב פסוקים שמות טז: כב,לב), וכאלה רבים. <br><sup>ב)</sup> ומשתמשים בו במובן של תום פרק זמן והשלמתו: "וַיִּמְלְאוּ יָמֶיהָ [לָלֶדֶת]" (בראשית כה,כד), "וַיִּמְלְאוּ לוֹ אַרְבָּעִים יוֹם" (שם נ,ג).<br><span class="mediumGrey">משמעות ג: שלמות המעלה</span><br><sup>2</sup> <sup>ג)</sup> ומשתמשים בו במובן של שלמות במעלה והגעה אל תכליתה: "וּמָלֵא בִּרְכַּת ה'" (דברים לג,כג), "מִלֵּא אֹתָם חָכְמַת לֵב" (שמות לה,לה), "וַיִּמָּלֵא אֶת הַחָכְמָה וְאֶת הַתְּבוּנָה וְאֶת הַדַּעַת" (מלכים־א ז,יד).</div>
+                <div class="en-cell">Malé (מלא). — This is a homonymous word that the people of the language (Hebrew) employ (in speaking) of one body entering into another body, so as toimplere fill it; e.g.: And she filled (ותמלא) her pitcher (Genesis, 24, 16); A full (מלא) Omer (Exodus, 16, 32, 33)<sup class="fn-ref" onclick="showFn('fn.152')">152</sup>; and this is frequent. It is also employed in the sense offinis end andconsummatio consummation of a determined time; e.g.: And when her days were fulfilled (וימלאו) (Genesis, 25, 24); And when his forty days were fulfilled (Ibid., 50, 3). It is then used to denoteperfectio perfection and the highest degree in merit; e.g.: And filled (ומלאׁ) with the blessing of the Lord (Deuteronomy, 33, 25); He filled them (מלא) with wisdom of heart (Exodus, 35, 35); And he was filled (וימלא) with wisdom, understanding, and knowledge (I Kings, 7, 14).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..18.1">
+                <div class="he-cell">במשמעות הזאת נאמר "מְלֹא כָל הָאָרֶץ כְּבוֹדוֹ" (ישעיהו ו,ג); פירוש הדברים: כל הארץ מעידה על שלמותו, כלומר מורה עליה. וכיוצא בזה דבריו: "וּכְבוֹד ה' מָלֵא אֶת הַמִּשְׁכָּן" (שמות מ,לה). וכל לשון מליאה שתמצא מיוחסת לה' היא במשמעות הזאת, לא שיש גוף שממלא מקום. אלא אם תרצה להבין את כבוד ה' כאור הנברא המכונה "כבוד" בכל מקום, והוא אשר מלא את המשכן, אין נזק בכך.</div>
+                <div class="en-cell">— It is in this sense that it has been said: The whole earth is full of His glory (Isaiah, 6, 3), which signifies: The whole earth bears witness to His perfection, that is to say, it shows Him (everywhere). It is the same with the words: And the glory of the Lord filled (מלא) the tabernacle (Exodus, 40, 34). Every time you find the verb מלא, to fill, attributed to God, it is in this same sense, and one does not mean to say that there is a body filling a space. However, if you wish to admit that the glory of the Lord signifies the created light<sup class="fn-ref" onclick="showFn('fn.153')">153</sup>, which everywhere is called glory, and that it is this which filled the tabernacle, there is no harm in this.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.152" style="display: none;">
+                <strong>Note 152:</strong> We have printed in the text [[t:0]]מלא העמר לאחד[[t:1]] (a full Omer [[t:2]]for each one[[t:3]]), as borne by almost all the Arabic and Hebrew mss. that we have had before our eyes, although the quotation is inaccurate. This is a lapse of memory that must undoubtedly be attributed to the author himself. See the commentaries of Joseph Caspi and Ephodi.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.153" style="display: none;">
+                <strong>Note 153:</strong> See above, chap. X, page 58, note 2.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

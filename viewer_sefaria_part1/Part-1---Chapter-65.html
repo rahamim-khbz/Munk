@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 65 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 65</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..64.0">
+                <div class="he-cell"><b>המונחים דבר ה' ומאמר ה'</b><br><span class="mediumGrey">דיבור ה' נברא ונמשל</span><br><sup>1</sup> איני סבור שלאחר שהגעת לדרגה הזו והתאַמֵּת לך שהוא יתעלה מצוי ולא בִּמציאות, ואחד ולא באחדות, שיש צורך לבאר לך שתואר הדיבור נשלל ממנו. לא כל שכן לאור העובדה שכל אומתנו מסכימה שה<b>תורה</b> נבראת, והכוונה בכך היא שהדיבור המיוחס לו נברא, והוא יוחס לו רק משום שאותו <b>קול</b> ששמע <b>משה</b> – ה' בראו וחידשו, כפי שברא כל מה שברא וחידש. על הנבואה עוד ידובר רבות (ב,לב-מח), והמטרה כאן היא רק לומר שתיאורו בדיבור הוא כמו תיאורו בכל הפעולות הדומות לפעולותינו. הדעות (=המחשבות) הודרכו אם כן לכך שיש ידע אלוהי שהנביאים משיגים, על ידי האמירה שה' דיבר איתם ואמר להם, כדי שנדע שהעניינים האלה שהם מוסרים לנו מאת ה' אינם ממחשבתם וסברתם בלבד, כפי שיתבאר (ב,לה-לו). וכבר הזכרנו זאת קודם (א,מו).</div>
+                <div class="en-cell">I do not think that, having arrived at this point and having recognized that God <i>exists, but not through existence</i>, and that He is <i>one, but not through unity</i><sup class="fn-ref" onclick="showFn('fn.750')">750</sup>, thou still hast need that there be set forth unto thee the necessity of removing from God the attribute of <i>speech;</i> especially since our nation admitts by common consent that the Law is a <i>created</i> thing<sup class="fn-ref" onclick="showFn('fn.751')">751</sup>, which signifies that the speech attributed to God is a created thing<sup class="fn-ref" onclick="showFn('fn.752')">752</sup>, and that, if it has been attributed to God, it is only because the discourse heard by Moses was created and produced by God like all the works of creation<sup class="fn-ref" onclick="showFn('fn.753')">753</sup>. Prophecy shall be spoken of more fully hereafter; here it is only intended to show that, if speech be attributed to God, it is as when there are attributed to Him, in general, actions similar to our own. Thus, in order to lead minds to recognize that there is a divine knowledge which the prophets obtain, it was said that God had spoken to them and had said to them such a thing<sup class="fn-ref" onclick="showFn('fn.754')">754</sup>, so that we might know that those things which they reported to us on behalf of God did not proceed simply from their own thought and reflection, as shall be set forth elsewhere. We have already touched upon this subject previously<sup class="fn-ref" onclick="showFn('fn.755')">755</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..64.1">
+                <div class="he-cell"><span class="mediumGrey">שלוש משמעויות</span><br><sup>2</sup> מטרתו של פרק זה היא רק לומר שה<b>דיבור</b> וה<b>אמירה</b> הם ביטוי רב־משמעי: <br><sup>א)</sup> יש לו הוראה של דיבור בלשון, כמו שנאמר: "<b>מֹשֶׁה יְדַבֵּר</b>" (שמות יט,יט), "<b>וַיֹּאמֶר פַּרְעֹה</b>" (שם ה,ה). <br><sup>ב)</sup> ויש לו הוראה של העניין המצטייר (=הנתפס) בשכל מבלי להיאמר. נאמר: "<b>וְאָמַרְתִּי אֲנִי בְּלִבִּי</b> [...] <b>וְדִבַּרְתִּי בְלִבִּי</b>" (קהלת ב,טו), "<b>וְלִבְּךָ יְדַבֵּר</b>" (משלי כג,לג), "<b>לְךָ אָמַר לִבִּי</b>" (תהילים כז,ח), "<b>וַיֹּאמֶר עֵשָׂו בְּלִבּוֹ</b>" (בראשית כז,מא). וזה נפוץ. <br><sup>ג)</sup> ויש לו הוראה של רצון: "<b>וַיֹּאמֶר לְהַכּוֹת אֶת דָּוִד</b>" (שמואל־ב כא,טז), כאילו אמר: ורצה להורגו, כלומר התכוון לכך. "<b>הַלְהָרְגֵנִי אַתָּה אֹמֵר</b>" (שמות ב,יד), פירושו ומשמעותו: התרצה להורגני? "<b>וַיֹּאמְרוּ כָּל הָעֵדָה לִרְגּוֹם אֹתָם</b>" (במדבר יד,י), וגם זה נפוץ.</div>
+                <div class="en-cell">This chapter has for its sole object (to demonstrate) that the verbs dibber (דבר, to speak) and amar (אמר, to say) are homonyms. They apply, first, to language properly so called<sup class="fn-ref" onclick="showFn('fn.756')">756</sup>; for example: משה ידבר, Moses spoke (Exodus, 19, 19); ויאמר פרעה, And Pharaoh said (Ibid., 5, 5). Next, they apply to the thought which one forms in the intellect, without expressing it; for example: And I SAID in my heart (Eccles., II, 15); And I SPOKE in my heart (Ibid.); And thy heart SHALL SPEAK (Prov., 23, 33); My heart said unto me of thee (Ps. 27, 8); And Esau SAID in his heart (Genesis, XXVII. 41); there are numerous examples thereof. Finally, they apply to the will; for example: And he SAID to smite David (II Sam., 21, 16), — which signifies, and he WISHED to smite him, that is to say, he purposed it; — Do you say to slay me (Exodus, 2, 14), — which must be explained in the sense of, Do you wish to slay me? — And all the congregation SAID to stone them (Numbers, 14, 10); there are likewise numerous examples thereof.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..64.2">
+                <div class="he-cell"><sup>3</sup> אם כן כל <b>אמירה</b> ו<b>דיבור</b> המיוחסים לה' הם בשתי המשמעויות האחרונות, כלומר שהם או כינוי לחפץ ולרצון, או כינוי לעניין המובן מאת ה', ואחת היא אם נודע על ידי קול נברא או נודע באחת מדרכי הנבואה שעוד נבאר; לא שהוא יתעלה דיבר באותיות ובקול, ולא שהוא יתעלה בעל נפש שהעניינים נרשמים בנפשו כך שיש בעצמותו עניין הנוסף על עצמותו. אלא הַקֶּשר של עניינים אלו אליו וייחוסם אליו הוא כייחוסן של כל הפעולות (אליו).</div>
+                <div class="en-cell">Whenever the verbs amar (to say) and dibber (to speak) are attributed to God, they possess both latter significations, I mean to say that they signify either the will and the intention, or some thing that is understood (being reported) from God, be it that one has learned it through a created voice or through one of the prophetic means that we shall expound; and (they signify) in no wise that God has spoken by letters and sounds, nor that He has a soul, so that things might be impressed upon His soul<sup class="fn-ref" onclick="showFn('fn.757')">757</sup> in such a manner as to be within Him something that is added to His essence. But these things have been attributed to God, and they have been attributed to Him as have all His other actions.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..64.3">
+                <div class="he-cell"><sup>4</sup> כינוי הרצון והחפץ "<b>אמירה</b>" ו"<b>דיבור</b>" הוא אחת ממשמעויות הביטוי הרב־משמעי הזה, כמו שביארנו (משמעות ב), וגם על דרך הדימוי (אלינו), כמו שהערנו לעיל (א,מו). כי האדם אינו מבין בעיון ראשון כיצד הדבר שרוצים לעשות נעשה ברצון בלבד; אלא במבט ראשון נראה שאין מנוס מכך שהרוצה שדבר־מה יתקיים יעשהו או יצווה לזולתו לעשותו. לכן הושאל לה' הציווי כשמתרחש מה שרצה שיהיה, ונאמר שהוא ציווה שיהיה כך – וכך היה, על דרך הדימוי לפעולותינו. זאת בנוסף לכך שאותו ביטוי מורה על המשמעות של "רצה", כמו שביארנו (משמעות ג).<br><span class="mediumGrey">"ויאמר" במעשה בראשית משמעו 'יצר'</span><br><sup>5</sup> על כן כל אימת שנאמר ב<b>מעשה בראשית</b> "<b>וַיֹּאמֶר</b>", "<b>וַיֹּאמֶר</b>", משמעותו "חפץ" או "רצה". אמרו זאת כבר אחרים והדבר התפרסם מאוד. ההוכחה לכך, דהיינו שה<b>מאמרות</b> האלה אינם אלא רצונות ולא דיבורים, היא כי דיבורים של ציווי אינם אלא למצוי המציית לאותו ציווי. וכך מה שנאמר "<b>בִּדְבַר ה' שָׁמַיִם נַעֲשׂוּ</b>" (תהילים לג,ו) הוא כמו "<b>וּבְרוּחַ פִּיו כָּל צְבָאָם</b>" (שם): כשם ש"<b>פיו</b>" ו"<b>רוח פיו</b>" הם השאָלה, כך "<b>דברו</b>" ו"<b>מאמרו</b>" הם השאלה. והכוונה היא שהם נוצרו מתוך כוונתו וחפצו. ודבר זה אין מי מחכמינו המפורסמים שאינו יודע. איני צריך לבאר של<b>אמירה</b> ול<b>דיבור</b> בלשון העברית יש אותה משמעות: "<b>כִּי הִיא שָׁמְעָה אֵת כָּל אִמְרֵי ה' אֲשֶׁר דִּבֶּר</b>" (יהושע כד,כז).</div>
+                <div class="en-cell">However, if the intention and the will (of God) have been designated by the verbs <i>amar</i> and <i>dibber</i>, it is not only because of that which we have set forth concerning the homonymy of these words, but also by way of assimilation to ourselves, as we have previously observed<sup class="fn-ref" onclick="showFn('fn.758')">758</sup>. In sooth, man understands not at the first how that which one wills to be done can be executed by the simple will; he rather thinks at the outset that he who wills a thing to be must of necessity either <i>do</i> it himself or <i>command</i> another to do it. Therefore there has been metaphorically attributed unto God a <i>command</i>, to express that what He willed was accomplished, and it was said: «He <i>commanded</i> that such a thing should be, and it was»; and this by way of assimilation to our actions, and having regard also to the fact that this verb (<i>to say</i> or <i>to command</i>) likewise signifies the sense of <i>willing</i>, even as we have set it forth. Thus, whenever there is found, in the narrative of the creation, <span dir="rtl">ויאמר</span>; <i>and</i> (<i>God</i>) <i>said</i>, it signifies <i>He willed</i> or <i>it pleased Him;</i> this is what others have already said before us<sup class="fn-ref" onclick="showFn('fn.759')">759</sup>, and it is very well known. The proof thereof—I mean (that which proves) that everywhere here the verb <i>amar</i> (to say) designats the <i>will</i>, and not <i>speech</i>—is that speech can be addressed only to a being that is capable of receiving a command<sup class="fn-ref" onclick="showFn('fn.760')">760</sup>. Thus these words: <i>By the word of the Lord were the heavens made</i> (Ps. 33, 6), are parallel to these: <i>and all the host of them by the breath of His mouth</i> (<i>ibid</i>.); even as His <i>mouth</i> and <i>the breath of His mouth</i> are a metaphor, so His <i>word</i> and His <i>saying</i> are a metaphor, and the meaning is that they (the heavens) were produced by His intention and His will. This is a thing of which none of our renowned sages was ignorant. I need not set forth that the verbs <i>amar</i> and <i>dibber</i>, in the Hebrew tongue, are also <i>synonymous</i> (which results from this passage): <i>For it has heard all the words</i> (<span dir="rtl">אמרי</span>) <i>of the Lord which He spake unto us</i> (<span dir="rtl">דבר</span>) (Joshua, 24, 27)<sup class="fn-ref" onclick="showFn('fn.761')">761</sup>.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.750" style="display: none;">
+                <strong>Note 750:</strong> The author here mentions two of the most difficult questions he has hitherto treated (vide chap. LVII), and he intends to convey that the reader, after having followed him through subjects so profound and subtle, has scarce need for an explanation of the question forming the subject of the present chapter. Having concluded the discussion upon the [[t:0]]attributes[[t:1]] and [[t:2]]names[[t:3]] of God, the author adds, in this chapter and the two ensuing, certain observations concerning the [[t:4]]speech[[t:5]] and [[t:6]]writing[[t:7]] attributed to God, and concerning what one must understand by the [[t:8]]rest[[t:9]] of the seventh day of creation.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.751" style="display: none;">
+                <strong>Note 751:</strong> According to the ancient rabbis, the [[t:0]]Tôrâ[[t:1]] or the Law revealed unto Moses had been created long prior to the creation of the world (that is to say, it was from all eternity within the Creator’s designs and predestined to enlighten successively the whole human race); vide [[t:2]]Beréschîth rabbâ[[t:3]], 1[[t:4]]st[[t:5]] section; Babylonian Talmud, [[t:6]]Schabbâth[[t:7]], fol. 88 [[t:8]]b[[t:9]], and [Lat.: passim].[[t:11]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.752" style="display: none;">
+                <strong>Note 752:</strong> That is to say: that the divine word, a real and objective thing existing outside the soul of the prophet, is a miraculous creation, God miraculously causing the air to resound with sounds which strike the prophet's ear. Vide Saadia, [[t:0]]Beliefs and Opinions[[t:1]], Book II, chap. 8 (Berlin edit., fol. 33 [[t:2]]b[[t:3]]): [[t:4]]וענין הדבור שהוא ברא דבור הגיע באויר אל שמע הנביא או העם[[t:5]] «By [[t:6]]word[[t:7]] (divine) one must understand that God created words which arrived through the air to the ear of the prophet or of the people.» Likewise Abou-’Ali (commentary on Exodus, at the beginning of chap. XX): [[t:8]]ואנמא אלכׄאלק תבארך יהרה אלבלאם פי אלהוא כמא ישא ויקרע בה ארׄן אלםאמעין[[t:9]] «The Creator causes the word to be born in the air, according to His will, so as to strike the ear of those who listen, etc.» R. Yehudah ha-Levi expresses himself in the same sense ([[t:10]]Khozari[[t:11]], Book I, § 89): [[t:12]]וכן יצטיר האויר המגיע אל אזן הנביא בצורות האותיות שהם מורות על הענינים שהוא חפץ להשמיעם אל הנביא או אל ההמון[[t:13]] «The air arriving at the prophet’s ear modifies itself in conformity with the letters which indicate the subjects God desires to make heard by the prophet or by the people.» The same question likewise occupied the ancient Muslim theologians, who sought to resolve it in diverse manners. Vide Pococke, [[t:14]]Specimen hist. Arab.[[t:15]], page 217; Scharestâni, German transl., tome 1, pages 42 and 43; Schmœlders, [[t:16]]Essay etc.[[t:17]], pages 187, 188 and 198. Regarding our author's opinion, cf. higher up, page 286, note 3, and hereafter, page 296, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.753" style="display: none;">
+                <strong>Note 753:</strong> Literally: [[t:0]]as He has created all that He has created and produced.[[t:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.754" style="display: none;">
+                <strong>Note 754:</strong> Literally: [[t:0]]the spirits were therefore brought etc. ... by this means[[t:1]] ([[t:2]]that it was said[[t:3]]) [[t:4]]that God had spoken to them etc.[[t:5]] The word [[t:6]]באן[[t:7]] [[t:8]](بِأَنَّ)[[t:9]] is connected to the verb [[t:10]]פאַרשרת[[t:11]], and one must understand [[t:12]]that it was said[[t:13]], as if there were [[t:14]]באן קיל אן[[t:15]]; Ibn-Tibbon added the word [[t:16]]באמרם[[t:17]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.755" style="display: none;">
+                <strong>Note 755:</strong> See above, chap. XLVI, p. 159.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.756" style="display: none;">
+                <strong>Note 756:</strong> Literally: [[t:0]]language[[t:1]] ([[t:2]]expressed[[t:3]]) [[t:4]]by means of language.[[t:5]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.757" style="display: none;">
+                <strong>Note 757:</strong> That is to say: so that it receives impressions that it needs to express by speech.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.758" style="display: none;">
+                <strong>Note 758:</strong> See above, chap. XLVI, pp. 165 and 166. Instead of [[t:0]]נבהנא[[t:1]], some manuscripts have [[t:2]]בינא[[t:3]]; similarly Al-’Harizi: [[t:4]]כמו שביארנו[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.759" style="display: none;">
+                <strong>Note 759:</strong> According to Moses of Narbonne, the author would be alluding to Saadia and the grammarian Ibn-Djanâ’h; indeed, Saadia, in his Arabic version of the Pentateuch, always translates the words [[t:0]]ויאמר אלהים[[t:1]] (Genesis, chapter I) by [[t:2]]وشاء الله[[t:3]] , [[t:4]]and God willed.[[t:5]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.760" style="display: none;">
+                <strong>Note 760:</strong> All the works of creation issued from nothingness solely by means of this divine word itself; consequently, there existed as yet no being to whom this word could address itself, and the words [[t:0]]God said[[t:1]] can signify naught else save [[t:2]]God willed.[[t:3]] — Instead of [[t:4]]אלאקאויל[[t:5]], some manuscripts bear [[t:6]]אקאליל אלאמר[[t:7]]; likewise Ibn-Tibbon: [[t:8]]מאמרי הצווי[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.761" style="display: none;">
+                <strong>Note 761:</strong> The word [[t:0]]אִמְרֵי[[t:1]] being used here in the sense of [[t:2]]דִּבְרֵי[[t:3]], and as the regimen of the verb [[t:4]]דִּבֶּר[[t:5]], it results that the roots [[t:6]]אמר[[t:7]] and [[t:8]]דבר[[t:9]] are synonyms.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

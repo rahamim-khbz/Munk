@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 52 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 52</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.0">
+                <div class="he-cell"><b>התארים לסוגיהם בזיקה לאל</b><br><span class="mediumGrey">חמש קבוצות התארים</span><br><sup>1</sup> כל מתואר שמייחסים לו תואר חיובי ואומרים שהוא כך וכך, התואר הזה הוא בהכרח מאחת מחמש הקבוצות כלהלן:</div>
+                <div class="en-cell">Whenever a subject has an affirmative attribute<sup class="fn-ref" onclick="showFn('fn.475')">475</sup> and it be said that it is such, this attribute cannot fail to be of one of the following five classes.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.1">
+                <div class="he-cell"><span class="mediumGrey">קבוצה א. תואר מגדיר מהות</span><br><sup>2</sup> הקבוצה הראשונה: תיאור הדבר בהגדרתו, כתיאור האדם כ"בעל חיים הוגה". וכבר ביארנו (א,נא4-3) שהתואר הזה, והוא המורה על מהות הדבר ואמיתתו (=מהותו האמיתית), הוא פירוש שם ותו לא. מין זה של תואר נשלל מהאל לדעת כל אדם, משום שאין לו יתעלה סיבות קודמות שהן סיבת קיומו כדי שיוגדר על ידן. לכן מפורסם אצל כל אחד מן המעיינים, המבינים את מה שהם אומרים, שאין להגדיר את האל.</div>
+                <div class="en-cell">I. The <small>FIRST CLASS</small> is that in which the thing has for its attribute its own definition, as, for example, when man is designated by saying that he is a <i>rational animal</i>. Such an attribute indicats the true essence of a thing<sup class="fn-ref" onclick="showFn('fn.476')">476</sup>, and we have already set forth that it is the explanation of a name and naught else<sup class="fn-ref" onclick="showFn('fn.477')">477</sup>. This kind of attribute must, by the consent of all, be removed from God, for God has no prior causes which have caused His existence, so that they might serve to define Him<sup class="fn-ref" onclick="showFn('fn.478')">478</sup>. Wherefore it is generally admitted by all thinkers who express themselves with precision<sup class="fn-ref" onclick="showFn('fn.479')">479</sup> that God cannot be defined.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.2">
+                <div class="he-cell"><span class="mediumGrey">קבוצה ב. תואר מגדיר חלק של מהות</span><br><sup>3</sup> הקבוצה השנייה: תיאור הדבר בחלק מהגדרתו, כמו תיאור האדם כבעל חיים או כהוגה. משמעותו של זה היא קשר הדדי הכרחי, משום שכאשר אנחנו אומרים "כל אדם הוגה" משמעות הדבר היא רק שכל מי שיש לו אנושיות יש בו היגיון. מין זה של תארים נשלל מהאל לדעת כל אדם, כי אילו היה לו חלק של מהות – היתה מהותו מורכבת. קבוצה זו בלתי אפשרית לגביו כפי שהקבוצה הקודמת בלתי אפשרית.</div>
+                <div class="en-cell">II. The <small>SECOND CLASS</small> is that in which the thing has for its attribute a part of its definition<sup class="fn-ref" onclick="showFn('fn.480')">480</sup>, as, for example, when one designats man by the <i>quality of animality</i> or by <i>reason</i>. Herein is the idea <i>of inherence</i><sup class="fn-ref" onclick="showFn('fn.481')">481</sup>; for, if we say: <i>every man is rational</i>, it signifies that in everything possessing the quality of man, reason is found. This kind of attribute must, by the consent of all, be removed from God; for, were He to possess a part of a <i>quiddity</i>, His quiddity would be a composite thing. This class of attributes is therefore as inadmissible in His regard as was the former.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.3">
+                <div class="he-cell"><span class="mediumGrey">קבוצה ג. תואר של איכות שאינה מהותית</span><br><sup>4</sup> הקבוצה השלישית: תיאור הדבר במה שהוא מחוץ לאמיתתו ועצמותו, כך שדבר זה אינו מה שהעצמות נהיית שלמה ומוגדרת מהותית ("מועמדת") על ידיו. משמעות זו היא אם כן איכות כלשהי בו, והאיכות – שהיא קטגוריה ראשית ("סוג עליון") – היא מקרה מן המקרים. לפיכך אילו היה לו יתעלה תואר מן הקבוצה הזו היה הוא יתעלה נושא של מקרים, ודי בזה, כלומר (במחשבה) שהוא בעל איכות, כדי להתרחק מאמיתתו ומעצמותו. יש להתפלא על כך שהדוגלים בתארים שוללים ממנו יתעלה את הדימוי ואת האיוך, והרי אין משמעות דבריהם "אין לאייכו" אלא שאין לו איכות, וכל תואר המחויב לעצם כלשהו חיוב עצמי הרי הוא: או מגדיר מהותית ("מעמיד") את העצם, והוא הוא, או איכות של העצם הזה.</div>
+                <div class="en-cell">III. The THIRD CLASS is that in which the thing possesses as an attribute something exterior to its reality and its essence, so that it forms no part of that which completes and constitutes the essence<sup class="fn-ref" onclick="showFn('fn.482')">482</sup>, and consequently, it forms therein (merely) a quality. But quality, as a higher genus, is one of the accidents<sup class="fn-ref" onclick="showFn('fn.483')">483</sup>; if therefore God possessed an attribute of this class, He would be the substratum of accidents, and this alone suffices to demonstrate that to affirm He possesses a quality would be to depart from His reality and His essence<sup class="fn-ref" onclick="showFn('fn.484')">484</sup>. Yet one must marvel that those who admit attributes nonetheless avert from God assimilation (to creatures) and qualification<sup class="fn-ref" onclick="showFn('fn.485')">485</sup>; for, when they state He cannot be qualified, this signifies nothing other than that He possesses no quality; and yet, every attribute which is ascribed to an essence in an affirmative and essential sense<sup class="fn-ref" onclick="showFn('fn.486')">486</sup> either constitutes the essence, — and in that case it is (the essence) itself, — or else is a quality of that essence.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.4">
+                <div class="he-cell"><sup>5</sup> כידוע לך, סוגי האיכות הם ארבעה, ואני אתן לך דוגמאות על דרך התארים מכל סוג מהם, כדי שיתבאר לך שקיום מין זה של תארים לאל יתעלה הוא בלתי אפשרי.</div>
+                <div class="en-cell">The species of <i>quality</i> are four in number<sup class="fn-ref" onclick="showFn('fn.487')">487</sup>, as thou knowest; I shall give thee an example of each of these species in the form of an attribute, in order to show thee the impossibility of admitting for God this kind of attribute.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.5">
+                <div class="he-cell"><span class="mediumGrey">תת־קבוצה ג1. אפיוני כישרונות</span><br><sup>6</sup> הדוגמה הראשונה: תיאור אדם באחת מסגולותיו העיוניות או המידותיות, או התכונות שיש לו באשר הוא בעל נפש, כגון שתאמר: "פלוני הנגר", או "ירא החטא", או "החולה". ואין הבדל בין אומרך "הנגר" לבין אומרך "הידען" או "החכם" – הכול תכונות בנפש. ואין הבדל בין אומרך "ירא החטא" לבין אומרך "הרחום", כי כל מקצוע וכל מדע וכל מידה מושרשת הן תכונה בנפש. כל זה מבואר למי שעסק בלוגיקה ולו מעט.</div>
+                <div class="en-cell">First example: when one characteriss man by one of his capacities<sup class="fn-ref" onclick="showFn('fn.488')">488</sup> speculative or moral, or by the dispositions which he possesses as a living being<sup class="fn-ref" onclick="showFn('fn.489')">489</sup>, as, e.g., when one says: such an one, a carpenter, or chaste, or sick. There is no difference (in this regard) between the denomination of carpenter and that of learned, or of wise<sup class="fn-ref" onclick="showFn('fn.490')">490</sup>, all of which (designate) dispositions in the soul, and likewise there is no difference between saying chaste and saying merciful; for every art, every science, and every permanent moral quality<sup class="fn-ref" onclick="showFn('fn.491')">491</sup> is a disposition in the soul. All this is manifest to him who has in any wise occupied himself with Logic.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.6">
+                <div class="he-cell"><span class="mediumGrey">תת־קבוצה ג2. אפיוני יכולת פיזית</span><br><sup>7</sup> הדוגמה השנייה: תיאור דבר בכוח טבעי בו או שאין בו כוח טבעי, כאומרך: "הרך" ו"הקשה". ואין הבדל בין אומרך "הרך" ו"הקשה" לבין אומרך "החזק" ו"החלש" – הכול נטיות טבעיות.</div>
+                <div class="en-cell">Second example: when one characteriss a thing by a natural power or incapacity which is found therein, as, e.g., when one says: the soft and the hard. There is no difference between saying soft and hard and saying strong and weak<sup class="fn-ref" onclick="showFn('fn.492')">492</sup>; all these (signify) natural aptitudes.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.7">
+                <div class="he-cell"><span class="mediumGrey">תת־קבוצה ג3. אפיוני קבלת השפעה</span><br><sup>8</sup> הדוגמה השלישית: תיאור אדם באיכות היפעלותית ובהיפעלויות, כאומרך: "פלוני כועס" או "רוגז" או "פוחד" או "מרחם", כשאין זו מידה מושרשת. לסוג זה שייך תיאור דבר בצבע ובטעם ובריח, ובחום ובקור, וביובש וברטיבות.</div>
+                <div class="en-cell">Third example: when one qualifies a man by an affective quality or by affections, as, p. ex., when one says: such a person is in a rage, or irritated, or afraid, or compassionate, without, however, this signifying a permanent moral quality<sup class="fn-ref" onclick="showFn('fn.493')">493</sup>. Of the same kind is the qualification by colour<sup class="fn-ref" onclick="showFn('fn.494')">494</sup>, taste, smell, heat, cold, dryness, and moisture.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.8">
+                <div class="he-cell"><span class="mediumGrey">תת־קבוצה ג4. אפיוני מדד כמותי</span><br><sup>9</sup> הדוגמה הרביעית: תיאור דבר במה ששייך בו מצד הכמות באשר היא כמות, כאומרך: "ארוך" ו"קצר", ו"עקום" ו"ישר", וכיוצא בזה.</div>
+                <div class="en-cell">Fourth example: when one characteriss a thing by what it is in respect of quantity as such<sup class="fn-ref" onclick="showFn('fn.495')">495</sup>, as, e.g., when one says: the long, the short, the curved, the straight, and other such things.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.9">
+                <div class="he-cell"><span class="mediumGrey">סיכום ביניים</span><br><sup>10</sup> כשתתבונן בכל התארים האלה וכיוצא בהם תמצא שמן הנמנע לייחס אותם לאלוה, כי <br><sup>ג4)</sup> אין הוא בעל כמות כדי שתהיה שייכת בו איכות השייכת לכמות באשר היא כמות; <br><sup>ג3)</sup> ואין הוא מושפע ונפעל כדי שתהיה שייכת בו איכות של היפעלויות; <br><sup>ג2)</sup> ואין לו נטיות כדי שיהיה שייך בו כוח וכיוצא בו; <br><sup>ג1)</sup> ואין הוא יתעלה בעל נפש כדי שתהיינה שייכות בו סגולות כמו מתינות וביישנות וכיוצא בהן, ולא מה ששייך בבעל הנפש באשר הוא בעל נפש כמו הבריאות והחולי. הרי התבאר לך שאין לו יתעלה אף תואר שמקורו בקטגוריה הראשית של האיכות.</div>
+                <div class="en-cell">Considering all these attributes and others of like nature, thou shalt find them inadmissible with regard to God: for He has no quantity, that there might be in Him such a quality as exists in quantity as such; He is neither impressed nor passively affected, that there might be in Him a quality of affections; He has no aptitudes, that there might be in Him powers (faculties)<sup class="fn-ref" onclick="showFn('fn.496')">496</sup> or aught of a similar kind; finally, God has no soul, that He might have a disposition and that there might be in Him capacities (ἕξεις), such as meekness, shame, and others of a like nature, or that which pertains to the living being as such<sup class="fn-ref" onclick="showFn('fn.497')">497</sup>, e.g.: health and sickness. It is therefore manifest that every attribute which belongs to the higher genus of quality<sup class="fn-ref" onclick="showFn('fn.498')">498</sup> cannot be found in God.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.10">
+                <div class="he-cell"><sup>11</sup> אם כן שלוש קבוצות התארים הללו, והן מה שמורה על מהות או על חלק מהות או על איכות כלשהי הקיימת במהות – התבאר לך שמן הנמנע לייחס אותן אליו יתעלה, משום שכולן מורות על מורכבות, שעוד נבאר בהוכחות (ב,א) שאי אפשר לייחס אותה לאלוה. ולכן אומרים שהוא אחד במוחלט.</div>
+                <div class="en-cell">Thus it is demonstrated that these three classes of attributes—to wit, all that signifies a <i>quiddity</i><sup class="fn-ref" onclick="showFn('fn.499')">499</sup>, or a part of a quiddity, or any quality whatsoever that is found within the quiddity—are inadmissible in respect of God; for they all betoken <i>composition</i>, which, as we shall demonstrate<sup class="fn-ref" onclick="showFn('fn.500')">500</sup>, is inadmissible in respect of God<sup class="fn-ref" onclick="showFn('fn.501')">501</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.11">
+                <div class="he-cell"><span class="mediumGrey">קבוצה ד. תואר של יחס</span><br><sup>12</sup> קבוצת התארים הרביעית היא תיאור הדבר ביחסו לזולתו, כגון ייחוסו לזמן או למקום או לפרט אחר. כגון שתתאר את ראובן שהוא אביו של פלוני, או שותפו של פלוני, או גר במקום פלוני, או שהיה בזמן פלוני. קבוצה זו של תארים אינה מחייבת ריבוי ולא שינוי בעצם הדבר המתואר. משום שאותו ראובן שנרמז אליו הוא שותפו של שמעון ואביו של לוי ואדוניו של יהודה וחברו של ראובן (אחר), וגר בבית שהוא כזה וכזה, ונולד בשנת כך וכך. ענייני היחס האלה אינם עצמותו ולא דבר בעצמותו כמו האיכויות, ובמחשבה ראשונית נראה לכאורה שאפשר לתאר את האל יתעלה במין זה של תארים, אבל אחר חקירה ועיון מדוקדק יתברר שזה מן הנמנע.</div>
+                <div class="en-cell">IV. The <small>FOURTH CLASS</small> of attributes is that in which one designats the thing by its relation to another thing, by relating it, for instance, to a certain time, to a place, or to another individual, as, for example, when one designats Zeid (by saying) that he is the father of such a one, or the associate of such a one, or an inhabitant of such a place, or he who existed in such a time. This kind of attributes implies neither multiplicity nor change in the essence of the subject; for the Zeid in question is (at once) the associate of ‘Amr, the father of Becr, the master of Khalid, the friend of (the other) Zeid, the inhabitant of such a house, and he who was born in such a year. These notions of relation are neither his essence nor, like qualities, aught within his essence; and it appears at first glance that one might ascribe to God this kind of attributes; nevertheless, upon verifying the matter and examining it with care, it will be manifest that this cannot be.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.12">
+                <div class="he-cell"><span class="mediumGrey">בירור יחס האל לזמן ולמקום</span><br><sup>13</sup> ברור שאין יחס בין האל יתעלה לבין הזמן והמקום, כי הזמן הוא מקרה השייך לתנועה, כי נראה בה עניין הקדימות והאיחור, מה שהופך אותה לניתנת לספירה, כפי שהתבאר במקומות המיוחדים למקצוע הזה (כגון אריסטו, פיזיקה ד,12-10). והתנועה היא מהדברים השייכים לגופים, והאל יתעלה אינו גוף. על כן אין יחס בינו לבין הזמן, וכן אין יחס בינו לבין המקום.</div>
+                <div class="en-cell">Firstly, it is evident that God is not related to time and space: for time is an accident that pertains to movement, when, in the latter, one considers the notion of antecedence and posteriority, so that it is numbered (by time), — as is explained in the particular places dedicated to this subject<sup class="fn-ref" onclick="showFn('fn.502')">502</sup> —; now, movement being a property of bodies, and God not being a body, it follows that there is no relation between Him and time. Similarly, there is no relation between Him and space<sup class="fn-ref" onclick="showFn('fn.503')">503</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.13">
+                <div class="he-cell"><span class="mediumGrey">בירור יחס האל לנבראים</span><br><sup>14</sup> אכן מקום החקירה והעיון הוא האם יש בינו יתעלה ובין דבר מן העצמים שברא יחס אמיתי כלשהו שניתן לתאר אותו באמצעותו. ברור בעיון ראשוני שאין יחס הדדי בינו לבין דבר מברואיו: כי אחת מן התכונות המיוחדות של בעלי יחס הדדי היא (אפשרות) ההיפוך תוך שקילות הדדית, והוא יתעלה מחויב המציאות, ומה שזולתו הוא אפשרי המציאות כפי שנבאר (א,נז; ב,א11), ואם כן אין יחס הדדי.<br><sup>15</sup> אך האם יש ביניהם יחס כלשהו, הרי זה דבר שחושבים שהוא אפשרי, ואין הדבר כן. הרי אין להעלות על הדעת יחס בין השכל לבין הצבע, אף שאת שניהם כוללת מציאות אחת לשיטתנו; איך אם כן יעלה על הדעת יחס בין מה שאין בינו לבין מה שזולתו שום דבר הכולל אותם? כי "מציאות" נאמרת לדעתנו עליו יתעלה ועל מה שזולתו רק בשיתוף (השם) גרידא.<br><sup>16</sup> נמצא שאין שום יחס אמיתי בינו לבין דבר מברואיו. כי היחס נמצא תמיד בהכרח רק בין שני דברים הכלולים באותה תת־קטגוריה ("מין קרוב"), אבל אם הם כלולים בסוג אחד (בתת־קטגוריות שונות) אין יחס ביניהם. לכן אין אומרים: "האדמימות הזו עזה יותר מן הירקרקות הזו" או "חלשה ממנה" או "שווה לה", אף על פי ששתיהן כלולות בסוג אחד, והוא הצבע. ואילו שני דברים הכלולים בשני סוגים – הרי אין שום יחס ביניהם, אפילו בהיגיון הפשוט הראשוני, גם אם (שני הסוגים) היו כלולים בסוג אחד (כללי יותר). דוגמה לכך: אין יחס בין מאה אמות לבין החריפות שבפלפל, כי זה מסוג האיכות וזה מסוג הכמות. אין גם יחס בין הידע לבין המתיקות, או בין המתינות לבין המרירות, אף על פי שכל אלה כלולים בקטגוריה הראשית של האיכות. אם כן כיצד יהיה יחס בינו יתעלה לבין דבר מברואיו, כשיש הבדל כה גדול ביניהם באמיתת המציאות, שלא יכול להיות הבדל גדול יותר ממנו? ואילו היה ביניהם יחס, היה מתחייב שיהיה שייך בו מקרה היחס. ואף שאין הוא מקרה בעצמותו יתעלה, הרי הוא בכל אופן מקרה כלשהו.<br><sup>17</sup> על כן מצד האמת לא תימלט מייחוס תואר חיובי לו, אפילו מצד היחס. מכל מקום הוא התואר הראוי לתאר בו את האלוה בחוסר הקפדה, כי אין הוא מחייב ריבוי דברים קדומים, ואינו מחייב שינוי בעצמותו יתעלה כאשר ישתנו המיוחסים.</div>
+                <div class="en-cell">But that which it behoves one to investigate and examine is whether there exists between God and any of the substances created by Him a certain veritable relation, in such wise that it may serve as an attribute unto Him. That there can be no relation (properly so called)<sup class="fn-ref" onclick="showFn('fn.504')">504</sup> between Him and any of the things created by Him, this is manifest at first glance: for one of the properties of two correlatives is perfect reciprocity<sup class="fn-ref" onclick="showFn('fn.505')">505</sup>; now, God is of a necessary existence, and that which is external to Him is of a possible existence, as shall be expounded<sup class="fn-ref" onclick="showFn('fn.506')">506</sup>, and, consequently, there can exist no relation (between God and the creature). But that any sort of relation should subsist between them, this is a thing which has been deemed admissible, albeit such is not the case. Indeed, one could not conceive of a relation between intelligence and colour, even though, according to our view, one and the same existence embraces them both<sup class="fn-ref" onclick="showFn('fn.507')">507</sup>; and how then could one conceive of a relation between two beings, one of which possesses absolutely nothing in common with that which is external to it<sup class="fn-ref" onclick="showFn('fn.508')">508</sup>? — for, in our opinion, it is only by simple homonymy that (the word) to exist is predicated simultaneously of God and of that which is external to Him. There is, therefore, absolutely no relation in reality between Him (God) and any whatsoever of His creatures: for relation necessarily subsists solely between two things which fall under one and the same proximate species<sup class="fn-ref" onclick="showFn('fn.509')">509</sup>, but, when they are (merely) under one and the same genus, no relation exists between them<sup class="fn-ref" onclick="showFn('fn.510')">510</sup>; hence it is not said: "This red is stronger or weaker than this green, or equal thereto," albeit both<sup class="fn-ref" onclick="showFn('fn.511')">511</sup> are comprised under one and the same genus, which is colour. If, however, the two things should fall under diverse genera<sup class="fn-ref" onclick="showFn('fn.512')">512</sup>, then it is clear, even to simple common sense, that no relation subsists between them, even though they might ultimately revert to a single genus (superior). Thus, for example, there is no relation between a hundred cubits and the heat of pepper; for one of the two things pertains to the genus<sup class="fn-ref" onclick="showFn('fn.513')">513</sup> of quality, whilst the other pertains to that of quantity. But neither is there any relation<sup class="fn-ref" onclick="showFn('fn.514')">514</sup> between science and sweetness, nor between mildness and bitterness, although all these be under the <i>higher genus</i> of quality. How then could there be a relation between God and aught of His creatures, given the great distance in the reality of being, a distance so great that there is none more marked? If there were a relation between them<sup class="fn-ref" onclick="showFn('fn.515')">515</sup>, it would also follow that the <i>accident</i> of relation appertains unto God; for, though it be true that this would not be an accident in the very essence of God, it is yet, in short, a kind of accident. There is therefore, in reality, no means<sup class="fn-ref" onclick="showFn('fn.516')">516</sup> of ascribing to God an affirmative attribute, even were it (by qualifying Him) by a <i>relation</i><sup class="fn-ref" onclick="showFn('fn.517')">517</sup>. But these attributes of relation are those which one must show oneself more ready to admit with regard to God<sup class="fn-ref" onclick="showFn('fn.518')">518</sup>; for they imply no multiplicity in the Eternal Being<sup class="fn-ref" onclick="showFn('fn.519')">519</sup>, and they imply no change in the essence of God by reason of the change of things wherewith He is placed in relation.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.14">
+                <div class="he-cell"><span class="mediumGrey">קבוצה ה. תואר של פעולה</span><br><sup>18</sup> הקבוצה החמישית של תוארי החיוב היא כשהדבר מתואר על ידי פועֳלו. ב"פועלו" איני מתכוון למיומנותו המקצועית, כפי שתאמר "הנגר" או "הנפח", כי אלה ממין האיכות כפי שציינו. אלא כוונתי ב"פועלו" – הפעולה שהוא פועל, כפי שתאמר: "ראובן הוא שסיתת את השער הזה ובנה את החומה ההיא וארג את הבגד הזה". מין זה של תארים רחוק מעצם הדבר המיוחס, ולכן ניתן לתאר בו את האל יתעלה, לאחר שתדע שהפעולות השונות אינן מחייבות שתיעשינה על ידי עניינים שונים בעצמו של הפועל כפי שיבואר (בפרק הבא), אלא כל הפעולות השונות שלו יתעלה הן על ידי עצמו ולא על ידי עניין נוסף על עצמו כפי שביארנו (א,מו).</div>
+                <div class="en-cell">V. The <small>FIFTH CLASS</small> of affirmative attributes is that in which a thing has for its attribute its action. By <i>its action</i>, I mean not the <i>artistic capacity</i> which resids therein [as, for instance, when one says the carpenter<sup class="fn-ref" onclick="showFn('fn.520')">520</sup> or the blacksmith], for this belongs unto the species of <i>quality</i>, as we have formerly stated<sup class="fn-ref" onclick="showFn('fn.521')">521</sup>; but I mean thereby the action (in general) which one has accomplished, as, for example, when it is said: Zeid is he who has fashioned this door, builded this wall, and woven this fabric. Attributes of this sort are far removed from the essence of the subject<sup class="fn-ref" onclick="showFn('fn.522')">522</sup>; wherefore it is permissible to attribute them unto God, provided it be well understood that these diverse actions do not necessarily proceed from diverse conditions existing within the essence of their author<sup class="fn-ref" onclick="showFn('fn.523')">523</sup>, as shall be set forth hereafter<sup class="fn-ref" onclick="showFn('fn.524')">524</sup>. On the contrary, the diverse actions of God are all performed by His very essence, and not by anything superadded thereto<sup class="fn-ref" onclick="showFn('fn.525')">525</sup>, even as we have declared.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..51.15">
+                <div class="he-cell"><span class="mediumGrey">סיכום והתייחסות לתארים המקראיים</span><br><sup>19</sup> סיכום הפרק הוא שהוא יתעלה אחד מכל האופנים: אין בו ריבוי ולא עניין נוסף על העצמות, ושהתארים הרבים בעלי המשמעויות השונות המצויים בכתבי הקודש, שמורים באמצעותם עליו יתעלה, הם מצד ריבוי פעולותיו, לא מפני ריבוי בעצמותו. וחלקם נועדו להורות על שלמותו לפי מה שאנחנו חושבים לשלמות, כפי שביארנו (א:כו,מו,מז).<br><sup>20</sup> באשר לשאלה האם אפשר שהעצמות האחת הפשוטה שאין בה ריבוי תפעל פעולות שונות – דבר זה יבואר (בפרק הבא) על ידי דוגמאות.</div>
+                <div class="en-cell">In summary, then, it has been set forth in this chapter<sup class="fn-ref" onclick="showFn('fn.526')">526</sup> that God is <i>one</i> in every respect, that there is in Him no multiplicity nor anything superadded to His essence, and that the many attributes of diverse significations employed in the (sacred) books to designate God denote the multiplicity of His actions, and not a multiplicity in His essence<sup class="fn-ref" onclick="showFn('fn.527')">527</sup>. Some (are employed) to indicate His perfection in relation to that which we believe to be a perfection, even as we have explained<sup class="fn-ref" onclick="showFn('fn.528')">528</sup>. As for knowing whether it be possible that the essence, one and simple, in which there is no multiplicity, may perform varied actions, this shall presently be demonstrated by examples.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.475" style="display: none;">
+                <strong>Note 475:</strong> The words [[t:0]]תוגׄב לה צפה̈[[t:1]] signify: [[t:2]]to which an attribute is affirmatively given[[t:3]]. In this chapter, the author commencs his researches into the attributes which are, or are not, befitting unto God, and he surveys the various classes of [[t:4]]affirmative[[t:5]] attributes; one shall see hereinafter that he admitts, in regard to God, only [[t:6]]negative[[t:7]] attributes.—The word [[t:8]]صفة[[t:9]], employed in the sense of [[t:10]]attribute[[t:11]], signifies literally [[t:12]]description[[t:13]], from the verb [[t:14]]וصف[[t:15]], [[t:16]]to describe[[t:17]], which, in philosophical language, does also signify: [[t:18]]to designate by an attribute[[t:19]]. One translats this verb, as the context of the sentence demands, now by [[t:20]]to give[[t:21]] or [[t:22]]to have an attribute[[t:23]], now by [[t:24]]to designate[[t:25]], now lastly by [[t:26]]to qualify[[t:27]], taking this latter word in a general sense, and not in the special sense of [[t:28]]to attribute a quality[[t:29]], that is to say, of [[t:30]]to give an attribute of the[[t:31]] [[t:32]]CATEGORY[[t:33]] [[t:34]]of[[t:35]] [[t:36]]QUALITY[[t:37]]. In this latter sense, the verb [[t:38]]كيف[[t:39]] is employed, as one shall see further on, in the III[[t:40]]rd[[t:41]] class of attributes.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.476" style="display: none;">
+                <strong>Note 476:</strong> Literally: [[t:0]]the quiddity of a thing and its reality[[t:1]], that is, what a thing is in reality.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.477" style="display: none;">
+                <strong>Note 477:</strong> See the preceding chapter, p. 183.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.478" style="display: none;">
+                <strong>Note 478:</strong> It must be remembered that, according to Aristotle, the best definition, that is to say, that which reveals the essence of a thing, is one which at the same time reveals its cause ([[t:0]]Posterior Analytics[[t:1]], Book II, chap. 10). Definition is effected by [[t:2]]genus[[t:3]] and [[t:4]]differentia[[t:5]], and it is requisite that it proceed from things anterior and better known; to weaker intellects, one does sometimes demonstrate the anterior by the posterior, yet these are not true definitions (Vide [[t:6]]Metaph.[[t:7]], Book VII, chap. 12; [[t:8]]Topics[[t:9]], Book VI, chap. 4). It follows thence that whatsoever is primitive and simple cannot be defined, for definition does presuppose somewhat general encompassing the particular object to be defined, whereas the primitive being has naught general preceding it or constituting its cause. Vide [[t:10]]Metaph.[[t:11]], Book VIII, chap. 6: [[t:12]]Ὅσα δὲ μὴ ἔχει ὕλην, μήτε νοητὴν μήτε αἰσθητήν, εὐθὺς ὅπερ ἕν τι εἶναί ἐστιν ἕϰαστον, ὥςπερ ϰαὶ ὅπερ ὄν τι, τὸ τόδε, τὸ ποιόν, τὸ ποσόν. διὸ ϰαὶ οὐϰ ἔνεστιν ἐν τοῖς ὁρισμοῖς οὔτε τὸ ὂν οὔτε τὸ ἕν · ϰαὶ τὸ τί ἦν εἶναι εὐθὺς ἕν τί ἐστιν ὥςπερ ϰαὶ ὄν τι. διὸ ϰαὶ οὐϰ ἔστιν ἕτερόν τι αἴτιον τοῦ ἓν εἶναι οὐθενὶ τούτων, οὐδὲ τοῦ ὄν τι εἶναι[[t:13]]. Cf. [[t:14]]ibid.[[t:15]], chap. 3: [[t:16]]ὥστ’ οὐσίας ἔστι μὲν ἧς ἐνδέχεται εἶναι ὅρον ϰαὶ λόγον, ϰ. τ. λ[[t:17]]. God, consequently, cannot be defined; for He has no anterior cause, He does not fall within a [[t:18]]genus[[t:19]] nor is He distinguished by a [[t:20]]differentia[[t:21]], and, generally, He exists not under the conditions of true definition.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.479" style="display: none;">
+                <strong>Note 479:</strong> The words [[t:0]]אלמחצלין למא יקולונה[[t:1]] signify: [[t:2]]those who reduce what they say to its true meaning[[t:3]], that is to say, [[t:4]]those who employ terms in their precise sense and express themselves with clarity and exactness[[t:5]]. The word [[t:6]]אלמחצלין[[t:7]] [[t:8]](المحصّلين)[[t:9]] is the participle of the II[[t:10]]nd[[t:11]] form of the verb [[t:12]]حصل[[t:13]], taken in the sense of: [[t:14]][Lat.: ad summam ac sensum suum redegit][[t:15]] ([[t:16]]sermonem[[t:17]]]). Some MSS. bear [[t:18]]אלמכׄלצין[[t:19]] [[t:20]](المخلصين)[[t:21]], that is to say: [[t:22]]those who explain[[t:23]] or [[t:24]]expound with clarity[[t:25]]. Ibn-Tibbon's version ([[t:26]]mss.[[t:27]] and edit. [[t:28]][Lat.: princeps][[t:29]]) reads [[t:30]]המבררים[[t:31]]; in several editions, this word has been corrupted to [[t:32]]המדברים[[t:33]]. Al-’Harizi translates: [[t:34]]המשכילים למה שהם אומרים[[t:35]], that is to say, [[t:36]]those who reflect well upon what they say, who understand it thoroughly[[t:37]].—By the words in question, the author intends to imply that those who possess not an exact comprehension of what [[t:38]]definition[[t:39]] truly is, imagine that God may be defined; for, by employing a defective definition and demonstrating the anterior by the posterior, one may say, for example: [[t:40]]God is the being who moves the universe[[t:41]], or: [[t:42]]God is the form of the universe[[t:43]]. This is the example cited by Ibn-Roschd when speaking of definitions in which the thing, possessing no anterior, is defined by that which is posterior to it (and which are not true [[t:44]]definitions[[t:45]]): [[t:46]]مثال ذلك من حدّ البارى تعالى بانه المحرّك للعالم او انه[[t:47]]  [[t:48]]صورة الكل[[t:49]] . Vide [[t:50]]Abridgement of the Organon[[t:51]] (Book of [[t:52]]Demonstration[[t:53]], chapter on [[t:54]]Definitions[[t:55]]); cf. Ibn-Falaquera, [[t:56]]Moré ha-Moré[[t:57]], p. 25. Elsewhere Ibn-Roschd does observe that, if the philosophers have stated that the prime being cannot fall within the same [[t:58]]genus[[t:59]] with another being, nor be distinguished therefrom by a [[t:60]]differentia[[t:61]], this is true only when one takes the words [[t:62]]genus[[t:63]] and [[t:64]]differentia[[t:65]] in their proper sense, referring to things which possess both a general form and a particular form, and of which a true definition may be given; but if, by homonymy, one were to take the word [[t:66]]genus[[t:67]] in an improper sense, that is to say, by taking the posterior for the anterior, one might also encompass God within a genus, by saying, for instance, that He is the being or the substance, etc., and then one might give a definition of Him, albeit an insufficient one. Vide [[t:68]]The Incoherence of the Incoherence[[t:69]], at the commencement of the VII[[t:70]]th[[t:71]] [[t:72]]Question;[[t:73]] cf. the Commentary of Moses of Narbonne, on our passage.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.480" style="display: none;">
+                <strong>Note 480:</strong> That is, where the thing is qualified by the [[t:0]]genre[[t:1]] alone or by the [[t:2]]différence[[t:3]] alone.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.481" style="display: none;">
+                <strong>Note 481:</strong> [Footnote 481 content missing]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.482" style="display: none;">
+                <strong>Note 482:</strong> Literally: [[t:0]]the means by which the essence is terminated and subsists[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.483" style="display: none;">
+                <strong>Note 483:</strong> By [[t:0]]superior genus[[t:1]], the author signifies the category of quality [[t:2]]in its entire generality;[[t:3]] for one will observe further on that this category comprehends four diverse species. It is in the same sense that the words [[t:4]]superior genus[[t:5]] are employed by Al-Farâbi, who, in his [[t:6]]Logic[[t:7]], when speaking of the category of [[t:8]]quality[[t:9]], expresses himself thus (according to the Hebrew version): [[t:10]]ותתחלק האיכות אשר הוא הסוג העליון אל ארבעה סוגים אמצעיים[[t:11]] 'Quality, which is the [[t:12]]superior genus[[t:13]], is divided into four [[t:14]]middle genera[[t:15]].' See Heb. ms. of the Imp. Library, Oratory collection, no. 107. Maimonides, in his [[t:16]]Compendium of Logic[[t:17]] (chap. X), designates the categories, in general, under the denomination of [[t:18]]superior genera[[t:19]]. Aristotle himself frequently gives to the categories the name of [[t:20]]genera[[t:21]] ([[t:22]]γένο[[t:23]]), because they represent the most general notions designated by words. See, for instance, the treatise [[t:24]]On the Soul[[t:25]], book I, chap. I (§ 3), where the words [[t:26]]ἐν τίνι τῶν γενῶν[[t:27]] signify evidently: [[t:28]]in which of the categories;[[t:29]] see also [[t:30]]Categories[[t:31]], at the end of chap. 8: [[t:32]]έν ἀμφότεροις τοῖς γένεσι[[t:33]], [[t:34]]in both categories[[t:35]] (of [[t:36]]quality[[t:37]] and [[t:38]]relation[[t:39]]); likewise, in several passages of the [[t:40]]Metaphysics[[t:41]].—The author intends to convey that [[t:42]]quality[[t:43]], considered firstly in its generality, as one of the ten categories, forms part of the nine [[t:44]]accidents[[t:45]], and cannot be attributed to God. He will then provide a specific demonstration for each of the four genera of [[t:46]]quality[[t:47]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.484" style="display: none;">
+                <strong>Note 484:</strong> Literally: [[t:0]]and this would be enough to be far from its reality and essence, I mean[[t:1]] ([[t:2]]to admit[[t:3]]) [[t:4]]that it possesses a quality[[t:5]]. The sense is: God, becoming, through qualifying attributes, a substratum of accidents, is a sufficient reason to exclude this type of attributes.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.485" style="display: none;">
+                <strong>Note 485:</strong> Although it be evident, says the author, that one cannot ascribe [[t:0]]qualifying[[t:1]] attributes to God, one ought to be astonished that the proponents of attributes have rejected [[t:2]]qualification[[t:3]] from God; for, from their point of view and to be consistent, they must necessarily admit qualifying attributes, inasmuch as every attribute, unless it be the very essence and, consequently, a tautology (as has been stated above, chap. LI), is necessarily [[t:4]]qualifying[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.486" style="display: none;">
+                <strong>Note 486:</strong> See above, and chapter L, page 180, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.487" style="display: none;">
+                <strong>Note 487:</strong> These four genera, enumerated by Aristotle, are as follows: 1° capacity (or talent) and disposition ([[t:0]]ἕξις ϰαί διάθεσις[[t:1]]); 2° that which is said with respect to natural power or impotence ([[t:2]]ὅσα ϰατὰ δύναμιν φυσιϰὴν ἤ ἀδυναμίαν λέγεται[[t:3]]); 3° affective qualities and affections, or passions ([[t:4]]παθητιϰαὶ ποιότητες ϰαὶ πάθη[[t:5]]); 4° the figure and external form which each thing possesses ([[t:6]]σχῆμά τε ϰαὶ ἡ περὶ ἕϰαστον ὑπάρχουσα μορφή[[t:7]]). See the details in Aristotle's [[t:8]]Categories[[t:9]], chap. 8; the examples Maimonides is about to cite are connected with the words of Aristotle.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.488" style="display: none;">
+                <strong>Note 488:</strong> The word [[t:4]]ἕξις[[t:5]] here translated as 'queen' is the Greek term used by Aristotle ([[t:6]]Catégorie[[t:7]], l. c.) to denote something more durable and solid ([[t:8]]χρονιώτερον ϰαὶ μονιμώτερον[[t:9]]) than disposition; cf. above, p. 121, note 2, and 129, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.489" style="display: none;">
+                <strong>Note 489:</strong> The words [[t:0]]ἕξις ϰαί διάθεσις[[t:1]], which the Arabic version of Aristotle renders as [[t:2]]الملكة والحمال[[t:3]] (Heb. [[t:4]]הקנין והענין[[t:5]]), are thus explained by Al-Farâbi (l. c.): [[t:6]]כל תכונה [[t:7]]هيئة[[t:8]] בנפש וכל תכונה בבעל נפש במה שהוא בעל נפש[[t:9]] 'Every [[t:10]]disposition in the soul[[t:11]], and every [[t:12]]disposition in the animate being[[t:13]] inasmuch as it is an animate being.' Dispositions in the soul, or [[t:14]]ἕξεις[[t:15]], are acquired capacities, such as sciences, arts, virtues, or natural capacities, such as the knowledge of axioms or the arts possessed by certain animals; the dispositions possessed by the animate being as such, or [[t:16]]διϰθεσέις[[t:17]], are, for example, warmth, cooling, health, sickness, etc. Ibn-Roschd, in his [[t:18]]Compendium of the Organon[[t:19]], distinguishes these two species of dispositions in the same terms, calling the one [[t:20]]الهيآت التي في النفس[[t:21]], and the other [[t:22]]الهيآت الحاصلة[[t:23]] [[t:24]]في المتنفس بها هو متنفس[[t:25]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.490" style="display: none;">
+                <strong>Note 490:</strong> The two Hebrew versions bear [[t:0]]הרופא[[t:1]], but one does not believe that the author employed the word [[t:2]]حكيم[[t:3]] here in the sense of [[t:4]]physician[[t:5]], which it sometimes has in vulgar parlance; the author intends to convey that the words [[t:6]]learned[[t:7]] and [[t:8]]wise[[t:9]] designate [[t:10]]dispositions in the soul[[t:11]] (see the preceding note), as readily as [[t:12]]carpenter[[t:13]], and that all these dispositions can no more be attributed to God than can the others. Immediately thereafter, he makes the same observation concerning moral dispositions, intending to convey that one can no more attribute to God the quality of [[t:14]]merciful[[t:15]] than that of [[t:16]]chaste[[t:17]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.491" style="display: none;">
+                <strong>Note 491:</strong> Literally: puissante or qui s’est emparé (of the man). Cf. above, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.492" style="display: none;">
+                <strong>Note 492:</strong> The author intends to convey that one can no more ascribe to God the attribute of [[t:0]]strong[[t:1]] than that of [[t:2]]hard;[[t:3]] for [[t:4]]strong[[t:5]] and [[t:6]]weak[[t:7]] designate, like [[t:8]]hard[[t:9]] and [[t:10]]soft[[t:11]], a natural aptitude or inaptitude to do or to suffer certain things. Cf. Aristotle, [[t:12]]Categories[[t:13]], [Lat.: loc. cit.] (concerning the second species of [[t:14]]quality[[t:15]]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.493" style="display: none;">
+                <strong>Note 493:</strong> Literally: [[t:0]]when the moral quality has not become potent[[t:1]], or [[t:2]]has not consolidated itself[[t:3]] (in man), that is to say, when it is but the effect of a fleeting impression; for, in this case, it is not a [[t:4]]quality[[t:5]] properly so called, but a mere [[t:6]]affection[[t:7]]. Cf. Arist., [[t:8]]ibid.[[t:9]]: [[t:10]]ὅσα δὲ ἀπὸ ῥᾳδίως διαλυομένων ϰαὶ ταχὺ ἀποϰαθισταμένων γίνεται πάθη λέγεται, ποιότητες δὲ οὔ. ϰ. τ. λ[[t:11]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.494" style="display: none;">
+                <strong>Note 494:</strong> Colors are said to be [[t:0]]qualities affective[[t:1]], inasmuch as they come from an affection ([[t:2]]from a passion[[t:3]]), like, for example, the redness that comes from shame, the pallor that comes from fear. See Arist., [[t:4]]ibid[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.495" style="display: none;">
+                <strong>Note 495:</strong> Literally: [[t:0]]by that which affects it[[t:1]] or [[t:2]]touches it on the side of quantity in so far as it is quantity[[t:3]]. Our author designats the fourth genus of [[t:4]]quality[[t:5]] by terms which differ entirely from those employed by Aristotle, although the Arabic translation of the [[t:6]]Categories[[t:7]] is here wholly conformable to the Greek text; the words [[t:8]]σχῆμά τε ϰαὶ ἡ περὶ ἕϰαστον ὑπάρχουσα μορφή[[t:9]] are thus rendered in Arabic: [[t:10]]الشكل والخلقة الموجودة[[t:11]] [[t:12]]في واحد واحد[[t:13]]. The terms of which Maimonides makes use are the same as those which have been employed by Al-Farâbi and, generally, by all the Arabian philosophers. Thus expresses Al-Farâbi himself, in his Logic (Hebrew version): [[t:14]]והסוג הרביעי האיכויות אשר ימצאו במיני הכמות במה שהוא כמות[[t:15]] “The fourth genus (compriss) the qualities which are found in the several species of quantity, in so far as it is quantity.” Al-Farâbi adducs as examples the straightness and the curvature of lines, the convexity and concavity of surfaces, the [[t:16]]figure[[t:17]] ([[t:18]]σχῆμα[[t:19]]) geometrical, such as the circle, the triangle, the square, etc., and the [[t:20]]form[[t:21]] ([[t:22]]μορφη[[t:23]]), which, as he says, is a species of figure in the surface of the animate body, lastly, the even and the odd in number. Ibn-Roschd, in his [[t:24]]Epitome of the Organon[[t:25]], expresses himself thus: [[t:26]]والضرب الرابع من اجناس الكيف هو مثل الاستقامة[[t:27]] [[t:28]]والانحناء والشكل وبالجملة الكيفيات التى فى الكمية بها هى كيفية[[t:29]] . “The fourth of the genera of [[t:30]]quality[[t:31]] (compriss), e.g., straightness, curvature, and (geometrical) figure, and, in general, the qualities which are in quantity in so far as it is quantity.” One perceivs that the words [[t:32]]σχῆμα[[t:33]] and [[t:34]]μορφή[[t:35]], of which Aristotle makes use, have been generally interpreted by the Arabian philosophers in the sense of a [[t:36]]quantitative quality[[t:37]], or, as they themselves express it, of a quality situated in quantity in so far as quantity, that is to say, which qualifies the thing from the standpoint of abstract quantity or of geometrical or arithmetical form in general, without designating the more and the less.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.496" style="display: none;">
+                <strong>Note 496:</strong> The two Hebrew versions have הכח, in the singular; similarly, some Arabic manuscripts read: אלקוה̈.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.497" style="display: none;">
+                <strong>Note 497:</strong> See above, p. 195, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.498" style="display: none;">
+                <strong>Note 498:</strong> That is to say, who belongs to the category of [[t:0]]quality[[t:1]], in general. See above, page 193, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.499" style="display: none;">
+                <strong>Note 499:</strong> See above, p. 190, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.500" style="display: none;">
+                <strong>Note 500:</strong> See the II[[t:0]]nd[[t:1]] part of this work, chap. I.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.501" style="display: none;">
+                <strong>Note 501:</strong> Some manuscripts add: [[t:0]]ולדׄלך קיל אנה תעאלי ואחד באטלאק[[t:1]] ‘That is why it has been said that God is absolutely [[t:2]]one[[t:3]]’; similarly the version of Ibn-Tibbon: [[t:4]]ולזה נאמר שהוא אחד גמור[[t:5]]. The version of Al-Harizi did not render these words.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.502" style="display: none;">
+                <strong>Note 502:</strong> Time, says Aristotle, is not itself motion, for change and motion are in the thing alone which changs and movs, whereas time is everywhere and in every thing. Every change is more or less rapid or slow; time is neither the one nor the other, for it is by time that rapidity and slowness are indicated (See [[t:0]]Physics[[t:1]], Book IV, at the end of chap. 10). Not being itself motion, it must necessarily be [[t:2]]something of motion[[t:3]] ([[t:4]]ἀνάγϰη τῆς ϰινήσεώς τι εἶναι αὐτόν[[t:5]]), or, as our author says, an accident which pertains to motion. One apprehends time by determining motion through the determination [[t:6]]of the anterior[[t:7]] and [[t:8]]of the posterior[[t:9]] ([[t:10]]ὅταν ὁρίσωμεν τῆν ϰίνησιν τὺ πρότερον ϰαὶ ὕστερον ὁρίζοντες[[t:11]]), that is to say, by that which is before and after an intermediate point, which is the [[t:12]]present[[t:13]] ([[t:14]]το νὺν[[t:15]]]). Time is therefore the [[t:16]]number[[t:17]] of motion, according to the [[t:18]]before[[t:19]] and the [[t:20]]after[[t:21]] ([[t:22]]ἀ ρ ι θ μ ὸ ς ϰινήσεως ϰατὰ τὸ πρότερον ϰαὶ ὕστερον. Ibid.[[t:23]], chap. 11). Time being the measure or the number of motion, it follows that [[t:24]]that which is always[[t:25]] ([[t:26]]τὰ ἀεὶ ὄντα[[t:27]]) is not in time; for it is not contained within time, and its being is not measured by time ([[t:28]]Ibid.[[t:29]], chap. 12). Cf. the II[[t:30]]nd[[t:31]] part of this work, chap. XIII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.503" style="display: none;">
+                <strong>Note 503:</strong> For space is not something that is contained, but something that contains (See Aristotle, [[t:0]]ibid.[[t:1]], chap. 2); it cannot therefore be related to God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.504" style="display: none;">
+                <strong>Note 504:</strong> The word [[t:0]]נסב̈ה[[t:1]] [[t:2]](نسبة)[[t:3]] denots any [[t:4]]ratio[[t:5]] or [[t:6]]relation[[t:7]] whatsoever, notably a proportional ratio, whereas the word [[t:8]]אצׄאפה̈[[t:9]] [[t:10]](إضافة)[[t:11]] is employed particularly to designate the [[t:12]]Category of Relation[[t:13]] ([[t:14]]τὰ προό τι[[t:15]]), or the relation between two things said to be such in respect of one another, as, for example, [[t:16]]greater[[t:17]] and [[t:18]]less, father[[t:19]] and [[t:20]]son, master[[t:21]] and [[t:22]]slave[[t:23]] (See Arist., [[t:24]]Categories[[t:25]], chap. 7). It is this [[t:26]]relation[[t:27]] which the author here affirms to be absolutely inapplicable to God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.505" style="display: none;">
+                <strong>Note 505:</strong> Literally: [[t:0]]the inversion with mutual equality[[t:1]]. The [[t:2]]relatives[[t:3]], or the words which fall under the [[t:4]]category[[t:5]] of [[t:6]]relation[[t:7]], possess this property, that they are predicated of reciprocal things ([[t:8]]πάντα δὲ τὰ πρός τι πρὸς ἀ ν τ ι σ τ ρ έ φ ο ν τ α λέγεται[[t:9]], Arist., l. c.). Thus, the slave is the slave of the master, as the master is the master of the slave; both alike, they are what they are solely by their reciprocal condition, and one could not exist without the other. — The word [[t:10]]אנעכאס[[t:11]] ([[t:12]]انعكاس[[t:13]], [[t:14]]inversion[[t:15]]), employed by our author here, is derived from the verb [[t:16]]عكس[[t:17]], which, in the Arabic versions, corresponds to the Greek verb [[t:18]]ἀντιστρέφειν[[t:19]]. Ibn-Roschd, in the [[t:20]]Compendium of the Organon[[t:21]], in speaking of the two [[t:22]]relatives[[t:23]], expresses himself similarly: [[t:24]]ومن خواصها ايضا ... ان[[t:25]] [[t:26]]يرجع كل واحد منهما على صاحبه منعكساً[[t:27]] "Which is also one of their properties …, that they relate to one another [[t:28]]reciprocally[[t:29]]."
+            </div>
+            
+            <div class="footnote-item" id="item-fn.506" style="display: none;">
+                <strong>Note 506:</strong> See the II[[t:0]]nd[[t:1]] part of this work, introduction (Propositions XIX and following) and chapter I.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.507" style="display: none;">
+                <strong>Note 507:</strong> That is to say, albeit the existence of intelligence and that of colour be of the same nature. The author here alludes to that which he shall expound further on, namely, that with the exception of the existence of God, all existence is an [[t:0]]accident[[t:1]] of the thing which exists. This thesis, maintained by Ibn-Sînâ and disputed by others, is adopted unreservedly by our author; wherefore he here adds the words: [[t:2]]according to our opinion[[t:3]]. See hereafter, at the commencement of chap. LVII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.508" style="display: none;">
+                <strong>Note 508:</strong> More literally: [[t:0]]between that which has absolutely naught in common with what is outside of it[[t:1]]. One perceives that the author has expressed himself in an incomplete manner, and that the words: [[t:2]]and another being[[t:3]] must be understood. The sense is: How could one conceive a relation between two beings which possess absolutely nothing in common, not even the genus of existence? for in the one, existence is its substance, and in the other, it is an accident.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.509" style="display: none;">
+                <strong>Note 509:</strong> The [[t:0]]proximate[[t:1]] or [[t:2]]immediate[[t:3]] species is that which immediately follows individuality, and which, in no respect, can be considered as a [[t:4]]genus;[[t:5]] it is the [Lat.: species specialissima] ([[t:8]]τὸ εἰδιϰώτατον εἶδος[[t:9]]). Cf. Porphyry's [[t:10]]Isagoge[[t:11]], chap. 2: [[t:12]]ϰαὶ πᾶν τὸ πρὸ τῶν ατόμων π ρ ο σ ε χ ῶ ς ϰατηγορούμενον εἶδος ἄν εἴη μόνον, οὐϰέτι δὲ ϰαὶ γένος[[t:13]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.510" style="display: none;">
+                <strong>Note 510:</strong> As Moïse de Narbonne does remark, the author here refers to that which has been expounded by Aristotle at the end of the VII[[t:0]]th[[t:1]] book of the [[t:2]]Physics[[t:3]] (chap. 4). Aristotle therein treats of the different species of motion and the relations which they may bear one to another; the question is to ascertain which motions admit of comparison, and which differ amongst themselves solely by quantity. In order that two motions may be compared one with another, it is requisite that they be susceptible of being equally swift, that is to say, they must differ solely by quantity, and no qualitative difference ought to exist between them. In general, for two things to be comparable one with another, it suffices not that they be not mere homonyms, but it is necessary that the two things be distinguished by no essential [[t:4]]difference[[t:5]], neither in themselves nor in their [[t:6]]substratum[[t:7]]; that is to say, that they be not only comprehended within the same [[t:8]]genus[[t:9]], but also characterised by the same [[t:10]]difference[[t:11]], in a word, that they be of the same [[t:12]]species[[t:13]]: A’λλ’ ἀρὰ οὐ μόνον δεῖ τὰ σνμβλητὰ μὴ ὁμώνυμα είναι ἀλλὰ ϰαὶ μὴ ἔχειν δ ι α φ ο ρ ά ν, μήτε ὅ μήτ’ἐν ᾧ. Thus, for example, says Aristotle, colour possesses a [[t:14]]division[[t:15]] (into different colours). Colours as such are therefore not comparable one with another; one cannot assert that such-and-such a black is more intense than such-and-such a white. Comparison can only be established for one and the same colour, for example, between two white or black objects. Cf. above, page 131, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.511" style="display: none;">
+                <strong>Note 511:</strong> The mss. read [[t:0]]כאנת[[t:1]]; but it may be necessary to read [[t:2]]כאנא[[t:3]] or better [[t:4]]כאנתא[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.512" style="display: none;">
+                <strong>Note 512:</strong> Ibn-Tibbon's version bears [[t:0]]תחת שני סוגים עליונים[[t:1]] (under two [[t:2]]superior[[t:3]] genera); it is necessary to efface the word [[t:4]]עליונים[[t:5]], albeit it is also found in the manuscripts of that version. One must likewise efface the words …[[t:6]]אין ספק ש[[t:7]], and a little further on, the words [[t:8]]שאין ספק לשום אדם[[t:9]], which are found neither in the manuscripts of Ibn-Tibbon's version nor in the Arabic text.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.513" style="display: none;">
+                <strong>Note 513:</strong> The word [[t:0]]genre[[t:1]] is used here in the sense of [[t:2]]catégorie[[t:3]]. See above, p. 193, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.514" style="display: none;">
+                <strong>Note 514:</strong> After having given an example of two things belonging to two [[t:0]]superior genres[[t:1]] or to two different categories, the author gives here an example of two [[t:2]]intermediate genres[[t:3]] belonging to the same category.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.515" style="display: none;">
+                <strong>Note 515:</strong> The feminine suffix in [[t:0]]בינהא[[t:1]] refers to God and creatures ([[t:2]]מכׄלוקאתה[[t:3]]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.516" style="display: none;">
+                <strong>Note 516:</strong> The word [[t:0]]תבלע[[t:1]], which one pronounces [[t:2]]تخص[[t:3]] as the infinitive of the V[[t:4]]th[[t:5]] form, signifies [[t:6]]deliverance, means of salvation;[[t:7]] the sense is: there is no means of extricating oneself by desiring to attribute any quality to God, and, however one may proceed, difficulties are encountered. This is what Al-’Harizi has expressed by the words [[t:8]]ואי אפשר להמלט מחטוא[[t:9]]. Ibn-Tibbon, who translates: [[t:10]]הנה לא תנצל[[t:11]], has pronounced [[t:12]]تَخَلَّصَ[[t:13]], as the 2[[t:14]]nd[[t:15]] person future passive of the II[[t:16]]nd[[t:17]] form.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.517" style="display: none;">
+                <strong>Note 517:</strong> Literally: [[t:0]]même du côté du rapport[[t:1]], that is to say, whether this attribute is taken in the relation that exists between God and his creatures.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.518" style="display: none;">
+                <strong>Note 518:</strong> More literally: [[t:0]]but they[[t:1]] (the relational attributes) [[t:2]]are among the attributes that most deserve to be indulgent in their employment as qualifications of God[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.519" style="display: none;">
+                <strong>Note 519:</strong> The editions of Ibn-Tibbon's version generally carry [[t:0]]שלא יתחייב רבוי הקדמות[[t:1]]; one must read, with the manuscripts: [[t:2]]הקדמון שלא יחייב רבוי[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.520" style="display: none;">
+                <strong>Note 520:</strong> The editions of the version of Ibn-Tibbon add [[t:0]]הצייר[[t:1]] (the painter), a word that is not found in the mss. of this version.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.521" style="display: none;">
+                <strong>Note 521:</strong> See above (pag. 194) the first example of the IIIe class of attributes.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.522" style="display: none;">
+                <strong>Note 522:</strong> Literally: [[t:0]]of the essence of that to which they refer[[t:1]] or [[t:2]]to which they are attributed[[t:3]]. One of the Leyden manuscripts bears [[t:4]]אלמוצוף[[t:5]], a word which designates the [[t:6]]subject[[t:7]] of the attribute; it is this latter reading which has been adopted by Al-’Harizi, who translates: [[t:8]]המתואר[[t:9]]. The sense is that actions, while emanating from the sole divine essence, as shall presently be stated, are not, however, something permanent within the essence, as would be [[t:10]]artistic capacity[[t:11]], and thought separates them from the essence by limiting them to a past, present, or future moment. Cf. the Commentary of Ibn-Caspi: [[t:12]]וזה לפי שלא נתארהו בתאר מיושב נח בו כמו שמות הבינוני והפעול ויתר שמות התארים אבל זה פעל אם עבר ואם עתיד וכו׳[[t:13]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.523" style="display: none;">
+                <strong>Note 523:</strong> Literally: [[t:0]]qu'il ne faut pas que ces actions diverses soient faites par des choses[[t:1]] (or [[t:2]]des idées[[t:3]]) [[t:4]]diverses dans l'essence de l'agent[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.524" style="display: none;">
+                <strong>Note 524:</strong> See the following chapter, where the author expands on the [[t:0]]attributes of action[[t:1]]. We will see that the author shares this opinion with other Arab philosophers.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.525" style="display: none;">
+                <strong>Note 525:</strong> A ms. reads [[t:0]]זאיד עלי דׄאתה[[t:1]]; similarly Ibn-Tibbon [[t:2]]מוסף על עצמו[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.526" style="display: none;">
+                <strong>Note 526:</strong> Literally: [[t:0]]thus, a brief summary of what is[[t:1]] ([[t:2]]contained[[t:3]]) [[t:4]]in this chapter is[[t:5]] etc.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.527" style="display: none;">
+                <strong>Note 527:</strong> Literally: [[t:0]]… who are found in the books[[t:1]] ([[t:2]]sacred[[t:3]]) [[t:4]]and by which one indicates God, are[[t:5]] ([[t:6]]employed[[t:7]]) [[t:8]]in terms of the multiplicity of His actions, and not due to a multiplicity in His essence[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.528" style="display: none;">
+                <strong>Note 528:</strong> See above, chapter XXVI, XLVI (page 160) and XLVII.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

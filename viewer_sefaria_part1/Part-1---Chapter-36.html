@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 36 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 36</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..35.0">
+                <div class="he-cell"><b>חומרת ההגשמה</b><br><span class="mediumGrey">פתיחה</span><br><sup>1</sup> בדִיוני על התארים (א,נד8-7) אבאר לך באיזה מובן נאמר שה' מרוצה מדבר־מה, או שהוא מרגיז ומכעיס אותו, שבמשמעות הזו נאמר לגבי פרטים מבני האדם שה' היה מרוצה מהם או כעס עליהם או רגז. עניין זה אינו מטרתו של פרק זה, אלא מטרתו היא מה שאומר:</div>
+                <div class="en-cell">I shall explain unto thee, when I speak of the <i>attributes</i>, in what sense it has been said that such a thing <i>pleass God</i>, or <i>provoks</i> and <i>movs Him to wrath;</i> for it is in that sense that it is said of certain persons that <i>God found pleasure in them</i>, or that <i>He was wroth</i>, or that <i>He was provoked against them</i>. This is not the purpose of this chapter; but it has for its purpose that which I am about to say.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..35.1">
+                <div class="he-cell"><span class="mediumGrey">כעס ה' – בעבודה זרה בלבד</span><br><sup>2</sup> דע שאם תתבונן בכל ה<b>תורה</b> ובכל ספרי הנביאים לא תמצא <b>לשון חרון אף</b> ולא <b>לשון כעס</b> ולא <b>לשון קנאה</b> אלא ב<b>עבודה זרה</b> דווקא. ולא תמצא שנקרא "<b>אויב ה'</b>" או "<b>צר</b>" או "<b>שונא</b>" אלא <b>עובד עבודה זרה</b> דווקא. נאמר: <br><sup>לשונות של כעס)</sup> "[הִשָּׁמְרוּ לָכֶם פֶּן יִפְתֶּה לְבַבְכֶם וְסַרְתֶּם] <b>וַעֲבַדְתֶּם אֱלֹהִים אֲחֵרִים [</b>וְהִשְׁתַּחֲוִיתֶם לָהֶם.] <b>וְחָרָה אַף ה' בָּכֶם</b>" (דברים יא,טז-יז); "[לֹא תֵלְכוּן אַחֲרֵי אֱלֹהִים אֲחֵרִים... כִּי אֵל קַנָּא ה' אֱלֹהֶיךָ בְּקִרְבֶּךָ] <b>פֶּן יֶחֱרֶה אַף ה'</b> [אֱלֹהֶיךָ בָּךְ וְהִשְׁמִידְךָ מֵעַל פְּנֵי הָאֲדָמָה]" (שם, ו,יד-טו); "[כִּי תַעֲשׂוּ אֶת הָרַע בְּעֵינֵי ה'] <b>לְהַכְעִיסוֹ בְּמַעֲשֵׂה יְדֵיכֶם</b>" (שם, לא,כט); "<b>הֵם קִנְאוּנִי בְלֹא אֵל כִּעֲסוּנִי בְּהַבְלֵיהֶם</b>" (שם, לב,כא); "[לֹא תֵלְכוּן אַחֲרֵי אֱלֹהִים אֲחֵרִים...] <b>כִּי אֵל קַנָּא [</b>ה' אֱלֹהֶיךָ בְּקִרְבֶּךָ, פֶּן יֶחֱרֶה אַף ה' אֱלֹהֶיךָ בָּךְ וְהִשְׁמִידְךָ מֵעַל פְּנֵי הָאֲדָמָה]" (שם, ו,יד-טו). "<b>מַדּוּעַ הִכְעִסוּנִי בִּפְסִלֵיהֶם</b>" (ירמיהו ח,יט); "[יִזְבְּחוּ לַשֵּׁדִים לֹא אֱלֹהַּ... וַיַּרְא ה' וַיִּנְאָץ] <b>מִכַּעַס בָּנָיו וּבְנֹתָיו</b>" (דברים לב,יז-יט); "[הֵם קִנְאוּנִי בְלֹא אֵל...] <b>כִּי אֵשׁ קָדְחָה בְאַפִּי</b>"(שם, שם,כא-כב); <br><sup>לשונות אויב, צר, שונא)</sup> "<b>נֹקֵם הוּא לְצָרָיו, וּמְשַׁלֵּם הוּא לְאֹיְבָיו</b>" (נחום א,ב; ושם: נֹקֵם ה' לְצָרָיו וְנוֹטֵר הוּא לְאֹיְבָיו); "[כִּי יָסִיר אֶת בִּנְךָ מֵאַחֲרַי וְעָבְדוּ אֱלֹהִים אֲחֵרִים...] <b>וּמְשַׁלֵּם לְשֹׂנְאָיו</b> [אֶל פָּנָיו לְהַאֲבִידוֹ]"(דברים ז,ד,י); "[וְעָבַר לָכֶם כָּל חָלוּץ אֶת הַיַּרְדֵּן לִפְנֵי ה'] <b>עַד הוֹרִישׁוֹ אֶת אֹיְבָיו</b> [מִפָּנָיו]" (במדבר לב,כא); "[וְלֹא תָקִים לְךָ מַצֵּבָה] <b>אֲשֶׁר שָׂנֵא ה' אֱלֹהֶיךָ</b>" (דברים טז,כב); "<b>כִּי כָל תּוֹעֲבַת ה' אֲשֶׁר שָׂנֵא</b> [עָשׂוּ לֵאלֹהֵיהֶם]" (שם, יב,לא). ואלה רבים מספור, אך אם תתחקה אחריהם בכל ספרי הקודש, תמצאם.</div>
+                <div class="en-cell">Know that upon examining the entire Pentateuch and all the books of the prophets, one will find the expressions of wrath, of irritation, of jealousy only when the discourse pertains particularly to idolatry; and one will find that none is designated an enemy of God, or hostile to Him, or His adversary, save the idolater in particular. We read, for example: … and lest ye serve other gods, etc., so that the wrath of the Eternal be kindled against you (Deuteronomy, 11, 16, 17); Lest the wrath of the Eternal, thy God, be kindled (Ibid., 6, 15); To provoke Him to anger with the work of your hands (Ibid., 31, 29); They have moved Me to jealousy with that which is not God; they have provoked Me to anger with their vanities, etc. (Ibid., 32, 21); For a jealous God, etc. (Ibid., 6, 15); Why have they provoked Me to anger with their graven images? (Jeremiah, 8, 19); Because his sons and his daughters have provoked him (Deuteronomy, 32, 19); For a fire is kindled in My anger (Ibid., V. 22); The Eternal<sup class="fn-ref" onclick="showFn('fn.316')">316</sup> takes vengeance on His adversaries, and He reserves wrath for His enemies (Nahum, 1, 2; And he repays His adversaries (Deuteronomy, 7, 10); Until he has cast out his enemies (Numbers, 32, 21); … which the Eternal, thy God, hates (Deuteronomy, 16, 22); All that is an abomination unto the Eternal, (all that) He hates (Ibid., 12, 31). Examples of this nature are too numerous for enumeration; but should one trace them through all the (holy) books, one will indeed discover them.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..35.2">
+                <div class="he-cell"><span class="mediumGrey">מדרג הטעויות</span><br><sup>3</sup> ספרי הנבואה הדגישו זאת כל כך רק משום שאותה דעה שקרית, כלומר פולחן <b>עבודה זרה</b>, קשורה אליו יתעלה. <br><sup>א)</sup> מי שמאמין שראובן עומד, בזמן שהוא באמת יושב, אינו נוטה מן האמת <br><sup>ב)</sup> כמי שמאמין שהאש נמצאת מתחת לאוויר, או שהמים מתחת לארץ, או שהארץ שטוחה, וכיוצא בזה. וזה השני אינו נוטה מן האמת <br><sup>ג)</sup> כמי שמאמין שהשמש עשויה מאש, או שהגלגל (הסובב את העולם) הוא חצי כדור, וכיוצא בזה. וזה השלישי אינו נוטה מן האמת <br><sup>ד)</sup> כמי שמאמין שהמלאכים אוכלים ושותים וכיוצא בזה. וזה הרביעי אינו נוטה מן האמת <br><sup>ה)</sup> כמי שמאמין שחובה לעבוד דבר זולת ה'. משום שככל שהאי ידיעה והכפירה קשורות לדבר רם מעלה, כלומר למה שיש לו מדרגה איתנה במציאות, הן גדולות יותר מאלה הקשורות לדבר בעל מדרגה נמוכה יותר. ב"כפירה" כוונתי להַאֲמנה במשהו בניגוד למה שהוא; וב"אי ידיעה" כוונתי היא לאי ידיעה של מה שניתן לדעת. האי ידיעה של מי שאינו יודע את מידת החרוט של גליל, או שאינו יודע שהשמש כדורית, אינה כאי ידיעה של מי שאינו יודע אם האלוה קיים או שמא אין לעולם אלוה. וכפירתו של מי שחושב שמידת חרוט הגליל היא חציו, או שהשמש היא עיגול, אינה ככפירתו של מי שחושב שהאלוה הוא יותר מאחד.</div>
+                <div class="en-cell">If the prophetical books have so strongly insisted thereon, it is solely because it concerns a false opinion relating to God, I mean, idolatry. If any one believed that Zeid were standing at the moment when he is sitting, his deviation from the truth would not be so grave as the deviation of him who should believe that fire is below the air, or that water is below the earth<sup class="fn-ref" onclick="showFn('fn.317')">317</sup>, or that the earth is a plane, and other like things; the deviation of this latter would not be as the deviation of him who should believe that the sun is composed of the element of fire, or that the heaven is a hemisphere, and other like things; the deviation of this third would not be as the deviation of him who should believe that angels eat and drink, and other like things; the deviation of this fourth would not be as the deviation of him who should believe that one must worship some other thing besides God. For in proportion as ignorance and false belief relate to a greater object, I mean to that which occupies a more important rank in Being, they possess more gravity than when they relate to that which occupies an inferior rank. By <i>false belief</i>, I mean: that one believs a thing to be the contrary of what it truly is; by <i>ignorance</i>, I mean: that one is ignorant of what it is possible to know. The ignorance of him who should be ignorant of the measure of the cone or the sphericity of the sun would not be so grave as the ignorance of him who should not know whether God exists or whether the universe has no God; and the false belief of him who should believe that the cone forms the half of the cylinder<sup class="fn-ref" onclick="showFn('fn.318')">318</sup> or that the sun is a disk<sup class="fn-ref" onclick="showFn('fn.319')">319</sup> would not be so grave as the false belief of him who should believe that God is more than <i>one</i>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..35.3">
+                <div class="he-cell"><span class="mediumGrey">עובדי עבודה זרה אינם כופרים באל</span><br><sup>4</sup> אתה יודע שכל מי שעובד <b>עבודה זרה</b> אינו עובד אותה כאילו אין אלוה זולתה. אף אדם, לא מאלה שהיו ולא מאלה שיהיו, לא דימה ולא ידמה שהצורה שהוא עושה מן המתכות או מן האבנים והעצים – שצורה זו בראה את השמים ואת הארץ והיא מנהיגה אותם. אלא היא נעבדת רק כייצוג לדבר שהוא מתווך בינינו לבין האל, כמו שביאר ואמר: "<b>מִי לֹא יִרָאֲךָ מֶלֶךְ הַגּוֹיִם [</b>כִּי לְךָ יָאָתָה, כִּי בְכָל חַכְמֵי הַגּוֹיִם וּבְכָל מַלְכוּתָם מֵאֵין כָּמוֹךָ]" (ירמיהו י,ז), ואמר: "<b>וּבְכָל מָקוֹם מֻקְטָר מֻגָּשׁ לִשְׁמִי [</b>וּמִנְחָה טְהוֹרָה, כִּי גָדוֹל שְׁמִי בַּגּוֹיִם אָמַר ה' צְבָאוֹת]" (מלאכי א,יא), ברמז אל הסיבה הראשונה לדעתם. וכבר ביארנו זאת בחיבורנו הגדול (משנה תורה, עבודה זרה א,ב), וזהו דבר שאיש מאנשי דתנו אינו חולק לגביו.</div>
+                <div class="en-cell">Thou knowest that all those who devote themselves to the worship of idols do not adore them in the sense that there exists no divinity beside them; for never did any man of past generations imagine, nor will any man of future generations imagine, that the figure fashioned by him of metal, stone, or wood, has itself created heaven and earth, and that it is that which governs them. This latter, on the contrary, is worshipped only in the sense that it is the symbol of a thing that is intermediate between us and God, as (Scripture) clearly says: <i>Who would not fear thee, O King of nations? etc.</i> (Jeremiah, x. 7); and elsewhere: <i>And in every place incense is offered unto my name, etc.</i> (Malachi, i. 11), alluding to that which, according to them (the heathens), is the <i>first cause</i>. We have already expounded this in our great work<sup class="fn-ref" onclick="showFn('fn.320')">320</sup>, and it is a matter which none among our co-religionists disputs.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..35.4">
+                <div class="he-cell"><span class="mediumGrey">עובדי עבודה זרה נענשים אף על פי שלא כפרו באל</span><br><sup>5</sup> אבל אף על פי שהכופרים הללו מאמינים במציאות האלוה, מכל מקום כיוון שכפירתם עוסקת בחובה שהיא כלפיו יתעלה בלבד, כלומר בעבודה ובהערצה, כמו שנאמר "[לֹא תִשְׁתַּחֲוֶה לֵאלֹהֵיהֶם וְלֹא תָעָבְדֵם...] <b>וַעֲבַדְתֶּם אֵת ה' [</b>אֱלֹהֵיכֶם...]" (שמות כג,כד-כה), כדי שתתבסס מציאותו בהאמנת ההמון; והם ייחסו את החובה הזו לזולתו, ודבר זה מביא להיעדר מציאותו יתעלה מהאמנת ההמון, כי ההמון אינו משיג אלא את מעשי הפולחן, לא את משמעויותיהם ולא את מהותו האמיתית של הנעבד על ידיהן – הביא דבר זה לחייבם בדין מוות, כמו שאמר הכתוב: "[רַק מֵעָרֵי הָעַמִּים הָאֵלֶּה אֲשֶׁר ה' אֱלֹהֶיךָ נֹתֵן לְךָ נַחֲלָה] <b>לֹא תְחַיֶּה כָּל נְשָׁמָה</b>" (דברים כ,טז). הסיבה לכך, שהיא סילוק אותה דעה כוזבת כדי שלא יתקלקלו על ידה אחרים, התבארה בפסוק: "<b>לְמַעַן אֲשֶׁר לֹא יְלַמְּדוּ אֶתְכֶם לַעֲשׂוֹת [</b>כְּכֹל תּוֹעֲבֹתָם אֲשֶׁר עָשׂוּ לֵאלֹהֵיהֶם, וַחֲטָאתֶם לַה' אֱלֹהֵיכֶם]" (שם יח), והם כונו "<b>אויבים</b>" ו"<b>שונאים</b>" ו"<b>צרים</b>", ונאמר שהעושה זאת <b>מקנא</b> ו<b>מכעיס</b> ו<b>מעלה חמה</b>.</div>
+                <div class="en-cell">But, since these misbelievers, whilst believing in the existence of God, applied their false belief to something that is due unto God alone,—I mean, to the worship and veneration (due to the Divinity), as it is said: <i>And ye shall serve the Lord, etc.</i> (Exodus, xxiii. 25), to the end that His existence might be well established in the belief of the people,—and since they believed they (could render) this duty to that which is without Him [a thing which contributed to make the existence of God vanish from the belief of the people, the latter perceiving only the practices of worship, without (penetrating) the meaning, nor (knowing) the reality of Him to whom this worship is addressed], this must necessarily cause them to deserve death, as it is expressly said: <i>Thou shalt save alive nothing that breaths</i> (Deuter., xx. 16); and the reason thereof is expressly given, which is, to put an end to this false opinion, lest others be infected thereby, as it is added: <i>That they teach you not to do etc.</i> (<i>Ibid.</i>, <small>v</small>. 18).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..35.5">
+                <div class="he-cell"><span class="mediumGrey">המאמין בגשמות גרוע יותר מעובד עבודה זרה</span><br><sup>6</sup> קל וחומר למי שכפירתו קשורה לעצמותו יתעלה והאמנתו בניגוד למה שהוא, כלומר שאינו מאמין במציאותו, או שהוא מאמין שהוא שניים, או שהוא מאמין שהוא גוף, או שהוא מאמין שיש לו היפעלויות, או שהוא מייחס לו חסרון כלשהו – הוא בלי ספק חמור יותר ממי ש<b>עובד עבודה זרה</b> בתור מתווכת או <b>מטיבה</b> או <b>מרעה</b> לפי סברתו.</div>
+                <div class="en-cell">These (the idolaters) have been called <i>enemies, adversaries, hostile</i> (to God), and it has been said that he who acts thus <i>renders</i> (<i>God</i>) <i>jealous, provoks Him to anger, and incits His wrath;</i> what then shall be the condition of him whose infidelity relats to the very essence of God, and whose belief<sup class="fn-ref" onclick="showFn('fn.321')">321</sup> is the reverse of what He (God) really is, I mean, who believs not in His existence, or who believs Him to be <i>two</i>, or who believs Him to be a body, or who believs Him subject to passions, or who attributs to Him any imperfection whatsoever? Such a man is indubitably worse than he who worshipps an idol, considering it as an intermediary, or because, in his opinion, it is beneficent or harmful.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..35.6">
+                <div class="he-cell">דע לך אם כן, שכשאתה מאמין בגשמות או ב(כך שיש לאל) מצב ממצבי הגוף, אתה <b>מקנא</b> ו<b>מכעיס</b> ו<b>קודח אש חמה</b> ו<b>שונא</b> ו<b>אויב</b> ו<b>צר</b> הרבה יותר מ<b>עובד עבודה זרה</b>.<br><span class="mediumGrey">אין תירוץ למאמין בגשמות</span><br><sup>7</sup> ואם יעלה בדעתך שאפשר להתייחס בסלחנות למאמין בגשמות משום שהוא התחנך על כך, או בשל בורותו וקוצר השגתו, הרי כך ראוי לך להאמין לגבי <b>עובד עבודה זרה</b>, כי הוא לא עובד אלא או מבורות או מחינוך, "<b>מנהג אבותיהם בידיהם</b>" (בבלי חולין יג,ב). ואם תאמר שפשטי המקראות גורמים להם לבלבול הזה, באותה מידה עליך לדעת שרק דמיונות ותפיסות פגומות הביאו את <b>עובד עבודה זרה</b> לפולחנה. אם כן אין מקום להצטדקות למי שאינו מקבל כנתון (את שלילת הגשמות) מאנשי האמת בעלי העיון, אם קצרה דעתו מלעיין. כי איני מחשיב ככופר את מי ששלילת הגשמות לא הוכחה לו, אלא את מי שאינו מאמין בשלילתה, בפרט כאשר קיימים תרגום <b>אנקלוס</b> ותרגום <b>יונתן בן עזיאל</b> עליהם השלום, המרחיקים את הגשמות תכלית הריחוק. זו היתה מטרת הפרק.</div>
+                <div class="en-cell">Thou must know that by believing in corporeality or (by attributing to God) any of the conditions of the body, thou <i>renderest Him jealous</i>, thou <i>provokest Him to anger</i>, thou <i>enkindlest the fire of His wrath</i>, thou art an <i>adversary, an enemy</i>, <i>hostile</i>, much more even than he who devots himself to idolatry. If it should occur to thy mind that he who believs in corporeality might be excused because he had been so reared, or because of his ignorance and the weakness of his intelligence, thou shouldst think the same with regard to him who devots himself to idolatry; for he does it only through ignorance or through education: <i>they maintain the custom of their fathers</i><sup class="fn-ref" onclick="showFn('fn.322')">322</sup>. If thou shouldst say (regarding the former) that the literal sense of Scripture causs him to fall into this doubt, thou shouldst likewise know that he who worshipps idols is led to their worship only by imaginations and false ideas. There is therefore no excuse for him who, being himself incapable of meditation, follows not the authority of thinkers who seek the truth; for, verily, I do not declare him a misbeliever who does not remove corporeality (from God) by means of demonstration, but I declare him a misbeliever who believs not that it must be removed; the more so as we have the version of Onkelos and that of Jonathan ben-Uziel, who do their utmost to remove the idea of corporeality (from God). Such was the aim of this chapter.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.316" style="display: none;">
+                <strong>Note 316:</strong> In the text, the quotation is not altogether exact. One must read [[t:0]]י״י[[t:1]] instead of [[t:2]]הוא[[t:3]], and [[t:4]]ונוטר[[t:5]] instead of [[t:6]]ומשלם[[t:7]]. This is, doubtless, an error of memory which must be ascribed to the author; for the fault exists in almost all the Arabic MSS., as in those of Ibn-Tibbon’s version, and in the [[t:8]]Moré-ha-Moré[[t:9]] (p. 21).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.317" style="display: none;">
+                <strong>Note 317:</strong> It is known that, according to Aristotle, the four elements have their respective regions; these are spheres that surround one another, like those of the planets. The earth is surrounded by water, which, in turn, is enveloped by air, which is itself surrounded by fire. See Aristotle's [[t:0]]Physics[[t:1]] book IV, chapter 5, and the treatise [[t:2]]On the Heavens[[t:3]], book IV, chapter 5. Cf. below, chapter LXXII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.318" style="display: none;">
+                <strong>Note 318:</strong> Literally: [[t:0]]the cone of the cylinder is half of it[[t:1]], that is, the cone forms half of a cylinder with the same base and height; we know that the measure of solidity of the cone is only one-third of that of the cylinder with equal base and height.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.319" style="display: none;">
+                <strong>Note 319:</strong> Literally: [[t:0]]a circle;[[t:1]] the author wishes to speak of one who would believe the sun to be such as it appears to our eyes, that is to say, who would see therein only something [[t:2]]circular[[t:3]], and who would be ignorant that the sun is a [[t:4]]sphere[[t:5]]. Al-’Harizi, having not rightly comprehended the word [[t:6]]دايرة[[t:7]] (circle), which he took in the sense of [[t:8]]round[[t:9]], deemed it necessary to add a negation and translated [[t:10]]או כי אין השמש עגול[[t:11]], [[t:12]]or that the sun is not round[[t:13]]. This is a serious misinterpretation, and M. Scheyer, in the critical notes with which he accompanied the edition of the first part of Al-’Harizi’s version (p. 37, note 5), erred in here preferring this version over that of Ibn-Tibbon, and in asserting that a negation must be added to the Arabic text. It is likewise erroneously that M. Scheyer relies upon Ibn-Falaquera's version, which, he says, bears [[t:14]]או שהשמש איננה מסיבה[[t:15]] (vide [[t:16]]Moré-ha-Moré[[t:17]], p. 21); the word [[t:18]]איננה[[t:19]] has been added, doubtless, by some copyist or perhaps by the editor of the [[t:20]]Moré-ha Moré[[t:21]], for the MSS. generally bear [[t:22]]או שהשמש מסיבה[[t:23]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.320" style="display: none;">
+                <strong>Note 320:</strong> See Mischné Torâ or Abrégé du Talmud, book I, treatise on the Idolâtrie, chap. I.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.321" style="display: none;">
+                <strong>Note 321:</strong> Instead of [[t:0]]ואעתקאדה[[t:1]], some mss. have [[t:2]]ואעתקדה[[t:3]], [[t:4]]and who believes[[t:5]]. The Hebrew versions agree with the latter reading, which is perhaps preferable.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.322" style="display: none;">
+                <strong>Note 322:</strong> These words, which the author wrote in Hebrew, are a proverbial locution commonly used in rabbinic books; for example: [[t:0]]הזהרו במנהג אבותיכם בידיכם[[t:1]], Babylonian Talmud, tractate [[t:2]]Béçâ[[t:3]], fol. 4 [[t:4]]b[[t:5]]. In the tractate [[t:6]]’Houllin[[t:7]] (fol. 13 [[t:8]]b[[t:9]]), it is said regarding idolaters: [[t:10]]נכרים שבחוצה לארץ לאו עוברי ע״א הן אלא מנהג אבוחיהם בידיהם[[t:11]] "The Gentiles outside the Holy Land are not true idolaters, but [[t:12]]they maintain the usage of their fathers[[t:13]]." See also tractate [[t:14]]’Abôdâ Zarâ[[t:15]], fol. 2 [[t:16]]a[[t:17]], in the [[t:18]]Tosaphôth[[t:19]] or Glosses.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

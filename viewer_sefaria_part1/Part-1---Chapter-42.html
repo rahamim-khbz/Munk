@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 42 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 42</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..41.0">
+                <div class="he-cell"><b>המונחים חיים ומוות</b><br><span class="mediumGrey">שתי משמעויות לחיים</span><br><sup>1</sup> "<b>חי</b>" <br><sup>א)</sup> הוא שמו של הגדל ובעל תחושה: "<b>כָּל רֶמֶשׂ אֲשֶׁר הוּא חַי</b>" (בראשית ט,ג). <br><sup>ב)</sup> והוא שמה של ההחלמה ממחלה קשה מאוד: "<b>וַיְחִי מֵחָלְיוֹ</b>" (ישעיהו לח,ט), "[וַיֵּשְׁבוּ תַחְתָּם] <b>בַּמַּחֲנֶה עַד חֲיוֹתָם</b>" (יהושע ה,ח), וכן "<b>בָּשָׂר חַי</b>" (ויקרא יג,י).</div>
+                <div class="en-cell">Hay  (['living', 'alive']  (חי vivant, vivre) is said of that which has growth and sensibility<sup class="fn-ref" onclick="showFn('fn.351')">351</sup>; p. ex.: All that moves which is living  (חי) (Genesis, 9, 3). It also signifies to recover from a very violent disease; p. ex.: When he was recovered  (ויחי) from his disease  (Isaiah, 38, 9); (Iis remained) in the camp until they were recovered  (עד חיותם) (Joshua, 5, 8); similarly: of sound flesh  (חי) (Leviticus, 13, 10).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..41.1">
+                <div class="he-cell"><span class="mediumGrey">שתי משמעויות למוות</span><br><sup>2</sup> וכן "<b>מות</b>" הוא <br><sup>א)</sup> שמו של המוות, <br><sup>ב)</sup> ושמה של המחלה הקשה: "<b>וַיָּמָת לִבּוֹ בְּקִרְבּוֹ וְהוּא הָיָה לְאָבֶן</b>" (שמואל־א כה,לז), והכוונה לקושי מחלתו. ולכן ביאר ב<b>בן הצרפית</b>: "<b>וַיְהִי חָלְיוֹ חָזָק מְאֹד עַד אֲשֶׁר לֹא נוֹתְרָה בּוֹ נְשָׁמָה</b>" (מלכים־א יז,יז), כי אילו אמר "<b>וימת</b>" יכול היה הדבר להתפרש שהוא מחלה קשה הקרובה למות, כמו <b>נבל</b> כששמע את הבשורה.</div>
+                <div class="en-cell">Similarly the word <i>muth</i> (<span dir="rtl">מות</span>), which signifies <i>to die</i>, denots also a <i>violent sickness;</i> e.g.: <i>And his heart died</i> (<span dir="rtl">וימת</span>) <i>within him, and he became as a stone</i> (I Sam., xxv. 37), which denots the violence of the sickness (of Nabal). Wherefore it was explicitly said of the son of the woman of Zarephath: <i>And his sickness was so sore, that there was no breath</i> (<i>of life</i>) <i>left in him</i> (I Kings, xvii. 17); for had it been simply said, <span dir="rtl">and he died</span> (וימת), one might have thought that it concerned only a violent sickness bordering upon death, like unto that of Nabal when he heard the news<sup class="fn-ref" onclick="showFn('fn.352')">352</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..41.2">
+                <div class="he-cell">ובאמת אחד מהאנדלוסים אמר שנשימתו פסקה עד שלא יכול היה לנשום כלל, כמו שקורה לחלק מהלוקים בשבץ ובהיחנקות הרחם עד שאין יודעים אם הוא מת או חי, והספק הזה נמשך יום ויומיים.</div>
+                <div class="en-cell">In fact, someone from Andalusia said (concerning the son of the woman of Sarepta) that he ceased to breathe, so that no breath was visible in him, as sometimes occurs in cases of apoplexy and hysterical suffocation<sup class="fn-ref" onclick="showFn('fn.353')">353</sup>, to such an extent that one does not know if (the patient) is dead or alive, a doubt that may last for one or two days.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..41.3">
+                <div class="he-cell"><span class="mediumGrey">משמעות ג: חיים = דעות נכונות, מוות = דעות מוטעות</span><br><sup>3</sup> <sup>ג)</sup> כמו כן נפוץ השימוש במונח הזה במשמעות של קניית החכמה: "[נְצֹר תֻּשִׁיָּה וּמְזִמָּה] <b>וְיִהְיוּ חַיִּים לְנַפְשֶׁךָ</b>" (משלי ג,כא-כב), "[הֲלֹא חָכְמָה תִקְרָא...] <b>כִּי מֹצְאִי מָצָא חַיִּים</b>" (שם ח,לה), "[בְּדֶרֶךְ חָכְמָה הֹרֵתִיךָ... בְּנִי לִדְבָרַי הַקְשִׁיבָה...] <b>חַיִּים הֵם לְמֹצְאֵיהֶם</b>" (שם ד,כב), וזה נפוץ. בהתאם לכך קרא לדעות הנכונות "<b>חיים</b>" ולדעות הרעות "<b>מות</b>". אמר יתעלה: "<b>רְאֵה נָתַתִּי לְפָנֶיךָ הַיּוֹם אֶת הַחַיִּים וְאֶת הַטּוֹב [</b>וְאֶת הַמָּוֶת וְאֶת הָרָע]" (דברים ל,טו). הרי אמר במפורש שה<b>טוב</b> הוא ה<b>חיים</b> וה<b>רע</b> הוא <b>מות</b>, וביאר אותם (בפסוקים שלאחר מכן). וכך אני מפרש בדבריו יתעלה "<b>לְמַעַן תִּחְיוּן</b>" (שם ה,ל), כעין מה שנאמר בפירוש המקובל באשר לדבריו "<b>לְמַעַן יִיטַב לָךְ [</b>וְהַאֲרַכְתָּ יָמִים]" (שם כב,ז). וכיוון שההשאָלה הזו מפורסמת אמרו (חז"ל): "<b>צדיקים אפילו במיתתן קרואים חיים, ורשעים אפילו בחייהם קרואים מתים</b>" (בבלי ברכות יח,א-ב; קהלת רבה ט). דע זאת.</div>
+                <div class="en-cell">This word (חי) is also frequently employed when treating of the acquisition of knowledge; e. g.: And they shall be life (חיים) unto thy soul (Prov., 3, 22); For whoso finds me finds life (Ibid., 9, 35); For they are life unto those that find them (Ibid., 4, 22), and many other passages. In conformity with this, sound opinions have been denominated life, and corrupt opinions, death; the Most High has said: See, I have set before thee this day life and good, and death and evil (Deuteronomy, 30, 15), where the two words are clearly explained by declaring that good is life, and evil, death. I interpret in like manner the words: That ye may live, etc. (Ibid., 5, 30); and this in accordance with the traditional explanation of this passage: That thou mayest be happy, etc. (Ibid., 22, 7)<sup class="fn-ref" onclick="showFn('fn.354')">354</sup>. It is in conformity with this metaphorical sense (of the word חי), so prevalent in the (Hebrew) language, that the doctors have said: “Pious men, even after their death, are called living; and the wicked, even during their life, are called dead<sup class="fn-ref" onclick="showFn('fn.355')">355</sup>.” It is essential that thou impress this upon thy mind.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.351" style="display: none;">
+                <strong>Note 351:</strong> That is, beings with the faculty of nutrition and at the same time sensitivity. The Hebrew word [[t:0]]חי[[t:1]] is never applied to plants.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.352" style="display: none;">
+                <strong>Note 352:</strong> See chapter XXV of the I[[t:0]]st[[t:1]] book of Samuel, whence the preceding biblical passage is drawn.—The author appears to signify that the entirety of the passage concerning the son of the woman of Zarephath, in which one speaks first explicitly of a most violent illness, and subsequently of the extinction of the breath of life, indicates that the child was indeed truly dead. He then cites, without adopting it, the opinion of an author from Andalusia, who deemed that it concerned, in this narrative, an apparent death. Several commentators, such as Ibn-Caspi, Moses of Narbonne, Ephodi, insinuate that Maimonides wished to veil his thought, and that he himself adopts the opinion of the author from Andalusia. They support themselves by another analogous narrative (II Kings, 4, 19 and 20), in which one expresses: [[t:2]]and he died[[t:3]] ([[t:4]]וימת[[t:5]]), which would destroy Maimonides' reasoning; but Abravanel, in his commentary upon the [[t:6]]Moré[[t:7]] (fol. 66), observes that there also one speaks first of the illness and then of the death, which indicates that it concerns a real death, in conformity with Maimonides' reasoning on the passage relative to the son of the widow of Zarephath. Be that as it may, one cannot admit that Maimonides, with the aim of veiling a heresy, should have presented a reasoning devoid of logic and contradicted himself. One could not admit Abravanel's opinion, who, to justify Maimonides, pretends that the words of the author from Andalusia refer to Nabal; it appears quite evident to one, from the whole, that it concerns here the son of the woman of Zarephath; but, as one has said, Maimonides cites this opinion without himself adopting it. It is certain, moreover, that this passage is one of those which Maimonides' adversaries seized upon to render his orthodoxy suspect. See the response of R. Jehuda ibn-al-Fakhâr to R. David Kim’hi, in the Collection of Maimonides' Letters, Amsterdam edition, in-12, fol. 25 [[t:8]]a[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.353" style="display: none;">
+                <strong>Note 353:</strong> The disease called by the ancients [[t:0]]strangulation[[t:1]] or [[t:2]]suffocation of the matrix[[t:3]] ([[t:4]]πνιγμοì … ἐν ταĩς ὑστϵ́ρϰις[[t:5]], Arist., [[t:6]]Histoire des animaux[[t:7]], l. VII, chap. 2; [[t:8]]ὑστεριϰὴ πνίξ[[t:9]], Galien, [[t:10]]Comment. sur les Aphorismes d’Hippocrate[[t:11]], V, 35; [[t:12]]strangulationes vulvœ[[t:13]], Pline, [[t:14]]Hist. nat.[[t:15]], XX, 57) is an affliction of this organ in which women experience spasmodic movements and believe they feel a ball ([[t:16]]globus hystericus[[t:17]]) in their throat that is choking them. See Dict. des sc. méd., articles [[t:18]]Hystérie, Strangulation[[t:19]] and [[t:20]]Suffocation[[t:21]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.354" style="display: none;">
+                <strong>Note 354:</strong> The author intends to convey that, just as in the aforementioned passage from Deuteronomy (XXX, 15) life and good are evidently the same thing, so likewise in this passage: [[t:0]]That ye may live, and that it may be well with you[[t:1]] ([[t:2]]וטוב לכם[[t:3]]), life and well-being ([[t:4]]טוב[[t:5]]) designate the same thing, and that it concerns here the life of the immortal soul or the life of pure intelligence, in conformity with what the Talmud states concerning these words: [[t:6]]That it may be well with thee, and that thou mayest prolong thy days[[t:7]] ([[t:8]]Ibid.[[t:9]]. 22, 7): [[t:10]]למען ייטב לך לעולם שכולו טוב ולמען יאריכון ימיך לעולם שכולו ארוך[[t:11]] «That it may be well with thee in a world of perfect happiness, and that thou mayest prolong thy days in a world of eternal duration.» See Babylonian Talmud, treatise [[t:12]]Kiddushin[[t:13]], fol. 39 [[t:14]]b; ’Hullin[[t:15]], fol. 142 [[t:16]]a;[[t:17]] cf. the third part of this work, at the close of chap. XXVII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.355" style="display: none;">
+                <strong>Note 355:</strong> Voy. Talm. of Bab., treatise [[t:0]]Berakhôt[[t:1]], fol. 18 [[t:2]]a, b[[t:3]]. The author appears to understand this passage in the sense that pious men who, through study, have formed their intelligence, and in whom the [[t:4]]potential intellect[[t:5]] has become, through meditation, [[t:6]]actual intellect[[t:7]], attain true eternal life, whereas the impious, even during their lifetime, must be regarded as dead, not seeking to establish a connection with the higher world through meditation and speculative studies.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

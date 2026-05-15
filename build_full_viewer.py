@@ -686,29 +686,6 @@ def build_viewer():
     except FileNotFoundError:
         pass
 
-    # Handle Munk's Endnotes Volumes I, II, and III
-    endnote_files = [
-        ("endnotes_vol1.json", "Endnotes to Volume I"),
-        ("endnotes_vol2.json", "Endnotes to Volume II"),
-        ("endnotes_vol3.json", "Endnotes to Volume III")
-    ]
-    for fn, en_title in endnote_files:
-        try:
-            with open(fn, "r", encoding="utf-8") as f:
-                en_data = json.load(f)
-            en_segments = []
-            for i in range(len(en_data["fr"])):
-                en_segments.append({
-                    "he": en_data["fr"][i],
-                    "en": en_data["en"][i]
-                })
-            unified_chapters.append({
-                "title": en_title,
-                "is_french_intro": True,
-                "custom_segments": en_segments
-            })
-        except FileNotFoundError:
-            pass
     
     # Handle Letter to R Joseph (Special Split)
     letter_he = hebrew_data["text"]["Letter to R Joseph son of Judah"]
@@ -729,13 +706,15 @@ def build_viewer():
     letter_segments.append({
         "he": poem_he,
         "en": get_en_text("root.text.Letter to R Joseph son of Judah.Poem", 'My thought will guide you on the path of truth, and smooth the way.<br>Come, walk along its path, O all you who wander in the field of religion!<br>The impure and the ignorant shall not pass over it; it shall be called the sacred way.'),
-        "is_poem": True
+        "is_poem": True,
+        "key": f"root.text.Letter to R Joseph son of Judah.Poem"
     })
     
     # Segment 2: Invocation
     letter_segments.append({
         "he": invocation_he,
-        "en": get_en_text("root.text.Letter to R Joseph son of Judah.0", "In the name of the Eternal God of the Universe")
+        "en": get_en_text("root.text.Letter to R Joseph son of Judah.0", "In the name of the Eternal God of the Universe"),
+        "key": f"root.text.Letter to R Joseph son of Judah.0"
     })
     
     # Segment 3: Address body — Hebrew [2] is one segment, but English has .1 (salutation) + .2 (body)
@@ -745,13 +724,18 @@ def build_viewer():
     en_address_merged = (en_salutation + " " + en_body).strip() if en_salutation else en_body
     letter_segments.append({
         "he": address_he[0],  # Hebrew [2] — full address
-        "en": en_address_merged
+        "en": en_address_merged,
+        "key": f"root.text.Letter to R Joseph son of Judah.1"
     })
     
     # Segment 4: Closing — Hebrew [3] maps to English .3
     if len(address_he) > 1:
         en_closing = get_en_text("root.text.Letter to R Joseph son of Judah.3", "[Translation Missing]")
-        letter_segments.append({"he": address_he[1], "en": en_closing})
+        letter_segments.append({
+            "he": address_he[1], 
+            "en": en_closing,
+            "key": f"root.text.Letter to R Joseph son of Judah.3"
+        })
 
     unified_chapters.append({
         "title": "Letter to R Joseph son of Judah",
@@ -816,6 +800,30 @@ def build_viewer():
                 "key_prefix": f"root.text.Part 3..{ch_idx}",
                 "segments": segments
             })
+
+    # Handle Munk's Endnotes Volumes I, II, and III (Pushed to the end)
+    endnote_files = [
+        ("endnotes_vol1.json", "Endnotes to Volume I"),
+        ("endnotes_vol2.json", "Endnotes to Volume II"),
+        ("endnotes_vol3.json", "Endnotes to Volume III")
+    ]
+    for fn, en_title in endnote_files:
+        try:
+            with open(fn, "r", encoding="utf-8") as f:
+                en_data = json.load(f)
+            en_segments = []
+            for i in range(len(en_data["fr"])):
+                en_segments.append({
+                    "he": en_data["fr"][i],
+                    "en": en_data["en"][i]
+                })
+            unified_chapters.append({
+                "title": en_title,
+                "is_french_intro": True,
+                "custom_segments": en_segments
+            })
+        except FileNotFoundError:
+            pass
 
     # 3. Build HTML Content
     rows_html = ""
@@ -1085,7 +1093,9 @@ def build_viewer():
                     </div>
                     """
                 else:
-                    chapter_rows_html += render_row(seg['he'], en_processed, key=None, is_asterisk=is_asterisk, fn_counter=fn_counter)
+                    # Use the key from the segment if provided
+                    seg_key = seg.get('key')
+                    chapter_rows_html += render_row(seg['he'], en_processed, key=seg_key, is_asterisk=is_asterisk, fn_counter=fn_counter)
         else:
             for i, he_text in enumerate(ch['segments']):
                 key = f"{ch['key_prefix']}.{i}"

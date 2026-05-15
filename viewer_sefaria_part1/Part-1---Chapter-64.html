@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 64 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 64</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..63.0">
+                <div class="he-cell"><b>המונחים שם ה' וכבוד ה'</b><br><span class="mediumGrey">שלושה פירושים למונח שם ה'</span><br><sup>1</sup> דע ש<b>שם ה'</b> – <br><sup>א)</sup> פעמים מתכוונים בו לשם בלבד, כמו דבריו: "<b>לֹא תִשָּׂא אֶת שֵׁם ה' אֱלֹהֶיךָ לַשָּׁוְא</b>" (שמות כ,ו; דברים ה,י), "<b>וְנֹקֵב שֵׁם ה'</b> [מוֹת יוּמָת]" (ויקרא כד,טז), ואלה רבים מספור. <br><sup>ב)</sup> ויש שמתכוונים בו לעצמותו יתעלה ולאמיתתו (=מהותו האמיתית), כמו "<b>וְאָמְרוּ לִי מַה שְּׁמוֹ</b>" (שמות ג,יג). <br><sup>ג)</sup> ויש שמתכוונים בו לציוויו יתעלה, כך שאנחנו אומרים "<b>שם ה'</b>" כאילו אמרנו "<b>דבר ה'</b>" או "<b>מאמר ה'</b>", כמו שאמר: "<b>כִּי שְׁמִי בְּקִרְבּוֹ</b>" (שם כג,כא), והכוונה: <b>דברי בקרבו</b> או <b>מאמרי בקרבו</b>, כלומר שהוא כלי לרצוני ולחפצי. ואבאר את הדברים (בדִיוני) ברב־משמעיות (המונח) "<b>מלאך</b>" (ב,ו).</div>
+                <div class="en-cell">Know that by schem (שם) or NAME of the Eternal is often designated (in Scripture) the simple name, as, for example, in these words: Thou shalt not take the NAME of the Eternal, thy God, in vain (Exodus, 20, 6); And he that blasphems the NAME of the Eternal (Leviticus, 24, 16)<sup class="fn-ref" onclick="showFn('fn.741')">741</sup>. The examples thereof are innumerable. Sometimes is designated thereby the essence of God and His true being, e. g.: If they say unto me, What is His NAME (Exodus, 3, 13)? At other times is designated thereby the ordinance of God, so that, if we say NAME of the Eternal, it is as though we said WORD OR ORDINANCE of the Eternal; thus, e. g., the words for my NAME is in him (Ibid., 23, 21) signify: my WORD or my ORDINANCE is in him, which means that he (the messenger) is the instrument of My will and of My desire. I shall explain these words when discussing the homonymy of the word Malakh (מלאך) <sup class="fn-ref" onclick="showFn('fn.742')">742</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..63.1">
+                <div class="he-cell"><span class="mediumGrey">שני פירושים למונח כבוד ה'</span><br><sup>2</sup> וכן "<b>כבוד ה'</b>" – <br><sup>א)</sup> יש שהכוונה בו היא האור הנברא שה' משרה במקום מסוים לצורך רוממות בדרך של נס: "<b>וַיִּשְׁכֹּן כְּבוֹד ה' עַל הַר סִינַי</b>" (שמות כד,טו), "<b>וּכְבוֹד ה' מָלֵא אֶת הַמִּשְׁכָּן</b>" (שמות מ,לה). <br><sup>ב)</sup> ויש שהכוונה בו היא עצמותו יתעלה ואמיתתו, כמו שנאמר: "<b>וַיֹּאמַר הַרְאֵנִי נָא אֶת כְּבֹדֶךָ</b>" (שמות לג,יח), ונענה: "<b>כִּי לֹא יִרְאַנִי הָאָדָם וָחָי"</b> (שם שם,כ), מה שמורה שה<b>כבוד</b> האמור כאן הוא עצמותו, ודבריו "<b>כְּבֹדֶךָ</b>" – על דרך הרוממות, כמו שביארנו (א,סג6) על הפסוק "<b>וְאָמְרוּ לִי מַה שְּׁמוֹ</b>" (שמות ג,יג).<br><span class="mediumGrey">פירוש שלישי למונח כבוד ה' – השבח לה'</span><br><sup>3</sup> <sup>ג)</sup> ויש שהכוונה ב"<b>כבוד</b>" לפיאור שכל האנשים מפארים את ה'; ואף כל מה שאינו הוא יתעלה מפאר אותו, כי הפיאור האמיתי הוא השגת גדולתו. נמצא שכל מי שמשיג את גדולתו ושלמותו מפאר אותו במידת השגתו: האדם בפרט מפאר באמירות כדי להורות על מה שהשיג בשכלו, ומודיע על כך לזולתו; וחסרי היכולת להשיג, כמו הדוממים, הרי כאילו גם הם מפארים בכך שהם מורים בטבעיהם על יכולת יוצרם וחכמתו, ודבר זה מביא לכך שהמתבונן בהם מפאר, בין אם הוא מדבר בלשונו ובין אם לאו, אם הוא מי שדיבור אינו שייך בו.<br><sup>4</sup> השימוש הלשוני בלשון העברית השתנה והתרחב בזאת עד שמשתמשים ב<b>לשון אמירה</b> במשמעות הזאת, ואומרים על מה שאין לו השגה שהוא משבח ואומר כך, כמו שנאמר: "<b>כָּל עַצְמוֹתַי תֹּאמַרְנָה ה' מִי כָמוֹךָ</b>" (תהילים לה,י): אמר שהן מחייבות את ההאמנה הזו כאילו הן אלה שאמרו אותה, כיוון שגם על ידן זה נודע.<br><sup>5</sup> בהתאם לכינויו של עניין זה "<b>כבוד</b>" נאמר "<b>מְלֹא כָל הָאָרֶץ כְּבוֹדוֹ</b>" (ישעיהו ו,ג), בשווה למה שנאמר "<b>וּתְהִלָּתוֹ מָלְאָה הָאָרֶץ</b>" (חבקוק ג,ג). כי השיבוח נקרא <b>כבוד</b>; נאמר: "<b>תְּנוּ לַה' אֱלֹהֵיכֶם כָּבוֹד</b>" (ירמיהו יג,טז), ונאמר: "<b>וּבְהֵיכָלוֹ כֻּלּוֹ אֹמֵר כָּבוֹד</b>" (תהילים כט,ט), וכמוהו רבים. הבן־נא גם את השיתוף הזה של "<b>כבוד</b>", ותפרשהו בכל מקום לפי הקשרו, וכך תימלט מטעויות גדולות.</div>
+                <div class="en-cell">In like manner, by <i>cabôd</i> (<span dir="rtl">כבוד</span>) or <i>glory of the Lord</i> is sometimes denoted the <i>created light</i> which God, in a miraculous manner, causs to descend into a place to glorify it<sup class="fn-ref" onclick="showFn('fn.743')">743</sup>; e.g.: <i>And the glory</i> (<span dir="rtl">כבור</span>) <i>of the Lord abode upon mount Sinai, and the cloud covered it, etc.</i> (<i>Ibid</i>., XXIV, 16); <i>And the glory of the Lord filled the tabernacle</i> (<i>Ibid.</i>, 40, 35).—At other times, there is denoted thereby the essence of God and His very being; e.g.: <i>I beseech thee, shew me thy glory</i> (<i>Ibid.</i>, 33, 18), whereunto it was replied: …<i>for there shall no man see me, and live</i> (v. 20), which indicats that the <i>glory</i> of which mention is here made is His essence. If he said <i>thy glory</i>, it was out of reverence (for the Divinity), according to that which we have set forth regarding these words: <i>if they say to me, What is his name</i><sup class="fn-ref" onclick="showFn('fn.744')">744</sup>? — Finally, there is sometimes denoted by <i>cabôd</i> (<span dir="rtl">כבוד</span>) the <i>magnification</i> of which God is the object on the part of all men, or rather on the part of all things besides Him, for all things serve to glorify Him<sup class="fn-ref" onclick="showFn('fn.745')">745</sup>. Verily, His true magnification consists in the comprehension of His greatness, and whosoever comprehends His greatness and His perfection glorifies Him according to the measure of his comprehension. Man, in particular, glorifies Him<sup class="fn-ref" onclick="showFn('fn.746')">746</sup> by words, to indicate that which he has comprehended by his intellect and to make it known unto others; but those beings which have no perception, such as inanimate things, glorify Him also, after a fashion, by manifesting through their nature the power and wisdom of Him who produced them, and thereby he who contemplats them is led to glorify Him, whether by his tongue, or even without speech, if it be a being unto whom speech is not granted<sup class="fn-ref" onclick="showFn('fn.747')">747</sup>. The Hebrew language has taken unto itself some latitude in this respect, so that the verb <span dir="rtl">אמר</span>, <i>to say</i>, is applied to the idea in question, and it is even said of that which has no perception that it praiss God; it is said, for example<sup class="fn-ref" onclick="showFn('fn.748')">748</sup>: <i>All my bones shall say, Lord, who is like unto thee</i> (Ps. 35, 10)? which signifies that they give rise to this conviction, as though they did pronounce it<sup class="fn-ref" onclick="showFn('fn.749')">749</sup>, for it is by them also that this is known. It is in this sense (of <i>magnification</i>) attributed to the word <i>cabôd</i> (glory) that it was said: <i>The whole earth is full of his</i> <small>GLORY</small> (Isaiah, 6, 3), which is similar to these words: <i>And the earth was full of his</i> <small>PRAISE</small> (Habakkuk, 3, 3); for <i>praise</i> is called <i>cabôd</i> (glory), even as it has been said: <i>Give glory</i> (<span dir="rtl">כבור</span>) <i>to the Lord your God</i> (Jeremiah, 13, 16); <i>And in his temple does every one speak of</i> <small>GLORY</small> (Ps. 29, 9)! There are numerous examples thereof. Thou must also possess thyself of this homonymity of the word <i>cabôd</i> (glory) and construe it in each passage according to that which is fitting, and thou shalt thereby escape from great difficulties.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.741" style="display: none;">
+                <strong>Note 741:</strong> Cf. above, p. 267, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.742" style="display: none;">
+                <strong>Note 742:</strong> See on the word [[t:0]]מלאך[[t:1]] (messenger, angel, II[[t:2]]e[[t:3]] part of this work, chapter VI, and [[t:4]]ibid.[[t:5]], chapter XXXIV, where the author explains the entire passage from Exodus to which he is referring here.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.743" style="display: none;">
+                <strong>Note 743:</strong> [Footnote 743 content missing]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.744" style="display: none;">
+                <strong>Note 744:</strong> See the previous chapter, p. 284.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.745" style="display: none;">
+                <strong>Note 745:</strong> The author having expressed himself in too concise a manner, we have had to deviate slightly from the text in order to render more completely his thought; a literal translation would be: [[t:0]]or rather, all that is outside of him glorifies him.[[t:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.746" style="display: none;">
+                <strong>Note 746:</strong> The text reads Ya’tam without a suffix; similarly, in the manuscripts of Ibn-Tibbon’s version, one reads Yagdil, while the editions have Yagdilhu.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.747" style="display: none;">
+                <strong>Note 747:</strong> By these last words, the author is alluding to the celestial spheres, which have life and perception, but not speech. See the II[[t:0]]nd[[t:1]] part of this work, chap. V.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.748" style="display: none;">
+                <strong>Note 748:</strong> In some manuscripts one reads: [[t:0]]אנה םבח וקאל כדׄא כמא קאל[[t:1]], [[t:2]]he praises and says such and such a thing, as has been said[[t:3]], etc.; the version of Ibn-Tibbon expresses the same lesson: [[t:4]]he praises and says thus, as he has said[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.749" style="display: none;">
+                <strong>Note 749:</strong> That is to say, the bones give us the conviction that no being is similar to the one who has so wisely arranged them, and it is as if they were expressing themselves in words to that effect.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 17 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 17</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..16.0">
+                <div class="he-cell"><b>החומר, הצורה וההעדר</b><br><span class="mediumGrey">הצורך בהסתרה במעשה בראשית</span><br><sup>1</sup> אל תחשוב שרק מדע האלוהות נמנע מן ההמון, אלא גם רוב מדע הטבע, וכבר חזרנו ואמרנו (פה"מ חגיגה ב,א; יסודי התורה ד,י; הקדמות, פתיחה6-5) (את דברי חז"ל) "ולא במעשה בראשית בשנים" (משנה חגיגה ב,א). דבר זה אינו רק דעת אנשי התורה, אלא גם דעת הפילוסופים. חכמי האומות בימי קדם היו מסתירים את הדיונים על הרֵאשיות (=יסודות המציאות) ומדברים עליהן בחידות. ואפלטון ומי שקדם לו היו מכנים את החומר "הנקבה" ואת הצורה "הזכר".</div>
+                <div class="en-cell">One must not believe that it is of metaphysical science alone that one has been niggardly<sup class="fn-ref" onclick="showFn('fn.138')">138</sup> towards the common people, for it has been the same with the greater part of physical science<sup class="fn-ref" onclick="showFn('fn.139')">139</sup>, and we have already cited on several occasions these words: 'Nor (shall one expound) the Ma’asé beréschîth before two persons'<sup class="fn-ref" onclick="showFn('fn.140')">140</sup>. This (was done) not only among theologians<sup class="fn-ref" onclick="showFn('fn.141')">141</sup>, but also among philosophers; and the pagan sages of antiquity expressed themselves on the principles of things in an obscure and enigmatic manner. Thus,Plato et alii Plato and others before him called matter the feminine, and form the masculine<sup class="fn-ref" onclick="showFn('fn.142')">142</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..16.1">
+                <div class="he-cell"><span class="mediumGrey">החומר, הצורה וההעדר</span><br><sup>2</sup> יודע אתה שראשיות הנמצאים המתהווים וכלים הן שלוש: החומר, והצורה, וההעדר המיוחד המחובר לחומר תמיד: לולא חיבורו של ההעדר אליו הוא לא היה מקבל צורה, ומן הבחינה הזו ההעדר נמנה עם הראשיות. עם קבלת הצורה ייבטל אותו העדר, כלומר העדר הצורה ההיא שקיבל החומר, ויתחבר לו העדר אחר, וכך לעולם, כפי שהתבאר במדע הטבע.</div>
+                <div class="en-cell">[You know that the principles of beings that are born and perish are three in number:materia, forma, et privatio matter, form, and particular privation particular<sup class="fn-ref" onclick="showFn('fn.143')">143</sup>, which is always joined to matter; for, if the latter were not accompanied by privation, it would not be affected by form, and in this manner privation is one of the principles. When form arrives, this privation (particular), I mean the privation of this form that has arrived, ceases, and another privation is joined (to matter), and so on, as is explained in physics<sup class="fn-ref" onclick="showFn('fn.144')">144</sup>.]</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..16.2">
+                <div class="he-cell"><span class="mediumGrey">הזהירות היתרה אצלנו</span><br><sup>3</sup> ואם אלה, שאין להם נזק בהבהרה, השתמשו במונחים מושאלים ונקטו דימויים בתהליך הלימוד – כל שכן אנחנו, קהל מקבלי התורה, שמוטלת החובה עלינו לא לומר במפורש דבר שיקשה על ההמון להבינו, או שהם ידמו את אמיתת העניין באופן שונה ממה שנרצה ללמד. דע זאת גם כן.</div>
+                <div class="en-cell">If, therefore, those who had nothing to lose by explaining themselves clearly, made use, in their teaching, of figurative names and employed images, with greater reason must we, men of religion, avoid stating clearly things the intellect of which is difficult <sup class="fn-ref" onclick="showFn('fn.145')">145</sup> for the common people, or (with regard to which) they imagine the truth in a sense contrary to that which we have in view <sup class="fn-ref" onclick="showFn('fn.146')">146</sup>. One must also imbue oneself with this notion.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.138" style="display: none;">
+                <strong>Note 138:</strong> All the mss. without exception bear [[t:0]]אלמטׄנון[[t:1]] (with [[t:2]]ts[[t:3]]), but the sense of the phrase requires [[t:4]]אלמצׄנון[[t:5]]. The substitution of the [[t:6]]טׄ[[t:7]] for the [[t:8]]צׄ[[t:9]] is a very frequent orthographical error in the mss.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.139" style="display: none;">
+                <strong>Note 139:</strong> The author, having just explained the word [[t:0]]צור[[t:1]] in the sense of [[t:2]]principle of things[[t:3]], which pertains to physics, believes it necessary to recall that the subjects of physics have been presented, just like those of metaphysics, by means of metaphors. Such appears to be the purpose of this brief chapter, by which the author interrupts his explanations of homonymous words.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.140" style="display: none;">
+                <strong>Note 140:</strong> The author states in various places in his Talmudic works and in the introduction to the present work that the [[t:0]]Ma’assé beréschîth[[t:1]] is physics. See above, p. 9 and 10.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.141" style="display: none;">
+                <strong>Note 141:</strong> Literally: [[t:0]]among the people of the Law[[t:1]] or of the revealed religion; the author means by [[t:2]]אהל אלשריעה̈[[t:3]] the doctors of all the religious sects.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.142" style="display: none;">
+                <strong>Note 142:</strong> The expressions of [[t:0]]male[[t:1]] and [[t:2]]female[[t:3]] that one encounters here and there among the Neoplatonists and Gnostics are not precisely those used by Plato. The latter employs, among other terms, to designate matter, the words [[t:4]]nurse[[t:5]] ([[t:6]]τίθνη[[t:7]]), [[t:8]]mother[[t:9]], etc., while form, that is to say the intelligent principle or [[t:10]]reason[[t:11]] ([[t:12]]λόγος[[t:13]]), is presented by him as the [[t:14]]father[[t:15]] of the universe. See the [[t:16]]Timaeus[[t:17]], p. 49 [[t:18]]a[[t:19]], 28 [[t:20]]a[[t:21]] and [[t:22]]passim[[t:23]]. — Ibn-Roshd also attributes to Plato the designation of matter and form by the words [[t:24]]female[[t:25]] and [[t:26]]male[[t:27]]. In his Epitome of the Organon (towards the end of the book of Demonstration, corresponding to the Posterior Analytics), speaking of the inconvenience presented by the figures and images employed in philosophical reasoning, he cites as an example Plato, [[t:28]]who says that matter is the female, and form is the male, an assertion that is far from making the essence of matter understood[[t:29]]. [[t:30]]مثال ذلك قول افلاطون في المادة انها الانثى 
+وفي الصورة انها الذكر فان هذا القول بعيد من ان يفهم جوهر المادة[[t:31]]  The passage that follows (from the words [[t:32]]ואנת תעלם[[t:33]] to the words [[t:34]]פי אלעלם אלטביעי[[t:35]]) appears to be a parenthesis, having no other purpose than to justify the image employed by Plato.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.143" style="display: none;">
+                <strong>Note 143:</strong> That is to say, privation considered in relation to a [[t:0]]determined[[t:1]] form.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.144" style="display: none;">
+                <strong>Note 144:</strong> See the physics of Aristotle, book I, ch. 6 and 7. Cf. [[t:0]]רוח חן[[t:1]], ch. 9.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.145" style="display: none;">
+                <strong>Note 145:</strong> The verb [[t:0]]عزب[[t:1]], which means [[t:2]]to be removed[[t:3]], [[t:4]]to be set apart[[t:5]], and is constructed with the preposition [[t:6]]ען[[t:7]], is here employed by the author in the sense of [[t:8]]صعب[[t:9]] (to be difficult) and constructed like the latter verb.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.146" style="display: none;">
+                <strong>Note 146:</strong> The lesson [[t:0]]אלמראד בנא[[t:1]] that we have adopted is based on six mss. from the Bodleian library; the two mss. from Leyde have: [[t:2]]בה[[t:3]] instead of [[t:4]]בנא[[t:5]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

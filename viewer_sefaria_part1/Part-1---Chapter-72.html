@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 72 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 72</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.0">
+                <div class="he-cell"><b>סקירת המבנה הפיזיקלי של העולם</b><br><span class="mediumGrey">אחדות העולם הפיזי</span><br><sup>1</sup> דע שהמצוי הזה בכללותו הוא פרט (=אורגניזם, אינדיווידואל) אחד ותו לא. כוונתי לכך שכדור הגלגל החיצוני יחד עם כל מה שבו הוא בלי ספק פרט אחד, באותה מידה שראובן ושמעון הם פרטים. והשוני בין עצמיו – כלומר העצמים שבכדור הזה על כל מה שבו – הוא כשוני בין העצמים של אברי פרט מבני האדם, לדוגמה. כמו שראובן, למשל, הוא פרט אחד, והוא מחובר מאברים שונים כמו הבשר והעצמוֹת, ומלֵיחות שונות ומרוחות, כך הכדור הזה בכללותו מחובר מגלגלים ומארבעת היסודות ומה שמורכב מהם. ואין בו רִיק כלל, אלא הוא מקשה אחת, מלא: מרכזו כדור הארץ, והמים מקיפים את הארץ, והאוויר מקיף את המים, והאש מקיפה את האוויר.<br><span class="mediumGrey">תכונות היסוד של הגלגלים</span><br><sup>2</sup> והגוף החמישי מקיף את האש, והוא כדורים רבים אחד בתוך השני שאין ביניהם כלל חלל ורִיק, אלא הם עגולים באופן מושלם, צמודים זה לזה, כולם נעים תנועה סיבובית שווה שאין בה אף האצה והאטה, כוונתי שכל כדור מהם אינו ממהר לעתים ומאט לעתים, אלא כל אחד מהם נצמד לטבעו במהירותו ובכיוון תנועתו. אמנם חלק מהכדורים האלה נעים מהר יותר מאחרים, והמהירה מכולם היא תנועת הגלגל המקיף את הכול, והוא הנע את התנועה היומית, ומניע את כולם תנועת החלק בכול, כי הם כולם חלקים בו.<br><span class="mediumGrey">תיקון לתמונה האסטרונומית של העולם</span><br><sup>3</sup> המרכזים של הגלגלים האלה שונים: יש מהם שמרכזו הוא מרכז העולם, ויש מהם שמרכזו חוץ למרכז העולם. יש מהם שנע תמיד את תנועתו הייחודית מן המזרח למערב, ויש מהם שנע תמיד מן המערב למזרח. כל כוכב בכדורים האלה הוא חלק מן הגלגל שהוא נמצא בו, קבוע במקומו ואין לו תנועה ייחודית לו, אלא הוא נראה נע רק בשל תנועת הגוף שהוא חלק ממנו. והחומר של הגוף החמישי הזה בכללותו, הנע סיבובית, אינו כחומר ארבעת היסודות שבתוכו.</div>
+                <div class="en-cell">Know that this universe in its entirety forms but a single individual; I mean to say: the globe of the extreme heaven with all that it contains is indubitably a single individual, under the same title of individuality as Zayd and ‘Amr<sup class="fn-ref" onclick="showFn('fn.923')">923</sup>. It is with its different substances—I mean the substances of this globe with all it contains—as it is, for example, with the different substances of the members of the human individual. Even as Zayd, for example, is a single individual, though composed of different parts, such as flesh and bones, different humours and <i>spirits</i><sup class="fn-ref" onclick="showFn('fn.924')">924</sup>, so this globe in its entirety embraces the spheres and the four elements with that which is composed of them. It has absolutely no void, but is a solid plenum having for its centre the terrestrial globe; the earth is environed by water, this by air, this by fire<sup class="fn-ref" onclick="showFn('fn.925')">925</sup>, and this last finally is environed by the <i>fifth body</i><sup class="fn-ref" onclick="showFn('fn.926')">926</sup>. This latter<sup class="fn-ref" onclick="showFn('fn.927')">927</sup> is composed of numerous spheres, contained one within the other, between which there is no hollow nor void, but which exactly encompass each other, being applied one to the other. They all possess an equal circular motion, and in none of them is there any precipitation or slackening; I mean that none of these spheres movs now rapidly, now slowly, but each, as to its velocity and manner of moving, remains subject to its natural law. Nevertheless, these spheres move more rapidly than one another, and that which among them all has the most rapid motion is the sphere which environs everything, that is to say, that which has the <i>diurnal</i> motion and which causs them all to move with it as the part movs in the whole, for all of them form parts within it. These spheres have different centres; some have for their centre the centre of the world<sup class="fn-ref" onclick="showFn('fn.928')">928</sup>, others have their centre outside that of the world<sup class="fn-ref" onclick="showFn('fn.929')">929</sup>. There be some which perpetually follow their particular motion from East to West, whilst others move continually from West to East<sup class="fn-ref" onclick="showFn('fn.930')">930</sup>. Every star within these spheres is part of the sphere in which it remains fixed in its place; it has no motion peculiar to itself, and appears moved only by the motion of the body of which it is a part. The matter of this entire fifth body, which has the circular motion, is in no wise similar to that of the bodies of the four elements which are found in the interior.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.1">
+                <div class="he-cell"><span class="mediumGrey">אי ודאות בהבנת תמונת העולם השמימית</span><br><sup>4</sup> מספר הכדורים האלה המקיפים את העולם אינו יכול בשום פנים ואופן להיות פחות משמונה עשר. ייתכן שמספרם גדול יותר, ויש בזה מקום לעיין. וכן יש מקום לעיין האם יש אפיציקלים (=גלגלי משנה), והם גלגלים שאינם מקיפים את העולם.</div>
+                <div class="en-cell">The number of these spheres which environ the world cannot in any wise be less than eighteen<sup class="fn-ref" onclick="showFn('fn.931')">931</sup>; it is possible, however, that there be more, and it is a matter to be examined. As for knowing whether there be <i>spheres of revolution</i> which do not environ the world, this likewise is to be examined<sup class="fn-ref" onclick="showFn('fn.932')">932</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.2">
+                <div class="he-cell"><span class="mediumGrey">ארבעת היסודות</span><br><sup>5</sup> בתוך אותו כדור תחתון, הסמוך אלינו, יש חומר אחד – השונה מחומר הגוף החמישי – שקיבל ארבע צורות ראשוניות. על ידי ארבע הצורות האלה נעשו ארבעה גופים: הארץ, והמים, והאוויר, והאש. לכל אחד מארבעת אלה יש מקום טבעי מיוחד לו, ואינו לזולתו, אם הוא נעזב לטבעו. הם גופים דוממים, שאין בהם לא חיים ולא השגה, ואין הם נעים מעצמם. אלא הם נחים במקומותיהם הטבעיים, ואם אחד מהם נכפה לצאת ממקומו – הרי כאשר סר הכופה, הוא נע כדי לשוב למקומו הטבעי. כי יש בו אותו עיקרון שהוא נע בגללו כדי לשוב למקומו בקו ישר. ואין בו עיקרון שהוא נח בגללו ולא שהוא נע בגללו שלא בקו ישר.<br><span class="mediumGrey">תנועת היסודות לעומת תנועת הגלגלים</span><br><sup>6</sup> התנועות הישרות שיש לארבעת היסודות האלה כאשר הם נעים כדי לשוב למקומותיהם, הן שתיים: תנועה כלפי המקיף, והיא של האש ושל האוויר; ותנועה כלפי המרכז, והיא של המים ושל הארץ. וכאשר כל אחד מהם מגיע למקומו הטבעי, הוא נח.</div>
+                <div class="en-cell">In the interior of the inferior sphere which is nearest unto us<sup class="fn-ref" onclick="showFn('fn.933')">933</sup>, there is a matter different from that of the fifth body, and which has received four primitive forms whereby four bodies have been formed, (which are) earth, water, air, and fire. Each of these four (bodies) has a natural place which is peculiar to it, and is found in no other (place) so long as it remains left to its nature. These are inanimate bodies, having neither life nor perception, and which do not move by themselves, but remain at rest in their natural places. If, however, one of them has been forced to depart from its natural place, then, as soon as the cause which forced it thereto ceass, it movs to return to that natural place; for it has within it the principle by virtue of which it movs in a straight line to return to its place, but it has within it no principle by virtue of which it must (always) remain at rest or move otherwise than in a straight line. The motions in a straight line made by these four elements, when they move to return to their places, are of two kinds: a motion toward the circumference, which belongs to fire and air, and a motion toward the centre, which belongs to water and earth; and each, after arriving at its natural place, remains at rest<sup class="fn-ref" onclick="showFn('fn.934')">934</sup>. As for these (celestial) bodies which have circular motion, they are living and possess a soul whereby they move; there is in them absolutely no principle of rest, and they undergo no change save in position, having circular motion. As for knowing whether they have also an <i>intelligence</i> whereby they <i>conceive</i>, this cannot be elucidated save by means of subtle speculation<sup class="fn-ref" onclick="showFn('fn.935')">935</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.3">
+                <div class="he-cell"><sup>7</sup> אך הגרמים העגולים האלה (=הגלגלים השמימיים) הם חיים ובעלי נפש שהם נעים בגללה, ואין אצלם עיקרון של מנוחה כלל, ולא חל בהם שינוי אלא בתנוחה, משום שהם נעים סיבובית. האם יש להם שכל שהם יכולים לתפוס בו מושגים – אין הדבר ברור אלא לאחר עיון מדוקדק.<br><sup>8</sup> כשהגוף החמישי נע בכללותו סיבובית באופן תמידי, מתרחשת בשל כך ביסודות, דהיינו באש ובאוויר, תנועה כפויה שבגללה הם יוצאים ממקומם. הם נדחפים אל המים וחודרים כולם בגרם הארץ אל מעמקיה, וכך נוצר ערבוב ביסודות. אחר כך הם מתחילים לנוע כדי לשוב למקומותיהם, ובשל כך יוצאים ממקומותיהם גם חלקים מן הארץ הנלווים למים ולאוויר ולאש. בכל התהליך הזה הם משפיעים זה על זה ומושפעים זה מזה, וכך חלים שינויים בתערובת עד שמתהווים ממנה בתחילה האדים (=חומרים גזיים) למיניהם השונים, ולאחר מכן המחצבים למיניהם השונים, ומיני הצמחים כולם, ומיני חיות רבים, בהתאם למה שקובע מזג התערובת.<br><span class="mediumGrey">חוק שימור החומר ומחזוריותו</span><br><sup>9</sup> כל המתהווה – כלה. ואין הוא מתהווה אלא מן היסודות ואליהם הוא כלה. וכן היסודות מתהווים זה מזה וכָלים זה אל זה, כי חומר הכול אחד. ולא תיתכן מציאותו של חומר בלי צורה, ומאותן צורות טבעיות המתהוות וכלות לא תימצא צורה בלי חומר. נמצא שהדבר – התהוותם וכליונם והיותו של כל מה שמתהווה מהם וכלה אליהם – חוזר חלילה בדומה לסיבוב הגלגל. כך שתנועת אותו חומר בעל צורה ביחס להתחלפות הצורות בו זו אחר זו, היא כתנועת הגלגל ביחס ל"היכן" (=קטגוריית המיקום), בכך שעבור כל חלק ממנו חוזרות ונשנות אותן תנוחות עצמן.</div>
+                <div class="en-cell">The entire fifth body accomplishing its circular motion, there ariss therefrom continually in the elements a forced motion whereby they depart from their regions—I mean (there ariss a motion) in the fire and the air, which are driven back toward the water, and all of them penetrate into the body of the earth even into its depths, so that there results therefrom a mixture of the elements. Thereafter they begin to move to return to their (respective) regions, and, in consequence thereof, particles of earth likewise quit their places, joining themselves to water, air, and fire. In all this, the elements act upon one another and receive impressions from one another, and the mixture undergoes a transformation, so that there ariss therefrom<sup class="fn-ref" onclick="showFn('fn.936')">936</sup> first the different species of vapours<sup class="fn-ref" onclick="showFn('fn.937')">937</sup>, then the different species of minerals, all the species of plants, and numerous species of animals, according to what the complexion of the mixture requirs. All that which is born and perishes is born only of the elements and returns thereto in perishing. Likewise, the elements are born of one another and are lost in one another; for all has but a single matter, and matter cannot exist without form, even as no physical form of these things which are born and perish can exist without matter. Therefore, the birth and destruction of the elements, as well as of all that which is born of the latter and is resolved therein in perishing, follow (as it were) a circular motion, similar to that of the heaven; so that the motion which this <i>formed</i> matter<sup class="fn-ref" onclick="showFn('fn.938')">938</sup> makes, through the forms which successively come upon it, may be compared to the motion which the heaven makes in <i>place</i><sup class="fn-ref" onclick="showFn('fn.939')">939</sup>, the same positions being repeated<sup class="fn-ref" onclick="showFn('fn.940')">940</sup> for each of its parts.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.4">
+                <div class="he-cell"><span class="mediumGrey">הגלגל הוא מקור העולם התת־ירחי</span><br><sup>10</sup> כמו שבגוף האדם יש אברים שולטים ואברים נשלטים הנזקקים לצורך המשך קיומם להנהגת האבר השולט המנהיג אותם – כך בעולם בכללותו יש חלקים שולטים, והוא הגוף החמישי המקיף, וחלקים נשלטים הנזקקים למנהיג, והם היסודות ומה שמורכב מהם.</div>
+                <div class="en-cell">Even as in the human body there be (on the one hand) <i>dominant</i> members, and (on the other hand) <i>subordinate</i> members which require, for their preservation, the governance of the principal member that ruls them, even so there be, in the whole of the universe, dominant parts, such as the <i>fifth body</i> which encompasses (all), and subordinate parts which require a guide, as the elements and that which is composed thereof.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.5">
+                <div class="he-cell">וכמו שהאבר השולט, שהוא הלב, נע תמיד, והוא ראשית כל תנועה הנמצאת בגוף, ושאר אברי הגוף נשלטים על ידיו והוא שולח אליהם בתנועתו את הכוחות שהם נזקקים להם לצורך פעולותיהם – כך הגלגל הוא המנהיג בתנועתו את שאר חלקי העולם, והוא שולח לכל מתהווה את כוחותיו המצויים בו. נמצא שראשיתה הראשונית של כל תנועה הנמצאת בעולם היא תנועת הגלגל; וכל נפש שתמצא לבעל נפש בעולם, ראשיתה היא נפש הגלגל.</div>
+                <div class="en-cell">Even as the principal member, which is the heart, movs ever<sup class="fn-ref" onclick="showFn('fn.941')">941</sup> and is the principle of all movement existing in the body, whilst the other members of the body are governed by it, and it is that which, by its movement, sends unto them the faculties of which they have need for their actions, even so it is the celestial sphere which, by its movement, governs the other parts of the universe, and it is that which sends unto all that is brought into being the faculties found therein; so that every movement existing in the universe has for its first principle the movement of the celestial sphere, and every soul of that which, in the universe, is endowed with a soul, has its principle in the soul of the celestial sphere.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.6">
+                <div class="he-cell"><span class="mediumGrey">ארבעת הכוחות מן הגלגלים לכדור הארץ</span><br><sup>11</sup> דע שהכוחות המגיעים מן הגלגל לעולם זה, כפי שכבר התבאר, הם ארבעה: <br><sup>א)</sup> כוח המחייב את העירוב וההרכבה, ואין ספק שזה מספיק ליצירת המחצבים; <br><sup>ב)</sup> וכוח הנותן את הנפש הצמחית לכל צמח; <br><sup>ג)</sup> וכוח הנותן את נפש החי לכל חי; <br><sup>ד)</sup> וכוח הנותן את הכוח ההוגה לכל הוגה. וכל זה באמצעות הזוהר והחושך הנובעים מאורם ומסיבובם (של הגלגלים) סביב הארץ.</div>
+                <div class="en-cell">It behoves to know that the faculties which proceed from the celestial sphere unto this world are, as has been set forth, four in number, namely: a faculty which produces mixture and composition, and which suffices indubitably for the production<sup class="fn-ref" onclick="showFn('fn.942')">942</sup> of minerals; another faculty, which bestows the vegetative soul upon every plant; another, which bestows the vital soul upon all that lives; and finally another, which bestows the rational faculty upon every reasonable being; and all this is accomplished by the mediation of the light and the darkness resulting from the light of the stars and from their revolution about the earth<sup class="fn-ref" onclick="showFn('fn.943')">943</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.7">
+                <div class="he-cell"><span class="mediumGrey">תלות העולם התת ירחי בגלגלים ותלות מרכיביו</span><br><sup>12</sup> <sup>היקש א)</sup> וכמו שאם ינוח הלב להרף עין ימות האדם וייבטלו כל תנועותיו וכל כוחותיו – כך אילו היו הגלגלים עוצרים היה זה מות העולם בכללותו וביטול כל מה שבו.</div>
+                <div class="en-cell">Even as, furthermore, when the heart stays its motion for a single instant, the individual dies and all his movements and faculties cease, even so, if the celestial spheres should stay their motion, it would be the death of the whole universe and the annihilation of all that is found therein.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.8">
+                <div class="he-cell"><sup>היקש ב)</sup> וכמו שהחי חי כולו רק בשל תנועת (=פעימות) לבו, אף שיש בו אברים נחים שאינם חשים, כגון העצמות והסחוסים וכיוצא בהם – כך המציאות הזו כולה היא פרט אחד החי בשל תנועת הגלגל, שהוא בה כמו הלב אצל בעלי הלב, אף שיש בה גופים רבים שהם נחים ודוממים.</div>
+                <div class="en-cell">Even as, finally, the animal lives in its entirety solely by the effect of the movement of its heart, although it possesses members void of movement and sensation, as, for example, the bones, the cartilages, and such like, even so this whole universe is a single individual, living by the movement of the celestial sphere which occupies therein the same rank as that held by the heart in that which has a heart, although it contains many bodies without movement and inanimate.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.9">
+                <div class="he-cell">כך ראוי לך לתפוס את מכלול הכדור הזה כפרט אחד חי ונע בעל נפש, כי אופן תפיסה זה הכרחי מאוד, או מועיל מאוד, בהוכחה שהאלוה אחד כמו שיתבאר (ב,א). על פי התפיסה הזו יתברר גם כן שרק האחד ברא אחד.</div>
+                <div class="en-cell">Thus must thou represent to thyself the whole of this sphere as a single individual, living, moving, and endowed with a soul; for this manner of representation is highly necessary, or at the least<sup class="fn-ref" onclick="showFn('fn.944')">944</sup> most profitable, for the demonstration of the unity of God, even as it shall be set forth<sup class="fn-ref" onclick="showFn('fn.945')">945</sup>, and in this wise it shall also be manifest that the <i>One</i> has created but a single being<sup class="fn-ref" onclick="showFn('fn.946')">946</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.10">
+                <div class="he-cell"><sup>היקש ג)</sup> וכמו שלא ייתכן שיימצאו אברי האדם בנפרד כשהם באמת אברי האדם, כוונתי לכך שהכבד יהיה בנפרד או הלב יהיה בנפרד או הבשר יהיה בנפרד – כך לא ייתכן שיימצאו חלקי העולם אחד בלי השני במציאות היציבה הזו שאנחנו מדברים עליה, כך שתימצא אש בלי ארץ, או ארץ בלי שמים, או שמים בלי ארץ.</div>
+                <div class="en-cell">In like manner as it is impossible that the members of a man should exist separately as true members of man—I mean, that the liver or the heart should be isolated, or that flesh should exist in isolation—so would it be impossible that the parts of the universe should exist the one without the other, in this well-constituted being of which we speak<sup class="fn-ref" onclick="showFn('fn.947')">947</sup>, so that fire should exist without earth, or earth without heaven, or heaven without earth.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.11">
+                <div class="he-cell"><span class="mediumGrey">הכוח המקשר בין המינים ודואג לקיומם</span><br><sup>13</sup> <sup>היקש ד)</sup> וכמו שיש באדם כוח מסוים הקושר את אבריו זה לזה ומנהיג אותם, ונותן לכל אבר את מה שראוי כדי לשמור על כושרו ולהרחיק ממנו מה שמזיק לו, והוא שדיברו עליו במפורש הרופאים וקראו לו "הכוח המנהיג את גוף החי", ופעמים רבות הם מכנים אותו "טבע" – כך יש בעולם בכללותו כוח הקושר את חלקיו זה לזה ושומר על מיניו שלא יאבדו, ושומר גם על פרטי מיניו במשך הזמן שניתן לשמור עליהם, ושומר גם על חלק מפרטי העולם. יש מקום לעיין לגבי כוח זה, האם הוא באמצעות הגלגל או לא.</div>
+                <div class="en-cell">Even as there exists in this human individual a certain faculty which binds his members one to another, governs them, bestows upon each member what is requisite for its preservation in a goodly state, and wards off that which is harmful to it—to wit, that which physicians expressly designate as the <i>directing faculty</i> of the animal body, and which they often term <i>nature</i><sup class="fn-ref" onclick="showFn('fn.948')">948</sup>—so likewise there is in the whole of the universe a faculty which binds the parts thereof together, which prevents the species from perishing and preservs also the individuals of these species so long as it is possible so to do, and which likewise preservs a portion of the individuals of the universe<sup class="fn-ref" onclick="showFn('fn.949')">949</sup>. It remains, however, to be considered whether this faculty acts, or no, by the mediation of the celestial sphere<sup class="fn-ref" onclick="showFn('fn.950')">950</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.12">
+                <div class="he-cell"><span class="mediumGrey">אבחנות בטבע הפיזיולוגי</span><br><sup>14</sup> <sup>היקש ה)</sup> וכמו שבגופו של האדם יש <br><sup>א)</sup> דברים בעלי מטרה: <br><sup>א1)</sup> מהם שמטרתם היא קיומו כפרט, כמו אברי ההזנה, <br><sup>א2)</sup> ומהם שמטרתם היא קיום מינו, כאברי ההולדה, <br><sup>א3)</sup> ומהם שמטרתם היא צרכיו ההכרחיים לתזונתו וכדומה, כמו הידיים והעיניים; <br><sup>ב)</sup> ויש בו גם דברים שאין להם מטרה בפני עצמם אלא הם נובעים ונמשכים ממזג האברים האלה, כשהמזג המיוחד הזה הכרחי להשגת הצורה כפי שהיא כדי שתפעל את הפעולות המכוונות הללו, ואותה התהוות מכוונת גוררת אחריה בשל הכרח החומר דברים אחרים, כמו <br><sup>ב1)</sup> שער הגוף <br><sup>ב2)</sup> וצבעו, ולכן דבר זה אינו נוהג באופן סדיר, ופעמים רבות חלקם חסר, וגם קיימים בהם הבדלים גדולים מאוד בין האנשים באופן שאינו קיים באברים, כי לא תמצא אדם שיש לו כבד הגדול פי עשרה מכבד של אדם אחר, אך תמצא גבר בלי זקן או שיער בחלק מן הגוף, או שיש לו למשל זקן פי עשרה או פי עשרים מאדם אחר, וזה נפוץ בסוג הזה, כלומר ההבדלים בשיער ובצבעים – כך במציאות כולה <br><sup>א)</sup> יש מינים שהתהוותם מכוונת, יציבים ומתנהלים בסדירות ואין ביניהם אלא מעט הבדלים, בהתאם להיקף האיכות והכמות של המין הזה; <br><sup>ב)</sup> ומינים שאינם מכוונים אלא נובעים מטבע ההתהוות והכיליון הכלליים, כמו <br><sup>ב1)</sup> מיני התולעים הנוצרים מן הגללים, <br><sup>ב2)</sup> ומיני החיות הנוצרים בפירות הנרקבים, <br><sup>ב3)</sup> ומה שנוצר מעיפוש הלחויות, <br><sup>ב4)</sup> והתולעים הנוצרות במעיים, ודומיהם. ובאופן כללי נראה לי שכל מה שאין בו כוח להוליד את מה שדומה לו הרי הוא מן הסוג הזה. ולכן אינך מוצא אותם שומרים על סדירות, אף על פי שאין מנוס מקיומם, כפי שאין מנוס מקיום צבעים שונים ומקיום מיני השיער בפרטי מין האדם.</div>
+                <div class="en-cell">Within the body of the human individual there are, on the one hand, things which have a particular purpose: some, like the organs of nutrition, have for their end the preservation of the individual; others, like the organs of generation, have for their end the preservation of the species; yet others, as for example the hands and eyes, are destined to provide for those things of which man has need in the way of nourishment<sup class="fn-ref" onclick="showFn('fn.951')">951</sup> and other like matters. And, on the other hand, there exist<sup class="fn-ref" onclick="showFn('fn.952')">952</sup> also things which have no end in themselves, but which are attached as accessories to the complexion of certain members, which particular complexion is necessary for these latter to obtain their proper form, that they may fulfill the functions for which they are destined. Thus, to that which is formed for a certain purpose<sup class="fn-ref" onclick="showFn('fn.953')">953</sup>, there are joined, according to the exigency of matter, certain other things, as, for example, the hair and the colour of the body; wherefore<sup class="fn-ref" onclick="showFn('fn.954')">954</sup> these things possess no regularity, and there are even some which oftentimes are wholly wanting, and there exists in this regard a very great difference between individuals<sup class="fn-ref" onclick="showFn('fn.955')">955</sup>, which is not the case with the members. Verily, thou shalt not find an individual whose liver is ten times as great as that of another individual, whilst thou shalt find such a man void of a beard, or who has no hair in certain parts of his body, or whose beard is ten or twenty times greater than that of another individual; and this is very frequent<sup class="fn-ref" onclick="showFn('fn.956')">956</sup> in this order of things—I mean the difference which exists between individuals as to hair and colour. In like manner<sup class="fn-ref" onclick="showFn('fn.957')">957</sup>, in the whole of the universe, there are, on the one hand, species whose generation has a determined end, which follow with constancy a certain rule and in which there are but small anomalies remaining within the limits of the species in respect of quality and quantity<sup class="fn-ref" onclick="showFn('fn.958')">958</sup>; and, on the other hand, species which have no end in themselves, but are a necessary consequence of the general laws of generation and corruption<sup class="fn-ref" onclick="showFn('fn.959')">959</sup>, such as, for example, the diverse species of worms which are born in dung, the diverse species of animalcules which are born in fruits when they decay, that which springs from the corruption of moist things, the worms which are born in the intestines, and so forth. In general, it seems to me that all that has not the faculty of procreating its like is of this category; wherefore thou shalt find that these things observe no rule, albeit they must of necessity exist, even as it is necessary that human individuals should be of different colours and have different kinds of hair.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.13">
+                <div class="he-cell"><sup>15</sup> <sup>היקש ו)</sup> וכמו שבאדם יש <br><sup>א)</sup> גופים שפרטיהם קבועים, כמו האברים העיקריים, <br><sup>ב)</sup> וגופים המתמידים במין אבל לא בפרט, כמו ארבע הליחות – כך במציאות בכללותה יש <br><sup>א)</sup> גופים קבועים ומתמידים בפרט, והוא הגוף החמישי על כל חלקיו, <br><sup>ב)</sup> וגופים המתמידים במין, כמו היסודות ומה שמורכב מהם.</div>
+                <div class="en-cell">In like manner as there are in man bodies of an individual permanence<sup class="fn-ref" onclick="showFn('fn.960')">960</sup>, such as the principal members, and bodies permanent as a species, and not as an individual, like the four <i>humours</i><sup class="fn-ref" onclick="showFn('fn.961')">961</sup>, so there are in the whole of the universe stable bodies, of an individual permanence, like the fifth body with all its parts<sup class="fn-ref" onclick="showFn('fn.962')">962</sup>, and bodies permanent as a species, such as the elements and that which is composed thereof<sup class="fn-ref" onclick="showFn('fn.963')">963</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.14">
+                <div class="he-cell"><span class="mediumGrey">ההתהוות וההתכלות באדם ובמציאות כרוכות זו בזו</span><br><sup>16</sup> <sup>היקש ז)</sup> וכמו שכוחות האדם הגורמים להתהוותו ולקיומו במשך זמן קיומו הם עצמם הגורמים לכיליונו ולאובדנו – כך סיבות ההתהוות הן עצמן סיבות הכיליון בכל עולם ההתהוות והכיליון. לדוגמה: ארבעת הכוחות הנמצאים בגופו של כל ניזון, והם: המושך, והמחזיק, והמעכל, והדוחה – אילו היה אפשר שאותם כוחות יהיו כמו הכוחות השכליים, כך שלא היו עושים אלא מה שראוי ובזמן הראוי ובמידה הראויה, כי אז היה האדם ניצל מנגעים גדולים מאוד וממחלות רבות. אבל כיוון שדבר זה בלתי אפשרי, אלא הם פועלים פעולות טבעיות בלי מחשבה ובלי שיקול דעת ואינם משיגים כלל את מה שהם פועלים – נובע מכך שיקרו בגללם מחלות קשות ונגעים, אף שהם הכלי להתהוות החי ולקיומו במשך הזמן שהוא קיים.<br><sup>17</sup> ביאור הדבר: הכוח המושך, לדוגמה, אילו היה מושך רק את הדבר המתאים מכל בחינה ואת המידה הנצרכת בלבד – כי אז היה האדם ניצל ממחלות ומנגעים רבים. אבל כיוון שהדבר אינו כך, אלא הוא מושך כל חומר שיזדמן מן המין שהוא מושך, גם אם החומר הזה סוטה מעט בכמותו ובאיכותו – נובע מכך שיימשך חומר שהוא חם יותר מן הנצרך, או קר יותר מן הנצרך, או סמיך יותר, או עדין יותר, או רב יותר. בשל כך נחסמים העורקים, ונוצרים סתימות וריקבון, ואיכות הליחות מתקלקלת וכַמוּתן משתנה. וכך מתהוות מחלות כמו הגרדת והשפשפת והיבלות, או נגעים קשים כמו הגידול הסרטני והצרעת והנמק, עד שצורת אבר או אברים מתקלקלת. וכך הדבר גם בשאר ארבעת הכוחות.<br><sup>18</sup> כך הדבר בדיוק לגבי כלל המציאות: הדבר ההכרחי להתהוות מה שמתהווה ולהתמדת קיומו במשך זמן, והוא עירוב היסודות על ידי כוחות הגלגל המניעים אותם ומפוזרים בהם – הוא עצמו הסיבה להיווצרות גורמים מזיקים במציאות, כמו השיטפונות והממטרים הכבדים והשלג והברד והרוחות הסוערות והרעמים והברקים והתעפשות האוויר, או היווצרות גורמים קטלניים ביותר המכלים ארץ או ארצות או אזור, כמו שקיעת הקרקעות ורעידות האדמה והברקים הקטלניים והמים השוטפים מן הימים והתהומות.</div>
+                <div class="en-cell">Even as the faculties whereby man is brought into being and is preserved for a certain season<sup class="fn-ref" onclick="showFn('fn.964')">964</sup> are the very same that cause his destruction and ruin, so likewise, in the whole of the world of generation and corruption<sup class="fn-ref" onclick="showFn('fn.965')">965</sup>, the causes of birth are themselves the causes of destruction. Of this is an example: If those four faculties which exist in the body of every living thing that is nourished, to wit, the attractive, the retentive, the digestive, and the expulsive<sup class="fn-ref" onclick="showFn('fn.966')">966</sup>, could resemble the intellectual faculties, so as to perform only what is requisite, at the time when it is requisite and in the measure that is requisite, man would be preserved from the greatest calamities and from many diseases; but, since this is not possible, and since, on the contrary, they perform physical functions without reflection or discernment, and without in any wise understanding what they do, it follows that they give rise to grievous maladies and calamities, though they be the instruments by which the animal is born and is preserved for a certain season. Thus, to explain my meaning, if the attractive faculty, for example, did attract only that which is suitable in every respect, and only in the measure of need, man would be preserved from many diseases and calamities. But, as it is not so, and as, on the contrary, it attracts every matter that presents itself, provided it be of the kind of its attraction<sup class="fn-ref" onclick="showFn('fn.967')">967</sup>, even though this matter should deviate somewhat from the just measure in respect of quantity and quality, it results that it also attracts matter which is hotter, or colder, or thicker, or subtler, or in greater quantity than is needful; whereby the veins are gorged, and there occurrs obstruction and putrefaction, the quality of the humours is corrupted and their quantity is altered, and there arise diseases, such as the itch, the scab, and warts, or great calamities, such as cancerous tumours, elephantiasis, and gangrene, so that the form of one or more members is destroyed. And it is the same with the other of the four faculties. — Now, it is precisely the same thing that occurrs in the whole of the universe: the thing which causs to be born that which is born, and prolongs its existence for a certain season, — to wit, the mixture of the elements produced by the faculties of the celestial sphere which set them in motion and are diffused therein, — is itself the cause which brings into the universe harmful things, such as floods, heavy rains, snow, hail, hurricanes, thunder, lightning, and the corruption of the air, or terrible catastrophes which destroy one or more cities or a whole country, such as the sinkings of the earth<sup class="fn-ref" onclick="showFn('fn.968')">968</sup>, earthquakes, violent storms, and the waters which overflow from the seas and the depths<sup class="fn-ref" onclick="showFn('fn.969')">969</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.15">
+                <div class="he-cell"><span class="mediumGrey">משל האדם עולם קטן</span><br><sup>19</sup> דע שכל מה שאמרנו באשר לדימוי העולם בכללותו לפרט מבני האדם – לא מפני דברים אלה נאמר על האדם שהוא עולם קטן. כי הדימוי הזה כולו עקבי בכל פרט מפרטי בעלי החיים שאבריו שלמים, ומעולם לא שמעת אף אחד מן הקדמונים אומר שהחמור או הסוס הם עולם קטן. הדבר נאמר לגבי האדם רק בשל מה שהתייחד בו האדם, והוא הכוח ההוגה, כלומר השכל, שהוא השכל ההיולי, כי עניין זה אינו נמצא באף מין מבעלי החיים מלבדו.<br><sup>20</sup> ביאור הדבר: אף פרט מפרטי בעלי החיים אינו נזקק עבור התמדת קיומו למחשבה ושיקול דעת והנהגה. אלא הוא הולך ורץ כפי טבעו, ואוכל את הדברים המתאימים לו שהוא מוצא, וגר במקום שמזדמן לו, ומזדווג עם כל נקבה שהוא מוצא כשהוא מיוחם, אם יש לו עונת ייחום. כך מתקיים הפרט במשך הזמן שהוא מתקיים, ומציאות המין מתמידה, ואין הוא נזקק כלל לפרט אחר ממינו שיעזור לו ויסייע לו בקיומו בכך שיעשה עבורו דברים שהוא עצמו אינו עושה. והאדם בלבד, אילו היה פרט ממנו מצוי לבדו, משולל כוח הנהגה ונעשה כבהמות – היה אובד מיד, ולא היה שורד אפילו יום אחד אלא במקרה, כלומר אם היה מזדמן לו למצוא משהו להיזון בו. זאת משום א) שהמזון שקיומו תלוי בו נזקק למלאכה ולניהול ארוכים, שאינם מתבצעים אלא במחשבה ובשיקול דעת ועל ידי כלים רבים, ב) וכן על ידי אנשים רבים שלכל אחד ואחד מהם מוקצית עבודה מסוימת, ולכן יש צורך במי שינהיג אותם ויקבץ אותם כך שחברתם תוסדר ותתמיד כדי שהם יסייעו אחד לשני. וכן כדי להישמר מן החום בזמן החום ומן הקור בזמן הקור ולהיות מוגן מן הגשמים ומהשלגים ומן הרוחות הסוערות, יש לו צורך בהכנות מרובות שכולן אינן מתבצעות אלא במחשבה ובשיקול דעת.<br><sup>21</sup> בשל כך קיים בו אותו הכוח ההוגה, שבו הוא חושב ושוקל ועובד ומכין במיני מלאכות שונים את מזונו ומגוריו ולבושו, ובהם הוא מנהיג את כלל אברי גופו כך שיעשה בהם השולט שבהם את אשר יעשה, ויונהג הנשלט באשר הוא מונהג. לפיכך אם תעלה על דעתך פרט מבני האדם המשולל אותו כוח, ונותר בו רק (הכוח) החייתי לבדו, היה הוא אובד ונכחד מיד. הכוח הזה נכבד מאוד, הנכבד ביותר מכוחות בעלי החיים. והוא גם נסתר מאוד, ומהותו האמיתית אינה מובנת במחשבה הראשונית המשותפת כמו שמובנים שאר כוחות הטבע.</div>
+                <div class="en-cell">It behoves us to know that, notwithstanding all that we have said concerning the similitude which exists between the whole of the universe and the human individual, it is nevertheless not on account of all this that man has been called a <i>little world</i> (microcosm); for all this comparison might be pursued in respect of every individual among the animals of a complete organism, and yet thou hast never heard that any of the ancients said that the ass or the horse was a <i>little world</i>. If this has been said of man, it is solely because of that which particularly distinguishes him; and that is the <i>rational faculty</i>, I mean that intelligence which is the <i>hylian intellect</i><sup class="fn-ref" onclick="showFn('fn.970')">970</sup>, a thing which is found in no other species of animals. Of this is the explanation: Every individual among the animals has need neither of thought, nor of reflection, nor of a regime, to prolong its existence; but it goes and comes according to its nature, eats what it finds suitable for itself, shelters itself in the first place it meets, and coupls with the first female it encounters when it is in heat, if indeed it has a season of heat. Thereby the individual endurs for such time as it can endure, and the existence of its species is perpetuated; it has in no wise need of another individual of its species to succour it and help it to preserve itself, in such manner that the latter should do for it things which it cannot do itself. But it is otherwise with man; for, if one were to suppose a human individual<sup class="fn-ref" onclick="showFn('fn.971')">971</sup> existing alone, deprived of all regime and become like unto the animals, such an individual would perish straightway and could not even subsist for a single day, unless it were by accident, I mean, that he should by chance find something wherewith to nourish himself. In truth, the foods whereby man subsists require art and long preparations which can only be accomplished by dint of thought and reflection, with the help of many instruments and with the concurrence of a great number of persons, of which each one takes upon himself a particular function. Wherefore it is necessary for men to have someone to guide and unite them, so that their society may be organized and perpetuated, and that they may afford one another mutual succour. Likewise, to preserve himself from the heat in the time of heat and from the cold in the cold season, and to guard himself against rains, snows, and winds, man is obliged to make many preparations, all of which can only be accomplished by means of thought and reflection. It is therefore on this account that he has been endowed with this rational faculty whereby he thinks, reflects, acts, and, by the aid of diverse arts, prepars his food and that wherewith to shelter and clothe himself; and it is by it also that he governs all the members of his body, so that the <i>ruling</i> member may do what it ought to do, and that that which is <i>subjected</i> may be governed as it ought to be. Wherefore, if thou shouldst suppose a human individual deprived of this faculty and abandoned to his animal nature alone, he would be lost and would perish at that very instant. This faculty is most noble, more noble than any of the faculties of the animal; it is also most occult, and its true nature cannot be understood at first sight by simple common sense, as are the other natural faculties.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.16">
+                <div class="he-cell"><sup>22</sup> כך יש במציאות דבר־מה המנהיג את כללותה, מניע את אברה השליט הראשון שנתן לו כוח הנעה כדי שינהיג את זולתו. ואילו עלה על הדעת ביטולו של דבר זה, היתה בטלה מציאותו של הכדור הזה כולו, הן השליט בו הן הנשלט. ועל ידי הדבר הזה מתמיד קיומם של הכדור ושל כל חלק ממנו. דבר זה הוא האלוה יתעלה שמו. רק לפי משמעות זו נאמר על האדם בלבד שהוא עולם קטן, משום שיש בו עיקרון כלשהו המנהיג את כולו. ובשל עניין זה נקרא ה' יתעלה בלשוננו "חיי העולם", ונאמר: "<b>וַיִּשָּׁבַע בְּחֵי הָעוֹלָם</b>" (דניאל יב,ז).</div>
+                <div class="en-cell">— Likewise, there is in the universe something which governs the whole thereof, and which setts in motion the ruling and principal member, unto which it communicats the motive faculty in such manner as to govern thereby the other members<sup class="fn-ref" onclick="showFn('fn.972')">972</sup>; and, were it to be supposed that the thing in question could disappear, this entire sphere of the universe, both the ruling part and the subjected part, would cease to exist. It is by this thing that the existence of the sphere and of each of its parts is perpetuated; and this thing is God [exalted be His name!]. — It is in this sense alone that man in particular has been called a <i>microcosm</i>, that is to say, because there is in him a principle which governs his whole being; and it is because of this idea that God has been called, in our language, <i>the life of the universe</i>, and that it has been said: <i>And he sware by the life of the universe</i> (Daniel, 12:7)<sup class="fn-ref" onclick="showFn('fn.973')">973</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.17">
+                <div class="he-cell"><span class="mediumGrey">שלוש הסתייגויות למשל. הסתייגות א: השפעה של חסד</span><br><sup>23</sup> דע שבדימוי הזה שדימינו את העולם בכללותו לפרט מבני האדם אין שוני בדבר ממה שהזכרנו אלא בשלושה דברים:</div>
+                <div class="en-cell">It behoves us to know that the comparison which we have established between the whole of the universe and the human individual admitts of no contradiction in anything that we have said, save only in three points:</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.18">
+                <div class="he-cell">האחד: שהאבר השליט בכל בעל חיים שיש לו לב, מקבל תועלת מן האברים הנשלטים, והתועלת שלהם חוזרת אליו. ואין במציאות הכללית דבר דומה לכך, אלא כל מה שמאציל הנהגה או נותן כוח, אין חוזרת אליו תועלת כלל מן הנשלט, אלא הוא נותן את מה שהוא נותן כנתינתו של מיטיב נדיב, העושה זאת בשל נדיבותו הטבעית וטוב לבו המולד, לא על מנת לקבל פרס; אלא זו הידמות לאלוה יתעלה שמו.</div>
+                <div class="en-cell">The <i>dominant</i> member (or the heart), in every animal that has a heart, derivs benefit from the <i>subjected</i> members, from which utility returns unto it. But naught of the like occurrs in the universal being; on the contrary, every thing which (in the universe) exercs a directing influence or imparts a faculty<sup class="fn-ref" onclick="showFn('fn.974')">974</sup> derivs on its own part no benefit from the subject part, but its manner of giving is like that of the beneficent and liberal man, who does good through generosity of character and by an innate goodness, and not in the hope (of a reward)<sup class="fn-ref" onclick="showFn('fn.975')">975</sup>; nay, more<sup class="fn-ref" onclick="showFn('fn.976')">976</sup>, it is to render himself like unto God [may His name be exalted!].</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.19">
+                <div class="he-cell"><span class="mediumGrey">הסתייגות ב: השפעה חד כיוונית</span><br><sup>24</sup> והשני: שהלב, בכל בעל חיים שיש לו לב, נמצא באמצעיתו, ושאר האברים הנשלטים מקיפים אותו, כדי להביא לו תועלת בשמירה עליו ובהגנה עליו כדי שלא יגיע אליו במהרה נזק מבחוץ. ובעולם בכללותו הדבר הפוך: הנכבד יותר מקיף את הפחות יותר, כי הוא בטוח מפני קבלת השפעה מזולתו. ואפילו היה מקבל השפעה, אין נמצא מחוצה לו גוף אחר היכול להשפיע עליו. נמצא שהוא מאציל על מה שבתוכו ואינו מקבל השפעה כלל ולא כוח מגופים אחרים. ויש כאן גם דומוּת מסוימת. והוא, שבבעל החיים, כל אבר הרחוק מן האבר השליט נכבד פחות מן הקרוב אליו. וכן הדבר בעולם כולו: ככל שהגופים קרובים יותר למרכז, הם עכורים יותר, עצמם עבה יותר, תנועתם כבדה יותר ואורם ושקיפותם אובדים, בשל ריחוקם מן הגוף הנכבד המאיר השקוף הנע העדין הפשוט, דהיינו הגלגל. וככל שגוף קרוב יותר אליו הוא קונה ממנו משהו מאותן תכונות בהתאם לקרבתו, ותהיה לו נכבדות מסוימת ביחס למה שמתחתיו.</div>
+                <div class="en-cell">In all animals that possess a heart, the same is found in the midst, and all the <i>subjected</i> members environ it to be generally profitable thereto, by guarding and protecting it, lest any mishap from without should befall it. But in the whole of the universe, the matter is the reverse: the more noble part environns that which is less noble, because it is in no wise exposed to receive an impression from that which is without it; and even were it susceptible of impression, it would find no other body outside itself that could act upon it, for it influencs that which is within it, and there reaches it no impression nor any faculty (coming) from another body.—There is, however, herein some resemblance: for whatsoever among the members of the animal is more remote from the <i>dominant</i> member is less noble than that which is nearer thereto; and likewise, in the whole of the universe, according as bodies approach the centre, they become dull, their substance becoms more gross and their movement more difficult, and they lose their lustre and their transparency, by reason of their distance from the noble, luminous, transparent, mobile, subtle and simple body, I mean, the celestial sphere; but, according as a body approaches it, it acquirs something of these qualities, by reason of its proximity, and enjoys a certain superiority over that which is beneath it.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.20">
+                <div class="he-cell"><span class="mediumGrey">הסתייגות ג: בדילות ה'</span><br><sup>25</sup> והשלישי: שהכוח ההוגה הוא כוח בגוף, בלתי נפרד ממנו. וה' יתעלה אינו כוח בגוף העולם, אלא נבדל מכל חלקי העולם. והנהגתו יתעלה והשגחתו נלוות לעולם בכללותו באופן שאיננו מגיעים עד תכליתו ומהותו האמיתית, וכוחו של בשר ודם אינו יכול לעמוד על כך. כי מוכח שהוא נבדל מן העולם ונקי ממנו; ומוכחת השפעת הנהגתו והשגחתו בכל חלק מחלקיו, ואפילו הפעוט והעלוב. ישתבח מי שמסנוורת אותנו שלמותו!</div>
+                <div class="en-cell">This rational faculty (of which we have spoken) is a faculty in a body and inseparable therefrom, whilst God is in no wise a faculty in the body of the universe, but is separate from all the parts of the universe. The governance of God and His providence are joined unto the whole world by a bond the true nature of which is unknown to us, and which the faculties of mortals cannot comprehend; for it can be demonstrated (on the one hand) that God is separate from the world and that He is independent thereof<sup class="fn-ref" onclick="showFn('fn.977')">977</sup>, and (on the other hand) it can also be demonstrated that the influence of His governance and of His providence extends over each of the parts of the world, however feeble and insignificant it may be<sup class="fn-ref" onclick="showFn('fn.978')">978</sup>. Praise be unto Him whose perfection fills us with admiration!</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.21">
+                <div class="he-cell"><span class="mediumGrey">סיכום: הוודאות וההכרחיות בפרק</span><br><sup>26</sup> דע שהיה ראוי שנדמה את היחס של ה' יתעלה לעולם, ליחס של השכל הנקנה לאדם, שאין הוא כוח בגוף, והוא נבדל מן הגוף היבדלות אמיתית ומאציל עליו. ואפשר היה לדמות את הכוח ההוגה לשכלי הגלגלים, שהם בגופים. אבל עניין שכלי הגלגלים וקיום השכלים הנבדלים ותפיסת השכל הנקנה, שגם הוא נבדל – הם עניינים שיש בהם מקום לעיין ולחקור, והראיות עליהם אינן גלויות, אף שהם (=העניינים; או: הראיות) נכונים, ונופלים בהם ספקות רבים, והמערער יכול לערער והמבלבל יכול לבלבל. אך אנו העדפנו תחילה שתתפוס את המציאות בתפיסה ברורה, שלא יתכחש לדבר ממה שהזכרנו באופן כללי אלא אחד משני סוגי אנשים: או מי שאינו יודע את הדברים הברורים, כמו שמי שאינו מומחה בהנדסה יכחיש עניינים מתמטיים מוכחים; או מי שבוחר להחזיק בדעה קדומה כלשהי ולכן הוא מטעה את עצמו. אך מי שרוצה לעיין עיון אמיתי – עליו ללמוד עד שתתבאר לו נכונות כל מה שהודענו, וידע שזו היא צורת אותו מצוי שמציאותו יציבה בלי ספק ובלי חשש. ואם ירצה לקבל זאת ממי שהוכח לו כל מה שהוכח – יקבל, ויבנה על כך את היקשיו וראיותיו. ואם לא יבחר בקבלה עיוורת אפילו בעקרונות אלה – ילמד, ולבסוף יתבאר לו שהדבר הוא כך. <b>"הִנֵּה זֹאת חֲקַרְנוּהָ כֶּן הִיא, שְׁמָעֶנָּה וְאַתָּה דַע לָךְ"</b> (איוב ה,כז).</div>
+                <div class="en-cell">Know that we ought to have compared the relation between God and the universe to that which exists between the <i>acquired intellect</i> and man; for this intellect also is not a faculty in a body, being in reality separate from the body upon which it <i>is poured forth</i><sup class="fn-ref" onclick="showFn('fn.979')">979</sup>. As for the <i>rational faculty</i>, one might compare it to the <i>intelligences of the spheres</i>, which are found in bodies. But the question of the intelligences of the spheres, the existence of <i>separate</i> intelligences, and the idea of the <i>acquired intellect</i>, which is likewise <i>separate</i>, are matters which need to be studied and examined, and the demonstrations of which are obscure albeit true; they are subject to many doubts and exposed to the attacks of him who seeks to criticise and cavil<sup class="fn-ref" onclick="showFn('fn.980')">980</sup>. We have therefore preferred that one should first be able to represent the universe by its manifest form; and indeed<sup class="fn-ref" onclick="showFn('fn.981')">981</sup> naught of what we have advanced in an absolute manner can be denied save by two sorts of persons: either by him who is ignorant even of that which is most evident, as (for example) he who is no geometrician denies mathematical things which are demonstrated; or by him who preferrs to cling to a preconceived opinion and to deceive himself. As for him who wishes to engage in true speculation, he must apply himself to study, so that the truth of all that we have related may become evident to him, and that he may know, without having the least doubt in this regard, that such is (indeed) the form of this being whose existence is (invariably) constituted. If any one wills to accept it from him to whom all has been rigorously demonstrated, let him accept it and let him build thereon his syllogisms and his proofs<sup class="fn-ref" onclick="showFn('fn.982')">982</sup>; but if he loves not simple tradition, even for these principles (of things)<sup class="fn-ref" onclick="showFn('fn.983')">983</sup>, then let him study, and it shall become manifest to him that the matter is so. <i>Lo, this we have searched it, so it is; hear it, and know it for thy good</i> (Job, v, 27).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..71.22">
+                <div class="he-cell"><sup>27</sup> לאחר המבוא הזה אחל להזכיר מה שהבטחנו להזכיר ולבאר.</div>
+                <div class="en-cell">After this preparation, I approach the subject which I promised to set forth<sup class="fn-ref" onclick="showFn('fn.984')">984</sup>.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.923" style="display: none;">
+                <strong>Note 923:</strong> Already Plato, in the Timaeus, presents the universe as a single individual, as an animated and organic whole possessing the spherical form, and this is likewise the basis of Aristotle's cosmology, expounded in the treatise [[t:0]]On the Heavens[[t:1]] and in that [[t:2]]On the World[[t:3]]. The comparison which the author is about to establish between the organism of the universe and that of the human individual is but the reproduction of an idea widely diffused amongst Jewish writers of all epochs, and which finds its source rather in the doctrines of Pythagoras and Plato than in those of Aristotle. The idea of the [[t:4]]macrocosm[[t:5]] and [[t:6]]microcosm[[t:7]], which appears here and there in the allegories of the Talmud and the [[t:8]]Midrashim[[t:9]], was especially developed in the book [[t:10]]Avot[[t:11]] of [[t:12]]Rabbi Nathan[[t:13]] (chap. 31) and in the book [[t:14]]Yetsirah[[t:15]], and embraced by several Jewish philosophers of the Middle Ages; see, for example, the Extracts from the [[t:16]]Fountain of Life[[t:17]] by Ibn-Gabirol, Book III, §§ 6 and 44, and the [[t:18]]‘Olam Katan[[t:19]], or [[t:20]]The Microcosm[[t:21]], by R. Joseph Ibn-Tzaddik (recently published by M. Ad. Jellinek, Leipzig, 1854, octavo), Book II, sect. 1[[t:22]]st[[t:23]]. In our author's work, the comparison aims only to establish the individuality of the universe; it confines itself to ingenious rapprochements and possesses nothing of the symbolic and mystic character which the Kabbalists and certain moralists have imparted to the theory of the microcosm. — The author will present in this chapter the principal points of [[t:24]]physics[[t:25]], as it was taught in the Arabic schools; Aristotle's theories therein are supplemented and developed here and there by those of Ptolemy, Galen, and the Neoplatonists. One cannot enter into the details of the diverse theories summarised by the author, and one must needs confine oneself, in these notes, to elucidating certain points whose comprehension is more particularly requisite for the reader of this work. Various details relating to Peripatetic cosmology and to the system of Ptolemy will be more amply expounded by the author himself in the II[[t:26]]nd[[t:27]] part of this work, and it would be superfluous to dwell upon them at this juncture.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.924" style="display: none;">
+                <strong>Note 924:</strong> [Footnote 924 content missing]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.925" style="display: none;">
+                <strong>Note 925:</strong> See above, p. 134, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.926" style="display: none;">
+                <strong>Note 926:</strong> That is, by a fifth element, which is the [[t:0]]ether[[t:1]] and which forms the substance of the celestial spheres. See above, pag. 247, note 3, and cf. the II[[t:2]]nd[[t:3]] part, chap. II, XIX and [[t:4]]passim[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.927" style="display: none;">
+                <strong>Note 927:</strong> The pronoun [[t:0]]והו[[t:1]] refers to [[t:2]]אלגׁםם אלכׄאמם[[t:3]]. In the editions of Ibn-Tibbon's version, the plural [[t:4]]והם[[t:5]] is an error; manuscripts have [[t:6]]והוא[[t:7]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.928" style="display: none;">
+                <strong>Note 928:</strong> That is to say, the center of the earth, which, in the system of the ancients, is the common center of the entire universe.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.929" style="display: none;">
+                <strong>Note 929:</strong> The author is referring to the [[t:0]]excentriques[[t:1]], which, in Ptolemy's system, serve to explain certain inequalities in the movement of the stars.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.930" style="display: none;">
+                <strong>Note 930:</strong> The author here discourseh concerning the hypotheses of the ancients relative to the two opposed motions, of which one is the [[t:0]]diurnal[[t:1]] motion, from the orient to the occident, imparted to the planets and fixed stars by the movement of the superior sphere, and the other, that which the celestial bodies accomplish, in certain periods, from the occident to the orient. Cf. our author, in his Abridgment of the Talmud, [[t:2]]Yesôdé ha-Tôrâ[[t:3]], chap. III, § 2, and Isaac Israeli, [[t:4]]Yesôd ’Olàm[[t:5]], book II, chap. 1 and 7. One shall have occasion to revert to these theories in chapter IV of the II[[t:6]]nd[[t:7]] part.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.931" style="display: none;">
+                <strong>Note 931:</strong> In this, we include the [[t:0]]excentrics[[t:1]], attributing three spheres to the Moon, three to Mercury, and two to each of the five other planets, which, with the sphere of the fixed stars and that of diurnal motion, makes a total of [[t:2]]eighteen[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.932" style="display: none;">
+                <strong>Note 932:</strong> Under the denomination of [[t:0]]sphere of circumvolution[[t:1]], the Arabs designate the [[t:2]]epicycle[[t:3]], which, in Ptolemy's system, is a small sphere in which the celestial body is fixed, and whose centre movs, upon the surface of the great sphere, on the circumference of a great circle denominated the [[t:4]]deferent circle[[t:5]] (because it [[t:6]]carries[[t:7]] the epicycle). Cf. the treatise [[t:8]]Yesôdé ha-Tôrâ[[t:9]], chap. III, § 4. From the commencement of the XII[[t:10]]th[[t:11]] century, the Arab astronomers of Spain recognised that which was improbable in this hypothesis, by means of which Ptolemy endeavours to explain certain anomalies in the motion of various planets. Ibn-Bâdja was the first to rise against the hypothesis of epicycles, and Ibn-Tofail rejected both eccentrics and epicycles (vid. my Article [[t:12]]Tofail[[t:13]] in the [[t:14]]Dict. des sc. philos.[[t:15]], vol. VI, p. 907). For this reason, Maimonides here states that the question of epicycles ought to be submitted to examination; he himself addresses this question in chap. XXIV of the II[[t:16]]nd[[t:17]] part. A little later, Abou-Is’hâk al-Bitrôdji, or Alpetragius, attempted to substitute other hypotheses for those of Ptolemy.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.933" style="display: none;">
+                <strong>Note 933:</strong> The author wishes to speak of the sphere of the Moon.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.934" style="display: none;">
+                <strong>Note 934:</strong> The author summarizes here the theories of Aristotle on the elements. See the treatise [[t:0]]On the Heavens[[t:1]], book IV, chap. 3 and following; [[t:2]]Physics[[t:3]], book IV, chap. 5; cf. the treatise [[t:4]]Yesôdé ha-Tôrâ[[t:5]], chap. III, §§ 10 and 11.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.935" style="display: none;">
+                <strong>Note 935:</strong> The author will return to this question in chapter IV of the second part; the purpose he proposes here does not require the immediate solution of this question.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.936" style="display: none;">
+                <strong>Note 936:</strong> Instead of [[t:0]]יכון[[t:1]], one of the Leyden manuscripts has [[t:2]]יהבון[[t:3]], in the V[[t:4]]th[[t:5]] form; likewise Ibn-Tibbon and Ibn-Falaquera ([[t:6]]Moré ha-Moré[[t:7]], p. 45): [[t:8]]שיתהוה[[t:9]], whilst Al-’Harizi has [[t:10]]יהיה[[t:11]]. The same Leyden manuscript has [[t:12]]מנהא[[t:13]], which would refer to the [[t:14]]elements;[[t:15]] Ibn-Tibbon and Al-’Harizi have indeed [[t:16]]מהם[[t:17]], in the plural; but the suffix in [[t:18]]מנה[[t:19]] referrs to [[t:20]]אלמכׄתלט[[t:21]], [[t:22]]the mixture[[t:23]], and Ibn-Falaquera likewise has [[t:24]]ממנו[[t:25]], in the singular.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.937" style="display: none;">
+                <strong>Note 937:</strong> According to Aristotle's theories, the primary transmutations of elementary substances are exhalations and vapours, which produce the various phenomena above the earth and within the terrestrial globe; vide Aristotle's [[t:0]]Meteorologica[[t:1]], books I-III. Vapours and exhalations which find no egress first contribute to the formation of minerals (see [[t:2]]ibid.[[t:3]], at the end of book III), and subsequently, by degrees, to that of plants and animals. Cf. the exposition of Al-Kazwîni, in Silv. de Sacy's [[t:4]]Chrestomathie arabe[[t:5]], Vol. III, p. 389 et seq., the citation from the [[t:6]]Ayîn Acbéri, ibid.[[t:7]], p. 454 et seq., and the Analysis of Ibn-Sînâ's [[t:8]]Physica[[t:9]], in Schahrestâni's work, p. 413 (German transl., Vol. II, p. 310). See also Part II[[t:10]]e[[t:11]] of this work, chap. XXX.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.938" style="display: none;">
+                <strong>Note 938:</strong> That is to say, [[t:0]]who receives the form[[t:1]], or who is capable of receiving it.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.939" style="display: none;">
+                <strong>Note 939:</strong> Literally: in the where, that is, in relation to the category of πόν̃; for, as the author said earlier, celestial bodies undergo no change except that of position.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.940" style="display: none;">
+                <strong>Note 940:</strong> The word [[t:0]]בתכרר[[t:1]] (by the [[t:2]]répétition[[t:3]]) is rendered in Ibn-Tibbon's version as [[t:4]]בהשתנות[[t:5]] (by the [[t:6]]changement[[t:7]]); this lesson, which is also found in the manuscripts, may be an error, for [[t:8]]בהשנות[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.941" style="display: none;">
+                <strong>Note 941:</strong> As Ibn-Falaquera observes in [[t:0]]Moreh ha-Moreh[[t:1]], p. 48, it is not accurate to say that the heart[[t:2]] moves itself[[t:3]] (for it has no movement of [[t:4]]locomotion[[t:5]], but only of [[t:6]]pulsation[[t:7]]); according to him, the author is speaking of the movement of the blood that passes from the heart into the arteries.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.942" style="display: none;">
+                <strong>Note 942:</strong> Instead of תוליד, one of the Leiden manuscripts has הרכיב, and it is this latter reading that is reproduced by the two Hebrew versions, as well as the Moré ha-Moré (p. 46), which have בהרכבת.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.943" style="display: none;">
+                <strong>Note 943:</strong> The author intends to convey, as he himself explains in chap. XXX of Part II[[t:0]]e[[t:1]], that the genesis and dissolution of sublunar entities occur under the influence of the variation of light and darkness, or of heat and cold; this variation results from the revolution of the celestial bodies, by consequence of which light and heat are imparted to and withdrawn from the various regions of the earth in turn. The suffix in [[t:2]]לנורהא ודורתהא[[t:3]] is irregular; for it can only refer to the word [[t:4]]אלפלך[[t:5]], which stands at the beginning of the sentence, and it would have been more regular to write [[t:6]]לנורה[[t:7]], with the masculine suffix. It is perhaps for this reason that Ibn-Tibbon rendered [[t:8]]הגלגלים[[t:9]], in the plural, although all Arabic manuscripts bear [[t:10]]אלפלך[[t:11]], in the singular. One must necessarily understand in [[t:12]]לנורהא[[t:13]] the word [[t:14]]אלאפלאך[[t:15]], or [[t:16]]אלכואכב[[t:17]]. In most editions of Ibn-Tibbon's version, the word [[t:18]]לנורהא[[t:19]] is rendered by [[t:20]]אחר יושרם[[t:21]], whereas one ought to read [[t:22]]אחר אורם[[t:23]], as is found in the manuscripts and the editio [[t:24]]princeps[[t:25]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.944" style="display: none;">
+                <strong>Note 944:</strong> All Arabic manuscripts have [[t:0]]or[[t:1]]; Ibn-Tibbon and Ibn-Falaquera read [[t:2]]if[[t:3]], which they rendered as [[t:4]]to mean[[t:5]]; but this reading does not offer a suitable sense.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.945" style="display: none;">
+                <strong>Note 945:</strong> See the II[[t:0]]e[[t:1]] part, chap. I.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.946" style="display: none;">
+                <strong>Note 946:</strong> That is, God, who is [[t:0]]one[[t:1]], created only a being that is also [[t:2]]one[[t:3]]. The author is alluding to a question that he will address in chapter XXII of the II[[t:4]]nd[[t:5]] part, and which we touched on earlier, p. 211, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.947" style="display: none;">
+                <strong>Note 947:</strong> The version of Ibn-Tibbon is here disfigured, in the editions, by some printing errors; the manuscripts and the edition [[t:0]]princeps[[t:1]] read: [[t:2]]ken ei afshar shimtsu cholam ha-olam qatsam me-lay la-qatsam ba-zeh ha-metsiut ha-yashuv asher dibarenu bo[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.948" style="display: none;">
+                <strong>Note 948:</strong> By this is understood the principal faculty of the soul, which has its seat in the brain; it is designated as that which [[t:0]]guides[[t:1]] and [[t:2]]governs[[t:3]] the animal body ([[t:4]]τὸ ἡγεμονιϰὸν[[t:5]], or [[t:6]]τὸ βασιλεῦον ϰαὶ ἐπ τἁσσον[[t:7]]). Vide Galen, [[t:8]]Definitiones medicæ[[t:9]], CXIII (Kühn's edition, Vol. XIX, p. 378). This faculty is sometimes denominated [[t:10]]nature[[t:11]], as Galen states, when discoursing upon the various acceptations of the word [[t:12]]φύσις[[t:13]], [[t:14]]ibid.[[t:15]], XCV (p. 371): [[t:16]]φύσις ϰαἰ ἡ διοιϰοῦσα τὸ ζῶον δύναμις λέγεται[[t:17]]. Cf. Cicero, [[t:18]]De natura Deorum[[t:19]], II, 9.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.949" style="display: none;">
+                <strong>Note 949:</strong> That is to say, the celestial spheres and stars, which do not perish, while in sublunar things only the species are preserved and the individuals perish.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.950" style="display: none;">
+                <strong>Note 950:</strong> The author means that there is no agreement on the question of whether this faculty that governs the universe comes directly from God, or is communicated through the intermediary of the intelligences of the spheres; this question will be treated elsewhere. See the II[[t:0]]e[[t:1]] part, chap. X and XII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.951" style="display: none;">
+                <strong>Note 951:</strong> More literally: … [[t:0]]has for purpose the need to which it is constrained for its food[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.952" style="display: none;">
+                <strong>Note 952:</strong> The suffix in [[t:0]]ופיה[[t:1]] refers to the [[t:2]]corps[[t:3]] ([[t:4]]בדן[[t:5]]). Only one of our manuscripts has the incorrect reading [[t:6]]ופיהא[[t:7]], which was reproduced by the Hebrew translators; Ibn-Tibbon and Ibn-Falaquera have [[t:8]]ובהם[[t:9]], and Al-’Harizi [[t:10]]ויש מהם[[t:11]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.953" style="display: none;">
+                <strong>Note 953:</strong> Literally: [[t:0]]to its being[[t:1]] (or [[t:2]]to its nature[[t:3]]) [[t:4]]which one has purposed[[t:5]]. The suffix in [[t:6]]כונה[[t:7]] ([[t:8]]its[[t:9]] being) appears to one to refer to the [[t:10]]body[[t:11]], like that in [[t:12]]ופיה[[t:13]] (see the preceding note); the sense is: that there are joined to the formation of the body, where all is constituted with a certain purpose and according to a particular design, various accessory matters, resulting from the material quality of certain parts of the body.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.954" style="display: none;">
+                <strong>Note 954:</strong> That is, because these things are only accessories.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.955" style="display: none;">
+                <strong>Note 955:</strong> The words [[t:0]]אלתפאצׄל בין אלאשכׄאץ[[t:1]] signify that individuals [[t:2]]surpass[[t:3]] one another, and that the things in question are found in greater quantity among some than among others.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.956" style="display: none;">
+                <strong>Note 956:</strong> On the word [[t:0]]אכתׄרי[[t:1]], cf. above, pag. 300, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.957" style="display: none;">
+                <strong>Note 957:</strong> The word [[t:0]]כדׄלך[[t:1]] corresponds to the words [[t:2]]וכמא אן[[t:3]], [[t:4]]de même que[[t:5]], which are found at the beginning of this long period, and which we have suppressed in our translation, in order to render the construction of the sentences less cumbersome.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.958" style="display: none;">
+                <strong>Note 958:</strong> Literally: [[t:0]]in which there is only a slight difference, according to the measure of the extent of the species in its quality and quantity;[[t:1]] that is to say, according to the limits that nature has established, in terms of quality and quantity, for the species in question. On the word [[t:2]]ערץׄ[[t:3]], see above, p. 236, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.959" style="display: none;">
+                <strong>Note 959:</strong> Literally: [[t:0]]but are linked to the nature of general generation and destruction[[t:1]]. The author signifies that these species are produced by nature without intention and without a particular end, and that they form themselves in consequence of certain accidents resulting from the general physical laws which govern that portion of the universe subject to [[t:2]]generation[[t:3]] ([[t:4]]γένεσις[[t:5]]) and to [[t:6]]destruction[[t:7]] or [[t:8]]corruption[[t:9]] ([[t:10]]φθορά[[t:11]]]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.960" style="display: none;">
+                <strong>Note 960:</strong> Literally: [[t:0]]dont les individus sont stables[[t:1]] or [[t:2]]permanents;[[t:3]] that is to say, of bodies that remain individually constituted in each individual.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.961" style="display: none;">
+                <strong>Note 961:</strong> The ancient physicians reckon four principal [[t:0]]humours[[t:1]] in the human body, namely blood, phlegm, yellow bile, and black bile. These humours possess not, like the members, an individual existence; for they are intermingled, and it is sometimes one, sometimes another, which predominates. The nature of the mixture constitutes the [[t:2]]temperament[[t:3]], which is either sanguine, or phlegmatic, or bilious, or melancholic. Vide Galen, [[t:4]]Definitiones medicæ[[t:5]], LXV-LXX (Kühn's edition, Vol. XIX, p. 363 et seq.). Cf. Sprengel, [[t:8]]Versuch einer pragmatischen Geschichte der Arzeneykunde[[t:9]], Vol. II, p. 164.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.962" style="display: none;">
+                <strong>Note 962:</strong> That is to say, the material of the spheres or the ether, the spheres and the stars, which have an individual permanence in the universe.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.963" style="display: none;">
+                <strong>Note 963:</strong> Since everything is composed of the four elements, the elements exist everywhere as the element in general, but not as a particular element.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.964" style="display: none;">
+                <strong>Note 964:</strong> Literally: [[t:0]]And just as the faculties of man produce his birth and duration as long as he lasts[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.965" style="display: none;">
+                <strong>Note 965:</strong> That is, in the sublunar world, where everything is subject to the perpetual change of [[t:0]]naissance[[t:1]] and [[t:2]]destruction[[t:3]], in opposition to the superior world, where nothing is born or perishes.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.966" style="display: none;">
+                <strong>Note 966:</strong> By means of the [[t:0]]attractive faculty[[t:1]], each part of the animal body extracts from the aliments and draws to itself those parts which are suitable to its nature; by the [[t:2]]retentive faculty[[t:3]] or [[t:4]]coërcitive faculty[[t:5]], the diverse parts of the body retain this attracted substance; by the [[t:6]]digestive faculty[[t:7]], they dispose it to be converted into their own substance; finally, by the [[t:8]]expulsive faculty[[t:9]], the body ejects those residues which are not conducive to its organisation. Cf. Al-Kazwîni, in Silv. de Sacy's [[t:10]]Chrestomathie arabe[[t:11]], Vol. III, pp. 487-488; Sprengel, [Lat.: loc. cit.], p. 162.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.967" style="display: none;">
+                <strong>Note 967:</strong> That is, provided the material is of the kind that the animal body can assimilate and is of a nature to be attracted by the attractive faculty and absorbed by the body.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.968" style="display: none;">
+                <strong>Note 968:</strong> The word [[t:0]]خسف[[t:1]] designates a convulsion of the soil, by reason of which entire mountains and cities are sometimes swallowed up into the earth; according to the Arab physicists, this convulsion, related to earthquakes, occurs when the vapours enclosed within the globe's bosom violently erupt, tearing the soil and carrying with them earthy matter, such that vast subterranean cavities are formed and the ground subsides. See Al-Kazwîni, [[t:2]]Adjâyib al-makhloukât[[t:3]], published by M. Wüstenfeld (Gœtting, 1849, in-4°), page 149. It was by inadvertence that further above, in ch. LIV (page 220), the word [[t:4]]خسوف[[t:5]] was rendered by [[t:6]]inondations[[t:7]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.969" style="display: none;">
+                <strong>Note 969:</strong> By these last words, the author is alluding to the invasions of marine and subterranean waters, phenomena that sometimes accompany earthquakes, and of which Aristotle speaks in the second book of the Meteorology (at the end of chapter VIII): and already waters are bursting forth in the course of earthquakes, etc.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.970" style="display: none;">
+                <strong>Note 970:</strong> See above, p. 306, note.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.971" style="display: none;">
+                <strong>Note 971:</strong> Literally: [[t:0]]As for man only, if one were to suppose an individual, etc[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.972" style="display: none;">
+                <strong>Note 972:</strong> Literally: [[t:0]]de sorte qu’il gouverne par elle[[t:1]] (i.e. by this motor faculty) [[t:2]]ce qui est en dehors de lui[[t:3]] (i.e. outside the main member). The author wants to speak of the motor faculty communicated by the first motor to the upper sphere that sets all the other spheres in motion.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.973" style="display: none;">
+                <strong>Note 973:</strong> Cf. above, chap. LXIX, pag. 321, note 1. The author takes the word [[t:0]]עולם[[t:1]] (eternity) here, as elsewhere, in the sense of [[t:2]]monde, universe[[t:3]]; cf. above, pag. 1, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.974" style="display: none;">
+                <strong>Note 974:</strong> That is to say, all the principal parts of the universe that govern other parts or communicate certain faculties to them.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.975" style="display: none;">
+                <strong>Note 975:</strong> [[t:0]]תַּרְגֵּ (تَرْجِ)[[t:1]] is the infinitive of the V[[t:2]]th[[t:3]] form of [[t:4]]رجا[[t:5]], [[t:6]]to hope;[[t:7]] the manuscripts have [[t:8]]הרגׄי[[t:9]]. In the editions of Ibn-Tibbon's version, this passage is disfigured by several errors; one must read, according to the manuscripts: [[t:10]]לנדיבות טבעים ולמעלתם לא לתוחלת[[t:11]]. Ibn-Falaquera's version is more exact; it states (in the manuscripts of the [[t:12]]Moré ha-Moré[[t:13]]): [[t:14]]לנדיבות טבע ומעלת יצירה לא לתוחלת גמול[[t:15]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.976" style="display: none;">
+                <strong>Note 976:</strong> Instead of [[t:0]]but not this[[t:1]], several manuscripts read [[t:2]]but all this[[t:3]], and this is the reading expressed by the versions of Ibn-Tibbon and Al-’Harizi; Ibn-Falaquera combines the two readings: [[t:4]]but all this[[t:5]] ([[t:6]]Moré ha-Moré[[t:7]], pag. 54).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.977" style="display: none;">
+                <strong>Note 977:</strong> See above, chap. LXIX, p. 320, note 1; chap. LXX, p. 325; II[[t:0]]e[[t:1]] part, chap. IV.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.978" style="display: none;">
+                <strong>Note 978:</strong> See the III[[t:0]]rd[[t:1]] part of this work, chap. XVII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.979" style="display: none;">
+                <strong>Note 979:</strong> Regarding what is called the [[t:0]]acquired intellect[[t:1]], see above, pages 307 and 308, note. Ibn-Tibbon here renders [[t:2]]אלמסחפאד[[t:3]] by the two words [[t:4]]הנקנה הנאצל[[t:5]], [[t:6]]acquired[[t:7]] and [[t:8]]emanated;[[t:9]] he states himself, in his Glossary of technical terms (letter [[t:10]]ס[[t:11]], under the word [[t:12]]שׂכל[[t:13]]), that either of these two words is equally employed, but that oftentimes he has united them together to precisely convey the sense of the Arabic philosophical term.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.980" style="display: none;">
+                <strong>Note 980:</strong> Literally: [[t:0]]It is beset by many doubts, and here the critic has something to criticize and the litigant has something to litigate over[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.981" style="display: none;">
+                <strong>Note 981:</strong> The construction of the text here is irregular; the literal sense is: [[t:0]]which[[t:1]] ([[t:2]]form[[t:3]]) [[t:4]]is such that there are but two persons who could deny, etc[[t:5]]. The author intends to convey that he has preferred to set aside, in his exposition, all that can only be comprehended after profound philosophical studies, and that he has confined himself to presenting being in a form intelligible to all.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.982" style="display: none;">
+                <strong>Note 982:</strong> That is to say, he should admit, as by tradition, what we have said about the constitution of the universe in general, and then construct his proofs based on this to demonstrate the four questions at issue.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.983" style="display: none;">
+                <strong>Note 983:</strong> That is to say: not even in the case of physical science, which deals with the principles (ἀρχαὶ) of all things.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.984" style="display: none;">
+                <strong>Note 984:</strong> Literally: [[t:0]]I begin to report what I have promised to report and explain[[t:1]], namely, the propositions of the [[t:2]]Motecallemin[[t:3]] and their demonstrations relative to the four questions that were discussed at the end of the preceding chapter.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

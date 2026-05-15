@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 66 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 66</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..65.0">
+                <div class="he-cell"><b>המונח מעשה ה'</b><br><span class="mediumGrey">מעשה אלוהים – דבר טבעי</span><br><sup>1</sup> "<b>וְהַלֻּחֹת מַעֲשֵׂה אֱלֹהִים הֵמָּה"</b> (שמות לב,טז) – כוונתו שקיומם טבעי ולא מלאכותי. כי כל הדברים הטבעיים מכונים "<b>מעשה ה'</b>": "<b>הֵמָּה רָאוּ מַעֲשֵׂי ה'</b>" (תהילים קז,כד); וכשהזכיר את כל הדברים הטבעיים דוגמת הצמחים והחיות והרוחות והגשמים וכיוצא בהם, אמר: "<b>מָה רַבּוּ מַעֲשֶׂיךָ ה' [</b>כֻּלָּם בְּחָכְמָה עָשִׂיתָ, מָלְאָה הָאָרֶץ קִנְיָנֶךָ]" (תהילים קד,כד). ייחוס מופלג יותר הם דבריו "[יִשְׂבְּעוּ עֲצֵי ה',] <b>אַרְזֵי לְבָנוֹן אֲשֶׁר נָטָע</b>" (שם שם,טז): כיוון שקיומם טבעי ולא מלאכותי אמר שה' נטע אותם.</div>
+                <div class="en-cell">It is said that the Tables (thus the Scripture) were the work of God (Exodus, 32, 16): this signifies that they were a production of nature, and not of art<sup class="fn-ref" onclick="showFn('fn.762')">762</sup>; for all natural things are called the work of God; for example: They have seen the works of the Eternal (Ps. 107, 24); and in like manner, after having mentioned all natural things, such as plants, animals, winds, rains, etc., (the poet) exclaims: How great are thy works, O Eternal (Ps. 104, 24)! But what is even more expressive than this attribution<sup class="fn-ref" onclick="showFn('fn.763')">763</sup>, are these words: The cedars of Lebanon, which He has planted (Ps. 104, 16); for, as they are a production of nature, and not of art, it is said that God has planted them.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..65.1">
+                <div class="he-cell">וכן את דבריו "[וְהַמִּכְתָּב] <b>מִכְתַּב אֱלֹהִים</b> [הוּא]" (שמות לב,טז), ביאר כיצד יוחס לה' ואמר: "[לֻחֹת אֶבֶן] <b>כְּתֻבִים בְּאֶצְבַּע אֱלֹהִים</b>" (שם לא,יח), ודבריו "<b>בְּאֶצְבַּע אֱלֹהִים</b>" הם כמו שנאמר על השמים "<b>מַעֲשֵׂה אֶצְבְּעֹתֶיךָ"</b> (תהילים ח,ד), שהתבאר שנעשו ב<b>אמירה</b>: "<b>בִּדְבַר ה' שָׁמַיִם נַעֲשׂוּ</b>" (תהילים לג,ו).<br><span class="mediumGrey">מעשה ה' הוא דבר ה', הוא רצון ה'</span><br><sup>2</sup> הרי התבאר לך שהפסוקים משתמשים בהשאלה ליצירתו של דבר <b>בלשון אמירה ודבור</b>, ושאותו דבר עצמו שנאמר עליו ש<b>נעשה בדבור</b> נאמר עליו <b>מעשה אצבע</b>. וכך דבריו "<b>כְּתֻבִים בְּאֶצְבַּע אֱלֹהִים</b>" (שמות לא,יח) שווים לדבריו "<b>כתובים בדבר אלהים</b>". ודבריו "<b>בדבר אלהים</b>", לו היה אומר כך, שווים היו לדבריו "<b>כתובים בחפץ אלהים</b>" כלומר בחפצו וברצונו.</div>
+                <div class="en-cell">In like manner, when it is said <i>a writing of God</i> (Exodus, 32, 16), it is evident that the <i>writing</i> is attributed unto God; and indeed it is said (that the Tables were) <i>written with the finger of God</i> (<i>Ibid.</i>, 31, 18). It is here said <i>with the finger of God</i>, even as it is said, in speaking of the heaven: <i>the work of Thy fingers</i> (Ps. 8, 4), although it is expressly said that it was made by the <i>word: By the word of the Lord were the heavens made</i> (Ps. 33, 6). It is therefore clear that the (sacred) texts express metaphorically by the verbs <i>amar</i> (to say) and <i>dibber</i> (to speak) that a thing has been produced (by God), and that this very thing which is said to have been <i>made by the word</i>, is also called the <i>work of the finger</i> (<i>of God</i>); thus the expression <i>written with the finger of God</i> is equivalent to (<i>written</i>) <i>by the word of God</i>, and if, indeed, it had been said <span dir="rtl">בדבר אלהים</span>, <i>by the word of God</i>, it would be equivalent to <span dir="rtl">בחפץ אלהים</span>, that is to say, <i>by the will and the intention of God.</i></div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..65.2">
+                <div class="he-cell"><span class="mediumGrey">ביאור אונקלוס: ה' ברא אצבע לכתיבה</span><br><sup>3</sup> אך <b>אנקלוס</b> נקט בעניין זה פירוש מפליא, ואמר: "<b>כְּתִיבִין בְּאֶצְבְּעָא דַה'</b>" (=כתובים באצבע ה'), כי הוא הבין את "<b>אצבע</b>" כדבר־מה הנסמך לה', ופירש את <b>אצבע ה'</b> כמו "<b>הר ה'</b>" ו"<b>מטה ה'</b>", וכוונתו בכך שהיא כלי נברא שחקק את הלוחות בחפץ ה'. איני יודע מה הביאו לכך; היה מתאים יותר לומר <b>'כתיבין במימרא דה''</b> (=כתובים במאמר ה'), כמו שנאמר: "<b>בִּדְבַר ה' שָׁמַיִם נַעֲשׂוּ</b>" (תהילים לג,ו). האם לדעתך קיומו של הכתב על הלוחות מפליא יותר מקיומם של הכוכבים בגלגלים? כמו שזה בחפץ ראשון ולא בכלי שעשה אותם, כך גם הכתב הכתוב – בחפץ ראשון, לא בכלי. ידועים לך דברי ה<b>משנה</b> על "<b>עשרה דברים נבראו בין השמשות</b>" (אבות ה,ה) ובכללם "<b>הכתב והמכתב</b>", והיא ראיה על כך שמוסכם על כל האומה ש<b>מכתב הלוחות</b> הוא כשאר כל <b>מעשה בראשית</b>, כמו שביארנו בפירוש ה<b>משנה</b> (שם).</div>
+                <div class="en-cell">As for Onkelos, he has adopted concerning this matter a strange interpretation<sup class="fn-ref" onclick="showFn('fn.764')">764</sup>, for he has said (in his version): <span dir="rtl">כתיבין באצבעא די״י</span>, <i>written with the finger of the Lord</i>, regarding the word <i>finger</i> as something which is placed in relation with God, and interpreting <i>finger of God</i> as (he interprets) <i>mountain of God</i> and <i>rod of God</i>; he means thereby that it was a <i>created instrument</i> which engraved the Tables by the will of God<sup class="fn-ref" onclick="showFn('fn.765')">765</sup>. I know not what moved him to this; for it were simpler to translate: <span dir="rtl">כתיבין במימרא די״י</span>, <i>written by the</i> <small>WORD</small> <i>of the Lord</i>, conformably to these words: <i>By the word of the Lord were the heavens made.</i> Can one, in sooth, find the existence of the writing upon the Tables more extraordinary than that of the stars within the spheres? Even as the latter is the effect of a primitive will (of God), and not of an instrument that should have fashioned (the stars), so this writing was traced by a primitive will, and not by an instrument. Thou knowest the terms of the <i>Mishnah</i> in (this passage): «Ten things were created (on the eve of the Sabbath) at twilight, etc.»; of their number were the <i>Writing</i> (<i>holy</i>) and the <i>writing</i> (<i>engraved upon the Tables</i>)<sup class="fn-ref" onclick="showFn('fn.766')">766</sup>, which proves that a thing whereon there has been general agreement is that it is with the <i>writing of the Tables</i> as with all the other works of creation, as we have set forth in the Commentary on the <i>Mishnah.</i></div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.762" style="display: none;">
+                <strong>Note 762:</strong> Literally: [[t:0]]that their existence was natural, and not artificial.[[t:1]] — The author, desiring to set forth in this chapter that by [[t:2]]the writing of God[[t:3]] engraved upon the Tables of the Law one understands, as by [[t:4]]the word of God[[t:5]], the eternal and immutable will of the divinity, must first demonstrate that the words [[t:6]]the work of God[[t:7]], applied to the Tables, designate, in general, a work of nature, that is to say, a work created simultaneously with all other works of creation, and not a work newly produced at a certain moment, such as artificial things.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.763" style="display: none;">
+                <strong>Note 763:</strong> That is, the attribution contained in the words [[t:0]]works of the Eternal[[t:1]], and by which everything that nature produces is attributed to the Creator.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.764" style="display: none;">
+                <strong>Note 764:</strong> The author means that Onkelos, who, in his Chaldean version, always seeks to eliminate the anthropomorphisms of the Hebrew text, deviated from his usual method here by preserving the expression of the original.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.765" style="display: none;">
+                <strong>Note 765:</strong> The sense of this entire passage is as follows: Onkelos, in permitting the words [[t:0]]finger of God[[t:1]] to subsist in his version, must have regarded the word [[t:2]]finger[[t:3]] as designating something material brought into relation with God, and not something inherent in the divine essence, such as [[t:4]]the will;[[t:5]] he must, consequently, have held for the words [[t:6]]finger of God[[t:7]] an interpretation analogous to that which he accords to other expressions in which something material is brought into relation with God. Thus, for example, regarding the words [[t:8]]the mountain of God[[t:9]] (Exodus, 3, 1), Onkelos renders: [[t:10]]the mountain upon which the glory of God was revealed;[[t:11]] for [[t:12]]the rod of God[[t:13]] ([[t:14]][Lat.: Ibidem].[[t:15]], 4, 20), he states: [[t:16]]the rod with which miracles had been wrought on the part of God;[[t:17]] and in like manner the author supposes that, in the thought of Onkelos, the words [[t:18]]finger of God[[t:19]] designate an instrument which miraculously engraved upon the Tables the commandments of God, and which, like the Tables themselves, formed a part of the works of creation.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.766" style="display: none;">
+                <strong>Note 766:</strong> Vide [[t:0]]Mischnâ[[t:1]], fourth part, treatise [[t:4]]Abôth[[t:5]], Chapter V, § 6. The words [[t:6]]הכתב והמכתב[[t:7]], which, each in turn, signify [[t:8]]writing[[t:9]], have been diversely interpreted; several commentators have discerned in [[t:10]]כתב[[t:11]] the figures of the letters traced upon the Tables, and in [[t:12]]מכתב[[t:13]] the manner in which these letters were traced, legible from all sides of the Tables. One has been constrained to adopt here the interpretation which our author does himself provide in his [[t:14]]Commentary on the Mischnâ[[t:15]], and which he does precede with a general observation upon the pre-existence of the [[t:16]]ten things[[t:17]] under consideration and of all other miracles (Cf. supra, Chapter LXIV, page 287, at the close of the note). One does here quote verbatim this passage from the Commentary, according to the Arabic original: [[t:18]]קד דׄכרת לך פי אלפצל אלתׄאמן אנהם לא יעתקדון בחרותׄ אלמשיה̈ פי כל חין בל פי אול עמל אלאשיא גׄעל פי טביעתהא אן ינעמל פיהא כל טא אנעמל סוי אן אלשי אלדׄי אנעמל אכתׄרי והו אלאמר אלטביعي או כאן פי אלנאדר והי אלמעגׄزه̈ ולדׄלך קאלוא אן פי אליום אלםארם גׄעל ללארץׄ אן תכׄםף בקרח וללחגׄר אן תכׄרגׄ אלמא וללאתון אן תכלם וכדׄלך םאירהא וכתב הי אלתורה אלמכתובה̈ בין ידיה תעאלי ולם נעלם כיף והו קולה ואתנה לך את לוחות האבן ומכתב הי אלבתאבחׄ אלתי עלי אללוחות כמא קאל והמכתב מכתב אלהים הוא[[t:19]] «One has already stated, in the [[t:20]]eighth[[t:21]] chapter[[t:23]] (cf. the aforementioned note), that they did not concede there to be, upon each occasion, a new intervention of the (divine) will, but, rather, that it was held that, from the moment when things were produced (by the Creator), they were naturally so disposed as to lend themselves to all that has subsequently operated therein, whether the matter destined to operate did occur frequently, and this is (what is termed) a [[t:24]]natural[[t:25]] thing, or whether it did occur rarely, in which instance it is the [[t:26]]miracle.[[t:27]] Hence it is they affirm that, from the sixth day (of Creation), all was so arranged that the earth might swallow Korah, that the stone might cause water to gush forth, that the ass might speak, and so forth. — By [[t:28]]kethâb[[t:29]] ([[t:30]]בתב[[t:31]]) is understood the [[t:32]]Law[[t:33]], which was inscribed before God, in a manner unknown to us, as does appear from this passage: [[t:34]]And I will give thee tables of stone, etc.[[t:35]] (Exodus, 24, 12); by [[t:36]]mikhtâb[[t:37]] ([[t:38]]מכתב[[t:39]]) is understood the [[t:40]]writing[[t:41]] that was upon the Tables, as it is stated: [[t:42]]And the writing was the writing of God[[t:43]] ([[t:44]]Ibid.[[t:45]], 32, 16).»
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

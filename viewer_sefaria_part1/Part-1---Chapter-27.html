@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 27 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 27</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..26.0">
+                <div class="he-cell"><b>הרחקת ההגשמה בתרגום אונקלוס</b><br><span class="mediumGrey">שיטת אונקלוס בהרחקת ההגשמה</span><br><sup>1</sup> <b>אנקלוס הגר</b> היה בקי מאוד בעברית ובארמית. הוא נתן את לבו להסיר את ההגשמה (מן ה'), כך שכל תואר המביא לידי גשמות שהכתוב משתמש בו, הוא מפרש אותו (שלא כפשוטו) לפי עניינו. כל מונח שהוא מוצא המורה על אחד ממיני התנועה, הוא מפרש את משמעות התנועה כהתגלות וכהופעה של אור נברא, כלומר <b>שכינה</b>, או השגחה. על כן הוא תרגם "<b>יֵרֵד ה'</b> [לְעֵינֵי כָל הָעָם עַל הַר סִינָי]" (שמות יט,יא) – "<b>יִתגְּלֵי ה'</b>" (=יתגלה ה'); "<b>וַיֵּרֶד ה'</b> [עַל הַר סִינַי]" (שם,כ) – "<b>וְאִתְגְּלִי ה'</b>" (=והתגלה ה'), ולא אמר "<b>וּנְחַת ה'</b>" (=וירד ה'). "<b>אֵרְדָה נָּא וְאֶרְאֶה</b>" (בראשית יח,כא) – "<b>אֶתְגְּלֵי כְעַן וְאֶחְזֵי</b>" (=אתגלה כעת ואראה). וזה עקבי בתרגומו.</div>
+                <div class="en-cell">Onkelos the proselyte, who possessed a perfect mastery of the Hebrew and Syriac tongues<sup class="fn-ref" onclick="showFn('fn.204')">204</sup>, used his utmost endeavors to remove all corporification (of God); so that, whenever Scripture employs (concerning God) an epithet which might lead to corporality, he interprets it according to its (true) sense. Whenever he finds one of those words which indicate any of the diverse species of motion, he takes motion in the sense of <i>manifestation</i>, of the <i>appearance of a created light</i>, I mean of <i>Divine Majesty</i>, or else (in that) of <i>Providence</i><sup class="fn-ref" onclick="showFn('fn.205')">205</sup>. He therefore translats <span dir="rtl">ירד י״י</span> (the Eternal <i>shall descend</i>, Exodus, 19, 11) by <span dir="rtl">יתגלי י״י</span> (the Eternal <i>shall manifest Himself</i>), <span dir="rtl">וירד י״י</span> (and the Eternal <i>descended, ibid.</i>, <small>v.</small> 20) by <span dir="rtl">ואתגלי י״י</span> (and the Eternal <i>manifested Himself</i>), and he says not <span dir="rtl">ונחת י״י</span> (and the Eternal <i>descended</i>); likewise <span dir="rtl">ארדה נא ואראה</span> (I will now <i>go down</i> and see, Genesis, 18, 21) by <span dir="rtl">אתגלי כען ואחזי</span> (I will now <i>manifest Myself</i> and see<sup class="fn-ref" onclick="showFn('fn.206')">206</sup>); and this he does continually in his paraphrase.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..26.1">
+                <div class="he-cell"><span class="mediumGrey">הסבר ראשון לחריגה: תיאור החוויה הנבואית</span><br><sup>2</sup> אבל הוא תרגם "<b>אָנֹכִי אֵרֵד עִמְּךָ מִצְרַיְמָה</b>" (בראשית מו,ד) – "<b>אֲנָא אֵחוֹת עִמָּךְ לְמִצְרַיִם</b>" (=אני ארד עמך למצרים). זו פרשה מופלאה מאוד המורה על שלמות החכם הזה וטוּב פירושו והבנתו את הדברים כפי שהם. בתרגום זה הוא גם פתח לנו פתח לעניין גדול מענייני הנבואה,</div>
+                <div class="en-cell">Nevertheless, the words <span dir="rtl">אנכי ארד עמך מצרימה</span> (I <i>will go down</i> with thee into Egypt, Genesis, 46, 4), he translats (literally): <span dir="rtl">אנא איחות עמך למצריס</span>, and this is a most remarkable thing which proves the perfect talent of this master, the excellence of his manner of interpretation, and how exactly he understood these matters; for by this translation (of the latter passage), he has likewise given us a glimpse<sup class="fn-ref" onclick="showFn('fn.207')">207</sup> of one of the principal points of <i>Prophecy</i>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..26.2">
+                <div class="he-cell">והוא שבתחילת הפרשה הזו נאמר: "<b>וַיֹּאמֶר אֱלֹהִים לְיִשְׂרָאֵל בְּמַרְאֹת הַלַּיְלָה, וַיֹּאמֶר יַעֲקֹב יַעֲקֹב [</b>וַיֹּאמֶר הִנֵּנִי.] <b>וַיֹּאמֶר אָנֹכִי הָאֵל [</b>אֱלֹהֵי אָבִיךָ, אַל תִּירָא מֵרְדָה מִצְרַיְמָה כִּי לְגוֹי גָּדוֹל אֲשִׂימְךָ שָׁם.] <b>אָנֹכִי אֵרֵד עִמְּךָ מִצְרַיְמָה</b> [וְאָנֹכִי אַעַלְךָ גַם עָלֹה, וְיוֹסֵף יָשִׁית יָדוֹ עַל עֵינֶיךָ]" (שם,ב-ד). מכיוון שבתחילת הדיבור נאמר שהוא היה <b>במראות הלילה</b>, לא חשב <b>אנקלוס</b> לבלתי ראוי לומר כלשונם את הדברים שנאמרו <b>במראות הלילה</b>. וכך נכון, משום שזה תיאור של מה שנאמר, לא תיאור מעשה שהיה כמו "<b>וַיֵּרֶד ה' עַל הַר סִינַי</b>" (שמות יט,כ) שהוא תיאור מה שאירע במציאות, ולכן כינהו (אנקלוס) "התגלות" ושלל ממנו מה שמורה על מציאות תנועה. אך את הדברים שבדמיון, כלומר סיפור מה שנאמר לו, השאירם כפי שהם. וזה מופלא.</div>
+                <div class="en-cell">This is how: In the beginning of this narrative (<i>ibid.</i>, <small>v.</small> 2 and 3), it is said: <i>And God spake unto Israel in the visions of the night, and said, Jacob, Jacob</i>, etc. <i>And He said, I am God</i>, etc. (and God said in conclusion): <i>I will go down with thee into Egypt</i>. Now, as it follows from the beginning of the discourse that this occurred <i>in the visions of the night</i>, Onkelos saw no harm in rendering literally the words which had been spoken in these nocturnal visions. And this with reason<sup class="fn-ref" onclick="showFn('fn.208')">208</sup>: for it is the relation of something that had been said, and not the relation of a fact that had occurred, as (in the passage): And <i>the Eternal descended upon mount Sinai</i> (Exodus, 19, 20), which is the relation of a fact that came to pass in the real world<sup class="fn-ref" onclick="showFn('fn.209')">209</sup>; wherefore he has substituted the idea of <i>manifestation</i> and removed that which might indicate the existence of a <i>motion</i>. But (concerning) the things of the imagination, I mean the relation of that which had been said (to Jacob), he has left it intact<sup class="fn-ref" onclick="showFn('fn.210')">210</sup>. This is a remarkable thing.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..26.3">
+                <div class="he-cell"><sup>3</sup> מכאן תתעורר לכך שיש הבדל גדול בין מה שנאמר בו "<b>בחלום</b>" או "<b>במראות הלילה</b>" ובין מה שנאמר בו "<b>במחזה</b>" ו"<b>במראה</b>", ובין מה שנאמר בו סתם "<b>ויהי דבר ה' אלי</b>" או "<b>ויאמר ה' אלי</b>".</div>
+                <div class="en-cell">Thou art, in sooth, admonished thereby that the matter is right different, according as there be used the words in a dream or in the visions of the night, or whether the words in a vision and in an appearance be employed, or whether it be simply said: And the word of the Lord came unto me, saying, or: The Lord said unto me<sup class="fn-ref" onclick="showFn('fn.211')">211</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..26.4">
+                <div class="he-cell"><span class="mediumGrey">הסבר שני לחריגה: ההגשמה מיוחסת למלאך ולא לה'</span><br><sup>4</sup> לדעתי ייתכן גם ש<b>אנקלוס</b> מפרש (שלא כפשוטו) ש"<b>אלהים</b>" האמור כאן הוא מלאך, ולכן לא סלד מלומר עליו: "<b>אֲנָא אֵחוֹת עִמָּךְ לְמִצְרַיִם</b>". ואל תחשוב לבלתי ראוי שהוא מפרש ש"<b>אלהים</b>" כאן הוא מלאך בעוד הוא אומר לו "<b>אָנֹכִי הָאֵל אֱלֹהֵי אָבִיךָ</b>", משום שאמירה זו נאמרת בניסוח זה גם <b>על ידי מלאך</b>. הלוא תראה שהוא אומר "<b>וַיֹּאמֶר אֵלַי מַלְאַךְ הָאֱלֹהִים בַּחֲלוֹם: יַעֲקֹב, וָאֹמַר הִנֵּנִי</b>" (בראשית לא,יא), ובסוף הוא תיאר את דיבורו אליו: "<b>אָנֹכִי הָאֵל בֵּית אֵל אֲשֶׁר מָשַׁחְתָּ שָּׁם מַצֵּבָה אֲשֶׁר נָדַרְתָּ לִּי שָׁם נֶדֶר</b>" (שם,יג). ואין ספק ש<b>יעקב</b> נדר לה', לא למלאך. אבל דבר זה שגור בדברי הנביאים, כלומר סיפור הדברים שאומר להם המלאך בשם ה', בלשון דיבור ה' להם; וכל זה בהשמטת הנסמך, כאילו אמר: '<b>אנכי שלוח אלהי אביך</b>', '<b>אנכי שלוח האל הנגלה עליך בבית אל</b>', וכיוצא בזה.</div>
+                <div class="en-cell">It is also possible, in mine opinion, that Onkelos has interpreted here the word Elohim (God) in the sense of angels, and that for this cause he felt no repugnance to say (in his version): “I will go down with thee into Egypt.” One must not deem it improper that Onkelos should have perceived in Elohim an angel, albeit (the apparition) says unto him (to Jacob): I am the GOD, the God of thy father; for the same terms are also sometimes employed by an angel. Dost thou not perceive that elsewhere, after it is said: And the angel of God spake unto me in a dream, saying, Jacob: And I said, Here am I (Genesis, xxxi, 11), it is expressed at the conclusion of the speech addressed unto Jacob: I am the God of Beth-el, where thou anointedst the pillar, and where thou vowedst a vow unto me (Ibid., v. 13)? Doubtless Jacob offered his vows unto God, and not unto the angel; but this occurs continually in the discourses of the prophets, I mean that in reporting the words which the angel spake unto them in the name of God, they express themselves as if it were God Himself who spake unto them. In all passages (of this kind) there is an ellipsis of a noun in the construct state<sup class="fn-ref" onclick="showFn('fn.212')">212</sup>; it is as if it were said: I am THE MESSENGER of the God of thy father; I am THE MESSENGER of the God who appeared unto thee at Beth-el, and so forth.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..26.5">
+                <div class="he-cell">אשר לנבואה ודרגותיה ובאשר למלאכים, עוד יבוא דיון נרחב בהתאם למטרת חיבור זה.</div>
+                <div class="en-cell">Concerning prophecy and its divers degrees, as also concerning the angels, there shall yet be spoken more at large, in accordance with the design of this treatise.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.204" style="display: none;">
+                <strong>Note 204:</strong> On the use of the word [[t:0]]סריאני[[t:1]] to designate both of the two main [[t:2]]Aramæan[[t:3]] dialects, Chaldean and Syriac, see my edition of R. Tan'hûm's Commentary on the book of Habakkuk (in vol. XII of M. Cahen's Bible), p. 99, note 14 [[fn:14]]. The author speaks, in this chap., of the periphrases employed by Onkelos, in his celebrated Chaldean version of the Pentateuch, to avoid anthropomorphisms relative to [[t:4]]movement[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.205" style="display: none;">
+                <strong>Note 205:</strong> All the mss. have [[t:0]]אעתני[[t:1]], with the exception of one of the two Leyden mss., which has [[t:2]]אעתנא[[t:3]], which is more correct; it is evident that it is an infinitive, and that one must pronounce [[t:4]]عشاء[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.206" style="display: none;">
+                <strong>Note 206:</strong> The majority of Ar. and Heb. mss. have [[t:0]]ואחזי[[t:1]]; some bear [[t:2]]ואדון[[t:3]], as is indeed found in our editions of Onkelos' paraphrase.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.207" style="display: none;">
+                <strong>Note 207:</strong> Literally: [[t:0]]he has opened [[t:1]] to us.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.208" style="display: none;">
+                <strong>Note 208:</strong> [[t:0]]והו אלצחיח[[t:1]] literally: [[t:2]]and this is the truth[[t:3]], that is to say Onkelos was right in acting thus. Ibn-Tibbon translates [[t:4]]והוא ספור האמת[[t:5]], which does not yield a suitable meaning; the word [[t:6]]ספור[[t:7]] is superfluous. Al-’Harizi has translated it better: [[t:8]]והוא האמת והנכון[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.209" style="display: none;">
+                <strong>Note 209:</strong> Literally: [[t:0]]the description[[t:1]] or [[t:2]]relation of what has occurred in your existing things[[t:3]]. The author means: as it was a matter of a real fact here, and not words spoken in a nocturnal vision, Onkelos, faithful to his system of avoiding anthropomorphisms, had to modify the terms of the text [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.210" style="display: none;">
+                <strong>Note 210:</strong> All the mss. have [[t:0]]אבקאה בהסבה[[t:1]] with the masculine suffix, which is irregular; for the suffix relates grammatically to the words [[t:2]]אלאמור אלכׄיאליה̈[[t:3]], whereas the author has connected it with [[t:4]]מא קיל[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.211" style="display: none;">
+                <strong>Note 211:</strong> We shall see, in another place (II[[t:0]]e[[t:1]] part, ch. XLV), that the author establishes, in prophetic revelations, different degrees, some higher than others, and which, according to him, are characterized by the expressions noted in our passage. The author finds an allusion to these distinctions in the procedure of Onkelos, which he has just indicated.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.212" style="display: none;">
+                <strong>Note 212:</strong> See above, ch. XXI, p. 78, note 1.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

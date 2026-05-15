@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to R Joseph son of Judah - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Letter to R Joseph son of Judah</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Letter to R Joseph son of Judah.0">
+                <div class="he-cell">דֵּעִי הוֹלֵךְ לַנְחוֹת דֶּרֶךְ יֹשֶׁר, לִסְלֹל אֶת מַסְלוּלָהּ<br>הוֹי כָּל תּוֹעֶה בִּשְׂדֵה תוֹרָה סוּרָה, וּדְרֹךְ יַד מַעְגָּלָהּ<br>טָמֵא וּכְסִיל לֹא יַעֲבֹר בָּהּ דֶּרֶךְ קֹדֶשׁ יִקָּרֵא לָהּ<br>בְּשֵׁם יי אֵל עוֹלָם (בראשית כא,לג)</div>
+                <div class="en-cell">In the name of the Eternal God of the Universe<sup class="fn-ref" onclick="showFn('fn.0')">0</sup></div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Letter to R Joseph son of Judah.1">
+                <div class="he-cell">--</div>
+                <div class="en-cell">When<sup class="fn-ref" onclick="showFn('fn.1')">1</sup>, my dear disciple Rabbi Joseph<sup class="fn-ref" onclick="showFn('fn.2')">2</sup>, son of R. Yehuda [may he rest in paradise!],</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Letter to R Joseph son of Judah.2">
+                <div class="he-cell"><span class="mediumGrey">תכונותיו של התלמיד הראוי</span><br><sup>1</sup> כאשר עמדת לפניי, התלמיד היקר <b>ר' יוסף ש"צ ב"ר יהודה נ"ע</b> (=שמרו צורו, בן רבי יהודה נוחו עדן), ובאת מקצווי הארץ לקרוא בהדרכתי, גדלה מעלתך בעיניי, מפני רוב השתדלותך בלימוד, ומפני שראיתי בשיריך תשוקה גדולה לעניינים העיוניים. היה זה כבר מאז שהגיעוני איגרותיך והמקאמות שלך מאלכסנדריה, בטרם בחנתי את יכולת התפיסה שלך, ואמרתי: שמא תשוקתו גדולה מהשגתו. אך כאשר קראת בהדרכתי מה שכבר קראת מחכמת האסטרונומיה, ואת המתמטיקה ההכרחית ללמוד כהכנה לכך, שלמדת לפני כן, רבתה שמחתי בך, בשל טוב דעתך ומהירות תפיסתך. ראיתי שתשוקתך למתמטיקה גדולה, והנחתיך להתאמן בה, מידיעתי לאן תגיע. וכאשר קראת בהדרכתי מה שכבר קראת מתורת ההיגיון (=לוגיקה), תליתי בך את תקוותי, ומצאתי אותך ראוי לגלות לך את סודות ספרי הנבואה, כדי שתבין מהם מה שראוי לשלמים להבין. לפיכך החילותי לרמוז ולרמז לך רמיזות. ואז ראיתיך מבקש ממני תוספת, ומפציר בי שאבאר לך דברים מהעניינים האלוהיים, ושאיידע אותך על כוונות ה"מדברים" ("מֻתַּכַּלִּמוּן"), והאם הדרכים הללו הן דרכי הוכחה, ואם לאו – לאיזה מקצוע (=שיטת דיון) הן שייכות.<br><span class="mediumGrey">ההדרכה הראויה למעולה הנבוך</span><br><sup>2</sup> ראיתיך שכבר למדת משהו מזה מאחרים, ושאתה נבוך, דבקה בך התדהמה, ונפשך האצילית מבקשת ממך <b>לִמְצֹא דִּבְרֵי חֵפֶץ</b> (קהלת יב,י). אך אני לא חדלתי מלדחותך מזה, ולצוות עליך שתנקוט את הדברים כסדר, כשכוונתי שתתברר לך האמת בדרכה, ולא שתגיע הוודאות במקרה. במשך שהותך עמי, כאשר נזכר <b>פסוק</b> או לשון מלשונות ה<b>חכמים</b> שיש בו הערה על עניין מופלא, לא נמנעתי מלבאר זאת לך.</div>
+                <div class="en-cell">you presented yourself before me, having come from a distant land<sup class="fn-ref" onclick="showFn('fn.3')">3</sup> to attend my lectures, you were already held in high esteem by me on account of your great passion for study, and because I had recognised in your poems a pronounced love for speculative matters, and this since your treatises and your Makâmât<sup class="fn-ref" onclick="showFn('fn.4')">4</sup> had reached me from Alexandria, and before I could (personally) test your understanding. I said to myself (initially): Perhaps his desire is stronger than his comprehension; but when you had undertaken, under my guidance, your studies of astronomy and mathematical sciences which you had previously approached and which must necessarily serve as a preparation, I felt a far greater joy towards you on account of the excellence of your intellect and the promptitude of your understanding; and, seeing that you had a great love for mathematics, I allowed you the freedom to exercise yourself in them, knowing what your future would be<sup class="fn-ref" onclick="showFn('fn.5')">5</sup>. And when you had completed your studies of logic under me, my hope was attached to you and I judged you worthy of revealing to you the mysteries of the prophetic books, so that you might understand what perfect men ought to comprehend. I began, therefore, to give you glimpses of things and to provide you with certain indications; but I saw you asking for more, and you insisted that I explain to you subjects pertaining to metaphysics and that I make known to you, in this regard, what the Motécallemîn<sup class="fn-ref" onclick="showFn('fn.6')">6</sup> aimed at, and whether their methods were based on demonstration, or, if not, to what art they belonged. I saw that you had already studied this matter somewhat under other (masters); but you were agitated and troubled<sup class="fn-ref" onclick="showFn('fn.7')">7</sup>, and your noble soul stimulated you to find the objects of your desire<sup class="fn-ref" onclick="showFn('fn.8')">8</sup>. I did not cease to dissuade you from this path and I advised you to take things in order; for my intention was (to ensure) that the truth would establish itself for you methodically and that certainty would not come to you by chance. As long as you were with me, I did not refuse, when a verse or one of the texts of the doctors was under discussion, to provide you with an explanation;</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Letter to R Joseph son of Judah.3">
+                <div class="he-cell">וכאשר גזר האל את פרידתנו ופנית אל אשר פנית, עוררוני הפגישות הללו אל החלטה שכבר נחלשה, והניע אותי חסרונך לחבר את החיבור הזה, שחיברתיו לך ולשכמותך, מעטים ככל שיהיו. עשיתיו פרקים פרקים, וכל מה שנכתב ממנו יגיעך ראשון ראשון באשר תהיה, ואתה שלום.</div>
+                <div class="en-cell">but when God decreed the separation and you departed to another side, these conferences revived within me an (ancient) resolution which had already waned, and your absence prompted me to compose this treatise which I have made for you and for your like, however few they may be. I have made of it detached chapters, and all that shall have been committed to writing shall reach you successively wherever thou shalt be. Fare you well.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.0" style="display: none;">
+                <strong>Note 0:</strong> We have translated here the words [[t:0]]אל עולם[[t:1]] in the sense that Maimonides himself lends to them in several places, and notably in chapter 29 of the third part of the [[t:2]]Guide[[t:3]], although in the biblical passage (Genesis, 21, 33) these words mean [[t:4]]the Eternal God[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.1" style="display: none;">
+                <strong>Note 1:</strong> The verb [[t:0]]כנת[[t:1]] [[t:2]](كُنْتَ)[[t:3]] that begins the sentence relates to the words [[t:4]]עטׄם שאנך[[t:5]], which it serves to put in the pluperfect.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.2" style="display: none;">
+                <strong>Note 2:</strong> See my aforementioned notice on Joseph ben Judah. We will return to this disciple of Maimonides in the general introduction to this work.—The letters [[t:0]]ש״צ[[t:1]], which follow the name of Joseph, are the abbreviation of [[t:2]]שְׁמָרָהוּ צוּרוֹ[[t:3]], the Hebrew preterite being used, in the Arabic manner, in the sense of the optative.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.3" style="display: none;">
+                <strong>Note 3:</strong> Literally: [[t:0]]of the ends of the countries[[t:1]]. Joseph had come from Sabta or Seuta, located in the northwest of Africa, which the Arabs called [[t:2]]Al-Maghreb al-Akça[[t:3]] or the farthest West. See the aforementioned Notice, pages 6 and 14.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.4" style="display: none;">
+                <strong>Note 4:</strong> The [[t:0]]Makâmât[[t:1]] among the Arabs are short stories or tales written in rhyming prose interspersed with verse; the famous [[t:2]]Makâmât[[t:3]] or [[t:4]]Séances[[t:5]] of Harizi are well-known. This genre of composition was imitated in Hebrew by the Jews as early as the first half of the 12[[t:6]]th[[t:7]] century, and they were given the name of [[t:8]]מחברות[[t:9]]; it is indeed this word that R. Iehouda al-Harizi uses here in his translation, which renders the meaning of the Arabic word much better than the word [[t:10]]חרוזיך[[t:11]] used by Ibn Tibbon. Al-Harizi, in his collection of Makâmât known under the title of [[t:12]]Ta’hkemôni[[t:13]] ([[t:14]]תחכמוני[[t:15]]), himself cites one of our Joseph's [[t:16]]Makâma[[t:17]] that had become famous. See my aforementioned Notice, p. 48 and following. [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.5" style="display: none;">
+                <strong>Note 5:</strong> Several manuscripts read [[t:0]]במאלך[[t:1]], others [[t:2]]במא לך[[t:3]], and still others [[t:4]]כמאלך[[t:5]]; it is the latter reading that appears to be expressed by Al-’Harizi's translation, which bears [[t:6]]שכלך השלם[[t:7]]. We must undoubtedly read [[t:8]]במאלך[[t:9]] (from [[t:10]]مآل[[t:11]]), which Ibn-Tibbon has accurately rendered as [[t:12]]אחריתך[[t:13]]. I am unaware of where Hyde obtained the reading of [[t:14]]עקלך[[t:15]], which he claims to have altered to [[t:16]]עקבך[[t:17]]. (See Hyde's [[t:18]]Syntagma dissertationum[[t:19]], published by Sharpe, vol. I, p. 436.) This reading is not found in any of the Oxford manuscripts, nor in the two Leyden manuscripts [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.6" style="display: none;">
+                <strong>Note 6:</strong> This name designates the religious philosophers or the scholastics of the Arabs. On its origin, see my Notice on Rabbi Saadia Gaon, p. 16 and following (Bible of M. Cahen, t. IX, p. 88 and following). The author himself provides numerous details on the [[t:0]]Motécallemîn[[t:1]] in several places in this work, and notably in the [[t:2]]first[[t:3]] part, ch. 71, 73 and following. I have given a brief overview of their doctrines in the [[t:4]]Dictionnaire des sciences philosophiques[[t:5]], article [[t:6]]Arabes[[t:7]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.7" style="display: none;">
+                <strong>Note 7:</strong> All manuscripts, even those with diacritical points, bear [[t:0]]בדתך[[t:1]]; I believe one must pronounce [[t:2]]بِذَٰلِكَ[[t:3]], from the verb [[t:4]]بَنّ[[t:5]] filaments [[t:6]]prœvertit, vicit[[t:7]], such that the words [[t:8]]אלדהשה̈[[t:9]] [[t:10]]ברח[[t:11]] mean: [[t:12]]trouble[[t:13]] or [[t:14]]confusion had taken hold of you[[t:15]]. Ibn-Tibbon has correctly rendered the word [[t:16]]בלחך[[t:17]] by [[t:18]]דפקתך[[t:19]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.8" style="display: none;">
+                <strong>Note 8:</strong> These last words, which the author wrote in Hebrew, are taken from Ecclesiastes, ch. 12, [[t:0]]V[[t:1]]. 10.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

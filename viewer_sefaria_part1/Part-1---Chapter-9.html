@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 9 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 9</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..8.0">
+                <div class="he-cell"><b>המונח כיסא</b><br><span class="mediumGrey">שלוש משמעויות. משמעות א: כפשוטה</span><br><sup>1</sup> "כסא". <br><sup>א)</sup> קביעתו העיקרית בלשון היא שמו של הכיסא.<br><span class="mediumGrey">משמעות ב: כיסא ה' במשמעות מקדש ושמים</span><br><sup>2</sup> <sup>ב)</sup> וכיוון שעל הכיסא היו יושבים רק בעלי הרוממות והגדולה כמו המלכים, והכיסא נעשה לדבר־מה מצוי המורה על גדולתו של מי שהוא ראוי לו ועל רוממותו וגודל מעלתו, נקרא ה<b>מקדש</b> "<b>כסא</b>", כיוון שהוא מורה על גדולתו של מי שהתגלה בו והשרה עליו את אורו ואת כבודו, ולפיכך אמר: "<b>כִּסֵּא כָבוֹד מָרוֹם מֵרִאשׁוֹן [</b>מְקוֹם מִקְדָּשֵׁנוּ]" (ירמיהו יז,יב).<br><sup>3</sup> בשל המשמעות הזו נקראו השמים "<b>כסא</b>", משום שהם מורים למי שמכיר אותם ומתבונן בהם על גדולתו של מי שיצרם ומניעם ומנהיג את העולם השפל (=כדור הארץ) בשפע טובם, ולפיכך אמר: "<b>כֹּה אָמַר ה' הַשָּׁמַיִם כִּסְאִי</b>" (ישעיהו סו,א), כלומר: הם מורים על מציאותי וגדולתי ויכולתי כשם שה<b>כסא</b> מורה על גדולתו של מי שהוא ראוי לו.</div>
+                <div class="en-cell">Kissé (כסא) is primitively employed in the language (Hebrew) as the name of the throne; and, as the throne is occupied only by people of distinction and greatness, such as kings, and, consequently, it is a visible thing<sup class="fn-ref" onclick="showFn('fn.98')">98</sup>, indicating the greatness of him who has been deemed worthy of it, his distinction and lofty position, the sanctuary has been called Kissé (throne), because it indicates the greatness of Him who has manifested Himself therein and who has caused His light and glory to descend upon it. Thus (the prophet) said: A throne of glory, exalted, from the beginning, etc. (Jeremiah, 17, 12). It is also in the same sense that the heaven has been called Kissé (throne); for him who knows<sup class="fn-ref" onclick="showFn('fn.99')">99</sup> and contemplates it, it indicates the greatness of Him who has brought it into existence, who sets it in motion, and who, by the good that emanates from it, governs the lower world. One reads, e.g.: Thus says the Eternal, the heaven is my throne (כסאי), etc. (Isaiah, 66, 1), that is to say, it indicates my existence, my greatness, and my power, just as the throne indicates the greatness of him who has been deemed worthy of it<sup class="fn-ref" onclick="showFn('fn.100')">100</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..8.1">
+                <div class="he-cell"><sup>4</sup> זה מה שראוי שיאמינו בו אנשי האמת, ולא שיש גוף שהאלוה שוכן עליו, יתעלה עילוי רב. כי עוד יוכח לך (ב,א-ב) שהוא יתעלה אינו גוף, ואיך יהיה לו מקום, או מקום־מושב על גוף? אין הדבר כי אם כפי מה שהערנו לך עליו, שכל מקום שה' כיבד אותו וייחד אותו באורו ובזהרו, כמו ה<b>מקדש</b> או השמים, נקרא "<b>כסא</b>".</div>
+                <div class="en-cell">This is what those who seek the truth must believe, and not that there is a body upon which God rises; — how elevated (above such a thought) He is!—For it will be demonstrated to you that the Most High is incorporeal, and how could He take a place or rest upon a body? But the matter is as we have noted, namely, that every place which God has ennobled and distinguished by His light and radiance, such as the sanctuary or the heaven, is called Kissé (throne).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..8.2">
+                <div class="he-cell"><span class="mediumGrey">משמעות ג: כיסא ה' משמעו ה'</span><br><sup>5</sup> <sup>ג)</sup> מה שהלשון הרחיבה בו בדבריו "<b>כִּי יָד עַל כֵּס יָהּ</b>" (שמות יז,טז), הרי הוא תיאור גדולתו ורוממותו שאין ראוי לדמיין שהם דבר מחוץ לעצמוּתו ולא נברא מנבראיו, כך שיהיה יתעלה נמצא בלי <b>כסא</b> ונמצא עם <b>כסא</b>. זו כפירה בלי ספק. וכבר נאמר במפורש: "<b>אַתָּה ה' לְעוֹלָם תֵּשֵׁב</b>, <b>כִּסְאֲךָ לְדוֹר וָדוֹר</b>" (איכה ה,יט), מה שמורה שהוא דבר שאינו נבדל ממנו. לפיכך הכוונה ב"<b>כסא</b>" כאן ובכל מקום דומה לו – תפארתו וגדולתו שאינן דבר מחוץ לעצמותו, כפי שיבואר בכמה מפרקי חיבור זה (על התארים להלן א:נג,נז,נח).</div>
+                <div class="en-cell">If the language has extended the usage of this word by saying: Car la main (est placée) sur le trône (כם) de Dieu (Exodus, 17, 16)<sup class="fn-ref" onclick="showFn('fn.101')">101</sup>, it is still a qualification of His grandeur and majesty, a thing that must not be represented as being outside of His essence, nor as one of His creatures, so that God would exist at one time without the throne and at another time with the throne. This would, without a doubt, be an impious belief; for (the prophet) has said clearly: Toi, Éternel, tu résides éternellement, ton trône (reste) de génération en génération (Lamentations, 5, 19), which indicates that (the throne) is a thing inseparable from Him. Thus, in this passage and in all the others similar to it, one wants to designate by כםא (throne) the majesty and grandeur of God, which are not something outside of His essence, as will be explained in a few chapters of this treatise<sup class="fn-ref" onclick="showFn('fn.102')">102</sup>.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.98" style="display: none;">
+                <strong>Note 98:</strong> Literally: [[t:0]]an existing thing;[[t:1]] the word [[t:2]]מוגוד[[t:3]] appears to have the meaning here of: [[t:4]]existing in a visible, perceptible manner[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.99" style="display: none;">
+                <strong>Note 99:</strong> That is to say, one who has scientific knowledge, who knows the spheres and their movements.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.100" style="display: none;">
+                <strong>Note 100:</strong> Some of the best mss. bear [[t:0]]עלי עטׄים אהל לה[[t:1]], which does not offer a very satisfactory meaning; Ibn-Tibbon appears to have also read [[t:2]]עטׄים[[t:3]], but this passage is somewhat corrupted in his version and presents variants in the different mss. and editions. Al-’Harizi translates [[t:4]]על גדולת מי שהוכן לו[[t:5]]; it is evident that he read [[t:6]]עטׄם[[t:7]], but he poorly rendered the word [[t:8]]אהל[[t:9]]. The reading we have adopted ([[t:10]]עלי עטׄם מן[[t:11]]) is that of three mss.; a fourth bears [[t:12]]עלי עטׄמה̈ מן[[t:13]], which is the same thing.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.101" style="display: none;">
+                <strong>Note 101:</strong> The author means: If we have spoken of a throne of God in passages where it is a question neither of the sanctuary nor of heaven. [[t:1]] [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.102" style="display: none;">
+                <strong>Note 102:</strong> See further on the chapters dealing with the attributes of God.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

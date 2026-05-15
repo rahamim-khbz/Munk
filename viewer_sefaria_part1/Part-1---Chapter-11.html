@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 11 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 11</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..10.0">
+                <div class="he-cell"><b>המונח ישיבה</b><br><span class="mediumGrey">שתי משמעויות</span><br><sup>1</sup> "<b>ישיבה</b>". <br><sup>א)</sup> מונח זה נקבע בתחילה בלשוננו לישיבה (פיזית): "<b>וְעֵלִי הַכֹּהֵן יֹשֵׁב עַל הַכִּסֵּא</b>" (שמואל־א א,ט). <br><sup>ב)</sup> וכיוון שהאדם היושב הוא קבוע ויציב באופן השלם ביותר של יציבותו וקביעותו, הושאל המונח לכל מצב יציב וקבוע שאינו משתנה. נאמר בהבטחה ל<b>ירושלם</b> שתתמיד ותהיה יציבה בהיותה בדרגה העליונה ביותר: "<b>וְרָאֲמָה וְיָשְׁבָה תַחְתֶּיהָ</b>" (זכריה יד,י). ונאמר: "<b>מוֹשִׁיבִי עֲקֶרֶת הַבַּיִת</b>" (תהילים קיג,ט), כלומר: מעניק לה קביעות ויציבות.</div>
+                <div class="en-cell">Yaschab (ישב). — The primitive acceptation of this word in our language is that of being seated; e.g.: And Elijah the priest was seated (ישב) upon the seat (I Sam., 1, 9). And, as the person seated is found established in the most perfect state of rest and stability, this word has been applied metaphorically to any stable and fixed state which does not change. Thus, in promising to Jerusalem, at its highest degree (of prosperity), duration and stability, it is expressed: And she shall be elevated and seated (וישבה) in her place (Zechariah, 14, 10). And elsewhere it is said: He seats (מושיבי) the barren woman in the house (Ps. 113, 9), which signifies: He establishes her in a stable manner<sup class="fn-ref" onclick="showFn('fn.110')">110</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..10.1">
+                <div class="he-cell"><span class="mediumGrey">קביעות ה' מיוחסת לשמים הקבועים</span><br><sup>2</sup> במשמעות האחרונה הזו נאמר עליו יתעלה: "<b>אַתָּה ה' לְעוֹלָם תֵּשֵׁב</b> [כִּסְאֲךָ לְדֹר וָדוֹר]" (איכה ה,יט), "<b>הַיֹּשְׁבִי בַּשָּׁמָיִם</b>" (תהילים קכג,א), "<b>יוֹשֵׁב בַּשָּׁמַיִם</b>" (שם ב,ד) – הקיים לעד והיציב שאינו משתנה באף אופן מאופני השינוי: <br><sup>1)</sup> לא שינוי עצמות; <br><sup>2)</sup> ואין לו מצב מחוץ לעצמותו שישתנה בו; <br><sup>3)</sup> גם יחסו לזולתו אינו משתנה, כיוון שאין יחס בינו ובין זולתו כדי שישתנה ביחס ההוא, כמו שיתבאר (א,נב-נו). ובזאת נשלם היותו לא משתנה כלל ובשום אופן שהוא, כמו שביאר ואמר: "<b>כִּי אֲנִי ה' לֹא שָׁנִיתִי</b>" (מלאכי ג,ו) – בלי שינוי כלל. במשמעות הזו נאמרה "<b>ישיבה"</b> כאשר היא הוזכרה לגביו יתעלה.</div>
+                <div class="en-cell">It is in this latter sense that it has been said of God: Thou, O Lord, dost reside (תשב) eternally (Lament., 5, 19); Thou who residest (היושבי) in heaven (Ps. 123, 1); He who resids (יושב) in heaven (Ps. 2, 4), that is to say, He who is perpetual and stable, and who is not subject to any species of change, neither change of essence, nor change with respect to any state which would be outside of His essence, nor, finally, change with respect to His relation with anything else; for there is no relation between Him and other things such that He could suffer a change in this relation, as shall be explained<sup class="fn-ref" onclick="showFn('fn.111')">111</sup>. And thereby it is perfectly established that He cannot change at all, in any manner whatsoever, as He has clearly stated: For I, the Lord, do not change (Malach., 3, 6), that is to say, by no change<sup class="fn-ref" onclick="showFn('fn.112')">112</sup>; and it is this idea which is expressed by the verb ישב (to be seated) when it is applied to God.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..10.2">
+                <div class="he-cell"><sup>3</sup> היא יוחסה דווקא לשמים ברוב המקומות, משום שהשמים הם אלה שאין בהם לא שינוי ולא שוני, כלומר שפרטיהם אינם משתנים כמו שמשתנים פרטי הדברים המתהווים וכלים על הארץ.</div>
+                <div class="en-cell">But in the majority of passages, he is only associated with the heavens, because the heavens are a thing in which there is neither change nor variation, I mean to say that their individuals <sup class="fn-ref" onclick="showFn('fn.113')">113</sup> are not subject to change, as are the individuals in earthly things which are born and perish <sup class="fn-ref" onclick="showFn('fn.114')">114</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..10.3">
+                <div class="he-cell"><span class="mediumGrey">קביעות ה' ביחס לטבע</span><br><sup>4</sup> וכן כאשר יוחס יתעלה באותו יחס הנאמר ב"שיתוף (השם)" למיני הנמצאות המתהווים וכלים, נאמר עליו גם כן "<b>יושב</b>", כי מציאות המינים הללו מתמידה, סדירה וקבועה, כמציאות הפרטים בשמים. נאמר: "<b>הַיֹּשֵׁב עַל חוּג הָאָרֶץ</b>" (ישעיהו מ,כב) – הקיים לעד היציב על הקפת הארץ, כלומר סיבובהּ, ברמיזה לדברים המתהווים בה באופן מחזורי.</div>
+                <div class="en-cell">Similarly, when God is placed in this relation [expressed by homonymy<sup class="fn-ref" onclick="showFn('fn.115')">115</sup>] with the species of beings subject to birth and destruction, it is also said of Him that He is seated (יושב); for these species are perpetual, well-ordered, and of a stable existence like that of the individuals of the heavens. Thus, for example, it has been said: The One who is seated (היושב) above the circle of the earth (Isaiah, 40, 22), which means the One who is perpetual and stable, above the circuit of the earth, or its turn, alluding to the things that are born in turn<sup class="fn-ref" onclick="showFn('fn.116')">116</sup>;</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..10.4">
+                <div class="he-cell">ונאמר: "<b>ה' לַמַּבּוּל יָשָׁב</b> [וַיֵּשֶׁב ה' מֶלֶךְ לְעוֹלָם]" (תהילים כט,י), כלומר שגם כאשר מצבי הארץ משתנים ונהרסים, אין אצלו יתעלה שינוי יחס, אלא יחסו לכך, בין אם הדבר מתהווה או כלה, הוא יחס אחד יציב וקבוע, כי אותו יחס הוא למיני הדברים המתהווים, לא לפרטיהם. בחן אם כן כל <b>לשון ישיבה</b> שתמצא באשר לה' ותמצאנה במשמעות הזו.</div>
+                <div class="en-cell">and it has been said again: The Lord was seated (ישב) at the flood (Ps. 29, 10), that is to say, when the things of the earth changed and perished, there was no change in God's relation, but this relation that He has with the thing<sup class="fn-ref" onclick="showFn('fn.117')">117</sup>, whether it is born or perishes, is a single stable and fixed relation; for it is a relation to the species of beings, and not to their individuals. Pay close attention that whenever you find the expression of being seated (ישב) applied to God, it will be in the sense in question.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.110" style="display: none;">
+                <strong>Note 110:</strong> That is to say, God, in giving him children, assures him a stable place in the house. [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.111" style="display: none;">
+                <strong>Note 111:</strong> See below, chap. LVI.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.112" style="display: none;">
+                <strong>Note 112:</strong> All the mss. have [[t:0]]תגירא[[t:1]]; one must pronounce [[t:2]]تغيراً[[t:3]] and consider this word as an adverbial accusative.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.113" style="display: none;">
+                <strong>Note 113:</strong> By [[t:0]]the individuals of the heavens[[t:1]], the author means the celestial spheres and the stars fixed in these spheres. See this I[[t:2]]st[[t:3]] part, chap. LXXII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.114" style="display: none;">
+                <strong>Note 114:</strong> The words [[t:0]]כאינאת אלארץׄ ופאםדיהא[[t:1]] mean the same thing as [[t:2]]אמור אלארץׄ אלכאינה̈ אלפאםדה̈[[t:3]]. The author expressed himself in a somewhat irregular manner; instead of [[t:4]]ופאםדיהא[[t:5]], he should have said [[t:6]]ופאםדאתהא[[t:7]].—The words [[t:8]]בון[[t:9]] and [[t:10]]פםאד[[t:11]] are Peripatetic terms, borrowed from the Arabic versions of Aristotle, and correspond to the Greek words [[t:12]]γένεσις[[t:13]] and [[t:14]]φθορά[[t:15]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.115" style="display: none;">
+                <strong>Note 115:</strong> That is to say, by the homonymy of which we speak in this chapter.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.116" style="display: none;">
+                <strong>Note 116:</strong> The author plays on the double meaning of the Arabic word [[t:0]]דור[[t:1]] (as a noun and as an adverb), and we have attempted to render this play on words by employing the word [[t:2]]tour[[t:3]]. Ibn-Tibbon used for the adverb [[t:4]]דוראֹ[[t:5]] the word [[t:6]]חלילה[[t:7]], taken in the sense it has in the expression [[t:8]]חוזר חלילה[[t:9]], and from this he formed, in order to render the noun [[t:10]]דור[[t:11]], the word [[t:12]]חלילות[[t:13]]. The obscurity of the two words used by Ibn-Tibbon has led copyists to often alter them, and the manuscripts, as well as the editions of the Hebrew version, present many variations here; one must read: [[t:14]]אל סבוב הארץ ר״ל חלילותה רמוז לענינים ההוים בה חלילה[[t:15]]. Al-’Harizi translates [[t:16]]דורא[[t:17]] as [[t:18]]בהקפת הגלגל[[t:19]], [[t:20]]by the revolution of the sphere[[t:21]], which is a misinterpretation.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.117" style="display: none;">
+                <strong>Note 117:</strong> The word [[t:0]]אליה[[t:1]] is used for [[t:2]]אלי שי[[t:3]]. Ibn-Tibbon paraphrased the word [[t:4]]אליה[[t:5]] with [[t:6]]אל כל אחד מן הענינים ההם[[t:7]]; Al-’Harizi has again made a mistake here by relating the suffix in [[t:8]]אליה[[t:9]] to God, and by translating this word with [[t:10]]אליו לא לזולתו[[t:11]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

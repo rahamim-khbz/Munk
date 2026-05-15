@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 62 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 62</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..61.0">
+                <div class="he-cell"><b>שם הויה, י"ב ומ"ב</b><br><span class="mediumGrey">שלב א: הגיית השם המפורש ולימוד עניינו</span><br><sup>1</sup> נצטווינו ב<b>ברכת כהנים</b>, ובה <b>שם ה' ככתבו</b>, שהוא <b>שם המפורש</b>. לא היה ידוע לכל אחד כיצד הוגים אותו ובאילו תנועות מונעת כל אחת מאותיותיו או מודגשת מי מאותיותיו, אם יש בו אות דגושה. אנשי החכמה היו מעבירים זאת במסורת, כלומר את צורת הגייתו, ולא היו מלמדים אותו לאף אחד אלא <b>לתלמיד הגון פעם אחת בשבוע</b> (=בשבע שנים). אני סבור שבמה שאמרו: "<b>שם בן ארבע אותיות חכמים מוסרין אותו לבניהם ולתלמידיהם פעם אחת בשבוע</b>" (קידושין עא,א), אין הכוונה רק לאופן ההגייה שלו, אלא גם ללימוד העניין שבשלו יוחד השם הזה, כך שיש בכך גם סוד אלוהי.</div>
+                <div class="en-cell">The sacerdotal benediction has been enjoined upon us, in which the Name of the Eternal (is pronounced) as it is written, and this is the schem ha-mephorasch. It was not universally known how it ought to be pronounced, nor by what vowel each of its letters should be actuated, nor whether any of its letters, amongst those susceptible of it, should be doubled<sup class="fn-ref" onclick="showFn('fn.704')">704</sup>; the learned men transmitted this amongst themselves, that is to say, the manner of pronouncing this Name, which they taught to none, save to the elect disciple, once a week<sup class="fn-ref" onclick="showFn('fn.705')">705</sup>. I believe that when the doctors say<sup class="fn-ref" onclick="showFn('fn.706')">706</sup>: “the Name of four letters, the sages transmit it to their sons and to their disciples once a week,” it refers not solely to the manner of its pronunciation, but also to the instruction concerning the idea for the sake of which this Name was devised<sup class="fn-ref" onclick="showFn('fn.707')">707</sup>, and within which there is likewise a divine mystery.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..61.1">
+                <div class="he-cell"><span class="mediumGrey">שלב ב: שם בן י"ב אותיות ותחילת קלקולו</span><br><sup>2</sup> עוד היה אצלם שם בן שתים עשרה אותיות, והוא פחות ב<b>קדושה</b> מאותו <b>שם בן ארבע אותיות</b>. מה שנראה לי הוא שלא היה זה שם אחד אלא שניים או שלושה שמות שסך כל אותיותיהם שתים עשרה. בשם זה היו מכנים כל אימת שהיה ב<b>קריאה</b> (בתורה) <b>שם בן ארבע אותיות</b>, כפי שאנחנו מכנים היום ב<b>אל"ף דא"ל</b> (=השם שאותיותיו אל"ף דל"ת נו"ן יו"ד). אין ספק שגם שם זה, שהוא <b>שם בן שתים עשרה אותיות</b>, הורה על עניין מיוחד יותר מהוראת <b>אל"ף דא"ל</b>. הוא לא נמנע ולא נחסך מאחד מאנשי החכמה, אלא כל מי שביקש ללמוד אותו, לימדו אותו. ולא כן <b>שם בן ארבע אותיות</b>, כי אותו לא לימד כלל אף אחד מאלה שידעו אותו אלא <b>לבנו ותלמידו פעם אחת בשבוע</b>.<br><sup>3</sup> אך כיוון שבאו אנשים מופקרים שלמדו את אותו <b>שם בן שתים עשרה אותיות</b> ושיבשו בכך אמונות, כפי שקורה לכל מי שאינו שלם כאשר הוא לומד שהדבר אינו כפי שדימה בתחילה – הסתירו את אותו ה<b>שם</b> גם כן ולא לימדו אותו אלא <b>לצנועים שבכהונה</b> כדי שיברכו בו את האנשים ב<b>מקדש</b>, שכן כבר הפסיקו להזכיר את <b>השם המפורש</b> גם ב<b>מקדש</b>, משום קלקול הבריות. אמרו: "<b>משמת שמעון הצדיק בטלו אחיו הכהנים מלברך בשם</b>" (תוספתא סוטה יג,ח), אלא הם היו מברכים באותו <b>שם בן שתים עשרה אותיות</b>. אמרו: "<b>בראשונה, שם בן שתים עשרה אותיות היו מוסרין אותו לכל אדם. משרבו הפרוצים, היו מוסרין אותו לצנועים שבכהונה, והצנועים שבכהונה מבליעין אותו בנעימות אחיהם הכהנים. אמר ר' טרפון [</b>פעם אחת עליתי אחר אחי אימא לדוכן והטיתי אזני אצל כהן גדול ושמעתי שהבליעו בנעימות אחיו הכהנים]" (בבלי קידושין עא,א).</div>
+                <div class="en-cell">There was also possessed a name which comprised <i>twelve letters</i><sup class="fn-ref" onclick="showFn('fn.708')">708</sup>, and which was inferior in sanctity to the name of four letters; that which is most probable, in my judgment, is that it was not a single name, but two or three, which being joined together had twelve letters. It was that which was substituted whenever the name of four letters occurred in reading, even as we substitute this day that which commencs with <i>aleph, daleth.</i> This name of twelve letters had doubtless also a more particular sense than that indicated by the name of <i>Adonai;</i> it was by no means forbidden to teach it, nor was a mystery made thereof<sup class="fn-ref" onclick="showFn('fn.709')">709</sup> unto any man of science, but on the contrary, it was taught unto whomsoever desired to learn it. It was not so with the <i>tetragrammaton</i> name; for none of those who knew it ever taught it save unto his son and his disciple once in a week. But since certain lawless men, having learned this name of twelve letters, professed in consequence thereof evil beliefs<sup class="fn-ref" onclick="showFn('fn.710')">710</sup>,—as it happens unto every man who is not perfect, when he learns that the thing is not such as he had at first imagined,—this name was also hidden, and was taught only <i>unto the most pious of the sacerdotal order</i>, to be used in blessing the people in the sanctuary; for already, by reason of the corruption of men, they had ceased to pronounce the <i>shem ha-mephorash</i>, even in the sanctuary: “After the death of Simon the Just,” say the doctors, “the priests, his brethren, ceased to bless by the <i>Name</i> (tetragrammaton)<sup class="fn-ref" onclick="showFn('fn.711')">711</sup>”; but they blessed by this <i>name of twelve letters.</i> “At first,” they say elsewhere<sup class="fn-ref" onclick="showFn('fn.712')">712</sup>, “it was transmitted unto every man; but since temerarious men multiplied, it was transmitted only unto the most pious of the sacerdotal order, and these caused it to be swallowed up in the melodies of the priests, their brethren. Rabbi Tarphon said: One day I followed my maternal grandfather<sup class="fn-ref" onclick="showFn('fn.713')">713</sup> upon the dais, and, inclining mine ear toward a priest, I heard that he caused the name in question to be swallowed up in the melodies of the priests his brethren.”</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..61.2">
+                <div class="he-cell"><span class="mediumGrey">שם בן מ"ב אותיות – תובנה המנוסחת במשפט</span><br><sup>4</sup> והיה אצלם גם <b>שם בן שתים וארבעים אותיות</b>. וידוע לכל בר דעת שבלתי אפשרי כלל שארבעים ושתיים אותיות תהיינה מילה אחת. אלא היו אלה כמה מילים שסך כל אותיותיהן ארבעים ושתיים. אין ספק שאותן מילים מורות בהכרח על עניינים, הקרובים להשגת תפיסת עצמותו יתעלה באופנים שהזכרנו (בפרקים נ-ס). המילים מרובות האותיות הללו נקראו "<b>שם</b>" רק משום שהן מורות על עניין אחד בלבד, כשאר השמות המיוחדים. אלא שריבוי המילים הללו נועד לשם הבנת העניין, כי יש שמסבירים עניין אחד במילים רבות. הבן זאת.</div>
+                <div class="en-cell">There was likewise possessed a <i>name of two-and-forty letters.</i> Now, every man capable of an idea knows well that it is absolutely impossible for two-and-forty letters to form a single word; they could therefore be naught but several words, which formed a total of two-and-forty letters. These words, it cannot be doubted, necessarily indicated certain ideas which were intended to bring man near unto the true conception of the divine essence, by the process of which we have spoken<sup class="fn-ref" onclick="showFn('fn.714')">714</sup>. If these words, composed of numerous letters, have been designated as a single <i>name</i>, it is only because they indicate a single thing, as do all <i>improvised</i> proper names; and, to make this thing understood, several words were employed, for at times many words are used to make a single thing understood.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..61.3">
+                <div class="he-cell"><span class="mediumGrey">מי ראוי לגלות לו את הסוד?</span><br><sup>5</sup> ודע שהדבר שנלמד היה לימוד העניינים שהשמות הללו מורים עליהם, לא רק הגיית האותיות בלבד במעורטל מכל תפיסה. אותו <b>שם בן שתים עשרה אותיות</b> ו<b>שם בן ארבעים ושתים אותיות</b> לא נקראו כלל בשם "<b>שם המפורש</b>". אלא <b>שם המפורש</b> הוא <b>השם המיוחד לו</b>, כמו שביארנו (א,סא). ואילו שני האחרים בהכרח לימדו ידע אלוהי כלשהו. והראיה על כך שהיה בו (=בשם בן ארבעים ושתיים אותיות) לימוד ידע, היא זו: "<b>שם בן ארבעים ושתים אותיות – קדוש ומקודש, ואין מוסרין אותו אלא למי שצנוע ועומד בחצי ימיו, ואינו כועס ואינו משתכר ואינו מעמיד על מדותיו ודבורו בנחת עם הבריות. וכל היודעו וזהיר בו ומשמרו בטהרה – אהוב מלמעלה ונחמד מלמטה, ואימתו מוטלת על הבריות, ותלמודו מתקיים בידו, ונוחל שני עולמים: העולם הזה והעולם הבא</b>", זה לשון ה<b>תלמוד</b> (קידושין עא,א). כמה רחוקים הדברים שהבינו מן האמירה הזו מכוונת אומרם! וזאת משום שרוב האנשים חושבים שהן אותיות שהוגים אותן ותו לא, ואין הם מייחסים להן משמעות כך שניתן יהיה לזכות על ידן לאותם דברים נכבדים, ושתידרשנה לשם כך אותן הכנות מידותיות וכל ההכנה הגדולה הזו שהזכיר. ברור שכל זה אינו אלא הודעת עניינים אלוהיים מכלל העניינים שהם <b>סתרי תורה</b> כפי שהבהרנו (בפרק זה; הקדמות, פתיחה; א,לה3). והתבאר בספרים שחוברו על מדע האלוהות (=המטפיזיקה) שזהו ידע שאי אפשר לשכוח אותו, כוונתי להשגת השכל הפועל, וזוהי משמעות אומרו "<b>ותלמודו מתקיים</b>".</div>
+                <div class="en-cell">Thou must well penetrate this, and know also that what was taught were the ideas indicated by these two names, and not the mere pronunciation of the letters, devoid<sup class="fn-ref" onclick="showFn('fn.715')">715</sup> of all idea. Never was the appellation <i>shem ha-mephorash</i> applied unto the said name of twelve letters, nor unto that of two-and-forty;<sup class="fn-ref" onclick="showFn('fn.716')">716</sup> this designation denots only the <i>particular name</i> (tetragrammaton), as we have set forth. As for these two other names, they necessarily contained a certain metaphysical instruction, and the proof that one of them contained an instruction of this kind is that the doctors say in this regard<sup class="fn-ref" onclick="showFn('fn.717')">717</sup>: “The name of two-and-forty letters is most holy, and is transmitted only unto the pious man who is in his middle age, who is not prone to anger, nor to drunkenness, nor persists in his evil ways, and who speaks gently with all creatures. Whosoever knows this name and guards it with heed and purity is beloved above and cherished here below; he is an object of respect for all creatures, his learning endurs within him, and he has for his portion two worlds, this world and the world to come.” Such is the text of the Talmud; but how far is the sense which men attach to these words from the intention of their author! Indeed, the most part believe that there is naught there but letters which one pronouncs, but whereunto no idea is attached, so that it would be by these letters that one should obtain the said sublime things, and that it would be for their sake that one would have need of those moral dispositions and that great preparation of which mention was made; whereas it is manifest that the matter in all this is only to make known metaphysical subjects, of those subjects which form part of the <i>mysteries of the Torah</i>, as we have set forth<sup class="fn-ref" onclick="showFn('fn.718')">718</sup>. In the books which have been composed<sup class="fn-ref" onclick="showFn('fn.719')">719</sup> upon the science of metaphysics, it has been explained that it is impossible to forget this science, I mean the perception of the <i>Active Intellect</i><sup class="fn-ref" onclick="showFn('fn.720')">720</sup>; and that is the sense of these words: <i>his learning endurs within him.</i></div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..61.4">
+                <div class="he-cell"><span class="mediumGrey">שלב ג: שימוש מרושע ונפתה ב"שמות קדושים"</span><br><sup>6</sup> וכאשר מצאו האנשים הרשעים הטיפשים את הלשונות האלה, נפתח להם הפתח לשקר ולומר שמצרפים אילו אותיות שרצו ואומרים שהוא <b>שם</b> הפועל ועושה אם ייכתב או אם ייאמר בצורה כזו וכזו. אחר כך נכתבו אותם שקרים שבדה הרשע הטיפש הראשון, והגיעו אותם ספרים לידי הכשרים יראי השמים הפתאים שאין בידם קנה מידה להבחין בעזרתו בין האמת לבין השקר. על כן הם כתבו אותם (=את השקרים. נוסח אחר: הסתירו אותם = את הספרים), והם נמצאו בעיזבונם ולכן חשבו שהם אמיתיים. וכללו של דבר: "<b>פֶּתִי יַאֲמִין לְכָל דָּבָר</b>" (משלי יד,טו).</div>
+                <div class="en-cell">But perverse and ignorant men, having found these talmudic texts, saw therein a vast field for falsehood, saying unto themselves<sup class="fn-ref" onclick="showFn('fn.721')">721</sup> that they might gather together such letters as they pleased and say that it was a <i>shem</i> (or sacred name) which would act and operate if it were written or pronounced in such or such a manner. Afterward these lies, invented<sup class="fn-ref" onclick="showFn('fn.722')">722</sup> by an initial perverse and ignorant man, were committed to writing; the writings having been transmitted into the hands of good men, pious but narrow-minded, and who lacked judgment<sup class="fn-ref" onclick="showFn('fn.723')">723</sup> to discern the true from the false, these latter made a mystery of them, and when these writings were found in their succession, they were taken for pure truth. In short, <i>the simple believs every word</i> (Prov. xiv. 15).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..61.5">
+                <div class="he-cell"><sup>7</sup> חרגנו ממטרתנו הנכבדה ומעיוננו הדק לעיון בביטול הזיה שביטולה ניכר לכל מתחיל בעיון, אלא שהוכרחנו לעשות זאת בעקבות הזכרתנו את ה<b>שמות</b> ומשמעותם, ומה שהתפרסם בעניינם בהמון. ואשוב אל מטרתי.</div>
+                <div class="en-cell">We have departed from our sublime subject and our subtle speculation to apply ourselves to the refutation of a folly whose absurdity is manifest to any one who has but commenced his studies; yet were we necessarily led thereto whilst treating of the <i>names</i> (of God), of their signification, and of the opinions prevalent regarding them among the vulgar. I return, therefore, to my subject,</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..61.6">
+                <div class="he-cell"><span class="mediumGrey">הכנה לפרק הבא</span><br><sup>8</sup> הערנו על כך שכל שמותיו יתעלה נגזרים, מלבד <b>שם המפורש</b>. וראוי שנדון בשם דלהלן, והוא "<b>אֶהְיֶה אֲשֶׁר אֶהְיֶה</b>" (שמות ג,יד), בפרק בפני עצמו (בפרק הבא), משום שיש בכך מן העניין הדק שאנחנו עוסקים בו, דהיינו שלילת התארים.</div>
+                <div class="en-cell">and, having observed that all the names of God are <i>derived</i>, with the exception of the <i>schem ha-mephorasch</i>, it behoves us to speak, in a special chapter, of the name (contained in these words:) <span dir="rtl">אהיה אשר אהיה</span>, <i>I am that I am</i> (Exodus, iii, 14); for this relats to the subtle subject wherewith we are here occupied, I mean the <i>negation of attributes.</i></div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.704" style="display: none;">
+                <strong>Note 704:</strong> Literally: [[t:0]]if it is a letter that receives the[[t:1]] [[t:2]]TESCHDÎD[[t:3]]. In the name of [[t:4]]YHWH[[t:5]], only the letters [[t:6]]Y[[t:7]] and [[t:8]]V[[t:9]] can receive the [[t:10]]teschdîd[[t:11]] or [[t:12]]daghesch;[[t:13]] because the [[t:14]]H[[t:15]] never receives it.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.705" style="display: none;">
+                <strong>Note 705:</strong> These last words, written in Hebrew, refer to the Talmudic passage that the author is about to cite.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.706" style="display: none;">
+                <strong>Note 706:</strong> See Talmud of Babylon, tractate Kiddouschîn, fol. 71 a.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.707" style="display: none;">
+                <strong>Note 707:</strong> See the previous chapter, p. 267, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.708" style="display: none;">
+                <strong>Note 708:</strong> The Talmud, as will be seen later, speaks of a divine name composed of twelve letters and another of forty-two letters, without explaining either the meaning of these names or the letters of which they are composed.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.709" style="display: none;">
+                <strong>Note 709:</strong> The words [[t:0]]ולא מצינא בה[[t:1]], which signify literally [[t:2]]and one was not sparing thereof[[t:3]] (cf. above, at the commencement of chapter XVII), have been omitted in the version of Ibn-Tibbon, which bears: [[t:4]]ולא היה נמנע מעולם מאחד וכו׳[[t:5]]; the word [[t:6]]מעולם[[t:7]] is the translation of the Arabic word [[t:8]]קט[[t:9]], which one does indeed find in one of the Leyden manuscripts, in which it is read: [[t:10]]ומא כאן קט ממנועא[[t:11]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.710" style="display: none;">
+                <strong>Note 710:</strong> Literally: [[t:0]]perdirent[[t:1]] or [[t:2]]corrompirent des croyances;[[t:3]] the sense is, that these men, not having grasped the profound metaphysical mysteries hidden in this name, were troubled in their faith and arrived at false beliefs.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.711" style="display: none;">
+                <strong>Note 711:</strong> The author relats this fact, in well-nigh the same terms, in his [[t:0]]Abridgement of the Talmud[[t:1]], book II, treatise [[t:2]]Tephillâ[[t:3]], chap. XIV, § 10; one does doubt, however, that the citation be textual. The fact is reported in the Babylonian Talmud, [[t:4]]Yômâ[[t:5]], fol. 39 [[t:6]]b[[t:7]], and [[t:8]]Mena’hôth[[t:9]], fol. 109 [[t:10]]b[[t:11]], and these are the two passages which the author appears to have had in view, and in which he perchance had a reading differing from that of our editions.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.712" style="display: none;">
+                <strong>Note 712:</strong> See Talmud of Babylon, Kiddouschîn, fol. 71 a.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.713" style="display: none;">
+                <strong>Note 713:</strong> Instead of [[t:0]]אבי אמא[[t:1]], [[t:2]]the father of the mother[[t:3]], our editions of the Talmud read: [[t:4]]אחי אמי[[t:5]], [[t:6]]the brother of my mother.[[t:7]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.714" style="display: none;">
+                <strong>Note 714:</strong> That is to say, by denying unto God every species of imperfection; for that is, according to the author, the sole manner of approximately conceiving the divine essence. One does perceive, moreover, by the manner in which the author expresses himself here, that he either knew not, or believed not authentic, the name of forty-two letters which figurs in the books of the Cabbalists, and which commencs with the letters [[t:0]]אבגיתץ[[t:1]], albeit this name was already known, two centuries before Maimonides, to R. Hâya Gaôn, who speaks thereof in one of his [[t:2]]Consultations[[t:3]], relative to the divine names and addressed to the school of Kairawân. R. Hâya, speaking expressly of the name [[t:4]]אבגיתץ[[t:5]], says that, though its letters be known, there is no agreement concerning the manner of its pronunciation, which is known only by tradition: [[t:6]]וזה בן מ״ב אותיות אע״פ שאותיותיו ידועות אין מםור בהגיונו וקריאתו אלא בקבלה וכוי[[t:7]]. Consult the collection of unpublished pieces recently issued under the title of [[t:8]]טעם זקנים[[t:9]], by M. Éliézer Aschkenazi (Frankfurt on the Main, 1854, in-8°), fol. 57 [[t:10]]a.[[t:11]] — Certain Cabbalists have perceived in the forty-two letters, commencing with [[t:12]]אבגיתץ[[t:13]], the initials of so many attributes of God; the enumeration thereof is to be found in the commentary of Moses of Narbonne, upon our passage.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.715" style="display: none;">
+                <strong>Note 715:</strong> The adjective [[t:0]]אלערי[[t:1]], which is in the singular masculine, refers to [[t:2]]אלנטק[[t:3]] ([[t:4]]the pronunciation[[t:5]]), and it was an error for the two Hebrew translators to render it in the plural, as if it referred to [[t:6]]אלאחרף[[t:7]] ([[t:8]]the letters[[t:9]]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.716" style="display: none;">
+                <strong>Note 716:</strong> In all manuscripts, both Arabic and Hebrew, the [[t:0]]nom de douze lettres[[t:1]] precedes that of [[t:2]]quarante-deux[[t:3]], and it is an error that, in all editions of Ibn-Tibbon's version, the order has been reversed.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.717" style="display: none;">
+                <strong>Note 717:</strong> See Talmud of Babylon, l. c.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.718" style="display: none;">
+                <strong>Note 718:</strong> Cf. above, chap. XXXV, p. 132. Instead of [[t:0]]אוצׄחנא[[t:1]], some manuscripts carry [[t:2]]בוא[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.719" style="display: none;">
+                <strong>Note 719:</strong> In some manuscripts, one reads [[t:0]]אלמוצׄועה̈[[t:1]], instead of [[t:2]]אלמדונה[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.720" style="display: none;">
+                <strong>Note 720:</strong> The doctrine of Aristotle concerning [[t:0]]intellect[[t:1]], which he divides into [[t:2]]active[[t:3]] and [[t:4]]passive[[t:5]] (vide [[t:6]]De Anima[[t:7]], Book III, chapter 5), received significant developments amongst the Arabs; there was discussion regarding the nature of the [[t:8]]material intellect[[t:9]] or [[t:10]]passive intellect[[t:11]] and the manner in which this intellect passes from [[t:12]]potency[[t:13]] to [[t:14]]act[[t:15]], and that which chiefly engaged the Arabian philosophers was the question of whether and how the intellect in act may unite with the universal [[t:16]]active intellect[[t:17]], emanated from God, and which, in the system of the Arabian philosophers, constitutes one of the [[t:18]]separated intelligences[[t:19]], namely, that which presides over the lunar orb. See at the places indicated above, p. 146, note 2. The words [[t:20]]אדראך אלעקל אלפעאל[[t:21]] ([[t:22]]the perception of the active intellect)[[t:23]] admit of a twofold meaning: one might understand thereby the perception of which the human intellect is capable, once it has become [[t:24]]intellect in act[[t:25]], or else the perception which has the universal active intellect for its object, and which consists in comprehending it and identifying with it. It is evidently this latter sense that one must adopt, and it is likewise in this sense that our passage was explained by Moses of Narbonne: [[t:26]]השגת השכל הפועל ירצה בו שישוב הוא הוא ושישיג הנמצאות באופן שישיגם הוא[[t:27]] 'The [[t:28]]perception of the active intellect[[t:29]] is to become [[t:30]]it[[t:31]], and to perceive beings in the manner in which it perceives them.' This sublime perception, the result of metaphysical speculation, and in which the intelligent and the intelligible are completely identified, is by no means subject to oblivion, inasmuch as the inferior faculties of the soul, such as imagination and memory, have no part therein. Abou-Becr ibn-al-Çâyeg, or Ibn-Bâdja, treating the same subject in his [[t:32]]Farewell Letter[[t:33]], likewise states (verse, Hebr.): [[t:34]]אולם החכמה האחרונה אשר הוא הציור השכלי והוא מציאות השכל הנאצל אי אפשר בו השכחה אלא אם יהיה זה יוצא מהטבע וכו׳[[t:35]] 'The ultimate science, which is pure intelligible conception and the very existence of the [[t:36]]emanated intellect[[t:37]], cannot be forgotten, unless it be through an exception of nature, etc.' Vide the commentary of Moses of Narbonne, on our passage, and the Appendix to the [[t:38]]Moreh ha-Moreh[[t:39]], p. 142 (where, instead of [[t:40]]וכתב אבונצר[[t:41]], one must read [[t:42]]וכתב אבובכר[[t:43]]), and cf. the III[[t:44]]rd[[t:45]] part of this work, chapter LI. Concerning the entirety of the theory of the [[t:46]]intellect[[t:47]], one will find further details below, in chapter LXVIII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.721" style="display: none;">
+                <strong>Note 721:</strong> Literally: He expands for them (the faculty) of lying and saying, etc.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.722" style="display: none;">
+                <strong>Note 722:</strong> Instead of [[t:0]]אבתדעהא[[t:1]], some manuscripts have [[t:2]]אכׄתרעהא[[t:3]], which does not make a difference in terms of meaning.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.723" style="display: none;">
+                <strong>Note 723:</strong> The word [[t:0]]מיןאן[[t:1]] [[t:2]](ميزان)[[t:3]], which signifies [[t:4]]balance[[t:5]], is employed figuratively in the sense of [[t:6]]intelligence[[t:7]] or [[t:8]]judgment.[[t:9]] Ibn-Falaquera read [[t:10]]מיאז[[t:11]], or rather [[t:12]]מין[[t:13]] ([[t:14]]تميز[[t:15]], [[t:16]]discernment[[t:17]]); vide [[t:18]]Moreh ha-Moreh[[t:19]], at the end of p. 151. It is this same reading that the version of Al-’Harizi expresses, which renders [[t:20]]הכרה[[t:21]], whereas that of Ibn-Tibbon has [[t:22]]מאזנים[[t:23]], which accords with the reading one has adopted based on eight manuscripts; only one, one of the Leyden manuscripts, bears [[t:24]]מיאזן[[t:25]], a word which signifies naught and which is merely a copyist's error for [[t:26]]מיזאן[[t:27]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

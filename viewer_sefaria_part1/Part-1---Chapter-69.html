@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 69 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 69</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.0">
+                <div class="he-cell"><b>האל - פועל העולם, חיותו ותכליתו</b><br><span class="mediumGrey">כינויי האלוהים כעילה או כפועֵל</span><br><sup>1</sup> הפילוסופים, כידוע לך, מכנים את האל יתעלה "העילה הראשונה" ו"הסיבה הראשונה"; ואלו הידועים כ"מדברים" ("מֻתַכַּלִּמוּן") מתרחקים מאוד מן הכינויים הללו ומכנים אותו "הפועֵל". הם חושבים שיש הבדל עצום בין לומר "סיבה" ו"עילה" לבין לומר "פועל". לדבריהם, אם אנו אומרים שהוא עילה, מתחייבת מציאותו של עלול, וזה יוביל לקדמות העולם ושהעולם מחויב מן האל; ואם אנו אומרים "פועֵל" אין מתחייבת מכך מציאות הפעול עמו, כיוון שיש שהפועל קודם לפעולתו. אבל אין הם תופסים את משמעות היות הפועל פועל אלא כאשר הוא קודם לפעולתו. אלה דברי מי שאינו מבדיל בין מה שבכוח לבין מה שבפועַל.</div>
+                <div class="en-cell">Philosophers, as you are aware, designate God the First Cause<sup class="fn-ref" onclick="showFn('fn.811')">811</sup>; but those known by the appellation of Motecallemin<sup class="fn-ref" onclick="showFn('fn.812')">812</sup> scrupulously avoid this designation and term God the Agent. They maintain that a significant distinction obtains between affirming cause and affirming agent: for, they assert, were we to declare Him (God) to be a cause, it would necessarily follow that the effect exists concurrently, which would lead to the eternity of the world and (to the admission) that the world is (coexistent with) Him in a necessary manner<sup class="fn-ref" onclick="showFn('fn.813')">813</sup>; but if we designate Him an Agent, it does not necessarily follow that the object of the action exists concomitantly with Him, for the agent may precede his action; and they even proceed so far as to imagine that an agent can only be termed an agent on the condition of being prior to his action<sup class="fn-ref" onclick="showFn('fn.814')">814</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.1">
+                <div class="he-cell"><sup>2</sup> מה שעליך לדעת הוא שאין הבדל בין לומר בעניין זה "עילה" או "פועֵל". וזאת משום שאם אתה נוקט גם את העילה כ(עילה) בכוח, היא קודמת בזמן לעלול שלה. ואילו אם היא עילה בפועַל, הרי העלול שלה מצוי בהכרח בשל מציאותה כעילה בפועַל. וכן כאשר אתה נוקט את הפועֵל כפועֵל בפועַל, מתחייבת בהכרח מציאות פעוּלו. כי הבנאי לפני שיבנה את הבית אינו בנאי בפועַל אלא הוא בנאי בכוח, כשם שחומר הבית הזה לפני שייבנה הוא בית בכוח. וכאשר יבנה, אזי יהיה בנאי בפועַל ותתחייב אז בהכרח מציאות דבר בנוי. נמצא שלא הרווחנו דבר בהעדפת המונח "פועֵל" על פני המונח "עילה" ו"סיבה". המטרה כאן אינה אלא להראות ששני המונחים שווים; ושכמו שאנו מכנים אותו "פועל" אף שפָּעוּלוֹ נעדר, הואיל ואין לו מונע או מכשול מלפעול מתי שיחפוץ, כך אפשר לכנות אותו "עילה" ו"סיבה" באותה המשמעות בדיוק, אף אם העלול נעדר.</div>
+                <div class="en-cell">But this is the reasoning of one who knows not how to distinguish between that which is in potentiality and that which is in actuality; for it must be understood that there is no difference in this regard between the terms cause and agent. Indeed, the cause also, if one considers it in potentiality, precedes its effect in time; whereas, if it be a cause in actuality, the effect necessarily coexists with this cause in actuality<sup class="fn-ref" onclick="showFn('fn.815')">815</sup>. Similarly, if one considers the agent as an agent in actuality, it necessarily follows that the object of its action exists; for the architect, before constructing the house, is not an architect in actuality, but an architect in potentiality<sup class="fn-ref" onclick="showFn('fn.816')">816</sup> [just as the material of the house, before its construction, is a house in potentiality]; but when he builds, he becomes an architect<sup class="fn-ref" onclick="showFn('fn.817')">817</sup> in actuality, and it then necessarily follows that something constructed exists (simultaneously). We would therefore gain naught by preferring the denomination of agent to that of cause. And (indeed) the sole purpose here is to establish the equality between these two denominations, and (to show) that, just as we term God agent, even though the object of His action might not yet exist, — and this because there is nothing that can restrain Him or prevent Him from acting when He wills, — so also is it permissible for us to term Him cause, absolutely in the same sense, even though the effect might not yet exist.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.2">
+                <div class="he-cell"><span class="mediumGrey">האל הוא סיבת המציאות בשלוש משמעויות</span><br><sup>3</sup> מה שהביא את הפילוסופים לכנות אותו יתעלה "עילה" ו"סיבה" ולא כינוהו "פועל" אינו בשל דעתם המפורסמת על קדמות העולם, אלא בשל עניינים אחרים שאביא לך אותם כאן בקצרה. כבר התבארה ב"פיזיקה" (אריסטו פיזיקה ב,ג) מציאות הסיבות לכל מה שיש לו סיבה, ושהן ארבע: החומר, והצורה, והפועֵל והתכלית, ושמהן קרובות ומהן רחוקות, וכל אחת מארבע אלו מכונה "סיבה" ו"עילה". ומדעותיהם שאינני חולק עליהן הוא שהאל יתהדר ויתרומם הוא הפועֵל והוא הצורה והוא התכלית. ולכן הם אמרו שהוא יתעלה "סיבה" ו"עילה", כדי לכלול את שלוש הסיבות הללו, כלומר שהוא פועל העולם, וצורתו ותכליתו.<br><sup>4</sup> מטרתי בפרק הזה היא לבאר לך באיזה אופן נאמר בו יתעלה שהוא הפועֵל והוא צורת העולם והוא תכליתו גם כן. ואל תעסיק את דעתך כאן בעניין חידושו את העולם או חיובו ממנו לפי דעתם, כי יוקדש לכך דיון ארוך הראוי למטרה זו (ב,יג-לא). המטרה כאן היא רק שהוא יתעלה פועל את פרטי הפעולות הקורות בעולם כפי שהוא פועל את העולם בכללותו.</div>
+                <div class="en-cell">That which led the philosophers to designate God as cause and not as agent, was not their well-known opinion concerning the eternity of the world; rather, they held other reasons for this, which I shall now recapitulate. It has been set forth in the Physics that there exist diverse causes for everything that possesses a cause<sup class="fn-ref" onclick="showFn('fn.818')">818</sup>, four in number, namely: matter, form, the agent (or efficient cause), and the final cause<sup class="fn-ref" onclick="showFn('fn.819')">819</sup>, and that there are both proximate and remote causes<sup class="fn-ref" onclick="showFn('fn.820')">820</sup>; each of these four is termed a cause. Among their tenets, one which I do not dispute is this: that God is simultaneously the efficient cause, the form, and the final cause; it is in this sense that they declare God to be the cause, a designation which encompasses these three causes conjointly, signifying that God is the efficient cause of the world, its form, and its final cause<sup class="fn-ref" onclick="showFn('fn.821')">821</sup>. My purpose, therefore, in this chapter, is to elucidate to you in what sense it has been affirmed of God that He is the efficient cause (or the agent), and that He is likewise the form of the world and its final cause. Herein, you need not concern yourself with the question of whether God freely produced the world, or whether, as they (the philosophers) conceive, it necessarily coexists with Him<sup class="fn-ref" onclick="showFn('fn.822')">822</sup>; for upon this matter, we shall enter into extensive detail, as befits so weighty a subject<sup class="fn-ref" onclick="showFn('fn.823')">823</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.3">
+                <div class="he-cell"><span class="mediumGrey">האל – פועל העולם</span><br><sup>5</sup> ואומר: כבר נתבאר ב"פיזיקה" (אריסטו, פיזיקה ז,ב; ח,ה) שראוי לחפש סיבה גם לכל אחת מארבעת מיני הסיבות האלה. וכך יימצאו לדבר המתהווה ארבע סיבות אלו הקרובות אליו, ויימצאו גם לאלו סיבות, ולסיבות אלו סיבות, עד שנגיע לסיבות הראשונות. לדוגמה, הפעול המסוים הזה, פועֲלו הוא כך וכך, ולפועֵל הזה יש פועֵל, ודבר זה נמשך עד שיגיע אל מניע ראשון שהוא הפועֵל באמת של כל גורמי הביניים האלה. משום שאם את אות אל"ף מניעה אות בי"ת, ואת בי"ת מניע גימ"ל, ואת גימ"ל מניע דל"ת, ואת דל"ת מניע ה"א, ודבר זה אינו נמשך עד אינסוף, הבה נעצור לדוגמה אצל ה"א. הרי אין ספק שה"א הוא המניע את אל"ף ובי"ת וגימ"ל ודל"ת. ובאמת נֶאמר לגבי תנועת אל"ף שה"א פעל אותה. באופן זה מיוחסת כל פעולה במציאות לאל, אפילו פעל אותה אחד הפועלים הקרובים, כמו שנבאר (ב,מח). נמצא שהוא הסיבה הרחוקה ביותר מצד היותו פועֵל.</div>
+                <div class="en-cell">Here the sole purpose is (to establish) that God is the efficient of the particular facts which occur in the world, even as He is the efficient of the world in its entirety. This, then, is what I say: It has been set forth in the <i>Physics</i> that, for each of these four kinds of causes, another cause must be sought, so that one will first find, for the thing that is born, its four immediate causes, and thereafter one will find for these other causes, and, for those (secondary) causes, yet other causes, until one arrivs at the <i>first causes;</i> thus, for example, a certain thing is the effect produced by a certain efficient, which, in its turn, shall have its efficient, and so forth, until one arrivs at a first mover who shall be the true efficient of all these intermediate things<sup class="fn-ref" onclick="showFn('fn.824')">824</sup>. Verily, let A be moved by B, B by C, C by D, and D by E; since this cannot extend to infinity, let us stop, for example, at E, and there will be no doubt that E is the mover of A, B, C, and D, and it is with justice that one may say of the movement of A that it is E who has wrought it. It is in this manner that every fact in the universe, whatever be the immediate efficient that has produced it<sup class="fn-ref" onclick="showFn('fn.825')">825</sup>, is attributed unto God, as we shall set forth (elsewhere); He is therefore the most remote <i>cause</i> thereof, in the capacity of <i>efficient</i>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.4">
+                <div class="he-cell"><span class="mediumGrey">האל – צורת העולם</span><br><sup>6</sup> וכן הצורות הטבעיות המתהוות וכלות, נמצא אם נעקוב אחריהן שבהכרח קודמת להן צורה אחרת המכינה את החומר הזה לקבל את הצורה הזו. ואותה הצורה השנייה קודמת גם לה אחרת, עד שנגיע לצורה האחרונה שהיא הכרחית לִמְציאות צורות הביניים האלו, שצורות הביניים הללו הן סיבת הצורה הקרובה הזו. אותה הסיבה האחרונה של כל המציאות הוא האל יתעלה.<br><sup>7</sup> אל תחשוב שדברינו עליו שהוא הצורה האחרונה לכל העולם רומזים לצורה האחרונה שאריסטו אמר לגביה ב"מטפיזיקה" (ספר יב, 1072a) שאין היא מתהווה ולא כלה; כי אותה הצורה הנזכרת שם היא טבעית, לא שכל נבדל. כי כשאנו אומרים עליו יתעלה שהוא צורתו האחרונה של העולם אין זה במובן של היות הצורה בעלת החומר צורה של אותו חומר, כאילו הוא יתעלה צורה לגוף. לא באופן זה נאמר, אלא כמו שכל נמצא בעל צורה הוא מה שהוא רק בשל צורתו, ואם כלתה צורתו כלה ובטל כל היותו, כן כמו היחס הזה עצמו יחס האלוה לכל הרֵאשיות הרחוקות של המציאות. כי הכול מצוי מכוח מציאות הבורא, והוא מתמיד את קיומו (של העולם) באמצעות העניין המכונה "שפע", כמו שנבאר באחד מפרקי חיבור זה (ב,יב). אילו היה עולה על הדעת שהבורא נעדר, היתה נעדרת המציאות כולה, והיתה בטלה מהותן של הסיבות הרחוקות ממנו, ושל המסוֹבבים האחרונים, ושל כל מה שביניהם.<br><sup>8</sup> אם כן היחס בין האל למציאות, הוא כיחס הצורה לדבר שיש לו צורה, שעל ידה הוא מה שהוא, ובצורה מתקיימת אמיתתו ומהותו; כך יחס האלוה לעולם. במובן הזה נֶאמר עליו שהוא "הצורה האחרונה" ושהוא "צורת הצורות", כלומר שהוא זה שבסופו של דבר מציאותה של כל צורה בעולם וקיומה מתבססים עליו, וקיומן הוא על ידו, כמו שהדברים בעלי הצורות קיימים על ידי צורותיהם. מפני עניין זה הוא נקרא בלשוננו "<b>חֵי העולמים</b>", דהיינו שהוא חיות העולם, כמו שיתבאר (א,עב22).</div>
+                <div class="en-cell">Likewise, if we pursue the physical <i>forms</i>, which are born and perish, we shall find that they must necessarily be preceded (each) by another form which prepars such matter to receive such (immediate) form; this second form, in its turn, shall be preceded by another, (and so forth,) until we arrive at the last form which is necessary for the existence of these intermediate forms, which are the cause of the said immediate form. This <i>ultimate form</i> of all being is God. If we say of Him that He is the ultimate form of the whole universe, it must not be believed that this is an allusion to that <i>ultimate form</i><sup class="fn-ref" onclick="showFn('fn.826')">826</sup> of which Aristotle says, in the <i>Metaphysics</i>, that it is neither born nor does it perish; for the form there spoken of is <i>physical</i>, and not a <i>separate intelligence</i><sup class="fn-ref" onclick="showFn('fn.827')">827</sup>. Indeed, when we say of God that He is the <i>ultimate form</i> of the world, it is not as the form having matter is a form for that matter, so that God should be a form for a body<sup class="fn-ref" onclick="showFn('fn.828')">828</sup>. It is not in this wise that it must be understood, but in the following manner: even as the form is that which constituts the true being of everything that has form, so that, the form perishing, the being likewise perishes, so God is found to be in an absolutely similar relation with all the most remote principles of being<sup class="fn-ref" onclick="showFn('fn.829')">829</sup>; for it is by the existence of the Creator that everything exists, and it is He who perpetuats its duration by something which is named the <i>emanation</i>, as we shall set forth in one of the chapters of this treatise<sup class="fn-ref" onclick="showFn('fn.830')">830</sup>. If, therefore, the non-existence of the Creator were admissible, the entire universe would no longer exist, for that which constituts its remote causes would vanish, as would the last effects and that which is intermediate; and, consequently, God is to the universe what the form is to the thing that has form and which thereby is what it is, the form constituting its true being. Such then is the relation of God to the world, and it is from this point of view that it has been said of Him that He is the <i>ultimate form</i> and the <i>Form of forms;</i> which is to say that He is the one upon whom leans, in the last resort, the existence and maintenance of all forms in the world, and that it is through Him they subsist, even as things endowed with forms subsist by their forms. And it is because of this that He has been called, in our tongue, <span dir="rtl">חי העולמים</span>, which signifies that He is the <i>Life of the Universe</i>, as shall be set forth (hereafter)<sup class="fn-ref" onclick="showFn('fn.831')">831</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.5">
+                <div class="he-cell"><span class="mediumGrey">האל – תכלית העולם</span><br><sup>9</sup> וכן הדבר גם באשר לתכלית. כי הדבר שיש לו תכלית, עליך לחקור אחר תכליתה של אותה התכלית. כמו שתאמר למשל שהכיסא – חומרו הוא העץ, ופועלו הוא הנגר, וצורתו הוא הריבוע בתבנית כזו וכזו, ותכליתו היא הישיבה עליו. עליך אם כן לשאול: "ומה מטרת הישיבה על הכיסא?" וייאמר: "כדי שיורם היושב עליו ויגבה מעל הארץ". ותשאל עוד ותאמר: "ומה תכלית ההרמה מעל הארץ?" ותיענה: "כדי להעצים את היושב בעיני מי שיראה אותו". ותשאל: "ומה תכלית העצמתו אצל מי שיראה אותו?" ותיענה: "כדי שייראו ויפחדו ממנו". ותשאל ותאמר: "ומה תכלית היראה ממנו?" ותיענה: "כדי שיצייתו לציווייו". ותחקור: "מה תכלית הציות לציווייו?" ותיענה: "כדי למנוע מבני האדם מלהזיק זה לזה". ותחקור עוד על תכלית הדבר, ותיענה: "כדי שמציאותם תתמיד באופן מסודר".<br><sup>10</sup> וכך יתחייב תמיד בכל תכלית שתבוא, עד שיגיע הדבר לרצונו יתעלה בלבד, לפי דעה מסוימת, כמו שיתבאר (ג,יג; ג,כו), כך שתהיה התשובה האחרונה: "כך רצה יתעלה"; או לגזרת חכמתו לפי דעתם של אחרים כמו שאבאר (ג,יג), עד שתהיה התשובה בסופו של דבר: "כך גזרה חכמתו". וכך תגיע השתלשלות כל תכלית לרצונו ולחכמתו על פי שתי הדעות האלה, שהתבאר לפי דעתנו שהם עצמותו, ושאין רצונו וחפצו או חכמתו דברים שמחוץ לעצמותו, כלומר שהם זולת עצמותו. אם כן הוא יתעלה התכלית האחרונה של כל דבר, ותכלית הכול היא גם להידמות לשלמותו כפי היכולת, וזאת משמעות רצונו שהיא עצמותו, כמו שיתבאר (ג,נד15-13). במובן זה נֶאמר עליו שהוא תכלית התכליות.</div>
+                <div class="en-cell">It is even so with every <i>end</i><sup class="fn-ref" onclick="showFn('fn.832')">832</sup>, for when a thing has a certain <i>end</i>, thou must seek for that end another end. If, for example, thou sayest that the <i>matter</i> of this throne is wood, its <i>efficient</i> the joiner, its <i>form</i> square and of such or such a figure, and its <i>end</i> to sit upon it, thou must thereafter ask: To what <i>end</i> does one sit upon the throne? It shall be answered, that he who sitts thereon may be raised above the ground. But, thou wilt ask again, to what end must he be raised above the ground? and it shall be answered: It is in order that, being thus seated, he may appear great in the eyes of those who behold him. And to what end, thou wilt pursue, must he appear great to those who behold him? It shall be answered, that he may be feared and respected. But, thou wilt ask once more, to what end must he be feared? It shall be said, that his command may be obeyed. And to what end, thou wilt yet pursue, must his command be obeyed? It shall be answered, that he may prevent men from doing harm to one another. And if thou askest yet: To what end? it shall be answered: It is that their existence may continue in good order. It must necessarily be the same with each new <i>end</i>, until one arrivs at last—according to a certain opinion which shall be set forth (elsewhere)—at the simple will of God, so that one shall answer for the end: Thus has God willed it; or else (one shall reach)—according to another opinion—the requirement of the Divine Wisdom, as I shall set forth, so that one shall answer for the end: Thus has His wisdom required it<sup class="fn-ref" onclick="showFn('fn.833')">833</sup>. The series of all <i>ends</i> shall therefore, according to these two opinions, terminate at the will and the wisdom of God. But these, according to our opinion, are His essence; for it has been set forth that the intention, the will, and the wisdom of God are not things outside His essence, I mean to say, other than His essence<sup class="fn-ref" onclick="showFn('fn.834')">834</sup>. Consequently, God is the <i>ultimate end</i> of all things; everything likewise has for its <i>end</i> to become like unto Him in perfection, as much as that may be, and it is this which must be understood by <i>His will, which is His essence</i>, as shall be set forth<sup class="fn-ref" onclick="showFn('fn.835')">835</sup>. It is therefore from this point of view that He has been called the <i>End of ends</i>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.6">
+                <div class="he-cell"><span class="mediumGrey">סיכום</span><br><sup>11</sup> הרי ביארתי לך באיזה אופן נאמר לגביו יתעלה שהוא "פועֵל" ו"צורה" ו"תכלית". ולכן כינוהו (הפילוסופים) "סיבה" ולא כינוהו "פועֵל" בלבד.</div>
+                <div class="en-cell">Thus I have explained in what sense it has been said of God that He is efficient, form and end; it is for this reason that they (the philosophers) have called Him cause, and not merely agent (or efficient).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.7">
+                <div class="he-cell"><span class="mediumGrey">ה' מתמיד את קיום העולם</span><br><sup>12</sup> ודע שחלק מאנשי העיון מה"מדברים" הללו הגיעו לכזו בורות ועזות פנים עד שאמרו שאילו היה עולה על הדעת שהבורא נעדר, לא היה מתחייב מכך העדר הדבר שהבורא יצר, כלומר העולם, כי לא מתחייב שיכלה הפעול כשייעדר הפועֵל אחרי שפעל אותו. מה שאמרו היה נכון אילו היה הוא פועֵל בלבד, ולא היה הדבר הפעול נצרך לו כדי להתמיד את קיומו, כמו שכשימות הנגר לא יכלה הארון, כי אין הוא מעניק לו את קיומו. אך כיוון שהוא יתעלה גם צורת העולם כמו שביארנו (לעיל 8-6), והוא מעניק לו את הקיום ואת ההתמדה, הרי בלתי אפשרי שיסתלק המעניק ויישאר המוענק, שאין לו קיום אלא במה שמוענק לו.</div>
+                <div class="en-cell">Know thou that certain thinkers<sup class="fn-ref" onclick="showFn('fn.836')">836</sup> among these <i>Mutakallimūn</i> have carried their ignorance and boldness so far as to maintain that, even were it admitted that the Creator could cease to exist, it would by no means follow that the thing which the Creator has produced, to wit, the world, should likewise cease to exist; for (say they) it follows not necessarily that what has been made must perish because the author, after having made it, has ceased to be. What they have therein asserted would be true if God were solely <i>efficient</i>, and if this thing made had no need of Him to prolong<sup class="fn-ref" onclick="showFn('fn.837')">837</sup> its duration; even as, when the carpenter dies, the chest (which he has made) does not perish for that reason, for it is not he who prolongs its duration. But, since God is at the same time the <i>form</i> of the world, as we have expounded, and since it is He who prolongs its permanence and duration, it is impossible (to suppose) that He who gives duration should disappear, and that nevertheless the thing which has no duration save through Him should continue to exist<sup class="fn-ref" onclick="showFn('fn.838')">838</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..68.8">
+                <div class="he-cell">עד כדי כך הגיעה מחשבת השווא שחייבה האמירה שהוא פועֵל בלבד, לא תכלית ולא צורה.</div>
+                <div class="en-cell">Thus, this assertion would lead to a great error: that God is merely efficient, and is neither end nor form.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.811" style="display: none;">
+                <strong>Note 811:</strong> The Arabic text expresses here and further on the word [[t:0]]cause[[t:1]] by two different words, [[t:2]]علة[[t:3]] and [[t:4]]سبب[[t:5]] , which the two Hebrew versions render by [[t:6]]עלה[[t:7]] and [[t:8]]סבה[[t:9]]; these two words, in the philosophical terminology of the Arabs, correspond to the Greek word [[t:10]]αἰτíα[[t:11]] or [[t:12]]αἲτιον[[t:13]] (Arist., [[t:14]]Metaph.[[t:15]], V, 2, and [Lat.: passim][[t:17]]), and are completely synonymous, as Ibn-Roschd states in his [[t:18]]Epitome of Metaphysics[[t:19]], book I (Hebrew verse): [[t:20]]הסבה והעלה שני שמות נרדפים והנה יאמרו על הסבות הארבעה אשר הם הפועל והחומר והצורה והתכלית[[t:21]] «[[t:22]]Sebeb[[t:23]] and ’[[t:24]]illa[[t:25]] are two synonymous names which are applied to the [[t:26]]four causes[[t:27]], namely: the efficient, the material, the formal, and the final.» — The denomination of [[t:28]]first cause[[t:29]], of which the author here speaks, being very familiar to the Arabian philosophers and to the Scholastics, is intimately connected with the system of Aristotle, which reveals to one in the prime mover, or in God, the ultimate term to which one’s intellect necessarily arrives in ascending the series of beings and causes. This first cause is, according to Aristotle, a necessary condition of science, which would be impossible if causes extended to infinity; for the illimitable escapes science. Cf. [[t:30]]Physics[[t:31]], book VIII, chap. 5; [[t:32]]Metaphysics[[t:33]], book II, chap. 2; book XII, chap. 7 et seq. — This chapter, like the preceding, serves as a complement to what the author has stated concerning the attributes; it is therein demonstrated that God is at once the efficient cause, the formal cause, and the final cause of the universe, and that these three causes, in Him, are entirely identical and signify but one single thing, that is to say, His very [[t:34]]essence[[t:35]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.812" style="display: none;">
+                <strong>Note 812:</strong> See above, p. 5, note 1 and further on, chap. LXXI.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.813" style="display: none;">
+                <strong>Note 813:</strong> The existence of the [[t:0]]cause[[t:1]] as such necessarily implies that of the [[t:2]]effect[[t:3]], and, as soon as one denominates God the [[t:4]]first cause[[t:5]], one thereby declares that the world, which is the [[t:6]]effect[[t:7]] of this cause, has ever existed. This reasoning of the [[t:8]]Motekallemin[[t:9]] is well-nigh the same as that made by Plotinus when he states that in denominating God [[t:10]]the cause[[t:11]], one asserts something which pertains not to Him, but to one’s self, because one receives something from Him, whilst He remains in Himself: [[t:12]]ἐπεὶ ϰαὶ τὸ αἲτιον λέγειν οὐ ϰατηγορεῖν ἐστι συμβεβηϰός τι αὐτῷ, ἀλλ’ ἡμῖν, ὃτι ἒχομέν τι παρ’ αὐτοῦ, ἐϰεὶνου ὂντος ἐν αὑτῷ[[t:13]] ([[t:14]]Enneads[[t:15]], VI, 9, 3). Cf. Ritter, [[t:16]]Geschichte der Philosophie[[t:17]], vol. IV, p. 579. — The words [[t:18]]ואן אלעאלם לה[[t:19]], which are found in most of the Oxford manuscripts, signify: [[t:20]]and that the world belongs to Him[[t:21]], that is to say, that it stands in a necessary relation to God, and that its existence is a condition of God’s own. Ibn-Tibbon translates: [[t:22]]ושהעולם מאתו[[t:23]], [[t:24]]and that the world comes from Him[[t:25]], which is not entirely exact. Al-’Harizi perpetrates a veritable mistranslation in rendering: [[t:26]]וכי העולם עלה[[t:27]], [[t:28]]and that the world is a cause[[t:29]]. He has perhaps followed an incorrect reading ([[t:30]]ואן אלעאלם עלה̈[[t:31]]), which one indeed finds in one of the two Leyden manuscripts, whilst the other bears: [[t:32]]ואן ללעאלם עלה̈[[t:33]], [[t:34]]and that the world has a cause[[t:35]]. This latter reading, albeit less at variance with the passage as a whole, is likewise incorrect.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.814" style="display: none;">
+                <strong>Note 814:</strong> More literally: [[t:0]]they do not even conceive the idea of an agent as an agent except insofar as it is anterior to its action;[[t:1]] that is to say, they believe that the very idea attached to the word [[t:2]]agent[[t:3]] implies anteriority.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.815" style="display: none;">
+                <strong>Note 815:</strong> Literally: [[t:0]]son effet existe nécessairement par son existence comme cause en acte[[t:1]]. In the version of Ibn-Tibbon, instead of [[t:2]]במציאות העלה[[t:3]], one must read [[t:4]]במציאותה עלה[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.816" style="display: none;">
+                <strong>Note 816:</strong> The editions of Ibn-Tibbon’s version here add the words [[t:0]]וכשיבנה אז הוא בונה בפעל[[t:1]], [[t:2]]and when he builds he is an architect in act[[t:3]]. These words are found neither in the Arabic text, nor in the manuscripts of Ibn-Tibbon’s version; they were evidently added by the copyists, and that owing to a misunderstanding to which this same version gave rise, which, a little further on, bears [[t:4]]אז הוא נבנה[[t:5]], instead of [[t:6]]אז הוא בונה[[t:7]], so that, without the added words, something would be wanting in the passage as a whole, inasmuch as no mention would therein be made of the [[t:8]]architect in act[[t:9]]. Cf. the succeeding note.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.817" style="display: none;">
+                <strong>Note 817:</strong> The version of Ibn-Tibbon renders [[t:0]]נבנה[[t:1]] ([[t:2]]built[[t:3]] or [[t:4]]constructed[[t:5]]); it appears that the Hebrew translator here read [[t:6]]מבני[[t:7]] instead of [[t:8]]בנא[[t:9]], or else that he deemed it proper to pronounce this latter word [[t:10]]بِنِسَآءِ[[t:11]] (construction), and not [[t:12]]يَشَاءُ[[t:13]] (architect). He did not perceive that the words [[t:14]]כמא אן מאדה̈ דׄלך אלבית קבל אן יבני בית באלקוה̈[[t:15]] ought to be regarded as a parenthesis, and he imagined that the words [[t:16]]פענד מא יבני[[t:17]] were a continuation thereof, so that he considered this latter verb [[t:18]]יבני[[t:19]] as a passive verb [[t:20]](دِيُوبَنْدِي)[[t:21]], referring to the [[t:22]]house[[t:23]], whereas it is an active verb [[t:24]](يُبْنَى)[[t:25]], referring to the [[t:26]]architect[[t:27]]. In truth, a Leyden manuscript favours Ibn-Tibbon's version, for it reads [[t:28]]בית[[t:29]] (house) instead of [[t:30]]בנא[[t:31]]; but this is merely an arbitrary and unintelligent correction. — Al-’Harizi has here been more exact, rendering [[t:32]]בנא[[t:33]] by [[t:34]]architect[[t:35]] ([[t:36]]בנאי[[t:37]]); but he has entirely suppressed, in his version, the words which one deems to be a parenthesis.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.818" style="display: none;">
+                <strong>Note 818:</strong> That is, for every being, except for the first mover, or God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.819" style="display: none;">
+                <strong>Note 819:</strong> Cf. Aristotle, [[t:0]]Physics[[t:1]], Book II, chap. 7, where these four causes are designated as follows: [[t:2]]ἡ ὓλη[[t:3]] (the matter), [[t:4]]τὸ εἶδος[[t:5]] (the form), [[t:6]]τὸ ϰινἡσϰν[[t:7]] (that which moves, or the moving cause), [[t:8]]τὸ οὗ ἓνεϰα[[t:9]] (the wherefore or the final cause). The [[t:10]]formal[[t:11]] cause, which makes a thing to [[t:12]]be what it is[[t:13]] and which forms the [[t:14]]essence[[t:15]] of the thing, is also termed [[t:16]]τὸ τί ἦν εἶναι[[t:17]] and [[t:18]]οὐσία[[t:19]] (vide [[t:20]]Posterior Analytics[[t:21]], II, 11; [[t:22]]Physics[[t:23]], II, 3; [[t:24]]Metaph[[t:25]]., I, 3); the [[t:26]]moving[[t:27]] cause is also called [[t:28]]τὸ ποιοῦν[[t:29]], that is to say, [[t:30]]the efficient[[t:31]], and the [[t:32]]final[[t:33]] cause is called [[t:34]]τὸ τέλος[[t:35]], [[t:36]]the end[[t:37]] ([[t:38]]Metaph[[t:39]]., V, 2 and [Lat.: passim]]), and it is to these two words that the Arabic terms [[t:42]]الغاية الفاعل[[t:43]] correspond.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.820" style="display: none;">
+                <strong>Note 820:</strong> Cf. Aristotle, [[t:0]]Dern. Anal[[t:1]]., book I, chap. 13 (ed. of Bekker); [[t:2]]Métaph[[t:3]]., book VIII, chap. 4.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.821" style="display: none;">
+                <strong>Note 821:</strong> That is to say, that God is at once the efficient cause, the formal cause, and the final cause of the world. The notion of the prime mover, which is itself unmoved and is pure [[t:0]]energy[[t:1]], excluds the material cause; this latter is often presented by Aristotle as that which exists by [[t:2]]necessity[[t:3]] ([[t:4]]τὸ ἐξ ὰνάγϰης[[t:5]]), and is opposed to the three other causes, representing motion and true being, and which is summed up in a single cause, namely the [[t:6]]end[[t:7]] ([[t:8]]τὸ οὗ ἓνεϰα[[t:9]]). Vide [[t:10]]Physics[[t:11]], Book II, chap. 7-9, and cf. the treatise [[t:12]]On the Parts of Animals[[t:13]], Book I, chap. 1. Likewise the notion of the [[t:14]]soul[[t:15]], which is [[t:16]]entelechy[[t:17]], excluds the material cause; wherefore Aristotle says that the soul is the cause according to the [[t:18]]three[[t:19]] modes of cause (Treatise [[t:20]]On the Soul[[t:21]], Book II, chap. 4).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.822" style="display: none;">
+                <strong>Note 822:</strong> Literally: [[t:0]]or if[[t:1]] ([[t:2]]the world[[t:3]]) [[t:4]]necessarily results from it[[t:5]], that is, if the existence of the world is a necessary consequence of that of God, so that the world would be eternal, and not [[t:6]]created[[t:7]] by the free will of God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.823" style="display: none;">
+                <strong>Note 823:</strong> The question at issue here is extensively treated in the II[[t:0]]e[[t:1]] part of this work.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.824" style="display: none;">
+                <strong>Note 824:</strong> See the passages of Aristotle indicated above, p. 313, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.825" style="display: none;">
+                <strong>Note 825:</strong> Literally: [[t:0]]whomever it may have been that did it among the next efficient ones[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.826" style="display: none;">
+                <strong>Note 826:</strong> The version of Al-’Harizi reads [[t:0]]היא הצורה האחרונה[[t:1]], [[t:2]]that this be that last form;[[t:3]] one reads similarly in one of the Leyden manuscripts: [[t:4]]הי אלצורה̈[[t:5]], instead of [[t:6]]הי אשארה̈ ללצורה̈[[t:7]]. Ibn-Falaquera ([[t:8]]Moré ha-Moré[[t:9]], p. 37) likewise suppresses the word [[t:10]]אשארה̈[[t:11]] [[t:12]]allusion;[[t:13]] but the version of Ibn-Tibbon conforms to the reading one has adopted.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.827" style="display: none;">
+                <strong>Note 827:</strong> Aristotle demonstrates, in sundry passages of his [[t:0]]Metaphysics[[t:1]], that primary matter and primary form neither come into being nor perish. Throughout all being, [[t:2]]generation[[t:3]] ([[t:4]]γένεσις[[t:5]]) and [[t:6]]destruction[[t:7]] or [[t:8]]corruption[[t:9]] ([[t:10]]φθορά[[t:11]]) are naught else but [[t:12]]change;[[t:13]] that which comes into being, comes into being from somewhat (which is the matter), by receiving the form (through which alone it is what it is), and it perishes by losing its form. It is manifest, therefore, that the idea of [[t:14]]matter[[t:15]], like that of [[t:16]]form[[t:17]], excluds generation and destruction; for, were matter or form capable of coming into being or perishing, it would be requisite that each of the twain should in turn be compounded of matter and form, a process extending to infinity, did one not halt at a primary matter and a primary form, which, consequently, can neither come into being nor perish. — Maimonides appears here to have especially in view a passage in the VII[[t:18]]th[[t:19]] book of the [[t:20]]Metaphysics[[t:21]] (chap. 8), in which Aristotle does summarily state thus: Since that which comes into being does so [[t:22]]by[[t:23]] somewhat (the efficient cause) and [[t:24]]from[[t:25]] somewhat (the matter), and becoms somewhat (by the [[t:26]]form[[t:27]]), the efficient cause produces neither matter alone nor form alone. He, for instance, who fashions a sphere of bronze, makes neither the bronze nor the spherical form in itself, but does impart this form unto the bronze, which is its [[t:28]]substratum[[t:29]]. Were the efficient cause truly to produce this form in itself, the latter would in turn come into being [[t:30]]from[[t:31]] somewhat, and would likewise be compounded of matter and form, and [[t:32]]generations[[t:33]] ([[t:34]]γενέσεις[[t:35]]) would continue ad infinitum. It is manifest, therefore, that [[t:36]]form[[t:37]], or that which in sensible things one may denominate [[t:38]]figure[[t:39]], does not [[t:40]]come into being;[[t:41]] there is, consequently, no [[t:42]]generation[[t:43]] for it, nor for the [[t:44]]what[[t:45]] in itself ([[t:46]]τὸ τί ἦν εἶναι[[t:47]]), which always comes into being in something else, be it by art, or by nature, or by a faculty. Here are Aristotle's own words: [[t:48]]εἰ οὖν ϰαὶ τοῦτο ποιεῖ αὺτό[[t:49]] (sc., [[t:50]]τὸ εἶδος[[t:51]]), [[t:52]]δῆλον ὃτι ὡσαύτως ποιήσει ϰαί βαδιοῦνται αἱ γενέσεις εἰς ἄπειρον. φανεὸν ἄρα ὃτι οὐδέ τὸ εἶδος, ἢ ὁτιδήποτε χρὴ ϰαλεῖν τὴν ἐν τῷ αἰσθητῷ μορφήν, γίγνεται, οὐδ’ ἒστιν αὐτοῦ γένεσις, οὐδὲ τὸ τί ἦν εἶναι. τοῦτο γάρ ἐστιν ὃ ἐν ἄλλῳ γίγνεται ἢ ὑπὸ τέχνης ἢ ὑπὸ φύσεως ἢ δυνάμεως[[t:53]]. Vide also [[t:54]]Metaph[[t:55]]., VII, 15; VIII, 3, 5; XII, 3. It is perceived that the matter at hand is indeed, as Maimonides does state, all form in general, or the [[t:56]]physical[[t:57]] form, inseparable from matter, and not merely the absolute [[t:58]]primary form,[[t:59]] or the prime mover.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.828" style="display: none;">
+                <strong>Note 828:</strong> God, while setting the celestial sphere in motion, to which he gives form, is yet entirely distinct from this sphere, as our author will explain in other places. See the following chapter, and II[[t:0]]e[[t:1]] part, chap. IV.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.829" style="display: none;">
+                <strong>Note 829:</strong> One has been obliged, in this passage, to deviate somewhat from the Arabic text, the construction of which is somewhat irregular, and indeed scarce logical. Here follows the literal translation: [[t:0]]It is not in this wise that it has been stated; but, even as every formed being is what it is only by its form, and when its form perishes its being perishes and ceass, so also a relationship absolutely similar to this is the relation of God unto all the remotest principles of being[[t:1]]. The purport is that God is designated the [[t:2]]ultimate form,[[t:3]] because He causs to exist the principles of all that is, which principles are remote from the causes one does recognise as immediate.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.830" style="display: none;">
+                <strong>Note 830:</strong> See the II[[t:0]]e[[t:1]] part, chap. XII. On the word [[t:2]]פיץׄ[[t:3]] [[t:4]]فيض[[t:5]] which we render as [[t:6]]épanchement[[t:7]], see above, pag. 244, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.831" style="display: none;">
+                <strong>Note 831:</strong> Vide hereafter, towards the close of chap. LXXII (fol. 103 [[t:0]]b[[t:1]] of our text), where the author does cite these words from the book of Daniel (12, 7): [[t:2]]וישבע בחי העולם[[t:3]]. The words [[t:4]]חי העולמים[[t:5]] are not found in the Holy Scripture, but in the ritual of prayers; Ibn-Falaquera does appear also to have read in our passage: [[t:6]]חי העולם[[t:7]] (vide [[t:8]]Moré ha-Moré[[t:9]], pag. 37).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.832" style="display: none;">
+                <strong>Note 832:</strong> That is to say, for any [[t:0]]final cause;[[t:1]] the author will show that final causes, as well as efficient and formal causes, all lead to a last cause, or to a [[t:2]]final end[[t:3]], which is God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.833" style="display: none;">
+                <strong>Note 833:</strong> See the III[[t:0]]e[[t:1]] part of this work, chap. XIII, where the author expands more fully on this matter; on the two opinions to which allusion is made here, see [[t:2]]ibid.[[t:3]], chap. XVII (2[[t:4]]e[[t:5]] and 3[[t:6]]e[[t:7]] opinions), and cf. II[[t:8]]e[[t:9]] part, chap. XVIII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.834" style="display: none;">
+                <strong>Note 834:</strong> Vide above, chap. LIII, pag. 213 et seq. — One has been unable to follow exactly the construction of the text, of which here follows the word for word rendition: [[t:0]]wherefore the series of every end shall culminate, according to these two opinions, in His will and in His wisdom, concerning which it has been set forth, according to our opinion, that they are His essence, and that His intention, His will, or His wisdom, are not things which issue from His essence, that is to say, which are other than His essence[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.835" style="display: none;">
+                <strong>Note 835:</strong> See Part III, chap. XIII, and cf. ibid., chap. XXVII and LIII, and above, at the end of chap. LIV, what the author says about human perfection.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.836" style="display: none;">
+                <strong>Note 836:</strong> See above, p. 184, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.837" style="display: none;">
+                <strong>Note 837:</strong> In most manuscripts, one reads [[t:0]]אםתמדאד[[t:1]] (with [[t:2]]daleth[[t:3]]), and similarly, in what follows, [[t:4]]יםתמדה ,אלמםתמד ,אלממד ,ימרה ,ימדהא[[t:5]]; in a few manuscripts, all these words are written with [[t:6]]resch[[t:7]], which makes little difference in terms of meaning. Cf. above, p. 285, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.838" style="display: none;">
+                <strong>Note 838:</strong> Literally: [[t:0]]it is impossible that he who prolongs may go, and that[[t:1]] ([[t:2]]nevertheless[[t:3]]) [[t:4]]he who is prolonged remains, and has duration only by virtue of what he receives from prolongation[[t:5]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

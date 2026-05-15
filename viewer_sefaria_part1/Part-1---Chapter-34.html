@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 34 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 34</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.0">
+                <div class="he-cell"><b>אתגר לימוד מעשה מרכבה</b><br><span class="mediumGrey">הסיבות לאי פתיחת הלימוד במטפיזיקה</span><br><sup>1</sup> הסיבות המונעות לפתוח את הלימוד בעניינים האלוהיים (=מטפיזיקה) ולהעיר על מה שראוי להעיר עליו ולחשוף זאת להמון הן חמש:</div>
+                <div class="en-cell">The causes which prevent the commencement of instruction with metaphysical subjects, and the awakening of attention unto that which merits attention, and the presentation thereof to the common people, are five in number.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.1">
+                <div class="he-cell"><span class="mediumGrey">הסיבה הראשונה: אין פותחים בעניין עמוק</span><br><sup>2</sup> הסיבה הראשונה היא קושי הדבר בפני עצמו ודקותו ועומקו. נאמר: "<b>רָחוֹק מַה שֶּׁהָיָה וְעָמֹק עָמֹק מִי יִמְצָאֶנּוּ</b>" (קהלת ז,כד). ונאמר: "<b>וְהַחָכְמָה מֵאַיִן תִּמָּצֵא</b>" (איוב כח,יב). ואין ראוי להתחיל בלימוד בדבר הקשה ביותר והעמוק ביותר להבנה. אחד המשלים המפורסמים באומתנו הוא דימוי החכמה למים, וביארו (חכמינו) עליהם השלום במשל הזה כמה עניינים, ומכללם שהיודע לשחות יוציא פנינים מקרקעית הים, ומי שאינו יודע לשחות יטבע, ולכן לא יתעסק בשחייה אלא מי שהתאמן בלימודה.</div>
+                <div class="en-cell">The <small>FIRST CAUSE</small> is the difficulty of the subject in itself, its subtlety and its depth; as it has been said: <i>That which is far off</i> (<i>from our conception</i>), <i>and exceeding deep, who can find it out?</i> (Ecclesiastes vii. 24); and as it is further said: <i>But where shall wisdom be found?</i> (Job xxviii. 12). Wherefore, one must not begin instruction with that which is most difficult of comprehension and most profound. One of the allegories current in (the traditions of) our nation is the comparison of science unto water;<sup class="fn-ref" onclick="showFn('fn.276')">276</sup> the doctors have explained this allegory in divers manners, and (they have said) amongst others: He who knows how to swim draws pearls from the bottom of the sea, but he who is ignorant of swimming is drowned; wherefore none venturs to swim save he who has exercised himself in the learning thereof.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.2">
+                <div class="he-cell"><span class="mediumGrey">הסיבה השנייה: יש לפתח את יכולת החשיבה</span><br><sup>3</sup> הסיבה השנייה היא קוצר דעתם של כל בני האדם בראשיתם. זאת מפני ששלמותו הסופית של האדם לא ניתנה לו מראש, אלא השלמות היא בו בכוח, ובתחילתו הוא חסר אותה בפועל: "<b>וְעַיִר פֶּרֶא אָדָם יִוָּלֵד</b>" (איוב יא,יב). ולא כל אדם שיש לו דבר־מה בכוח יוציא אותו בהכרח לפועל, אלא ייתכן שייוותר בחסרונו, אם בשל מניעות או בשל מיעוט האימון במה שמוציא את הכוח הזה אל הפועל. ובפירוש נאמר: "<b>לֹא רַבִּים יֶחְכָּמוּ</b>" (איוב לב,ט). ואמרו <b>ז"ל</b>: "<b>ראיתי בני עליה והם מועטים</b>" (בבלי סוכה מה ע"ב). משום שהמונעים מן השלמות רבים מאוד, והמטרידים ממנה מרובים, ומתי יושגו המוכנות השלמה והפנאי להתאמן, עד שיצא לפועל מה שיש באדם זה בכוח?</div>
+                <div class="en-cell">The SECOND CAUSE is: the incapacity inherent in the minds of men in general from the outset; for man is not endowed, primarily, with his ultimate perfection, but perfection resides within him potentially, and in the beginning he is deprived of actuality (as Scripture states): And man is born as a wild ass's colt (Job, 11, 12). But when an individual possesses somewhat potentially, it is not necessarily incumbent that this should pass into actuality; on the contrary, the individual sometimes remains in his imperfection, whether through certain impediments, or for want of exercising himself in that which would bring this potency into actuality. It is expressly stated: There are not many who become wise (Ibid., 32, 9); and the Doctors have said: «I have seen men of elevation, but they are few in number<sup class="fn-ref" onclick="showFn('fn.277')">277</sup>;» for the obstacles to perfection are exceeding numerous, and the preoccupations which hinder it are manifold, and when, therefore, can one obtain that perfect disposition and that leisure (necessary) for study, so that what the individual possesses potentially may pass into actuality?</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.3">
+                <div class="he-cell"><span class="mediumGrey">הסיבה השלישית: לימוד מטפיזיקה מצריך הכנות מרובות</span><br><sup>4</sup> הסיבה השלישית היא אורך ההכנות (=הלימודים המכינים). מפני שיש לאדם תשוקה טבעית לבקש את התכליות, ופעמים רבות הוא מואס בהכנות או דוחה אותן לגמרי. ודע שאילו היה ניתן להשיג תכלית כלשהי מבלי ההכנות הקודמות לה, לא היו אלה הכנות אלא טרדות ודברים מיותרים לגמרי. כל אדם, אפילו קְשה ההבנה באנשים, אם תעיר אותו כפי שמעירים את הישֵׁן ותאמר לו: "האם אינך משתוקק עתה לדעת מה מספר הרקיעים, ומה תבניתם, ומה יש בתוכם, ומה הם המלאכים, ואיך נברא העולם כולו, ומה תכליתו לפי סידור חלקיו זה ביחס לזה, ומה היא הנפש, ואיך היא מתהווה בגוף, והאם נפש האדם תיפרד (מן הגוף), ואם תיפרד – כיצד, ובמה, ואל מה", וחקירות דומות לאלו – אין ספק שהוא יאמר לך "כן", וישתוקק באופן טבעי לדעת את הדברים האלה, אלא שירצה להשקיט את התשוקה הזאת ולהגיע לידיעת כל זה במילה אחת או שתיים שתאמר לו. אך אם תכריח אותו להיבטל מעבודתו שבוע ימים כדי שיבין את כל זה – לא יסכים, אלא יסתפק בדמיונות כוזבים שנפשו תבטח בהם, ויחוש שאט נפש אם ייאמר לו שיש דבר הזקוק להקדמות רבות ולזמן חקירה רב.</div>
+                <div class="en-cell">The <small>THIRD CAUSE</small> is the length of the preparatory studies; for man naturally feels a desire to seek the highest points, and ofttimes he grows weary of preparatory studies or abandons them. But know thou well, that if one could arrive at any high point (of science) without the preparatory studies which must precede, these would not be preparatory studies at all, but rather useless occupations and mere superfluities. If thou shouldst awaken any man whatsoever, even the most stolid of men, as one awakens a sleeper, saying unto him: Wouldst thou not desire to know at this moment these heavens (and to know) what is their number, what is their form, and what they contain? What are the angels? How the world in its entirety was created, and what is its purpose according to the reciprocal arrangement of its parts? What is the soul, and how did it enter into the body? If the soul of man be separable (from the body), and if it be separable, how, by what means, and to what end it is so?<sup class="fn-ref" onclick="showFn('fn.278')">278</sup> and other such inquiries—this man would doubtless answer thee: “Yes,” and he would feel a natural desire to know these things in their reality; only he would wish to appease this desire and arrive at the knowledge of all this by a single word, or by two words which thou shouldst say unto him. Yet, if thou shouldst impose upon him (the obligation) to interrupt his business for a week, in order to comprehend all this, he would not do so, but would rather content himself with false imaginations wherewith his soul is quieted, and it would be unpleasing to him to be declared that there exists something which requirs a multitude of preliminary notions and very prolonged researches.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.4">
+                <div class="he-cell"><span class="mediumGrey">הכרת המציאות היא מצע חשוב להכרת האלוהים</span><br><sup>5</sup> ידוע לך שהדברים הללו קשורים זה בזה, דהיינו שאין במציאות דבר מלבד האל יתעלה וכל מעשיו, והם כל מה שכוללת המציאות מלבדו, ואין דרך להשיג אותו אלא על ידי מעשיו, והם המורים על מציאותו ועל מה שראוי להאמין לגביו, כלומר מה שמחויב לו או נשלל לגביו. לפיכך יש בהכרח להתבונן בכל הנמצאות כפי שהם, <br><sup>מטרה א)</sup> כדי שניקח מכל נושא ונושא הנחות יסוד אמיתיות וודאיות שתועלנה לנו בחקירותינו המטפיזיות. והרבה מהנחות היסוד נלקחות מטבע המספרים ומתכונותיהן של הצורות ההנדסיות, שאנו למדים מהן על הדברים שיש לשלול ממנו יתעלה, ושלילתן מורה לנו על כמה עניינים. אשר לאסטרונומיה של הגלגלים ומדעי הטבע, איני סבור שיש לך ספק שהם נחוצים להבנת יחסו של העולם להנהגת האל כפי שהיא באמת, ולא באופן דמיוני. <br><sup>מטרה ב)</sup> ויש דברים עיוניים רבים, שאף על פי שאין נלקחות מהם הנחות יסוד לחכמה הזאת, הם מאמנים את הדעת ומקנים לה את מיומנות הבאת הראיות וידיעת האל (או: האמת) בדברים השייכים לו מהותית, ומסירים את השיבוש המצוי ברוב דעות המעיינים, המבלבלים בין הדברים המקריים לעצמיים (=מהותיים), וקלקול ההשקפות המתרחש עקב זאת. <br><sup>מטרה ג)</sup> זאת נוסף על השגת הדברים הללו כפי שהם, שאף על פי שאינם עיקר במטפיזיקה, אינם נטולי תועלות אחרות בדברים המובילים אל המדע הזה.<br><span class="mediumGrey">סדר הלימוד ויתרון המסורת והמשל</span><br><sup>6</sup> לפיכך הכרחי למי שרוצה את השלמות האנושית להתאמן תחילה בלוגיקה, ולאחר מכן במתמטיקה בהדרגה, ולאחר מכן במדעי הטבע, ולאחר מכן במטפיזיקה.</div>
+                <div class="en-cell">As for thee, thou knowest that the subjects in question are linked one to another. In truth, there is in existence naught else than God and all His works; these latter being all that existence contains besides Him (God). There is no means of perceiving God save through His works; it is they which indicate His existence and what must be believed concerning Him, I mean, what must be affirmed or denied of Him. It is therefore necessary to examine all beings in their reality, so that from each branch (of science) we may draw true and certain principles to serve us in our metaphysical researches. How many principles are there not drawn, indeed, from the nature of numbers and from the properties of geometrical figures, (principles) by which we are led to (know) certain things which we must remove from the Divinity, and the negation of which leads us to divers (metaphysical) subjects!<sup class="fn-ref" onclick="showFn('fn.279')">279</sup> As for the matters of astronomy and physics, there will be, I think, no doubt in thy mind that these are necessary things for understanding the relation of the universe to the government of God, such as it is in reality and not according to imaginations. There are also many speculative matters which, without furnishing principles for this (metaphysical) science, yet exercise the mind and cause it to acquire the art<sup class="fn-ref" onclick="showFn('fn.280')">280</sup> of demonstration and to know the truth in its essence,<sup class="fn-ref" onclick="showFn('fn.281')">281</sup> putting an end to the trouble which the confusion of accidental things with essential things generally brings forth in the minds of thinkers, as well as the false opinions resulting therefrom. Let us add to this (the advantage) of well conceiving these other subjects (of which we have just spoken), considered in themselves,<sup class="fn-ref" onclick="showFn('fn.282')">282</sup> even though they should not serve as a basis for metaphysical science. Finally, they fail not to have other advantages for certain things which lead to the attainment of this science.<sup class="fn-ref" onclick="showFn('fn.283')">283</sup> It is therefore necessary that he who desirs (to obtain) human perfection should first instruct himself in logic, then gradually in mathematics, then in the physical sciences, and after that in metaphysics.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.5">
+                <div class="he-cell">אנו מוצאים רבים שדעתם נעצרת באחד מן המדעים הללו; וגם אם דעתם אינה נרתעת, יש שהמוות מכרית אותם בעודם באחד מן הלימודים המכינים. אילו לא היינו מקבלים אף דעה במסורת (בלי חקירה), ולא היינו מונְחים לשום דבר בדרך המשל, אלא היינו צריכים להשיג באופן שלם את הגדרים העצמיים ולאמת בהוכחה את מה שרוצים לאמת, דבר שלא ייתכן אלא אחרי הלימודים המכינים הארוכים הללו – היה הדבר מביא לכך שכל בני האדם היו מתים כשאינם יודעים אם יש אלוה לָעולם או אין אלוה, כל שכן אם יש לייחס לו דבר חיובי או לשלול ממנו חסרון, ולא היה ניצל כלל מן האבדון הזה אלא <b>אֶחָד מֵעִיר וּשְׁנַיִם מִמִּשְׁפָּחָה</b> (על פי ירמיהו ג,יד).</div>
+                <div class="en-cell">It is frequently observed that many individuals confine their intellectual pursuits to a particular branch of science, and even when their minds remain unrelaxed, it often happens that death intervenes whilst they are still engaged in preliminary studies.  If, therefore, we were never to receive an opinion through the channel of traditional authority, and were never guided by allegory in any respect, but were compelled to form a perfect conception of every subject by means of essential definitions, and to admit nothing as true except through demonstration, a condition which is only possible after these prolonged preliminary studies, it would necessarily follow that mankind, in general, would perish without even knowing whether a God exists for the universe or whether none exists, and still less would they attribute to Him a government or reject from Him an imperfection<sup class="fn-ref" onclick="showFn('fn.284')">284</sup>.  No one would ever escape this calamity, except perhaps one individual in a city or (at most) two in a family<sup class="fn-ref" onclick="showFn('fn.285')">285</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.6">
+                <div class="he-cell"><sup>7</sup> ואילו היחידים, והם <b>הַשְּׂרִידִים אֲשֶׁר ה' קֹרֵא</b> (על פי יואל ג,ה), אינם משיגים את השלמות, שהיא התכלית, אלא אחרי הלימודים המכינים. וכבר הבהיר <b>שלמה</b> שהצורך בלימודים המכינים הוא הכרחי, ושאי אפשר להגיע לחכמה האמיתית אלא לאחר האימון. הוא אמר: "<b>אִם קֵהָה הַבַּרְזֶל וְהוּא לֹא פָנִים קִלְקַל וַחֲיָלִים יְגַבֵּר, וְיִתְרוֹן הַכְשֵׁיר חָכְמָה</b>" (קהלת י,י). ואמר: "<b>שְׁמַע עֵצָה וְקַבֵּל מוּסָר לְמַעַן תֶּחְכַּם בְּאַחֲרִיתֶךָ</b>" (משלי יט,כ).</div>
+                <div class="en-cell">As for those who are the remnants which the Eternal One calls<sup class="fn-ref" onclick="showFn('fn.286')">286</sup>, perfection, which is the ultimate goal, shall be truly acquired only after the preparatory studies. Solomon has already declared that the preparatory studies are absolutely necessary, and that it is impossible to attain true wisdom, unless one has exercised oneself; he said: If the iron is dulled and has not been sharpened, shall it vanquish armies? but even more preparation is required to (acquire) wisdom (Ecclesiastes, [Lat.: Chapter] 10, [Lat.: verse] 10)<sup class="fn-ref" onclick="showFn('fn.287')">287</sup>; and he said further: Heed the counsel and receive instruction, that thou mayest become wise at the end (Proverbs, [Lat.: Chapter] 19, [Lat.: verse] 20).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.7">
+                <div class="he-cell"><span class="mediumGrey">חובת ההתקדמות בהדרגה</span><br><sup>8</sup> <sup>מטרה ד)</sup> ויש הכרח אחר ללימוד הלימודים המכינים. והוא שמתחדשים לאדם ספקות רבים בעת הלימוד במהירות, והוא מבין במהירות גם את הקושיות, כלומר סתירת טיעון מסוים, כי זה דומה להריסת בניין, ואילו אישוש הטיעונים והתרת הספקות אינם מתבררים אלא על ידי הנחות יסוד רבות הנלקחות מן הלימודים המכינים הללו. וכך דומה המעיין מבלי הכנה למי שרץ ברגליו כדי להגיע למקום מסוים ונופל בדרכו לבור עמוק, שאין לו עצה לצאת ממנו עד שימות. ומוטב היה אילולא רץ, ונשאר במקומו.</div>
+                <div class="en-cell">That which further renders necessary the acquisition of preparatory knowledge is, that a multitude of doubts speedily present themselves to a man during his study, and that he perceivs with equal speed the objections—I mean, how certain assertions may be refuted (for it is in this as in the demolition of an edifice<sup class="fn-ref" onclick="showFn('fn.288')">288</sup>)—whilst one cannot well establish assertions nor resolve doubts, save by means of many principles drawn from these preparatory branches of knowledge. He, therefore, who enters upon speculation without preparatory study, is like unto one who, running with all his might to reach a place, falls by the way into a deep pit whence he has no means of egress, so that he perishes; had he abstained from running and remained in his place, he would surely have done better.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.8">
+                <div class="he-cell">וכבר הפליג שלמה במשלי בתיאור מצבם של העצלים ונרפותם, כמשל לנרפות מלימוד המדעים, ואמר לגבי תשוקתו של המשתוקק להשיג את התכליות ואינו משתדל ללמוד את הלימודים המכינים המביאים לתכליות ההן, אלא משתוקק בלבד: "תַּאֲוַת עָצֵל תְּמִיתֶנּוּ, כִּי מֵאֲנוּ יָדָיו לַעֲשׂוֹת. כָּל הַיּוֹם הִתְאַוָּה תַאֲוָה, וְצַדִּיק יִתֵּן וְלֹא יַחְשֹׂךְ" (משלי כא,כה-כו). הוא אומר שהסיבה לכך שתשוקתו הורגת אותו היא משום שאינו מתאמץ ופועל למה שישקיט את התשוקה הזו, אלא הוא מרבה להתאוות ותו לא, ותולה תקוותו במה שאין לו כלי להשיגו. . ואילו היה נמנע מאותה תשוקה, היה טוב לו יותר. התבונן בסוף המשל, כיצד הוא מבאר את ראשיתו, באומרו "וְצַדִּיק יִתֵּן וְלֹא יַחְשֹׂךְ". צדיק אינו כנגד עצל אלא על פי מה שביארנו, כי הוא אומר שהצדיק בבני האדם, הנותן לכל דבר את המגיע לו, נותן את כל זמנו ללימוד, ואינו חוסך מזמנו מאום לדברים אחרים. כאילו הוא אומר: וְצַדִּיק יִתֵּן ימיו לחכמה וְלֹא יַחְשֹׂךְ מהם, בדומה לדבריו: "אַל תִּתֵּן לַנָּשִׁים חֵילֶךָ" (משלי לא,ג).</div>
+                <div class="en-cell">Solomon, in the Proverbs, has extensively delineated the habits of the slothful and their incapacity, all of which constitutes an allegory concerning the inability to pursue knowledge; speaking of him who desires to attain the ultimate principles (of science), and who, neglecting to acquire the preparatory knowledge conducive to these ultimate principles, does nought but desire, he expresses himself thus: The desire of the sluggard kills him, for his hands refuse to labour. All the day he covets greedily: but the righteous gives and spares not (Prov., 21, 25 and 26). His meaning is that, if his desire proves fatal, the cause thereof lies in his neglect to undertake that which might assuage this desire; that, on the contrary, he does nought but ardently desire, and fixes his hopes upon that for the acquisition of which he possesses no instrument; it would, therefore, have been more expedient for him to relinquish this desire. Observe how well the conclusion of the allegory explains its commencement, by stating: but the RIGHTEOUS gives and spares not; for righteous (or pious) can only be opposed to slothful according to what we have expounded. He means, indeed, that the righteous amongst men is he who renders unto everything that which is due to it, that is to say (who dedicates) his entire time to study and reserves nothing for other pursuits; it is as if he had said: but the righteous dedicates his days to science and reserves none thereof, an expression analogous to this: Give not thy strength unto women (Ibid., XXXI, 3).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.9">
+                <div class="he-cell"><sup>9</sup> רוב המלומדים, כוונתי למפורסמים בחכמה, נגועים בחולי הזה, כלומר בקשת התכליות והדיון בהן בלי עיון בלימודים המכינים להן. יש מהם מי שהבורות או בקשת השררה מביאים אותו לכך שהוא מגנה את הלימודים המכינים שקצרה דעתו מלהשיג אותם או שהוא מתרשל בלימודם, והוא מבקש להראות שהם מזיקים או חסרי תועלת, והאמת ברורה וגלויה עם העיון.</div>
+                <div class="en-cell">The greater part of the learned—I speak of those who possess a reputation for science—are afflicted with this malady, I mean that of seeking the ultimate ends (of science) and of discoursing thereon, without occupying themselves with preparatory studies. There are some in whom ignorance and the desire for dominion reach such a point as to make them blame those preparatory branches of knowledge which they are either incapable of grasping or too slothful to study, and who endeavour to show that they are injurious or (at the least) useless; but, when one reflects thereon, the truth is clear and manifest<sup class="fn-ref" onclick="showFn('fn.289')">289</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.10">
+                <div class="he-cell"><span class="mediumGrey">הסיבה הרביעית: הצורך היסודי בעיצוב מידות אופי טובות</span><br><sup>10</sup> הסיבה הרביעית היא ההכנות הטבעיות. כי התבאר ואף הוכח שהמידות הנעלות הן הכנות למעלות השכליות, ואין אפשרות להשיג מעלות שכליות אמיתיות, כלומר מושכלות שלמים, אלא לאדם שהכשיר עצמו מאוד במידות, שליו ומיושב.<br><sup>11</sup> יש בריות רבות שמטבע בריאתן יש במזגן תכונה שלא תיתכן איתה שלמות בשום אופן. כגון מי שהוא מטבעו בעל לב חם מאוד וחזק, שהרי אינו יכול להימלט מן הכעס, אף אם אימן את עצמו הרבה. וכגון מי שמזג אשכיו חם ורטוב, והם בנויים חזק, וכלי הזרע מרבים לייצר זרע, שיש לאדם זה סיכוי קלוש להיות פרוש (בתחום המיני) גם אם יאמן את עצמו תכלית האימון. וכן אתה מוצא אנשים פזיזים וקלי דעת שתנועותיהם תזזיתיות מאוד ולא מסודרות, המעידות על הרכב קלוקל ומזג רע שלא יתואר. ובאלה לא תֵירָאה שלמות לעולם, ותהיה זאת טיפשות גמורה להשתדל ללמד אותם בתחום הזה, משום שכידוע לך המדע הזה אינו מדע הרפואה ולא מדע הגאומטריה, ואין כל אדם מוכן אליו מן הבחינות שאמרנו, מפני שהכרחי להקדים לו את הכנת מידות האופי כדי שיהיה האדם בתכלית היושר והשלמות, "<b>כִּי תוֹעֲבַת ה' נָלוֹז, וְאֶת יְשָׁרִים סוֹדוֹ</b>" (משלי ג,לב).<br><span class="mediumGrey">געש הנעורים</span><br><sup>12</sup> לכן גנאי הוא ללמד אותו לבחורים, ואף אין הם יכולים לקבל אותו בשל רתיחת טבעיהם והתעסקות דעתם בשלהבת ההתבגרות, עד שתדעך אותה שלהבת הגורמת למבוכה, ויהיו שקטים ומיושבים, וייכנע לבם ויישפל מבחינת המזג, ואז יעוררו את עצמם למדרגה הזאת, שהיא השגתו יתעלה, כלומר המדע האלוהי (=המטפיזיקה) המכונה "<b>מעשה מרכבה</b>".<br><span class="mediumGrey">הצורך בשפלות הלב</span><br><sup>13</sup> נאמר: "<b>קָרוֹב ה' לְנִשְׁבְּרֵי לֵב</b>" (תהילים לד,יט). ונאמר: "<b>מָרוֹם וְקָדוֹשׁ אֶשְׁכּוֹן וְאֶת דַּכָּא וּשְׁפַל רוּחַ, [</b>לְהַחֲיוֹת רוּחַ שְׁפָלִים וּלְהַחֲיוֹת לֵב נִדְכָּאִים]" (ישעיהו נז,טו).</div>
+                <div class="en-cell">The <small>FOURTH CAUSE</small> is to be found in the natural dispositions; for it has been set forth and even demonstrated that the moral virtues are preparatory for the rational virtues<sup class="fn-ref" onclick="showFn('fn.290')">290</sup>, and that the acquisition of true rational virtues—by which I mean perfect intelligible notions—is possible only unto a man who has well disciplined his morals and is calm and composed. There be many who possess, from their origin, a disposition of temperament wherewith no moral improvement is possible. He, for instance, who by nature has a heart of an exceedingly hot temperature<sup class="fn-ref" onclick="showFn('fn.291')">291</sup> cannot refrain from being violent, even though he should exert the greatest efforts upon himself<sup class="fn-ref" onclick="showFn('fn.292')">292</sup>; and he whose testicles are of a hot and moist temperament and strongly constituted, and whose seminal vessels produce much sperm, shall hardly be able to remain chaste, even though he should make extreme efforts upon himself. Likewise, thou shalt find certain men full of levity and thoughtlessness, whose very agitated and disordered movements indicate a vicious complexion and a bad temperament of which no account can be rendered<sup class="fn-ref" onclick="showFn('fn.293')">293</sup>. In such as these, perfection shall never be seen, and to occupy oneself with them in this matter<sup class="fn-ref" onclick="showFn('fn.294')">294</sup> would be pure folly on the part of him who should do so; for this science, as thou knowest, is neither medicine nor geometry, and, for the reasons we have stated, not everyone is prepared for it. It must therefore be preceded by moral preparations, so that man may attain to extreme rectitude and perfection; <i>for the froward is abomination to the Lord: but His secret is with the righteous</i> (Prov. iii. 32). This is why it is deemed ill to teach it to young men; for even these cannot receive it—having a boiling nature and a preoccupied mind, by reason of the flame of youth—until that flame which troubls them be extinguished, and they have obtained calm and tranquillity, and their heart has become humble and submissive by temperament. It is then that they will themselves desire to rise to that high degree<sup class="fn-ref" onclick="showFn('fn.295')">295</sup> which is the perception of God, I mean the science of metaphysics which has been designated by the name of <i>Ma’asé mercabâ</i><sup class="fn-ref" onclick="showFn('fn.296')">296</sup>, as Scripture says: <i>The Lord is nigh unto them that are of a broken heart</i> (Ps. xxxiv. 18) and elsewhere: <i>I dwell</i> (<i>in the</i>) <i>high and holy place, and with him also that is of a contrite and humble spirit, etc.</i> (Isaiah lvii. 15).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.11">
+                <div class="he-cell">ולכן אמרו ב<b>תלמוד</b> (בבלי, חגיגה יג,א) על דבריהם "<b>מוסרים לו ראשי הפרקים</b>", כך: "<b>אין מוסרין ראשי הפרקים אלא לאב בית דין, והוא שלבו דואג בקרבו</b>". והכוונה בזאת היא להכנעה ולשפלות רוח וליראת שמים יתרה, בנוסף לחכמה.</div>
+                <div class="en-cell">It is for this reason that in the Talmud, concerning these words: <i>the first elements thereof shall be transmitted to him</i>, they (the Doctors) say<sup class="fn-ref" onclick="showFn('fn.297')">297</sup>: “They do not transmit even the first elements, save to a president of a tribunal, and only if he has a heart of affliction<sup class="fn-ref" onclick="showFn('fn.298')">298</sup>;” and by this is meant humility, submission, and great piety joined to science.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.12">
+                <div class="he-cell"><span class="mediumGrey">יועץ, חכם חרשים ונבון לחש</span><br><sup>14</sup> ושם נאמר: "<b>אין מוסרין סתרי תורה אלא ליועץ וחכם חרשים ונבון לחש</b>". ולדברים האלה יש הכרח בהכנה טבעית. הרי אתה יודע שיש בבני האדם מי שהוא בעל כושר ייעוץ חלש מאוד, גם אם הוא בעל יכולת ההבנה הטובה ביותר. ויש מהם מי שיש לו עצה (=דעה) נכונה ויכולת הנהגה טובה בענייני מדיניות, והוא הנקרא "<b>יועץ</b>", אבל אינו מבין אף מושכל, גם לא הקרוב למושכלות הראשונים, אלא הוא טיפש מאוד, ואין עצה תחבולה: "<b>לָמָּה זֶּה מְחִיר בְּיַד כְּסִיל, לִקְנוֹת חָכְמָה וְלֶב אָיִן</b>" (משלי יז,טז). ויש אדם מבין ופיקח מטבעו, המסוגל להביע את העניינים הנסתרים ביותר בקצרה ובדיוק, והוא הנקרא "<b>נבון לחש</b>", אלא שלא התעסק במדעים ולא קנה אותם. ומי שיש בידו מדעים שנקנו בפועל, הוא הנקרא "<b>חכם חרשים</b>". אמרו: "<b>כיון שמדבר נעשו הכל כחֵרְשים</b>".</div>
+                <div class="en-cell">In the same place it is said: “They transmit the secrets of the Torah only to <i>a man of counsel, a wise thinker, and one who expresses himself with intelligence</i><sup class="fn-ref" onclick="showFn('fn.299')">299</sup>;” and these are qualities for which a natural disposition is indispensable. Knowest thou not that there are people very weak in giving an opinion, although very intelligent, whilst there is another who has a sound judgment and who knows well how to direct political affairs? It is such a one who is called <span dir="rtl">יועץ</span>, <i>a man of counsel;</i> nevertheless, he might not understand an <i>intelligible</i> thing<sup class="fn-ref" onclick="showFn('fn.300')">300</sup>, even should it approach the first notions<sup class="fn-ref" onclick="showFn('fn.301')">301</sup>, and he might even in this respect be very stupid and without any resource: <i>Wherefore is there a price in the hand of a fool to get wisdom, seeing he has no heart to it?</i> (Prov. xvii. 16). There is another who is intelligent, of a natural penetration, and who masters the most obscure subjects, expressing himself with conciseness and accuracy<sup class="fn-ref" onclick="showFn('fn.302')">302</sup>—and it is he who is called <span dir="rtl">נכון לחש</span>, <i>one who expresses himself with intelligence</i>—but who has not laboured and has not acquired the sciences. But he who has acquired the sciences <i>in act</i> is he who is called <span dir="rtl">חכם חרשים</span>, <i>a wise thinker</i>. “When he speaks,” say the Doctors, “all become as if they were dumb<sup class="fn-ref" onclick="showFn('fn.303')">303</sup>.”</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.13">
+                <div class="he-cell">התבונן כיצד התנו בלשון הכתוב את <br><sup>א)</sup> שלמות האדם בהנהגה המדינית <br><sup>ב)</sup> ובמדעים העיוניים, <br><sup>ג)</sup> יחד עם פיקחות טבעית והבנה וטוב הבעה במסירת עניינים ברמז, ואז <b>מוסרין לו סתרי תורה</b>.</div>
+                <div class="en-cell">Observe well how they have laid down as a condition, making use of a sacred text<sup class="fn-ref" onclick="showFn('fn.304')">304</sup>, that the person be perfectly versed in social government and in the speculative sciences, and possess, in addition thereto, natural penetration, intelligence, and a good elocution to present the subjects in such a manner as to afford a glimpse of them; and it is only then that <i>they transmit to him the secrets of the Torah</i>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.14">
+                <div class="he-cell"><sup>15</sup> ושם נאמר: "<b>אמר ליה ר' יוחנן לר' אלעזר: תא לגמרך מעשה מרכבה</b> (=אמר לו ר' יוחנן לר' אלעזר: בוא נלמדך מעשה מרכבה). <b>אמר ליה: אכתי</b> (=אמר לו: עדיין) <b>לא קשאי</b>", כלומר לא זקנתי, ועדיין יש בי רתיחת הטבע ופזיזות הנעורים. ראה נא כיצד התנו גם את הגיל בנוסף על אותן מעלות. ואיך אפשר יחד עם זה לעסוק בדברים הללו עם המון בני האדם כולם, <b>טף ונשים</b>?</div>
+                <div class="en-cell">In the same place it is said: “R. Johanan having said to R. Eleazar: Come, let me teach thee the <i>Ma’asé mercabâ</i>, the latter replied: <span dir="rtl">אכתי לא קשאי</span>,” which signifies: <i>I am not yet old</i>, and I find myself still of a boiling nature and with the levity of youth. Thou seest, therefore, that they have also made age a condition, joined to those virtues of which we have just spoken; and how then could one engage in this matter with the commonalty of men, children, and women?</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.15">
+                <div class="he-cell"><span class="mediumGrey">הסיבה החמישית: הצורך להתפנות מטרדת הצרכים הארציים</span><br><sup>16</sup> הסיבה החמישית: העיסוק בצורכי הגוף, שהם השלמות הראשונה, בפרט אם נוסף עליהם העיסוק באישה ובילדים, כל שכן אם מצטרפת לזה בקשת מותרות החיים הנקנית כתכונה מושרשת בהתאם להתנהגות ולהרגלים הרעים. שאפילו האדם השלם, כמו שאמרנו, אם ירבה להתעסק בדברים ההכרחיים הללו, וכל שכן שאינם הכרחיים, ותגבר תשוקתו אליהם, ייחלשו וישקעו תשוקותיו העיוניות, ובקשתו אותן תהיה ברפיון ובהתרשלות ובמיעוט תשומת לב, וכך לא ישיג מה שבכוחו להשיג, או שישיג השגה משובשת שיש בה תערובת של השגה וקוצר יד מלהשיג.</div>
+                <div class="en-cell">The <small>FIFTH CAUSE</small> is found in the occupations necessitated by the wants of the body, which constitute the <i>first perfection</i><sup class="fn-ref" onclick="showFn('fn.305')">305</sup>, especially when thereunto is joined the care for wife and children, and above all when there is added the pursuit of the superfluities of life, which, through custom and evil habits, become a potent natural necessity<sup class="fn-ref" onclick="showFn('fn.306')">306</sup>. Verily, even the perfect man, such as we have described, when he occupies himself much with these necessary things, and a fortiori when he concerns himself with things not necessary and desirs them with ardor, his speculative aspirations wax weak and are submerged; he seeks them no longer save with lukewarmness and slackness and with little solicitude; and then he perceivs not even that which he has the faculty to perceive, or else he has a confused perception, mingled of apprehension and incapacity.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..33.16">
+                <div class="he-cell"><span class="mediumGrey">סיכום</span><br><sup>17</sup> מכל הסיבות הללו, הדברים האלה מתאימים לעילית שביחידי הסגולה, לא להמון, ולכן הם מוסתרים מן המתחילים, ונאסר עליהם לעסוק בזה, כשם שמונעים מילדים קטנים לאכול מאכלים גסים ולשאת משאות כבדים.</div>
+                <div class="en-cell">It is by reason of all these causes that the subjects in question befit but a very small number of the select few, and not the vulgar; wherefore they must be hidden from the beginner and he must be restrained from approaching them<sup class="fn-ref" onclick="showFn('fn.307')">307</sup>, even as a young child is prevented from taking coarse food and from lifting heavy weights.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.276" style="display: none;">
+                <strong>Note 276:</strong> See above, chap. XXX, towards the end.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.277" style="display: none;">
+                <strong>Note 277:</strong> These words are attributed to R. Siméon ben-Io’haï. See Talmud of Babylon, tractate [[t:0]]Succâ[[t:1]], fol. 45 [[t:2]]b; Sanhedrin[[t:3]], fol. 97 [[t:4]]b[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.278" style="display: none;">
+                <strong>Note 278:</strong> The commentators thus explain these latter questions: If the soul of man is separable from the body and exists after death as a [[t:0]]separate[[t:1]] substance, then 1° [[t:2]]how[[t:3]] is this existence, that is, does the soul of each man exist [[t:4]]individually[[t:5]], or do all souls form only [[t:6]]one single substance?[[t:7]] 2° [[t:8]]by what means[[t:9]] does it attain immortality? Is it through philosophical speculation, or through the practice of religious precepts? And finally 3° [[t:10]]to what end[[t:11]], that is, what is the outcome of the soul's permanence? Is it union with [[t:12]]the active intellect[[t:13]], or union with God? Indeed, these are the questions that have primarily occupied the Arab Peripatetics, and which have given rise to interminable discussions among both Arab philosophers and Scholastics.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.279" style="display: none;">
+                <strong>Note 279:</strong> Ibn-Falaquera cites as an example, among numbers, [[t:0]]the unit[[t:1]], and among geometric figures, [[t:2]]the circle[[t:3]]. All the powers and roots of the number [[t:4]]one[[t:5]] are [[t:6]]one[[t:7]], and this number gives us the idea of that which cannot be either multiplied or divided without ceasing to be what it is. It is the same with the circle; for the circumference, the image of the unit, cannot be either increased or diminished without ceasing to be a circumference, whereas a straight line can be increased and diminished while remaining a straight line. Thus, the number [[t:8]]one[[t:9]] and the [[t:10]]circumference[[t:11]] give us the idea of absolute unity, excluding the ideas of the multiple and the divisible, which we must exclude from the Divinity. If the author particularly insists on what [[t:12]]we must exclude from the Divinity[[t:13]], it is to be remembered that, according to him, the attributes of God must be expressed by [[t:14]]negations[[t:15]], and that he insists on the [[t:16]]negative attributes[[t:17]] ([[t:18]]אלסואלב[[t:19]]), in order to establish, in its greatest purity, the principle of the unity of God. See below, chapter LVIII [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.280" style="display: none;">
+                <strong>Note 280:</strong> [[t:0]]מלכה̈[[t:1]] signifies an [[t:2]]inherent quality[[t:3]]; the author means that, through these speculative matters, the mind becomes accustomed to the art of demonstration, which becomes, in a sense, an inherent faculty of its nature.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.281" style="display: none;">
+                <strong>Note 281:</strong> [[t:0]]In the expression al-dātiyya [[t:1]]literally: [[t:2]]by the things that are essential to it;[[t:3]] the suffix in [[t:4]]lahu[[t:5]] refers, in my opinion, to [[t:6]]al-ḥaqq[[t:7]], [[t:8]]the truth[[t:9]], and it is incorrect, it seems to me, that some commentators of Ibn Tibbon's version relate the pronoun [[t:10]]it[[t:11]] to [[t:12]]the demonstration[[t:13]]. The author means that these speculative things (by which he means the different branches of logic) serve to distinguish, in the truth to be demonstrated, what is [[t:14]]essential[[t:15]] and what is merely [[t:16]]accidental[[t:17]]. Al-Ḥarīzī translates: [[t:18]]maʿānīn ha-morim ʿal ʿeṣem ha-borā[[t:19]], [[t:20]]by the things that indicate the essence of the Creator[[t:21]], relating the pronoun [[t:22]]it[[t:23]] to the word God or [[t:24]]Creator[[t:25]], which would be implied; but his translation does not offer a satisfactory meaning and seems to me to be entirely inadmissible (cf. above, chap. XXXIII, page 117, at the end of note 4 of the previous page).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.282" style="display: none;">
+                <strong>Note 282:</strong> This passage is somewhat obscure; one opines that, by the words [[t:0]]תלך אלאמור[[t:1]], the author intends to designate [[t:2]]the matters of astronomy and physics[[t:3]] ([[t:4]]אמור אלהיאה̈ אלפלכיה̈ ואלעלם אלטביעי[[t:5]]) of which he has just spoken. He means that the study of the various parts of logic also contributes, by rectifying the judgement and by rendering ideas more precise, to a better comprehension of the subjects of astronomy and physics, and to their being viewed from their true perspective. Indeed, these sciences presuppose the general notions acquired through logic, such as the notions of [[t:6]]substance[[t:7]], of [[t:8]]accident[[t:9]], of [[t:10]]the necessary[[t:11]], of [[t:12]]the possible[[t:13]], etc., as well as the knowledge of syllogism and demonstration.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.283" style="display: none;">
+                <strong>Note 283:</strong> That is to say, in addition to the advantages enumerated, the aforementioned [[t:0]]speculative things[[t:1]] have others relative to certain things by which we arrive at metaphysical sciences. This passage also lacks clarity, and no commentator, to my knowledge, has provided an explanation. The author, in stating that logic has the advantage of making known things more directly related to metaphysics, is alluding, it seems to me, to the ontological nature of categories and various other subjects treated in the [[t:2]]Organon[[t:3]] of Aristotle. Cf. above, p. 27, V[[t:4]]e[[t:5]] cause, and note 2 [[fn:2]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.284" style="display: none;">
+                <strong>Note 284:</strong> The author means that men, not even knowing if God exists, would know even less what to accept or not accept regarding Him; for example, whether to attribute to Him the governance of the world, whether to remove from Him all sorts of imperfection, and other similar questions. The Arab word [[t:0]]חכם[[t:1]] that we have rendered by [[t:2]]governance[[t:3]] is somewhat vague; the two Hebrew translators have rendered it by [[t:4]]דבר[[t:5]], [[t:6]]something[[t:7]], which is inaccurate and offers little sense; however, in a manuscript of Ibn-Tibbon's version (Oratoire fonds, n° 46) we read [[t:8]]דין[[t:9]] [[t:10]]judgment[[t:11]]. The word [[t:12]]حكم[[t:13]] indeed means [[t:14]]judgment[[t:15]], or [[t:16]]regime, governance[[t:17]]; the author having just used the expression: [[t:18]]if there is a God for the universe[[t:19]] or [[t:20]]the world[[t:21]], we believe he intended to speak here of God's intervention in the governance of the world[[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.285" style="display: none;">
+                <strong>Note 285:</strong> The author refers to the words of Jeremiah, chap. 3, [[t:0]]V[[t:1]]. 14.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.286" style="display: none;">
+                <strong>Note 286:</strong> That is to say, the small number of the elect; these words are taken from the book of Joel, chapter 3, [[t:0]]V[[t:1]]. 5.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.287" style="display: none;">
+                <strong>Note 287:</strong> We have translated this verse in the sense that Maimonides appears to attribute to it.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.288" style="display: none;">
+                <strong>Note 288:</strong> The author means that doubts and objections present themselves promptly to the mind, just as the demolition of a building constructed with much effort occurs easily and with promptness.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.289" style="display: none;">
+                <strong>Note 289:</strong> That is to say, for one who reflects on it well, it is evident that preparatory studies are necessary.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.290" style="display: none;">
+                <strong>Note 290:</strong> On the division [[t:0]]of virtues[[t:1]] ([[t:2]]ἀρεταί[[t:3]]) into [[t:4]]moral[[t:5]] ([[t:6]]ἠθιϰαί[[t:7]]) and [[t:8]]rational[[t:9]] or [[t:10]]intellectual[[t:11]] ([[t:12]]διανοητιϰαί[[t:13]]) ones, and on their mutual relationships, see Aristotle, [[t:14]]Nicomachean Ethics[[t:15]], book I, chapter 13; book II, chapter 1 and following; book VI, chapter 2. Also compare what Maimonides himself says in this regard in the [[t:16]]Eight Chapters[[t:17]], placed at the beginning of his commentary on the treatise [[t:18]]Abôth[[t:19]]; in chapter II, it is written: "The virtues are of two species, [[t:20]]moral virtues[[t:21]] ([[t:22]]פצׄאיל כׄלקיה̈[[t:23]]) and [[t:24]]rational virtues[[t:25]] ([[t:26]]פצׄאיל נטקיה̈[[t:27]]), and opposed to them are two species of vices, etc." See Pococke's [[t:28]]Porta Mosis[[t:29]], p. 191.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.291" style="display: none;">
+                <strong>Note 291:</strong> Instead of [[t:0]]קויא[[t:1]], the MSS. generally bear [[t:2]]קוי[[t:3]], and the two Hebrew translators have considered this word as an adjective; but the concern here is solely with the [[t:4]]heat of the heart[[t:5]] and by no means with [[t:6]]force[[t:7]]. One prefers to read [[t:8]]קויא[[t:9]], as one MS. bears, and one considers this word as an adverb; the words [[t:10]]ג֯דא קויא[[t:11]] signify [[t:12]]very strongly[[t:13]]. The reading of [[t:14]]קוי[[t:15]] which most MSS. present does not oppose this interpretation; for it is known that the [[t:16]]א[[t:17]] of the adverbial accusative is often omitted in the MSS.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.292" style="display: none;">
+                <strong>Note 292:</strong> Literally: [[t:0]]when he had exercised himself in the greatest exercise[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.293" style="display: none;">
+                <strong>Note 293:</strong> That is, something that cannot be explained with precision and escapes analysis.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.294" style="display: none;">
+                <strong>Note 294:</strong> That is, from metaphysics.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.295" style="display: none;">
+                <strong>Note 295:</strong> Literally: [[t:0]]They will raise or they will stir up their souls to that degree[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.296" style="display: none;">
+                <strong>Note 296:</strong> See above, p. 9.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.297" style="display: none;">
+                <strong>Note 297:</strong> Voy. Talm. of Bab., treatise [[t:0]]’Haghigâ[[t:1]], fol. 13 [[t:2]]a;[[t:3]] cf. above, p. 9.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.298" style="display: none;">
+                <strong>Note 298:</strong> That is, to a man who has both gravity and humility. Instead of [[t:0]]והוא[[t:1]] our editions of the Talmud read [[t:2]]ולכל מי[[t:3]]; according to this reading, it should be translated: [[t:4]]and to all those who have a troubled heart[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.299" style="display: none;">
+                <strong>Note 299:</strong> These words, taken from Isaiah, chapter 3, [[t:0]]V[[t:1]]. 3, had to be translated here in the sense of the Talmudists, which will be explained.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.300" style="display: none;">
+                <strong>Note 300:</strong> That is, a thing that belongs to the domain of intelligence and philosophical thought.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.301" style="display: none;">
+                <strong>Note 301:</strong> [[t:0]]אלמעקולאת אלאוול[[t:1]]  ([[t:2]]intelligibilia prima[[t:3]]) are the [[t:4]]first notions[[t:5]] or the [[t:6]]axioms[[t:7]] that do not require demonstration.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.302" style="display: none;">
+                <strong>Note 302:</strong> According to the two Hebrew versions, one ought to translate: [[t:0]]who is capable of concealing[[t:1]] or [[t:2]]of enveloping the subjects, by expressing oneself etc.[[t:3]]; instead of [[t:4]]אכפי (أَخْفَى)[[t:5]], the two translators have read [[t:6]]אִכְפָא (إِخْفَاءٌ)[[t:7]], as some MSS. have it; the sense would then be: and who knows, by his intelligent discourse, to present the subjects in such a manner as to [[t:8]]envelop[[t:9]] that which ought to remain hidden from the vulgar.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.303" style="display: none;">
+                <strong>Note 303:</strong> See [[t:0]]’Haghigâ[[t:1]], fol. 14 [[t:2]]a;[[t:3]] the rabbis play on the word [[t:4]]חָרָשִׁים[[t:5]] ([[t:6]]men of genius, artists[[t:7]]) that they pronounce [[t:8]]חֵרְשִׁים[[t:9]] ([[t:10]]deaf, deaf-mutes[[t:11]]). When the scholar speaks, they say, all become like mute and have nothing to respond to him.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.304" style="display: none;">
+                <strong>Note 304:</strong> [[t:0]]בנץ כתאב[[t:1]], literally: [[t:2]]by the text of a book[[t:3]] ([[t:4]]sacred[[t:5]]). Ibn-Tibbon translates: [[t:6]]בספריהם[[t:7]] [[t:8]]in their books;[[t:9]] but Al-’Harizi: [[t:10]]מדברי הכתוב[[t:11]], [[t:12]]by the words of the Scripture[[t:13]], and, according to him, the author would be alluding to the text of Isaiah from which the words in question are borrowed, an opinion that seems plausible to us.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.305" style="display: none;">
+                <strong>Note 305:</strong> See the III[[t:0]]rd[[t:1]] part of this work, chap. XXVII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.306" style="display: none;">
+                <strong>Note 306:</strong> On the word [[t:0]]מלכה̈[[t:1]], see above, p. 121, note 2; [[t:2]]מלכה̈ מתמכנה̈[[t:3]] signifies [[t:4]]a natural quality firmly established[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.307" style="display: none;">
+                <strong>Note 307:</strong> The version of Ibn-Tibbon adds here the words [[t:0]]מי שאינו ראוי להם[[t:1]], which are not expressed in our Arabic text.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

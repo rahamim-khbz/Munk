@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 28 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 28</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.0">
+                <div class="he-cell"><b>המונח רגל</b><br><span class="mediumGrey">שלוש משמעויות</span><br><sup>1</sup> "<b>רגל</b>" הוא מונח רב־משמעי. <br><sup>א)</sup> הוא שמה של הרגל: "<b>רֶגֶל תַּחַת רָגֶל</b>" (שמות כא,כד). <br><sup>ב)</sup> יש לו גם משמעות של הליכה בעקבות: "<b>צֵא אַתָּה וְכָל הָעָם אֲשֶׁר בְּרַגְלֶיךָ</b>" (שמות יא,ח), כלומר ההולכים בעקבותיך. <br><sup>ג)</sup> יש לו גם משמעות של סיבתיות: "<b>וַיְבָרֶךְ ה' אֹתְךָ לְרַגְלִי</b>" (בראשית ל,ל) – בסיבתי, כלומר בגללי; כי דבר שהוא בגלל דבר־מה, הרי אותו דבר־מה הוא סיבה לדבר. זהו שימוש נפוץ: "[וַאֲנִי אֶתְנָהֲלָה לְאִטִּי] <b>לְרֶגֶל הַמְּלָאכָה אֲשֶׁר לְפָנַי וּלְרֶגֶל הַיְלָדִים</b>" (בראשית לג,יד).</div>
+                <div class="en-cell">Reghel (רגל) is an homonymous term. It is (primarily) the name of the foot; e.g., רגל תחת רגל, foot for foot (Exodus, xxi, 24); but it is also found in the sense of following; e.g., Get thee out, and all the people that follow thee (ברגליך) (Ibid., xi, 8), that is to say: who follow thee. It is likewise met with in a sense of causality; e.g., And the Lord has blessed thee since my coming (לרגלי) (Genesis, xxx, 30), that is to say, by my cause or for my sake, for that which is done for the sake of a certain thing has the latter for its cause. It is often thus employed; e.g., According to the pace or because (לרגל) of the cattle that goes before me and because (לרגל) of the children (Genesis, xxxiii, 14).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.1">
+                <div class="he-cell"><sup>2</sup> לפיכך הכוונה בדבריו "<b>וְעָמְדוּ רַגְלָיו בַּיּוֹם הַהוּא עַל הַר הַזֵּיתִים</b>" (זכריה יד,ד) היא קיום סיבותיו, כלומר הנפלאות שיופיעו אז באותו מקום, שהוא יתעלה הסיבה להן, כלומר העושה אותן. לפירוש (שלא כפשוטו) זה כיוון <b>יונתן בן עֻזיאל</b> עליו השלום, שאמר: "<b>וְיִתְגְּלֵי בִגְבוּרְתֵיהּ בְּיוֹמָא הַהוּא עַל טוּר זֵיתַיָּא</b>" (=ויתגלה בגבורתו ביום ההוא על הר הזיתים). כך הוא מתרגם כל אבר של ביצוע ושל מעבר מקום "<b>גבורתיה</b>", כי הכוונה בכולם היא המעשים הנובעים מרצונו.</div>
+                <div class="en-cell">Thus, by these words: And His feet (רגליו) shall stand in that day upon the mount of Olives (Zechariah, xiv, 4), it is meant that His causes shall subsist, to wit, the miracles which shall then be manifested in that place, and of which God is the cause, I mean the author<sup class="fn-ref" onclick="showFn('fn.213')">213</sup>. It is this interpretation which Jonathan ben Uziel had in view when he said (in his Chaldee paraphrase): He shall manifest Himself in His power, in that day, upon the mount of Olives; and in like manner he translats by גבורתיה, His power, all (the words designating) the members<sup class="fn-ref" onclick="showFn('fn.214')">214</sup> (which are used) for grasping or for moving from place to place, for they generally designate the acts which emanate from His will.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.2">
+                <div class="he-cell"><span class="mediumGrey">הסברו של אונקלוס לפסוק "ותחת רגליו"</span><br><sup>3</sup> אשר לדבריו "[וַיִּרְאוּ אֵת אֱלֹהֵי יִשְׂרָאֵל] <b>וְתַחַת רַגְלָיו כְּמַעֲשֵׂה לִבְנַת הַסַּפִּיר</b> [וּכְעֶצֶם הַשָּׁמַיִם לָטֹהַר]" (שמות כד,י), פירוש <b>אנקלוס</b> בהם הוא, כידוע לך, שהוא ייחס את כינוי הגוף ב"<b>רגליו</b>" אל ה<b>כסא</b>, ואמר: "<b>וּתְחוֹת כּוּרְסֵי יְקָרֵיהּ</b>" (=ותחת כיסא כבודו).<br><sup>4</sup> הבן ותתפעל כיצד הרחיק <b>אנקלוס</b> מן ההגשמה ומכל מה שמביא אליה אפילו בדרך הרחוקה ביותר. כי הוא לא אמר "<b>ותחות כורסיה</b>" (=ותחת כיסאו), משום שאילו היה מייחס לו את ה<b>כסא</b> במשמעות המובנת בתחילה, היה הדבר מחייב שהוא נח על גוף, והיתה מתחייבת מכך הגשמות. לפיכך ייחס את ה<b>כסא</b> ל"<b>יקָרֵיהּ</b>" (=כבודו), כלומר ל<b>שכינה</b>, שהיא אור נברא.</div>
+                <div class="en-cell">As for these words: <i>And under his feet</i> (<span dir="rtl">רגליו</span>) <i>there was as it were a work of the brilliance of sapphire</i> (Exodus 24:10), Onkelos, as you know, interprets them in such a way as to consider the pronoun in <span dir="rtl">רגליו</span> (<i>his</i> feet) as referring to the word <span dir="rtl">כסא</span>, <i>throne</i> (which would be implied)<sup class="fn-ref" onclick="showFn('fn.215')">215</sup>; for he translates: <span dir="rtl">ותחות כורסי יקריה</span>, <i>and under the throne of his glory</i>. This must be understood, and you will be astonished (to see) how far Onkelos remains from the corporealization (of God) and from everything that can lead to it in even the most remote manner; for he does not say: <i>and under his throne</i>, because if one attributed the throne to (God) Himself, in the sense that would be seen at first glance, it would follow that God is established<sup class="fn-ref" onclick="showFn('fn.216')">216</sup> upon a body, and corporealization would result; he therefore attributes the <i>throne</i> to <i>His glory</i>, I mean to the <i>Shekhinah</i>, which is a <i>created light</i><sup class="fn-ref" onclick="showFn('fn.217')">217</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.3">
+                <div class="he-cell">וכך אמר ב<b>תרגום</b> "<b>כִּי יָד עַל כֵּס יָהּ</b>" (שמות יז,טז); אמר: "<b>מִן קֳדָם אֱלָהָא דִשְׁכִינְתֵיהּ עַל כּוּרְסֵי יְקָרָא</b>" (=מלפני האלוה ששכינתו על כיסא הכבוד). וכך אתה מוצא שגור בפי כל האומה: "<b>כסא הכבוד</b>".</div>
+                <div class="en-cell">He expresses himself after the same manner in the translation of the words: <i>Because the hand</i> (<i>is placed</i>) <i>upon the Throne of God</i> (Exodus, xvii. 16), where he says: «…from before God, whose Majesty rests upon <i>the Throne of His Glory</i>.» Thou findest likewise in the language of the whole Jewish nation the term <span dir="rtl">כסא הכבוד</span>, <i>Throne of Glory</i>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.4">
+                <div class="he-cell">יצאנו ממטרת הפרק לדבר שיתבאר בפרקים אחרים (א,סד; א,ע), ואחזור אל מטרת הפרק.</div>
+                <div class="en-cell">But we have digressed from the theme of this chapter to touch upon a matter which shall be explained in other chapters.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.5">
+                <div class="he-cell"><sup>5</sup> את פירושו של <b>אנקלוס</b> (לפסוק "ויראו את אלהי ישראל" וכו') אתה מכיר כבר, אבל כל מה שעשה הוא לשלול את הגשמות, ואין הוא מבאר לנו איזה דבר השיגו, ולא מה הכוונה במשל זה. וכך בכל מקום אין הוא עוסק בנושא המדובר (=במשמעות הפסוק) אלא בשלילת הגשמות בלבד, משום ששלילת הגשמות היא דבר מוכח והכרחי באמונה, ולפיכך הוא קובע את שלילת הגשמות ומתרגם בהתאם לה. ואילו ביאור משמעות המשל תלוי בסברה: אפשר שדבר זה הוא הכוונה ואפשר שדבר אחר. בנוסף, הם דברים נסתרים מאוד, והבנתם אינה מיסודות האמונה, וגם השגתם אינה קלה להמון, ולכן לא התעסק בעניין הזה.</div>
+                <div class="en-cell">I return, then, to the subject of the chapter. You know, I say, the manner in which Onkelos interprets (the passage in question); but the principal aim for him is to exclude corporealization, and he does not explain to us what they perceived<sup class="fn-ref" onclick="showFn('fn.218')">218</sup> nor what was intended by this allegory. Likewise, in all passages (of this nature), he does not address that question at all<sup class="fn-ref" onclick="showFn('fn.219')">219</sup>; rather, he limits himself to excluding corporealization, for that is a demonstrable thing, necessary in religious faith; he does so, therefore, in an absolute manner<sup class="fn-ref" onclick="showFn('fn.220')">220</sup>, and expresses himself accordingly. As for the explanation of the meaning of the allegory, it is a matter of opinion; for the aim (of the allegory) could be this thing or another. These are also very obscure subjects, the understanding of which is not part of the foundations of the Faith, and which the vulgar do not easily grasp; that is why he does not engage in this question.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.6">
+                <div class="he-cell"><span class="mediumGrey">הסברו של הרמב"ם לפסוק</span><br><sup>6</sup> ואולם אנחנו, בהתאם למטרת החיבור, אין לי מנוס מלפרש דבר־מה. ואומר, שהכוונה בדבריו "<b>תחת רגליו</b>" היא בסיבתו ובגללו, כמו שביארנו. ומה שהשיגו הוא אמיתת החומר הראשון, שהוא מאתו יתעלה והוא סיבת מציאותו. התבונן בדבריו "<b>כמעשה לבנת הספיר</b>": אילו היתה הכוונה לצבע, היה אומר '<b>כלבנת הספיר</b>'. הוא הוסיף "<b>מעשה</b>" משום שכידוע לך החומר הוא מקבל תמיד (=סביל), ונפעל מצד עצמותו, ואין לו פעולה אלא במקרה (=בתכונה בלתי מהותית); כשם שהצורה פועלת תמיד בעצמותה (=במהותה), ונפעלת במקרה, כפי שהתבאר בספרי הטבע (אריסטו פיזיקה א,ט); ולכן אמר עליו "<b>כמעשה</b>". ואילו "<b>לבנת הספיר</b>" הוא ביטוי לשקיפות, לא לצבע הלבן. משום שלובן הגביש אינו צבע לבן אלא שקיפות בלבד; והשקיפות אינה צבע, כפי שהוכח בספרי הטבע (אריסטו על הנפש ב,ז), משום שאילו היתה צבע לא היתה מראה את כל הצבעים מאחוריה ומלפניה. ומכיוון שהגוף השקוף הוא משולל כל הצבעים, הוא יכול לקבל את כל הצבעים חליפוֹת. דבר זה דומה לחומר הראשון, שמצד אמיתתו הוא חסר כל הצורות, ולכן הוא מקבל את כל הצורות חליפוֹת. השגתם היתה לפיכך את החומר הראשון ויחסו לה', כיוון שהוא ראשית נבראיו מחויבי ההתהוות והכיליון, והוא היוצר שלהם. וגם בנושא הזה עוד ייאמרו דברים (ב,כו; ב,יג7 "הדעה השנייה"; ב,יט).</div>
+                <div class="en-cell">But one, having regard to the object of this treatise, cannot forbear to offer some interpretation (of the passage in question). One therefore states that, by the words under His feet, is signified by its cause and by Him, as has been explained<sup class="fn-ref" onclick="showFn('fn.221')">221</sup>; what they perceived was the true condition of prime matter, which proceeded from God, who is the cause of its existence. Observe carefully the words: כמעשה לבנת הספיר, as a work of the brightness of sapphire: had colour been intended, it would have been said כלבנת הספיר, as the whiteness or the brightness of sapphire; but מעשה, a work, was added, because matter, as is known, is ever receptive and passive in relation to its essence, and possesses action only accidentally, just as form is ever active by its essence and passive by accident, as is explained in the treatises of Physics; and it is on this account that כמעשה, as a work, has been said of the former<sup class="fn-ref" onclick="showFn('fn.222')">222</sup>. As to the words לבנת הספיר (which signify literally: the whiteness of sapphire)<sup class="fn-ref" onclick="showFn('fn.223')">223</sup>, they denote transparency, and not the white colour, for the whiteness of crystal is not a white colour, but a mere transparency; and transparency is not a colour, as has been demonstrated in the treatises of Physics<sup class="fn-ref" onclick="showFn('fn.224')">224</sup>, for, were it a colour, it would not permit all colours to pass through<sup class="fn-ref" onclick="showFn('fn.225')">225</sup>, and would not receive them. It is therefore because the transparent body is deprived of all colours that it receives them all successively; and this resembles prime matter, which, in relation to its true condition, is deprived of all forms, and which, on that account, receives them all successively. Thus, therefore, what they perceived was prime matter and its relation to God<sup class="fn-ref" onclick="showFn('fn.226')">226</sup>, (to wit) that it was<sup class="fn-ref" onclick="showFn('fn.227')">227</sup> the first of His creatures comprising generation and corruption<sup class="fn-ref" onclick="showFn('fn.228')">228</sup>, and that it was He who had produced it from nothingness<sup class="fn-ref" onclick="showFn('fn.229')">229</sup>. Further mention will be made of this subject (in another place)<sup class="fn-ref" onclick="showFn('fn.230')">230</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..27.7">
+                <div class="he-cell"><sup>7</sup> דע שיש לך צורך בפירוש מעין זה, אפילו לפירושו של <b>אנקלוס</b> שאמר "<b>ותחות כורסי יקריה</b>", כלומר שהחומר הראשון גם הוא באמת מתחת לשמים, הנקראים "<b>כסא</b>", כמו שנאמר קודם (א,ט).<br><sup>8</sup> לא העירה אותי אל הפירוש המופלא הזה ולמציאת העניין הזה אלא אמרה של <b>ר' אליעזר בן הורקנוס</b> שמצאתי, שעוד תשמענה באחד מפרקי החיבור הזה (ב,כו). וכל הכוונה של כל משכיל היא שלילת הגשמות מה' יתעלה, ופירושן של כל אותן השגות כשכליות ולא חושיות. הבן זאת מאוד והתבונן בכך.</div>
+                <div class="en-cell">Know thou that thou hast need of such an interpretation, even beside that of Onkelos, who says: and under the throne of His glory; I mean that prime matter is also, in truth, beneath the heaven, which is called throne, as has been said aforetime. That which suggested unto me this remarkable interpretation and caused me to find the subject in question, is solely an assertion which I found in the work of R. Eliezer, son of Hyrcanus, and which thou shalt learn in one of the chapters of this treatise<sup class="fn-ref" onclick="showFn('fn.231')">231</sup>. The aim, in sum, of every intelligent man, is to remove from God all that may lead to corporeality, and to regard all these perceptions of which we have spoken as appertaining to the intellect, and not unto the senses. This must be understood and pondered upon.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.213" style="display: none;">
+                <strong>Note 213:</strong> See above, ch. XIII, p. 63.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.214" style="display: none;">
+                <strong>Note 214:</strong> On the word [[t:0]]גׄארחה̈[[t:1]], see above, p. 36, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.215" style="display: none;">
+                <strong>Note 215:</strong> Several commentators, who have only had the Hebrew version before their eyes, have understood this passage in the sense that, according to Onkelos, the word [[t:0]]רגליו[[t:1]] (his feet) is a [[t:2]]denomination[[t:3]] ([[t:4]]כנוי[[t:5]]) of the throne of God; for Onkelos renders the words [[t:6]]and under his feet[[t:7]] by these: [[t:8]]and under the throne of his glory[[t:9]]. According to this explanation, the suffix, in [[t:10]]רגליו[[t:11]], would refer to God; but the Arabic word [[t:12]]צׄמיר[[t:13]] can leave no uncertainty about the meaning, and the author states very positively that, according to Onkelos, the [[t:14]]suffix[[t:15]] in [[t:16]]רגליו[[t:17]] refers to the [[t:18]]throne[[t:19]], that is to say that the words [[t:20]]under his feet[[t:21]] mean [[t:22]]under the feet of the throne[[t:23]], which Onkelos renders by [[t:24]]under the throne of his glory[[t:25]]. Maimonides thus appears to say that Onkelos considered the idea of the [[t:26]]throne[[t:27]] to be implicit, and that he explained the text as if it read [[t:28]]ותחת רגלי כסא כבודו[[t:29]]; but that by introducing the words [[t:30]]throne of glory[[t:31]] into his translation, he suppressed the word [[t:32]]רגלֵי[[t:33]], which had become superfluous.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.216" style="display: none;">
+                <strong>Note 216:</strong> The word [[t:0]]מַסְתּוִיָּא (مستويًا)[[t:1]] is imitated from these words of the Koran (chap. VII, [[t:2]]V[[t:3]]. 52): [[t:4]]استوى على العرش[[t:5]] , [[t:6]]he established himself on the throne[[t:7]]. The commentators of the Koran give to the verb [[t:8]]استوى[[t:9]] the meaning of [[t:10]]to seize, dominate[[t:11]], or that of [[t:12]]to settle[[t:13]]. Ibn-Falaquera, in his critical notes on Ibn-Tibbon's version, cites the aforementioned passage from the Koran. See [[t:14]]Moré-ha-Moré[[t:15]], p. 150.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.217" style="display: none;">
+                <strong>Note 217:</strong> See above, p. 58, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.218" style="display: none;">
+                <strong>Note 218:</strong> It must be recalled that in the passage in question (Exodus, 24, 9-11) it is a matter of a vision of the seventy elders, called [[t:0]]the elect from among the sons of Israel[[t:1]]. Cf. above, p. 48 and 49.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.219" style="display: none;">
+                <strong>Note 219:</strong> That is to say, the explanation of the meaning of the allegory.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.220" style="display: none;">
+                <strong>Note 220:</strong> Literally: [[t:0]]He decides[[t:1]] or [[t:2]]he decrees[[t:3]], that is to say, he declares in an absolute manner, by his manner of translating, that corporality must be set aside.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.221" style="display: none;">
+                <strong>Note 221:</strong> That is to say by taking here the word [[t:0]]רגל[[t:1]] in the sense of [[t:2]]cause[[t:3]], which was attributed to it at the beginning of this chapter.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.222" style="display: none;">
+                <strong>Note 222:</strong> The author sees in the word [[t:0]]מעשה[[t:1]], [[t:2]]work, labor[[t:3]], an allusion to the matter [[t:4]]receiving the action[[t:5]] of the form, and which, according to him, is designated by the words [[t:6]]לבנת הספיר[[t:7]], [[t:8]]splendor of the sapphire[[t:9]], as he will explain.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.223" style="display: none;">
+                <strong>Note 223:</strong> The author here does not take the word [[t:0]]ספיר[[t:1]] in the sense of [[t:2]]sapphire[[t:3]] properly so called, but discerns therein, in general, a [[t:4]]transparent[[t:5]] substance. Immediately thereafter, he does substitute the Arabic word [[t:6]]بلور[[t:7]], [[t:8]]crystal[[t:9]]. The Hebrew translators of the Middle Ages oft employ the word [[t:10]]ספירי[[t:11]] to render the Arabic word [[t:12]]دمشق[[t:13]], which corresponds, in the Arabic versions, to the Greek word [[t:14]]διαφανεὶς[[t:15]], [[t:16]]transparent[[t:17]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.224" style="display: none;">
+                <strong>Note 224:</strong> Voy. Aristotle, treatise [[t:0]]on the Soul[[t:1]], book II, chapter 7: [[t:2]]Ἄχρουν δ’ἐστὶ τὸ διαφανὲς[[t:3]], [[t:4]]ϰ. τ. λ[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.225" style="display: none;">
+                <strong>Note 225:</strong> Literally: [[t:0]]she would not show all the colors behind her;[[t:1]] the verb [[t:2]]אורי (أورى)[[t:3]]  is a vulgar form for [[t:4]]أرى[[t:5]]  (IV[[t:6]]th[[t:7]] form of [[t:8]]رأى[[t:9]] ).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.226" style="display: none;">
+                <strong>Note 226:</strong> That is to say, in what condition it stands with regard to God. The word [[t:0]]ויחסו[[t:1]], which is found herein in the version of Ibn-Tibbon, has caused several commentators to mistake the sense of this passage by pronouncing [[t:2]]וְיׅחֲסוּ[[t:3]] as a verb; one must pronounce [[t:4]]וְיַחֲסוֹ[[t:5]] as a substantive, with a suffix ([[t:6]]and its relation[[t:7]]), as the commentator Joseph Caspi does rightly observe, or rather read [[t:8]]ויחוסו[[t:9]], as several manuscripts bear.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.227" style="display: none;">
+                <strong>Note 227:</strong> The version of Ibn-Tibbon reads [[t:0]]להיותו[[t:1]]; but one must translate [[t:2]]והיותו[[t:3]], for the Arabic manuscripts generally have [[t:4]]וכונהא[[t:5]], with the exception of one of the two Leyden manuscripts, which reads [[t:6]]לכונהא[[t:7]]. The word [[t:8]]וכונהא[[t:9]] ([[t:10]]et esse eam[[t:11]]) indicates, as does the preceding, the object of the perception of the [[t:12]]Elect[[t:13]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.228" style="display: none;">
+                <strong>Note 228:</strong> It is matter that is the principle of all beings that [[t:0]]are born[[t:1]] and [[t:2]]perish[[t:3]]. — We have already stated above (p. 60) that the words [[t:4]]כון[[t:5]] and [[t:6]]פסאר[[t:7]] correspond to the Greek words [[t:8]]γἑνεσιϛ[[t:9]] and [[t:10]]φθορά[[t:11]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.229" style="display: none;">
+                <strong>Note 229:</strong> The verb [[t:0]]بدع[[t:1]] or (in the IV[[t:2]]th[[t:3]] form) [[t:4]]أبدع[[t:5]], [[t:6]]novum produxit[[t:7]], implies the idea of creation [[t:8]]ex nihilo[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.230" style="display: none;">
+                <strong>Note 230:</strong> See the II[[t:0]]nd[[t:1]] part of this work, chap. XXVI.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.231" style="display: none;">
+                <strong>Note 231:</strong> See at the beginning of the chapter indicated in the previous note.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

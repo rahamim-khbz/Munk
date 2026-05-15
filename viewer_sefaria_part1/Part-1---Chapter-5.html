@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 5 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 5</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.0">
+                <div class="he-cell"><b>גישה זהירה בחקירת הסוד</b><br><span class="mediumGrey">גישה זהירה למעשה בראשית ומעשה מרכבה</span><br><sup>1</sup> כאשר החל ראש הפילוסופים (=אריסטו) לחקור ולהביא ראיות על דברים נסתרים מאוד (על השמים ב, 12), התנצל ואמר דברים שעניינם הוא שאין ראוי שהמעיין בספריו ייחס לו באשר למה שחקר חוצפה או העזה והתפרצות לדבֵּר על מה שאין לו ידיעה בו, אלא ראוי שייחס זאת לשקידה ולהשתדלות ליצור ולהשיג אמונות נכונות כפי יכולת האדם.</div>
+                <div class="en-cell">The prince of philosophers<sup class="fn-ref" onclick="showFn('fn.79')">79</sup>, in undertaking the investigation and demonstration of a most profound matter, expresses himself, by way of apology, in terms whose sense is: that the reader of his writings ought not to tax him with impudence or accuse him of speaking temerariously and precipitously on matters of which he is ignorant; but rather, he ought to perceive in him only the passion and zeal with which he is animated to produce and impart true opinions, in so far as this lies within the power of man.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.1">
+                <div class="he-cell"><sup>2</sup> בדומה לכך נאמר אנחנו, שראוי לאדם שלא יתפרץ אל הדבר הגדול והנכבד הזה בעיון ראשון מבלי שיאמן את עצמו במדעים ובידיעות, ויתקן את מידותיו היטב, וימית את תאוותיו ותשוקותיו הדמיוניות. רק כאשר ישיג הקדמות אמיתיות וודאיות וידע אותן, וידע את דרכי הסקת המסקנות והבאת הראיות, וידע את הדרכים להישמר מתעתועי הדעת – אז ייגש לחקירה בעניין זה. אל־לו לעצור בדעה הראשונה שתעלה בדעתו, ולא לשַלֵּח את מחשבותיו תחילה ולהשליט אותן על השגת האלוה, אלא יבוש ויעצור ויעמוד עד שיתקדם בהדרגה.</div>
+                <div class="en-cell">We say likewise that man ought not to approach this grave and important subject with precipitance, without having first exercised himself in the sciences and knowledge, and without having corrected his manners with the greatest care and slain his desires and passions dependent on the imaginativeimaginative faculty. It is only after having acquired the knowledge of true and certain axioms<sup class="fn-ref" onclick="showFn('fn.80')">80</sup>, after having learned the rules of syllogism and demonstration, as well as the manner of preserving oneself from the errors of the intellect, that he will be able to undertake the investigation of this subject. He ought not to decide anything according to a first opinion that may occur to him, nor allow his thoughts to proceed directly, directing them resolutely towards the knowledge of God; but he ought to approach it with modesty and reserve, and pause occasionally, in order to advance gradually.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.2">
+                <div class="he-cell"><span class="mediumGrey">הצלחת משה וכישלון אצילי בני ישראל</span><br><sup>3</sup> על עניין זה נאמר: "<b>וַיַּסְתֵּר מֹשֶׁה פָּנָיו כִּי יָרֵא מֵהַבִּיט אֶל הָאֱלֹהִים</b>" (שמות ג,ו), נוסף על מה שעולה מחיצוניות הדברים, שהוא התיירא מהביט אל האור המתגלה; לא שהעיניים יכולות להשיג את האלוה, יתעלה מאוד מאוד על כל חסרון. ה' יתעלה שיבח אותו עליו השלום על כך, והאציל עליו מנעמו וטובו מה שחייב לומר עליו לבסוף: "<b>וּתְמֻנַת ה' יַבִּיט</b>" (במדבר יב,ח), וה<b>חכמים ז"ל</b> (בבלי ברכות ז,א) אמרו שזהו שכר על כך שהוא <b>הסתיר פניו</b> בתחילה <b>מהביט אל האלהים</b>.</div>
+                <div class="en-cell">It is in this sense that it was said: <i>And Moses hid his face, for he was afraid to look upon God</i> (Exodus 3:6)—where regard must also be had<sup class="fn-ref" onclick="showFn('fn.81')">81</sup> for what the literal sense indicates, namely, that he was afraid to look at the resplendent light (of the burning bush), not that the eyes could perceive the Divinity [may He be exalted and raised far above all imperfection!]. Moses earned praise for this, and the Most High bestowed His goodness and favor upon him to such an extent that it could later be said of him: <i>And the figure of God he shall behold</i> (Numbers 12:8); for the sages say that this was a reward for having initially <i>hidden his face so as not to look upon God</i><sup class="fn-ref" onclick="showFn('fn.82')">82</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.3">
+                <div class="he-cell"><sup>4</sup> ואילו <b>אֲצִילֵי בְּנֵי יִשְׂרָאֵל</b> (שמות כד,יא) התפרצו ושילחו את מחשבותיהם; הם השיגו, אך השגה שאינה שלמה, ולכן נאמר עליהם: "<b>וַיִּרְאוּ אֵת אֱלֹהֵי יִשְׂרָאֵל וְתַחַת רַגְלָיו [</b>כְּמַעֲשֵׂה לִבְנַת הַסַּפִּיר וּכְעֶצֶם הַשָּׁמַיִם לָטֹהַר"] (שם,י). לא נאמר "<b>וַיִּרְאוּ אֵת אֱלֹהֵי יִשְׂרָאֵל</b>" ותו לא, כי מטרת הדברים אינה אלא למתוח ביקורת על ראייתם, לא לתאר כיצד ראו. ומכיוון שאכן ביקר את צורת השגתם, שהיתה בה הגשמה, כמחויב מכך שהתפרצו לפני שהיו שלמים – הם התחייבו <b>כליה</b>. (משה רבנו) עליו השלום לימד עליהם זכות, ונעזבו עד שנשרפו ב<b>תבערה</b>, ונשרפו <b>נדב ואביהוא</b> ב<b>אהל מועד</b> כמו שנאמר במסורת הנכונה.</div>
+                <div class="en-cell">But as regards the elect among the sons of Israel (Exodus, 24, 11), they acted with precipitation, giving free rein to their thoughts; they perceived (the divinity), but in an imperfect manner. This is why it is said of them: And they saw the God of Israel, and under His feet, etc. (Ibid., V. 10), and one does not simply say: And they saw the God of Israel; for the entire phrase has no other purpose than to criticise their vision, and not to describe how they had seen. Thus, one has only criticised the form under which they had perceived (God) and which was tainted with corporeality, which was the necessary result of the precipitation they had shown before perfecting themselves. They had deserved destruction<sup class="fn-ref" onclick="showFn('fn.83')">83</sup>; but Moses having interceded for them, they were granted a reprieve until they were burned at Tab’érâ and Nadab and Abihou were burned in the tent of meeting, as reported by the true tradition<sup class="fn-ref" onclick="showFn('fn.84')">84</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.4">
+                <div class="he-cell"><span class="mediumGrey">מסקנות ותוצאות</span><br><sup>5</sup> ואם כך היה לגביהם, כל שכן לגבינו אנחנו הנחותים ומי שלמטה מאתנו, שראוי לו שיכוון (עצמו) ויתעסק <br><sup>א)</sup> בהשלמת הלימודים המכינים, <br><sup>ב)</sup> ורכישת ההקדמות המטהרות את ההשגה מטומאתה, שהיא הטעויות, ואז ייגש להתבונן בכבוד הקודש האלוהי, "<b>וְגַם הַכֹּהֲנִים הַנִּגָּשִׁים אֶל ה' יִתְקַדָּשׁוּ, פֶּן יִפְרֹץ בָּהֶם ה'</b>" (שמות יט,כב). וכבר ציווה <b>שלמה</b> להישמר מאוד כאשר ישאף האדם להגיע לדרגה הזאת, ואמר במשל ובאזהרה: "<b>שְׁמֹר רַגְלְךָ כַּאֲשֶׁר תֵּלֵךְ אֶל בֵּית הָאֱלֹהִים</b>" (קהלת ד,יז).</div>
+                <div class="en-cell">If this was the case with them, all the more reason that inferior men like us and those below us should first strive to occupy themselves with the perfection of their preparatory knowledge and acquire preliminary principles that can purify the understanding of its stain, which consists in errors, and then they can advance<sup class="fn-ref" onclick="showFn('fn.85')">85</sup> to contemplate the holy divine majesty; for: The priests also who approach the Lord shall sanctify themselves, lest the Lord break out among them (Exodus, 19, 22). Already Solomon has recommended the greatest caution to the man who desires to attain the degree in question; and, using an image, he has given this warning: Keep thy foot when thou goest to the house of God (Ecclesiastes, 4, 17)..</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.5">
+                <div class="he-cell"><sup>6</sup> אחזור להשלים את מה שהתחלנו לבאר, ואומר שיחד עם התקלות שחלו בהשגתם של <b>אצילי בני ישראל</b>, גם מעשיהם התבלבלו בשל כך, והם נטו אל הדברים הגופניים בשל השתבשות ההשגה, ולכן נאמר "<b>וַיֶּחֱזוּ אֶת הָאֱלֹהִים וַיֹּאכְלוּ וַיִּשְׁתּוּ</b>" (שמות כד,יא). אשר לסוף הפסוק (לעיל פסקה 4) "<b>וְתַחַת רַגְלָיו כְּמַעֲשֵׂה לִבְנַת הַסַּפִּיר [</b>וּכְעֶצֶם הַשָּׁמַיִם לָטֹהַר]" (שם,י) – דבר זה עוד יתבאר בכמה מפרקי חיבור זה (א,כח; ב,כו; ג,ד).</div>
+                <div class="en-cell">I now return to complete what I had begun to explain, and I say that, the elect among the sons of Israel having made mistakes in their perception, their actions also were troubled by it, and they inclined towards corporeal things, through the vice of their perception; this is why (the Scripture) says: And they saw God, and they ate and drank (Exodus, 24, 11)<sup class="fn-ref" onclick="showFn('fn.86')">86</sup>.— As for the end of the verse (cited above)<sup class="fn-ref" onclick="showFn('fn.87')">87</sup>, I mean the words: And under His feet there was as it were a work of the splendour of the sapphire, etc., it will be explained in a few chapters of this treatise<sup class="fn-ref" onclick="showFn('fn.88')">88</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.6">
+                <div class="he-cell"><span class="mediumGrey">סיכום ואפשרות למשמעות כפולה</span><br><sup>7</sup> כל המטרה שכיוַנּו אליה היא שכל "<b>ראיה</b>" או "<b>חזיה</b>" או "<b>הבטה</b>" שנאמרה בעניין הזה היא השגה שכלית ולא ראיית עין, משום שאין הוא יתעלה מצוי שחוש הראות יכול להשיג אותו.</div>
+                <div class="en-cell">In short, we have as our aim to establish that each time the verb ראה, or חזה, or הביט, is employed in the sense in question, it pertains to an intellectual perception, and not to the vision of the eye; for the Most High is not a being that eyes can perceive.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..4.7">
+                <div class="he-cell">ואם ירצה אחד מהמתרשלים שלא להגיע לאותה דרגה שאנו שואפים להעלותו אליה, ויבין את כל הביטויים האלה שנאמרו בעניין הזה כמורים על השגות חושיות של אורות נבראים, מלאכים או אחרים, אין בזה נזק.</div>
+                <div class="en-cell">If, however, there be such a narrow-minded man who does not wish to attain to the degree to which we desire to ascend, and who admits that all these words, employed in the sense in question, indicate the sensible perception of certain created lights créées, whether angels or something else, there is no harm in this.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.79" style="display: none;">
+                <strong>Note 79:</strong> One can easily guess that the author intends to refer to Aristotle. In what follows, allusion is made to a passage from the [[t:0]]Treatise on the Heavens[[t:1]], book II, at the beginning of chapter 12, where Aristotle, addressing some questions related to the movement of the spheres, expresses himself in terms roughly similar to those attributed to him here by Maimonides [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.80" style="display: none;">
+                <strong>Note 80:</strong> Literally: [[t:0]]after having obtained true and certain premises and having known them.[[t:1]] The word [[t:2]]מקדמאת[[t:3]] here designates the propositions that serve as premises in the syllogism; the author enumerates here everything that is part of the science, of logic, that one must delve into before tackling metaphysical subjects.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.81" style="display: none;">
+                <strong>Note 81:</strong> The author often uses the expression [[t:0]]מצאפא אלי[[t:1]], [[t:2]]joined to, added to[[t:3]], when he wishes to convey that the literal meaning may be admitted alongside the allegorical meaning.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.82" style="display: none;">
+                <strong>Note 82:</strong> In the Babylonian Talmud, tractate [[t:0]]Berakhôth[[t:1]], fol. 7 [[t:2]]a[[t:3]], it is stated, among other things, regarding Moses: [[t:4]]בשכר מהביט זכה לותמונת ה׳ יביט[[t:5]], "as a reward for having [[t:6]]refrained from looking[[t:7]], he merited to [[t:8]]behold the countenance of God.[[t:9]]" See also [[t:10]]Midrasch Tan’houma[[t:11]], section [[t:12]]שמות[[t:13]], Venice edition, fol. 23 [[t:14]]b[[t:15]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.83" style="display: none;">
+                <strong>Note 83:</strong> The word [[t:0]]כליה[[t:1]] is Hebrew, a noun of action of [[t:2]]כלה[[t:3]]; in two mss. we find [[t:4]]בליה[[t:5]] with [[t:6]]beth[[t:7]], an Arabic word [[t:8]](بلية)[[t:9]] which has roughly the same meaning.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.84" style="display: none;">
+                <strong>Note 84:</strong> According to rabbinic tradition, those who were burned at [[t:0]]Tab'erâ[[t:1]] (Numbers, 11, 1–3) are the same as the 70 elders, who, along with Nadab and Abihu, burned in the sanctuary (Leviticus, 10, 2), are designated by the words: [[t:2]]the elect among the sons of Israel.[[t:3]] See [[t:4]]Midrash Tan'huma[[t:5]], section [[t:6]]בהעלותך[[t:7]], fol. 72 [[t:8]]a, b; Wayyikra Rabbah[[t:9]], section 20, near the end.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.85" style="display: none;">
+                <strong>Note 85:</strong> Instead of [[t:0]]יתקדם[[t:1]] some mss. have [[t:2]]יתקדם[[t:3]] (with [[t:4]]samekh[[t:5]]), [[t:6]]it will be sanctified[[t:7]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.86" style="display: none;">
+                <strong>Note 86:</strong> That is to say, after having seen God in their own way, they surrendered to corporeal pleasures.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.87" style="display: none;">
+                <strong>Note 87:</strong> The author intends to refer to verse 10: [[t:0]]And they saw the God of Is etc[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.88" style="display: none;">
+                <strong>Note 88:</strong> See this I[[t:0]]re[[t:1]] part, chap. XXVIII, and III[[t:2]]e[[t:3]] part, chap. IV.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

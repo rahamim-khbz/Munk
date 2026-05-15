@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 20 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 20</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..19.0">
+                <div class="he-cell"><b>המונחים רם ונישא</b><br><span class="mediumGrey">שתי משמעויות למונח רם</span><br><sup>1</sup> "רם" הוא מונח רב־משמעי <br><sup>א)</sup> במשמעות רום המקום <br><sup>ב)</sup> ובמשמעות רום המעלה, כלומר הגדולה והכבוד והעוז.<br><sup>2</sup> נאמר: "<b>וַתָּרָם הַתֵּבָה מֵעַל הָאָרֶץ</b>" (בראשית ז,יז; ושם: וַתָּרָם מֵעַל הָאָרֶץ), וזאת במשמעות הראשונה. ונאמר: "<b>הֲרִימוֹתִי בָחוּר מֵעָם</b>" (תהילים פט,כ), "<b>יַעַן אֲשֶׁר הֲרִימֹתִיךָ מִתּוֹךְ הֶעָפָר</b>" (מלכים א טז,ב; ושם: מִן הֶעָפָר), "<b>אֲשֶׁר הֲרִמֹתִיךָ מִתּוֹךְ הָעָם</b>" (מלכים א יד,ז) – במשמעות השנייה.</div>
+                <div class="en-cell">Râm (רם) is a homonym to designate the elevation of the place, as well as the elevation of rank, I mean the majesty, nobility, and power; one reads, for example: And the ark<sup class="fn-ref" onclick="showFn('fn.154')">154</sup> rose (ותרם) above the earth (Genesis, 7, 17), which is in the first sense; in the second sense, one reads, for example: I have exalted (הרימותי) the chosen one among the people (Psalm 89, 20); For I have exalted (הרימותיך) from the dust (1 Kings, 16, 2)<sup class="fn-ref" onclick="showFn('fn.155')">155</sup>; For I have exalted (הרימותיך) from the midst of the people (Ibid., 14, 7).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..19.1">
+                <div class="he-cell">וכל ביטוי של <b>הרמה</b> שנאמר על ה' הוא במשמעות השנייה הזו: "<b>רוּמָה עַל הַשָּׁמַיִם אֱלֹהִים</b>" (תהילים נז,ו).</div>
+                <div class="en-cell">Every time the verb râm (רם) is applied to God, it is taken in this second sense; for example: Rise (רומה) above the heavens, O God (Psalm 57, 6).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..19.2">
+                <div class="he-cell"><span class="mediumGrey">שתי משמעויות למונח נישא</span><br><sup>3</sup> וכן יש ל"<b>נשא</b>" <br><sup>א)</sup> משמעות של רום המקום, <br><sup>ב)</sup> ומשמעות של רוממות הדרגה ויתרון המעלה.<br><sup>4</sup> "<b>וַיִּשְׂאוּ אֶת שִׁבְרָם עַל חֲמֹרֵיהֶם</b>" (בראשית מב,כו) הוא במשמעות הראשונה, וכמוהו רבים במשמעות של נשיאה והעברה, כי הוא מרים אותו במקום. ובמשמעות השנייה: "<b>וְתִנַּשֵּׂא מַלְכֻתוֹ</b>" (במדבר כד,ז), "<b>וַיְנַטְּלֵם וַיְנַשְּׂאֵם</b>" (ישעיהו סג,ט), "<b>וּמַדּוּעַ תִּתְנַשְּׂאוּ</b>" (במדבר טז,ג).</div>
+                <div class="en-cell">It is the same nasâ (נשׂא) that conveys the sense of elevation of place and that of elevation of rank and enlargement in dignity<sup class="fn-ref" onclick="showFn('fn.156')">156</sup>; one reads, for example, in the first sense: And they bore (וישׂאו) their grain upon their asses (Genesis, 42, 26), and there are many other passages (in which the verb נשׂא is taken) in the sense of bearing and of transporting, because there is a elevation of place. In the second sense one reads: And his kingdom shall be exalted (ותנשׂא) (Numbers, 24, 7); And he has borne them and has exalted them (וינשׂאם) (Isaiah, 63, 9); And why do you exalt yourselves (תתנשׂאו) (Numbers, 16, 3)?</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..19.3">
+                <div class="he-cell">וכל <b>לשון נשיאה</b> המיוחסת לו יתעלה היא מן המשמעות האחרונה הזו: "<b>הִנָּשֵׂא שֹׁפֵט הָאָרֶץ</b>" (תהילים צד,ב), "[כִּי] <b>כֹה אָמַר רָם וְנִשָּׂא</b>" (ישעיהו נז,טו) – רוממות וגדולה ועוז, לא עילוי מקום.</div>
+                <div class="en-cell">— In all instances where the verb nasâ (נשׂא) is applied to God, it is taken in this latter sense; for example: Élève-toi (הנשׂא), ô juge de la terre (Ps. 94, 2) ! Ainsi a dit celui qui est haut et élevé (ונשׂא) (Isaïe, 57, 15), (in which it is a matter of) elevation, majesty<sup class="fn-ref" onclick="showFn('fn.157')">157</sup> and power, and not of local height.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..19.4">
+                <div class="he-cell"><span class="mediumGrey">הפשטת התארים היא רק שלב ראשון בהכרת ה'</span><br><sup>5</sup> שמא יקשו עליך דבריי 'רוממות מעלה וגדולה ועוז', ותאמר: כיצד זה נותן אתה משמעויות רבות במשמעות אחת? עוד יבואר לך שה' יתעלה, אצל המשיגים השלמים, אינו מתואר בתארים רבים. ושכל התארים המרובים הללו המורים על עצמה ועוז ויכולת ושלמות וטוב וזולתם – כולם חוזרים למשמעות אחת, והמשמעות הזו היא עצמותו ולא שום דבר מחוץ לעצמותו.</div>
+                <div class="en-cell">Perhaps thou shalt find a difficulty in what I say: elevation of rank, majesty, and power; how, thou wilt ask me, canst thou attach several ideas to one and the same sense<sup class="fn-ref" onclick="showFn('fn.158')">158</sup>? But thou shalt be explained (further on) that God, the Most High, for perfect men who comprehend (His being), cannot be described by multiple attributes, and that all these numerous attributes indicating glorification, power, authority, perfection, goodness, etc., all revert to one thing, and this thing is the divine essence, and not something which would be outside of this essence.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..19.5">
+                <div class="he-cell">עוד יבואו לך פרקים על השמות והתארים (א,נ-ע), אך המטרה בפרק הזה אינה אלא שאין משמעותם ופירושם של "<b>רם</b>" ו"<b>נשא</b>" עילוי מקום, אלא עילוי מעלה.</div>
+                <div class="en-cell">You will have further chapters on the names and attributes (of God); the purpose of the present chapter is solely (to demonstrate) that the words râm ([Lat.: 'ram'] רם) and nissa ([Lat.: 'nasa'] נשׂא) (applied to God) must be understood in the sense, not of a local elevation, but of a elevation of rank.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.154" style="display: none;">
+                <strong>Note 154:</strong> Almost all the manuscripts, both Arabic and Hebrew, bear: [[t:0]]ותרם התבה מעל הארץ[[t:1]]; the word [[t:2]]התבה[[t:3]] is not found in the passage that the author had in view. Here again we have deemed it necessary to reproduce, in our Arabic text, the quotation as it appears to have been made from memory by the author himself, although it is inaccurate.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.155" style="display: none;">
+                <strong>Note 155:</strong> The citation [[t:0]]מתוך העפר[[t:1]] found in the Ar. mss., as well as in the two Hebrew versions, is inaccurate; one must read: [[t:2]]מן העפר[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.156" style="display: none;">
+                <strong>Note 156:</strong> On the meaning of the word [[t:0]]חטׄ[[t:1]], see above, ch. VIII, p. 52, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.157" style="display: none;">
+                <strong>Note 157:</strong> We have written, in our Arabic text, [[t:0]]וׂגלאלה̈[[t:1]] with [[t:2]]ו[[t:3]], as do the majority of the manuscripts; some bear [[t:4]]רפעה̈ גׁלאלה̈[[t:5]], which would need to be translated as [[t:6]]elevation in terms of majesty.[[t:7]] Ibn-Tibbon appears to have read [[t:8]]רפעה̈ מנזלה̈ וׂגלאלה̈ ועזה̈[[t:9]], as can be read immediately thereafter.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.158" style="display: none;">
+                <strong>Note 158:</strong> That is to say, to a word that should have only one well-determined meaning, especially when it applies to God. The author responds here, once and for all, to an objection that could also be made regarding the explanations he provides for many other homonyms, and he refers to the chapters where he will discuss the attributes of God, which, however numerous they may be in biblical language, always express only one thing, [[t:0]]the divine essence[[t:1]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

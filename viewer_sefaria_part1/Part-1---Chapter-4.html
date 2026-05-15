@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 4 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 4</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..3.0">
+                <div class="he-cell"><b>המונחים ראה, הביט וחזה</b><br><span class="mediumGrey">פתיחה</span><br><sup>1</sup> דע ששלושת הביטויים "<b>ראה</b>" ו"<b>הביט</b>" ו"<b>חזה</b>" משמשים במובן של ראיית העין, ושלושתם הושאלו להשגת השכל.</div>
+                <div class="en-cell">Be aware that the three verbs raâ (ראה), hibbît (הביט), and ’hazâ (הזה) are applied to the vision of the eye; however, they are all employed metaphorically for the perception of the intellect.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..3.1">
+                <div class="he-cell"><span class="mediumGrey">שתי משמעויות למונח ראה</span><br><sup>2</sup> לגבי "<b>ראה</b>" הדבר ידוע בקרב ההמון. <br><sup>א)</sup> נאמר: "<b>וַיַּרְא וְהִנֵּה בְאֵר בַּשָּׂדֶה</b>" (בראשית כט,ב), וזו ראיית עין; <br><sup>ב)</sup> ונאמר "<b>וְלִבִּי רָאָה הַרְבֵּה חָכְמָה וָדָעַת</b>" (קהלת א,טז), וזו השגה שכלית.</div>
+                <div class="en-cell">With regard to raâ (ראה), this is well-known to everyone. It is said, for example: And he saw (וירא), and behold, there was a well in the field (Genesis, 29, 2), where it concerns the vision of the eye; however, in these words: And my heart saw (ראה) much wisdom and knowledge (Ecclesiastes, 1, 16), it concerns an intellect perception.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..3.2">
+                <div class="he-cell">ובהשאלה הזאת כל <b>לשון ראיה</b> שנאמר לגבי ה' יתעלה, כגון דבריו "<b>רָאִיתִי אֶת ה'</b>" (מלכים־א כב,יט; דברי הימים־ב יח,יח), "<b>וַיֵּרָא אֵלָיו ה'</b>" (בראשית יח,א), "<b>וַיַּרְא אֱלֹהִים כִּי טוֹב</b>" (בראשית א,י ועוד), "<b>הַרְאֵנִי נָא אֶת כְּבֹדֶךָ</b>" (שמות לג,יח), "<b>וַיִּרְאוּ אֵת אֱלֹהֵי יִשְׂרָאֵל</b>" (שם,כד,י) – כל אלה השגה שכלית, לא ראיית עין כלל. משום שהעיניים אינן משיגות אלא גוף, וגם זה רק מכיוון אחד ורק חלק מן המקרים (=התכונות) שלו, כלומר צבע הגוף ותבניתו וכיוצא בזה, וכן הוא יתעלה אינו משיג על ידי אבר, כמו שיתבאר (א,מד; מו18,6).</div>
+                <div class="en-cell">It is in this metaphorical sense that the verb raâ (ראה) must be understood whenever it is applied to God, as for example in these passages: I saw (ראיתי) the Lord (I Kings, 22, 19); And the Lord appeared to him (Genesis, 18, 1); And God  saw that it was good (Genesis, 1, passim); Show me thy glory (Exodus, 33, 18); And they  saw the God of Israel (Ibid., 24, 10). In all these instances, it is a matter of intellectual perception, and not at all of the vision of the eye; for the eyes only perceive (what is) corporeal and (only) from a certain side<sup class="fn-ref" onclick="showFn('fn.77')">77</sup>, and with this, some accidents of the body, such as its colours, its geometric figure, etc., and God, on His part, does not perceive by means of an instrument, as will be explained (later).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..3.3">
+                <div class="he-cell"><span class="mediumGrey">שתי משמעויות למונח הביט</span><br><sup>3</sup> וכיוצא בזה "<b>הביט</b>" <br><sup>א)</sup> משמש במובן של הפניית העין אל דבר: "<b>אַל תַּבִּיט אַחֲרֶיךָ</b>" (בראשית יט,יז), "<b>וַתַּבֵּט אִשְׁתּוֹ מֵאַחֲרָיו</b>" (שם,כו), "<b>וְנִבַּט לָאָרֶץ</b>" (ישעיהו ה,ל). <br><sup>ב)</sup> והושאל לפניית הדעת והכוונתה לעיין בדבר כדי שתשיג אותו, והוא שנאמר: "<b>לֹא הִבִּיט אָוֶן בְּיַעֲקֹב</b>" (במדבר כג,כא), כי ה<b>אָוֶן</b> אינו נראה בעין. וכיוצא בזה דבריו: "<b>וְהִבִּיטוּ אַחֲרֵי מֹשֶׁה</b> [עַד בֹּאוֹ הָאֹהֱלָה]" (שמות לג,ח), אמרו ה<b>חכמים ז"ל</b> שיש בו גם המשמעות הזו, ושזו הודעה על כך שהם עקבו אחרי מעשיו ודבריו והתבוננו בהם. במשמעות זו נאמר: "<b>הַבֶּט נָא הַשָּׁמַיְמָה</b>" (בראשית טו,ה), משום שזה היה <b>במראה הנבואה</b>. ובהשאלה זו כל <b>לשון הבטה</b> שנאמר לגבי האל יתעלה: "[כִּי יָרֵא] <b>מֵהַבִּיט אֶל הָאֱלֹהִים</b>" (שמות ג,ו), "<b>וּתְמֻנַת ה' יַבִּיט</b>" (במדבר יב,ח), "<b>וְהַבִּיט אֶל עָמָל לֹא תוּכָל</b>" (חבקוק א,יג).</div>
+                <div class="en-cell">Similarly, hibbît (הביט) is used in the sense of: looking at a thing with the eye; for example: Do not look אל תבט behind thee (Genesis, 19, 17); And his wife looked ותבט, being behind him (Ibid., V. 26); And he shall look ונבט toward the earth (Isaiah, 5, 30). But it is used metaphorically for theintuition of the mind approaching the consideration of a thing in order to understand it, as in this passage: No iniquity is seen לא הביט in Jacob (Numbers, 23, 21); for iniquity is not seen with the eye. It is the same with these words: And they looked והביטו after Moses (Exodus, 33, 8); for, according to what the doctors say, they express the same idea, and they state that they (the Israelites) were watching his actions and words and examining them<sup class="fn-ref" onclick="showFn('fn.78')">78</sup>. The words: Look הבט toward the heaven (Genesis, 15, 5), have the same meaning; for this took place in a prophetic vision. And (in general) the verb הביט (to look) has this metaphorical sense whenever it is applied to God; for example: … to look מהביט toward God (Exodus, 3, 6); And he contemplates יביט the figure of God (Numbers, 12, 8); And thou canst not look והביט at iniquity (Habakkuk, 1, 13).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..3.4">
+                <div class="he-cell"><span class="mediumGrey">שתי משמעויות למונח חזה</span><br><sup>4</sup> וכיוצא בזה "<b>חזה</b>" <br><sup>א)</sup> חל על ראיית העין: "<b>וְתַחַז בְּצִיּוֹן עֵינֵינוּ</b>" (מיכה ד,יא). <br><sup>ב)</sup> והושאל להשגת הלב: "<b>אֲשֶׁר חָזָה עַל יְהוּדָה וִירוּשָׁלִָם</b>" (ישעיהו א,א), "<b>הָיָה דְבַר ה' אֶל אַבְרָם בַּמַּחֲזֶה</b>" (בראשית טו,א). ובהשאלה זו נאמר "<b>וַיֶּחֱזוּ אֶת הָאֱלֹהִים</b>" (שמות כד,יא). דע זאת.</div>
+                <div class="en-cell">Similarly, ’hazâ (חזה) applies to the vision of the eye; for example: And our eyes shall see ותחז the fall of Zion (Micah, 4, 11); and it is used metaphorically for the perception of the heart, for example: … he saw חזה upon Judah and Jerusalem (Isaiah, 1, 1); … the word of the Lord to Abram במחזה in a vision (Genesis, 15, 1); and according to this metaphor it has been said: And they saw ויחזו God (Exodus, 24, 11). You must thoroughly understand this.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.77" style="display: none;">
+                <strong>Note 77:</strong> The editions of Ibn-Tibbon's Hebrew version generally bear [[t:0]]ובצדו קצת מקריו[[t:1]]; one must read, according to the Arabic: [[t:2]]ובצד וקצת מקריו[[t:3]], as is indeed the case with the mss. of the aforementioned version.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.78" style="display: none;">
+                <strong>Note 78:</strong> That is to say, they criticized and judged them with malice. The author alludes to various passages from the Talmud and the Midrashim. Thus, for example, the Jerusalem Talmud ([[t:0]]Biccourîm[[t:1]], ch. III, and [[t:2]]Schekalîm[[t:3]], ch. V) speaks of two doctors, one of whom had explained the passage in question in a sense of praise, and the other in a sense of blame; according to the latter, the Israelites said, speaking of Moses' stoutness: "Behold his thighs, behold his legs; he eats of what belongs to the Jews, he drinks of what belongs to the Jews, all that he has comes from the Jews." [[t:4]]ומאן דאמר לגנאי חזי שאקי חזי כרעין אכיל מן יהודאי שתי מן יהודאי כל מרליה מן יהודאי[[t:5]]. See also [[t:6]]Midrasch Tan’houma[[t:7]], sect. [[t:8]]כי תשא[[t:9]] (Venice edition, fol. 40 [[t:10]]d[[t:11]]); [[t:12]]Schemôth rabba[[t:13]], sect. 51; Babylonian Talmud, [[t:14]]Kiddouschîn[[t:15]], fol. 33 [[t:16]]b[[t:17]]. There were even some, says the Talmud elsewhere, who went so far as to suspect him of adultery: [[t:18]]שחשדוהו מאשת איש[[t:19]]. See [[t:20]]Synhedrîn[[t:21]], fol. 110 [[t:22]]a[[t:23]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

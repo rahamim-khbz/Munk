@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 61 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 61</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..60.0">
+                <div class="he-cell"><b>ייחודיותו של השם המפורש</b><br><span class="mediumGrey">ייחודיותו של השם המפורש</span><br><sup>1</sup> כל שמותיו (של ה') יתעלה המצויים בספרי הקודש, כולם נגזרים מן הפעולות, ואין זה סוד, מלבד שם אחד והוא <b>יו"ד ה"א וא"ו ה"א</b>, שהוא שם מיוחד לו יתעלה, ולכן נקרא "<b>שם מפורש</b>", כלומר שהוא מורה על עצמותו יתעלה באופן ברור וחד־משמעי (מילולית: "הוראה ברורה שאין בה שיתוף"). ואילו בשאר שמותיו הנכבדים יש רב־משמעיות ("מורים בשיתוף"), משום שהם נגזרים מן הפעולות שיש אצלנו כדוגמתן כפי שביארנו (א,נד).<br><sup>2</sup> אפילו השם שמכנים בו את <b>יו"ד ה"א וא"ו ה"א</b> נגזר מן האדנות: "<b>דִּבֶּר הָאִישׁ אֲדֹנֵי הָאָרֶץ</b>" (בראשית מב,ל). וההבדל בין לומר "<b>אֲדֹנִי</b>" ב<b>נו"ן</b> בחיריק לבין לומר ב<b>נו"ן</b> ב<b>קמץ</b>, הוא כהבדל בין לומר "<b>שָׂרִי</b>" שמשמעותו "האדון שלי" לבין לומר "<b>שָׂרַי אֵשֶׁת אַבְרָם</b>" (בראשית יב,יז), כי יש בכך (=בלשון רבים) מתן גדולה והכללת אחרים. וזה אכן נאמר למלאך: "<b>אֲדֹנָי</b> [אִם נָא מָצָאתִי חֵן בְּעֵינֶיךָ] <b>אַל נָא תַעֲבֹר</b> [מֵעַל עַבְדֶּךָ]" (בראשית יח,ג). ביארתי לך זאת לגבי "<b>אדני</b>" במיוחד, שהוא מכונה בו, משום שהוא המיוחד משמותיו יתעלה המפורסמים. ואילו שאר שמותיו, כמו "<b>דיין"</b> ו"<b>צדיק"</b> ו"<b>חנון"</b> ו"<b>רחום</b>" ו"<b>אלהים</b>", ברורה ההכללה והגזירה שלהם.<br><sup>3</sup> ואילו מה שאותיותיו הן <b>יו"ד ה"א וא"ו ה"א</b>, אין לו גזירה מפורסמת ואין הוא משותף עם זולתו. אין ספק שהשם הגדול הזה, שכידוע לך אין הוגים אותו אלא ב<b>מקדש</b>, ו<b>כהני ה' המקודשים</b> בלבד ב<b>ברכת כהנים</b> ו<b>כהן גדול</b> ב<b>יום הצום</b>, מורה על עניין מסוים, שאין בו שיתוף בין ה' יתעלה ובין מה שזולתו. אולי, לפי הלשון שלא נותר ממנה עמנו היום אלא מעט, וכן לפי אופן הגייתו, הוא מורה על עניין חיוב המציאות. כללו של דבר, גדולת השם הזה וההישמרות מלהגות אותו הן משום שהוא מורה על עצמותו יתעלה באופן שאף לא אחד מן הברואים משתתף בהוראה הזו, כמו שאמרו עליו (החכמים) <b>ז"ל</b>: "<b>שמי המיוחד לי</b>" (סוטה לח,א).</div>
+                <div class="en-cell">All the names of God found in the (sacred) books are generally derived from actions<sup class="fn-ref" onclick="showFn('fn.679')">679</sup>, which thing is not unknown. One name alone must be excepted, namely (that which is written by) yod, he, waw, he; for it is a name distinctively assigned<sup class="fn-ref" onclick="showFn('fn.680')">680</sup> to God, and which, for that reason, is called Shem ha-Meforash<sup class="fn-ref" onclick="showFn('fn.681')">681</sup>, signifying that it indicats expressly the essence of God, and that therein is no homonymy. As for His other glorious names, they designate Him by homonymy; for they are derived from certain actions of which the like are found amongst us, as we have set forth<sup class="fn-ref" onclick="showFn('fn.682')">682</sup>. The name itself (of Adonai), which is substituted for that of yod, he, waw, he<sup class="fn-ref" onclick="showFn('fn.683')">683</sup>, is likewise derivative, (containing the idea) of lordship; (one reads for example:) The man, the Lord (אדני) of the country, spake, etc. (Genesis, 42, 30). The difference between Adoni (אֲדׂנִי, my lord), the nun having the vowel i, and Adonai (אֲדׂנָי), the nun having a long a, is the same as that which exists between Sari (שָׂרִי), signifying my prince, and Sarai(שָׂרַי), the name of the wife of Abram (Ibid., 12, 17; XVI, 1); for these are emphatic names which embrace also other beings<sup class="fn-ref" onclick="showFn('fn.684')">684</sup>, and it has also been said (in speaking) to an angel: Adonai (my lord)... pass not away (Ibid., 18, 3). If I have given thee this explanation, particularly regarding (the name) Adonai, employed by substitution, it is because, of all the names of God most widely spread, it is that one which is most proper unto Him. As for the others, such as Dayyan (judge), Tzaddik (just), Hannun (gracious, clement), Rahum (merciful), Elohim<sup class="fn-ref" onclick="showFn('fn.685')">685</sup>, they are evidently names common and derivative. But the name which is spelled yod, he, waw, he, has no known etymology<sup class="fn-ref" onclick="showFn('fn.686')">686</sup>, and is applied to no other being<sup class="fn-ref" onclick="showFn('fn.687')">687</sup>. It is not doubtful that this glorious name, which, as thou knowest, was to be pronounced only in the Sanctuary, and particularly by the priests sanctified unto the Lord<sup class="fn-ref" onclick="showFn('fn.688')">688</sup>, in the sacerdotal blessing<sup class="fn-ref" onclick="showFn('fn.689')">689</sup>, and by the High Priest on the Day of Fasting<sup class="fn-ref" onclick="showFn('fn.690')">690</sup>, indicats a certain idea in respect of which there is naught in common between God and that which is outside of Him; perchance it indicats — according to the (Hebrew) tongue, of which there remains<sup class="fn-ref" onclick="showFn('fn.691')">691</sup> unto us to-day but very little, and according to the manner in which it was pronounced — the idea of necessary existence. In sum, that which causs this name to have so high an importance and that men refrain from pronouncing it, is that it indicats the very essence of God, so that no created being participats in what it indicats<sup class="fn-ref" onclick="showFn('fn.692')">692</sup>, as the Doctors have said concerning this name: My name, which is peculiar to Me<sup class="fn-ref" onclick="showFn('fn.693')">693</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..60.1">
+                <div class="he-cell"><span class="mediumGrey">שאר שמות ה' אינם תוארי עצמוּת</span><br><sup>4</sup> ואילו שאר השמות, כולם מורים על תארים, לא על עצמות בלבד, אלא על עצמות בעלת תארים, משום שהם נגזרים, ולכן הם יוצרים אשליה של ריבוי; כוונתי שהם משלים לחשוב שהתארים קיימים, ושיש עצמות ועניין הנוסף על העצמות. כי כך היא הוראתו של כל שם נגזר, שהוא מורה על עניין, ועל נושא שאינו מפורש, שאותו עניין קשור אליו. וכיוון שהוכח שה' יתעלה אינו נושא מסוים שקשורים אליו עניינים, נודע שהשמות הנגזרים הם או על פי יחס הפעולה אליו או כדי להנחות לשלמותו.</div>
+                <div class="en-cell">As for the other names, they all indicate attributes, (I mean that they indicate) not only an essence, but an essence having attributes<sup class="fn-ref" onclick="showFn('fn.694')">694</sup>, for they are derivative; and by that very fact they lead to the belief in multiplicity (in God), I mean, they lead to the belief that there exist attributes and that there is an essence and something added to the essence. In effect, such is the significance of every derivative name; for it indicats a certain idea and an unexpressed subject to which this idea is joined<sup class="fn-ref" onclick="showFn('fn.695')">695</sup>. Now, as it has been demonstrated that God is not a subject to which certain ideas have come to be joined, it is known that the derivative names are (given to God), either to attribute unto Him action, or to lead us to (recognize) His perfection.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..60.2">
+                <div class="he-cell">לכן סלד <b>ר' חנינה</b> מן האמירה "<b>הגדול הגבור והנורא</b>" לולא שני האילוצים שהזכיר (א,נט10-9), כי הדבר מטעה להאמין בתארים עצמיים, דהיינו שהם שלמויות המצויות בו.<br><sup>5</sup> וכיוון שרבו לו יתעלה השמות האלה הנגזרים מן הפעולות, הטעה הדבר חלק מהאנשים והביאם לייחס לו תארים מרובים כמספר הפעולות שנגזרו מהן. לכן הבטיח (ה') שבני האדם יזכו בהשגה שתסיר מהם את הבלבול הזה, ואמר: "<b>בַּיּוֹם הַהוּא יִהְיֶה ה' אֶחָד וּשְׁמוֹ אֶחָד</b>" (זכריה יד,ט), כלומר שכפי שהוא אחד כך הוא ייקרא אז בשם אחד בלבד, והוא המורה על העצמות לבדה, ואינו נגזר.<br><sup>6</sup> ב<b>פרקי ר' אליעזר</b> (פרק ג) אמרו: "<b>עד שלא נברא העולם היה הקב"ה ושמו בלבד</b>". התבונן נא כיצד נאמר במפורש שהשמות הנגזרים האלה כולם נוצרו רק לאחר יצירת העולם. וזה נכון, כי כולם שמות שנקבעו על פי הפעולות הנמצאות בעולם. אך אם תיבחן עצמותו באופן מופשט ומעורטל מכל פעולה, לא יהיה לו שם נגזר כלל, אלא שם אחד מיוחד כדי להורות על עצמותו. ואין אצלנו <b>שם</b> בלתי נגזר אלא זה, והוא <b>יו"ד ה"א וא"ו ה"א</b>, שהוא "<b>שם המפורש</b>" סתם.</div>
+                <div class="en-cell">Wherefore Rabbi Hanina would have felt a reluctance to say: “The <i>great, mighty,</i> and <i>awful</i> (God),” had there not been the two necessities of which he speaks<sup class="fn-ref" onclick="showFn('fn.696')">696</sup>; for these words might lead to the belief in <i>essential attributes</i>, I mean to say, perfections existing in God. These names of God, being derived from His actions, having multiplied, led certain men to believe that He possessed numerous attributes, as many as the actions wherefrom they are derived; therefore was it predicted that men should attain to a perception which shall cause this error to cease for them, and it is said: <i>In that day shall the Lord be</i> <small>ONE</small> <i>and His name</i> <small>ONE</small> (Zechariah xiv. 9); that is to say: even as He is <i>one</i>, so shall He then be invoked by one name only, that which uniquely indicats the essence (of God), and it shall by no means be a derivative name. In the <i>Pirke Rabbi Eliezer</i> (chap. iii.), we read: “<i>Before the world was created, there was none but the Holy One and His name alone.</i>” Observe well how clearly he stats that all these derivative names were born only after the birth of the world; and this is true, for they are all names established in relation to the actions (of God) found in the universe; but if we consider His essence, void and stripped of all action, He has absolutely no derivative name, but a single name <i>properly applied</i> to indicate His essence. We possess no <i>Shem</i> (name) which is not derivative, save that one, to wit, <i>Yod, He, Vav, He</i>, which is the absolute <i>Shem ha-mephorash</i><sup class="fn-ref" onclick="showFn('fn.697')">697</sup>;</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..60.3">
+                <div class="he-cell"><span class="mediumGrey">שימושים פגומים בשמות ה'</span><br><sup>7</sup> אל תחשוב אחרת, ואל יעלו בלבך הזיות כותבי ה<b>קמיעות</b> ומה שתשמע מהם או תמצא בספריהם האוויליים מן השמות שבדו מלבם שאינם מורים על עניין כלל, שהם קוראים להם "<b>שמות</b>", וטוענים שהם מצריכים <b>קדושה וטהרה</b> ושהם מחוללים מופתים. כל הדברים האלה הם מעשיות שלא ראוי לאדם שלם לשמוע אותן, לא כל שכן להאמין בהן.</div>
+                <div class="en-cell">thou must believe naught else, nor give admission in thy mind to the folly of those who write <i>kami’oth</i><sup class="fn-ref" onclick="showFn('fn.698')">698</sup> and to that which thou shalt hear from them or read in their senseless writings, concerning the names they forge<sup class="fn-ref" onclick="showFn('fn.699')">699</sup> without offering any sense whatsoever, calling them <i>Shemoth</i> (sacred names), and pretending that they require holiness and purity, and that they work miracles. All these things are fables<sup class="fn-ref" onclick="showFn('fn.700')">700</sup> which a perfect man should not so much as listen to; and how then could he believe in them?</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..60.4">
+                <div class="he-cell"><span class="mediumGrey">יש רק שם מפורש אחד</span><br><sup>8</sup> אין נקרא <b>"שם המפורש</b>" אלא אותו <b>שם בן ארבע אותיות</b> הכתוב, שאינו נהגה באותיותיו. ובפירוש אמרו ב<b>ספרֵי</b> (במדבר, פיסקא לט): "'<b>כֹּה תְבָרְכוּ אֶת בְּנֵי יִשְׂרָאֵל</b>' (במדבר ו,כג): <b>כֹּה – בלשון הזה</b>; <b>כֹּה – בשם המפורש</b>". ושם נאמר: "<b>במקדש ככתבו ובמדינה בכנויו</b>". וב<b>תלמוד</b> נאמר (סוטה לח,א): "<b>כֹּה – בשם המפורש. אתה אומר בשם המפורש או אינו אלא בכנוי, תלמוד לומר: 'וְשָׂמוּ אֶת שְׁמִי</b>' (במדבר ו,כז) <b>– שמי המיוחד לי</b>".</div>
+                <div class="en-cell">The term <i>Shem ha-mephorash</i> is therefore applied only to this <i>Tetragrammaton name</i> alone, which is written, but is not read according to its letters. It is clearly stated in the <i>Sifre</i> (upon this verse): <i>Thus</i> (<span dir="rtl">כּהׁ</span>) <i>ye shall bless the children of Israel</i> (Numbers vi. 23): “<i>Thus</i>, that is to say, in these words; <i>thus</i>, that is to say, by the <i>Shem ha-mephorash</i><sup class="fn-ref" onclick="showFn('fn.701')">701</sup>.” It is likewise said there: “In the Holy City, (this name is pronounced) even as it is written; in the province, by the substituted name<sup class="fn-ref" onclick="showFn('fn.702')">702</sup>.” And in the Talmud it is said<sup class="fn-ref" onclick="showFn('fn.703')">703</sup>: “<i>Thus</i> (<span dir="rtl">כּהׁ</span>) signifies, by the <i>Shem ha-mephorash;</i> if (doubting still) thou shouldst ask: Is it truly by the <i>Shem ha-mephorash</i>, or only by the name substituted for it? there are, to inform thee, these words: <i>And they shall put</i> <small>MY NAME</small> (<i>Ibid.</i>, <small>v</small>. 27), that is to say, the name which is peculiar unto Me.”</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..60.5">
+                <div class="he-cell">הרי התבאר לך ש<b>שם המפורש</b> הוא אותו <b>שם בן ארבע אותיות</b>, ושהוא לבדו המורה על העצמות בלא שיתוף עניין אחר, ולכן אמרו עליו "<b>המיוחד לי</b>".</div>
+                <div class="en-cell">It is therefore clear that the schem ha-mephorasch is this name tétragrammate, and that it is he alone who indicates the essence (of God) without association of any other idea; it is for this reason that one has said of him: he who is mine. </div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..60.6">
+                <div class="he-cell"><span class="mediumGrey">הקדמה לפרק הבא</span><br><sup>9</sup> בפרק הבא אבאר לך את הדבר שהביא את האנשים למה שהם מאמינים בו בעניין ה<b>שמות</b>, ואבאר לך את שורש השאלה הזו ואסיר לך את כיסויה עד שלא יישאר בו קושי, אלא אם תרצה להטעות את עצמך.</div>
+                <div class="en-cell">In the following chapter, I shall set forth unto thee that which has led men to this belief concerning the <i>Shemoth</i> (or mysterious names); I shall explain unto thee the depth of this question and shall lift the veil therefrom for thee, so that there may remain no obscurity in this regard, unless thou shouldst desire to deceive thyself.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.679" style="display: none;">
+                <strong>Note 679:</strong> The author, having demonstrated that every species of attributes must be excluded from God, adds, in this chapter and in the three succeeding ones, some observations upon various names of God found in Holy Writ, which might be regarded as attributes. He shows that all names are derived from the [[t:0]]actions[[t:1]] of God, with the exception of one alone, which designates the Divine essence itself. Cf. the [[t:2]]Khozari[[t:3]], book II, §2. Already, in a treatise attributed to Aristotle, and which perhaps formed part of his [[t:4]]exoteric[[t:5]] works, one discovers an analogous attempt to explain the names of the Greek divinities by applying them all to a unique being, in conformity with philosophical doctrines. See the treatise [[t:6]]On the Universe[[t:7]], chap. 7: Eῖς δἐ ὢ ν πολυὤνομὸς ἐστι, ϰατονομαζόμενος τοῖς πάθεσιν ἅπ’ρ αὐτὸς νςοχοῖ, ϰ. τ. λ.).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.680" style="display: none;">
+                <strong>Note 680:</strong> The Arabs call [[t:0]]improvised name[[t:1]] [[t:2]](ism murtajal)[[t:3]]  that which has been, from its origin, the [[t:4]]proper name[[t:5]] of an individual, and which is not derived from an appellative name or a verb. See Silv. de Sacy, [[t:6]]Arabic Grammar[[t:7]], t. I, p. 268 (2[[t:8]]nd[[t:9]] edition).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.681" style="display: none;">
+                <strong>Note 681:</strong> The words [[t:0]]שם המפורש[[t:1]] ([[t:2]]Mishnah[[t:3]], II[[t:4]]nd[[t:5]] part, treatise [[t:6]]Yoma[[t:7]], chap. VI, § 2) signify doubtless: [[t:8]]the name of God distinctly pronounced[[t:9]], that is to say, the [[t:10]]Tetragrammaton[[t:11]], written and read by the four letters [[t:12]]yod, he, waw, he[[t:13]], and which is also denominated [[t:14]]השם המיוחד[[t:15]], or [[t:16]]the peculiar name[[t:17]] (Babylonian Talmud, [[t:18]]Sanhedrin[[t:19]], fol. 56 [[t:20]]a; Shebu'ot[[t:21]], fol. 36 [[t:22]]a[[t:23]]). The words [[t:24]]ונקב שם י״י[[t:25]] (Lev., XXIV, 16) are rendered, in Onkelos’s Chaldaic version, by [[t:26]]ודי פרש שמא די״י[[t:27]], [[t:28]]and he who[[t:29]] [[t:30]]PRONOUNCES[[t:31]] [[t:32]]the name of the Eternal;[[t:33]] cf. Ibn-Ezra’s commentary: [[t:34]]והנה הטעם בעת שיקלל אם יפרש השם יומת[[t:35]] 'The sense is: if, in blaspheming, he [[t:36]]pronounces[[t:37]] the name of God, he shall be put to death.' Our author apprehends the word [[t:38]]מפורש[[t:39]] in the sense that this name [[t:40]]expressly[[t:41]] designates the Divine essence, and is by no means an [[t:42]]homonym[[t:43]], that is to say, that it does not apply simultaneously to God and to other beings. This interpretation of the word [[t:44]]מפורש[[t:45]], generally adopted by the theologians who succeeded Maimonides (cf. Albo, [[t:46]]Ikkarim[[t:47]], II, 28), was certainly not present in the thought of the ancient rabbis.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.682" style="display: none;">
+                <strong>Note 682:</strong> See above, chap. LIV, p. 219 and following.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.683" style="display: none;">
+                <strong>Note 683:</strong> It is known that, from the most ancient times, the Jews, by a pious reverence for the proper name of God, durst not pronounce this name, and always read [[t:0]]אדני[[t:1]] in the stead of [[t:2]]יהוה[[t:3]]; wherefore the Septuagint already does render this latter name by [[t:4]]ὁ ϰύρις the Lord.[[t:5]] The [[t:6]]Masoretes[[t:7]] have, for the same reason, assigned unto it the vowels of the word [[t:8]]אֲדׂנָי[[t:9]], so that one does read [[t:10]]Iéhova[[t:11]], which is not the true pronunciation of the name [[t:12]]יהוה[[t:13]]. It is by the same scruple that the author, instead of inditing this name in its veritable form, does spell out its letters, and ever writs: [[t:14]]yod, hé, wâw, hé[[t:15]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.684" style="display: none;">
+                <strong>Note 684:</strong> Literally: [[t:0]]for therein is emphasis and generality;[[t:1]] that is to say, names such as [[t:2]]Adônaï[[t:3]] and [[t:4]]Saraï[[t:5]] are [[t:6]]emphatic[[t:7]] words, or, as grammarians term them, [[t:8]]plurals of majesty[[t:9]], and their very form does indicate that they are not primitively proper names appertaining unto a single individual, but common nouns applicable to a generality of individuals. Thus, the name [[t:10]]Adônaï[[t:11]], which signifies [[t:12]]my lords[[t:13]], does necessarily derive from an appellative noun belonging to several individuals.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.685" style="display: none;">
+                <strong>Note 685:</strong> On this last name, see above, chap. II, p. 37.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.686" style="display: none;">
+                <strong>Note 686:</strong> The author, following the example of other theologians (cf. [[t:0]]Khozari[[t:1]], book IV, § 3), deems it proper to isolate the [[t:2]]Tetragrammaton[[t:3]] from all other names of God, and to perceive therein a proper name, without known etymology, albeit it is evident that the name [[t:4]]יהוה[[t:5]] does contain the sense of [[t:6]]being[[t:7]] (from the verb [[t:8]]הוה[[t:9]] or [[t:10]]היה[[t:11]]), even as that of [[t:12]]אהיה[[t:13]], which the author himself derivs from the verb [[t:14]]היה[[t:15]], as shall be observed in chapter LXIII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.687" style="display: none;">
+                <strong>Note 687:</strong> Literally: [[t:0]]And He[[t:1]] (God) [[t:2]]has not shared it with another.[[t:3]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.688" style="display: none;">
+                <strong>Note 688:</strong> These words, which the author puts in Hebrew, seem to refer to a passage from 2[[t:0]]e[[t:1]] book of Chronicles, chap. XXVI, [[t:2]]V[[t:3]]. 18.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.689" style="display: none;">
+                <strong>Note 689:</strong> In the sanctuary of Jerusalem, the priests, while giving the people the blessing prescribed by the Law (Numbers, chap. 6, [[t:0]]V[[t:1]]. 24-26), pronounced the tetragrammaton as written, while outside the sanctuary, they substituted the name of [[t:2]]Adônaï[[t:3]]. See [[t:4]]Mischnâ[[t:5]], III[[t:6]]e[[t:7]] part, treatise [[t:8]]Sôtâ[[t:9]], chap. VII, § 6.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.690" style="display: none;">
+                <strong>Note 690:</strong> That is, on the [[t:0]]day of atonement[[t:1]], when the high priest, in the confession of sins, also pronounced the name [[t:2]]YHWH[[t:3]] with its own consonants. See [[t:4]]Mischna[[t:5]], treatise [[t:6]]Yômâ[[t:7]], l.c.; Talmud of Bab., same treatise, fol. 39 [[t:8]]b.[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.691" style="display: none;">
+                <strong>Note 691:</strong> The manuscripts bear [[t:0]]ליםת ענדנא[[t:1]], which is incorrect; one must write [[t:2]]לים[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.692" style="display: none;">
+                <strong>Note 692:</strong> The manuscripts generally bear [[t:0]]לא ישארך אחד[[t:1]]; it mayhap one ought to read [[t:2]]אחר״א[[t:3]], in the accusative case, so that the literal translation would be: [[t:4]]inasmuch as He[[t:5]] ([[t:6]]God[[t:7]]) [[t:8]]has no community with any of the creatures in this indication.[[t:9]] In one manuscript, one does read [[t:10]]ישארכה[[t:11]] with the suffix. According to this reading, it would be necessary to translate: [[t:12]]…that none of the creatures has community with Him[[t:13]], etc.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.693" style="display: none;">
+                <strong>Note 693:</strong> The author will cite the Talmudic passage he has in view later on. See p. 272.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.694" style="display: none;">
+                <strong>Note 694:</strong> Instead of דׄאת צפאת, some manuscripts read דאת להא צפאת, which may be preferable.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.695" style="display: none;">
+                <strong>Note 695:</strong> Thus, for example, the words [[t:0]]clement, just, all-powerful[[t:1]], indicate the ideas of clemency, justice, and power, and a subject to which these ideas are attached, and which is implied; therefore, these words, used as names of God, would make God a composite being.[[t:3]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.696" style="display: none;">
+                <strong>Note 696:</strong> See above, chap. LIX, p. 254 and 255.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.697" style="display: none;">
+                <strong>Note 697:</strong> See above, p. 267, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.698" style="display: none;">
+                <strong>Note 698:</strong> That is, [[t:0]]amulets[[t:1]], containing magical formulas and imaginary names of the deity, and that were worn as preservatives against diseases. See [[t:2]]Mischnâ[[t:3]], II[[t:4]]nd[[t:5]] part, treatise [[t:6]]Schabbâth[[t:7]], chapter VI, § 2, and [[t:8]]Talmud of Babylon[[t:9]], same treatise, fol. 61 [[t:10]]a. b.[[t:11]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.699" style="display: none;">
+                <strong>Note 699:</strong> Literally: [[t:0]]qu'ils cousent ensemble.[[t:1]] Instead of [[t:2]]ילפקונהא[[t:3]], some manuscripts read [[t:4]]אלפוהא[[t:5]], [[t:6]]qu'ils ont composés.[[t:7]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.700" style="display: none;">
+                <strong>Note 700:</strong> Instead of [[t:0]]אבׄבאר[[t:1]] [[t:2]](اخبار)[[t:3]] which means here [[t:4]]fictitious stories[[t:5]], or fables, one of the manuscripts reads [[t:6]]כׄראפאת[[t:7]] [[t:8]](خرافات)[[t:9]] , which has the same meaning; this word has not been rendered in either of the two Hebrew versions.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.701" style="display: none;">
+                <strong>Note 701:</strong> That is to say: the word [[t:0]]ainsi[[t:1]] ([[t:2]]כה[[t:3]]) signifies that the priests must recite the blessing in the prescribed terms, without changing anything, and by pronouncing the name [[t:4]]tétragrammate[[t:5]] as it is written.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.702" style="display: none;">
+                <strong>Note 702:</strong> That is to say: in the Jerusalem sanctuary, the priests, in reciting the prescribed blessing, pronounce the true name [[t:0]]tetragrammate;[[t:1]] but outside the central sanctuary, they substitute the name of [[t:2]]Adônaï[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.703" style="display: none;">
+                <strong>Note 703:</strong> See Talmud of Babylon, tractate [[t:0]]Sôtâ[[t:1]], fol. 38 [[t:2]]a[[t:3]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

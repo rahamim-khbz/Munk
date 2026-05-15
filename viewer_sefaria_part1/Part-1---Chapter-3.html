@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 3 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 3</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..2.0">
+                <div class="he-cell"><b>המונחים תבנית ותמונה</b><br><span class="mediumGrey">משמעות המונח תבנית</span><br><sup>1</sup> חושבים שמשמעות "<b>תמונה</b>" ו"<b>תבנית</b>" בלשון העברית אחת היא, ואין הדבר כן. משום ש"<b>תבנית</b>" הוא מונח הגזור מן "<b>בנה</b>", ומשמעותו מבנה הדבר ותכונתו, כלומר תבניתו, דוגמת הריבועיוּת והעיגוליוּת והמשולשוּת ושאר התבניות. נאמר: "<b>אֵת תַּבְנִית הַמִּשְׁכָּן וְאֵת תַּבְנִית כָּל כֵּלָיו</b>" (שמות כה,ט), ונאמר: "[וּרְאֵה וַעֲשֵׂה] <b>בְּתַבְנִיתָם אֲשֶׁר אַתָּה מָרְאֶה בָּהָר</b>" (שם,מ), "<b>תַּבְנִית כָּל צִפּוֹר [</b>כָּנָף אֲשֶׁר תָּעוּף בַּשָּׁמָיִם]" (דברים ד,יז), "<b>תַּבְנִית יָד</b>" (יחזקאל ח,ג; י,ח), "<b>תַּבְנִית הָאוּלָם</b>" (דברי הימים־א כח,יא). כל אלה – תבנית. ולכן אין העברית מחילה כלל את הביטויים הללו על תיאורים הקשורים באלוה.</div>
+                <div class="en-cell">One imagines that the meaning of temounâ (תמונה) and of tabnîth (תבנית) in the Hebrew language is the same; but such is not the case. Tabnîth is a noun derived from בנה (to build) and signifies the structure of a thing and its form, i.e., its figure, such as, for example, a square, circular, triangular figure, etc. It is said, for example: The figure (תבנית) of the tabernacle and the figure (תבנית) of all its vessels (Exod., 25, 9), and it is said again: According to their figure (כתבניתם) which was shown thee on the mount (Ibid., V. 40); The figure (תבנית) of every bird (Deut., 4, 17); The figure (תבנית) of a hand (Ezek., 8, 3); The figure (תבנית) of the porch (I Chron., 28, 11). All this is a figure (visible); this is why the Hebrew language does not employ this kind of expression in descriptions that relate to God,intellect and faculty being distinct from form and matter.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..2.1">
+                <div class="he-cell"><span class="mediumGrey">שלוש משמעויות למונח תמונה</span><br><sup>2</sup> ואילו "<b>תמונה</b>" היא מונח מסופק בעל שלוש משמעויות: <br><sup>א)</sup> הוא משמש במובן של צורת הדבר המושגת בחושים מחוץ לדעת (=באופן אובייקטיבי), כלומר תבניתו ומתארו, והם דבריו: "<b>וַעֲשִׂיתֶם פֶּסֶל תְּמוּנַת כֹּל</b>" (דברים ד,כה), "<b>כִּי לֹא רְאִיתֶם כָּל תְּמוּנָה</b> [בְּיוֹם דִּבֶּר ה' אֲלֵיכֶם בְּחֹרֵב מִתּוֹךְ הָאֵשׁ]" (שם,טו). <br><sup>ב)</sup> הוא משמש במובן של הצורה המדומיינת של הפרט, הנמצאת בדמיון לאחר היעלמו מן החושים, והוא שנאמר: "<b>בִּשְׂעִפִּים מֵחֶזְיֹנוֹת לָיְלָה [</b>בִּנְפֹל תַּרְדֵּמָה עַל אֲנָשִׁים]" (איוב ד,יג), וסוף הדברים: "<b>יַעֲמֹד וְלֹא אַכִּיר מַרְאֵהוּ, תְּמוּנָה לְנֶגֶד עֵינָי</b>" (שם,טז), כלומר דמיון אל מול עיניי בשנתי. <br><sup>ג)</sup> והוא משמש במובן של העניין האמיתי המושג בשכל, ולפי המובן השלישי הזה נאמר אצלו יתעלה "<b>תמונה</b>". נאמר: "<b>וּתְמֻנַת ה' יַבִּיט</b>" (במדבר יב,ח), משמעותו וביאורו: ואת אמיתת ה' ישיג.</div>
+                <div class="en-cell">As for temounâ (תמונה), it is a term employed amphibologically<sup class="fn-ref" onclick="showFn('fn.76')">76</sup> in three distinct senses. Firstly, it refers to the form of an object perceived by the senses independently of the mind—that is to say, its shape and its lineaments; and this is the sense of the words: ….. and that ye make a graven image of the figure (תמונת) of any thing whatsoever, etc. (Deuteronomy, 4, 25); For ye saw no manner of similitude (תמונה) (Ibid., v. 15). Secondly, it denotes the imaginary figure which an object, having withdrawn from the senses, leaves in the imagination, as in this passage: In thoughts (nées) from the visions of the night, etc. (Job, 4, 13 et seq.), which concludes with these words: It stood still, but I could not discern the form thereof: a figure (תמונה) was before mine eyes; that is to say, there was a phantasm before mine eyes in slumber. Finally, thirdly, it signifies the true idea (of a thing) perceived by the intellect; and it is in this third sense that temounâ is employed when speaking of God; for example: And he beholds the similitude (תמונת) of the LORD (Numbers, 12, 8), which must be explicated in this wise: And he comprehends God in His reality.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.76" style="display: none;">
+                <strong>Note 76:</strong> See above, page 6, note 3.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

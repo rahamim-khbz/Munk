@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 57 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 57</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.0">
+                <div class="he-cell"><b>האל "מחויב המציאות" – סוף תוארי החיוב</b><br>על התארים, עמוק יותר מן האמור עד כה</div>
+                <div class="en-cell">UPON THE ATTRIBUTES. <br><small>MORE PROFOUND THAN THE FOREGOING</small><sup class="fn-ref" onclick="showFn('fn.593')">593</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.1">
+                <div class="he-cell"><span class="mediumGrey">בין מהות לבין מציאות</span><br><sup>1</sup> ידוע שהמציאות היא דבר שקרה למצוי, ולפיכך היא עניין הנוסף על מהות המצוי. זהו דבר ברור ומחויב: בכל מה שיש סיבה למציאותו, הרי שמציאותו היא עניין נוסף על מהותו.<br><span class="mediumGrey">האל "מחויב המציאות" – לאל אין זיקה למושגי מציאות</span><br><sup>2</sup> אך מה שאין סיבה למציאותו, והוא האל יתהדר ויתרומם לבדו – כי זו משמעות אומרנו עליו יתעלה שהוא "מחויב המציאות" – מציאותו היא עצמותו ומהותו האמיתית, ועצמותו היא מציאותו, ואין היא עצמות שמציאותה קרתה לה כדי שתהיה מציאותה עניין נוסף עליה. כי הוא מחויב המציאות תמיד, ודבר לא מתרחש בו ולא קורה לו. אם כן הוא מצוי – לא על ידי מציאות; וכן חי – לא על ידי חיים; ויכול – לא על ידי יכולת; ויודע – לא על ידי ידיעה. אלא הכול חוזר אל עניין אחד שאין בו ריבוי, כמו שיתבאר (בפרק הבא).</div>
+                <div class="en-cell">It is known that existence is an accident supervening upon that which exists; wherefore it is something accessory to the quiddity of that which exists<sup class="fn-ref" onclick="showFn('fn.594')">594</sup>. This is an evident and necessary truth in all that of which the existence has a cause; for its existence is a thing superadded to its quiddity. But as for that of which the existence has no cause, and this is God alone, the Most High, [for this is what is signified by saying that God is of a necessary existence,] His existence is His true essence; His essence is His existence, and it is not an essence to which it has happened to exist, so that His existence therein should be something accessory; for He is always of a necessary existence, and (His existence) is not something new in Him, nor an accident which has supervened upon Him<sup class="fn-ref" onclick="showFn('fn.595')">595</sup>. Thus, therefore, He exists, but not by existence, and likewise, He lives, but not by life, He can, but not by power, and He knows, but not by knowledge<sup class="fn-ref" onclick="showFn('fn.596')">596</sup>; the whole, on the contrary, reverts to a single idea, in which there is no multiplicity, as shall be explained.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.2">
+                <div class="he-cell"><span class="mediumGrey">לאל אין זיקה למושגי כמות</span><br><sup>3</sup> מה שעוד צריך לדעת הוא שהאחדות והריבוי הם דברים שקרו למצוי באשר הוא רב או אחד. דבר זה התבאר ב"מטפיזיקה" (ראו ספר י פרק 2). וכפי שהמספר אינו עצמם של הנספרים, כך אין האחדות עצמו של הדבר היחיד, כי כל אלה מקרים מסוג הכמות הניתנת לחלוקה, החלים על המצויים המוכנים לקבל מקרים כגון אלה.</div>
+                <div class="en-cell">It is also essential to note that unity and multiplicity are accidents that have befallen that which exists, inasmuch as it is multiple or a unit, a concept that has been elucidated in the Metaphysics<sup class="fn-ref" onclick="showFn('fn.597')">597</sup>. And, just as number is not the very things that are enumerated, so too is unity not the very thing that is one; for these are all (two) accidents of the sort of discrete quantity discrète<sup class="fn-ref" onclick="showFn('fn.598')">598</sup>, which attain to beings capable of receiving analogous accidents.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.3">
+                <div class="he-cell">ואילו מחויב המציאות, הפשוט באמת, שאין חלה בו מורכבות כלל – הרי כפי שמקרה הריבוי בלתי אפשרי בו כך מקרה האחדות בלתי אפשרי בו; כוונתי שאין האחדות עניין נוסף על עצמותו, אלא הוא אחד ולא על ידי אחדות.</div>
+                <div class="en-cell">As touching the <i>Necessary Being</i><sup class="footnote-marker">[t:1]</sup> (God), who is verily simple and altogether exempt from composition, even as one could not attribute unto Him the accident of <i>multiplicity</i><sup class="footnote-marker">[t:3]</sup>, so likewise were it false to attribute unto Him the accident of <i>unity;</i><sup class="footnote-marker">[t:5]</sup> I mean to say that unity is in no wise a thing added unto His essence, but that He is <i>one, yet not by unity.</i><sup class="footnote-marker">[t:7]</sup></div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.4">
+                <div class="he-cell"><sup>4</sup> בעניינים הדקים האלה, שכמעט חומקים מן הדעת, אין להתבונן באמצעות הביטויים השגורים, שהם הסיבה הגדולה ביותר להטעיה, כי קשה מאוד מאוד להביע זאת בכל שפה, כך שאיננו מציירים (=ממשיגים) את העניין אלא בחוסר דיוק בהבעה. על כן כשאנו רוצים להורות על כך שהאלוה אינו רבים, לא יוכל האומר לומר אלא "אחד", אף שהאחד והרבים נכללים בקטגוריית הכמות.</div>
+                <div class="en-cell">These subtle subjects, which almost escape the minds, cannot be expressed by the usual language, which is one of the great causes of error; for, in every language, we are (in this regard) extremely limited in expression, so that such a subject, we cannot represent it (by words) except by relaxing ourselves for expression<sup class="fn-ref" onclick="showFn('fn.599')">599</sup>. Therefore, when we wish to indicate that God is not multiple, this cannot be said except by (the word) un, although the un and the multiple both belong to the quantity;[Lat.: quantitas] c'est pourquoi, résumant l'idée, nous amenons l'esprit à (comprendre) la réalité de la chose, en disant: un, non par l'unité.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.5">
+                <div class="he-cell"><span class="mediumGrey">לאל אין זיקה למושגי זמן</span><br><sup>5</sup> לכן אנחנו מתמצתים את העניין ומדריכים את הדעת לאמיתת הדבר באומרנו "אחד – לא על ידי אחדות", כפי שאנחנו אומרים "קדום" כדי להורות על כך שאין הוא מחודש, אף כי באומרנו "קדום" יש אי דיוק ברור וגלוי, כי "קדום" לא נאמר אלא על מי שחל בו הזמן, שהוא מקרה של התנועה השייכת לגוף. ועוד, שהוא שייך לקטגוריית היחס ההדדי, כי לומר "קדום" ביחס למקרה הזמן הוא כמו לומר "ארוך" ו"קצר" ביחס למקרה הקו. וכל מה שמקרה הזמן אינו חל עליו אין אומרים עליו באמת לא "קדום" ולא "מחודש", כמו שאין אומרים על המתיקות לא "עקומה" ולא "ישרה", ואין אומרים על הקול לא "מלוח" ולא "תפל".</div>
+                <div class="en-cell">It is thus that we express Eternal to signify that God is not something which is born<sup class="fn-ref" onclick="showFn('fn.600')">600</sup>. But to say Eternal, is, doubtless, to place ourselves at ease (with the expression); for the word eternal denotes something which is in relation to time, which is an accident of the movement that is inherent in the body<sup class="fn-ref" onclick="showFn('fn.601')">601</sup>. Furthermore, this word expresses a relation<sup class="fn-ref" onclick="showFn('fn.602')">602</sup>; for one says eternal with regard to time as one says long and short with regard to the line<sup class="fn-ref" onclick="showFn('fn.603')">603</sup>. All that does not touch the accident of time cannot, in reality, be said to be either eternal, or born (or created), any more than sweetness can be said to be curved or straight, or sound, salty or insipid.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.6">
+                <div class="he-cell">אלה דברים שאינם נעלמים ממי שהתאמן בהבנת העניינים לאמיתם. התבונן בהם בהשגת השכל ובהפשטתו אותם, לא בהכללה שהביטויים מורים עליה.<br><sup>6</sup> על כן כל תיאור שלו יתעלה כ"<b>רִאשׁוֹן</b>" ו"<b>אַחֲרוֹן</b>" שאתה מוצא בכתבי הקודש (ישעיהו מד,ו; מח,יב) הוא בדומה לכך שהוא יתעלה מתואר כבעל עין ואוזן. הכוונה בכך היא שאין חל בו יתעלה שינוי ולא מתחדש לו שום עניין; לא שהוא יתעלה נמצא בזמן, כך שתחול השוואה כלשהי בינו ובין זולתו הנמצא בזמן ויהיה כך <b>ראשון</b> ו<b>אחרון</b>. וכל הביטויים האלה אינם אלא <b>כלשון בני אדם</b>.</div>
+                <div class="en-cell">These matters are not obscure to one who has diligently trained himself to apprehend subjects in their veritable reality, and who examines them in such a manner that the intellect grasps them in their abstraction, and not according to the collective sense which the words denote<sup class="fn-ref" onclick="showFn('fn.604')">604</sup>. Whenever, therefore, in the (sacred) books, one discovers that the attributes of first and last<sup class="fn-ref" onclick="showFn('fn.605')">605</sup> are ascribed to God, it is as when the eye and the ear<sup class="fn-ref" onclick="showFn('fn.606')">606</sup> are attributed to Him; by this is signified that God is not susceptible to change, and that absolutely nothing new accrues to Him, but not that God falls under the dominion of time, such that there should be any analogy between Him and other things existing in time, and that He should thus be first and last. All these words are employed solely in accordance with the language of men;</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..56.7">
+                <div class="he-cell">באותו אופן כשאנו אומרים "אחד", הכוונה היא שאין עוד כמוהו, לא שעניין האחדות חל על עצמותו.</div>
+                <div class="en-cell">so likewise, when we say (that He is) <i>one</i><sup class="footnote-marker">[t:1]</sup>, the meaning is that there is naught like unto Him, but not that the idea of <i>unity</i><sup class="footnote-marker">[t:3]</sup> is added unto His essence.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.593" style="display: none;">
+                <strong>Note 593:</strong> In the preceding chapters, the author has contended against those who believe themselves able to admit as [[t:0]]essential attributes[[t:1]] of God, life, knowledge, power, and will. Here he will demonstrate that one cannot even admit as [[t:2]]attributes[[t:3]] of God, [[t:4]]existence[[t:5]], [[t:6]]unity[[t:7]], and [[t:8]]eternity[[t:9]], which are more generally considered as attributes inherent in the divine essence. Cf. Ba’hya, [[t:10]]Duties of the Hearts[[t:11]], book I, chap. 10.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.594" style="display: none;">
+                <strong>Note 594:</strong> [Footnote 594 content missing]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.595" style="display: none;">
+                <strong>Note 595:</strong> That is to say, something which has newly supervened upon its quiddity and which is posterior thereto. The manuscripts generally bear [[t:0]]טאריא[[t:1]] [[t:2]](طاريا)[[t:3]] and [[t:4]]עארצׄא[[t:5]] [[t:6]](عارضاً)[[t:7]], and these two words must be regarded as the [[t:8]]predicate[[t:9]] [[t:10]](خبر)[[t:11]] of the negation [[t:12]]لا[[t:13]], which here possesses the force of a verb, implying [[t:14]]وجودة[[t:15]] or [[t:16]]هو[[t:17]]; it is as if one had said: [[t:18]]ليس وجوده طارئاً[[t:19]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.596" style="display: none;">
+                <strong>Note 596:</strong> It is erroneously that Pococke ([[t:0]]Specimen hist. Ar.[[t:1]], p. 214) compares these words of Maimonides with what certain Mu'tazilites affirmed, to wit, that God is [[t:2]]powerful by His essence, knowing by His essence, etc.[[t:3]]; one has seen higher up (chap. LIII, p. 209) that Maimonides himself reproves these words of the Mu'tazilites, which he finds scarcely intelligible and in which he discerns an indirect admission of the [[t:4]]essential attributes.[[t:5]] The author, in saying: [[t:6]]existent, not by existence; living, not by life[[t:7]], etc., evidently avoids expressing himself, like the Mu'tazilites, by affirmative terms. Cf. the last of the [[t:8]]Eight Chapters[[t:9]] with which our author prefaces his commentary on the treatise [[t:10]]Abôth;[[t:11]] touching upon the same question, he likewise expresses himself by negative terms, saying: [[t:12]]אן אללה תעאלי לים הו עאלמא בעלם ולא חיא بחיأه̈[[t:13]] (Vide Pococke, [[t:14]]Porta Mosis[[t:15]], p. 254).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.597" style="display: none;">
+                <strong>Note 597:</strong> [Footnote 597 content missing]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.598" style="display: none;">
+                <strong>Note 598:</strong> [[t:0]]Quantity[[t:1]], says Aristotle ([[t:2]]Categories[[t:3]], chap. 6), is either [[t:4]]discrete[[t:5]] ([[t:6]]διωριτμένον[[t:7]], [[t:8]]منفصل[[t:9]] ) or [[t:10]]continuous[[t:11]] ([[t:12]]συνε χές[[t:13]], [[t:14]]متصل[[t:15]] ); discrete quantity, he adds, compriss number and speech, of which the parts have no common term in which they unite. It is manifest that the author, in here asserting that the [[t:16]]one[[t:17]] is, like number, of the genus or category of [[t:18]]discrete[[t:19]] quantity, has, like Ibn-Sīnā, confounded numerical unity with absolute unity. See the preceding note.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.599" style="display: none;">
+                <strong>Note 599:</strong> The verb [[t:0]]تسامح[[t:1]] (VI[[t:2]]th[[t:3]] form of [[t:4]]جسم[[t:5]] ), which signifies: [[t:6]]to act with gentleness, to show oneself easy[[t:7]] or [[t:8]]indulgent[[t:9]], is likewise employed, as a technical term, in the sense of [[t:10]]to permit oneself an improper expression[[t:11]], that is to say, to be lax concerning the words one employs and not to adhere to their rigorous meaning, when one desirs to express an idea for which the proper terms are not readily found (cf. above, page 203, note 5). According to the definition of the [[t:12]]Kitāb al Ta’rīfāt[[t:13]] (also reported in Freytag’s Dictionary), this term signifies: that the idea one aims to express does not issue forth from the words employed, and that it is necessary, in order to divine it, to supply another expression by ellipsis.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.600" style="display: none;">
+                <strong>Note 600:</strong> The word [[t:0]]חאדתׄ[[t:1]] [[t:2]](حادث)[[t:3]]  means [[t:4]]what has newly occurred, what has been produced[[t:5]] or [[t:6]]created[[t:7]], and is opposed to [[t:8]]קדים[[t:9]] [[t:10]]قديم[[t:11]] , [[t:12]]ancient, eternal.[[t:13]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.601" style="display: none;">
+                <strong>Note 601:</strong> Literally: [[t:0]]for[[t:1]] [[t:2]]ETERNAL[[t:3]] [[t:4]]is said only of that which time does affect, which etc.[[t:5]] See above, chap. LII, page 199, and [[t:6]]ibid.[[t:7]], note 1. It must not be overlooked that the author here reasons concerning the Arabic word [[t:8]](قديم)[[t:9]] , employed in the sense of [[t:10]]eternal[[t:11]], but which signifies primitively [[t:12]]that which precedes, prior, ancient[[t:13]], and which evidently designats somewhat that stands in relation to time.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.602" style="display: none;">
+                <strong>Note 602:</strong> Literally: [[t:0]]And it is also of the class of the relative;[[t:1]] that is to say, the word [[t:2]]قديم[[t:3]] (prior, eternal) belongs to the category of [[t:4]]relation[[t:5]], which embraces, according to the expression of Aristotle ([[t:6]]Categ.[[t:7]], chap. 7), all that is said to be what it is by reason of things other than itself, or, in other terms, all that relats to a thing other than itself (cf. Maimonides, [[t:8]]Compendium of Logic[[t:9]], chap. 11). Indeed, the [[t:10]]prior[[t:11]] is said in relation to that which is [[t:12]]posterior;[[t:13]] the [[t:14]]ancient[[t:15]], in relation to that which is [[t:16]]new;[[t:17]] the [[t:18]]eternal[[t:19]], in relation to that which has not always been and which is [[t:20]]originary[[t:21]] of somewhat. The author doubtless intends that the word [[t:22]]eternal[[t:23]], being a [[t:24]]relative[[t:25]], cannot be applied to God, who cannot be placed in [[t:26]]relation[[t:27]] with any thing. Cf. above, page 200, and [[t:28]]ibid.[[t:29]], note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.603" style="display: none;">
+                <strong>Note 603:</strong> That is to say: just as [[t:0]]long[[t:1]] and [[t:2]]short[[t:3]] are [[t:4]]relatives[[t:5]] which apply to the line, so likewise [[t:6]]eternal[[t:7]] and [[t:8]]created, ancient[[t:9]] and [[t:10]]new[[t:11]], are relatives which apply to time. The words [[t:12]]פי ערץׄ אלזמאן[[t:13]] here signify: [[t:14]]within the extent[[t:15]] or [[t:16]]in the region of time[[t:17]], and similarly, [[t:18]]פי ערׄץ אלכׄט[[t:19]]: [[t:20]]within the extent of the line.[[t:21]] One must here pronounce [[t:22]]عرض[[t:23]] , and not [[t:24]]عرض[[t:25]] , as the two Hebrew translators have done, rendering the words in question by [[t:26]]במקרה הזמן[[t:27]] (in the [[t:28]]accident[[t:29]] of time) and [[t:30]]במקרה הקו[[t:31]] (in the [[t:32]]accident[[t:33]] of the line), which offers scarcely any sense. Ibn-Falaquera has already observed that the word [[t:34]]ערץׄ[[t:35]] ought to be rendered here in Hebrew by [[t:36]]רוחב[[t:37]] (breadth), taken here in the sense of [[t:38]]מדה[[t:39]] [[t:40]]measure, extent.[[t:41]] See [[t:42]]Moré ha-Moré[[t:43]], page 28, and the appendix, page 151. Cf. further on, chap. LXXII (fol. 101 [[t:44]]b[[t:45]], line 6, of our text): [[t:46]]בקדר ערץׄ דׄלך אלנוع[[t:47]], [[t:48]]according to the [[t:49]] [[t:50]]EXTENT[[t:51]] [[t:52]]of this species.[[t:53]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.604" style="display: none;">
+                <strong>Note 604:</strong> More literally: [[t:0]]and who examines them, the intelligence apprehending and abstracting them, and not with the total idea which the words indicate[[t:1]], that is to say, one who examines them with a profound intelligence, capable of grasping these matters in themselves, in all their abstract nature, and does not guide oneself by the general sense which certain words possess. Thus, for example, he who comprehends these metaphysical subjects will know that, when it is said of God that He [[t:2]]exists[[t:3]], that He is [[t:4]]one[[t:5]] and [[t:6]]eternal[[t:7]], these words here bear an abstract sense, entirely independent of that which they possess in their general application. — Instead of [[t:8]]באלתגׄמל[[t:9]], several manuscripts bear [[t:10]]באלתגׄםים[[t:11]] (with [[t:12]]corporification[[t:13]] or the [[t:14]]corporeal idea[[t:15]]); but our reading is confirmed by the two Hebrew versions, one of which bears [[t:16]]בכללות[[t:17]], the other [[t:18]]בחבור[[t:19]]. The word [[t:20]]תגׄמל[[t:21]] [[t:22]](تجمّل)[[t:23]] is a [[t:24]]noun of action[[t:25]] (of the V[[t:26]]th[[t:27]] form), derived from the substantive [[t:28]]جهالة[[t:29]] , totality, and signifies here [[t:30]]generality, ensemble.[[t:31]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.605" style="display: none;">
+                <strong>Note 605:</strong> See, for example, Isaiah, chap. 44, [[t:0]]V[[t:1]]. 6.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.606" style="display: none;">
+                <strong>Note 606:</strong> That is to say: the words [[t:0]]first[[t:1]] and [[t:2]]last[[t:3]], applied to God, must be taken figuratively, just as the [[t:4]]eye[[t:5]] and the [[t:6]]ear[[t:7]] are attributed to Him.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

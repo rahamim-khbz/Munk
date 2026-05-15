@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 1 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 1</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.0">
+                <div class="he-cell"><b>פִּתְחוּ שְׁעָרִים וְיָבֹא גוֹי צַדִּיק שֹׁמֵר אֱמֻנִים</b> (ישעיהו כו,ב)</div>
+                <div class="en-cell">Open the gates, that the righteous nation which keeps the truth may enter in.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.1">
+                <div class="he-cell"><b>המונחים צלם ודמות</b><br><span class="mediumGrey">משמעות שגויה של המונח צלם</span><br><sup>1</sup> <b>צלם ודמות</b>. אנשים חשבו ש"<b>צלם</b>" בעברית מורה על תבניתו ומתארו של דבר. דבר זה הביא להגשמה גמורה, בגלל הפסוק "<b>נַעֲשֶׂה אָדָם בְּצַלְמֵנוּ כִּדְמוּתֵנוּ</b>" (בראשית א,כו). הם חשבו שהאל הוא בצורת אדם, כלומר בתבניתו ובמתארו, והדבר הוביל אותם להגשמה גמורה. על כן הם האמינו בה, וסברו שאם ייטשו את האמונה הזו הם יכחישו את הכתוב, ואף ישללו את קיומו של האל אם אין לו גוף בעל פנים ויד הדומים לאלה שלהם בתבנית ובמתאר; אלא שהם מדמים שהוא גדול וזוהר יותר, וגם אינו עשוי מדם ומבשר. זהו שיא רוממותו של האל, לפי סברתם.</div>
+                <div class="en-cell">Célem (צֶלֶם) and demouth (דְּמוּת). — There have been people who believed that célem (צלם), in the Hebrew language, designated the form of a thing and its lineaments, and this led to pure corporification (of God), because it is said (in Scripture): Let us make man in our image (בצלמנו) according to our likeness (Genesis, 1, 26). They believed, therefore, that God had the form of a man, that is to say, his figure and lineaments, and it resulted in pure corporification for them, which they admitted as a belief, thinking that, if they deviated from this belief, they would deny the text (of Scripture), or even that they would deny the existence of God if He were not (for them) a body having a face and hands similar to theirs in form and lineaments; only, they admitted that He was greater and more resplendent (than they), and that His matter also was not blood and flesh, and this was all they could conceive of as more sublime with regard to God<sup class="fn-ref" onclick="showFn('fn.60')">60</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.2">
+                <div class="he-cell"><sup>2</sup> מה שראוי לומר בהפרכת הגשמת האל ואישוש אחדותו האמיתית, שאינה תקפה אלא בביטול הגשמות – את ההוכחה לכל זה עוד תלמד מחיבור זה (ב,א). ההערה כאן בפרק זה אינה אלא על ביאור משמעות <b>צלם ודמות</b>.</div>
+                <div class="en-cell">As for that which must be stated to remove corporeality and establish true unity, — which has no reality except by the exclusion<sup class="fn-ref" onclick="showFn('fn.61')">61</sup> of corporeality, — you shall know the demonstration of all this by the present treatise; here, in this chapter we only wish to draw attention to the explanation of the meaning of célem (צלם) and of demouth (דמות).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.3">
+                <div class="he-cell"><span class="mediumGrey">משמעות מובחנת של המונח תואר והמונח צלם</span><br><sup>3</sup> אומר כך: ה'צורה' המפורסמת בקרב ההמון, שהיא תבנית הדבר ומתארו – המונח המיוחד לה בעברית הוא "<b>תואר</b>". נאמר: "<b>יְפֵה תֹאַר וִיפֵה מַרְאֶה</b>" (בראשית לט,ו), "<b>מַה תָּאֳרוֹ</b> [וַתֹּאמֶר אִישׁ זָקֵן עֹלֶה וְהוּא עֹטֶה מְעִיל]" (שמואל־א כח,יד), "<b>כְּתֹאַר בְּנֵי הַמֶּלֶךְ</b>" (שופטים ח,יח). ועל הצורה המלאכותית (=הנעשית בכלי מלאכה) נאמר "<b>יְתָאֲרֵהוּ בַשֶּׂרֶד</b> [...] <b>וּבַמְּחוּגָה יְתָאֳרֵהוּ</b>" (ישעיהו מד,יג). המונח הזה אינו חל על האלוה יתעלה כלל, חלילה וחס.</div>
+                <div class="en-cell">I say, therefore, that the form as it is generally known to the common people<sup class="fn-ref" onclick="showFn('fn.62')">62</sup> [I mean the figure of the thing and its lineaments] bears in the Hebrew language the particular name of toar (תאר); one says, for example: Beautiful in figure (תאר) and beautiful in countenance (Genesis, 39, 6); what is his figure (תארו) (I Samuel, 28, 14)? As the figure (כתאר) of the king's sons (Judges, 13, 18). It has been said (in speaking) of the artificial form: He figures (יתארהו) with the burin… and he figures (יתארהו) with the circle (Isaiah, 44, 13). This is a denomination that is never applied to God the Most High;—far be it from us (such a thought)!</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.4">
+                <div class="he-cell"><sup>4</sup> ואילו "<b>צלם</b>" חל על הצורה הטבעית, כלומר על העניין המגדיר את עצמותו של דבר ועושה אותו למה שהוא, והוא מהותו האמיתית באשר הוא המצוי הזה. ועניין זה (=הצלם, המגדיר את העצמות) אצל האדם, הוא מה שבאמצעותו מתבצעת ההשגה האנושית. בשל אותה השגה שכלית נאמר עליו "<b>בְּצֶלֶם אֱלֹהִים בָּרָא אֹתוֹ</b>" (בראשית א,כז).</div>
+                <div class="en-cell">As for célem (צלם), it applies to the natural form, I mean to that which constitutes the substance of the thing, whereby it becomes what it is and which forms its reality, inasmuch as it is such a being (determined). In man, this something is that from which comes the understanding of man, and it is because of this intellectual compréhension that it has been said of him: He created him in the image (בצלם) of God (Genesis, 1, 26).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.5">
+                <div class="he-cell"><sup>5</sup> לכן נאמר "<b>צַלְמָם תִּבְזֶה</b>" (תהילים עג,כ), כי ה<b>בזיון</b> שייך לנפש, שהיא צורת המין, לא לתבנית האברים ומתארם. וכך אומר אני שהפסלים נקראו "<b>צלמים</b>" משום שהמבוקש מהם היה העניין שייחסו להם, לא תבניתם ומתארם. וכך אומר אני לגבי "<b>צַלְמֵי טְחֹרֵיכֶם</b>" (שמואל־א ו,ה), כי המבוקש מהם היה עניין הרחקת פגע ה<b>טחורים</b>, לא תבנית ה<b>טחורים</b>.<br><sup>6</sup> ואם הכרח הוא ש"<b>צַלְמֵי טְחֹרֵיכֶם</b>" ו"<b>צלמים</b>" נקראים כך על שם התבנית והמתאר, יהיה "<b>צלם</b>" מונח רב־משמעי או מסופק, הנאמר על צורת (=מהות) המין ועל הצורה המלאכותית וכיוצא בה מתבניות הגופים הטבעיים ומתארם.</div>
+                <div class="en-cell">This is why it has been said (speaking of the impious): You despise their image (צלמם) (Ps. 73, 20); for contempt reaches the soul which is the form specific<sup class="fn-ref" onclick="showFn('fn.63')">63</sup>, and not the figures of the members and their lineaments. I say likewise that the reason why idols were called celamîm (צלמים), is that what was sought in them was something that was supposed in them<sup class="fn-ref" onclick="showFn('fn.64')">64</sup>; but it was in no way for their figure and lineaments. I shall say the same thing regarding the words: the images (צלמי) of your TE’HORÎM (I Sam., 6, 5)<sup class="fn-ref" onclick="showFn('fn.65')">65</sup>; for what was sought in them was the means of warding off evil from the te’horîm, and it was in no way the figure of the te’horîm. If, however, it were absolutely necessary to admit that the name of célem, applied to the images of the te’horîm and to idols, referred to the figure and lineaments, this name would be either homonymous or amphibological<sup class="fn-ref" onclick="showFn('fn.66')">66</sup>, and would apply not only to the form specific, but also to the artificial form, as well as to the analogous figures of physical bodies and their lineaments.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.6">
+                <div class="he-cell">ויהיה המכוון בדבריו "<b>נַעֲשֶׂה אָדָם בְּצַלְמֵנוּ</b>" צורת המין, שהיא ההשגה השכלית, לא התבנית והמתאר. הרי ביארנו לך את ההבדל בין "<b>צלם</b>" לבין "<b>תואר</b>", וביארנו את משמעות "<b>צלם</b>".</div>
+                <div class="en-cell">By the words: Let us make man in our image, one would thus have wished to speak of the specific form, that is to say, of the intellectual understanding, and not of the figure and lineaments. — Thus we have explained to you the difference between célem (image) and toar (figure), and we have also explained the meaning of célem.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.7">
+                <div class="he-cell"><span class="mediumGrey">משמעות המונח דמות</span><br><sup>7</sup> ואילו "<b>דמות</b>" הוא מונח הגזור מ"<b>דמה</b>", וגם הוא דוֹמוּת בעניין. כי דבריו "<b>דָּמִיתִי לִקְאַת מִדְבָּר</b>" (תהילים קב,ז) לא באו לומר שהוא דומה לה בכנפיה ובראשה, אלא שיְגונו דומה ליגונהּ. וכיוצא בזה "<b>כָּל עֵץ בְּגַן אֱלֹהִים לֹא דָמָה אֵלָיו בְּיָפְיוֹ</b>" (יחזקאל לא,ח) הוא דומוּת בעניין היופי. "<b>חֲמַת לָמוֹ כִּדְמוּת חֲמַת נָחָשׁ</b>" (תהילים נח,ה), "<b>דִּמְיֹנוֹ כְּאַרְיֵה</b> [יִכְסוֹף לִטְרֹף]" (תהילים יז,יב) – כולם דומוּת בעניין, לא בתבנית ובמתאר. וכיוצא בזה נאמר: "<b>דְּמוּת הַכִּסֵּא</b>" (יחזקאל א,כו), "<b>דְּמוּת כִּסֵּא</b>" (שם; שם י,א) – דומוּת בעניין הרוממות והנכבדות, לא בריבועו ובעוביו ובאורך רגליו כמו שחושבים הפתאים. וכיוצא בזה "<b>דְּמוּת הַחַיּוֹת</b>" (שם א,יג).</div>
+                <div class="en-cell">As for demouth (דמות), it is a name (derived) from דמה (to resemble), and which also indicates a resemblance with respect to some idea; for the words (of the psalmist): I resemble (דמיתי) the pelican of the desert (Ps. 102, 7), do not mean that it resembled it with respect to the wings and plumage, but that the sadness of the one resembled the sadness of the other. Similarly (in this passage): No tree in the garden of God resembled (דמה) in beauty (Ezek., 31, 8), it is a resemblance with respect to the idea of beauty; (likewise in these other passages): They have poison similar (כדמות) to the poison of the serpent (Ps. 58, 5); He resembles (דמיונו) a lion eager for prey (Ps. 17, 12). All (these passages indicate) a resemblance with respect to a certain idea, and not with respect to the figure and lineaments. Similarly: The resemblance (דמות) of the throne (Ezek., 1, 26) is a resemblance with respect to the idea of elevation and majesty, and not with respect to the square shape, the thickness, and the length of the feet, as the poor in spirit believe, and it is the same with the resemblance (דמות) of the animals (Ezek., 1, 13).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..0.8">
+                <div class="he-cell"><span class="mediumGrey">האדם נברא בצלם אלוהים ובדמותו</span><br><sup>8</sup> וכיוון שהאדם התייחד בעניין מופלא מאוד שבו, שאיננו קיים בדבר מן הנמצאים מתחת לגלגל הירח, והוא ההשגה השכלית שאינה משתמשת לא בחוש ולא באברים ולא בגפיים, דימה אותה להשגת האלוה, שאינה על ידי אמצעי. אף שאין זו דומוּת באמת אלא במבט ראשון בלבד. ובשל אותו עניין, כלומר השכל האלוהי הדבק בו, נאמר על האדם שהוא <b>בצלם אלהים ובדמותו</b>, לא שהאל יתעלה הוא גוף כך שיהיה בעל תבנית.</div>
+                <div class="en-cell">Now, as man is distinguished by something very remarkable that exists within him and which is not found in any of the beings below the sphere of the moon, namely by intellectual comprehension, for which one employs neither senses, nor hands, nor arms<sup class="fn-ref" onclick="showFn('fn.67')">67</sup>, (this faculty) has been compared to divine comprehension, which is not accomplished by means of an instrument; although the resemblance does not exist in reality, but only at first glance. And for this thing, I mean on account of the divine intellect that unites with man<sup class="fn-ref" onclick="showFn('fn.68')">68</sup>, it has been said of him that he was made in the image of God and in His likeness, (and this means) by no means that God the Most High is a body having any form whatsoever.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.60" style="display: none;">
+                <strong>Note 60:</strong> One would hardly believe that Jewish doctors could have fallen into such errors, if we did not have the positive testimony of Maimonides, as well as that of his son Abraham and several of his contemporaries, who were obliged to defend Maimonides against the attacks of several Talmudists, and notably against a portion of the rabbis of France, who believed they had to take the anthropomorphisms of the Bible literally. We content ourselves with recalling in this regard the unsuspicious testimony of a fierce adversary of Maimonides, R. Abraham ben-David of Posquières, in his critical notes on the [[t:0]]Mishneh Torah[[t:1]] or [[t:2]]Abrégé du Talmud[[t:3]] (book I, treatise [[t:4]]Teshuvah[[t:5]] or on Repentance, ch. 3, § 7). Maimonides having counted among the heretics ([[t:6]]מינים[[t:7]]) one who admits the corporeality of God, R. Abraham asks: "Why does he call this one a [[t:8]]heretic[[t:9]], since men greater and better than he (Maimonides) have followed this opinion, according to what they had seen in the texts of Scripture, and even more in the [[t:10]]Haggadot[[t:11]] which disturb thought?" [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.61" style="display: none;">
+                <strong>Note 61:</strong> Instead of [[t:0]]בדפע[[t:1]] (with [[t:2]]daleth[[t:3]]) several mss. have [[t:4]]ברפע[[t:5]] (with [[t:6]]resch[[t:7]]), which does not alter the meaning.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.62" style="display: none;">
+                <strong>Note 62:</strong> The author means that he does not use the word [[t:0]]form[[t:1]] here in the philosophical sense, but in that of common language.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.63" style="display: none;">
+                <strong>Note 63:</strong> That is to say, the particular form of the human species, or what characterizes man and distinguishes him from other animals.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.64" style="display: none;">
+                <strong>Note 64:</strong> Literally: [[t:0]]Their meaning[[t:1]] ([[t:2]]their idea[[t:3]]) [[t:4]]that one imagined[[t:5]], that is to say the false idea that one formed of them or the virtue that one attributed to them in error.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.65" style="display: none;">
+                <strong>Note 65:</strong> It is generally believed that the disease of the Philistines, designated by the word [[t:0]]te’horîm[[t:1]] ([[t:2]]טחרים[[t:3]]) or, according to the reading of the [[t:4]]khetîb, ’apholîm[[t:5]] ([[t:6]]עפלים[[t:7]]), consisted of a type of tumors or pustules in the private parts; the rabbis see in it [[t:8]]varices hémorroïdales[[t:9]], and it is probably in this sense that Maimonides himself understands this word. The Jewish physicians of the Middle Ages commonly employ the word [[t:10]]טחורים[[t:11]] to designate [[t:12]]hémorroïdes[[t:13]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.66" style="display: none;">
+                <strong>Note 66:</strong> See above page 6, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.67" style="display: none;">
+                <strong>Note 67:</strong> The words [[t:0]]ׂגארחה̈[[t:1]] and [[t:2]]ׂגאנחה̈[[t:3]] particularly designate here the members that serve to grasp something or to perform a task. [[t:4]]ׂגארחה̈[[t:5]], derived from [[t:6]]ׂגרח[[t:7]] [[t:8]](جرح)[[t:9]] [[t:10]]to wound[[t:11]], is used to designate [[t:12]]the hand[[t:13]] [[t:14]]ׂגאנחה̈[[t:15]] is used to designate [[t:16]]the ribs[[t:17]], and also appears to be used for [[t:18]]ׂגנאח[[t:19]] [[t:20]]جناح[[t:21]] [[t:22]]wing[[t:23]], and, like the latter, in the sense of [[t:24]]arm[[t:25]]. Ibn-Tibbon's version reads: [[t:26]]ולא מעשה גוף ילא יד ולא רגל[[t:27]], which is not entirely accurate; but this translation is preferable to that of Al-’Harizi, which reads: [[t:28]]לא אבר ולא נתח[[t:29]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.68" style="display: none;">
+                <strong>Note 68:</strong> The author is alluding here to what the Arab philosophers call [[t:0]]الاتصال[[t:1]], [[t:2]]the conjunction[[t:3]], or the union of [[t:4]]the active intellect[[t:5]] (coming from God through the intermediary of the Intelligences of the spheres) with [[t:6]]the passive intellect[[t:7]]. This subject will be explained in several places in this work. See below ch. LXVIII; II[[t:8]]nd[[t:9]] part, ch. IV; III[[t:10]]rd[[t:11]] part, ch. LI, and other places.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

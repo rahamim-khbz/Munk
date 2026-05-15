@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 31 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 31</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.0">
+                <div class="he-cell"><b>מגבלות השכל האנושי</b><br><span class="mediumGrey">מגבלת האדם בתחום השכלי והגופני</span><br><sup>1</sup> דע שלשכל האנושי יש <br><sup>א)</sup> מושגים שבכוחו ובטבעו להשיג; ויש במציאות <br><sup>ב)</sup> נמצאים ודברים שאין בטבעו להשיג בשום פנים ואופן, אלא שערי השגתם נעולים בפניו; ויש במציאות <br><sup>ג)</sup> דברים שהוא משיג מהם היבט מסוים ואינו משיג היבטים אחרים. עצם היותו משיג אינו מחייב שישיג כל דבר, כשם שיש לחושים השגות ואין להם יכולת להשיג אותן בכל מרחק שהוא. וכיוצא בזה שאר כוחות הגוף: כי גם אם יש לאדם, למשל, כוח לשאת שני קנטרים (=מידת משקל, כ-45 ק"ג), אין בו כוח לשאת עשרה. היתרונות של פרטי המין (האנושי) זה על זה בהשגות החושיות ובשאר כוחות הגוף ברורים וגלויים לכל בני האדם, אלא שיש לכך גבול, ואין הדבר נמשך לכל מרחק שהוא ובכל שיעור שהוא.</div>
+                <div class="en-cell">Know<sup class="fn-ref" onclick="showFn('fn.242')">242</sup> that for the human intellect there are objects of perception which it is within its faculty and nature to perceive; but there are also<i></i>, in that which exists, beings and things which it is not at all in its nature to perceive in any manner, nor by any cause whatsoever<sup class="fn-ref" onclick="showFn('fn.243')">243</sup>, and the perception of which is absolutely inaccessible to it<sup class="fn-ref" onclick="showFn('fn.244')">244</sup>. Finally, there are things in existence of which it perceivs certain circumstances, whilst remaining in ignorance of others<sup class="fn-ref" onclick="showFn('fn.245')">245</sup>. Indeed, from the fact that it is a percipient thing, it does not necessarily follow that it must perceive all things; for the senses likewise have perceptions, yet they cannot perceive objects at every possible distance.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.1">
+                <div class="he-cell"><sup>2</sup> הוא הדין בעצמו באשר להשגות השכליות האנושיות: יש בהן הבדלים גדולים מאוד בין פרטי המין האנושי, וגם זה ברור וגלוי מאוד לאנשי החכמה; עד שאדם אחד יסיק בעצמו מעיונו עניין מסוים, בעוד אדם אחר לא יוכל להבין אותו עניין לעולם, ואפילו הסבירו לו אותו בכל ניסוח ובכל משל ובמשך זמן ארוך ביותר לא תגיע דעתו אליו בשום פנים, אלא תירתע דעתו מהבנתו. וגם ההבדלים הללו (בין בני האדם) אינם בלי סוף, אלא בלי ספק יש לשכל האנושי גבול שהוא עוצר בו.</div>
+                <div class="en-cell">The same holds true for other corporeal faculties; for, although man, for example, be capable of lifting two quintals, he is not thereby capable of lifting ten. The superiority which individuals of the (human) species possess one over another, in these sensible perceptions and in other corporeal faculties, is clear and manifest to all; yet it possesses a limit, and the matter does not extend to any distance whatsoever, nor to any measure whatsoever. It is precisely the same with regard to man's intelligible perceptions, in which individuals of the species enjoy a marked superiority one over another, a fact likewise exceedingly clear and manifest to men of science; insomuch that there is a subject which one individual draws forth by his own speculation, whilst another individual could never comprehend the same subject, and even were one to endeavour to make him comprehend it by every manner of phraseology and example and over a long period of time, his mind cannot penetrate thereto, but rather refuses to comprehend it. But the superiority in question extends not to infinity either, and human intelligence, on the contrary, undoubtedly possesses a limit whereat it ceases.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.2">
+                <div class="he-cell"><span class="mediumGrey">התשוקה לדעת והכרה בגבולותיה בפיזיקה ובמטפיזיקה</span><br><sup>3</sup> ויש דברים שברור לאדם שהשגתם אינה אפשרית, ואין הוא מוצא עצמו משתוקק לידיעתם, כיוון שהוא חש שזה בלתי אפשרי ושאין שער להיכנס דרכו להגיע אל הדבר; כגון אי ידיעתנו את מספר כוכבי השמים ואם הוא זוגי או אי זוגי, וכגון אי ידיעתנו את מספר מיני בעלי החיים והמחצבים והצמחים, וכיוצא בזה.<br><sup>4</sup> ויש דברים שהאדם מוצא שתשוקתו להשגתם גדולה, והשלטת השכל על בקשת אמיתתם והחקירה בהם קיימת בכל קבוצה בעלת עיון מבני האדם ובכל זמן. בדברים האלה רבות הדעות ונופלת בהם מחלוקת בין המעיינים, ומתעוררים בהם ספקות מפני היקשרות השכל בהשגת הדברים הללו, כוונתי לתשוקה אליהם, והעובדה שכל אחד חושב שהוא מצא דרך שעל ידה ידע את אמיתת הדבר, ואין בכוח השכל האנושי להביא לכך הוכחה. כי כל דבר שנודעה אמיתתו בהוכחה אין בו לא מחלוקת ולא ויכוח ולא התנצחות, מלבד אצל הבור המגלה עיקשות המכונה 'עיקשות כנגד המוכח', כפי שתמצא אנשים המתעקשים לדחות את כדוריות הארץ, ואת היותו של הגלגל (שקבועים בו כוכבי השמים) סובב, וכיוצא בזה. אותם אין מקום להזכיר בעניין הזה.</div>
+                <div class="en-cell">For certain things, therefore, man acknowledgs the impossibility of grasping them, and feels no desire to know them, well knowing that this is impossible and that there is no gate whereby one may enter to attain thereunto. Thus, for example, we are ignorant of the number of the stars of heaven, and whether it be an even or an odd number; and we are likewise ignorant of the number of the species of animals, minerals, and plants, and other such-like things. But there be other things which man feels a great desire to grasp, and the efforts of the intelligence to seek the reality thereof and to scrutinize them thoroughly are met with among all the speculative sects of the world and in all ages<sup class="fn-ref" onclick="showFn('fn.246')">246</sup>. And concerning these things, opinions are numerous, disagreement reigns among thinkers, and doubts arise, because the intelligence strivs to grasp these things—I mean that it is thither drawn by desire—and because each one believs himself to have found a path whereby to know the reality of the thing, whilst it is not in the power of human intelligence to allege in this regard a demonstrative proof; for every thing whose reality is known by means of a demonstration cannot be the subject of a difference (of opinion), nor of a contention<sup class="fn-ref" onclick="showFn('fn.247')">247</sup>, nor of a denial, unless it be on the part of an ignorant person who employs that manner of contradicting which is called <i>the demonstrative contradiction</i><sup class="fn-ref" onclick="showFn('fn.248')">248</sup>, as thou findest, for instance, folk who contest the sphericity of the earth and the circular motion of the celestial sphere and other like things. These latter find no place in the subject (which now occupies us).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.3">
+                <div class="he-cell">הדברים הללו שהמבוכה הזו נפלה בהם, רבים מאוד בעניינים המטפיזיים, ומועטים בעניינים הטבעיים, ונעדרים בעניינים המתמטיים.</div>
+                <div class="en-cell">The points on which this confusion (in opinions) prevails are very numerous in metaphysical matters, few in physical matters, and none in mathematical matters.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.4">
+                <div class="he-cell"><span class="mediumGrey">גורמי המחלוקות</span><br><sup>5</sup> אלכסנדר מאפרודיסיאס אמר שסיבות המחלוקת בדברים הן שלוש: הראשונה, אהבת השררה והניצחון, המונעות מהאדם להשיג את האמת כפי שהיא. והשנייה, דקות הדבר המושג בפני עצמו, ועומקו וקושי השגתו. והשלישית, בורותו של המשיג וקוצר השגתו את מה שאפשר להשיג.<br><sup>6</sup> זה מה שציין אלכסנדר. אך בזמננו יש סיבה רביעית שלא ציין משום שלא היתה אצלם, והיא ההרגל והחינוך. כי האדם בטבעו אוהב את מה שהורגל בו ונוטה אליו, עד כדי כך שאתה רואה שאנשי המדבר, במצבם הפרוע וחוסר ההנאות ודוחק המזון, שונאים את הערים ואינם נהנים בהנאותיהן, ומעדיפים את התנאים הרעים שהם רגילים אליהם על פני התנאים הטובים שאינם רגילים אליהם, ונפשם אינה מוצאת מנוחה במגורים בארמונות ולא בלבישת המשי ולא בהתענגות על המרחצאות והשמנים והבשמים.</div>
+                <div class="en-cell">Alexander of Aphrodisias<sup class="fn-ref" onclick="showFn('fn.249')">249</sup> says that the causes of disagreement concerning certain things are three in number: 1st, ambitious and rival pretensions<sup class="fn-ref" onclick="showFn('fn.250')">250</sup> which prevent man from perceiving the truth as it is; 2nd, the subtlety of the perceptible thing in itself, its profundity and the difficulty of perceiving it; 3rd, the ignorance of him who perceivs, and his incapacity to grasp even that which it is possible to grasp. Thus says Alexander. In our own times there is a fourth cause which he mentioned not, because it existed not among them<sup class="fn-ref" onclick="showFn('fn.251')">251</sup>: namely, habit and education; for it is in the nature of man to love that which is familiar to him and to be attracted thereunto. Thus thou seest the Bedouins, unclean as they are, deprived of enjoyments and subsisting miserably, feel a repugnance for the cities, being insensible to the pleasures which they offer, and preferring the evil condition whereunto they are accustomed to a better condition whereunto they are not accustomed; so that they have no pleasure in dwelling in palaces, nor in clothing themselves in silk, nor in procuring the delights of the bath, of oils, and of perfumes.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.5">
+                <div class="he-cell">כך קורה לאדם בדעות שהורגל בהן והתחנך עליהן: הוא אוהב אותן ומגן עליהן ומתרחק מזולתן.</div>
+                <div class="en-cell">In like manner it happens that man loves the opinions which are familiar to him and in which he has been nurtured, that he takes them under his protection, and is affrighted by that which is outside them.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.6">
+                <div class="he-cell"><sup>7</sup> סיבה זו היא גם הגורם לעיוורונו של האדם מהשגת האמיתוֹת ונטייתו אל הרגליו, כפי שאירע להמון העם בהגשמה ובדברים מטפיזיים רבים כפי שנבאר (א,לו; א, סוף נא; א,נג). כל זאת מחמת ההרגל וההתחנכות על כתובים שנקבעו אצלם הערצתם והאמונה בהם, שחיצוניותם מורה על הגשמות ועל דמיונות שאין בהם אמת, אלא נאמרו על דרך המשל והרמז. וזה היה בשל סיבות שאציין בהמשך (א,מו-מט).</div>
+                <div class="en-cell">And by the selfsame cause, man shutts his eyes to the perception of truths and inclins toward his habits, as befalls the vulgar in the question of corporeality and in many metaphysical matters, even as we shall set forth; all this by reason of habit and because one has been nurtured upon the words of Scripture, the constant object of respect and faith, the literal sense of which would indicate the corporeality of God and imaginary things void of truth, but which were spoken by way of allegory and enigma, and that for reasons of which I shall treat.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.7">
+                <div class="he-cell"><span class="mediumGrey">מקורות הטענה בדבר מגבלות השכל האנושי</span><br><sup>8</sup> אל תחשוב שמה שאמרנו לגבי קוצר השגתו של השכל האנושי והעובדה שיש לו גבול שהוא נעצר בו, הוא דבר שנאמר על פי התורה. אלא הוא דבר שאמרו אותו הפילוסופים והשיגו אותו השגה אמיתית מבלי להתחשב בשיטה או בדעה מסוימת. והוא דבר נכון, ולא יטיל בו ספק אלא מי שאינו יודע את הדברים שהוכחו.</div>
+                <div class="en-cell">It must not be supposed that what we have here said concerning the insufficiency of the human intellect, in maintaining that it has a limit at which it must needs stay its course, has been said from the standpoint of religion; it is, on the contrary, a thing which the philosophers have asserted and which they have perfectly understood, without regard to sect or opinion. And it is a true matter which cannot be called into doubt, save by him who is ignorant of things already demonstrated.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..30.8">
+                <div class="he-cell">פרק זה אינו אלא הקדמה למה שייאמר אחריו.</div>
+                <div class="en-cell">This chapter we have placed here only to serve as a preparation for that which shall follow.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.242" style="display: none;">
+                <strong>Note 242:</strong> The author, ere he concluds his explanations of homonyms, which he does resume only in chapter XXXVII, enters into general considerations upon man’s faculty for perceiving intelligible things, upon the limits of this faculty, upon the difficulties of approaching metaphysical studies, and upon the necessity of first accepting [Lat.:] [[t:0]]a priori[[t:1]] certain doctrines relative to the nature of the Divinity, lest one should mistake certain expressions whereby Scripture appears to attribute human passions unto God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.243" style="display: none;">
+                <strong>Note 243:</strong> That is to say, there are things that human intelligence can neither perceive directly, nor indirectly, nor through an auxiliary cause. According to the commentator Schem-Tob, the words [[t:0]]by a cause[[t:1]] are an allusion to divine inspiration. Indeed, there are limits that, according to Scripture, Moses himself was unable to transcend, as will be seen later [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.244" style="display: none;">
+                <strong>Note 244:</strong> Literally: [[t:0]]but rather the doors of their perception are closed before her[[t:1]], that is to say before the intelligence.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.245" style="display: none;">
+                <strong>Note 245:</strong> The author is referring to the spheres and their movements, which are in part demonstrable and in part hypothetical, as he will explain in other places.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.246" style="display: none;">
+                <strong>Note 246:</strong> The version of Ibn-Tibbon is herein somewhat corrupted in most editions; the manuscripts bear: [[t:0]]והתגברות השכל לבקש אמתתם ולחפשה נמצא בכל כת מעינת מבני אדם ובכל זמן[[t:1]]. One perceivs that Ibn-Tibbon referrs the suffix in [[t:2]]ענהא[[t:3]] to the word [[t:4]]חקיקתהא[[t:5]], so that one should translate: [[t:6]]and for[[t:7]] [[t:8]]IT[[t:9]] [[t:10]]to scrutinise;[[t:11]] one preferrs to refer [[t:12]]ענהא[[t:13]] to the word [[t:14]]אשיא[[t:15]], [[t:16]]the things[[t:17]], as Al-’Harizi has done, who translats [[t:18]]והחקירה עליהם[[t:19]]. The latter furthermore differs in another point from the version of Ibn-Tibbon, for he has considered the word [[t:20]]והמלט[[t:21]] as a [[t:22]]preterite[[t:23]], and one should translate, according to him, [[t:24]]the intellect makes efforts to seek their reality, and the researches into these things are found[[t:25]], etc. This translation is likewise admissible; it does seem unto one, however, that to translate thus, one should read [[t:26]]ויחלט[[t:27]] in the [[t:28]]future tense[[t:29]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.247" style="display: none;">
+                <strong>Note 247:</strong> Ibn Tibbon translates [[t:0]]ולא הכזבה[[t:1]]; instead of [[t:2]]מגׄאדׄבה̈[[t:3]] he appears to have read [[t:4]]מכאדׄבה̈[[t:5]], [[t:6]]démenti[[t:7]], which I have not found in any manuscript [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.248" style="display: none;">
+                <strong>Note 248:</strong> By [[t:0]]demonstrative contradiction[[t:1]], the author means here [[t:2]]demonstrative reasoning[[t:3]] based on false principles, or sophistical reasoning. Ibn-Tibbon renders the words [[t:4]]אלענאר אלברהאני[[t:5]] by [[t:6]]המחלקת המופתית[[t:7]], and in his glossary of technical terms, he states that one thus calls [[t:8]]the contradiction that attacks what has been established by a demonstration:[[t:9]] [[t:10]]החולק על מה שבא עליו מופת תקרא מחלקתו מחלקת מופתית[[t:11]]. Ibn-Roschd, in his abridgment of the Organon, toward the end of the Book of [[t:12]]Demonstration[[t:13]] or the [[t:14]]Posterior Analytics[[t:15]], opposes the reasoning called [[t:16]]demonstrative contradiction[[t:17]] to that which is called [[t:18]]مخاطبة التعليم والتعلم[[t:19]] ([[t:20]]oratio docendi et discendi[[t:21]]), and which has the purpose of [[t:22]]instructing[[t:23]] by means of demonstration (Cf. Arist., [[t:24]]Refutation of the Sophists[[t:25]], chap. II: [[t:26]]λόγοι διδασϰαλιϰοὶ ϰαὶ ἀποδειϰτιϰοί[[t:27]]). The reasoning called [[t:28]]مخاطبة العناد البرهاني[[t:29]] is defined by Ibn-Roschd in these terms:
+            </div>
+            
+            <div class="footnote-item" id="item-fn.249" style="display: none;">
+                <strong>Note 249:</strong> This celebrated commentator upon Aristotle, who flourished at the close of the second and the commencement of the third century, enjoyed amongst the Arabs, as amongst the Greeks, a very great authority. Maimonides, in a letter addressed to the Hebrew translator of his [[t:4]]Guide for the Perplexed[[t:5]], R. Samuel Ibn-Tibbon, does particularly recommend unto the latter the study of Alexander’s commentaries. Concerning the Arabic versions of Alexander’s numerous works, vide [Lat.:] Casiri, [[t:6]]Biblioth. arab. hisp.[[t:7]], vol. I, p. 243 et seq.; Wenrich, [[t:8]]De Auctorum Grœcorum versionibus etc.[[t:9]], p. 273 et seq.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.250" style="display: none;">
+                <strong>Note 250:</strong> Literally: [[t:0]]the desire to dominate[[t:1]] or [[t:2]]to take precedence, and[[t:3]] ([[t:4]]that[[t:5]]) [[t:6]]to conquer[[t:7]] or [[t:8]]to prevail[[t:9]] ([[t:10]]φιλονϛιϰία[[t:11]]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.251" style="display: none;">
+                <strong>Note 251:</strong> That is to say, [[t:0]]amongst the Greeks[[t:1]]. The author, by these words, does anticipate that which he shall state a little further on concerning the powerful influence exercised upon most men by the perusal of religious books and the habit of taking literally the words of Scripture containing images and allegories. This cause of error, he would imply, exists only amongst those who believe in the authority of sacred books and who profess a religion revealed by God. Yet this source of error existed likewise amongst the Greeks; for the populace admitted the truth of mythological fables. Aristotle himself speaks here and there of the power of habit and beliefs, which are sometimes an impediment to the knowledge of truth. Vide [Lat.:], e.g., [[t:2]]Metaph.[[t:3]], bk. II, chap. III.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

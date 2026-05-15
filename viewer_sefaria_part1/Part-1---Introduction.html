@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Introduction - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Introduction</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.0">
+                <div class="he-cell"><span class="mediumGrey">שבע סיבות לקיום סתירות בספרים</span><br><sup>1</sup> סיבות הסתירות או הניגודים הנמצאים בספר מן הספרים או בחיבור מן החיבורים – אחת משבע סיבות.</div>
+                <div class="en-cell">PRELIMINARY OBSERVATION. The causes of the contradiction or opposition that one finds in a book or in any writing whatsoever are seven in number.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.1">
+                <div class="he-cell"><sup>2</sup> הסיבה הראשונה היא שהמחבר אסף אמירות של אנשים בעלי דעות שונות, והשמיט את שם האומר ולא ייחס כל אמירה לאומרהּ. בחיבור זה יימצאו סתירה או ניגוד כאשר משפט אחד הוא שיטתו של אדם אחד והמשפט האחר הוא שיטתו של אחר.</div>
+                <div class="en-cell">FIRST CAUSE: When the author has gathered the words of people of different opinions, omitting (to cite) the authorities and to attribute each word to its author. One then finds in his work contradictions or opposed assertions, because one of the two propositions is the opinion of one individual, and the other the opinion of another individual.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.2">
+                <div class="he-cell"><sup>3</sup> הסיבה השנייה: כאשר לבעל הספר הזה היתה דעה מסוימת ולאחר מכן חזר בו ממנה, ונכתבו דבריו הראשונים והשניים.</div>
+                <div class="en-cell">SECOND CAUSE: When the author of the book has initially professed a certain opinion from which he has subsequently recanted, and when both what he initially said and what he said afterwards have been recorded.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.3">
+                <div class="he-cell"><sup>4</sup> הסיבה השלישית: כאשר לא כל הדברים הללו הם כחיצוניותם, אלא חלקם כחיצוניותם וחלקם משל שיש לו תוך, או ששני המשפטים הנראים כסותרים הם משלים, אלא שאם הובנו לפי פשוטם הרי הם סותרים או מנוגדים.</div>
+                <div class="en-cell">THIRD CAUSE: When the words (of the author) are not all (taken) in their external sense (literal); but some retain their literal sense and others are an image and have a figurative sense, or when the two contradictory propositions, according to their literal sense, are allegories, and when, taken in their literal sense, they appear contradictory or opposed to one another.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.4">
+                <div class="he-cell"><sup>5</sup> הסיבה הרביעית היא שיש תנאי שאינו מפורש במקומו מתוך הכרח כלשהו, או ששני הנושאים שונים זה מזה ואחד מהם אינו מבואר במקומו, כך שתיראה לכאורה סתירה בדברים, אף שאין סתירה.</div>
+                <div class="en-cell">FOURTH CAUSE: When there exists a certain condition<sup class="fn-ref" onclick="showFn('fn.48')">48</sup> which, for some reason, is not explicitly indicated in the very place, or when the two subjects are different<sup class="fn-ref" onclick="showFn('fn.49')">49</sup> and neither of the two is clearly designated in the very place, such that it appears there is a contradiction in the discourse without there actually being one.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.5">
+                <div class="he-cell"><sup>6</sup> הסיבה החמישית: כורח הלימוד וההסבר. כלומר, אם יש עניין מסוים, עמוק וקשה לתפיסה, שיש צורך להזכירו או לקחתו כהנחה לביאור עניין שקל לתופסו – שראוי שיילמד לפני הראשון, כך שההתחלה תהיה תמיד בדבר הקל – הרי שהמלמד יצטרך להסביר את העניין הראשון הזה בחוסר דיוק, באיזו דרך שתזדמן ובעיון שטחי, ולא יחל לדקדק באמיתתו, אלא ישאיר זאת לפי דמיונו של השומע כדי שיבין את מה שהוא מעוניין שיבין כעת, ולאחר מכן ידקדק בעניין העמוק הזה ויבאר את אמיתתו במקום המתאים.</div>
+                <div class="en-cell">CFOURTH CAUSE: The necessity (to which one is sometimes reduced) for teaching and making understood (a certain thing); that is to say, when there is a certain obscure and difficult subject to conceive which one needs to mention or take as premises, in order to explain a subject easy to conceive and which in teaching should precede this first subject, because one always begins with the easiest <sup class="fn-ref" onclick="showFn('fn.50')">50</sup>. Then, the one who teaches must make himself comfortable to make this first subject understood, in any way, by examining it roughly without undertaking to expose exactly all its reality, and leaving it, on the contrary, to the reach of the listener's imagination, so that the latter may understand what one wants him to understand at this moment, reserving the right to expose more exactly this obscure subject which will manifest itself in its reality in the suitable place <sup class="fn-ref" onclick="showFn('fn.51')">51</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.6">
+                <div class="he-cell"><sup>7</sup> הסיבה השישית: היות הסתירה סמויה, ולא מתבארת אלא אחרי הנחות רבות. וככל שיש צורך ביותר הנחות כדי להיווכח בה, כך היא סמויה יותר. דבר זה חומק מעיני המחבר והוא חושב ששני המשפטים הראשונים אינם סותרים זה את זה. אך אם תיקח כל אחד מהם ותצרף אליהם הנחה אמיתית ומכך תנבע מסקנה מחויבת, יגיע הדבר לאחר כמה צעדי־היקש לכדי סתירה או ניגוד בין שתי המסקנות הסופיות. דברים כגון אלה הם החומקים מעיניהם של החכמים מחברי החיבורים. ואולם אם שני המשפטים הראשונים נמצאים בסתירה גלויה זה עם זה, אלא שהוא שכח את הראשון כאשר העלה על הכתב את משנהו במקום אחר בחיבור – הרי זו מגרעת גדולה מאוד, ואין למנות מחבר זה בכלל מי שראוי להתחשב בדבריו.</div>
+                <div class="en-cell">SSIXTH CAUSE: When the contradiction hides and only manifests itself after several premises. The more premises are needed to manifest it, the more it will be hidden, in such a way as to escape the author, who will believe that there is no contradiction between the two first propositions. However, by taking each of the two propositions separately and joining a true premise to it, in such a way that a necessary conclusion is drawn from it, and doing the same with each conclusion, (I mean) by joining a true premise to it in such a way as to draw a necessary conclusion from it, one will arrive, after a series of syllogisms, at finding a contradiction or opposition between the two last conclusions. This is what happens even to learned authors; but if the two first propositions were manifestly contradictory and the author had only forgotten the first one when writing the other in another part of his work, this would be a very great inferiority, and such a man could not be counted among those whose words deserve attention.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.7">
+                <div class="he-cell"><sup>8</sup> הסיבה השביעית: כורח הדיון בדברים עמוקים ביותר, שראוי להסתיר חלק מענייניהם ולגלות חלק מהם. כי יש שההכרח יביא לכך שיתנהל דיון לגבי אמירה מסוימת על בסיס הנחה מסוימת, ובמקום אחר יביא ההכרח לכך שהדיון באותה אמירה יתנהל על בסיס הנחה הסותרת את הראשונה. ראוי שההמון לא ירגיש כלל במקום הסתירה ביניהם, ויש שהמחבר נוקט תחבולות כדי להסתיר זאת בכל אופן אפשרי.</div>
+                <div class="en-cell">SSEVENTH CAUSE: The necessity of discourse, when it comes to very obscure things whose details must be partly hidden and partly revealed. For sometimes one is forced, when emitting an opinion, to express oneself in such a way as to affirm a certain proposition, while in another place one is forced to express oneself in such a way as to affirm a proposition which is in contradiction with the first. The common people should in no way perceive the place where the contradiction exists, and the author sometimes seeks all sorts of expedients to hide it <sup class="fn-ref" onclick="showFn('fn.52')">52</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.8">
+                <div class="he-cell"><span class="mediumGrey">הסתירות בחיבורים</span><br><sup>9</sup> אשר לסתירות הנמצאות ב<b>משנה</b> וב<b>בָּרַיְתּוֹת</b> – הרי הן לפי הסיבה הראשונה. כמו שתמצא שהם (=חז"ל בתלמוד) אומרים תמיד (על משניות וברייתות): "<b>קשיא רישא אסופא!</b>" (=תחילתו סותרת את סופו!), ותהיה התשובה: "<b>רישא ר' פלוני וסופא ר' פלוני</b>" (=תחילת המקור כשיטת תנא אחד והסוף כשיטת תנא אחר). וכיוצא בזה תמצא שהם אומרים: "<b>ראה רבי דבריו שלר' פלוני בכך וכך וסתם לן כואתיה וראה דבריו שלר' פלוני בכך וכך וסתם לן כואתיה</b>" (=רבי יהודה הנשיא הסכים עם תנא מסוים במקום אחד והסכים עם תנא אחר במקום אחר, וניסח את דבריהם במשנה כ"סתם", בלי לייחסם למי שאמר אותם). ותמצא שהם אומרים פעמים רבות: "<b>סתמא מני? ר' פלוני היא</b>"; "<b>מתניתין מני? ר' פלוני היא</b>" (=קטע זה, המופיע ללא ייחוס אומרו, הוא כשיטתו של תנא מסוים; המשנה הזו היא כשיטתו של תנא מסוים). וזאת רבות מספור.</div>
+                <div class="en-cell">With regard to the contradictions found in the Mischnâ and in the Baraïthôth, they emanate from the first cause. Thus you will continually find it said (in the Talmud): 'The beginning (of the chapter) is in contradiction with the end,' and this response is added: 'The beginning emanates from such-and-such a doctor and the end from another doctor.' You will also find these words: 'Rabbi<sup class="fn-ref" onclick="showFn('fn.53')">53</sup> approved the words of such-and-such a doctor in one case and simply reproduced his opinion (without naming him), and in another case he approved the words of another doctor and simply reproduced his opinion.' Often, too, you will find this formula: 'To whom does this anonymous assertion belong? It belongs to such-and-such a doctor. — To whom does our (paragraph of the) Mischnâ belong? It belongs to such-and-such a doctor.' These examples are innumerable.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.9">
+                <div class="he-cell"><sup>10</sup> ואילו הסתירות או החילופים הנמצאים ב<b>תלמוד</b> – הרי הם לפי הסיבה הראשונה והשנייה. כמו שתמצא שהם אומרים תמיד: "<b>בכך וכך סבר לה כר' פלוני ובכך וכך סבר לה כר' פלוני</b>", וכן אומרים: "<b>סבר לה כואתיה בחדא ופליג עליה בחדא</b>" (=הוא סבור כמותו בעניין אחד וחולק עליו בעניין אחר), ואומרים: "<b>תרי אמוראי אליבא דר' פלוני</b>" (=שני אמוראים חולקים לגבי שיטתו של אחד). כל אלה הם ממין הסיבה הראשונה. ואילו מחמת הסיבה השנייה, הרי זה נמצא בדבריהם בפירוש: "<b>הדר ביה רב מההיא</b>", "<b>הדר ביה רבא מההיא</b>" (=חזר בו רב/רבא מכך), וחוקרים איזו מן האמירות היא המאוחרת. וכיוצא בזה דבריהם: "<b>מהדורא קמא דרב אשי אמר לן כך וכך, ומהדורא בתרא אמר לן כך וכך</b>" (=במחזור הלימוד הראשון אמר לנו רב אשי כך, ובמחזור הלימוד האחרון אמר לנו אחרת).</div>
+                <div class="en-cell">With regard to the contradictions and divergences found in the Talmud (or the Guemarâ), they emanate from the first and second cause. Thus you will always find these words: 'On such a subject he adopted the opinion of such-and-such a doctor and on another subject the opinion of another doctor.' It is also said: 'He adopted the opinion of one person in one case and deviated from it in another case.' It is said, finally: 'These are two Amoraïm<sup class="fn-ref" onclick="showFn('fn.54')">54</sup> (who differ) on the opinion of such-and-such a doctor.' All examples of this kind conform to the first cause. With regard to the second cause, they (the Talmudists) explicitly say: Râb recanted such an opinion, or Rabâ recanted such an opinion<sup class="fn-ref" onclick="showFn('fn.55')">55</sup>, and (in such a case) they discuss which of the two opinions is the later one. We may also quote the following words: 'According to the first redaction of Rabbi Asché<sup class="fn-ref" onclick="showFn('fn.56')">56</sup>, he expressed himself in such a sense, and according to the second redaction he expressed himself in another sense.'</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.10">
+                <div class="he-cell"><sup>11</sup> אשר לסתירות או לניגודים הנראים לכאורה בחיצוניות הדברים בחלק מן המקומות בכל ספרי הנבואה – הרי הם מחמת הסיבה השלישית והרביעית. ולשם עניין זה באה הקדמה זו כולה.<br><sup>12</sup> יודע אתה כמה רבות אמרו <b>ז"ל</b>: "<b>כתוב אחד אומר כך, וכתוב אחד אומר כך</b>", והם קובעים שיש סתירה לכאורה, ואז מבארים שבדברים חסר תנאי, או שהם בנושא אחר, דוגמת דבריהם: "<b>שלמה! לא דייך שדבריך סותרין דברי אביך, אלא שהן סותרין זה את זה</b>" <b>וכו'</b> (בבלי שבת ל,א), וכאלה רבות בדברי ה<b>חכמים ז"ל</b>. אך רוב עיסוקם בדברי הנבואה הוא בהקשר של דינים או מוסר, ואילו מטרתנו אינה אלא להעיר על <b>פסוקים</b> שיש בחיצוניותם סתירות בדעות ואמונות. מעט מזה יבואר בחלק מפרקי חיבור זה, משום שעניין זה גם הוא מ<b>סתרי תורה</b>.<br><sup>13</sup> אשר לשאלה אם יש בספרי הנביאים סתירות מחמת הסיבה השביעית – זהו נושא לעיון ולחקירה, וראוי שלא לקפוץ למסקנות בכך.</div>
+                <div class="en-cell">As for the contradiction or opposition that appears in the external sense of certain passages of all the prophetic books, it emanates from the third and fourth cause, and it is especially this subject that was the purpose of this entire preliminary observation. You know that (the doctors) often repeat these words: 'One text expresses itself in such a manner and another text in another manner.' They first establish the apparent contradiction, then they explain that there is a missing condition (in the text), or that it concerns two different subjects. Thus, for example, they say: 'Solomon, is it not enough that your words contradict those of your father? Must they also contradict each other, etc.?<sup class="fn-ref" onclick="showFn('fn.57')">57</sup>' The doctors often speak in this sense; but most of the time they deal with prophetic discourses related to (religious) precepts or morality. As for us, our only goal was to draw attention to verses that, taken in their literal sense, contain contradictions regarding certain opinions and beliefs; a part of this will be explained in various chapters of this treatise; for this subject is also part of the Mysteries of the Law. As for the question of whether there are contradictions in the books of the prophets emanating from the seventh cause, this is something that must be examined and discussed, and not decided upon hastily<sup class="fn-ref" onclick="showFn('fn.58')">58</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.11">
+                <div class="he-cell"><sup>14</sup> אשר לחילופים בספרי הפילוסופים – אנשי האמת בהם – הם מחמת הסיבה החמישית.</div>
+                <div class="en-cell">With regard to the divergence found in the books of true philosophers, it emanates from the fifth cause.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.12">
+                <div class="he-cell"><sup>15</sup> ואילו הסתירות הנמצאות ברוב ספרי המחברים והמפרשים חוץ מן הנזכרים לעיל, הן מחמת הסיבה השישית. וכיוצא בזה יש ב<b>מדרשות</b> וב<b>הגדות</b> סתירות גדולות מחמת אותה סיבה, ולכן אומרים: "<b>אין מקשין בהגדה</b>". ויש בהם גם סתירות מחמת הסיבה השביעית.</div>
+                <div class="en-cell">As for the contradictions found in most of the works of authors and commentators other than those we have mentioned, they emanate from the sixth cause. Likewise, in the מִדְרָשוֹת and in the הַגָּדוֹת there exist grave contradictions emanating from this same cause; this is why (the rabbis) say: 'One does not raise contradictions in the הַגָּדוֹת.' There are also found contradictions emanating from the seventh cause.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.13">
+                <div class="he-cell"><sup>16</sup> ואילו החילופים שיימצאו בחיבור הזה – הם מחמת הסיבות החמישית והשביעית. דע זאת ועמוד על כך והתבונן בכך מאוד, כדי שלא תהיה נבוך בחלק מפרקיו.</div>
+                <div class="en-cell">Lastly, the divergences that may exist in this treatise emanate from the fifth and seventh cause<sup class="fn-ref" onclick="showFn('fn.59')">59</sup>. It is necessary that you know this, that you penetrate it, and that you recall it well, in order not to be troubled regarding several of these chapters.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1.Introduction.14">
+                <div class="he-cell"><span class="mediumGrey">ביאור המונחים כמפתח למקומות נעולים</span><br><sup>17</sup> לאחר ההקדמות הללו אחל לציין את המונחים שראוי להעיר על פירושם האמיתי המכוון בכל מקום כפי עניינו. דבר זה יהיה מפתח להיכנס למקומות שננעלו עליהם השערים. וכאשר ייפתחו אותם שערים ותיכנס לאותם מקומות, ינוחו בהם הנפשות, ויתענגו העיניים, ויינפשו הגופים מעמלם ומיגיעם.</div>
+                <div class="en-cell">After these preliminary remarks, I commence to speak of the names from which it is necessary to extract the true meaning that was intended in each place according to the subject (which is being treated), and this shall be a key to enter into places whose doors are closed. And when these doors shall have been opened and one shall have entered into these places, the souls shall find rest there, the eyes shall delight, and the bodies shall be relieved of their pain and fatigue.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.48" style="display: none;">
+                <strong>Note 48:</strong> That is to say, when the two statements, or one of them, must not be understood in an absolute manner, but under a certain implicit reserve or condition. Thus, for example, when it is said, on the one hand, that God punishes the sins of the fathers on the children (Exod., 20, 5; XXXIV, 7), and on the other hand, that one will not put the fathers to death for the children, nor the children for the fathers (Deut., 24, 16), the rabbis, seeing a contradiction in these passages, say that the punishment of the children for the sins of the fathers takes place [[t:0]]under the condition[[t:1]] that the children persist in the evil way of the fathers. — To cite another example, when one reads, on the one hand, that Moses entered [[t:2]]into the midst of the cloud[[t:3]] (Exod., 24, 18), and on the other hand, that Moses could not enter the tent of meeting [[t:4]]when the cloud rested upon it[[t:5]] ([[t:6]]Ib[[t:7]]., XL, 35), the rabbis say that he could enter into the cloud under the condition that he was expressly called there by the divinity.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.49" style="display: none;">
+                <strong>Note 49:</strong> According to some commentators, the author intends to speak here of two propositions containing homonymous subjects, where, by taking the homonyms in the same sense, one could find an apparent contradiction. But the author's words seem to have a more general meaning. If, for example, it is said, on the one hand, that God reveals Himself to certain prophets in a dream (Numb., 12, 6), and, on the other hand, that dreams only speak falsehoods (Zechariah, 10, 2), the doctors, in order to eliminate the contradiction, say that it is a matter of dreams of different natures, some true, others false. See Talmud of Babylon, tractate [[t:0]]Berakhôth[[t:1]], fol. 55 [[t:2]]verso[[t:3]], Albo, ’[[t:4]]Ikkarîm[[t:5]], 1. III, ch. 10.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.50" style="display: none;">
+                <strong>Note 50:</strong> Moses of Narbonne, in his commentary, cites as an example the notions of [[t:0]]species[[t:1]] and [[t:2]]genus[[t:3]] about which Aristotle had to say a few words when wanting to explain the category of substance ([[t:4]]Categories[[t:5]], ch. III), although the exact explanation of these notions only comes later (in the [[t:6]]Topics[[t:7]]). The dual nature, logical and ontological, of the categories and various other notions dealt with in the [[t:8]]Organon[[t:9]], often requires the provisional and summary explanation of certain notions that are only truly explored in depth in metaphysics.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.51" style="display: none;">
+                <strong>Note 51:</strong> The author states further that, in his own work, certain contradictions are found resulting from the fifth cause. Let us cite an example: in chapter LXX of the I[[t:0]]st[[t:1]] part, the author presents God as the immediate mover of the higher sphere, whereas at the end of chapter IV of the II[[t:2]]nd[[t:3]] part, he states that the first of the [[t:4]]intelligences of the spheres[[t:5]], produced by God, sets the first sphere in motion. This is because, in the first passage, the author's sole intention is to present God as the [[t:6]]mover[[t:7]] of the universe in general, without entering into the details of the movement of the different spheres and their [[t:8]]intelligences[[t:9]], as he does in the second passage. It thus results in a contradiction that is only apparent. [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.52" style="display: none;">
+                <strong>Note 52:</strong> By the author's own admission, his work also contains contradictions resulting from this seventh cause. One of the most serious appears to be the following: the author, who argues against the eternity of the [[t:0]]prime [[t:1]]matter, as admitted by the Peripatetics, nonetheless admits it as a premise in demonstrations related to the most important metaphysical questions, as he himself declares in chapter LXXI of the I[[t:2]]st[[t:3]] part and at the beginning of the II[[t:4]]nd[[t:5]] part.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.53" style="display: none;">
+                <strong>Note 53:</strong> That is to say Rabbi Judah the Saint, the redactor of the Mishnah. [[t:1]] [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.54" style="display: none;">
+                <strong>Note 54:</strong> It is known that the word [[t:0]]אמוראי[[t:1]] designates the doctors who appear in the [[t:2]]Guemarâ[[t:3]], and who discuss the opinions of the Tannaîm or doctors of the Mishnah.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.55" style="display: none;">
+                <strong>Note 55:</strong> The mss. of the original Arabic generally have both examples; the Hebrew version has only that of [[t:0]]Rabâ[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.56" style="display: none;">
+                <strong>Note 56:</strong> It is known that Rabbi Ashi is one of the main editors of the Babylonian Talmud.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.57" style="display: none;">
+                <strong>Note 57:</strong> Voy. Talmud of Babylon, tractate [[t:0]]Schabbâth[[t:1]], fol. 30. Various passages are cited in which Solomon is in contradiction with David or with himself, and an attempt is made to resolve the difficulty by establishing that in the contradictory passages different subjects are being referred to. Thus, for example, it is written in the Proverbs (ch. XXVI, [[t:2]]V[[t:3]]. 4): [[t:4]]Do not answer a fool according to his folly[[t:5]], and immediately thereafter (v. 5): [[t:6]]Answer a fool according to his folly[[t:7]]. To remove the contradiction, the Talmud states that in one of the two passages it is a matter of religious things, and in the other, of secular things.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.58" style="display: none;">
+                <strong>Note 58:</strong> Literally: [[t:0]]And one must not conjecture about it[[t:1]]. Ibn-Tibbon has rendered the words [[t:2]]אן לא יגׄזף פי דׄלך[[t:3]] with a long periphrasis; Al-’Harizi translates more faithfully: [[t:4]]וצריך לבל יגזרו עליו כפי מה שיזדמן[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.59" style="display: none;">
+                <strong>Note 59:</strong> See above, page 28, note 1, and page 29, note 1.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

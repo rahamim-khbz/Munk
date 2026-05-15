@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 2 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 2</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.0">
+                <div class="he-cell"><b>המונחים אלוהים, האמת והטוב. החטא ועונשו</b><br><span class="mediumGrey">משמעות המונח אלוהים</span><br><sup>1</sup> לפני שנים הקשה לי אדם מלומד קושיה מופלאה, ראוי לעיין בקושיה ובתשובתנו לפתרונה.</div>
+                <div class="en-cell">A man of science posed to me, several years ago, a remarkable objection that merits consideration, as well as the response we provided to refute it.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.1">
+                <div class="he-cell">ולפני שאפרט את הקושיה ופתרונה אקדים שכל דובר עברית יודע שהמונח '<b>אלהים</b>' משותף <br><sup>א)</sup> לאלוה <br><sup>ב)</sup> ולמלאכים <br><sup>ג)</sup> ולשופטים מנהיגי המדינות. וכבר ביאר <b>אנקלוס הגר</b> עליו השלום, ואמת מה שביאר, שבפסוק "<b>וִהְיִיתֶם כֵּאלֹהִים יֹדְעֵי טוֹב וָרָע</b>" (בראשית ג,ה) הכוונה למשמעות האחרונה, ותרגם: "<b>וּתְהוֹן כְּרַבְרְבִין</b>" (=ותהיו כגדולים, כנכבדים).</div>
+                <div class="en-cell">But before reporting the objection and the manner in which to refute it, here is what I have to say. Every Hebrew knows that the name of Élohîm (אלהים) is a homonym, applying to God, to angels, and to rulers governing states. Already Onkelos, the proselyte, has explained, — and his explanation is true, — that by the words: And you shall be as Élohîm knowing good and evil (Genesis, 3, 5), one intended the latter sense; for he says (in his Chaldaic translation): «And you shall be as the great personages (כרברביא).»</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.2">
+                <div class="he-cell"><span class="mediumGrey">השאלה: במה נענש אדם</span><br><sup>2</sup> ולאחר שהקדמנו את רב־המשמעיות של המונח הזה, נחל לפרט את הקושיה.</div>
+                <div class="en-cell">After this preliminary observation on the homonymy of this name, we shall report the objection.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.3">
+                <div class="he-cell">אמר המקשה: ייראה מפשוטם של מקראות שהכוונה הראשונה באשר לאדם היתה שיהיה כשאר בעלי החיים, בלא שכל ובלא מחשבה ולא יבחין בין טוב לרע, וכאשר חטא (=מרה, לא ציית), הביא לו חטאו את השלמות הגדולה הזו המיוחדת לאדם, והיא שתהיה לו אותה יכולת הבחנה הנמצאת בנו, שהיא העניין הנכבד ביותר שיש לנו, והוא המגדיר את מהותנו. וזה מפליא, שהעונש על החטא הוא מתן שלמות שלא היתה לו, והיא השכל. ואין זה אלא כאמירתו של מי שאמר: בן אדם חטא והפליג ברשע, ועל כן הפך לכוכב בשמים. זו היתה כוונת הקושיה ומשמעותה, אף שלא נוסחה בלשון זה.</div>
+                <div class="en-cell">It would appear, from the literal sense of the text, said the author of the objection, that the primitive intention in (the creation of) man was that he should be like the rest of the animals, without intellect and without reflection, and without the ability to distinguish between good and evil; but that, having disobeyed, his disobedience merited him this great particular perfection of man, namely to possess this discernment which is in us, which is the most noble thing of our existence and which constitutes our substance. But it is a remarkable thing that his punishment for his disobedience was to give him a perfection he had not previously had, namely, intellect. It is absolutely like the assertion of those who have said that a certain man, after having disobeyed (God) and committed excesses of injustice, was transformed and placed as a star in the heaven<sup class="fn-ref" onclick="showFn('fn.69')">69</sup>.—Such was the purpose and thought of the objection, although it was not (presented) in the same terms.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.4">
+                <div class="he-cell"><span class="mediumGrey">התשובה: באיבוד הדעת</span><br><sup>3</sup> שמע את תוכן תשובתנו. אמרנו: אתה המעיין בהרהורים ראשוניים ומחשבות מזדמנות, והחושב להבין ספר שהוא הַדרכת הראשונים והאחרונים בכך שיעבור עליו במקצת הזמנים שהוא פנוי בהם מן השתייה והבעילה, כמי שעובר על אחד מספרי ההיסטוריה או אחד מן השירים – התיישב בדעתך ותראה שאין הדבר כפי שהעלית בהרהוריך הראשוניים, אלא כפי שיתבאר מתוך העיון בדבר הזה. והוא שהשכל שה' השפיע על האדם, והוא שלמותו האחרונה, הוא שקיבל <b>אדם</b> לפני חטאו, ולגבי השכל נאמר על האדם שהוא <b>בצלם אלהים ובדמותו</b> (ראו בראשית א,כו-כז). ובגללו דיבר אליו (ה') וציווה אותו, כמו שנאמר: "<b>וַיְצַו ה' אֱלֹהִים [</b>עַל הָאָדָם לֵאמֹר, מִכֹּל עֵץ הַגָּן אָכֹל תֹּאכֵל. וּמֵעֵץ הַדַּעַת טוֹב וָרָע לֹא תֹאכַל מִמֶּנּוּ]" (בראשית ב,טז), ואין ציווי לבהמות ולא לחסרי שכל, ובשכל מבחינים בין האמת לבין השקר, וזה היה לאדם באופן מושלם. אך המגונה והנאה הוא מן המפורסמות, לא מן המושכלות. משום שאין אומרים "השמים כדוריים – נאה" ו"הארץ שטוחה – מגונה", אלא אומרים "אמת" ו"שקר". וכך בלשוננו ייאמר על הנכון והכוזב <b>אמת ושקר</b>, ועל הנאה והמגונה <b>טוב ורע</b>, ובשכל מכיר האדם את ה<b>אמת</b> מן ה<b>שקר</b>, וכך הוא בכל הדברים המושכלים.<br><sup>4</sup> וכשהיה במצבו המושלם, עם תכונותיו הטבעיות ומושכלותיו שבעבורם נאמר עליו "<b>וַתְּחַסְּרֵהוּ מְּעַט מֵאֱלֹהִים</b>" (תהילים ח,ו), לא היה לו כלל כוח העוסק במפורסמות ולא יכול היה להשיג אותם, עד שאפילו הגנאי המפורסם ביותר, גילוי הערווה, לא היה גנאי מבחינתו ולא השיג את גנותו. אך כאשר חטא ונטה אחר תאוותיו הדמיוניות והנאות חושיו הגופניים, כמו שנאמר "<b>כִּי טוֹב הָעֵץ לְמַאֲכָל וְכִי תַאֲוָה הוּא לָעֵינַיִם</b>" (בראשית ג,ו), נענש בכך שנשללה ממנו אותה השגה שכלית. ולכן לא ציית לציווי שבשל שכלו נצטווה בו, ונקנתה לו השגת המפורסמות ושקע בראיית דברים כמגונים וכנאים, ואז התוודע לגודל מה שאיבד והופשט ממנו ולאיזה מצב הגיע. ולכן נאמר "<b>וִהְיִיתֶם כֵּאלֹהִים יֹדְעֵי טוֹב וָרָע</b>" (בראשית ג,ה) ולא נאמר '<b>יודעי שקר ואמת</b>' או '<b>משיגי שקר ואמת</b>'. ובדברים ההכרחיים אין <b>טוב ורע</b> כלל אלא <b>שקר ואמת</b>.<br><span class="mediumGrey">משמעות המונח פקח</span><br><sup>5</sup> התבונן בנאמר: "<b>וַתִּפָּקַחְנָה עֵינֵי שְׁנֵיהֶם וַיֵּדְעוּ כִּי עֵירֻמִּם הֵם</b>" (בראשית ג,ז). לא נאמר '<b>ותפקחנה עיני שניהם ויראו</b>', משום שמה שראה לפני כן הוא אשר ראה לאחר מכן. לא היה כיסוי על עיניו שהוסר, אלא נוצר לו מצב אחר, שבו הוא ראה כמגונה מה שלא ראה כמגונה קודם לכן.</div>
+                <div class="en-cell">Hear now in what manner we responded. O you, we said, who examine (things) with a superficial and unreflecting spirit<sup class="fn-ref" onclick="showFn('fn.70')">70</sup>, and who believe you understand a book, a guide for the ancients and the moderns, by perusing it in a few moments of leisure (stolen from the pleasures) of drinking and cohabitation, as one would peruse some historical book or poem! Stop and examine; for the thing is not as you believed it to be at first glance, but as it shall manifest itself when one has considered what I am about to say. The reason that God has caused to emanate upon man, and which constitutes his final perfection, is that which Adam possessed before his disobedience; it is for this that he was said to be (made) in the image of God and in His likeness, and it is on account of this that the word was addressed to him and he received commands, as it is said (in Scripture): And the Lord God commanded, etc. (Genesis, 2, 16), for one cannot give commands to animals or to one who has no reason. By reason one distinguishes between the true and the false, and this faculty he (Adam) possessed perfectly and completely; but the ugly and the beautiful exist in (matters of) probable opinions, and not in (things that are) intelligible<sup class="fn-ref" onclick="showFn('fn.71')">71</sup>; for one does not say that this proposition: the heaven is spherical, is beautiful, nor that this other: the earth is flat, is ugly; but one calls the one true and the other false. Thus in our language we employ (in speaking of) the true and the false (the words) אמת and שקר, and for beautiful and ugly (we say) טוב and רע. By reason, therefore, man distinguishes the true from the false, and this takes place in all (things that are) intelligible. When, therefore, he (Adam) was still in his most perfect and complete state, having only his primitive nature and his intelligible notions, on account of which it was said of him: And You have made him a little lower than the angels (Psalm), 8, 6), there was in him no faculty that applied to the probable opinions in any way, and he did not even understand them; so that what is most manifestly base with regard to the probable opinions, that is to say, to discover the shameful parts, was not base to him, and he did not even understand its baseness. But when, disobeying, he inclined towards his desires coming from the imaginative and towards the bodily pleasures of his senses, as it is said (in Scripture): … That the tree was good to eat and that it was a pleasure for the eyes (Genesis, 3, 6), he was punished by the privation of this intellectual understanding; that is why he transgressed<sup class="fn-ref" onclick="showFn('fn.72')">72</sup> the order that had been given to him because of his reason, and, having obtained the knowledge of the probable opinions, he was absorbed by what he had to find base or beautiful, and he then knew what the thing was worth that had escaped him and of which he had been deprived, and in what state he had fallen. That is why it has been said: And you will be like Élohîm knowing good and evil (Ibid., 3, 5), and it has not been said: knowing the false and the true, or: understanding the false and the true; whereas in the (domain of the) necessary<sup class="fn-ref" onclick="showFn('fn.73')">73</sup> there is not at all good or evil, but false and true. — Consider also these words: And the eyes of both of them were opened and they RECOGNIZED that they were naked (Ibid., 3, 7). It is not said: And the eyes of both of them were opened and they saw; for what (man) had seen before, he also saw after. It is not that there was a veil on the eye that was then removed; but he underwent another state in which he found base what he had not found base before.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.5">
+                <div class="he-cell"><sup>6</sup> ודע שאותה מילה, כלומר "<b>פקח</b>", משמשת רק במשמעות של גילוי הבחנה, לא של התחדשות של ראייה חושית: "<b>וַיִּפְקַח אֱלֹהִים אֶת עֵינֶיהָ</b>" (בראשית כא,יט), "<b>אָז תִּפָּקַחְנָה עֵינֵי עִוְרִים</b>" (ישעיהו לה,ה), "<b>פָּקוֹחַ אָזְנַיִם וְלֹא יִשְׁמָע</b>" (שם מב,כ), המקביל לנאמר: "<b>אֲשֶׁר עֵינַיִם לָהֶם לִרְאוֹת וְלֹא רָאוּ</b>" (יחזקאל יב,ב).</div>
+                <div class="en-cell">Know that this word, that is to say פקח, is used absolutely only in the sense of: opening the moral view (and not) of the rebirth of the sense of sight; for example: And God opened his eyes (Genesis, 21, 19); Then the eyes of the blind will be opened (Isaiah, 35, 5); The ears opened they do not hear (Ibid., 42, 20), which resembles these words: Those who have eyes to see and do not see (Ezekiel, 12, 2).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.6">
+                <div class="he-cell"><span class="mediumGrey">מידה כנגד מידה</span><br><sup>7</sup> ומה שאמר על <b>אדם</b> "<b>מְשַׁנֶּה פָנָיו וַתְּשַׁלְּחֵהוּ</b>" (איוב יד,כ), פירושו וביאורו שכאשר שינה את מגמת פניו גורש, שכן "<b>פנים</b>" הוא מונח הגזור מ"<b>פָּנָה</b>", משום שהאדם מכוון את פניו אל הדבר שהוא מכוון אליו את רצונו. אמר: כאשר שינה את מגמת פניו וכיוון אל עבר דבר שהיה עליו ציווי קודם לכן שאין לכוון אליו, גורש מ<b>גן עדן</b>. וזה הוא העונש המותאם מבחינה עיונית לחטא, <b>מִדה כנגד מִדה</b>, משום שהותר לו לאכול מן הדברים הטובים וליהנות במרגוע ובשלווה, וכאשר נהיה חמדן והלך אחרי הנאותיו ודמיונותיו, כמו שאמרנו, ואכל מה שנאסר עליו לאכול – נמנע ממנו הכול, והוכרח לאכול את המאכל הגרוע ביותר, שלפני כן לא ראוי היה לו כמזון, וגם זאת אחרי עמל וטורח, כמו שנאמר "<b>וְקוֹץ וְדַרְדַּר תַּצְמִיחַ לָךְ [</b>וְאָכַלְתָּ אֶת עֵשֶׂב הַשָּׂדֶה]. <b>בְּזֵעַת אַפֶּיךָ [</b>תֹּאכַל לֶחֶם]" (בראשית ג,יח-יט), וביאר ואמר "<b>וַיְשַׁלְּחֵהוּ ה' אֱלֹהִים מִגַּן עֵדֶן לַעֲבֹד אֶת הָאֲדָמָה</b>" (בראשית ג,כג). והשווה אותו לבהמות במזונו וברוב מצביו, כמו שאמר "<b>וְאָכַלְתָּ אֶת עֵשֶׂב הַשָּׂדֶה</b>", ונאמר בביאור פרשה זו "<b>אָדָם בִּיקָר בַּל יָלִין – נִמְשַׁל כַּבְּהֵמוֹת נִדְמוּ</b>" (תהילים מט,יג).</div>
+                <div class="en-cell">As for what is said of Adam: When he changed his face you sent him away (Job, 14, 20)<sup class="fn-ref" onclick="showFn('fn.74')">74</sup>, it must be interpreted and commented thus: "When he changed his direction he was expelled"; for פנים (face, visage) is a noun derived from פנה (to turn), because man directs himself with his face towards the thing he wishes to attain. It is said, therefore: When he changed his direction and turned towards the thing towards which he had been previously forbidden to turn, he was expelled from paradise. And this was a punishment similar to his disobedience, measure for measure<sup class="fn-ref" onclick="showFn('fn.75')">75</sup>; for he had been permitted to eat pleasant things and to delight in rest and tranquillity; but having become avid, having followed his pleasures and his imagination, as we have said, and having eaten what had been forbidden to him, he was deprived of all and forced to eat the vilest of foods and that which had not previously served him as nourishment, (and this) with great toil and fatigue, as Scripture says: It shall bring forth thorns and thistles, etc., by the sweat of thy brow, etc. (Genesis, 3, 18, 19), and then it is clearly said: And the Lord God sent him forth from the paradise to till the earth (Ibid., V. 23). And He made him similar to the animals in his food and in most circumstances, as Scripture says: And thou shalt eat the herb of the field (Ibid., V. 18). And as if to explain this passage (the psalmist) has said: Man shall not abide in his dignity, and he was made similar to the dumb beasts (Ps. 49, 13).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..1.7">
+                <div class="he-cell">ישתבח בעל החפץ שתכליתו וחכמתו (של החפץ) אינם ניתנים להשגה!</div>
+                <div class="en-cell">—Praise be to the Master of this will whose ultimate term and wisdom cannot be comprehended.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.69" style="display: none;">
+                <strong>Note 69:</strong> An allusion is probably being made here to some Oriental fable; I suppose it is intended to refer to Nimrod, who, according to Oriental traditions, revolted against God and had the [[t:0]]Tower of Babel[[t:1]] built, and is said to have been placed in the heavens, being identified with the constellation of the [[t:2]]Giant[[t:3]] [[t:4]](الجبّار)[[t:5]] or of [[t:6]]Orion[[t:7]]. See the [[t:8]]Chronicon Paschale[[t:9]], p. 36; on the [[t:10]]Djebbâr[[t:11]] or [[t:12]]Orion[[t:13]], see the commentary on the treatise of Ulug-Beigh, by Hyde, in the [[t:14]]Syntagma dissertationum[[t:15]], vol. I, pp. 42 et seq., and p. 57.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.70" style="display: none;">
+                <strong>Note 70:</strong> Literally: [[t:0]]with the beginnings of his thoughts and ideas[[t:1]], that is to say according to what first presents itself to his mind.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.71" style="display: none;">
+                <strong>Note 71:</strong> The distinction that the author establishes here between things of intelligence and things that are within the realm of probable opinions is borrowed from Aristotle ([[t:0]]Topiques[[t:1]], l. I, ch. 1). The Stagirite recognizes four species of syllogisms, of which the first two are: [[t:2]]the demonstrative[[t:3]], which is based on principles of absolute truth and evident in themselves, being founded in intelligence, and [[t:4]]the dialectical[[t:5]], which proceeds from [[t:6]]probable opinions[[t:7]] ([[t:8]]ἐξ ἐνδόξων[[t:9]]), and which is based on the opinions of the totality or the majority of men, or only those of the totality or the majority of wise men, or the most illustrious among them. Good and evil, virtues and vices are within the realm of [[t:10]]probable opinions[[t:11]], and have no relation to God or pure intelligence (See [[t:12]]Morale à Nicemaque[[t:13]], l. VII, ch. 1). The Arabic word [[t:14]]אלמשהוראת[[t:15]], which means [[t:16]]things generally known[[t:17]] or [[t:18]]famous things[[t:19]], clearly designates here things admitted by opinion and corresponds to the Greek term [[t:20]]τὰ ἔνδοξα[[t:21]]; Hebrew versions render this word as [[t:22]]המפורסמות[[t:23]]. The Greek word [[t:24]]ἔνδοξος[[t:25]] having both meanings that we have just indicated, the Arabs have rendered it by a word that means [[t:26]]generally known[[t:27]] or [[t:28]]famous[[t:29]], although this word does not exactly convey Aristotle's idea. Thus, for example, these words: Δ[[t:30]]ιαλεϰτιϰὸς δέ συλλογισμὸς ὁ ἐξ ἐνδόξων συλλογιζόμενος[[t:31]] ([[t:32]]Top.[[t:33]], I, 1), "the dialectical syllogism is the one that results [[t:34]]from probable opinions[[t:35]]", have been rendered in the Arabic version as: [[t:36]]والقياس الجدلى هو الذى ينتج من مقدمات ذائعة[[t:37]]. For the word [[t:38]]ذايعة[[t:39]], a marginal variant in the ar. ms. n° 882 A gives the synonym [[t:40]]مشهورة[[t:41]], which is the term generally used by Arab philosophers. This is how Ibn-Roschd expresses himself in his [[t:42]]Abrégé de l’Organon[[t:43]], at the beginning of the [[t:44]]كتاب الجدل[[t:45]] (book of dialectic), corresponding to Aristotle's Topiques.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.72" style="display: none;">
+                <strong>Note 72:</strong> That is to say: he manifested his disobedience by a [[t:0]]act.[[t:1]] The words [[t:2]]פלמא עצא[[t:3]] refer to the change that occurred in him; the second, [[t:4]]עצא[[t:5]], to the material disobedience.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.73" style="display: none;">
+                <strong>Note 73:</strong> That is to say, with regard to the realm of intelligence and [[t:0]]necessarily true[[t:1]] in itself; the author means that pure intelligence has only to concern itself with the true and the false. Good and evil are the domain of probable opinion [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.74" style="display: none;">
+                <strong>Note 74:</strong> The author follows the opinion of the ancient rabbis who apply this verse to Adam: God, they say, had initially endowed Adam with immortal strength ([[t:0]]תתקפהו לנצח[[t:1]]); but having neglected God's advice and followed that of the serpent, he was expelled from paradise. See [[t:2]]Beréschîth rabba[[t:3]], sections 14 and 21.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.75" style="display: none;">
+                <strong>Note 75:</strong> That is to say, the punishment was entirely conforming to the sin; the Hebrew words [[t:0]]מדה כנגד מדה[[t:1]] which the author intercalates here in the Arabic phrase, are a well-known proverbial locution, often employed by the rabbis.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

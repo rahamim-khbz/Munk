@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munk's Guide</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="assets/icon-mini.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/reader.css">
+</head>
+<body style="overflow-y:auto; height:auto; display:block;">
+    <div class="content">
+        <h1 class="landing-title">Munk's Guide</h1>
+        <p class="landing-subtitle">Salomon Munk Edition</p>
+        <div id="landing-grid"></div>
+    </div>
+    <script>
+        fetch('data/chapters.json').then(r => r.json()).then(chapters => {
+            const grid = document.getElementById('landing-grid');
+            let html = '<div class="landing-links">';
+            chapters.forEach(ch => {
+                html += `<a href="reader.html?ch=${ch.slug}">${ch.title}</a>`;
+            });
+            html += '</div>';
+            grid.innerHTML = html;
+        });
+    </script>
+</body>
+</html>

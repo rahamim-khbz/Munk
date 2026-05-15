@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munk's Guide</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="assets/icon-mini.png">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reader.css">
+</head>
+<body>
+    <div id="toc-backdrop" class="toc-backdrop" onclick="toggleTOC()"></div>
+    <nav id="toc-drawer" class="toc-drawer">
+        <div class="toc-header-bar">
+            <a href="index.html" style="text-decoration:none; color:var(--text);">Contents</a>
+            <button onclick="toggleTOC()">✕</button>
+        </div>
+        <div class="toc-column-panel" style="padding: 16px 20px; border-bottom: 1px solid var(--border);">
+            <select id="select-left-col" onchange="updateColumnSelectors()" style="width:100%; margin-bottom:10px;">
+                <option value="en">Munk (English)</option>
+                <option value="fr">Munk (French)</option>
+                <option value="makbili">Makbili</option>
+                <option value="tibon">Ibn Tibon</option>
+                <option value="jrb">Judeo-Arabic</option>
+            </select>
+            <select id="select-right-col" onchange="updateColumnSelectors()" style="width:100%;">
+                <option value="en">Munk (English)</option>
+                <option value="fr">Munk (French)</option>
+                <option value="makbili" selected>Makbili</option>
+                <option value="tibon">Ibn Tibon</option>
+                <option value="jrb">Judeo-Arabic</option>
+            </select>
+        </div>
+        <div id="toc-body" class="toc-body"></div>
+    </nav>
+    <div class="main-container" data-left-col="en" data-right-col="makbili">
+        <div class="header">
+            <button onclick="toggleTOC()">☰</button>
+            <h1 id="main-title">Loading...</h1>
+            <div class="theme-controls">
+                <button onclick="setTheme('light')" id="btn-light">☀️</button>
+                <button onclick="setTheme('sepia')" id="btn-sepia">📜</button>
+                <button onclick="setTheme('dark')" id="btn-dark">🌙</button>
+            </div>
+        </div>
+        <div class="content" id="chapter-content"></div>
+    </div>
+    <div id="fn-panel" class="fn-panel">
+        <div class="fn-panel-header"><span>Note</span><button onclick="closeFnPanel()">✕</button></div>
+        <div id="fn-panel-body" class="fn-panel-body"></div>
+    </div>
+    <script src="js/reader.js"></script>
+</body>
+</html>

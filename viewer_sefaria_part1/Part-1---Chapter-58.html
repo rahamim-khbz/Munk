@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 58 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 58</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.0">
+                <div class="he-cell"><b>תוארי השלילה</b><br>עמוק יותר מן האמור עד כה</div>
+                <div class="en-cell"><small>OF A DEEPER NATURE THAN THE FOREGOING.</small></div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.1">
+                <div class="he-cell"><span class="mediumGrey">הצגת תורת תוארי השלילה</span><br><sup>1</sup> דע שתיאור האל יתהדר ויתרומם בשלילוֹת (=היגדים שליליים) הוא התיאור הנכון שאין נלווה אליו שום אי דיוק, ושאין בו חסרון ביחס לאל כלל ועיקר. ואילו בתיאורו בחיובים (=היגדים חיוביים) יש, כמו שביארנו (א,נא-נז), שיתוף וחסרון.</div>
+                <div class="en-cell">Know thou that the true attributes of God are those in which the attribution is effected by means of negations, which requirs no improper expression, nor gives occasion, in any wise, to ascribe unto God any imperfection whatsoever<sup class="fn-ref" onclick="showFn('fn.607')">607</sup>; but an attribution enunciated affirmatively involvs the notion of <i>association</i> and of imperfection, even as we have set forth<sup class="fn-ref" onclick="showFn('fn.608')">608</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.2">
+                <div class="he-cell">עליי לבאר לך <br><sup>א)</sup> ראשית, כיצד השלילות הן תארים במובן מסוים (פסקאות 2-3), <br><sup>ב)</sup> ובמה הן שונות מתוארי החיוב (4), <br><sup>ג)</sup> ולאחר מכן אבאר לך כיצד אין לנו דרך לתארו אלא בשלילות בלבד (5 ואילך).</div>
+                <div class="en-cell">It behoves me first to explain unto thee how negations are, in a certain manner, attributes, and in what wise they are distinguished from affirmative attributes; thereafter shall I explain unto thee how we have no means of assigning an attribute unto God, save by negations, and not otherwise.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.3">
+                <div class="he-cell"><span class="mediumGrey">השלילה היא תיאור מסוים</span><br><sup>2</sup> אומַר כך: התואר אינו מה שמייחד את המתואר בלבד כך שאין הוא משותף בתואר הזה עם אחר. אלא שהתואר יכול גם לתאר את המתואר, אף שהוא משותף בו עם זולתו ואי אפשר להשיג באמצעותו ייחוד. <br><sup>דוגמה א, להיגד חיובי)</sup> דוגמה לכך: אם ראית אדם מרחוק, ושאלת ואמרת: מהו זה הנראה? ונֶאמר לך: בעל חיים – הרי זה בלי ספק תואר לאותו נראה, אף שאין הוא מייחד אותו מכל מה שזולתו, אלא שהושג בכך ייחוד מסוים, והוא שאותו נראה אינו גוף ממין הצומח ולא ממין המחצב (=דומם טבעי). <br><sup>דוגמה ב, להיגד שלילי)</sup> כיוצא בזה אם היה בבית הזה אדם, וידעת שיש בו גוף כלשהו אלא שאינך יודע מה הוא, ושאלת ואמרת: מה יש בבית הזה? ואמר לך העונה: אין בו מחצב ולא גוף של צומח – הרי הושג ייחוד מסוים ואתה יודע שיש בו בעל חיים, גם אם אינך יודע איזה בעל חיים הוא.<br><sup>3</sup> מן הפן הזה יש אם כן שיתוף בין תוארי השלילה לתוארי החיוב, כי הם בהכרח מייחדים ייחוד כלשהו, אף אם הייחוד שבהם אינו אלא סילוק מה שנשלל מכלל מה שהיינו חושבים שלא נשלל.<br><span class="mediumGrey">יתרון ההיגדים השליליים מן ההיגדים החיוביים</span><br><sup>4</sup> ואילו הפן שבו נבדלים תוארי השלילה מתוארי החיוב, הוא שתוארי החיוב, אף שאינם מייחדים, הרי הם מורים על חלק מכלל הדבר שידיעתו מבוקשת – יהא זה חלק מעצמו (=ממהותו) או אחד ממקריו. ואילו תוארי השלילה אינם מודיעים לנו כלל על דבר מן העצמות שאנו מבקשים לדעת מה היא, אלא אם היה זה במקרה כפי שהדגמנו (ראו פסקה 2, דוגמה ב).</div>
+                <div class="en-cell">I say, then: an attribute is not only that which particularizes the subject in such wise that it shars not this attribute with aught else, but an attribute is also at times the attribute of a subject, even though the latter should share it with another and no particularization should result therefrom. If, for example, beholding a man from afar, thou askest what is the object seen, and it be answered thee (that it is) an <i>animal</i>, this is indubitably an attribute of the object seen; for, although it distinguishes it not particularly from all other things, there nevertheless results therefrom a certain particularisation, in the sense that the object seen is a body which belongs neither to the species of plants, nor to that of minerals. Likewise again: if, a man being in a certain house, thou knowest that there is therein a certain body, without knowing what it is, and, having asked what is in that house, someone answers thee that there is therein neither mineral nor vegetable body, there results (from this answer) a certain particularisation, and thou knowest that there is therein an <i>animal</i>, although thou knowest not what animal it be. In this respect, therefore, negative attributes have something in common with affirmative attributes; for they necessarily produce a certain particularisation, although this be limited to the removing, by negation, of all that which we did not at first believe ought to be denied<sup class="fn-ref" onclick="showFn('fn.609')">609</sup>. But here is the respect in which negative attributes are distinguished from affirmative attributes: it is that affirmative attributes, even when they do not particularize (the subject), always indicate a part of the thing which one desirs to know, whether it be a part of its substance, or one of its accidents, whilst negative attributes do in no wise make us to know what is in reality the essence that we desire to know<sup class="fn-ref" onclick="showFn('fn.610')">610</sup>, unless it be accidentally, as we have given examples thereof.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.4">
+                <div class="he-cell"><span class="mediumGrey">ראוי לתאר את האל רק באמצעות היגדים שליליים</span><br><sup>5</sup> אחרי ההקדמה הזו אומר: כבר הוכח שהאל יתרומם ויתהדר הוא מחויב המציאות שאין בו מורכבות כמו שנוכיח (ב,א). ואיננו משיגים אלא את היותו בלבד, לא את מהותו. על כן מן הנמנע שיהיה לו תואר חיוב, כי אין לו היוֹת המובחן ממהותו כך שהתואר יורה על אחד משניהם, כל שכן שאין מהותו מורכבת כך שהתואר יורה על חלקיה, כל שכן שאין לו מקרים כך שהתואר יורה גם עליהם. אם כן אין תואר חיוב כלל.</div>
+                <div class="en-cell">Upon this preliminary observation, it is said: It is a thing demonstrated that God, the Most High, is the necessary being, in which, as we shall demonstrate, there is no composition. We apprehend nothing of him, save that he is, but not what he is<sup class="fn-ref" onclick="showFn('fn.611')">611</sup>. It is therefore impossible to admit that he has an affirmative attribute: for he has no being outside of his quiddity, whereby the attribute might indicate one of the two things<sup class="fn-ref" onclick="showFn('fn.612')">612</sup>; nay, his quiddity cannot be composed, whereby the attribute might indicate its two parts<sup class="fn-ref" onclick="showFn('fn.613')">613</sup>; and, a fortiori, he cannot have accidents that might be indicated by the attribute. There is therefore, in any manner, no affirmative attribute of God.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.5">
+                <div class="he-cell">ואילו תוארי השלילה – הם אשר ראוי להשתמש בהם כדי להנחות את הדעת למה שראוי להאמין לגביו יתעלה. כי אין חל מצדם ריבוי בשום אופן, והם מנחים את הדעת למֵרב מה שיכול האדם להשיג ממנו יתעלה.<br><span class="mediumGrey">הדגמות</span><br><sup>6</sup> <sup>א, נמצא)</sup> למשל: הוכח לנו שמחויב קיומו של דבר־מה מלבד אותן עצמויות המושגות בחושים והידועות בשכל, ולכן אמרנו עליו שהוא "נמצא" – במובן זה שהעדרו לא ייתכן. <br><sup>ב, חי)</sup> אחר כך השגנו שהמצוי הזה אינו כמציאות היסודות, למשל, שהם גופים מתים (=דוממים), ועל כן אמרנו שהוא "חי" – במובן זה שהוא יתעלה אינו מת. <br><sup>ג, אינו גוף)</sup> אחר כך השגנו שהמצוי הזה גם איננו כמציאות השמים, שהם גוף חי, ועל כן אמרנו שאין הוא גוף. <br><sup>ד, קדום)</sup> אחר כך השגנו שהמצוי הזה אינו כמציאות השכל, שאין הוא גוף ואין הוא מת אך הוא מסוֹבָב, ועל כן אמרנו שהוא יתעלה קדום – המשמעות היא שאין לו סיבה (=גורם) שהביאה אותו לידי מציאות. <br><sup>ה, יכול, יודע ורוצה)</sup> אחר כך השגנו שהמצוי הזה – אין מציאותו, שהיא עצמותו, מספיקה רק לעצם מציאותו, אלא שופעות ממנו מציאויות רבות. ואין זה כשפיעת החום מן האש ולא כנביעת האור מן השמש, אלא שפע הממשיך להם תמיד קיום וסדירות בהנהגה מחוכמת כפי שנבאר (א,סט; ב,יב; ב,כ). מפני העניינים האלה אמרנו עליו שהוא "יכול" ו"יודע" ו"רוצה" – הכוונה בתארים האלה היא שאין הוא <br><sup>יכול)</sup> חסר אונים <br><sup>יודע)</sup> ולא סכל <br><sup>רוצה)</sup> ולא מסיח דעת או מזניח. <br><sup>יכול)</sup> משמעות אומרנו "אינו חסר אונים" היא שדי במציאותו להבאתם לידי מציאות של דברים אחרים זולתו. <br><sup>חכם)</sup> ומשמעות אומרנו "לא סכל" היא שהוא משיג, כלומר חי, כי כל משיג הוא חי. <br><sup>רוצה)</sup> ומשמעות אומרנו"לא מסיח דעת ולא מזניח" היא שכל הנמצאים הללו מתנהלים בסדירות ובהנהגה ואינם ננטשים ומתהווים כפי המקרה אלא כהתהוותו של כל מה שמנהיג אותו הרוצה, בכוונה וברצון. <br><sup>ו, אחד)</sup> עוד השגנו שהמצוי הזה אין אחר כמוהו, ועל כן אמרנו: "הוא אחד" – במובן של שלילת הריבוי.</div>
+                <div class="en-cell">Negatory attributes are those which must be employed to guide the mind toward that which it behoovs us to believe concerning God; for there results from their part no multiplicity, and they lead the mind to the term of that which is possible for man to apprehend of God. Since it is demonstrated unto us, for example, that there exists necessarily somewhat beyond these essences perceived by the senses and of which we embrace the knowledge by means of the intellect, we say of this somewhat that it <i>exists</i>, which signifies that its non-existence is inadmissible. Perceiving thereafter that it is not with this Being as it is, for example, with the existence of the elements, which are inanimate bodies, we say that He is <i>living</i>, which signifies that God is not without life. Perceiving thereafter that it is also not with this Being as with the existence of the heaven, which is a <i>body</i> (albeit) living, we say that He is by no means a <i>body</i>. Perceiving thereafter that it is not with this Being as with the existence of the intellect, which, although it be neither a body nor without life, is nevertheless the product of a cause, we say that God is <i>eternal</i>, which signifies that He has no cause which has brought Him into existence. Then we perceive that the existence of this Being, which is His essence<sup class="fn-ref" onclick="showFn('fn.614')">614</sup>, does not suffice Him in such wise as to <i>exist</i> only (Himself), but that, on the contrary, there emanate from Him many existences; and this, not as heat emanats from fire, nor as light proceeds from the sun, but by a divine action which gives them duration and harmony by governing them well<sup class="fn-ref" onclick="showFn('fn.615')">615</sup>, as we shall set forth. And it is because of all this that we attribute unto God <i>power</i>, <i>knowledge</i>, and <i>will</i>, meaning by these attributes that He is neither impotent, nor ignorant, nor heedless, nor negligent. If we say that He <i>is not impotent</i>, it signifies that His existence suffices to bring into existence things other than Himself; <i>not ignorant</i> signifies that He <i>perceivs</i>, that is to say, that He <i>lives</i>, for everything that perceivs has life<sup class="fn-ref" onclick="showFn('fn.616')">616</sup>; by <i>neither heedless nor negligent</i>, we mean to say that all these beings follow a certain order and a regime, that they are not neglected and delivered unto chance, but that they are as everything which is conducted, with an intention and a will, by Him who wills it<sup class="fn-ref" onclick="showFn('fn.617')">617</sup>. Finally, we perceive that this Being has no fellow; if therefore we say<sup class="fn-ref" onclick="showFn('fn.618')">618</sup>: <i>He is one</i>, it signifies <i>that there are not many</i><sup class="fn-ref" onclick="showFn('fn.619')">619</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.6">
+                <div class="he-cell"><span class="mediumGrey">סיכום ומהות השלילה המושגית</span><br><sup>7</sup> התבאר לך אם כן כי כל תואר שאנו מתארים באמצעותו את האל הרי הוא או תואר פעולה, או שמשמעותו היא שלילת העדרו, אם הכוונה בו היא השגת עצמותו ולא פעולתו. וגם בשלילות האלה אין להשתמש ולכנות בהן אותו יתעלה אלא באופן הידוע לך, שלעתים שוללים ממשהו מה שאין דרכו שיימצא לו, כמו שאנו אומרים על הקיר שאיננו רואה.</div>
+                <div class="en-cell">It is therefore manifest that every attribute wherewith we invest Him, is either an attribute of <i>action</i>, or else [if its purpose be to make understood the <i>essence</i> of God, and not His <i>action</i>] it must be regarded as the negation of its privative<sup class="fn-ref" onclick="showFn('fn.620')">620</sup>. But these negations themselves must not be employed, to apply them unto God, save in the manner that thou knowest; (I mean) that one sometimes denies of a thing that which it is not in its condition to possess, as when we say of the wall that <i>it ses not</i><sup class="fn-ref" onclick="showFn('fn.621')">621</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.7">
+                <div class="he-cell"><sup>8</sup> ואתה, המעיין בחיבור זה, יודע שהשמים הללו, שהם גוף נע שכבר מדדנוהו בטפחים ובאמות, ואנו יודעים מידות של חלקים ממנו ורוב תנועותיהם – שכלנו חסר אונים בתכלית מלהשיג את מהותו, אף שאנחנו יודעים שהוא בהכרח בעל חומר, אלא שאינו החומר הזה שבנו. ולכן איננו יכולים לתאר אותו אלא במונחים שאינם מובנים, לא בהיגד חיובי מובן. וכך אנו אומרים שהשמים אינם קלים ואינם כבדים ואינם נפעלים ולכן אינם מושפעים, ואין הם בעלי טעם ולא בעלי ריח, ושלילות כיוצא בכך – כל זאת משום שאיננו יודעים את החומר ההוא.<br><span class="mediumGrey">השלילה המושגית והמוחלטת בזיקה לאל</span><br><sup>9</sup> קל וחומר לגבי מצב שכלינו אם ינסו להשיג את החף מן החומר, הפשוט בתכלית הפשטות, מחויב המציאות שאין לו עילה (=אין גורם לקיומו) ושלא חל עליו עניין נוסף על עצמותו השלמה, שמשמעות שלמותה היא שלילת החסרונות ממנה כפי שביארנו (בפרק זה). כי איננו משיגים אלא את היותו בלבד, ושיש מצוי שדבר מכל הנמצאים שהביא לידי מציאות אינו דומה לו, ואין הוא שותף עמהם בשום עניין, ואין בו ריבוי, ולא חוסר אונים מלהביא לידי מציאות את מה שזולתו, ושיחסו לעולם הוא כיחס רב החובל לספינה. וגם זה אינו יחס אמיתי ולא דימוי נכון, אלא מטרתו להנחות את הדעת לכך שהוא יתעלה מנהיג את הנמצאים, כלומר שהוא מתמיד אותם ומסדיר אותם כראוי. ועניין זה עוד יבואר באופן הולם יותר (ב,יב; ג,יז-יט).</div>
+                <div class="en-cell">— Thou knowest, O reader of this treatise! that this very heaven — [which yet is a moved body<sup class="fn-ref" onclick="showFn('fn.622')">622</sup>, and which we have measured by spans and by cubits, even to embracing with our science the measures of certain of its parts and the greater part of its movements<sup class="fn-ref" onclick="showFn('fn.623')">623</sup>] —, our intellects are much too weak to comprehend its <i>quiddity</i>, although we know that it has necessarily<sup class="fn-ref" onclick="showFn('fn.624')">624</sup> matter and form, save that it is not there a matter such as that which is in us; wherefore we can only qualify it by words without precision<sup class="fn-ref" onclick="showFn('fn.625')">625</sup>, and not by a precise <i>affirmation</i>. In fact, we say that the heaven <i>is neither light nor heavy</i>, that it is <i>impassible</i>, and that because of this <i>it receivs no impression;</i> that it <i>has neither taste nor smell</i>, and other such negations<sup class="fn-ref" onclick="showFn('fn.626')">626</sup>; all this because of our ignorance concerning the said <i>matter.</i> And what shall it be of our intellects, if they seek to apprehend Him who is exempt from matter, who is of an extreme simplicity, the necessary Being, who has no cause and who is affected by nothing which might be added to His perfect essence, whose <i>perfection</i> signifies (for us) <i>negation of imperfections</i>, as we have set it forth? for we apprehend of Him naught else save <i>that He is</i>, that there is a Being whom none of the beings He has produced resembls, who has absolutely naught in common with these latter, that there is in Him neither multiplicity, nor impotence to produce that which is outside of Him, and that His relation to the world is that of the captain to the vessel; not that this be the true relation, nor that the comparison be just, but it serves as a guide to the mind (to understand) that God governs the beings, that is to say, that He perpetuats them and maintains them in order, as is behoovful. This subject shall yet be more amply set forth.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..57.8">
+                <div class="he-cell"><span class="mediumGrey">סיום פיוטי לשלילת המאמצים להבנת האל</span><br><sup>10</sup> ישתבח מי שכאשר השכלים מתבוננים בעצמותו – הופכת השגתם לחוסר אונים; וכשהם מתבוננים בנביעת פעולותיו מרצונו – הופכת ידיעתם לבורות; וכאשר מנסות הלשונות לרוממו בתארים – הופכת כל מליצה לגמגום ולרפיון כוח.</div>
+                <div class="en-cell">Praise be unto Him who (is so highly exalted that), when intellects contemplate His essence, their comprehension is changed into incapacity, and when they examine how His actions result from His will, their knowledge is changed into ignorance, and when tongues desire to glorify Him by attributes, all eloquence becoms a feeble stammering<sup class="fn-ref" onclick="showFn('fn.627')">627</sup>!</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.607" style="display: none;">
+                <strong>Note 607:</strong> [Footnote 607 content missing]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.608" style="display: none;">
+                <strong>Note 608:</strong> Literally: [[t:0]]as for His description by means of affirmations, there is in this, regarding association and imperfection, that which one has already expounded;[[t:1]] that is to say: by attributing affirmative qualities unto God, one implicitly acknowledges that diverse ideas are therein associated, and one likewise ascribes imperfection unto Him. By the word [[t:2]]שרך[[t:3]] [[t:4]](شُرَك)[[t:5]] , [[t:6]]association[[t:7]], the author would seem to allude to the comparison he established earlier (chap. L, p. 181) between the belief in [[t:8]]essential[[t:9]] attributes and the Christian dogma of the Trinity. For the Mo’tazals also, to ascribe an attribute unto God is to give unto Him an [[t:10]]associate[[t:11]] [[t:12]](مشريك)[[t:13]] . Their chief did expressly state: He who admits an eternal attribute together with the (divine) idea, admits two gods. Cf. Pococke, [[t:14]]Specimen hist. Ar.[[t:15]], p. 216.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.609" style="display: none;">
+                <strong>Note 609:</strong> Literally: [[t:0]]whatever there is in them by way of particularization, that is, [[t:1]] ([[t:2]]that [[t:3]]) [[t:4]]excluding what is negated from everything we believed should not be negated[[t:5]], that is, stripping the subject of certain qualities that could be attributed to it and confining it within a narrower circle through negations, in order to determine it in a certain way.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.610" style="display: none;">
+                <strong>Note 610:</strong> Literally: [[t:0]]do not reveal to us anything at all about the essence of which we desire to know what it is.[[t:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.611" style="display: none;">
+                <strong>Note 611:</strong> Literally: [[t:0]]one apprehends only His[[t:1]] [[t:2]]THAT[[t:3]] [[t:4]]alone, not His[[t:5]] [[t:6]]WHAT[[t:7]] (for God, being indefinable, one cannot declare [[t:8]]what He is;[[t:9]] vide supra, p. 190). The word [[t:10]]אניח̈[[t:11]] [[t:12]](أنيّة)[[t:13]] is derived, doubtless, from the conjunction [[t:14]]أن[[t:15]] or [[t:16]]أَنَّ[[t:17]] , [[t:18]]that[[t:19]] ([Lat.: quod]), and, to render this Arabic term precisely, one would need to form the word [[t:22]]quoddity[[t:23]] (analogous to [[t:24]]quiddity[[t:25]]). It is the [[t:26]]ὅτ׳[[t:27]], which Aristotle places at the head of those objects that the intellect contemplates in every science, and which designates the pure [[t:28]]existence[[t:29]] of the thing (vide [[t:30]]Posterior Analytics[[t:31]], bk. II, chap. 1). It is only after having recognised [[t:32]]that[[t:33]] the thing [[t:34]]is[[t:35]], that one inquires into [[t:36]]what it is[[t:37]] ([[t:38]]μετὰ ταῦτα γνόντες, ὅ τ ι ἐστί τι, τ ί οὖν τοῦτ’ ἐστι, ζ[[t:39]]ד[[t:40]] τοῦμεν. Ibid.[[t:41]], chap. 2). In the [[t:42]]Kitâb al-Ta’rifât[[t:43]], one reads the following definition: [[t:44]]الانية تحقق الوجود العينى[[t:45]] [[t:46]]من حيث رتبة الذاتية[[t:47]] “The [[t:48]]anniyya[[t:49]] ascertains existence in itself, considered in the degree of pure essence.” The meaning of this definition is as follows: the [[t:50]]ὅτι[[t:51]] (the [[t:52]]that[[t:53]] or the [[t:54]]quoddity[[t:55]]) confines itself to ascertaining pure and abstract existence, from the standpoint of [[t:56]]being[[t:57]], or of [[t:58]]essence[[t:59]] (to render [[t:60]]الذاتية[[t:61]] precisely, one would need to form the word [[t:62]]essentiality[[t:63]]); it is [[t:64]]being[[t:65]] considered in itself, abstracting from all that may serve to determine it, such as [[t:66]]quiddity[[t:67]] ([[t:68]]τί ἐστιι[[t:69]]), [[t:70]]quality[[t:71]] ([[t:72]]πσ̃ς ἐστι[[t:73]]) and [[t:74]]cause[[t:75]] ([[t:76]]τὸ διότι[[t:77]]]). Cf. one's Extraits de la [[t:78]]Source de la vie[[t:79]] of Ibn-Gebirol, or Avicebron, bk. V, § 30. M. Silv. de Sacy has given a translation of the said definition entirely different from one's own; but he himself does avow that he cannot guarantee the accuracy of his rendering, and he offers upon the etymology of the word [[t:80]]الإنية[[t:81]] a conjecture of but scant plausibility. Vide Notices et extraits des manuscrits, vol. X, p. 85.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.612" style="display: none;">
+                <strong>Note 612:</strong> As the author stated at the commencement of the preceding chapter, [[t:0]]existence[[t:1]] and [[t:2]]quiddity[[t:3]] in God are one and the same, and cannot be separated one from the other; one cannot, therefore, make of one the attribute of the other, and, as has been said aforetime, one cannot even ascribe unto God as an attribute either [[t:4]]being[[t:5]] or [[t:6]]existence.[[t:7]] It has, moreover, been established that God cannot be defined, and that, consequently, no attribute indicating His quiddity can be ascribed unto Him (vide chap. LII, p. 190).—The editions of Ibn-Tibbon’s version bear: [[t:8]]מפני שאין לו מהות חוץ לישותו[[t:9]]; one must read, according to the Arabic, [[t:10]]ישות הוץ למהותו[[t:11]], as indeed several manuscripts possess, and likewise Ibn-Falaquera, [[t:12]]Moré ha-Moré[[t:13]], p. 29.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.613" style="display: none;">
+                <strong>Note 613:</strong> Beings which possess an anterior cause fall into a [[t:0]]genus[[t:1]] and are distinguished by a [[t:2]]difference[[t:3]]; their [[t:4]]quiddity[[t:5]], consequently, is composed of two elements. Man, for instance, is [[t:6]]animal[[t:7]] and [[t:8]]rational[[t:9]], and his quiddity is contained within these two attributes, one indicating the genus and the other the difference. God has no anterior cause and falls into no genus, and His quiddity can only be of absolute simplicity. Cf. above, p. 190, and [[t:10]]ibid.[[t:11]], note 3. — The editions of Ibn Tibbon’s version generally exhibit [[t:12]]על שני חלקים[[t:13]]; one should read: [[t:14]]על שני חלקיה[[t:15]], as found in the manuscripts and the [Lat.: editio princeps]. Al-’Harizi and Ibn Falaquera ([Lat.: loco citato]) have, the one [[t:18]]על הלקים[[t:19]], the other [[t:20]]על החלקים[[t:21]], which is incorrect.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.614" style="display: none;">
+                <strong>Note 614:</strong> That is to say: which is the very essence of that being and has no [[t:0]]cause[[t:1]] external to itself (cf. above, at the commencement of chap. LVII). — There is a certain obscurity in this phrase, the literal translation of which is as follows: [[t:2]]then we comprehend that[[t:3]] ([[t:4]]as for[[t:5]]) [[t:6]]this being, its existence, which is its essence, suffices it not merely that it should exist, but that, on the contrary, there[[t:7]] [[t:8]]FROM IT[[t:9]] [[t:10]]emanates, etc.[[t:11]] It is not altogether clear whether the word [[t:12]]ענה[[t:13]], which one has rendered by [[t:14]]from it[[t:15]], signifies [[t:16]]from him[[t:17]] (referring to [[t:18]]this being[[t:19]]), or rather [[t:20]]from her[[t:21]] (referring to [[t:22]]existence[[t:23]]).
+In the editions of Ibn Tibbon’s version, there are here certain inaccuracies; one must read as follows, according to the manuscripts: [[t:24]]ואחרי כן השגנו שזה הנמצא אין מציאותו אשר הוא עצמו מםפיק לו שיהיה נמצא בלבד אבל שופעות מאתו מציאויות רבות[[t:25]]. It is designedly that the translator has here given to the word [[t:26]]מציאות[[t:27]] the masculine gender, in order, as he himself states, to allow the ambiguity, which one has pointed out in the Arabic text, to subsist; here is how he expresses himself in a note, at the words [[t:28]]אשר הוא עצמו[[t:29]] (MS. from the Sorbonne collection, no. 108): [[t:30]]שמתי הנה מלת מציאות על לשון זכר בהכרח כנוי וכנוי מאתו אפשר שהוא שב אל הנמצא או אל המציאות וראי וה לא כראי זה ואילו הייתי עושה שם מציאות לשון נקבה הייתי מכריע הדרך האחד וברחתי מזה והעתקתי מלה במלה[[t:31]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.615" style="display: none;">
+                <strong>Note 615:</strong> Literally: [[t:0]]but it is an effluence which constantly prolongs their duration and order, by a well-established regimen;[[t:1]] that is to say, that God, in producing these existences, acts with freedom and with full consciousness, and not without will, as nature does. The word [[t:2]]פיץׄ[[t:3]] ([[t:4]]فيض[[t:5]] [[t:6]]effusion, emanation[[t:7]]) designates the outpouring of divine grace, the inspiration by which God manifests Himself in the prophets, and, generally, the divine action manifesting upon created beings. The author himself explains elsewhere why the divine action is termed [[t:8]]فيض[[t:9]], by comparison with water gushing from a spring and spreading forth on all sides. See the Second Part of this work, chap. XII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.616" style="display: none;">
+                <strong>Note 616:</strong> See above, p. 214, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.617" style="display: none;">
+                <strong>Note 617:</strong> Literally: [[t:0]]that they are not neglected and existing as it happens[[t:1]] ([[t:2]]by chance[[t:3]]), [[t:4]]but[[t:5]] ([[t:6]]that they are[[t:7]]) [[t:8]]as is all that which one who wills guides with intention and volition.[[t:9]] One must read [[t:10]]ככון[[t:11]] (with [[t:12]]câf[[t:13]]), and not [[t:14]]בכון[[t:15]] (with [[t:16]]béth[[t:17]]), as some manuscripts present it; similarly, in Ibn Tibbon’s version, one must read [[t:18]]כהיות[[t:19]], as the [Lat.: editio princeps] has it, and not [[t:22]]בהיות[[t:23]], as the other editions exhibit.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.618" style="display: none;">
+                <strong>Note 618:</strong> In several manuscripts, one reads [[t:0]]פקלנא אנה ואחד ואלמעני[[t:1]]… ([[t:2]]we thus say that He is unique, which means…[[t:3]]), which is more in line with the way the author expressed himself in the preceding passages.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.619" style="display: none;">
+                <strong>Note 619:</strong> Literally: [[t:0]]the negation of plurality.[[t:1]] The Arabic word [[t:2]]ואחד[[t:3]] signifies at once [[t:4]]one[[t:5]] (that is to say, [[t:6]]not multiple[[t:7]]) and [[t:8]]unique;[[t:9]] it necessarily bears this latter sense here, since the matter concerns the denial that there is [[t:10]]another being similar to God[[t:11]], and, for the same reason, the word [[t:12]]כתׄרה̈[[t:13]] must here be translated as [[t:14]]plurality[[t:15]], and not as [[t:16]]multiplicity.[[t:17]] In order to expound more fully the idea attached to the Hebrew word [[t:18]]אחד[[t:19]] and the Arabic word [[t:20]]واحد[[t:21]], the author ought to have said: “Finally one comprehends that this being has no like, [[t:22]]and that there is nought composite in him.[[t:23]]” Thus does the author, in his [[t:24]]Thirteen Articles of Faith[[t:25]], express himself concerning [[t:26]]the unity of God:[[t:27]] “For He who is the (first) cause of all things is [[t:28]]one[[t:29]], not as the [[t:30]]one[[t:31]] of a [[t:32]]genus[[t:33]], nor as the [[t:34]]one[[t:35]] of a [[t:36]]species[[t:37]], nor as the [[t:38]]composite[[t:39]] individual, which is divided into several units, nor even as the [[t:40]]simple body, one[[t:41]] in number, but which is susceptible of being infinitely apportioned and divided; but God is of a unity to which no unity whatsoever resembles in any manner.” Vide commentary on the [[t:42]]Mishnah[[t:43]], Part IV[[t:44]]e[[t:45]], treatise [[t:46]]Sanhedrin[[t:47]], chap. X (Pococke, [Lat.: Porta Mosis], p. 165).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.620" style="display: none;">
+                <strong>Note 620:</strong> Literally: [[t:0]]or else its sense is the negation of its privation;[[t:1]] that is to say: the affirmative attribute ascribed to God, if it does not designate an action emanating from God, must be regarded as the negation of a privative adjective. Thus, for example, [[t:2]]powerful[[t:3]] must be taken in the sense of [[t:4]]not impotent; living[[t:5]], in the sense of [[t:6]]not inanimate; He is[[t:7]] [[t:8]]ONE[[t:9]] signifies [[t:10]]He is not[[t:11]] [[t:12]]NOT ONE[[t:13]] (or [[t:14]]multiple[[t:15]]), and so forth. Al-Ghazali, in his [[t:16]]Maqasid al-Falasifa[[t:17]] (section of [[t:18]]Metaphysics[[t:19]], book III), speaking on behalf of the Peripatetics, thus expresses himself concerning the attributes of [[t:20]]action[[t:21]] (which he also calls [[t:22]]relative[[t:23]]) and the [[t:24]]negative[[t:25]] attributes — (one cites the Hebrew version)—. [[t:26]]ויולדו מתארי הצירוף והשלילה לראשון שמות לא יחייבו רבוי בעצמותו כי כאשר נאמר אחד הנה ענינו שלילת השתוף והדמיון ושלילת החלוק וכאשר נאמר קדמון הנה ענינו שלילת ההתחלה ממציאותו וכאשר נאמר טוב ונכבד ורחמן הנה ענינו צירופו אל פעולות םודרו ממנו.[[t:27]] “From the [[t:28]]relative[[t:29]] and [[t:30]]negative[[t:31]] attributes, there result for the first being (God) names which imply no multiplicity in His essence; for, when one says [[t:32]]one[[t:33]], one intends to deny association and assimilation (of other beings to God), as well as divisibility; when one says [[t:34]]eternal[[t:35]], one intends to deny that His existence had a commencement; when one says [[t:36]]bon, glorious, merciful[[t:37]], this expresses a relation to the actions emanating from Him.”
+            </div>
+            
+            <div class="footnote-item" id="item-fn.621" style="display: none;">
+                <strong>Note 621:</strong> The author intends to convey that the negative attributes of God must ever bear the sense of [[t:0]]universal[[t:1]] and [[t:2]]absolute negations[[t:3]], and not that of [[t:4]]particular negations;[[t:5]] the negation contained within the negative attribute must resemble, says the author, this proposition: [[t:6]]the wall sees not[[t:7]], which signifies: [[t:8]]no wall ever sees[[t:9]], because it is not in its nature to see, whereas this other proposition: [[t:10]]the man sees not[[t:11]], signifies that such a man sees not, because he is blind or sleeps, or by some other [[t:12]]accident[[t:13]] whatsoever, although it be in his nature to see (cf. Aristotle, [[t:14]]Categories[[t:15]], chap. 11; treatise on [[t:16]]Hermeneia[[t:17]], chap. 7; and the [[t:18]]Compendium of Logic[[t:19]], by our author, ch. 2 and 11). It is evident that the negative attributes, by which one aims to preclude all imperfection from God, cannot be negations of the latter kind, that is to say, [[t:20]]particular negations;[[t:21]] for imperfection must here be denied in an absolute sense, as a thing which can never exist in God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.622" style="display: none;">
+                <strong>Note 622:</strong> That is, which is moved by something else, and which, consequently, does not have its cause within itself.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.623" style="display: none;">
+                <strong>Note 623:</strong> The suffix [[t:0]]הא[[t:1]], in [[t:2]]חרכאתהא[[t:3]], which one has referred to the words [[t:4]]הדׄה אלםמא[[t:5]] [[t:6]]this heaven[[t:7]], could also refer to [[t:8]]אגׄזא[[t:9]] [[t:10]]parts[[t:11]] (a word which here designates the different spheres), such that it would be necessary to translate: [[t:12]]and most of[[t:13]] [[t:14]]THEIR[[t:15]] [[t:16]]mouvements.[[t:17]] Indeed, the editions of Ibn-Tibbon’s version bear [[t:18]]תנועותיהם[[t:19]], with the plural suffix, referring to [[t:20]]חלקים[[t:21]]; but in the manuscripts one reads [[t:22]]תנועותיו[[t:23]], where the suffix refers to [[t:24]]רקיע[[t:25]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.624" style="display: none;">
+                <strong>Note 624:</strong> The word [[t:0]]צׄרורה̈[[t:1]] ([[t:2]]necessarily[[t:3]]) is missing in several manuscripts; it is also omitted in Al-’Harizi’s version.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.625" style="display: none;">
+                <strong>Note 625:</strong> On the meaning of the participle [[t:0]]מחצלת̈[[t:1]] [[t:2]](محلة)[[t:3]] , cf. above, p. 190, note 4.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.626" style="display: none;">
+                <strong>Note 626:</strong> It is almost in the same negative terms that Aristotle expresses himself concerning [[t:0]]aether[[t:1]], which, according to him, forms the substance of the celestial spheres; vide his treatise [[t:2]]On the Heavens[[t:3]], Book I, Chapter 3: [[t:4]]τὸ δὲ ϰύϰλῳ σῶμα, φερόμενον ἀδύνατον ἔχειν βάρος ἢ ϰουφότητα, ϰ. τ. λ.[[t:5]], and further on: [[t:6]]ὥστ’ εἴπερ τὸ ϰύϰλῳ σῶμα μήτ’ αὔξησιν ἔχειν ἐνδέχεται μήτέ φθίσιν, εὔλογον ϰαί ἀναλ-λοίωτον εἶναι. Διὸτι μἐν οὖν αίδιον ϰαί οὔτ’ αὔξησιν ἔχον οὔτε φθίσιν, ἀλλ’ ἀγή-ρατον ϰαί ἀναλλοίωτον ϰαί ἀπαθές ἐστι τὸ πρῶτον τῶν σωμάτων, ϰ. τ. λ.[[t:7]] Cf. the Second [[t:8]]Part[[t:9]] of this work, Chapter XIX.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.627" style="display: none;">
+                <strong>Note 627:</strong> Literally: [[t:0]]becomes stammering and impotence.[[t:1]]
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

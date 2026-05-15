@@ -1,0 +1,38 @@
+
+========================================
+TEST CASE: fn.0
+SOURCE: Nous avons traduit ici les mots [[t:0]]אל עולם[[t:1]] dans le sens que Maïmonide lui-même leur prête dans plusieurs endroits, et notamment dans le chap. 29 de la troisième partie du [[t:2]]Guide[[t:3]], quoique dans le passage biblique (Genèse, 21, 33) ces mots signifient [[t:4]]le Dieu éternel[[t:5]].
+
+--- Running Direct Translation (Baseline) ---
+DIRECT RESULT: Nous avons traduit ici les mots [[t:0]]אל עולם[[t:1]] dans le sens que Maïmonide lui-même leur prête dans plusieurs endroits, et notamment dans le chap. 29 de la troisième partie du [[t:2]]Guide[[t:3]], quoique dans le passage biblique (Genèse, 21, 33) ces mots signifient [[t:4]]le Dieu éternel[[t:5]]. 
+
+Cela suggère que Maïmonide interprète le terme "אל עולם" (El Olam) de manière différente dans son ouvrage "Guide" par rapport à son sens littéral dans le passage biblique de la Genèse. Dans le contexte biblique, "אל עולם" est généralement traduit par "le Dieu éternel", soulignant l'éternité de Dieu. Cependant, la traduction retenue ici, influencée par l'interprétation de Maïmonide dans le "Guide", semble donner une signification plus spécifique ou philosophique à l'expression, qui n'est pas explicitement indiquée dans le texte fourni. 
+
+Il est important de noter que Maïmonide était un philosophe et théologien juif médiéval influent, et ses interprétations des textes bibliques et talmudiques étaient souvent teintées de philosophie et d'exégèse rationnelle. Son ouvrage, le "Guide des égarés", est considéré comme un classique de la philosophie juive et aborde des questions telles que la nature de Dieu, la création et la providence divine, en intégrant des perspectives philosophiques et théologiques. 
+
+Pour comprendre pleinement la signification que Maïmonide attribue aux mots "אל עולם" dans ce contexte, il serait nécessaire de consulter directement son ouvrage, en particulier le chapitre 29 de la troisième partie du "Guide", et d'analyser les discussions et les interprétations qu'il y expose. Cela permettrait de mieux appréhender la manière dont Maïmonide relie ces termes à ses concepts philosophiques et théologiques plus larges.
+
+--- Running Mirror Pass (Rehab) ---
+  [Pass 1] Input: Nous avons traduit ici les mots אל עולם dans le sens que Maïmonide lui-même leur prête dans plusieurs endroits, et notamment dans le chap. 29 de la troisième partie du Guide, quoique dans le passage biblique (Genèse, 21, 33) ces mots signifient le Dieu éternel.
+  [Result 1] We have herein rendered the words אל עולם in the sense which Maimonides himself attributes to them in several places, notably in chapter 29 of the third part of the Guide, although in the Biblical passage (Genesis, 21, 33) these words denote the Eternal God.
+  [Pass 2] Aligning Tags...
+MIRROR RESULT: We have herein rendered the words [[t:0]]אל עולם[[t:1]] in the sense which Maimonides himself attributes to them in several places, notably in chapter 29 of the third part of the [[t:2]]Guide[[t:3]], although in the Biblical passage (Genesis, 21, 33) these words denote [[t:4]]the Eternal God[[t:5]].
+
+========================================
+TEST CASE: fn.1
+SOURCE: Le verbe [[t:0]]כנת[[t:1]] [[t:2]](كُنْتَ)[[t:3]]  qui commence la phrase se rapporte aux mots [[t:4]]עטׄם שאנך[[t:5]], qu’il sert à mettre au plus-que-parfait.
+
+--- Running Direct Translation (Baseline) ---
+DIRECT RESULT: Le verbe [[t:0]]כנת[[t:1]] [[t:2]](كُنْتَ)[[t:3]] qui commence la phrase se rapporte aux mots [[t:4]]עטׄם שאנך[[t:5]], qu’il sert à mettre au plus-que-parfait. 
+
+Cela signifie que le verbe "كُنْتَ" (kunta) est utilisé pour exprimer une action qui s'est produite avant une autre action dans le passé. Il est souvent traduit par "tu avais" ou "tu étais" en français.
+
+Dans cette phrase, "كُنْتَ" sert à mettre les mots "עטׄם שאנך" au plus-que-parfait, indiquant que l'action décrite par ces mots s'est produite avant une autre action dans le passé.
+
+Par exemple, si la phrase complète est "كُنْتَ עטׄם שאנך تدرس", cela pourrait se traduire par "Tu avais étudié avant de commencer à travailler". Le verbe "كُنْتَ" indique que l'action d'étudier s'est produite avant l'action de commencer à travailler.
+
+--- Running Mirror Pass (Rehab) ---
+  [Pass 1] Input: Le verbe כנת (كُنْتَ)  qui commence la phrase se rapporte aux mots עטׄם שאנך, qu’il sert à mettre au plus-que-parfait.
+  [Result 1] The verb כנת (كُنْتَ) which commences the sentence, pertains to the words עטׄם שאנך, which it serves to place in the pluperfect tense.
+  [Pass 2] Aligning Tags...
+MIRROR RESULT: The verb [[t:0]]כנת[[t:1]] [[t:2]](כנת[[t:2]] كُنْتَ)[[t:3]] which commences the sentence, pertains to the words [[t:4]]עטׄם שאנך[[t:5]], which it serves to place in the pluperfect tense.

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 46 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 46</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.0">
+                <div class="he-cell"><b>ביטויי ההגשמה שנעשה בהם שימוש</b><br><span class="mediumGrey">בין ידיעת מציאות דבר־מה לבין ידיעת מהותו</span><br><sup>1</sup> כבר אמרנו באחד מפרקי חיבור זה (א,לג) שיש הבדל גדול בין הדרכה לקיומו של דבר לבין אימות מהותו ועצמו. זאת משום שניתן להדריך לקיומו של דבר אפילו דרך המקרים שלו, ואפילו דרך פעולותיו, ואפילו דרך יחסים רחוקים מאוד בינו לבין זולתו.</div>
+                <div class="en-cell">We have already stated, in one of the chapters of this treatise<sup class="fn-ref" onclick="showFn('fn.376')">376</sup>, that there is a great difference between leading one to the (mere notion of the) existence of a thing, and searching into its essence and substance. Verily, one may direct the mind toward the existence of a thing, even by means of its accidents or its actions, or indeed by means of very remote relations which may exist between that thing and others.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.1">
+                <div class="he-cell"><sup>2</sup> משל למה הדבר דומה? אילו רצית ליידע על שליט של אזור מסוים לאחד מאנשי ארצו שאינו יודע עליו, תוכל ליידע אותו עליו ולהעיר על מציאותו בדרכים רבות. מהן שתאמר: "הוא האדם הגבוה, הלבן, ששערו שיבה" – והרי הודעת עליו באמצעות מקריו. ותוכל לומר: "הוא אשר תראה סביבו המון עם רב, רכובים ומהלכים, וחרבות שלופות סביבו, ודגלים מונפים מעל ראשו, וחצוצרות מריעות לפניו"; או: "הוא אשר גר בארמון שבעיר הפלונית שבאזור זה"; או: "הוא אשר ציווה לבנות את החומה הזו או לעשות את הגשר הזה"; וכיוצא בזה מפעולותיו ויחסיו לזולתו.<br><sup>3</sup> תוכל גם להורות על מציאותו באמצעות מצבים חבויים יותר מזה. למשל, אם ישאלך שואל: "האם יש לארץ הזו שליט?" ותאמר לו: "כן, בלי ספק". "ומה הראיה על כך?" תאמר לו: "החלפן הזה, כפי שאתה רואה, חלש ובעל גוף קטן, ולפניו אוסף גדול של דינרים, ומולו עומד גבר אחר, עני, גדול ממדים וחזק, ומבקש ממנו שייתן לו פרוטה כצדקה. והוא לא עשה כך, אלא גער בו ודחהו ממנו בדברים; ואלמלא מוראו של השליט, היה ממהר להורגו או לדוחפו ולקחת את הכסף שברשותו, וזוהי ראיה לכך שלמדינה הזו יש שליט". הרי הורית על מציאותו מתוך סדירות ענייני המדינה, שסיבתה מוראו של השליט והחשש מעונשו. אין בדבר מכל מה שהמשלנו בו מה שמורה על עצם השליט ואמיתת עצמו באשר הוא שליט.</div>
+                <div class="en-cell">If, for example, thou shouldst desire to make known the sovereign of a realm to some inhabitant of his country who knew him not, thou mightest, in order to make him known and to draw attention to his existence, proceed in manifold ways. Thou wouldst say, for instance: He is a person of lofty stature, white of hue and with grey hair; and thou wouldst thus make him known by his accidents. Or else thou wouldst say: He is that one around whom is seen a great multitude of men on horse and on foot, who is environed by naked swords, above whose head banners are raised, and before whom trumpets are sounded; or again: He is he who dwells in the palace existing in such a city of this realm; or again: He is he who has commanded the raising of this wall or the construction of this bridge; or finally (thou wouldst designate him) by others of his actions and of his relations with certain things. Thou mightest also indicate his existence by circumstances less manifest than these. Someone, for example, might ask thee: Has this country a sovereign? and thou wouldst answer: Yea, without doubt; but (he would rejoin) what is the proof thereof? “The money-changer here present,” thou wouldst reply, “is, as thou seest, a weak man of a puny body, and has before him this great quantity of gold pieces, and that other individual, portly and strong, but poor, standing before him, asks of him the charity of a mite<sup class="fn-ref" onclick="showFn('fn.377')">377</sup>, a thing which he does not, treating him, on the contrary, with abruptness, and repulsing him with his words; yet (the poor man), were it not for the fear of the sovereign (which restrains him), would hasten to slay him or to thrust him back, and would take the money which he has in his hands: here then is a proof that this state possesses a king.” Thou wouldst thus demonstrate his existence by the good order which reigns in the state, and which has for its cause the fear inspired by the sovereign and the expectation of being punished by him. In all that we have just cited as an example, there is naught which indicats the essence of the sovereign and his true substance in so far as he is sovereign.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.2">
+                <div class="he-cell"><span class="mediumGrey">ידיעת האלוהים עבור ההמון. ידיעת אלוהים כקיים</span><br><sup>4</sup> כך קרה ביידוע על ה' יתעלה ויתהדר להמון בכל ספרי הנביאים וגם ב<b>תורה</b>, כאשר הביא ההכרח להדריך את הכול לכך שהוא יתעלה מצוי, ושיש לו כל השלמויות, כלומר שאין הוא רק מצוי כמו שהארץ מצויה והשמים מצויים, אלא הוא מצוי, חי, יודע, יכול, עושה, ושאר מה שראוי להאמין באשר למציאותו – ודבר זה עוד יבואר (א,נג6;א,נח;ג,כח). לפיכך הודרכו הדעות לכך שהוא מצוי – בדימוי הגשמיות, ושהוא חי – בדימוי התנועה. כי אצל המון העם אין דבר שמציאותו שרירה וקיימת ואין בה ספק אלא הגוף; ולדידם כל מה שאינו גוף אבל הוא נמצא בגוף הוא מצוי, אבל מציאותו פחותה יותר מן הגוף, משום שהוא נזקק במציאותו לגוף. ואילו מה שאינו גוף ואינו נמצא בגוף – אין הוא דבר מצוי כלל לתפיסתו הראשונית של האדם, ובפרט בדמיון.<br><sup>55</sup> בדומה לכך המון העם אינם תופסים מעניין החיים אלא את התנועה, ומה שאינו נע תנועה רצונית מקומית אין הוא חי (לדעתם), אף שהתנועה אינה מעצם החי אלא מקרה החל בו.</div>
+                <div class="en-cell">Such is that which has come to pass in all the books of the prophets, and likewise in the Pentateuch, when it was a question of making God known; for, as there was a necessity to direct all men towards (the knowledge of) the existence of God and (to make them understand) that He possesses all perfections,—that is to say, that He <i>exists</i> not solely as the earth exists and as the heaven exists, but that He exists as a living being possessing knowledge, power, action, and other things which must be believed regarding His existence and which shall be set forth further on,—the minds of men were led by the idea<sup class="fn-ref" onclick="showFn('fn.378')">378</sup> of corporeity to (understand) that He <i>exists</i>, and by the idea of motion to (understand) that He <i>is living</i>. In effect, the vulgar consider only the body as a thing of solid, true, and indubitable existence: everything which is not itself a body, but is found within a body, is (considered as) <i>existing</i>, yet of an existence lesser than that of the body, needing the body in order to exist; but that which is in no wise a body nor is found within a body is not, according to what man conceivs at first and especially according to the imagination, a thing that has existence. Likewise, the vulgar form of <i>life</i> no other idea than motion, and everything which movs not with a spontaneous motion in space is not <i>living</i> (in their eyes), although motion be not in the substance of that which lives, but be only an accident inherent therein<sup class="fn-ref" onclick="showFn('fn.379')">379</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.3">
+                <div class="he-cell"><span class="mediumGrey">ידיעת אלוהים כמשיג</span><br><sup>6</sup> וכן ההשגה המוכרת לנו היא בחושים, כוונתי לשמיעה ולראייה. וכן איננו יודעים ולא מעלים על הדעת העברת עניין מנפשו של אחד מאתנו לנפשו של אדם אחר אלא בדיבור, והוא הקול שחותכים השפתיים והלשון ושאר אברי הדיבור. לפיכך כאשר הודרכו דעותינו גם אל כך שהוא יתעלה משיג, ושמגיעים עניינים ממנו לנביאים כדי שהם יעבירו אותם אלינו, הוא תואר לנו כשומע וכרואה, והמשמעות היא שהוא משיג את הדברים הללו הנראים והנשמעים ויודע אותם. והוא תואר לנו כמדבר, והמשמעות היא שמגיעים עניינים ממנו יתעלה לנביאים, וזו היא משמעות הנבואה, ודבר זה עוד יבואר בתכלית הביאור (ב,לב ואילך).</div>
+                <div class="en-cell">In like manner, the perception which is most familiar unto us is effected by the senses, notably by hearing and sight; we obtain not the knowledge of anything, nor can we figure to ourselves the transmission of an idea from the soul of one individual to that of another, save by means of language<sup class="fn-ref" onclick="showFn('fn.380')">380</sup>, that is to say, of the sound articulated by the lips and the tongue, and the other organs of speech. When, therefore, it was desired also to lead our mind to (understand) that God <i>perceivs</i> and that certain things are communicated by Him to the prophets, in order that these might communicate them unto us, He was presented unto us (on the one hand) as if He <i>heard</i> and <i>saw</i>,—which is to say that He <i>perceivs</i> those things which are <i>seen</i> and <i>heard</i> and that He <i>knows</i> them,—and He was presented unto us (on the other hand) as if He <i>spake</i>,—which is to say that certain things are communicated by Him to the prophets—; and therein lies the sense of prophecy, a matter which shall be set forth with particular care<sup class="fn-ref" onclick="showFn('fn.381')">381</sup>. Furthermore, as we understand not that we can <i>produce</i> any object otherwise than by <i>making</i> it by manual operation, God was presented as <i>acting</i> (or <i>making</i> things). Likewise again, as the vulgar understand by <i>that which is living</i> naught else but that which is endowed with a <i>soul</i>, God was also presented as having a <i>soul</i>, which [although the name of the soul (<span dir="rtl">נפשׁ</span>) be homonymous, as has been explained<sup class="fn-ref" onclick="showFn('fn.382')">382</sup>] signifies that He is <i>living</i>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.4">
+                <div class="he-cell"><span class="mediumGrey">ידיעת אלוהים כיוצר וכחי</span><br><sup>7</sup> וכיוון שאיננו תופסים בשכלנו יצירה שלנו את זולתנו אלא אם אנחנו עושים זאת ישירות, הוא תואר כעושה. כמו כן כיוון שהמון העם אינו משיג דבר חי אלא בעל נפש, הוא תואר לנו גם כן כבעל נפש. ואף שהמונח "נפש" רב־משמעי, כפי שהתבאר (א,מא), המשמעות היא שהוא חי.<br><sup>8</sup> וכיוון שכל הפעולות האלה אינן מושגות אצלנו אלא באברים ("כלים") גשמיים, הושאלו לו כל אותם אברים שהתנועה המקומית מתבצעת בהם, כלומר הרגליים וכפותיהן, והאברים שהשמיעה והראייה וההרחה מתבצעות בהם, והם האוזן והעין והאף, והאברים שהדיבור וחומר הדיבור מתקיים בהם, והם הפה והלשון והקול, והאברים שאצלנו פועל בהם הפועל את אשר הוא פועל, והם הידיים והאצבעות והכף והזרוע.<br><sup>9</sup> כללו של דבר: הוא, יתעלה על כל חסרון, הושאלו לו האברים הגשמיים כדי להורות בהם על פעולותיו, ואותן פעולות הושאלו לו כדי להורות בהן על שלמות כלשהי שאינה עצם אותה פעולה. לדוגמה, העין והאוזן והיד והפה והלשון הושאלו לו כדי להורות בהם על הראייה והשמיעה והעשייה והדיבור, והראייה והשמיעה הושאלו לו כדי להורות על ההשגה בכלל.<br><span class="mediumGrey">דוגמאות לחושים</span><br><sup>10</sup> לכן אתה מוצא שהשפה העברית משתמשת בהשגת חוש אחד במקום השגת חוש אחר. נאמר: "<b>רְאוּ דְבַר ה'</b>" (ירמיהו ב,לא) כמו "<b>שמעו</b>", כי המכוון הוא: הַשיגו את משמעות דבריו. וכן "<b>רְאֵה רֵיחַ בְּנִי</b> [כְּרֵיחַ שָׂדֶה אֲשֶׁר בֵּרְכוֹ ה']" (בראשית כז,כז), כאילו אמר "<b>אריח ריח בני</b>", כי המכוון הוא השגת ריחו. ובהתאם לכך נאמר "<b>וְכָל הָעָם רֹאִים אֶת הַקּוֹלֹת</b>" (שמות כ,יד); יחד עם היות המעמד הזה גם <b>מראה נבואה</b>, כמו שידוע ומפורסם באומה.</div>
+                <div class="en-cell">Now, as it would not be conceived that we ourselves could accomplish all these actions otherwise than by means of corporeal organs<sup class="fn-ref" onclick="showFn('fn.383')">383</sup>, there have been metaphorically attributed unto God all the organs: those by which local motion is effected, that is to say, the feet and the soles of the feet; those by which hearing, sight, and smell take place, that is to say, the ear, the eye, and the nose; those by means of which one speaks, as well as the matter of speech<sup class="fn-ref" onclick="showFn('fn.384')">384</sup>, that is to say, the mouth, the tongue, and the voice; those, finally, by which each of us operats whilst working, that is to say, the hands, the fingers, the palm, and the arm. It results from all this, in sum, that there have been metaphorically attributed unto God [may He be exalted above all imperfection!] corporeal organs, in order to indicate thereby His actions, and that these actions themselves have been metaphorically attributed unto Him, in order to indicate thereby some perfection which consists not in the action itself. Thus, for example, there have been attributed unto Him the eye, the ear, the hand, the mouth, and the tongue, in order to indicate thereby sight, hearing, action, and speech. But sight and hearing have been attributed unto Him to indicate <i>perception</i> in general. [Wherefore thou shalt find that the Hebrew tongue putts the perception of one sense in the place of the perception of another sense; e.g.: <i>Behold the word of the Lord</i> (Jeremiah ii. 31) for: <i>hearken</i>, for what was intended to be said thereby was: <i>apprehend the sense of His word;</i> likewise: <i>See the smell of my son</i> (Genesis xxvii. 27) for: <i>smell the odour of my son</i>, for it concerns the <i>perception</i> of his smell. It is in accordance with this that it has been said: <i>And all the people</i> <small>SAW</small> <i>the thunderings</i> (Exodus xx. 15),—although, moreover, this scene was a <i>prophetic vision</i>, which is a thing known, proclaimed by national traditions<sup class="fn-ref" onclick="showFn('fn.385')">385</sup>.] Action and speech have been attributed unto Him to indicate some influence emanating from Him, as shall be set forth<sup class="fn-ref" onclick="showFn('fn.386')">386</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.5">
+                <div class="he-cell"><sup>11</sup> העשייה והדיבור הושאלו לו כדי להורות בכך על שפע כלשהו, כמו שיתבאר (ב,יב; לו). לפיכך כל אבר גשמי שתמצא בכל ספרי הנבואה, הרי הוא או אבר תנועה מקומית, כדי להורות על החיים; או אבר חישה, כדי להורות על ההשגה; או אבר ביצוע, כדי להורות על העשייה; או אבר דיבור, כדי להורות על שפיעת השכלים על הנביאים כמו שיתבאר.</div>
+                <div class="en-cell">Thus, every corporeal organ which thou findest (attributed unto God) in all the prophetic books, is either an organ of locomotion to indicate <i>life</i>, or an organ of sensation to indicate <i>perception</i>, or an organ of touch to indicate <i>action</i>, or an organ of speech to indicate the <i>influence</i> of the Intelligences<sup class="fn-ref" onclick="showFn('fn.387')">387</sup> upon the prophets, even as shall be set forth.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.6">
+                <div class="he-cell"><sup>12</sup> נמצא שההדרכה של כל ההשאלות האלה היא לקבע בדעתנו שיש מצוי, חי, פועל את כל מה שזולתו, שגם משיג את פעולותיו. עוד נבאר כאשר נעסוק בשלילת התארים כיצד כל זה חוזר לעניין אחד והוא עצמותו יתעלה בלבד. כי אין מטרתו של פרק זה אלא לבאר את משמעות האברים הגשמיים האלה המיוחסים לו, יתעלה על כל חסרון, ושהם כולם נועדו להורות על פעולותיהם של אותם אברים, שאותן פעולות הן שלמות אצלנו, כדי להורות לנו על היותו שלם בכל אופני השלמויות, כפי שהעירו לנו (חז"ל) באומרם "<b>דברה תורה כלשון בני אדם</b>" (בבלי ברכות לב,ב ועוד).</div>
+                <div class="en-cell">All these metaphors serve, then, to direct us in such wise as to confirm within us the conviction that there exists a <i>living</i> Being who <i>works</i> all that is external to Himself, and who likewise <i>perceivs</i> His own handiwork. We shall explain, when we come to treat of the negation of attributes, how all this is reduced to a single thing, to wit, the sole essence of God; for the aim of this chapter is none other than to explain the meaning of those corporeal organs ascribed unto God [exalted be He above all imperfection!], and to show that they do but indicate the actions pertaining unto them—actions which, for us, constitute a perfection—in order to manifest unto us<sup class="fn-ref" onclick="showFn('fn.388')">388</sup> that He possesses all manner of perfections, even as we have been taught by that maxim: <i>The Torah speaks according to the language of the sons of men</i><sup class="fn-ref" onclick="showFn('fn.389')">389</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.7">
+                <div class="he-cell"><span class="mediumGrey">אברי הגוף המושאלים ושאינם מושאלים</span><br><sup>13</sup> אברי התנועה המקומית המיוחסים לו יתעלה הם כגון דבריו "<b>הֲדֹם רַגְלָי</b>" (ישעיהו סו,א), "<b>וְאֶת מְקוֹם כַּפּוֹת רַגְלַי</b>" (יחזקאל מג,ז). ואברי הביצוע המיוחסים לו: "<b>יַד ה'</b>" (שמות ט,ג), "<b>בְּאֶצְבַּע אֱלֹהִים</b>" (שמות לא,יח), "<b>מַעֲשֵׂה אֶצְבְּעֹתֶיךָ</b>" (תהילים ח,ד), "<b>וַתָּשֶׁת עָלַי כַּפֶּכָה</b>" (תהילים קלט,ה), "<b>וּזְרוֹעַ ה' עַל מִי נִגְלָתָה</b>" (ישעיהו נג,א), "<b>יְמִינְךָ ה'</b>" (שמות טו,ו). ואברי הדיבור המיוחסים לו: "<b>פִּי ה' דִּבֵּר</b>" (ישעיהו א,כ), "<b>וְיִפְתַּח שְׂפָתָיו עִמָּךְ</b>" (איוב יא,ה), "<b>קוֹל ה' בַּכֹּחַ</b>" (תהילים כט,ד), "[שְׂפָתָיו מָלְאוּ זַעַם] <b>וּלְשׁוֹנוֹ כְּאֵשׁ אֹכָלֶת</b>" (ישעיהו ל,כז). אברי החישה המיוחסים לו: "<b>עֵינָיו יֶחֱזוּ עַפְעַפָּיו יִבְחֲנוּ בְּנֵי אָדָם</b>" (תהילים יא,ד), "<b>עֵינֵי ה' הֵמָּה מְשׁוֹטְטוֹת</b>" (זכריה ד,י; ושם: מְשׁוֹטְטִים), "<b>הַטֵּה ה' אָזְנְךָ וּשְׁמָע</b>" (מלכים־ב יט,טז), "[כִּי אֵשׁ] <b>קְדַחְתֶּם בְּאַפִּי</b>" (ירמיהו יז,ד).<br><sup>14</sup> מן האברים הפנימיים לא הושאל לו אלא הלב, משום שהוא מונח רב־משמעי, והוא גם שם השכל, והוא ראשית חיותו של החי. כי גם במה שנאמר "<b>הָמוּ מֵעַי לוֹ</b> [רַחֵם אֲרַחֲמֶנּוּ נְאֻם ה']" (ירמיהו לא,יט), "<b>הֲמוֹן מֵעֶיךָ</b> [וְרַחֲמֶיךָ אֵלַי הִתְאַפָּקוּ]" (ישעיהו סג,טו), הכוונה היא ללב. כי "<b>מעי</b>" הוא מונח שנאמר באופן כללי ובאופן פרטי: הוא שם המעיים באופן פרטי, ושם כל אבר פנימי באופן כללי, ועל כן הוא גם שם הלב. הראיה לכך היא מה שנאמר "<b>וְתוֹרָתְךָ בְּתוֹךְ מֵעָי</b>" (תהילים מ,ט), בשווה לכתוב "[צִדְקָתְךָ לֹא כִסִּיתִי] <b>בְּתוֹךְ לִבִּי</b>" (שם,יא). לכן נאמר ב<b>פסוק</b> הזה: "<b>הָמוּ מֵעַי</b>", "<b>הֲמוֹן מֵעֶיךָ</b>". ו<b>לשון המיה</b> נאמר רק בלב מכל שאר האברים: "<b>הֹמֶה לִּי לִבִּי</b>" (ירמיהו ד,יט).<br><sup>15</sup> וכן לא הושאלה לו הכתף, משום שהיא אבר הובלה כמפורסם, וגם משום שהדבר המובל נוגע בה ישירות. כל שכן שלא הושאלו לו אברי ההזנה, כי חסרונם של אלה גלוי במבט ראשון.</div>
+                <div class="en-cell">As touching the organs of locomotion ascribed unto God, it is said, for example: <i>The footstool of my feet</i> (Isaiah lxvi. 1); <i>And the place of the soles of my feet</i> (Ezek. xliii. 7). As for the organs of touch ascribed unto God, there is said: <i>The hand of the Lord</i> (Exod. ix. 3 et <i>passim</i>); <i>With the finger of God</i> (<i>Ibid.</i> xxxi. 18); <i>The work of thy fingers</i> (Ps. viii. 4); <i>And thou hast laid thine hand upon me</i> (<i>Ibid.</i> cxxxix. 5); <i>And to whom is the arm of the Lord revealed</i> (Isaiah liii. 1); <i>Thy right hand, O Lord</i> (Exod. xv. 6). Unto Him have been ascribed the organs of speech, it being said: <i>The mouth of the Lord has spoken</i> (Isaiah i. 20 et <i>passim</i>); … <i>and that he would open his lips against thee</i> (Job xi. 5); <i>The voice of the Lord is powerful</i> (Ps. xxix. 4); <i>And his tongue as a devouring fire</i> (Isaiah xxx. 27). Finally, there are ascribed unto Him the organs of sensation, it being said: <i>His eyes behold, his eyelids try the children of men</i> (Ps. xi. 4); <i>The eyes of the Lord run to and fro</i> (Zechariah iv. 10)<sup class="fn-ref" onclick="showFn('fn.390')">390</sup>; <i>Incline thine ear, O Lord, and hear</i> (2 Kings xix. 16); <i>Ye have kindled a fire in mine anger</i> (Jeremiah xvii. 4). Of the inward members, none have been ascribed unto Him save the heart, because the name of the <i>heart</i> is a homonym signifying also <i>intellect</i><sup class="fn-ref" onclick="showFn('fn.391')">391</sup>, and because the heart is the principle of life in the living being. Verily, by these expressions: <i>My bowels are troubled for him</i> (Jeremiah xxxi. 20); <i>The sounding of thy bowels</i> (Isaiah lxiii. 15), it was likewise intended to designate <i>the heart</i>; for <i>bowels</i><sup class="fn-ref" onclick="showFn('fn.392')">392</sup> is a term employed in both a general and a particular sense, signifying in particular the <i>intestines</i>, and in general any <i>inward member</i>, and consequently the <i>heart</i> also. The proof of which is that the expression has been used: <i>And thy Law is</i> <small>WITHIN MY BOWELS</small> (Ps. xl. 9) as equivalent to: <i>in my heart</i>. Wherefore it was said in the verses aforesaid<sup class="fn-ref" onclick="showFn('fn.393')">393</sup>: <i>My bowels are troubled, the sounding of thy bowels</i>, for the verb <span dir="rtl">המה</span>, <i>to sound</i>, is said rather of the heart than of other members; as for example: <i>My heart makes a noise</i> (<span dir="rtl">הומה</span>) <i>in me</i> (Jeremiah iv. 19). In like manner, the <i>shoulder</i> has not been ascribed unto Him, because it is commonly regarded as an instrument of burden, and because that which is carried is in contact therewith<sup class="fn-ref" onclick="showFn('fn.394')">394</sup>. With yet greater reason have the organs of nutrition not been ascribed unto Him, because they betoken, at the first glance, a manifest imperfection<sup class="fn-ref" onclick="showFn('fn.395')">395</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.8">
+                <div class="he-cell"><span class="mediumGrey">השאלות בזיקה לתנועה, מעשה והשגה</span><br><sup>16</sup> ודין כל האברים באמת אחד הוא, בין החיצוניים בין הפנימיים, כולם כלים לפעולות הנפש השונות. מהם כלים הכרחיים לקיום הפרט למשך זמן מסוים, כמו כל האברים הפנימיים; ומהם כלים הכרחיים לקיום המין, כאברי הרבייה; ומהם כלים לתיקון מצב הפרט והשלמת פעולותיו, כמו הידיים והרגליים והעיניים, כולם נועדו לשלמות <br><sup>א)</sup> התנועה <br><sup>ב)</sup> והמעשה <br><sup>ג)</sup> וההשגה. ההכרח <br><sup>א)</sup> בתנועה לבעלי החיים, הוא כדי לחתור אל המתאים לו ולברוח ממה שאינו מתאים. ואילו ההכרח <br><sup>ג)</sup> בחושים הוא כדי להבחין בין מה שאינו מתאים לבין המתאים. וצורך האדם <br><sup>ב)</sup> למעשי המלאכה הוא להכנת מזונו ולבושו ומגוריו, כי זה מחויב מטבעו, כלומר שהוא צריך להכין את מה שמתאים לו. ניתן אף למצוא חלק מהמלאכות גם אצל כמה בעלי החיים בשל הצורך שלהם באותה מלאכה.</div>
+                <div class="en-cell">In verity, the condition of all organs, whether external or internal, is the same; they are all instruments for the diverse actions of the soul. Some serve for the preservation of the individual for a certain season, and such are all the internal members; others serve for the preservation of the species, such as the organs of generation; others yet serve to improve the condition of the individual and to accomplish his actions, and such are the hands, the feet, and the eyes, all of which serve for the fulfillment of motion, labor, and perception. As for motion, it is necessary unto the animal that it may go towards that which is convenient for it and flee from that which is contrary. Sensation is necessary for it to distinguish that which is contrary from that which is convenient. Man has need of the handicrafts to prepare his food, his raiment, and his habitation; for all these are necessary to his nature, by which I mean that he has need to prepare that which is convenient for him. There be certain arts found also among divers animals, because they have need of this or that art.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.9">
+                <div class="he-cell"><span class="mediumGrey">מסקנה</span><br><sup>17</sup> איני סבור שיש מי שמטיל ספק בכך שה' יתעלה אינו זקוק לדבר שיתמיד את קיומו ולא שיתקן את מצביו. אם כן אין לו אבר ("כלי"), כלומר אין לו גוף, ופעולותיו אינן אלא בעצמותו, לא בכלי. והכוחות הם בלי ספק מכלל הכלים; הרי שאין הוא בעל כוח, כלומר אין בו עניין כלשהו חוץ מעצמותו שבו הוא עושה או יודע או רוצה, משום שהתארים הם שמות נרדפים לכוחות ותו לא. ואין זו מטרת הפרק.</div>
+                <div class="en-cell">— Now, methinks no man doubts that God has no need of anything for the prolongation of His existence, nor that He in any wise improvs His condition; consequently He has no organ, that is to say, He is no body, and His actions proceed solely from His essence, and not by means of an organ. The <i>faculties</i>, it cannot be doubted, are parts of the organs, and consequently He possesses no faculty, I mean that there is in Him<sup class="fn-ref" onclick="showFn('fn.396')">396</sup>, external to His essence, no thing whereby <i>He acts, He knows</i> or <i>He wills;</i> for the attributes are but faculties, in which the name alone has been changed and nothing more<sup class="fn-ref" onclick="showFn('fn.397')">397</sup>. But this is not the purpose of the present chapter.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..45.10">
+                <div class="he-cell"><span class="mediumGrey">אמרה כוללת של חז"ל</span><br><sup>18</sup> וכבר אמרו (החכמים) <b>ז"ל</b> אִמרה כוללת המפריכה את כל תעתועי הדמיון שמביאים אליהם כל אותם תארים גשמיים שהנביאים מזכירים אותם, והיא אִמרה שתורֶה לך שלא עלתה על דעת ה<b>חכמים ז"ל</b> ההגשמה כלל ועיקר, ולא היה זה עבורם דבר מטעה או מבלבל. לכן אתה מוצא שבכל ה<b>תלמוד</b> וה<b>מדרשות</b> הם מתמידים להשתמש בפשטי ("נגלוֹת") הנבואה הללו, משום שהם יודעים שדבר זה מוגן מבלבול, ואין בו חשש לטעות כלל, אלא הכול על דרך ההמשלה והדרכת הדעת למצוי (=האל). וכיוון שהתקבעה ההמשלה המדמה אותו יתעלה למלך המצווה ומזהיר ומעניש וגומל לבני ארצו, ויש לו משרתים ומושלים המבצעים את ציווייו ועושים עבורו את מה שהוא רוצה לעשות, התמידו גם הם, כלומר ה<b>חכמים</b>, במשל זה בכל מקום, והם מדברים כפי מה שמתחייב מתוך המשלה זו, בדיבורים ובהשבת תשובות ובלבטים לגבי דבר וכיוצא בזה ממעשי המלכים, ובכל זה הם סמוכים ובטוחים שזה לא יבלבל ולא יגרום לקושי.<br><sup>19</sup> האמירה הכוללת ההיא שרמזנו אליה היא דבריהם ב<b>בראשית רבה</b>: "<b>גדול כוחן שלנביאים שהן מדמין את הצורה ליוצרה</b>, <b>שנאמר</b>: '<b>וְעַל דְּמוּת הַכִּסֵּא דְּמוּת כְּמַרְאֵה אָדָם</b>' (יחזקאל א,כו)". הרי שאמרו במפורש והבהירו שכל הצורות האלה שמשיגים כל הנביאים ב<b>מראה הנבואה</b> הן צורות נבראות שבראן ה'. והוא הנכון, כי כל צורה מדומיינת היא נבראת. ומה נפלאים דבריהם "<b>גדול כוחן</b>", כאילו הם עליהם השלום חשבו עניין זה לקשה, כי כך הם אומרים תמיד כשיש להם קושי עם אמירה שנאמרה או מעשה שנעשה שיש בו לכאורה גנות, כמו שאמרו: "<b>ר' פלוני עבד עובדא במוק ביחידי ובלילה</b>. <b>אמר ר' פלוני</b>: <b>כמה רב גובריה דעביד כיחידאה</b>!" (בבלי יבמות קד,א) (=ר' פלוני עשה מעשה [חליצה] במוק [=מנעל שאינו מעור] ביחידי ובלילה. אמר ר' פלוני: כמה גדול כוחו שעשה כיחידי!). ו"<b>רב גובריה</b>" הוא "<b>גדול כוחו</b>". כך שהם כאילו אומרים: כמה קשה מה שנאלצו הנביאים לעשותו בכך שהורו על עצמותו יתעלה באמצעות הנבראים שברא! הבן זאת מאוד.<br><sup>20</sup> אם כן, הם עליהם השלום אמרו במפורש וניקו בבירור את עצמם מהאמנת הגשמות, והבהירו שכּל תבנית ומתאר הנראים <b>במראה הנבואה</b> הם דברים נבראים, אלא <b>דִמו את הצורה ליוצרה</b>, כלשונם <b>ז"ל</b>. כך שמי שירצה לחשוב עליהם רעות אחרי אותן אמרות על דרך של חוצפה וזלזול במי שלא ראה אותו ולא ידע את מעמדו, הרי אין להם <b>ז"ל</b> נזק בכך.</div>
+                <div class="en-cell">The Sages have delivered a maxim of great import<sup class="fn-ref" onclick="showFn('fn.398')">398</sup>, which refuts all those false notions that might be engendered by the corporeal attributes mentioned by the prophets (when speaking of God); and this maxim shows thee that the corporeality (of God) never entered the minds of the Sages, and that there is naught in their words which could give rise to error or doubt<sup class="fn-ref" onclick="showFn('fn.399')">399</sup>. Wherefore thou shalt find that everywhere, in the Talmud and in the Midrashoth, they constantly imitate these expressions of the prophets<sup class="fn-ref" onclick="showFn('fn.400')">400</sup>, knowing full well that this is a matter in which one is secure from doubt and in which there is no fear of falling into error, and that everything therein is spoken rather by way of allegory and to direct the mind toward a (Supreme) Being. Now, as this allegory has been constantly employed, in which God is compared<sup class="fn-ref" onclick="showFn('fn.401')">401</sup> unto a king who commands and forbidds, who punishes and rewards the people of his land, and who has servants and ministers to transmit his orders and to execute that which he wills to be done, they also—I mean the Sages—have everywhere persevered in this comparison, and have expressed themselves according to what this allegory required (by attributing unto God the action) of speaking, of answering, of enjoining commands<sup class="fn-ref" onclick="showFn('fn.402')">402</sup>, and other similar actions (emanating) from kings; and they did all this with security, being certain that neither confusion nor doubt would result therefrom. The maxim of great import unto which we have alluded is contained in these words of Bereshith Rabba<sup class="fn-ref" onclick="showFn('fn.403')">403</sup>: «Great was the boldness of the prophets in comparing the creature to its Creator; as, for example, in saying: And upon the likeness of the throne was the likeness as the appearance of a man (Ezek. i. 26)<sup class="fn-ref" onclick="showFn('fn.404')">404</sup>.» Thus they (the Sages) have expressly declared that, in general, those figures which all the prophets perceived in the prophetic vision were created figures, of which God was the Creator<sup class="fn-ref" onclick="showFn('fn.405')">405</sup>. And this is true; for every figure that is in the imagination is created<sup class="fn-ref" onclick="showFn('fn.406')">406</sup>. This expression «had great boldness (גדול כחן)» is passing remarkable; (the Sages speak) as if this thing had appeared to them exceeding grave.— [In sooth, they ever express themselves thus to indicate that which they find grave in a word spoken or an act performed, which has, in appearance, something unseemly; as, for instance, in the following passage<sup class="fn-ref" onclick="showFn('fn.407')">407</sup>: «Rabbi Such-a-one caused the act to be performed with a shoe, in private, and during the night<sup class="fn-ref" onclick="showFn('fn.408')">408</sup>; great was his boldness (רב גובריה), says another Sage, to do it in private.» רב גובריה (in Aramaic) is the same as גדול כחו (in Hebrew).] — It is therefore as if they had said: How grave is that which the prophets were led to do in indicating God Himself by the creations which He has produced. Thou must well consider this; for they (the Sages) have thus expressly declared that they themselves were free from the belief in the corporeality (of God), and that every figure and circumscribed thing seen in the prophetic vision were created things, but that they (the prophets) compared the creature to its Creator, as the Sages express it. If, however, it should please any one to think ill of them, after these declarations, out of mere malice and to detract from men whom he has not seen and of whose circumstances he knows naught<sup class="fn-ref" onclick="showFn('fn.409')">409</sup>, no harm would result unto them therefrom<sup class="fn-ref" onclick="showFn('fn.410')">410</sup>.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.376" style="display: none;">
+                <strong>Note 376:</strong> See above, chap. XXXIII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.377" style="display: none;">
+                <strong>Note 377:</strong> Literally: [[t:0]]of a carob-seed[[t:1]], that is to say, of a thing of small value. The seed contained within the carob-pod figures in the weights of Arab apothecaries and is equivalent to four grains of barley. See Casiri, [[t:2]]Biblioth. arab. hisp.[[t:3]], Vol. I[[t:4]]er[[t:5]], p. 281. Ibn-Tibbon has, therefore, inaccurately rendered the word [[t:6]]כׄרובהֹׁ[[t:7]] by [[t:8]]משקל שעורה[[t:9]] (weight of a grain of barley).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.378" style="display: none;">
+                <strong>Note 378:</strong> Literally: [[t:0]]by imagining[[t:1]] or [[t:2]]by being imagined[[t:3]], that is to say we have presented things as if one [[t:4]]imagined[[t:5]] that God was corporeal. The mss. bear some [[t:6]]בתכׄייל[[t:7]] in the II[[t:8]]nd[[t:9]] form, others [[t:10]]בתכׄיל[[t:11]] [[t:12]](بتخيل)[[t:13]] in the V[[t:14]]th[[t:15]] form; both readings are equally plausible. Ibn-Tibbon, by translating with [[t:16]]בדמיון[[t:17]], appears to have read in the V[[t:18]]th[[t:19]] form; but Ibn-Falaquera, in his critical notes ([[t:20]]Moré ha-Moré[[t:21]], page 150), prefers to translate [[t:22]]בּֽדַמּוֹת[[t:23]] in the active voice, that is, [[t:24]]by imagining[[t:25]] or [[t:26]]by letting imagine[[t:27]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.379" style="display: none;">
+                <strong>Note 379:</strong> Voy. Aristotle, [[t:0]]Physics[[t:1]], book V, chap. II: Κ[[t:2]]ατ’οὐσίαν δἐ οὐϰ ἔστι ϰίνησις, ϰ. τ. λ.[[t:3]] Cf. above, chap. XXVI, pag. 90.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.380" style="display: none;">
+                <strong>Note 380:</strong> Literally: [[t:0]]we do not know[[t:1]] ([[t:2]]something[[t:3]]) [[t:4]]etc.[[t:5]], that is to say, knowledge of what occurs in another's soul can only be transmitted to us through speech, and we cannot imagine it to be otherwise. The author, after having spoken of [[t:6]]existence[[t:7]] and [[t:8]]life[[t:9]], speaks here of [[t:10]]science[[t:11]] following the order in which he enumerated a little earlier everything that constitutes the existence of God, saying that God [[t:12]]exists[[t:13]] as a [[t:14]]living[[t:15]] being having [[t:16]]science[[t:17]], etc. The words [[t:18]]לא נעלם[[t:19]] (we do not [[t:20]]know[[t:21]]) refer to [[t:22]]עאלמא[[t:23]] (having [[t:24]]science[[t:25]]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.381" style="display: none;">
+                <strong>Note 381:</strong> The author elaborates at great length on propheticism in the II[[t:0]]e[[t:1]] part of this work. The word [[t:2]]אגיא[[t:3]], which should be pronounced [[t:4]]أشياء[[t:5]], is the noun of action of the IV[[t:6]]e[[t:7]] form of the verb [[t:8]]غنى[[t:9]] used in the sense of: [[t:10]]pushing to the extreme[[t:11]], and derived from [[t:12]]غاية[[t:13]], [[t:14]]extremity[[t:15]]; this meaning of the verb is not indicated in dictionaries. See my edition of the [[t:16]]Commentary of R. Tan'houm on Habakkuk[[t:17]], p. 98, note 13 [[t:18]]b[[t:19]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.382" style="display: none;">
+                <strong>Note 382:</strong> The author means by this parenthesis: Although, moreover, the word [[t:0]]נפש[[t:1]], [[t:2]]soul[[t:3]], is a homonym and when applied to God it signifies [[t:4]]will[[t:5]], as stated above, chap. XLI, it was nonetheless intended to designate God as a [[t:6]]living being[[t:7]], in accordance with the primitive sense of the word [[t:8]]נפש[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.383" style="display: none;">
+                <strong>Note 383:</strong> Literally: [[t:0]]as all these actions are conceived in us only through corporeal organs[[t:1]]. We are referring to the [[t:2]]actions[[t:3]] that have just been mentioned, namely, those of [[t:4]]moving[[t:5]], [[t:6]]seeing[[t:7]], [[t:8]]hearing[[t:9]], [[t:10]]speaking[[t:11]], and [[t:12]]performing[[t:13]] things.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.384" style="display: none;">
+                <strong>Note 384:</strong> By [[t:0]]matter[[t:1]] of the word the author understands the [[t:2]]voice[[t:3]], or the inarticulate sound to which the organs of speech give the [[t:4]]form[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.385" style="display: none;">
+                <strong>Note 385:</strong> Literally: [[t:0]]as is known and prevalent among the nation[[t:1]]. According to the author, the passage: [[t:2]]And all the people[[t:3]] [[t:4]]SAW[[t:5]] [[t:6]]the thunder[[t:7]], must be explained in accordance with what precedes, that is to say, by giving to the verb [[t:8]]to see[[t:9]] the more general sense of [[t:10]]to perceive;[[t:11]] although, moreover, he adds, it is not absolutely necessary to have recourse to this interpretation, for the verb [[t:12]]to see[[t:13]] may apply here to the entire scene of the revelation upon Sinai, which falls within the category of prophetic [[t:14]]visions[[t:15]]. The author appears to allude to the tradition which states that the first two commandments reached all the people directly through the voice of God, and not through the intermediary of Moses: [[t:16]]אנכי ולא יהיה לך מפי הגבורה שמענום[[t:17]]. Cf. the II[[t:18]]e[[t:19]] part of this work, chap. XXXIII. — As for the word [[t:20]]אלמקאם[[t:21]], which one reads in the Arabic original, Ibn-Tibbon’s version bears [[t:22]]המאמר[[t:23]]; the translator appears to have read [[t:24]]אלמקאל[[t:25]]. The word [[t:26]]אלמקאם[[t:27]] ([Lat.: statio]), by which the author designates the scene of the revelation, ought to be translated into Hebrew by [[t:30]]המעמד[[t:31]], as Al-’Harizi has done. Cf. II[[t:32]]e[[t:33]] part, [[t:34]]ibid.[[t:35]], [[t:36]]מעמד הר סיני[[t:37]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.386" style="display: none;">
+                <strong>Note 386:</strong> See II[[t:0]]nd[[t:1]] part, chapter XII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.387" style="display: none;">
+                <strong>Note 387:</strong> That is to say, the inspiration coming from God or the angels who, according to the author, are the [[t:0]]Intelligences of the spheres[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.388" style="display: none;">
+                <strong>Note 388:</strong> Literally: so that we may be guided, that is, so that we may be led to recognize[3]. The verb לנדל[5] must be read in the passive (لِنُدَلَّ)[7]; some editions of Ibn-Tibbon's version have incorrectly שנודה[9] with daleth for שנוּרֶה[11].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.389" style="display: none;">
+                <strong>Note 389:</strong> See above, at the beginning of chap. XXVI.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.390" style="display: none;">
+                <strong>Note 390:</strong> The citation we have reproduced as it appears in the Arab manuscripts and in the version of Ibn-Tibbon is not entirely accurate; it should read: [[t:0]]‘Eynay YHWH hameh mashuttim[[t:1]]. Cf. above, chap. XLIV, pag. 154, note 4.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.391" style="display: none;">
+                <strong>Note 391:</strong> See above, chap. XXXIX.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.392" style="display: none;">
+                <strong>Note 392:</strong> The word [[t:0]]מעי[[t:1]] must be considered as the Arabic [[t:2]](نعي)[[t:3]]; if it were Hebrew, as the two Hebrew translators seem to have believed, one would have to read [[t:4]]מעים[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.393" style="display: none;">
+                <strong>Note 393:</strong> In the text, one reads [[t:0]]פי הדׄא אלפסוק[[t:1]] in the singular, and what proves that it is the author who wrote thus is that, in the two Hebrew versions, one also reads [[t:2]]בזה הפםוק[[t:3]]. It would have been more exact to write in the dual: [[t:4]]פי הדׄין אלפםוקין[[t:5]], because it is a question of two verses.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.394" style="display: none;">
+                <strong>Note 394:</strong> That is, the functions of the shoulder are considered too material to be, even metaphorically, attributed to God; one must especially exclude from God the idea of a [[t:0]]contact[[t:1]] with things. See above, chapter XVIII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.395" style="display: none;">
+                <strong>Note 395:</strong> See above, chapter XXVI, p. 89.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.396" style="display: none;">
+                <strong>Note 396:</strong> All mss. have [[t:0]]אן יכון[[t:1]] without negation; similarly, the two Hebrew versions. The sense is: [[t:2]]de manner that there be in him[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.397" style="display: none;">
+                <strong>Note 397:</strong> That is, what is called the attributes of God is nothing other than a set of faculties that differ from one another only by their names, and which all return to a single and the same thing: [[t:0]]the essence of God[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.398" style="display: none;">
+                <strong>Note 398:</strong> Literally: [[t:0]]who embraces[[t:1]] or [[t:2]]who encompasses[[t:3]] ([[t:4]]much[[t:5]]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.399" style="display: none;">
+                <strong>Note 399:</strong> Some mss. add פי הדׄא אלמעני (on this subject); similarly Al-’Harizi: בזה הענין.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.400" style="display: none;">
+                <strong>Note 400:</strong> Literally: [[t:0]]They persist in these external words of the prophets[[t:1]], that is to say: they employ the same expressions, which, taken in the [[t:2]]literal[[t:3]] sense, may give rise to the corporification of God.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.401" style="display: none;">
+                <strong>Note 401:</strong> Literally: [[t:0]]as the allegory has been fixed in that God has been compared[[t:1]]. Instead of [[t:2]]lana[[t:3]], some manuscripts read [[t:4]]bana[[t:5]], a reading also admissible.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.402" style="display: none;">
+                <strong>Note 402:</strong> Instead of [[t:0]]ואלתרדד[[t:1]], one MS. bears [[t:2]]ואלתכרר[[t:3]], which signifies [[t:4]]repetition[[t:5]], which, indeed, appears to be the sense of the word [[t:6]]ואלתרדד[[t:7]] here. Ibn-Tibbon translates the final words by [[t:8]]והחזרה בענין[[t:9]] and Al-’Harizi by [[t:10]]ולשוב בענין[[t:11]], which lacks clarity; the word [[t:12]]אלאמר[[t:13]] appears to one to have here the sense of [[t:14]]precept, command[[t:15]], and not that of [[t:16]]thing[[t:17]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.403" style="display: none;">
+                <strong>Note 403:</strong> See the beginning of section 27.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.404" style="display: none;">
+                <strong>Note 404:</strong> Cf. the III[[t:0]]rd[[t:1]] part of this work, at the end of chap. II.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.405" style="display: none;">
+                <strong>Note 405:</strong> That is, the doctors have declared by this that the divinity revealed itself to the prophets through figures it created in the soul or imagination of the prophets.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.406" style="display: none;">
+                <strong>Note 406:</strong> That is to say, everything that the imaginative faculty shows us is a divine creation, just like this faculty itself.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.407" style="display: none;">
+                <strong>Note 407:</strong> Talmud of Babylon, tractate Iébamôth, fol. 104 a.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.408" style="display: none;">
+                <strong>Note 408:</strong> The present matter concerns the symbolic act of the [[t:0]]’halîçâ[[t:1]] or the unshoeing which dissolves the bonds of the [[t:2]]levirate;[[t:3]] see Deut., chap. 25, [[t:4]]v.[[t:5]] 9. The ceremony, according to the provisions of the Talmudic code, must be performed with a sandal or a leather shoe, in public, and during the day, and the doctor here in question dispensed himself from observing these three conditions, of which the second, especially, that of publicity, [is indispensable. — The word [[t:6]]מוק[[t:7]] designates a kind of felt slipper. According to the [[t:8]]’Aroukh[[t:9]], it is the footwear called in Arabic [[t:10]]mouk[[t:11]] ([[t:12]]سوق[[t:13]], [Lat.: ocrea crassior]).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.409" style="display: none;">
+                <strong>Note 409:</strong> That is, whose studies, method, and manner of speaking are absolutely unknown to him.—The verbs [[t:0]]ישאהד[[t:1]] and [[t:2]]עלם[[t:3]] should be read in the active form, as Al-’Harizi has done; the version of Ibn-Tibbon renders them in the passive.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.410" style="display: none;">
+                <strong>Note 410:</strong> That is, they are too high above blame to be reached by it.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

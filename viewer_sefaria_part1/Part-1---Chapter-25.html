@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 25 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 25</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..24.0">
+                <div class="he-cell"><b>המונח שכן</b><br><span class="mediumGrey">שתי משמעויות</span><br><sup>1</sup> "שכן". <br><sup>א)</sup> ידוע שמשמעות פועל זה היא להתגורר, לשכון ("סכן" בערבית): "וְהוּא שֹׁכֵן בְּאֵלֹנֵי מַמְרֵא" (בראשית יד,יג), "וַיְהִי בִּשְׁכֹּן יִשְׂרָאֵל [בָּאָרֶץ הַהִיא]" (שם לה,כב), וזו (המשמעות) הידועה והמפורסמת. והמשמעות של לשכון ("סכן") היא שהנמצא במקום מסוים מתמיד לשהות באותו מקום. כאשר בעל החיים נמצא לאורך זמן במקום מסוים, בין אם כללי או מיוחד, ייאמר עליו שהוא שוכן במקום הזה, גם אם הוא נע בו בלי ספק.</div>
+                <div class="en-cell"><i>Schakhan</i> (<span dir="rtl">שכן</span>). — It is well known that the signification of this verb is <i>to dwell;</i> e.g.: <i>And he dwelt</i> (<span dir="rtl">שוכן</span>) <i>in the plain of Mamre</i> (Genesis, xiv, 13); <i>And it came to pass, when Israel dwelt</i> (<span dir="rtl">בשכן</span>)…(<i>Ibid.</i>, xxxv, 22); and this is the generally accepted sense. <i>To dwell</i> signifies: to abide permanently in one and the same place<sup class="fn-ref" onclick="showFn('fn.186')">186</sup>; for, when a living creature prolongs its stay in a place, whether it be <i>common</i> or particular<sup class="fn-ref" onclick="showFn('fn.187')">187</sup>, it is said of him that <i>he dwells</i> in that place, albeit, without doubt, he be there in motion.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..24.1">
+                <div class="he-cell"><sup>2</sup> <sup>ב)</sup> הדבר הושאל גם למה שאינו בעל חיים, ואף לכל דבר המתמיד וחובר לדבר־מה אחר, שנאמר בו גם כן <b>לשון שכינה</b>, גם אם אותו דבר־מה שהדבר ההוא חבר אליו אינו מקום, וגם אם הדבר אינו בעל חיים. נאמר: "[הַיּוֹם הַהוּא יְהִי חֹשֶׁךְ...] <b>תִּשְׁכָּן עָלָיו עֲנָנָה</b>" (איוב ג,ד-ה). ואין ספק שה<b>עננה</b> אינה בעל חיים, וה<b>יום</b> אינו גוף כלל, אלא הוא פרק זמן.</div>
+                <div class="en-cell">This verb is applied metaphorically to that which is inanimate or, to speak more precisely, to any thing which remains fixed and has attached itself to another thing; wherefore the verb <span dir="rtl">שכן</span> (to dwell) is likewise employed in this case, even though the object to which the thing in question has attached itself be not <i>a place</i>, nor the thing an animate being; e.g.: <i>Let a cloud dwell</i> (<span dir="rtl">תשכן</span>) <i>upon it</i> (Job, iii, 5); for the cloud, verily, is not an animate being, nor is the day a body, but a portion of time.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..24.2">
+                <div class="he-cell"><span class="mediumGrey">שכינת ה'</span><br><sup>3</sup> לפי השאלה זו הושאל לה' יתעלה, כלומר להתמדת שכינתו או השגחתו באיזה מקום שהתמידה בו, או לכל דבר שהתמידה בו ההשגחה. וכך נאמר: "<b>וַיִּשְׁכֹּן כְּבוֹד ה'</b> [עַל הַר סִינַי]" (שמות כד,טז), "<b>וְשָׁכַנְתִּי בְּתוֹךְ בְּנֵי יִשְׂרָאֵל</b>" (שם כט,מה; מלכים־א ו,יג), "<b>וּרְצוֹן שֹׁכְנִי סְנֶה</b>" (דברים לג,טז). כל מופע של הפועל הזה ביחס לה' הוא במשמעות של התמדת שכינתו, כלומר אורו הנברא, במקום מסוים; או התמדת ההשגחה על דבר־מה; כל מקום לפי עניינו.</div>
+                <div class="en-cell">It is in this metaphorical sense that (the verb in question) has been applied to God, I mean to the permanence of His <i>Shekhinâ</i> (Majesty)<sup class="fn-ref" onclick="showFn('fn.188')">188</sup>, or of His Providence in any place whatsoever<sup class="fn-ref" onclick="showFn('fn.189')">189</sup>, or to the Providence manifesting itself permanently<sup class="fn-ref" onclick="showFn('fn.190')">190</sup> in any thing. It has been said, e.g.: <i>And the glory of the Lord abode</i> (<span dir="rtl">וישכן</span>) (Exodus, xxiv, 17); <i>And I will dwell</i> (<span dir="rtl">ושכניתי</span>) <i>among the children of Israel</i> (<i>Ibid.</i>, xxix, 45); <i>And the good will of Him that dwelt</i> (<span dir="rtl">שכני</span>) <i>in the bush</i> (Deuter., xxxiii, 16)<sup class="fn-ref" onclick="showFn('fn.191')">191</sup>. And, whenever this verb is found attributed to God, it signifies the permanence, in some place, of His <i>Shekhinâ</i>, I mean of His <i>light</i> (which is a) <i>created</i> thing, or the permanence of His Providence (manifesting itself) in any thing whatsoever, according as it befitts each passage.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.186" style="display: none;">
+                <strong>Note 186:</strong> The words [[t:0]]פי דׄלך אלמכאן[[t:1]], which are not rendered in the two Hebrew versions, are found in all the Arabic mss. that we have consulted [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.187" style="display: none;">
+                <strong>Note 187:</strong> See above, at the beginning of ch. VIII, page 52, note 1.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.188" style="display: none;">
+                <strong>Note 188:</strong> The Hebrew word [[t:0]]שכינה[[t:1]] itself, which means [[t:2]]residence[[t:3]], and which designates the presence of divine majesty, is derived from the verb [[t:4]]שכן[[t:5]] in the metaphorical sense under consideration here.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.189" style="display: none;">
+                <strong>Note 189:</strong> Literally: In whatever place it remains permanent. The verb [[t:0]]דאמת[[t:1]] refers to both [[t:2]]סכינתה[[t:3]] and [[t:4]]ענאיתה[[t:5]], and it is wrongly that Ibn-Tibbon added here the word [[t:6]]השכינה[[t:7]], of which none of the mss. of the Arabic text offers any trace. Al-’Harizi's translation is more faithful here [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.190" style="display: none;">
+                <strong>Note 190:</strong> The words of the text literally mean: [[t:0]]Or to anything in which Providence is permanent;[[t:1]] but the author, by inverting the words, has expressed himself here in a manner that could seem somewhat inexact; for the verb [[t:2]]שכן[[t:3]] does not apply to the thing, but to Providence. The entire passage means that the verb in question applies to the majesty and divine Providence manifesting itself in any place, or even to Providence manifesting itself over any individual. Ibn-Tibbon, who, as we have stated in the previous note, added the word [[t:4]]השכינה[[t:5]], did not fully grasp the meaning of the passage, and, even assuming that this word should be added to the Arabic text, it would be necessary to read immediately after [[t:6]]או בכל אמר[[t:7]], instead of [[t:8]]או לכל אמר[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.191" style="display: none;">
+                <strong>Note 191:</strong> The first of these three examples relates to the manifestation of the [[t:0]]Schekhînâ;[[t:1]] the second to the divine Providence manifesting itself over the entire people of Israel; the third appears to relate to the Providence manifesting itself over an individual object, that is to say, over the bush that, though entirely aflame, was not consumed, or to the divine benevolence that Moses, in this verse, invokes upon the tribe of Joseph. The commentators generally see in the third example, as in the first, an allusion to the manifestation of the [[t:2]]Schekhînâ[[t:3]]. See also Abravanel, in his commentary on Deuteronomy, at the verse in question.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

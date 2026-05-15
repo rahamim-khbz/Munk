@@ -1,0 +1,1 @@
+{"name": "Munk's Guide", "short_name": "Munk's Guide", "start_url": "index.html", "display": "standalone", "background_color": "#fdfcfb", "theme_color": "#1e3a8a", "icons": [{"src": "assets/icon-mini.png", "sizes": "768x768", "type": "image/png"}, {"src": "assets/icon.png", "sizes": "1024x1024", "type": "image/png"}]}

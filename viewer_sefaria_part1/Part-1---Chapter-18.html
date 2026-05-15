@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 18 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 18</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..17.0">
+                <div class="he-cell"><b>המונחים קרב, נגע ונגש</b><br><span class="mediumGrey">שתי משמעויות</span><br><sup>1</sup> "<b>קרב</b>" ו"<b>נגע</b>" ו"<b>נגש</b>". שלושת המונחים הללו, כלומר "<b>קריבה</b>" ו"<b>נגיעה</b>" ו"<b>נגישה</b>", נאמרים <br><sup>א)</sup> לעתים במשמעות של מגע וקרבה במקום, <br><sup>ב)</sup> ולעתים במשמעות של היקשרות הידיעה בדבר הנודע, והרי זה כאילו הוא דומה לקרבת גוף אל גוף.<br><sup>2</sup> אשר למשמעות הראשונה של "<b>קריבה</b>", שהיא הקרבה במקום: "<b>כַּאֲשֶׁר קָרַב אֶל הַמַּחֲנֶה</b>" (שמות לב,יט), "<b>וּפַרְעֹה הִקְרִיב</b>" (שם יד,י). ומשמעותה הראשונה של ה"<b>נגיעה</b>" היא מגע גוף בגוף: "<b>וַתַּגַּע לְרַגְלָיו</b>" (שם ד,כה), "<b>וַיַּגַּע עַל פִּי</b>" (ישעיהו ו,ז; ירמיהו א,ט). ומשמעותה הראשונה של "<b>נגישה</b>" היא התקדמות אדם אחד אל אחר ותנועתו אליו: "<b>וַיִּגַּשׁ אֵלָיו יְהוּדָה</b>" (בראשית מד,יח).</div>
+                <div class="en-cell">Karab (קרב), naga’ (נגע) and nagasch (נגש). — These three words sometimes have the meaning of approaching (touching), drawing near in space, and sometimes they express the union of knowledge with the thing known, (a union) which is compared, in some way, to one body approaching another body. — As for the primitive meaning of karab, which is that of drawing near in space (here are examples): When he drew near (קרב) to the camp (Exodus, 32, 19); And Pharaoh drew near (הקריב) (Ibid., 14, 10). Naga’ primitively expresses the bringing into contact of one body with another; for example: She touched (ותנע) his feet (Ibid., 4, 25); He touched (ויגע) my mouth (Isaiah, 6, 7). The primitive meaning of nagasch is to advance towards a person, to move towards him; for example: And Judah advanced (ויגש) towards him (Genesis, 44, 18).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..17.1">
+                <div class="he-cell"><sup>3</sup> המשמעות השנייה של שלושת המונחים האלה היא היקשרות ידיעה ומגע של השגה, לא מגע של מקום. מן ה<b>נגיעה</b> במובן של היקשרות ידיעה נאמר: "<b>כִּי נָגַע אֶל הַשָּׁמַיִם מִשְׁפָּטָהּ</b>" (ירמיהו נא,ט). ומן ה<b>קריבה</b> נאמר: "<b>וְהַדָּבָר אֲשֶׁר יִקְשֶׁה מִכֶּם תַּקְרִבוּן אֵלַי</b> [וּשְׁמַעְתִּיו]" (דברים א,יז), כאילו אמר 'תודיעוני אותו'. הרי ששימש בהוראת ידיעת הדבר הנודע. ומן ה<b>נגישה</b> נאמר: "<b>וַיִּגַּשׁ אַבְרָהָם וַיֹּאמַר</b>" (בראשית יח,כג), והיה זה בהתגלות ובתרדמת נבואה כמו שיתבאר (א,כא; ב,מא); (וכן:) "<b>יַעַן כִּי נִגַּשׁ הָעָם הַזֶּה בְּפִיו וּבִשְׂפָתָיו כִּבְּדוּנִי</b>" (ישעיהו כט,יג).</div>
+                <div class="en-cell">— The second meaning of these three words expresses a union through knowledge, a drawing near through perception, and not a local drawing near. Naga’ (נגע) was used in the sense of union through knowledge when it was said: For his judgment has touched (נגע) up to heaven<sup class="fn-ref" onclick="showFn('fn.147')">147</sup> (Jeremiah, 51, 9). It was said, using karab (קרב): And the cause which will be too difficult for you, you shall present (תקריבון) to me, that is to say, you will make me know; thus (this verb) was used in the sense of: to make known that which must be known. It was said, using nagasch (נגש): And Abraham advanced (ויגש) and said (Genesis, 18, 23); for he was then in a state of prophetic vision and slumber, as will be explained<sup class="fn-ref" onclick="showFn('fn.148')">148</sup>. (Elsewhere it is said): Since this people, in approaching (נגש), has honored me with its mouth and lips (Isaiah, 29, 13).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..17.2">
+                <div class="he-cell"><span class="mediumGrey">קרבה וגישה האמורה בזיקה לה' משמעה השגתו</span><br><sup>4</sup> אם כן, כל <b>לשון קריבה</b> או <b>נגישה</b> שתמצא בספרי הנבואה בין ה' יתעלה ובין נברא מן הנבראים, כולן במשמעות האחרונה הזו. כי ה' יתעלה אינו גוף, כפי שיוכח לך בחיבור זה, ולכן הוא יתעלה אינו נוגע בדבר ואינו מתקרב לדבר, ושום דבר אינו מתקרב אליו או נוגע בו יתעלה. כי כשאין גשמיות, אין מקום, ומתבטלים כל קרבה ומגע או ריחוק או היקשרות או היפרדות או השקה או סמיכות.</div>
+                <div class="en-cell">Every time one encounters in prophetic books the expression of karab or of nagasch (applying to a relation) between God and any creature whatsoever, it is always in the latter sense; for God is not a body, as will be demonstrated in this treatise, and therefore the Most High does not approach anything, nor does He draw near to anything, and nothing draws near to Him nor does He approach anything; for, by excluding corporeality, one excludes space, and it is not a question of proximity, access, distance, union, separation, contact, or succession.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..17.3">
+                <div class="he-cell"><sup>5</sup> איני סבור שמה שנאמר "<b>קָרוֹב ה' לְכָל קֹרְאָיו</b>" (תהילים קמה,יח), "<b>קִרְבַת אֱלֹהִים יֶחְפָּצוּן</b>" (ישעיהו נח,ב), "<b>קִרְבַת אֱלֹהִים לִי טוֹב</b>" (תהילים עג,כח) יגרום לך לספק או לבלבול. כי כל אלה קרבת ידיעה, כלומר השגה של ידע, לא קרבת מקום. וכיוצא בזה דבריו "[כִּי מִי גוֹי גָּדוֹל אֲשֶׁר לוֹ אֱלֹהִים] <b>קְרֹבִים אֵלָיו</b>" (דברים ד,ז), "<b>קְרַב אַתָּה וּשְׁמָע</b> [אֵת כָּל אֲשֶׁר יֹאמַר ה' אֱלֹהֵינוּ]" (שם ה,כג), "<b>וְנִגַּשׁ מֹשֶׁה לְבַדּוֹ אֶל ה' וְהֵם לֹא יִגָּשׁוּ</b>" (שמות כד,ב).</div>
+                <div class="en-cell">I do not think thou hast any doubt (in this regard), and there shall be nothing obscure to thee in these passages: The Lord is near to all who call upon Him (Ps. 145, 18); They desire to draw near to God (Isaiah, 58, 2); To draw near to God is my happiness (Ps. 73, 28); for in all these passages it is a matter of drawing near through knowledge, that is to say, through scientific perception, and not through local approach. It is the same in these passages: (God) near to Him (Deuteronomy, 4, 7); Draw near and hearken (Ibid., 5, 27); And Moses shall approach alone unto the Lord, but they shall not approach (Exodus, 24, 2).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..17.4">
+                <div class="he-cell">אלא אם תרצה להבין שמה שנאמר על <b>משה</b> "<b>וְנִגַּשׁ</b>", שהכוונה היא שהוא יתקרב אל המקום בהר ששרה עליו האור, כלומר <b>כבוד ה'</b> – יכול אתה. אבל החזק בעיקר, שאין הבדל בין אם האדם במרכז הארץ או על גבי הגלגל התשיעי, לו היה הדבר אפשרי – אין הוא רחוק מן ה' פה ולא קרוב אליו שם. אלא הקרבה אליו יתעלה היא בהשגתו, והריחוק ממנו הוא באי ידיעתו. מן הפן הזה יש הבדלים גדולים מאוד בין בני האדם בדרגות הקרבה והריחוק. עוד אבאר באחד מפרקי חיבור זה (א,נט) כיצד הם ההבדלים במעלות בהשגה.</div>
+                <div class="en-cell">However, if thou desirest to understand by the word ונגש, shall approach, applied to Moses, that he could approach that place on the mountain where the light descended, that is to say, the glory of the Lord, thou art at liberty to do so; only thou must adhere to this principle, that no matter whether the individual be in the centre of the earth or at the summit of the ninth sphere<sup class="fn-ref" onclick="showFn('fn.149')">149</sup>, — if this were possible, — he is not thereby farther from God, and there he is not nearer to Him; but one is near to God in perceiving Him, and he who ignores Him is far from Him. There is, in this regard, a great variety of gradations<sup class="fn-ref" onclick="showFn('fn.150')">150</sup> in approach and withdrawal; in one of the chapters of this treatise<sup class="fn-ref" onclick="showFn('fn.151')">151</sup> I shall explain what this relative superiority is in the perception (of the divinity).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..17.5">
+                <div class="he-cell"><span class="mediumGrey">נגיעה האמורה בזיקה לה' משמעה ענישה</span><br><sup>6</sup> אשר לאמור "[ה' הַט שָׁמֶיךָ וְתֵרֵד] <b>גַּע בֶּהָרִים וְיֶעֱשָׁנוּ</b>" (תהילים קמד,ה), הכוונה היא: הבא את ציוויך אליהם, על דרך המשל, כמו שאמר "<b>וְגַע אֶל עַצְמוֹ</b>" (איוב ב,ה), כלומר שלח בו את מכתך.</div>
+                <div class="en-cell">— As for these words: Touche les montagnes, et qu’elles fument (Ps. 144, 5), one intends to convey thereby; Cause thy command to reach them (which, in turn, is to be understood) metaphorically; likewise the words: Et touche sa personne (Job, 2, 5) signify: Cause thy affliction to descend upon him.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..17.6">
+                <div class="he-cell">וכן יש לבחון בכל מקום כפי עניינו את ה<b>נגיעה</b> וכל מה שנגזר ממנה: <br><sup>א)</sup> לעתים הכוונה היא מגע גוף בגוף, <br><sup>ב)</sup> ולעתים היקשרות ידיעה והשגת דבר־מה, וכאילו מי שמשיג את הדבר שלא יכול להשיגו לפני כן, התקרב אל דבר שהיה רחוק ממנו. הבן זאת.</div>
+                <div class="en-cell">Thus, in each passage, thou must consider the verb נגע (to touch), as well as its derived forms, in accordance with the entirety: one expresses by this verb, at times, the contact of one body with another, and, at times, the union through the science and perception of something; for he who perceives the thing he had not previously perceived, as it were, approaches a thing that was distant from him. This must be well understood.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.147" style="display: none;">
+                <strong>Note 147:</strong> That is to say, its judgment has come before God, who has had [[t:0]]knowledge[[t:1]] of the sins of Babel and has decreed its punishment.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.148" style="display: none;">
+                <strong>Note 148:</strong> See this I[[t:0]]st[[t:1]] part, ch. XXI, and II[[t:2]]nd[[t:3]] part, ch. XLI.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.149" style="display: none;">
+                <strong>Note 149:</strong> That is to say, of the highest sphere. On the number of the spheres, see ch. IV of the II[[t:0]]e[[t:1]] part of this work.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.150" style="display: none;">
+                <strong>Note 150:</strong> Literally: [[t:0]]a very great reciprocal struggle for superiority[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.151" style="display: none;">
+                <strong>Note 151:</strong> See what the author says about negative attributes in chap. LX of this I[[t:0]]re[[t:1]] part.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

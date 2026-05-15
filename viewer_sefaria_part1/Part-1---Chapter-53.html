@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 53 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 53</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.0">
+                <div class="he-cell"><b>האחד פועל פעולות מרובות</b><br><span class="mediumGrey">רקע – האמנת התארים נולדה בקריאה פשטנית</span><br><sup>1</sup> מה שהביא להאמנה שיש תארים לבורא אצל המאמינים בהם, קרוב למה שהביא להאמנת הגשמות אצל מי שמאמין בה. כי את מאמין הגשמות לא הביא לכך עיון שכלי, אלא הליכה אחר פשטי ("חיצוניות") לשונות הכתובים. וכן הדבר בתארים: כאשר נמצא שספרי הנביאים וספר ההתגלות (=התורה) תיארו אותו יתעלה בתארים, קיבלו את הדבר כפשוטו והאמינו שהוא בעל תארים. וכך הם כאילו ניקו אותו מן הגשמות אך לא ניקו אותו ממצבי הגשמות, והם המקרים, כלומר התכונות הנפשיות, שהן כולן איכויות. וכל תואר שמאמין התארים טוען שהוא עצמי לאל יתעלה – אתה תמצא שעניינו הוא עניין האיכות, אף שאין הם אומרים זאת במפורש, מתוך השוואה למה שהכירו ממצביו של כל גוף בעל נפש חיה.<br><span class="mediumGrey">מטרת התארים: רק הצבעה על שלמות האל</span><br><sup>2</sup> ועל הכול נֶאמר "<b>דברה תורה כלשון בני אדם</b>". המטרה ב(תארים) כולם אינה אלא לתאר אותו כשלם, לא לתארו בעצם העניין (המבוטא באותו התואר) שהוא שלמות של בעל הנפש מן הברואים. רובם הם תוארי פעולותיו השונות; והיותן פעולות שונות אינה גוזרת שוני בעניינים הקיימים אצל הפועֵל.</div>
+                <div class="en-cell">Men have been led to believe that God has attributes in much the same manner as they were led to believe in (God's) corporeality<sup class="fn-ref" onclick="showFn('fn.529')">529</sup>. Verily, he who believs in corporeality was not led thereto by intellectual speculation, but by following the literal sense of the Scriptural texts; and it is likewise with regard to the attributes: finding that the books of the Prophets and those of the Pentateuch<sup class="fn-ref" onclick="showFn('fn.530')">530</sup> ascribed attributes unto God, they took the matter literally, and believed that He possessed attributes. They have, so to speak, exalted Him above corporeality, yet without exalting Him above the circumstances of corporeality, which are accidents—I mean, the dispositions of the soul, all of which are <i>qualities</i><sup class="fn-ref" onclick="showFn('fn.531')">531</sup>. In every attribute which, in the opinion of him who believs in attributes, is <i>essential</i> in God, thou shalt find the notion of <i>quality</i>, although they (the Prophets) do not express themselves clearly in this regard, simply assimilating (the attributes of God) unto those conditions familiar to them in every body endowed with a vital soul<sup class="fn-ref" onclick="showFn('fn.532')">532</sup>; and concerning all this it has been said: «The Law speaks according to the language of the sons of men.» The aim of all (the attributes of God) is none other than to ascribe unto Him perfection (in general), and not that very thing which is a perfection for such creatures as are endowed with a soul. Most of them are attributes (arising) from His diverse actions;</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.1">
+                <div class="he-cell"><span class="mediumGrey">משל האש, פעולות שונות מפועֵל יחיד</span><br><sup>3</sup> אמשול לך משל בעניין זה מן הדברים המצויים אצלנו, כוונתי לכך שהפועֵל הוא אחד ונובעים ממנו פעולות שונות אף שאין הוא בעל רצון, קל וחומר אם הוא פועל ברצון. וזהו המשל: האש, שהיא ממיסה חלק מהדברים, ומקשיחה אחרים, ומבשלת, ושורפת, ומלבינה, ומשחירה. כך שאילו היה האדם מתאר את האש כ"מלבינה המשחירה השורפת המבשלת המקשיחה הממיסה" היה הוא דובר אמת. אך מי שאינו מכיר את טבע האש היה חושב שיש בה שישה עניינים שונים: עניין שבו היא משחירה, ועניין אחר שבו היא מלבינה, ועניין שלישי שבו היא מבשלת, ועניין רביעי שבו היא שורפת, ועניין חמישי שבו היא ממיסה, ועניין שישי שבו היא מקשיחה – וכל אלה פעולות מנוגדות, ואין עניינה של פעולה אחת מהן עניין האחרת. ואילו מי שמכיר את טבע האש יודע שבאיכות פועלת אחת היא פועלת את כל הפעולות הללו, והיא החום.<br><sup>4</sup> ואם זה נמצא במה שפועל בטבעו, קל וחומר למי שפועל ברצונו, וקל וחומר לגביו יתעלה, הנעלה על כל תיאור, כאשר אנחנו משיגים בו יחסים (לברואים) שונים זה מזה בעניינם – כי אצלנו עניין הידיעה שונה מעניין היכולת, ועניין היכולת שונה מעניין הרצון – איך אפוא נסיק מכך שיש אצלו עניינים שונים עצמיים לו עד שיהיה לו עניין שבו ידע ועניין שבו ירצה ועניין שבו יוכל? שכן זוהי משמעות התארים שהם מחזיקים בהם. יש מהם מי שאומר זאת במפורש ומונה את העניינים הנוספים על העצמות, ויש מהם מי שאינו אומר זאת במפורש אבל הוא מפורש באמונתו גם אם אין הוא מבטא זאת באמירה בעלת משמעות, כמו שאומרים חלקם: "יכול לעצמו, יודע לעצמו, חי לעצמו, רוצה לעצמו".</div>
+                <div class="en-cell">for the diversity of actions does not presuppose the existence of diverse ideas within the agent<sup class="fn-ref" onclick="showFn('fn.533')">533</sup>. One shall, in this regard, be presented with an example drawn from those things which exist near unto us, (to demonstrate) that, the agent being one, there nevertheless result diverse actions, even when it possesses no will, and, *a fortiori*, when it acts with will. Thus, for example, fire liquefies certain substances, coagulates others, cooks, burns, whitens, and blackens; and, if one were to ascribe to fire the attributes of whitening, of blackening, of burning, of cooking, of coagulating, and of liquefying, one would speak truly. Now, he who comprehends not the nature of fire believes that there exist within it six distinct virtues: one virtue by which it blackens, another by which it whitens, a third by which it cooks, a fourth by which it burns, a fifth by which it liquefies, and a sixth by which it coagulates, notwithstanding that these are all actions opposed one to another, and that the idea of the one excludes that of the others<sup class="fn-ref" onclick="showFn('fn.534')">534</sup>; but he who comprehends the nature of fire well knows that it is by a single active quality that it produces all these actions, to wit, by heat. Now, if this holds true in that which acts by nature, (the same must apply) *a fortiori*, with regard to that which acts with will, and, with yet greater force, *a fortiori*, with regard to God, Who is elevated above all description; and, when one perceives within Him diverse relations of meaning<sup class="fn-ref" onclick="showFn('fn.535')">535</sup>, because, within ourselves, the idea of knowledge is distinct from that of power, and that of power distinct from that of will<sup class="fn-ref" onclick="showFn('fn.536')">536</sup>, how might one thence conclude that there exist within Him diverse things which are essential to Him, so that there be in Him something by which He knows, something by which He wills, and something by which He can? Such, nevertheless, is the purport of the attributes which are proclaimed. Some pronounce this clearly, by enumerating the things superadded to the essence; others, without pronouncing it clearly, evidently profess the same opinion, albeit they do not express themselves in this regard by intelligible words, saying, for example, (that God is) powerful by His essence, knowing by His essence, living by His essence, willing by His essence<sup class="fn-ref" onclick="showFn('fn.537')">537</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.2">
+                <div class="he-cell"><span class="mediumGrey">משל הכוח ההוגה שבאדם</span><br><sup>5</sup> אמשול לך בכוח ההוגה הנמצא באדם. הוא הרי כוח אחד שאין בו ריבוי, ובו רוכש האדם ידע מדעי וידע מקצועי, ובו עצמו הוא תופר ומסתת ואורג ובונה ולומד הנדסה ומנהיג את המדינה. והרי אלה פעולות שונות הנובעות מכוח אחד פשוט שאין בו ריבוי. ופעולות אלה שונות זו מזו מאוד, כמעט אין סוף למספרן, כוונתי למספר המלאכות שהכוח ההוגה יוצר. ואם כן אין לשלול ביחס לאל יתהדר ויתעלה שתהיינה אותן פעולות שונות יוצאות מעצמות אחת פשוטה שאין בה ריבוי ולא שום עניין נוסף.<br><span class="mediumGrey">סיכום ביניים</span><br><sup>6</sup> כל תואר הנמצא בספרי האלוה יתעלה יהיה אם כן <br><sup>א)</sup> או תואר פעולתו ולא תואר עצמותו, <br><sup>ב)</sup> או מורה באופן כללי על שלמות; לא שקיימת עצמות מורכבת מעניינים שונים. כי העובדה שהם נמנעים מלהשתמש בביטוי "מורכבות" אינה מבטלת את משמעות המורכבות מן העצמות בעלת התארים.</div>
+                <div class="en-cell">I shall further cite for thee as an example the rational faculty which exists in man; for, by this faculty which is <i>one</i>, without multiplicity, man comprehends the sciences and the arts, and by it at once he sews, carpents, weavs, builds, knows geometry, and governs the state<sup class="fn-ref" onclick="showFn('fn.538')">538</sup>. Here, then, are diverse actions resulting from a single simple faculty, in which there is no multiplicity; and they are very varied actions, for there is an infinite number of these arts which the rational faculty produces<sup class="fn-ref" onclick="showFn('fn.539')">539</sup>. It is therefore not inadmissible, in regard to God, that these diverse actions (which are attributed unto Him) should emanate from a single simple essence<sup class="fn-ref" onclick="showFn('fn.540')">540</sup>, in which there is neither multiplicity, nor absolutely anything <i>accessory</i>, so that every attribute found in the divine books designats His action, and not His essence<sup class="fn-ref" onclick="showFn('fn.541')">541</sup>, or indicats an absolute perfection; (and it by no means follows) that there is there an essence composed of diverse things — [for it suffices not to refrain from speaking expressly of <i>composition</i>, for the essence endowed with attributes not to imply the notion thereof<sup class="fn-ref" onclick="showFn('fn.542')">542</sup>].</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.3">
+                <div class="he-cell"><span class="mediumGrey">הטעות: ייחוס תכונות "הכרחיות" לאל</span><br><sup>7</sup> אבל כאן מקום הטעות שהביאה אותם לכך, והיא זו שאבאר לך: אלה שהאמינו בתארים אינם מאמינים בהם בשל ריבוי הפעולות, אלא הם אומרים: "אמת שהעצמות האחת פועלת פעולות שונות, אבל התארים העצמיים לו יתעלה אינם מכלל פעולותיו, כי אין להעלות על הדעת שהאל ברא את עצמותו".</div>
+                <div class="en-cell">Yet there remains here somewhat of obscurity which has given rise to error<sup class="fn-ref" onclick="showFn('fn.543')">543</sup>, and which I shall lay before thee: to wit, that they who admit attributes do not admit them (solely) by reason of the multiplicity of actions; for verily, say they, a single essence may produce divers actions, but the <i>essential</i> attributes of God are not of (those which proceed from) His actions, since one cannot conceive, (for example), that God should have created Himself<sup class="fn-ref" onclick="showFn('fn.544')">544</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.4">
+                <div class="he-cell">הם חלוקים בנוגע לתארים הללו שהם קוראים להם עצמיים – כוונתי למספרם, כי כולם הולכים אחר לשון אחד הכתובים. אך אציין לך מה שכולם מסכימים עליו וחושבים שהוא מושכל ושאין הם הולכים בו אחרי לשון דברי נביא, והם ארבעה תארים: חי, יכול, יודע, רוצה. לגבי אלה הם אומרים שהם <br><sup>א)</sup> עניינים שונים זה מזה, <br><sup>ב)</sup> ושלמויות שלא ייתכן שהאלוה יחסר דבר מהן, <br><sup>ג)</sup> ואין אפשרות שיהיו מכלל פעולותיו. זוהי תמצית השקפתם.</div>
+                <div class="en-cell">They differ, furthermore, concerning these attributes which they term <i>essential</i>, I mean as to their number, each following some text of Scripture<sup class="fn-ref" onclick="showFn('fn.545')">545</sup>. But I desire to record (only) those which all admit by common consent, claiming that they are dictated by reason, without needing to depend upon the word of a prophet; these are four attributes, namely: <i>living, powerful, knowing, willing</i>. These, say they, are ideas distinct one from another, and perfections of which not one can be wanting in God, and which cannot be numbered among His <i>actions</i><sup class="fn-ref" onclick="showFn('fn.546')">546</sup>. Such is the summary of their opinion.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.5">
+                <div class="he-cell"><span class="mediumGrey">הבהרה: יודע, יכול ורוצה הם ביחס לברואים</span><br><sup>8</sup> ידוע לך שעניין הידיעה אצלו יתעלה הוא עניין החיים, כיוון שכל המשיג את עצמותו הוא חי ויודע בעניין אחד. זאת אם כוונתנו ב"ידיעה" – השגת עצמותו. כי אין ספק שהעצמות המושגת היא עצמה העצמות המשיגה, כי אין הוא לדעתנו מורכב משני דברים, דבר משיג ודבר אחר שאינו משיג, כמו האדם המורכב מנפש משיגה וגוף שאינו משיג. נמצא שכאשר אני מתכוון באומרנו "יודע" למשיג את עצמו, הרי החיים והידיעה עניין אחד. אבל הם אינם מביטים במשמעות הזו, אלא הם מביטים בהשגתו את ברואיו.</div>
+                <div class="en-cell">But thou knowest well<sup class="fn-ref" onclick="showFn('fn.547')">547</sup> that, in God, <i>knowing</i> signifies the same thing as <i>living;</i> for every (being) that perceivs itself is endowed with <i>life</i> and <i>knowledge</i>, (taken here) in one and the same sense—[provided, of course, that by <i>knowledge</i> we mean self-perception]<sup class="fn-ref" onclick="showFn('fn.548')">548</sup>. The essence which perceivs is indubitably that very same which is perceived<sup class="fn-ref" onclick="showFn('fn.549')">549</sup>; for, according to our opinion, He (God) is not composed of two things, that is to say, of a thing which perceivs and of another which perceivs not, as man, who is composed of a soul which perceivs and a body which perceivs not<sup class="fn-ref" onclick="showFn('fn.550')">550</sup>. If, therefore, by <i>knowledge</i> one understands self-perception, life and knowledge (in God) are one and the same thing. But those (who profess the attributes) have not in view this sense (of divine <i>knowledge</i>); on the contrary, they have in view that perception (of God) which has for its object His creatures.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.6">
+                <div class="he-cell"><sup>9</sup> וכן היכולת והרצון, בלי ספק אין כל אחד מהם נמצא לבורא מבחינת עצמותו, כי אין הוא "יכול" ביחס לעצמותו ואין מתארים אותו כ"רוצה" את עצמותו, וזה דבר שאין מי שמעלה על דעתו. אלא שהם דימו לעצמם את התארים האלה רק מבחינת יחסים שונים בין האל יתעלה לבין ברואיו, כלומר שהוא יכול לברוא את מה שהוא בורא, ורוצה ליצור את המצוי כפי שיצר אותו, ויודע את מה שיצר.</div>
+                <div class="en-cell">Likewise, <i>power</i> and <i>will</i> exist neither the one nor the other in the Creator in relation to His essence; for He exerciss no power over Himself, nor can one attribute unto Him a will having Himself for its object, a thing which no man could imagine. These attributes, on the contrary, they have admitted only with respect to divers relations existing between God and His creatures, that is to say, that He has the <i>power</i> to create that which He creats, the <i>will</i> to bring into existence that which is such as He has produced it, and the <i>knowledge</i> of that which He has produced. It is therefore manifest that these attributes also<sup class="fn-ref" onclick="showFn('fn.551')">551</sup> are (ascribed to God), not with regard to His essence, but with regard to created things;</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.7">
+                <div class="he-cell"><span class="mediumGrey">הפתרון: גם ריבוי יחסים בא מעצמוּת אחת</span><br><sup>10</sup> הרי התבאר לך שגם התארים האלה אינם מבחינת עצמותו אלא מבחינת הברואים. ולפיכך אנחנו, קהל המייחדים באמת, אומרים: כמו שאיננו אומרים שיש בעצמותו עניין הנוסף עליה שבו הוא ברא את השמים, ועניין אחר שבו הוא ברא את היסודות, ועניין שלישי שבו הוא ברא את השכלים, כך איננו אומרים שיש בו עניין נוסף שבו הוא יכול, ועניין אחר שבו הוא רוצה, ועניין שלישי שבו הוא יודע את ברואיו. אלא עצמותו היא אחת פשוטה שאין עניין נוסף עליה כלל. העצמות הזו בראה כל מה שבראה וידעה בלא עניין נוסף כלל, והתארים השונים האלה – אין הבדל בין אם הם לפי הפעולות או לפי יחסים שונים בינו לבין הפעולים. וכפי שגם ביארנו באשר למהות היחס (בין הבורא לברואיו), ושהוא מדומה (א,נב).</div>
+                <div class="en-cell">Wherefore this is what we affirm, we who truly profess the Unity: even as we do not admit that there is in His essence aught accessory by which He created the heavens, aught else by which He created the elements, and, in the third place, aught by which He created the (separate) Intelligences, so likewise do we not admit that there is in Him aught accessory by which He can, aught else by which He wills, and, in the third place, aught by which He possesses the science of the things created by Him; but His essence is one and simple, and there is in it nothing accessory in any wise. It is this essence<sup class="fn-ref" onclick="showFn('fn.552')">552</sup> which created all that it created, and which knows (things), without it being by aught accessory; and it matters little whether these diverse attributes relate to actions or to diverse relations existing between Him and the things made (by Him)<sup class="fn-ref" onclick="showFn('fn.553')">553</sup>, to say naught of what we have expounded concerning the true meaning of relation, for it has been admitted only by error<sup class="fn-ref" onclick="showFn('fn.554')">554</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..52.8">
+                <div class="he-cell"><sup>11</sup> זה מה שראוי להאמין לגבי התארים הנזכרים בספרי הנביאים. או שיש להאמין לגבי חלקם שהם תארים המורים על שלמות על דרך הדוֹמוּת לשלמויותינו המובנות לנו, כמו שנבאר (א,נח-נט).</div>
+                <div class="en-cell">Such is that which it behoves one to believe concerning the attributes mentioned in the books of the prophets<sup class="fn-ref" onclick="showFn('fn.555')">555</sup>; or else, one shall admit for some amongst them that they are attributes serving to indicate a perfection, by way of assimilation unto our own perfections, in such manner as they are understood amongst us, even as we shall hereafter expound.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.529" style="display: none;">
+                <strong>Note 529:</strong> Literally: [[t:0]]that which has led to believe in the existence of attributes of the Creator, among those who believe in them, is almost what has led to believe in corporality, among those who believe in it[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.530" style="display: none;">
+                <strong>Note 530:</strong> Literally: [[t:0]]and the books of revelation;[[t:1]] the word [[t:2]]אלתנזיל[[t:3]] [[t:4]](التنزيل)[[t:5]] is here particularly applied to the books of Moses and employed in the sense of [[t:6]]תורה[[t:7]]. Cf. above, chap. XLVI, page 158: “In all the books of the [[t:8]]prophets[[t:9]] and likewise in the [[t:10]]Pentateuch[[t:11]]”, where the text bears (fol. 50 [[t:12]]a[[t:13]]): [[t:14]]פי גׄמיع כתب אלאנביא ופי אלתורה[[t:15]]. At other times, the word [[t:16]]אלתנזיל[[t:17]] applies to the whole of Holy Writ in general; see, for instance, at the close of chap. LI: [[t:18]]כתב אלתנזיל[[t:19]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.531" style="display: none;">
+                <strong>Note 531:</strong> See what the author says in the previous chapter about the III[[t:0]]rd[[t:1]] class of attributes.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.532" style="display: none;">
+                <strong>Note 532:</strong> In the verbs [[t:0]]יצרחוא[[t:1]] and [[t:2]]עהדוה[[t:3]], one must implicitly understand, as the subject, [[t:4]]the prophets[[t:5]], and not [[t:6]]those who believe in the attributes[[t:7]], as some commentators have supposed; for, in this latter case, the verbs should be in the singular, like the word [[t:8]]מעתקד[[t:9]]. Instead of the words [[t:10]]יבארהו בו[[t:11]], which are found in the editions of Ibn-Tibbon’s version, one must read [[t:12]]יבארוהו[[t:13]], as the manuscripts of this version possess. The sense of this passage is as follows: the attributes which the prophets ascribe to God, and in which one has claimed to discern [[t:14]]essential attributes[[t:15]], that is to say, forming a part of the divine essence (See above, page 180, note 1), are at bottom naught but qualities, and the prophets, without pronouncing clearly in this regard, and by metaphorically assimilating God to animated beings, have ascribed to Him attributes akin to the conditions of these beings, and which are familiar to all.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.533" style="display: none;">
+                <strong>Note 533:</strong> Literally: [[t:0]]by the diversity of actions the ideas which exist in the agent are not diverse[[t:1]]. Here the author approaches the discussion on [[t:2]]attributes of action[[t:3]], to which he has alluded at the close of the last chapter, and he makes comprehensible, by examples, the distinction which one ought to establish between this sort of attributes, applicable to God, and those which have been termed [[t:4]]essential attributes[[t:5]]. The question of attributes, as one has stated higher up (page 180), had already occupied the Muslim theologians and philosophers, and one finds among them likewise the distinction between [[t:6]]essential attributes[[t:7]] and [[t:8]]attributes of action[[t:9]]. See Pococke, [Lat.: Specimen hist. Ar.], page 223; Schahrestâni, History of Religious and Philosophical Sects, Arabic text (published by M. Cureton), page 64; German translation by M. Haarbrücker, volume I, page 95. Cf. Ba’hya, [[t:12]]Duties of the Hearts[[t:13]], book I (On the Unity of God), chap. 10.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.534" style="display: none;">
+                <strong>Note 534:</strong> Literally: [[t:0]]and that the idea of no action of either of them is the idea of the other[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.535" style="display: none;">
+                <strong>Note 535:</strong> That is, when our perception makes us see in God things to which we attach various ideas, because, in us, they are perfectly distinct from one another.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.536" style="display: none;">
+                <strong>Note 536:</strong> As one shall observe further on, [[t:0]]knowledge[[t:1]], [[t:2]]power[[t:3]], and [[t:4]]will[[t:5]] are, besides [[t:6]]life[[t:7]], the principal attributes which the ancient Muslim theologians, and, following them, certain Jewish theologians (notably the Karaites), ascribed unto God as [[t:8]]essential[[t:9]] and [[t:10]]eternal[[t:11]] attributes. Cf. Schahrestâni, German transl., vol. I, pp. 42, 95, and [[t:12]]passim;[[t:13]] Pococke, [Lat.: [[t:14]]Specimen hist. Ar.]] [[t:15]], p. 223; Schmœlders, [[t:16]]Essai sur les écoles philosophiques chez les Arabes[[t:17]], pp. 187 and 196. These are the same attributes cited by Al-Ghazali, in his [[t:18]]Destruction of the Philosophers[[t:19]] (at the commencement of the sixth [[t:20]]Question[[t:21]]), when discussing the opinion of the philosophers and the [[t:22]]Muʿtazila;[[t:23]] one cites the Hebrew version: [[t:24]]הסכימו הפלוסופים על שקרות קיום המדע והיכולת והרצון בהתחלה הראשונה כמו שהסכימו עליו המעתזלה וכו׳[[t:25]] «The philosophers are agreed that it is false to affirm [[t:26]]knowledge[[t:27]], [[t:28]]power[[t:29]], and [[t:30]]will[[t:31]] in the first principle (or in God), and the [[t:32]]Muʿtazila[[t:33]] likewise concurred thereupon, &c.» Cf. Saadia, [[t:34]]Book of Beliefs and Opinions[[t:35]], II, 1 to 4; Ahron ben-Elie, [[t:36]]Tree of Life[[t:37]], chap. LXVII.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.537" style="display: none;">
+                <strong>Note 537:</strong> The author alludes, on the one hand, to the [[t:0]]Ṣifātiyya[[t:1]] or partisans of attributes, who, without circumlocution, ascribe eternal attributes to God, and, on the other hand, to a portion of the [[t:2]]Muʿtazila[[t:3]], who believed to satisfy the principle of absolute unity by declaring that God is [[t:4]]powerful[[t:5]], not by power, but by His [[t:6]]essence[[t:7]]; that He is [[t:8]]living[[t:9]], not by life, but by His [[t:10]]essence[[t:11]]; and so forth. Cf. Pococke, [Lat.: [[t:12]]l. c.]] [[t:13]], p. 214, and the text of Abū’l-Faraj, p. 19; Schahrestâni, [Lat.: [[t:14]]l. c.]] [[t:15]], p. 42; Schmölders, [Lat.: [[t:16]]l. c.]] [[t:17]], pp. 196, 197. The discussion concerning attributes recurred amongst Jewish theologians; there were those (notably within the Karaite sect) who, following the example of certain [[t:18]]Muʿtazila[[t:19]], admitted essential attributes ([[t:20]]ספורים עצמיים[[t:21]], cf. Ahron ben-Elie, [[t:22]]Tree of Life[[t:23]], at the end of chap. LXVII). Amongst the Rabbinic doctors, Maimonides himself names the Spaniard R. Joseph ibn-Ṣaddīq as having followed the opinion of the [[t:24]]בעלי התארים[[t:25]] or [[t:26]]partisans of attributes;[[t:27]] cf. the collection of Maimonides' Letters (letter to R. Samuel ibn-Tibbon), Amsterdam edit., fol. 14 [[t:28]]b[[t:29]]. — As to the expression [[t:30]]لذاته[[t:31]], [[t:32]]by His essence[[t:33]], the Muslim theologians themselves were not entirely agreed upon its precise meaning (Cf. Pococke, [Lat.: [[t:34]]ibid.]] [[t:35]], p. 215 et seq.); it is for this reason that Maimonides states that [[t:36]]they do not express themselves in intelligible terms[[t:37]]. According to Ibn-Falaquera ([[t:38]]Moré-ha-Moré[[t:39]], p. 151), the [[t:40]]Mutakallimūn[[t:41]] understood by this expression that the power, knowledge, &c., attributed to God, are something which pertains [[t:42]]to His essence alone[[t:43]], and that He possesses therein nothing in common with any other being.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.538" style="display: none;">
+                <strong>Note 538:</strong> It is well to recall here what the author states elsewhere concerning the rational part of the soul, in accordance with Peripatetic theories. In the first of the [[t:0]]Eight Chapters[[t:1]] serving as an introduction to the treatise [[t:2]]Abôth[[t:3]], after having discoursed upon nutrition, sensibility, imagination, and appetition, one finds him expressing himself thus concerning the fifth part of the soul, or the rational faculty (Vide Pococke’s [[t:4]]Porta Mosis[[t:5]], pp. 188 and 189): “The [[t:6]]rational part[[t:7]] is that faculty existing in man by which he is [[t:8]]intelligent[[t:9]], by which reflection is performed, by which he acquires science, and by which he distinguishes between that which is foul and that which is fair, in respect of actions. The actions (of the rational faculty) are some practical, others speculative. The practical pertains to the domain of art or of reflection; the speculative is that by which man knows invariable beings as they are, and this is what is termed [[t:10]]science[[t:11]] in an absolute sense. The artistic faculty is that by which man acquires the arts, as, for example, carpentry, agriculture, medicine, and navigation. Reflection is that by which one examines, in a thing one desires to do, and at the moment one desires to do it, whether it be possible or not to perform it, and, supposing it to be possible, how it ought to be performed.” One perceives that what the author designates as the [[t:12]]rational[[t:13]] or [[t:14]]reasonable[[t:15]] part of the soul is the totality of all those faculties of the soul which belong solely to man; all other faculties, forming the irrational part of the soul, appertain equally to animals. This division of the soul’s faculties into two parts, one reasonable ([[t:16]]τὸ λογιστιϰὸν[[t:17]] or [[t:18]]τὸ λόγον ἔχον[[t:19]]), the other unreasonable ([[t:20]]τὸ ἄλογον[[t:21]]), belongs rather to Plato than to Aristotle; the latter, indeed, seems openly to disapprove of it, in criticising those who affirm that the soul possesses parts (Vide [[t:22]]Treatise on the Soul[[t:23]], Bk. III, chap. 9, and Trendelenburg’s Commentary, on the same chapter, §§ 2 and 3, p. 528). Nevertheless, Aristotle himself makes use of this division in his classification of virtues. See [[t:24]]Eth. Nicom.[[t:25]], Bk. I, chap. 13; Bk. VI, chap. 2: [[t:26]]Πρότερον μέν οὖν ἐλέχθη δύ’ εἶναι μέρη τῆς ψυχῆς, τό τε λόγον ἔχον ϰαὶ τὸ ἄλογον · νῦν δὲ περὶ τοῦ λόγον ἔχοντος τὸν αὐτόν τρόπον διαιρετέον. ϰαὶ ὑποχείσθω δύο τὰ λόγον ἔχοντα, ἕν μὲν ᾧ θεωροῦμεν τὰ τοιαῦτα τῶν ὄντων ὅσων αἱ ἀρχαὶ μὴ ἐνδέχονται ἄλλως ἔχειν, ἕν δὲ ᾧ τὰ ἐνδεχόμενα · ϰ. τ. λ[[t:27]]. It is this classification which has served as the basis for what Maimonides states concerning the [[t:28]]rational part[[t:29]] of the soul in the passage just cited.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.539" style="display: none;">
+                <strong>Note 539:</strong> Literally: [[t:0]]and their number has almost no end, I mean the number of arts produced by the rational faculty[[t:1]]. Instead of [[t:2]]the number of actions[[t:3]] that one reads in all the editions of Ibn-Tibbon's version, one must read [[t:4]]the number of crafts[[t:5]], as in the mss. and Al-’Harizi's version.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.540" style="display: none;">
+                <strong>Note 540:</strong> The author does not concur with what he states elsewhere to be the opinion of Aristotle and of all Peripatetic philosophers, namely, that the First Cause, being absolute unity, can have but unity as its effect, and that from the absolute [[t:0]]One[[t:1]] the manifold cannot emanate. One shall have occasion to revert to this point in the second part of this work, Chapter XXII, where this question is particularly treated.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.541" style="display: none;">
+                <strong>Note 541:</strong> Literally: [[t:0]]a characteristic[[t:1]] ([[t:2]]coming[[t:3]]) [[t:4]]from his action, and not a characteristic of his essence[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.542" style="display: none;">
+                <strong>Note 542:</strong> Literally: [[t:0]]for because they[[t:1]] (the adherents of attributes) [[t:2]]do not relinquish the word[[t:3]] [[t:4]]COMPOSITION[[t:5]], [[t:6]]the idea thereof is not thereby removed from the essence endowed with attributes;[[t:7]] that is to say: as soon as one admits an essence possessing [[t:8]]essential[[t:9]] attributes, one implicitly admits [[t:10]]composition[[t:11]], whereas by admitting only attributes of [[t:12]]action[[t:13]], it does not follow that the essence from which the actions emanate is something composite. — The words [[t:14]]יבטל מענאה[[t:15]] are rendered in Ibn-Tibbon’s version as [[t:16]]יבטל ענינה[[t:17]], the feminine suffix in [[t:18]]ענינה[[t:19]] referring to [[t:20]]מלת ההרכבה[[t:21]]; it is by a printer’s error that the editions bear, some [[t:22]]ענינם[[t:23]], others [[t:24]]ענינים[[t:25]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.543" style="display: none;">
+                <strong>Note 543:</strong> Literally: [[t:0]]but there is here a place of doubt that has led them to this[[t:1]], that is, which has led certain theologians to admit essential attributes[[t:2]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.544" style="display: none;">
+                <strong>Note 544:</strong> The author has here expressed himself in a truncated and obscure manner, and his words have been diversely interpreted. One would doubtless infer that, according to the adherents of the attributes, a distinction must be drawn between the [[t:0]]transitive[[t:1]] attributes, which indicate an action produced upon an object, and those which one may term [[t:2]]neutral;[[t:3]] these latter alone are what they call [[t:4]]essential attributes, which proceed not from His actions[[t:5]], whilst the [[t:6]]transitive[[t:7]] attributes, on the contrary, as, for example, that of [[t:8]]creator[[t:9]], cannot be [[t:10]]essential[[t:11]], relating necessarily to something external to God, for it would be absurd to assert [[t:12]]that God is the creator of Himself[[t:13]]. Behold how Moses of Narbonne explains these latter words: [[t:14]]ירצה אבל היותו בורא הוא בורא לזולתו לא לעצמו ולכן לא יהיה תאר עצמי לו יתעלה לפי שהוא מכלל פעולותיו[[t:15]]. «He intends: but [[t:16]]to be creator[[t:17]] signifies that He creats that which is external to Himself, and not [[t:18]]Himself;[[t:19]] wherefore this is not an [[t:20]]essential[[t:21]] attribute of God, for it does form part of His [[t:22]]actions[[t:23]].» Joseph Caspi says that the author here speaks of the arguments of little worth conceived by the subtlest amongst the [[t:24]]Motecallemîn[[t:25]] to defend their opinion concerning the attributes: they have, he says, divided the attributes into [[t:26]]transitive[[t:27]] and [[t:28]]neutral[[t:29]] ([[t:30]]והוא שיעשו חלוקה בין תארים יוצאים ובין מה שהם בודדים[[t:31]]), which the author indicats by citing as example the attribute derived from the verb [[t:32]]to create[[t:33]], to which (adds Caspi) one might substitute any other transitive verb, such as [[t:34]]to build, to write[[t:35]], etc.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.545" style="display: none;">
+                <strong>Note 545:</strong> The numerous attributes admitted by the [[t:0]]Cifâtiyya[[t:1]], according to the texts of the Koran, were subsequently reduced unto seven, which are: life, knowledge, will, power, speech, hearing, and sight. Vide Schahrestâni, German transl., vol. I, p. 95; Schmœlders, [Lat.: l. c.], p. 187; cf. Pococke, [Lat.: Sp. hist. Ar.], p. 216. Ibn-Roschd does observe that these seven attributes are equally suitable unto the soul, and that the essence of God, as determined by these attributes, would be of the same genus as the soul, with this difference, that it is not found within a body. Vide the observations added by Moses of Narbonne, at the conclusion of his Commentary, upon this chapter.— The word [[t:6]]כתאב[[t:7]], [[t:8]]Scripture[[t:9]], does not here signify the [[t:10]]Bible[[t:11]], but, generally, a book considered as divine, and notably the Koran; for the matter at hand does chiefly concern the doctrines professed by the Muslim theologians, and which certain Jewish doctors had borrowed from them.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.546" style="display: none;">
+                <strong>Note 546:</strong> These are, as we have said above, [[t:0]]neutral[[t:1]] attributes, indicating no action produced on an object.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.547" style="display: none;">
+                <strong>Note 547:</strong> The author does now seek to demonstrate that it is erroneously that one has believed it possible to separate these four attributes from the other attributes indicating [[t:0]]actions[[t:1]] and to constitute them [[t:2]]essential[[t:3]] attributes. Herein, in substance, is his reasoning, which he has not presented with all desirable clarity: Firstly, if by [[t:4]]to know[[t:5]] one does understand [[t:6]]to perceive oneself[[t:7]], then [[t:8]]life[[t:9]] and [[t:10]]knowledge[[t:11]] are absolutely identical in God, indicating both [[t:12]]a perception of oneself[[t:13]], and there is no cause to make of them two distinct attributes. But if one does admit the sense which the partisans of the attributes here attach to the word [[t:14]]knowledge[[t:15]], by which they signify the knowledge God possesses of created things, there is no reason whatsoever to make of knowledge an [[t:16]]essential[[t:17]] attribute, and the same holds true for power and will; for all these attributes do necessarily indicate, according to them, relations existing between God and created things, and are found under the same conditions as the attributes of action, as, for example, that of [[t:18]]creator[[t:19]]. Thus, the [[t:20]]essential[[t:21]] attributes, reduced to their true value, are but a vain hypothesis.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.548" style="display: none;">
+                <strong>Note 548:</strong> Life, says Aristotle, consists principally in sensation and in intelligence ([[t:0]]ἔοιϰε δὴ τὸ ζἠν εἶναι ϰυρίως τὸ αἰσθάνεσθαι ἤ νοεῖν[[t:1]], [Lat.: Eth. ad Nic.], l. IX, chap. 9). To affirm of a being that it lives, it suffices that there be within it intelligence, or sensation, or motion (Vide [[t:4]]Treatise on the Soul[[t:5]], l. II, chap. 2). In God, there can be question only of an [[t:6]]intelligible[[t:7]] perception, of the perception of Himself; His life is intelligence, and for Him knowledge and life are absolutely identical. Vide [Lat.: Metaph.], XII, 7: [[t:10]]ϰαὶ ζωὴ δέ γε ὑπάρχει · ἡ γὰρ νοῦ ἐνέργεια ζωή, ϰ. τ. λ[[t:11]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.549" style="display: none;">
+                <strong>Note 549:</strong> This is what the author will explain in greater detail in chapter LXVIII. — The first [[t:0]]אלמדרכה̈[[t:1]] is the active participle [[t:2]](المُذَكِّرَة)[[t:3]] ; the second, the passive participle [[t:4]](الْمُدْرَكَة)[[t:5]] .
+            </div>
+            
+            <div class="footnote-item" id="item-fn.550" style="display: none;">
+                <strong>Note 550:</strong> The inanimate body has no perception, and all perceptions, both sensible and intelligible, belong to the different faculties of the soul.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.551" style="display: none;">
+                <strong>Note 551:</strong> That is, the attributes called [[t:0]]essential[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.552" style="display: none;">
+                <strong>Note 552:</strong> Instead of [[t:0]]והוא[[t:1]], which several editions of Ibn-Tibbon's version carry, one must read, according to the Arabic: [[t:2]]העצם ההוא[[t:3]], as indeed the manuscripts and the [[t:4]]princeps[[t:5]] edition have it.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.553" style="display: none;">
+                <strong>Note 553:</strong> That is to say, one cannot establish a difference between the attributes of action and the attributes of relation; the latter cannot, any more than the former, be called [[t:0]]attributes essential[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.554" style="display: none;">
+                <strong>Note 554:</strong> Literally: [[t:0]]and with what one has also set forth regarding the reality of relation and[[t:1]] ([[t:2]]one says[[t:3]]) [[t:4]]that it is erroneously admitted[[t:5]]. The author intends to convey: Besides that the attributes of relation cannot be accounted [[t:6]]essential[[t:7]] attributes, one has shown above, in elucidating the true import of [[t:8]]relation[[t:9]], that it is only through error that one has deemed it possible to admit of any relation whatsoever between God and created things. See, in the preceding chapter, the IV[[t:10]]th[[t:11]] class of attributes.—By the words [[t:12]]ואנהא מטׄנונה̈[[t:13]], the author makes allusion to that which he has stated in the indicated passage (fol. 60 [[t:14]]b[[t:15]] of our text): [[t:16]]אמא אן חכון בינהמא נםבה̈ מא פהו אמר [[t:17]]יָסֶךְ[[t:18]] בה אנה [[t:19]]יעח[[t:20]] ולים כדׄלך[[t:21]] [[t:22]]But that there should be any relation between them, this is a matter which has been deemed admissible, albeit it is not so in reality[[t:23]] (p. 200).
+            </div>
+            
+            <div class="footnote-item" id="item-fn.555" style="display: none;">
+                <strong>Note 555:</strong> That is to say, these are attributes relating to [[t:0]]actions[[t:1]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 59 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 59</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.0">
+                <div class="he-cell"><b>השולל יותר – משיג יותר</b><br><span class="mediumGrey">השאלה: מה ההבדל בין המשיגים את האל בשלילה?</span><br><sup>1</sup> יכול השואל לשאול: כיוון שאין עצה להשיג את אמיתת עצמותו, וההוכחה מראה שהדבר המושג הוא רק שהוא מצוי, ותוארי החיוב בלתי אפשריים, כפי שהוכח – כיצד יהיה הבדל במעלה בין המשיגים? שהרי אם כן מה שהשיגו <b>משה רבנו</b> ו<b>שלמה</b>, הוא שמשיג כל אחד מן התלמידים, ובדבר זה לא ייתכן יתרון (של אחד על רעהו); והרי מפורסם אצל אנשי הדת ואף אצל הפילוסופים שההבדלים במעלה בזה הם רבים?<br><span class="mediumGrey">התשובה: רמות השלילה מקרבות להשגת אמת</span><br><sup>2</sup> דע לך שכך הוא הדבר, ושההבדל במעלה בין המשיגים גדול מאוד. כי ככל שמתארים יותר את המתואר, כך הוא מתייחד יותר, והמתאר מתקרב להשגת מהותו האמיתית. וכך ככל שתוסיף שלילות כלפיו יתעלה, תתקרב להשגה ותהיה קרוב אליו יותר ממי שאינו שולל מה שהוכחה לך שלילתו.</div>
+                <div class="en-cell">One might here pose the following question: If, in truth, there be no means to perceive the true essence of God, if one can demonstrate the impossibility of perceiving aught else save <i>that He is</i><sup class="fn-ref" onclick="showFn('fn.628')">628</sup>, and if affirmative attributes be impossible, as has been demonstrated, in which then consists the relative superiority amongst those who perceive? for then, that which our master Moses and Solomon perceived is the same thing as that which every individual amongst the students perceivs, and it is impossible to add aught thereto. And yet it is generally admitted by the theologians<sup class="fn-ref" onclick="showFn('fn.629')">629</sup>, or rather by the philosophers, that there are in this regard many gradations<sup class="fn-ref" onclick="showFn('fn.630')">630</sup>. Know then that verily it is so, and that there are most great nuances of superiority among those who perceive. In fact, in proportion as one augments the attributes of a subject, the latter is better determined and one apprehends better and better its true nature<sup class="fn-ref" onclick="showFn('fn.631')">631</sup>; and likewise, in proportion as thou augmentest the negations in regard to God, thou drawest nigh unto perception and art nearer thereto than he who denies not that which is demonstrated unto thee as behooving to be denied.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.1">
+                <div class="he-cell">מסיבה זו <br><sup>א)</sup> יש שאדם עמל שנים רבות כדי להבין מדע מסוים ולאמת את הנחותיו עד שיהיה לו ודאי, ותוצאת המדע ההוא כולה תהיה שנשלול מהאל עניין מסוים ונוכיח שבלתי אפשרי לייחס לו את העניין הזה. <br><sup>ב)</sup> ואחֵר, מן המתרשלים בעיון, לא יוכח לו הדבר, אלא יהיה אצלו בספק האם עניין זה נמצא לאל או לא נמצא לו. <br><sup>ג)</sup> ואחֵר, מעיוורי ההבנה, יחשוב למחויב את העניין ששלילתו הוכחה. <br><sup>א)</sup> כמו שאוכיח ש(האל) איננו גוף (ב,א), <br><sup>ב)</sup> ואחֵר יסתפק ולא ידע אם הוא גוף או איננו גוף, <br><sup>ג)</sup> ואחֵר יפסוק שהוא גוף ויפגוש את האל באמונה זו.<br><sup>3</sup> מה רב ההבדל בין שלושת האנשים האלה! הראשון הוא בלי ספק הקרוב ביותר לאל, והשני רחוק ממנו, והשלישי רחוק יותר. כיוצא בזה אם נניח רביעי שהוכח לו שהיפעלויות אצלו יתעלה אינן אפשריות, ודבר זה לא הוכח לראשון ששלל את הגשמיות, הרי הרביעי הזה הוא בלי ספק קרוב יותר לאל מן הראשון. וכך תמיד, עד שאם נמצא אדם שהוכחה לו אי היתכנותם של דברים רבים לגביו יתעלה שלדעתנו אפשר שיהיו לו או שיצאו ממנו, קל וחומר אם אנו מאמינים שהדבר מחויב – הרי אדם זה שלם יותר מאתנו בלי ספק.</div>
+                <div class="en-cell">Wherefore one man may weary himself for many years to understand a science and to verify the principles thereof, so that he may attain unto certitude<sup class="fn-ref" onclick="showFn('fn.632')">632</sup>; and then all this science produces no other result than (to teach us) that we must deny of God a certain thing which is known, by demonstration, to be inadmissible in respect of Him<sup class="fn-ref" onclick="showFn('fn.633')">633</sup>; whilst for another, among those who are weak in speculation, this is not demonstrated, and it remains doubtful for him whether this thing exists or exists not in God; and another yet, among those who are utterly bereft of vision, affirms of Him this thing whose negation is demonstrated (as indispensable). I, for example, shall demonstrate that He is in no wise a body; another will doubt, and will not know whether He be a body or whether He be not; and yet another will decide that He is a body, and will approach God with such a belief<sup class="fn-ref" onclick="showFn('fn.634')">634</sup>. How great shall be the difference between these three persons! The first shall indubitably be the nearest unto God, the second shall be far from Him, and the third, the farthest. Likewise, if we should suppose a fourth, for whom it was demonstrated that passions are inadmissible in respect of God, whereas for the first, who only denies corporeity, this was not demonstrated, this fourth person would indubitably be nearer unto God than the first, and so forth; so that, if there were found a person for whom it was demonstrated that it is impossible (to admit), in respect of God, many things which, according to us, <i>might</i> exist in Him, or emanate from Him, — and with all the more reason, if we went so far as to believe this <i>necessary</i>, — this person would indubitably be more perfect than we.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.2">
+                <div class="he-cell">התבאר לך אם כן שככל שתוכח לך שלילת דבר מסוים ממנו – אתה שלם יותר. וככל שאתה מחייב לו דבר נוסף (על עצמותו) – אתה מדמה (אותו לזולתו) ומתרחק מידיעת אמיתתו.<br><sup>4</sup> באופן הזה ראוי להתקרב להשגתו בחקירה ובדרישה עד שתיוודע אי היתכנותו של כל מה שלא ייתכן לגביו; לא שתחייב לו דבר באופן שהוא עניין נוסף על עצמותו, או שהעניין הזה הוא שלמות לגביו משום שאתה מוצא אותו שלמות לגבינו. כי כל השלמויות הן תכונות כלשהן, ולא כל תכונה קיימת לכל בעל תכונה.</div>
+                <div class="en-cell">Thus, it is manifest unto thee that, as often as it shall be demonstrated unto thee that a certain thing must be denied of God, thou shalt thereby be more perfect, and that as often as thou shalt affirmatively attribute unto Him a thing added (to His essence), thou shalt liken Him (unto the creatures), and thou shalt be far from knowing His reality. It is in this manner that one must draw near to the perception of God, by means of inquiry<sup class="fn-ref" onclick="showFn('fn.635')">635</sup> and study, in order to know the falsity of all that is inadmissible in respect of Him, and not by affirmatively attributing to Him a thing as being added to His essence, or as if this thing were a perfection in respect of Him, because it is found to be one in respect of ourselves; for all perfections are but certain <i>capacities</i><sup class="fn-ref" onclick="showFn('fn.636')">636</sup>, and no capacity exists in every (being) endowed with capacity<sup class="fn-ref" onclick="showFn('fn.637')">637</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.3">
+                <div class="he-cell">דע שכשאתה מחייב לו דבר אחר אתה רחוק ממנו בשני אופנים: האחד, משום שכל מה שאתה מחייב לו הוא שלמות (רק) עבורנו; והשני, שאין הוא בעל דבר אחר, אלא עצמותו היא שלמויותיו כפי שביארנו (א,נג).</div>
+                <div class="en-cell">Thou shalt know, therefore, that if thou affirmatively attributest unto Him a thing other (than Himself), thou removest thyself from Him in two respects: first, because all that thou attributest unto Him is a perfection (only) for us, and, secondly, because He possesses no thing other (than Himself), but on the contrary, it is His essence itself which forms His perfections, as we have set forth.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.4">
+                <div class="he-cell"><span class="mediumGrey">שיא ידיעת ה' – ההכרה באי היכולת להשגת ידיעתו</span><br><sup>5</sup> וכיוון שכל אחד מבין שאין להגיע להשגת מה שבכוחנו להשיג אלא בשלילה, והשלילה אינה מעניקה שום ידע על אמיתת הדבר שנשלל ממנו מה שנשלל – אמרו בפירוש כל בני האדם, שהיו ושיהיו, שאת האל יתעלה לא ישיגו השכלים, ולא ישיג (או: יושג) מה הוא – אלא הוא, ושהשגתו היא חוסר היכולת להגיע לתכלית השגתו; וכל הפילוסופים אומרים: סִנוְרָנוּ ביופיו, ונעלם מאתנו בשל עוצם הופעתו, כפי שהשמש נעלמת מן העיניים החלשות מהשגתה.<br><sup>6</sup> וכבר האריכו לדבר בזה בדברים שאין צורך לחזור עליהם כאן. וההולם ביותר מכל מה שנאמר בעניין זה הוא דבריו ב<b>תִלים</b>: "<b>לְךָ דֻמִיָּה תְהִלָּה</b>" (תהילים סה,ב), פירושו: השתיקה לגביך היא השיבוח. וזה לשון הולם מאוד מאוד לגבי העניין הזה, כי כל דבר שאנחנו אומרים ומכוונים בו להגדיל ולשבח, נמצא בו פגיעה מסוימת בו יתעלה ויהיה בו חסרון כלשהו. על כן השתיקה עדיפה, ויש להסתפק במה שהשכלים משיגים, כמו שציווה את השלמים ואמר: "<b>אִמְרוּ בִלְבַבְכֶם עַל מִשְׁכַּבְכֶם וְדֹמּוּ סֶלָה</b>" (תהילים ד,ה).</div>
+                <div class="en-cell">Now, everyone having perceived that, even as to that which we have the faculty to perceive (of God), there is no means to perceive it otherwise than by negation, and negation making us know absolutely nothing of the reality of the thing to which it is applied<sup class="fn-ref" onclick="showFn('fn.638')">638</sup>, all, both ancients and moderns, have declared that the intellects cannot perceive God, that He alone perceivs <i>what He is</i>, and that to perceive Him is (to recognize) that one is powerless to perceive Him fully<sup class="fn-ref" onclick="showFn('fn.639')">639</sup>. All the philosophers say: We are dazzled by His beauty, and He hids Himself from us by the very force of His manifestation, even as the sun hids itself from the eyes, which are too weak to perceive it. Men have enlarged upon this in (discourses) which it would be useless to repeat here<sup class="fn-ref" onclick="showFn('fn.640')">640</sup>; but that which has been said most eloquently in this regard are these words of the Psalmist: <span dir="rtl">לך דמיה תהלה</span> (Ps. 65, 2), the sense of which is: <i>unto Thee silence is praise.</i> This is a most eloquent expression upon this subject; for, whatsoever we may say with the intent of exalting and glorifying (God), we shall find therein something offensive<sup class="fn-ref" onclick="showFn('fn.641')">641</sup> in respect of God, and we shall see (expressed) therein a certain imperfection. It is therefore better to be silent and to limit oneself<sup class="fn-ref" onclick="showFn('fn.642')">642</sup> to the perceptions of the intellect, as perfect men have recommended, saying: <i>Commune</i> (<i>meditate</i>) <i>with your own heart upon your bed, and be still</i> (Ps. 4, 5).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.5">
+                <div class="he-cell"><span class="mediumGrey">מאבקם של חז"ל בריבוי דברי השבח</span><br><sup>7</sup> ידועה לך אמרתם המפורסמת, שהלוואי שהיו כל האמירות כמותה, ואני אצטט לך אותה בלשונה אף שהיא אִמרה זכורה היטב, כדי להעיר לך על משמעויותיה. אמרו: "<b>ההוא דנחת קמיה דר' חנינה</b> (=אותו אדם שירד להתפלל כשליח ציבור לפני ר' חנינה). <b>אמר: 'האל הגדול הגבור והנורא האדיר החזק הירוי והעיזוז'. אמר ליה ר' חנינה: 'שלמתיה לשבחי דמרך?</b> (=סיימת את שבחי אדוניך, ה'?) <b>השתא אנן תלת קמיתא אלמלא דאמרינהו משה רבינו ואתו אנשי כנסת הגדולה ותקנינהו בתפלה אנן לא הוה יכילנן למימרינהי, ואת אמרת ואזלת?</b> (=הרי אנחנו את שלוש הראשונות ["הגדול הגיבור והנורא"] אלמלא שאמר אותן משה רבנו ובאו אנשי כנסת הגדולה ותיקנו אותן בתפילה לא היינו יכולים לאומרן, ואתה אמרת והמשכת?) <b>משל למה הדבר דומה? למלך בשר ודם שהיו לו אלף אלפים דינרי זהב ומקלסין</b> (=משבחים) <b>אותו בשלכסף</b>, <b>והלא גנאי הוא לו'</b>" (בבלי מגילה כה,א). עד כאן לשון איש המעלה הזה.</div>
+                <div class="en-cell">Thou knowest also a celebrated passage of the Sages to which I would that all their words were similar; although it be a passage which is known by heart, I shall cite it to thee textually, in order to call thy attention to the ideas it contains. Behold what they say<sup class="fn-ref" onclick="showFn('fn.643')">643</sup>: "A certain man, coming into the presence of Rabbi Hanina, expressed himself thus (whilst making his prayer): O God, the great, the mighty, the terrible, the magnificent, the strong, the feared, the imposing!... The Rabbi said unto him (interrupting him): Hast thou finished all the praises of thy Lord? Verily, even the first three (attributes), had Moses not pronounced them in the Law<sup class="fn-ref" onclick="showFn('fn.644')">644</sup> and had the men of the <i>Great Assembly</i><sup class="fn-ref" onclick="showFn('fn.645')">645</sup> not come to fix them in the prayer, we should not dare to utter them; and thou, thou utterest so great a number! To make a comparison: a mortal king, for example, who should possess millions of pieces of gold, and whom one should praise for (possessing pieces) of silver, would this not be an offense unto him?" Behold how this good man expressed himself.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.6">
+                <div class="he-cell"><span class="mediumGrey">ניתוח ומסקנות</span><br><sup>8</sup> ראשית, התבונן בסלידתו מריבוי תוארי החיוב ומאיסתו בהם. והתבונן כיצד הוא אומר במפורש על התארים שאילו היה הדבר תלוי בשכלינו בלבד, לא היינו אומרים אותם לעולם ולא היינו מדברים על דבר מהם. אך כיוון שהצורך לפנות אל בני האדם במה שיקנה להם תפיסה כלשהי, כפי שאמרו "<b>דברה תורה כלשון בני אדם</b>", הזקיק שיתואר להם ה' בשלמויותיהם, הרי המרב מבחינתנו הוא שנעצור אצל אותן אמירות ולא נכנה אותו בהן אלא בשעת קריאתן ב<b>תורה</b> בלבד. אך כיוון שבאו גם <b>אנשי כנסת הגדולה</b>, שהם נביאים, וסידרו את הזכרתן בתפילה, המרב מבחינתנו הוא שנאמר אותן בלבד.<br><sup>9</sup> אם כן תורף האמירה הזו היא שהוא אמר בפירוש שתפילתנו בהן מבוססת על שני הכרחים: האחד, שהן נאמרו ב<b>תורה</b>; והשני, שהנביאים סידרו את התפילה בהן. אם כן לולא ההכרח הראשון לא היינו מזכירים אותן, ולולא ההכרח השני לא היינו מוציאים אותן ממקומן ולא היינו מתפללים בהן, ואילו אתה ממשיך בתארים?!</div>
+                <div class="en-cell">Observe first how great was his reluctance and his aversion to the accumulation of affirmative attributes<sup class="fn-ref" onclick="showFn('fn.646')">646</sup>, and observe likewise that he says clearly that, were we left to our own intelligence alone<sup class="fn-ref" onclick="showFn('fn.647')">647</sup>, we should never utter<sup class="fn-ref" onclick="showFn('fn.648')">648</sup> any attributes nor pronounce any of them; but since, by the necessity of speaking unto men in such wise as to give them some idea (of God), one was forced to describe<sup class="fn-ref" onclick="showFn('fn.649')">649</sup> God by their (own) perfections — [in accordance with these words: <i>the Law has spoken according to the language of men</i><sup class="fn-ref" onclick="showFn('fn.650')">650</sup>] —, we ought, in the last resort, to confine ourselves to the (three) words in question<sup class="fn-ref" onclick="showFn('fn.651')">651</sup>, and even then we should never employ them as names of God, save when we read them in the Pentateuch. If, however, the men of the <i>Great Synod</i>, who were (in part) prophets, came afterwards to sanction their use in prayer, we ought ever to restrict ourselves to these words alone<sup class="fn-ref" onclick="showFn('fn.652')">652</sup>. In substance, then, he (R. ’Hanînâ) setts forth that two necessities must meet for us to employ them in prayer: the first, that they be found in the Pentateuch; the second, that the prophets should have established them in prayer. Without the first necessity, we should not pronounce them (at all); without the second, we should not have taken them from their (primitive) place to use them in prayer; and thou (added he), dost thou accumulate attributes<sup class="fn-ref" onclick="showFn('fn.653')">653</sup>?</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.7">
+                <div class="he-cell">הרי התברר לך גם כן מן הדברים האלה, שלא כל התארים המיוחסים לה' שתמצא בספרי הנביאים ראוי לנו להתפלל בהם ולומר אותם. משום שהוא לא אמר (רק): "<b>אלמלא דאמרינהו משה רבינו לא הוה יכלינן למימרינהי</b>" אלא (הוסיף) תנאי אחר: "<b>ואתו אנשי כנסת הגדולה ותקנינהי בתפלה</b>", ואז מותר לנו להתפלל בהם.<br><span class="mediumGrey">פולמוס נגד הפיוטים</span><br><sup>10</sup> לא כפי שעשו הבורים באמת, שהפריזו והאריכו והרחיבו בתפילות שחיברו ובבקשות שניסחו כדי להתקרב לה' על ידיהן לפי מחשבתם השגויה, והם מתארים את ה' בהן בתארים שאילו תואר בהם אחד מבני האדם היה זה חסרון לגביו. כי אין הם מבינים את העניינים הנכבדים האלה, הזרים לשכלי ההמון, ועשו את ה' יתהדר ויתרומם אסקופה נדרסת ללשונותיהם, ותיארוהו ופנו אליו בכל מה שחשבו שהוא מותר, והם מפריזים בזה עד שהם מעוררים אותו להיפעלות לפי מחשבת השווא שלהם. ובפרט אם הם מוצאים לשון של דברי נביא בכך, הרי הדבר מותר מבחינתם לגשת לכתובים שראוי לפרשם (שלא כפשוטם) בכל אופן שהוא, אך הם מבינים אותם כפשוטם ("כחיצוניותם") וגוזרים מהם ומסיקים מהם ובונים עליהם אמירות.<br><sup>11</sup> ההיתר לכך נפוץ אצל המשוררים ומחברי הבקשות או אצל מי שחושב שהוא מחבר שיר, עד שחוברו אמירות שחלקן כפירה גמורה ובחלקן יש אווילות ודמיון קלוקל המביאים את האדם באופן טבעי לצחוק כשהוא שומע אותם, ולבכי כשהוא מתבונן כיצד נאמרות אותן האמירות ביחס לה' יתרומם ויתהדר. ולולא חֶמלתי מלגלות את חסרונם של האומרים הייתי מצטט לך מהן משהו כדי לעורר אותך על מקומות העברה בהן. מכל מקום הן אמירות שחסרונן גלוי מאוד למבין.</div>
+                <div class="en-cell">It is manifest unto thee also by these words (of R. ’Hanînâ) that it is not permitted us to employ in prayer, nor to pronounce, all the epithets which thou findest attributed to God in the books of the prophets; for he says not (merely): “Had not Moses said them, we should not dare to say them”, but (he adds as) another condition: “and had not the men of the <i>Great Synod</i> come to establish them in prayer”, and since then only has it been permitted us to employ them in prayer. But not as have done those men verily inept, who have striven to dwell at length (upon the attributes), in prayers of their own composition and orations of their own fashion, whereby they thought to draw nigh unto God, and in which they have given Him attributes which, even were they given to a human being, would imply an imperfection<sup class="fn-ref" onclick="showFn('fn.654')">654</sup>. It is because, not understanding these sublime subjects, which are too foreign to the intelligences of the vulgar, they approached God with their rash tongues, and used toward Him all the attributes and all the addresses which they thought they might permit themselves<sup class="fn-ref" onclick="showFn('fn.655')">655</sup>, and dwelt thereon, in order to move Him, as they imagined, in such wise that He might be affected (by their words). Especially when they found in this regard some text of a prophetic discourse, they believed themselves permitted to employ these same terms, which, in any case, have need of being allegorically interpreted; they took them in their literal sense, derived therefrom (other terms), formed ramifications thereof, and built discourses thereupon. This species of license is frequent among poets and orators, or among those who pretend to make verses; so that there have been composed discourses which, in part, are pure irreligion, and in part betray a weakness of mind and a corruption of the imagination such as would naturally cause a man to laugh when he listens to them, and to weep when he considers that such language has been held toward God. Were it not painful for me to disparage the authors, I should cite to thee somewhat thereof to draw thy attention to what is there impious<sup class="fn-ref" onclick="showFn('fn.656')">656</sup>; but these are discourses whose vice is too evident to him who knows how to understand,</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.8">
+                <div class="he-cell"><sup>12</sup> וראוי שתתבונן ותאמר: אם <b>לשון הרע והוצאת שם רע</b> חטא גדול, על אחת כמה וכמה התרת הלשון כלפי ה' יתעלה ותיאורו בתארים שהוא נעלה מהם. איני אומר שזה חטא (בלבד) אלא <b>חירוף וגידוף בשגגה</b> מצד ההמון השומעים ומצד אותו טיפש האומר. ואילו מי שהשיג את חסרונן של האמירות האלה ואומרן, הרי הוא לדעתי מכלל אלה שנאמר עליהם: "<b>וַיְחַפְּאוּ בְנֵי יִשְׂרָאֵל דְּבָרִים אֲשֶׁר לֹא כֵן עַל ה' אֱלֹהֵיהֶם</b>" (מלכים־ב,יז,ט), ונאמר: "<b>וּלְדַבֵּר אֶל ה' תּוֹעָה</b>" (ישעיהו לב,ו).<br><span class="mediumGrey">הנחיה לקורא</span><br><sup>13</sup> על כן אם אתה ממי ש<b>יחוס על כבוד קונו</b> לא ראוי לך שתשמעם בשום אופן, קל וחומר שתאמרם, קל וחומר שתעשה דוגמתם. ידוע לך גודל עוונו של מי ש<b>יטיח דברים כלפי מעלה</b> (ראו בבלי, תענית כה,א). ואין ראוי לך כלל להתעסק בתיאור ה' בחיוב כדי להגדילו במחשבת השווא שלך. אין לחרוג ממה שסידרו <b>אנשי כנסת הגדולה</b> בתפילות וב<b>ברכות</b>, ודי בכך מצד ההכרח, די והותר, כפי שאמר <b>ר' חנינה</b>. ואילו שאר מה שנאמר בספרי הנביאים יש לקרוא בעת המעבר עליו, אבל יש להבינו כפי שכבר ביארנו, שהם תוארי פעולות או (תארים שמטרתם) להורות על שלילת העדרם. וגם עניין זה אין לגלות להמון, אלא דרך עיון זו מתאימה ליחידי הסגולה, שפיאורו של ה' אצלם אינו שיאמרו מה שאינו ראוי אלא שישכילו כראוי.</div>
+                <div class="en-cell">and thou must say to thyself in pondering thereon: if it be a grievous sin to <i>speak evil</i> and to <i>slander the reputation of another</i><sup class="fn-ref" onclick="showFn('fn.657')">657</sup>, how much more so (is one guilty) in giving free rein to his tongue when it concerns God, and in giving Him attributes above which He is exalted? I should not call this a sin, but <i>an offence, and a blasphemy rashly committed</i> by the multitude that listens and by that fool who utters (such words). But as for him who understands what there is of vice in such discourses, and who (notwithstanding this) pronouncs them, he is, in my judgment, of the number of those of whom it was said: <i>and the children of Israel imagined concerning God words that were not right</i> (II Kings, xvii, 9)<sup class="fn-ref" onclick="showFn('fn.658')">658</sup>, and elsewhere: <i>and to utter error against the Lord</i> (Isaiah, xxxii, 6). If then thou art of those <i>who respect the glory of their Creator</i><sup class="fn-ref" onclick="showFn('fn.659')">659</sup>, thou must by no means lend an ear thereto; and how then wouldst thou dare to pronounce them, and how (much more so) wouldst thou dare to compose the like? For thou knowest how great is the sin of him <i>who hurls words toward heaven</i><sup class="fn-ref" onclick="showFn('fn.660')">660</sup>. One must by no means engage in attributes of God (expressed) by affirmation, believing thereby to glorify Him, and one must not depart from that which the men of the <i>Great Synod</i> have established in prayers and benedictions; there is therein enough for the need, and more than enough, as R. ’Hanînâ has said. As for what is further found (in the way of attributes) in the books of the prophets, one may read it in passing, provided one admit, as we have set forth, that these are attributes of <i>action</i>, or that they indicate the negation of their privation<sup class="fn-ref" onclick="showFn('fn.661')">661</sup>. And this, moreover, must not be divulged to the multitude; on the contrary, this kind of study belongs to the select few who do not believe they glorify God by saying that which is not seemly, but by understanding aright.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.9">
+                <div class="he-cell"><span class="mediumGrey">הדגשת חז"ל את הפער בין ה' לאדם</span><br><sup>14</sup> אשוב להשלים את ההערה על אמירת <b>ר' חנינה</b> ולדייק בה. הוא לא אמר: '<b>משל למלך שהיו לו אלף אלפים דינרי זהב ומקלסין אותו במאה דינרין</b>', כי משל זה היה מורה ששלמויותיו יתעלה שלמות יותר מאותן שלמויות שיוחסו לו, אך הן מן המין שלהן. ואין הדבר כן, כפי שהוכחנו (א,נו), אלא דיוק המשל הזה הוא דבריו "<b>דינרי זהב ומקלסין אותו בשלכסף</b>", כדי להורות שמה שהן אצלנו שלמויות אין אצלו יתעלה דבר ממינן, אלא כולן חסרון לגביו, כפי שביאר ואמר במשל הזה: "<b>והלא גנאי הוא לו</b>".</div>
+                <div class="en-cell">I return now to complete my remarks upon the words of R. ’Hanînâ and their wise arrangement<sup class="fn-ref" onclick="showFn('fn.662')">662</sup>. He says not: “To make a comparison, a mortal king, for example, who should possess <i>millions</i> of pieces of gold, and whom one should praise for (possessing) <i>a hundred pieces</i>”; for this comparison (so conceived) would indicate that the perfections of God are greater than those attributed to Him, but that they are nevertheless of the same species, whereas, as we have demonstrated, it is not so. But the wisdom of this comparison consists in these words: “... pieces <i>of gold</i>, and whom one should praise for (possessing pieces) <i>of silver</i>”, which indicate that God has nothing which is of the same species as those perfections which are found in us, and that these, on the contrary, are imperfections in respect to Him, as he explains by saying: “Would this not be an offence unto him?”</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..58.10">
+                <div class="he-cell">הרי הודיע לך שכל מה שתחשוב מן התארים האלה שהוא שלמות, הוא חסרון לגביו יתעלה אם הוא ממין מה שאצלנו. וכבר הנחה אותנו <b>שלמה</b> עליו השלום בעניין זה בדברים מספיקים ואמר: "<b>כִּי הָאֱלֹהִים בַּשָּׁמַיִם וְאַתָּה עַל הָאָרֶץ, עַל כֵּן יִהְיוּ דְבָרֶיךָ מְעַטִּים</b>" (קהלת ה,א).</div>
+                <div class="en-cell">Thus, I have made known to thee that all those attributes which thou believest to be a perfection<sup class="fn-ref" onclick="showFn('fn.663')">663</sup> constitute an imperfection in respect to God, if they be of the same species as those which we possess. Solomon has already sufficiently instructed us in this regard, saying: <i>For God is in heaven, and thou upon earth; therefore let thy words be few</i> (Ecclesiastes, v, 1).</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.628" style="display: none;">
+                <strong>Note 628:</strong> Literally: [[t:0]]if the demonstration leads[[t:1]] ([[t:2]]to this conviction[[t:3]]) [[t:4]]that[[t:5]] [[t:6]]the perceived thing is only[[t:7]] [[t:8]]THAT IT EXISTS.[[t:9]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.629" style="display: none;">
+                <strong>Note 629:</strong> See above, chap. XVII, p. 68, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.630" style="display: none;">
+                <strong>Note 630:</strong> Literally: [[t:0]]that the gradual superiority in this regard is multiple.[[t:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.631" style="display: none;">
+                <strong>Note 631:</strong> Literally: and he who attributes (that is to say, he who makes the attributes), approaches perception, reality.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.632" style="display: none;">
+                <strong>Note 632:</strong> Literally: [[t:0]]in order to possess it with certainty[[t:1]] or [[t:2]]with certainty.[[t:3]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.633" style="display: none;">
+                <strong>Note 633:</strong> Literally: [[t:0]]of which it is known, by demonstration, that it is false that this thing can be attributed unto it.[[t:1]] The verb [[t:2]]תעלם[[t:3]] is the preterite of the Fifth [[t:4]]Form[[t:5]], and one ought to pronounce it [[t:6]]تَعَلَّمَ[[t:7]]; instead of [[t:8]]והודיע[[t:9]], which the editions of Ibn-Tibbon's version bear, one reads, in the manuscripts, [[t:10]]ונודיע[[t:11]] or [[t:12]]ונודע[[t:13]], and it is this latter reading that one ought to adopt. Al-’Harizi likewise has [[t:14]]שנודע[[t:15]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.634" style="display: none;">
+                <strong>Note 634:</strong> The word [[t:0]]הכונה[[t:1]], which one reads here in all editions of Ibn-Tibbon's version, is an error; the manuscripts bear [[t:2]]האמונה[[t:3]].—It is mistakenly that Ibn-Falaquera does here presume to rectify Ibn-Tibbon's version, by rendering the Arabic verb [[t:4]]וילקי[[t:5]] as [[t:6]]וישליך[[t:7]], such that one would be obliged to translate: [[t:8]]and He casts God into this belief[[t:9]], which, he says, is a figurative expression; Ibn-Falaquera has been led into error by a faulty reading, for he has read [[t:10]]פי הדׄה אלעקידח̈[[t:11]], whereas the true reading is [[t:12]]בהדׄה אלעקידה̈[[t:13]]. Vide the Appendix to the [[t:14]]Moré ha-Moré[[t:15]], p. 151.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.635" style="display: none;">
+                <strong>Note 635:</strong> The word [[t:0]]באלבחתׄ[[t:1]] is not expressed in the editions of Ibn-Tibbon's version; the manuscripts of this version carry [[t:2]]בדרישה ובחקירה[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.636" style="display: none;">
+                <strong>Note 636:</strong> On the meaning of the word [[t:0]]malkeh[[t:1]] [[t:2]](malakah)[[t:3]] , which we render by [[t:4]]capacity[[t:5]], and which corresponds to the Greek word [[t:6]]hexis[[t:7]], cf. above, p. 195, notes 1 and 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.637" style="display: none;">
+                <strong>Note 637:</strong> [Footnote 637 content missing]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.638" style="display: none;">
+                <strong>Note 638:</strong> Literally: [[t:0]]of the thing of which one denies what one denies.[[t:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.639" style="display: none;">
+                <strong>Note 639:</strong> That is, our perception of God consists in recognizing that we are powerless to perceive his true essence.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.640" style="display: none;">
+                <strong>Note 640:</strong> The author may be alluding to a passage from Ba’hya (Devoirs des cœurs, book I, chapter 10), where the same subject has been extensively developed. In establishing that it is impossible for the intelligence to perceive directly the divine essence, which manifests itself to us only through its works, Ba’hya also uses the comparison taken from the light of the sun, which the sight cannot perceive directly.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.641" style="display: none;">
+                <strong>Note 641:</strong> Literally: [[t:0]]a charge[[t:1]], [[t:2]]a burden[[t:3]], or [[t:4]]an attack[[t:5]] (from [[t:6]]حَبَلَ[[t:7]], [Lat.: impetum fecit])[[t:10]];[[t:11]] the author intends to convey: by believing one praises God, one charges Him with something unworthy of His true being, and one offends Him. Ibn-Tibbon renders the word [[t:12]]חמל[[t:13]] by [[t:14]]מעמם[[t:15]] (charge). Ibn-Falaquera prefers to render it by [[t:16]]טורח[[t:17]] or by [[t:18]]משא[[t:19]], which is nigh the same thing; vide the Appendix of the [[t:20]]Moré ha-Moré[[t:21]], where one reads concerning our passage: [[t:22]]והנכון להעתיק נמצא בו משא מה או טורח מה[[t:23]]. This passage, drawn from Hebrew ms. No. 352 of the ancient collection, is wanting in the edition of the [[t:24]]Moré ha-Moré[[t:25]] and in most manuscripts.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.642" style="display: none;">
+                <strong>Note 642:</strong> One should read, in Ibn-Tibbon’s version, [[t:0]]וההםתפקות[[t:1]], and not [[t:2]]וההשתקפות[[t:3]], as several editions have.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.643" style="display: none;">
+                <strong>Note 643:</strong> Vide Babylonian Talmud, treatise [[t:0]]Berakhôth[[t:1]], fol. 33 [[t:2]]b.[[t:3]] This passage, as cited in our text, is not entirely conformable to our editions of the Talmud, and the various Arabic and Hebrew manuscripts of the [[t:4]]Guide[[t:5]] likewise offer numerous variants. The same holds true for nearly all Talmudic citations, and occasionally for Biblical citations, which authors ordinarily made from memory, and which have often been corrected by scribes. Ba’hya, in his treatise on the [[t:6]]Duties of the Hearts[[t:7]] (Book I, chap. 10), cites the same passage with other variants. One has followed several manuscripts which are well-nigh conformable, and one's reading differs but little from that of Al-’Harizi.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.644" style="display: none;">
+                <strong>Note 644:</strong> See Deuteronomy, chapter X, [[t:0]]V[[t:1]]. 17.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.645" style="display: none;">
+                <strong>Note 645:</strong> On the assembly called the [[t:0]]great Synod[[t:1]] or the [[t:2]]great Synagogue[[t:3]], to which the composition of daily prayers is attributed, see my History of the [[t:4]]Land of Palestine[[t:5]], p. 479 and 480.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.646" style="display: none;">
+                <strong>Note 646:</strong> Some manuscripts read [[t:0]]אלאיגׄאב[[t:1]], with the article, and similarly the two Hebrew versions, [[t:2]]החיוב[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.647" style="display: none;">
+                <strong>Note 647:</strong> That is to say: if the matter were abandoned to one's sole judgment, and if certain attributes had not been consecrated by Holy Writ and by the ritual of prayers. The verb [[t:0]]תרכנא[[t:1]] is in the passive voice, and one ought to pronounce [[t:2]]تُرِكْنَا[[t:3]]; Ibn-Tibbon has rendered it with great exactitude by [[t:4]]הונחנו[[t:5]] (mss. and edit. [Lat.: princeps]), and it is erroneously that, in most editions, this word has been altered to [[t:8]]הונחו[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.648" style="display: none;">
+                <strong>Note 648:</strong> Instead of Kalnehah, one of the Leiden manuscripts has Aqlenehah; this reading, expressed by Al-’Harazi (We have not understood them), does not convey a suitable sense.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.649" style="display: none;">
+                <strong>Note 649:</strong> The words [[t:0]]אן יוצף[[t:1]] depend on the verb [[t:2]]אלגׄאת[[t:3]], of which the words [[t:4]]צׄרורה̈ אלכׄטאב[[t:5]] form the subject; the literal translation would be: [[t:6]]since the necessity of speaking to men… has forced one to describe God, etc.[[t:7]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.650" style="display: none;">
+                <strong>Note 650:</strong> See above, at the beginning of chap. XXVI.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.651" style="display: none;">
+                <strong>Note 651:</strong> That is, we should be limited to the attributes of grand, powerful, and formidable.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.652" style="display: none;">
+                <strong>Note 652:</strong> Literally: [[t:0]]notre terme[[t:1]] ([[t:2]]devrait être[[t:3]]) [[t:4]]de les dire[[t:5]] ([[t:6]]eux[[t:7]]) [[t:8]]seulement;[[t:9]] that is to say: we should, in the prayer, limit ourselves to pronouncing these three attributes alone.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.653" style="display: none;">
+                <strong>Note 653:</strong> Literally: [[t:0]]you persist in the attributes.[[t:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.654" style="display: none;">
+                <strong>Note 654:</strong> Literally: [[t:0]]who have extended and prolonged[[t:1]] ([[t:2]]the attributes[[t:3]]) [[t:4]]and have made efforts[[t:5]] ([[t:6]]in this regard[[t:7]]), [[t:8]]in prayers which they have composed and orisons which they have fashioned, by which, in their opinion, they drew nigh unto God, and in which they described God by such attributes, that, were one thus to describe an individual amongst men, this would be[[t:9]] ([[t:10]]to express[[t:11]]) [[t:12]]an imperfection concerning him.[[t:13]] The verb [[t:14]]אטנבוא[[t:15]], which signifies [[t:16]]they have extended themselves[[t:17]] or [[t:18]]they have insisted[[t:19]], has been rendered, in Ibn-Tibbon's version, by [[t:20]]המריצו בשבחים[[t:21]] (they have insisted [[t:22]]upon praises[[t:23]]); the word [[t:24]]בשבחים[[t:25]] is an addition by the translator, and likewise, further on, he has rendered [[t:26]]ויטנבון[[t:27]] by [[t:28]]וימריצו לשבח[[t:29]]. Instead of [[t:30]]ואגׄתהדוא[[t:31]] ([[t:32]]and they have made efforts[[t:33]]), some manuscripts bear [[t:34]]ואםתועבוא[[t:35]] (X[[t:36]]e[[t:37]] form of [[t:38]]ועב[[t:39]]), [[t:40]]and they have accumulated[[t:41]]; it is this latter reading which Ibn-Tibbon appears to have followed, rendering: [[t:42]]והרבו דברים[[t:43]], [[t:44]]and they have accumulated words[[t:45]], whereas Al-’Harizi has [[t:46]]וישתדלו[[t:47]], which accords with our reading.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.655" style="display: none;">
+                <strong>Note 655:</strong> Literally: [[t:0]]they took God the Most High as the step of their tongues, and described Him and spoke to Him through all that they considered permitted.[[t:1]] [[t:2]]מדרםה̈[[t:3]] [[t:4]]مَدْرَسَة[[t:5]] here means [[t:6]]the place that is trodden;[[t:7]] this word is missing from dictionaries.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.656" style="display: none;">
+                <strong>Note 656:</strong> Literally: [[t:0]]On the site of the transgression[[t:1]] or [[t:2]]the sin.[[t:3]] Some manuscripts have [[t:4]]מואצׄע[[t:5]], [[t:6]]the places[[t:7]], and similarly Al-’Harizi, [[t:8]]places[[t:9]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.657" style="display: none;">
+                <strong>Note 657:</strong> The author here intentionally employs the [[t:0]]Hebrew[[t:1]] words [[t:2]]לשון הרע[[t:3]] ([[t:4]]the evil tongue[[t:5]] or [[t:6]]slander[[t:7]]), and [[t:8]]הוצאת שם רע[[t:9]] ([[t:10]]propagation of an evil reputation[[t:11]]), which are in the mouth of all Hebrew moralists; it is thus that a little further on he inserts into the Arabic phrase the Hebrew words [[t:12]]חרוף וגדוף בשגגה[[t:13]], and yet others.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.658" style="display: none;">
+                <strong>Note 658:</strong> We deviate slightly from the true sense of this passage, and translate it as demanded by the application made here by Maimonides.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.659" style="display: none;">
+                <strong>Note 659:</strong> These words contain an allusion to a passage from the [[t:0]]Mischnâ[[t:1]]. See above, chap. XXXII, p. 113, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.660" style="display: none;">
+                <strong>Note 660:</strong> The author alludes to the words of R. Éléazar as reported in the Babylonian Talmud, [[t:0]]Succâ[[t:1]], fol. 53 [[t:2]]a[[t:3]], and [[t:4]]Ta’anîth[[t:5]], fol. 25 [[t:6]]a.[[t:7]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.661" style="display: none;">
+                <strong>Note 661:</strong> See the previous chapter, p. 245, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.662" style="display: none;">
+                <strong>Note 662:</strong> The word [[t:0]]אחכאם[[t:1]], as Ibn-Falaquera observed (Moré ha-Moré, p. 151), should be pronounced [[t:2]]إحكام[[t:3]] (the nomen actionis of the IV[[t:4]]th[[t:5]] form), and signifies [[t:6]]arrangement, good order;[[t:7]] the author intends to speak of the sagacious manner in which R. ’Hanînâ had disposed his words, so as to bring forth several important teachings. Ibn-Tibbon translates [[t:8]]ואחכאמה[[t:9]] by [[t:10]]וחכמותיו[[t:11]]; it is thus manifest that he pronounced [[t:12]]أَحْكَامُ[[t:13]] (plural of [[t:14]]حكمُ[[t:15]], [[t:16]]principle of wisdom[[t:17]]).
+According to Ibn-Falaquera, the word [[t:18]]אחכאם[[t:19]] should be rendered, in Hebrew, by [[t:20]]תקון[[t:21]], as Ibn-Tibbon himself rendered it in the III[[t:22]]rd[[t:23]] part of this work, chap. XIX, where there is question of the sagacious disposition of the organs of sight, and where the words [[t:24]]אלתי הי מן אלאחכאם עלי מא קר עלם[[t:25]] are translated by [[t:26]]אשר בהם מן התקון מה שנודע[[t:27]].— Al-’Harizi has entirely neglected, in his translation, the word [[t:28]]ואחכאמה[[t:29]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.663" style="display: none;">
+                <strong>Note 663:</strong> Instead of [[t:0]]כמאלא[[t:1]], several manuscripts have [[t:2]]כמאל[[t:3]] (or [[t:4]]אנהא[[t:5]]) [[t:6]]אנה[[t:7]], or [[t:8]]אנהא כמאלאת[[t:9]]; the reading we have adopted, and which is more correct, agrees with the version of Ibn-Tibbon.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

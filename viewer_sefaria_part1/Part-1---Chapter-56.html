@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 56 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 56</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..55.0">
+                <div class="he-cell"><b>אין דומוּת בין האל לשום דבר אחר</b><br><span class="mediumGrey">הדומוּת היא השוואה ויחס</span><br><sup>1</sup> דע שהדומוּת היא יחס מסוים. וכל שני דברים שאין לשער ביניהם יחס, כך אין להעלות על הדעת דומוּת ביניהם. וכן כל שאין ביניהם דומוּת, אין ביניהם יחס. לדוגמה, אין אומרים: "החוֹם הזה דומה לצבע הזה", ולא "הקול הזה דומה למתיקות הזו", וזה דבר מובן מאליו. וכיוון שאין יחס בינינו לבינו יתעלה, כלומר בינו ובין מה שזולתו, נובע מכך שגם אין דומוּת.<br><sup>2</sup> ודע שכל שני דברים השייכים לאותו מין, כלומר שמהות שניהם היא אחת אלא שהם שונים בגודל ובקוטן או בחוזק ובחולשה וכיוצא בזה, הם בהכרח דומים זה לזה אף שהם שונים באופן האמור. לדוגמה, גרגר החרדל וגלגל כוכבי השֶבת קבועים בו דומים בתלת־הממדיות; ואף שזה גדול ביותר וזה קטן ביותר, עניין מציאות הממדים אצל שניהם אחד הוא. וכן הדונג המותך בשמש ויסוד האש דומים בחום; ואף שהחום ההוא עז ביותר והחום הזה חלש ביותר, מכל מקום עניין הופעת האיכות הזו בשניהם – אחד הוא.</div>
+                <div class="en-cell">Know thou that similitude is a certain relation between two things; and whenever no relation can be admitted between two things, neither can a similitude be conceived between them. Likewise, whenever there is no similitude between two things, there is also no relation between them. Thus, for example, it is not said: "Such a heat is similar to such a color", nor: "such a sound is similar to such a sweetness"; and this is a matter manifest in itself<sup class="fn-ref" onclick="showFn('fn.582')">582</sup>. Now, as the relation between us and God—I mean, between Him and that which is outside of Him—is (a thing) inadmissible, it follows that similitude is likewise inadmissible. It must be known that, whenever two things come under the same species—I mean, that their quiddity is one—and they differ only in greatness and smallness, or in strength and weakness, or in other things of this kind, they are necessarily similar to each other, although they differ in the said kind of difference. Thus, for example, the mustard seed and the sphere of the fixed stars are similar in having the three dimensions; and although the latter be exceedingly great<sup class="fn-ref" onclick="showFn('fn.583')">583</sup> and the other exceedingly small, the notion of the existence of dimensions is the same in both. Likewise, the wax which melts in the sun and the element of fire are similar in having heat; and although the heat of the latter be exceedingly strong and that of the former exceedingly weak, the notion of the manifestation of this quality is nevertheless the same in both.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..55.1">
+                <div class="he-cell"><span class="mediumGrey">תוארי האל אינם ניתנים להשוואה במהותם</span><br><sup>3</sup> כך ראוי היה שיבין מי שמאמין שיש תארים עצמיים שהבורא מתואר בהם, והם שהוא מצוי וחי ויכול ויודע ורוצה – שהעניינים האלה אינם מיוחסים אליו ואלינו באותה משמעות כך שהשוני בין התארים האלה ובין תארינו יהיה באופן של "גדול יותר" או "שלם יותר" או "מתמיד יותר" או "יציב יותר", דהיינו שקיומו יציב יותר מקיומנו וחייו מתמידים יותר מחיינו ויכולתו גדולה יותר מיכולתנו וידיעתו שלמה יותר מידיעתנו ורצונו כללי יותר מרצוננו, וששני העניינים נכללים בהגדרה אחת, כמו שהם חושבים. אין הדבר כן בשום אופן, כי הלשון "יותר מ-" נאמרת רק על שני דברים שהעניין הזה נאמר עליהם בהסכמה (=שיש להם תכונה מהותית משותפת), וכאשר הדבר כך, מתחייבת דומוּת.</div>
+                <div class="en-cell">Thus, then, those who posit that there exist essential attributes applicable to the Creator, namely, that He possesses existence, life, power, knowledge<sup class="fn-ref" onclick="showFn('fn.584')">584</sup>, and will, ought to apprehend that these qualities cannot be ascribed, in the identical sense, to Him and to us, with the sole distinction that these attributes (of God) would be greater, or more perfect, or more enduring, or more stable than our own<sup class="fn-ref" onclick="showFn('fn.585')">585</sup>, such that His existence would be more stable than ours, His life more durable than ours, His power greater than ours, His knowledge more perfect than ours, and His will more extensive than ours, and that a single definition would encompass both; as indeed those proponents contend<sup class="fn-ref" onclick="showFn('fn.586')">586</sup>. This is by no means the case: for the comparative degree is employed solely (when a comparison is drawn) between those things to which the adjective in question applies as a common noun<sup class="fn-ref" onclick="showFn('fn.587')">587</sup>, and, this being so, there must exist similitude (between these things); but, according to the persuasion of those who believe in essential attributes, it would be necessary to concede that, just as the essence of God cannot resemble other essences, so too the essential attributes they ascribe to Him bear no resemblance to the attributes (of other beings), and that (consequently) the same definition cannot apply to both. Nevertheless, they do not proceed thus, believing, on the contrary, that a single definition encompasses both, notwithstanding the absence of similitude between them<sup class="fn-ref" onclick="showFn('fn.588')">588</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..55.2">
+                <div class="he-cell"><sup>4</sup> ולשיטתם, שהם סוברים שיש תארים עצמיים, הרי כמו שמחויב שעצמותו יתעלה לא תדמה לעצמויות (אחרות), כך ראוי היה שהתארים העצמיים שהם טוענים לקיומם לא ידמו לתארים (אחרים) ולא תכלול אותם הגדרה אחת. והם אינם עושים כך, אלא הם חושבים שכוללת אותם הגדרה אחת אף שאין דומוּת ביניהם. והרי כבר התבאר למי שמבין את עניין הדומוּת, שהוא יתעלה וכל מה שזולתו מכונים "מצוי" בשיתוף (בשם) גרידא; וכך הידיעה והיכולת והרצון והחיים משמשים ביחס אליו יתעלה וביחס לכל בעל ידיעה ויכולת ורצון וחיים בשיתוף (בשם) גרידא, כי אין כל דומוּת עניינית ביניהם.</div>
+                <div class="en-cell">It is, in truth, evident to him who comprehends the signification of the similitude, that, if the term existing is simultaneously applied to God and to all that lies beyond Him, it is merely a matter of simple homonymy; and similarly, if the science, the power, the will, and the life are attributed simultaneously to God and to all that is endowed with science, power, will, and life, it is merely a matter of simple homonymy, whereby there is no resemblance of signification between the two (kinds of attributes).</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..55.3">
+                <div class="he-cell"><span class="mediumGrey">תוארי האל אינם ניתנים להשוואה במאפיין לא מהותי</span><br><sup>5</sup> אל תחשוב שאלה "מונחים מסופקים" (=שספק אם זה שיתוף בשם גרידא או שיש קשר מהותי, "הסכמה", בין הדברים), כי "מונחים מסופקים" הם אלה החלים על שני דברים שיש ביניהם דומוּת בעניין מסוים, והעניין הזה הוא מקרה בהם ואינו תכונה המגדירה את מהותו (מילולית: "ואין הוא מעמיד את עצמותו") של כל אחד מהם; בעוד שהדברים האלה המיוחסים לו יתעלה אינם מקרים לפי אף אחד מאנשי העיון, והתארים האלה שלנו הם כולם מקרים לפי דעת ה"מדברים". מי ייתן ואדע מאין הגיעה הדומוּת עד שתכלול אותם הגדרה אחת כך שהם ייאמרו בהסכמה כמו שהם טוענים. והרי זו הוכחה חותכת על כך שהתארים האלה המיוחסים לו – אין שום שיתוף בין עניינם ובין עניין אלה הידועים אצלנו, אלא השיתוף ביניהם הוא רק השם ותו לא. וכיוון שהדבר כך, אין ראוי שתאמין בקיומם של עניינים נוספים על העצמות בדומה לתארים האלה הנוספים על עצמותנו, רק משום שיש ביניהם שיתוף בשם.</div>
+                <div class="en-cell">It must not be believed that they are employed by <i>amphiboly</i>; for the names which are predicated by amphiboly are those which apply to two things between which there is a resemblance in some respect<sup class="fn-ref" onclick="showFn('fn.589')">589</sup>. This sense is an <i>accident</i> in them and does not constitute the <i>essence</i> of each of them; but these things attributed to God cannot be accidents, according to any of the thinkers<sup class="fn-ref" onclick="showFn('fn.590')">590</sup>, whilst the attributes which belong unto us are all accidents, according to the opinion of the <i>Mutakallimīn</i><sup class="fn-ref" onclick="showFn('fn.591')">591</sup>. I would fain know, then, whence the similitude should arise, so that a single definition might embrace both (kinds of attributes) and that they might be designated by a <i>common name</i><sup class="fn-ref" onclick="showFn('fn.592')">592</sup>, as they do maintain!—Thus, it is demonstrated in a decisive manner that between these attributes which are ascribed to God and those known to us, there is absolutely no species of community of meaning, and that the community exists only in the name, and naught else. This being so, thou must not admit ideas added to the divine essence and similar to those attributes which are added to our own essence, because there is between the two (sorts of attributes) a community of name.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..55.4">
+                <div class="he-cell"><sup>6</sup> העניין הזה נכבד ביותר אצל היודעים, על כן זכור אותו ועמוד עליו באמת כדי שיהיה מוכן למה שארצה להסביר לך.</div>
+                <div class="en-cell">This subject is of great importance amongst those who are conversant with these matters; it behoves thee, therefore, to penetrate into it and to render an account thereof unto thyself as best thou mayest, so that it may serve as a preparation for that which we desire to make thee understand.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.582" style="display: none;">
+                <strong>Note 582:</strong> See above, chap. LII, pp. 200 and 201.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.583" style="display: none;">
+                <strong>Note 583:</strong> The sphere of fixed stars, which surrounds the spheres of planets and forms the limit of the universe, is (after the superior or [[t:0]]environnante[[t:1]]) the most extensive body that can be imagined. See, on the celestial spheres and their number, the second part of this work, chap. IV; [[t:2]]cf.[[t:3]] III[[t:4]]e[[t:5]] part, chap. XIV.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.584" style="display: none;">
+                <strong>Note 584:</strong> The editions of Ibn-Tibbon's version read [[t:0]]ויודע וחכם[[t:1]]; one must erase the word [[t:2]]ויודע[[t:3]], which is not found in the manuscripts.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.585" style="display: none;">
+                <strong>Note 585:</strong> Literally: ([[t:0]]in this way[[t:1]]) [[t:2]]that the difference between these attributes and our attributes would consist[[t:3]] ([[t:4]]only[[t:5]]) [[t:6]]in the greatest, etc.[[t:7]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.586" style="display: none;">
+                <strong>Note 586:</strong> That is, the attributes of God and our own would fall under the same category, and the same definition would apply to both; for their [[t:0]]quiddity[[t:1]] would be the same, and they would differ only in degree. Cf. above, chapter XXXV, p. 131.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.587" style="display: none;">
+                <strong>Note 587:</strong> Literally: [[t:0]]for one does not express oneself by the form[[t:1]] [[t:2]]AF’ALOU[[t:3]] [[t:4]](أَفْعَلُ)[[t:5]] [[t:6]]save amongst those things of which that which is in question[[t:7]] (the adjective) [[t:8]]is predicated[[t:9]] [[t:10]]CONVENTIONALLY[[t:11]], that is to say, to which the adjective in question applies in some sort as a [[t:12]]common[[t:13]] or [[t:14]]appellative name;[[t:15]] thus, for instance, [[t:16]]living[[t:17]] is a common name for all that has life; [[t:18]]powerful[[t:19]], for all that has power. Concerning the meaning of the word [[t:20]]בתואטא (بتواطؤ)[[t:21]], cf. above, page 6, note 2.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.588" style="display: none;">
+                <strong>Note 588:</strong> Here, in summary, is the sense of this entire passage: The adherents of [[t:0]]essential attributes[[t:1]], says the author, ought to comprehend that the difference between the attributes of God and our own cannot consist solely in degree; for, in such a case, there would exist between them a proportional relation and, consequently, a similitude, which they could no more admit than the similitude between the divine essence and our own. But where there is no similitude, neither is there a common definition; consequently, the adherents of attributes, who, whilst rejecting similitude, yet admit that the same definition embraces the attributes of God and our own, are in contradiction with themselves.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.589" style="display: none;">
+                <strong>Note 589:</strong> Cf. above, p. 6, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.590" style="display: none;">
+                <strong>Note 590:</strong> Cf. above, p. 184, note 3.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.591" style="display: none;">
+                <strong>Note 591:</strong> See above, chap. LXXIII, 4[[t:0]]th[[t:1]] proposition.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.592" style="display: none;">
+                <strong>Note 592:</strong> See above, p. 228, note 4.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

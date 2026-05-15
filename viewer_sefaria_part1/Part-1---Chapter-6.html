@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 6 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 6</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..5.0">
+                <div class="he-cell"><b>המונחים איש ואישה, אח ואחות</b><br><span class="mediumGrey">שלוש משמעויות</span><br><sup>1</sup> "<b>איש</b>" ו"<b>אשה</b>" – <br><sup>א)</sup> מונחים שנקבעו בתחילה לגבר ולאישה. <br><sup>ב)</sup> לאחר מכן הושאלו לכל זכר ונקבה משאר בעלי החיים. נאמר: "<b>מִכֹּל הַבְּהֵמָה הַטְּהוֹרָה, תִּקַּח לְךָ שִׁבְעָה שִׁבְעָה אִישׁ וְאִשְׁתּוֹ</b>" (בראשית ז,ב), כאילו אמר "<b>זכר ונקבה</b>". <br><sup>ג)</sup> לאחר מכן הושאל המונח "<b>אשה</b>" לכל דבר המוכן ומיועד להתחבר לדבר אחר. נאמר: "<b>חֲמֵשׁ הַיְרִיעֹת תִּהְיֶיןָ חֹבְרֹת אִשָּׁה אֶל אֲחֹתָהּ</b>" (שמות כו,ג).</div>
+                <div class="en-cell">Isch (איש) and ischâ (אשה) are names originally employed to denoteman andwoman, and subsequently borrowed to signify the male and female of all other species of animals. It has been said, for example: Of all the clean quadrupeds thou shalt take seven couples, איש ואשתו, themale and hisfemale  (Genesis, 7, 2); it is as if it had been said, the male and the female. Subsequently, the name of ischâ has been employed metaphorically for anything destined and ready to be joined to another thing; for example: The five curtains shall be joined אשה אל אחותה one to another (Exodus, 26, 3)<sup class="fn-ref" onclick="showFn('fn.89')">89</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..5.1">
+                <div class="he-cell">הרי התבאר לך שגם "<b>אחות</b>" ו"<b>אח</b>" הם רב־משמעיים על דרך ההשאלה כמו "<b>איש</b>" ו"<b>אשה</b>".</div>
+                <div class="en-cell">It is clear from this that אחות (sister) and אח (brother) also, with regard to the figurative sense<sup class="fn-ref" onclick="showFn('fn.90')">90</sup>, are employed as homonyms, similar to איש and אשה.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.89" style="display: none;">
+                <strong>Note 89:</strong> Literally: [[t:0]]the woman to her sister[[t:1]], the word [[t:2]]יריעה[[t:3]] being of the feminine gender.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.90" style="display: none;">
+                <strong>Note 90:</strong> Homonymy occurs with respect to the figurative sense, analogous to that indicated lastly for the word [[t:0]]אשה[[t:1]].
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>

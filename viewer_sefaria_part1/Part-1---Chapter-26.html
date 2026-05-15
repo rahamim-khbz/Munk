@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Chapter 26 - Sefaria Native Layout Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b7280;
+            --accent: #8b0000;
+            --border: #e5e7eb;
+            --row-hover: #f9fafb;
+            --header-bg: #f3eee8;
+            --font-hebrew: 'Frank Ruhl Libre', serif;
+            --font-english: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--bg); color: var(--text);
+            font-family: var(--font-english); margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            padding: 12px 30px; background: var(--header-bg);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+        .nav-links a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { text-decoration: underline; }
+        .main-container {
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        .content {
+            flex: 1; overflow-y: auto; padding: 20px 60px;
+            max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box;
+        }
+        .parallel-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+            padding: 28px 0; border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+        .parallel-row:hover { background: var(--row-hover); }
+        .en-cell { font-size: 1.1rem; line-height: 1.7; text-align: justify; white-space: pre-line; }
+        .he-cell { font-family: var(--font-hebrew); font-size: 1.35rem; line-height: 1.6; direction: rtl; text-align: right; }
+        .mediumGrey { display: block; margin-top: 18px; margin-bottom: 8px; font-weight: bold; color: var(--accent); font-size: 1.1rem; }
+        .fn-ref { color: var(--accent); font-weight: bold; cursor: pointer; padding: 0 3px; text-decoration: underline; }
+        .footnote-drawer {
+            height: 180px; background: #fff; border-top: 2px solid var(--accent);
+            padding: 20px 40px; overflow-y: auto; box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            display: none; box-sizing: border-box;
+        }
+        .footnote-drawer.active { display: block; }
+        .footnote-item { font-size: 1rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Part 1 - Chapter 26</h1>
+        <div class="nav-links">
+            <a href="index.html">Index / Contents</a>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="content">
+            
+            <div class="parallel-row" id="row-root.text.Part 1..25.0">
+                <div class="he-cell"><b>אופני ההגשמה במקרא</b><br><span class="mediumGrey">העיקרון: דיברה תורה כלשון בני אדם</span><br><sup>4</sup> אתה מכיר את אִמרתם הכוללת את כל מיני הפירושים (שאינם כפשט) הכרוכים בתחום זה, והיא דבריהם: "<b>דברה תורה כלשון בני אדם</b>" (בבלי ברכות לא,א ועוד). משמעות הדברים, שכל מה שיכולים כלל בני האדם להבין ולתפוס במחשבה ראשונה – הוא שיוחס לה' יתעלה. לכן הוא תואר בתארים המורים על גשמות, כדי להורות שהוא יתעלה מצוי. זאת משום שההמון אינו משיג בעיון ראשון מציאות אלא של גוף דווקא, ומה שאינו גוף או מצוי בגוף – אין הוא מצוי מבחינתם.</div>
+                <div class="en-cell">Thou art already acquainted with their dictum<sup class="fn-ref" onclick="showFn('fn.192')">192</sup> concerning all manner of interpretation relating to this subject<sup class="fn-ref" onclick="showFn('fn.193')">193</sup>, to wit: that <i>the Scripture has spoken according to the language of men</i>. This signifies that whatever men in general<sup class="fn-ref" onclick="showFn('fn.194')">194</sup> are able to comprehend and to conceive at first sight has been applied to God, who, for this reason, has been described by epithets indicating corporeality, in order to signify that God exists; for the generality of men cannot conceive of existence, save in a body particularly, and whatever is not a body nor is found in a body has for them no existence.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..25.1">
+                <div class="he-cell"><span class="mediumGrey">תיאורים הנתפסים כשליליים וכחיוביים</span><br><sup>5</sup> וכן כל מה שהוא שלמות אצלנו יוחס לו יתעלה, כדי להורות שהוא שלם בכל אופני השלמויות ושאין לו חסרון כלל. לכן כל מה שההמון משיג שהוא חסרון או העדר, אין הוא מתואר בו. מסיבה זו אין הוא מתואר לא באכילה ולא בשתייה ולא בשינה ולא בחולי ולא בעושק ולא בדומה לכך. וכל מה שההמון חושב שהוא שלמות, הוא מתואר בו, אף שאין זו שלמות אלא ביחס אלינו, ואילו ביחס אליו יתעלה כל מה שאנחנו חושבים שהן שלמויות הרי הן תכלית החסרון. אבל אילו היו מדמיינים שנעדרת ממנו יתעלה אותה שלמות אנושית, הרי היה זה לדעתם חסרון אצלו.</div>
+                <div class="en-cell">Likewise, all that is perfection for us has been attributed to God to indicate that He possesses all kinds of perfection without any admixture of imperfection; and whatever is conceived by the vulgar as being an imperfection or a lack, is not attributed unto Him. Wherefore, neither eating, nor drinking, nor sleep, nor sickness, nor injustice, nor any other such thing, is attributed to Him. But all that the vulgar believe to be a perfection has been attributed to Him, although it be a perfection only in relation to ourselves; for as regards Him<sup class="fn-ref" onclick="showFn('fn.195')">195</sup> all these things which we believe to be perfections are an extreme imperfection. The vulgar, however, would deem themselves to attribute an imperfection to God, were they to imagine that such human perfection might be wanting in Him<sup class="fn-ref" onclick="showFn('fn.196')">196</sup>.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..25.2">
+                <div class="he-cell"><span class="mediumGrey">תיאורי תנועה לעומת תיאורי אכילה ושתייה</span><br><sup>6</sup> יודע אתה שהתנועה היא משלמות בעל החיים, והיא הכרחית לו לשלמותו. כי כשם שהוא זקוק לאכילה ולשתייה כדי להחליף את מה שהתמוסס, כך הוא זקוק לתנועה כדי לחתור אל המתאים לו ולברוח ממה שאינו מתאים לו. ואין הבדל בין אם יתואר יתעלה כאוכל וכשותה או שיתואר כנע. אבל לפי <b>לשון בני אדם</b>, כלומר הדמיון ההמוני, לדעתם האכילה והשתייה הן חסרון אצל ה' אך התנועה אינה חסרון אצלו, אף שמה שמחייב את התנועה אינה אלא ההזדקקות.<br><sup>7</sup> כבר הוכח (אריסטו, פיזיקה ו,ד; ח,ה) שכל דבר נע הוא בלי ספק בעל גודל (פיזי), הניתן לחלוקה. ועוד יוכח (ב,א-ב) שהוא יתעלה אינו בעל גודל ולכן אין לו תנועה. ואין לתאר אותו גם כנח, משום שאין מתואר כנח אלא מי שדרכו לנוע. על כן כל אותם מונחים המורים על כל המינים של תנועות בעלי החיים, תואר בהם באותו אופן שאמרנו, כפי שהוא מתואר ב"חיים", משום שהתנועה היא מקרה השייך לבעל החיים. ואין ספק שעם הסתלקות הגשמות יסתלקו כל אלה, כלומר <b>ירד</b> ו<b>עלה</b> ו<b>הלך</b> ו<b>נצב</b> ו<b>עמד</b> ו<b>סבב</b> ו<b>ישב</b> ו<b>שכן</b> ו<b>יצא</b> ו<b>בא</b> ו<b>עבר</b> וכל הדומה לכך.</div>
+                <div class="en-cell">Thou knowest that motion forms part of the perfection of the animal and is necessary unto it that it may be perfect; for, even as it has need to eat and to drink to replace that which has been dissolved<sup class="fn-ref" onclick="showFn('fn.197')">197</sup>, so too it has need of motion to direct itself towards that which is suitable unto it and to flee from that which is contrary. There is no difference between attributing to God eating and drinking and attributing unto Him motion; nevertheless, according to the language of men, that is to say, according to popular imagination, it would be to attribute an imperfection unto God to say that He eats and drinks, whereas motion would not denote an imperfection in Him<sup class="fn-ref" onclick="showFn('fn.198')">198</sup>, albeit it is but necessity which compels to motion. It has been demonstrated that whatsoever moves is undoubtedly of a certain magnitude and divisible<sup class="fn-ref" onclick="showFn('fn.199')">199</sup>; now, it will be demonstrated that God possesses no magnitude, and consequently has no motion. Neither can repose be attributed unto Him; for repose can be attributed only unto him<sup class="fn-ref" onclick="showFn('fn.200')">200</sup> whose condition it is to move. Thus, therefore, all words indicating the different species of animal movements have been employed, in the aforesaid manner<sup class="fn-ref" onclick="showFn('fn.201')">201</sup>, as attributes of God, even as life; for motion is an accident inherent in the animate being, and there is no doubt that by setting aside corporeality, one also sets aside all these notions of descending, of ascending, of walking, of standing, of halting, of going about, of sitting, of dwelling, of going forth, of entering, of passing, and others similar.</div>
+            </div>
+            
+            <div class="parallel-row" id="row-root.text.Part 1..25.3">
+                <div class="he-cell"><span class="mediumGrey">התבגרות והשתחררות מעולם המושגים הגשמי</span><br><sup>8</sup> מיותר היה להאריך בעניין הזה, אלמלא מה שהורגלה לו דעת ההמון. לפיכך ראוי לבארו לאלה שנטלו על עצמם את השלמות האנושית, ולהסיר על ידי הרחבה קלה אותם דמיונות־שווא שהתחילו אצלם בשנות הנערות, כפי שעשינו.</div>
+                <div class="en-cell">It would be superfluous to dwell at length upon this subject, were it not for that which has become familiar to the minds of the vulgar<sup class="fn-ref" onclick="showFn('fn.202')">202</sup>; wherefore it is necessary to provide an explanation thereof to those who have set themselves the task (of acquiring) human perfection and of ridding themselves of those errors, preconceived since the years of infancy<sup class="fn-ref" onclick="showFn('fn.203')">203</sup>, (and to speak thereof) with some detail, even as we have done.</div>
+            </div>
+            
+        </div>
+        <div class="footnote-drawer" id="fn-drawer">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-weight: bold; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Footnotes Viewer</span>
+                <button onclick="closeFn()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            </div>
+            <div id="fn-content-area">
+                
+            <div class="footnote-item" id="item-fn.192" style="display: none;">
+                <strong>Note 192:</strong> That is to say, the sentence of the ancient rabbis. See Talmud of Babylon, tractate [[t:0]]Ichamôth[[t:1]] fol. 71 [[t:2]]a; Babâ Meci’â[[t:3]], fol. 31 [[t:4]]b[[t:5]], and [[t:6]]passim[[t:7]]. — The author interrupts here again his explanations of homonyms to discuss the meaning that should be attached to the [[t:8]]movement[[t:9]] attributed to God. This chapter and the following one, which in several manuscripts form only one, are connected to the previous chapter; for it is undoubtedly with regard to the verb [[t:10]]הלך[[t:11]] (to go) that the author is led to speak of movement.
+            </div>
+            
+            <div class="footnote-item" id="item-fn.193" style="display: none;">
+                <strong>Note 193:</strong> That is to say with regard to the subject that concerns us here; the author intends to speak of the anthropomorphisms which Holy Scripture uses in speaking of God. [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.194" style="display: none;">
+                <strong>Note 194:</strong> All the mss. bear [[t:0]]אגׄמע[[t:1]], which is here used for the plural [[t:2]]אגׄמעיי[[t:3]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.195" style="display: none;">
+                <strong>Note 195:</strong> The word [[t:0]]אליה[[t:1]] depends on [[t:2]]באלאצׄאפה̈[[t:3]], which is implied; Ibn-Tibbon repeated the word [[t:4]]בערך[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.196" style="display: none;">
+                <strong>Note 196:</strong> Literally: [[t:0]]But if they imagined that such human perfection is lacking in God, this would be, in their view, an imperfection with regard to Him[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.197" style="display: none;">
+                <strong>Note 197:</strong> That is to say, what is eliminated through transpiration. Cf. the [[t:0]]Canon[[t:1]] of Avicenna, Arabic text, vol. I, p. 75, line 27: [[t:2]]انما اقامتها الاستبدال ما[[t:3]]  [[t:4]]يتحلل منها وهو الغذا[[t:5]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.198" style="display: none;">
+                <strong>Note 198:</strong> Literally: [[t:0]]Eating and drinking would, in their view, be an imperfection with regard to God, and movement would not be an imperfection with regard to Him[[t:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.199" style="display: none;">
+                <strong>Note 199:</strong> Cf. Arist., [[t:0]]Phys.[[t:1]], 1. VIII, ch. V: A [[t:2]]ναγϰαῐον δή το ϰινούµενον ἃπαν εἶαι διαιρττὀν εἰς ἀεἰ διαιρετά[[t:3]]. Compare also what Aristotle says about movement with regard to the soul, treatise [[t:4]]On the Soul[[t:5]], 1. I, ch. III. See the details in the introduction to the II[[t:6]]nd[[t:7]] part of the [[t:8]]Guide[[t:9]], at the 7[[t:10]]th[[t:11]] Proposition. — Ibn-Tibbon's version substitutes here and in several other passages the word [[t:12]]גשם[[t:13]], [[t:14]]body[[t:15]], for the Arabic word [[t:16]]עטׄס[[t:17]], [[t:18]]magnitude[[t:19]], which refers only to geometric body, i.e., [[t:20]]the space circumscribed by limits[[t:21]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.200" style="display: none;">
+                <strong>Note 200:</strong> Of the eight mss. that we have consulted, there are six that bear [[t:0]]מן שאנה[[t:1]]: one of the Oxford mss. has [[t:2]]מא מן שאנה[[t:3]], and one of the two Leyden mss. [[t:4]]מא שאנה[[t:5]]. According to this variant, the translation should be: [[t:6]]that which has as a condition movement[[t:7]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.201" style="display: none;">
+                <strong>Note 201:</strong> That is to say, by conforming to the ideas and language of the common people. [[fn:1]]
+            </div>
+            
+            <div class="footnote-item" id="item-fn.202" style="display: none;">
+                <strong>Note 202:</strong> That is to say, on account of the ideas and expressions to which the common people have become accustomed [[fn:1]].
+            </div>
+            
+            <div class="footnote-item" id="item-fn.203" style="display: none;">
+                <strong>Note 203:</strong> The words [[t:0]]אליהם מנהס[[t:1]] are found placed in all the mss. at the end of the sentence; [[t:2]]אליהם[[t:3]] refers to [[t:4]]אלסאבקה̈[[t:5]], and [[t:6]]מנהם[[t:7]] is connected to [[t:8]]ואזאלה̈[[t:9]]. The regular construction would be: [[t:10]]ואזאלה̈ מנהם הדׄה [[t:11]]لا[[t:12]] אוהאם אלסאבקה̈ אליהם מן סן אלטפוליה̈[[t:13]]. The words [[t:14]]אלסאבקה̈ אליהם[[t:15]] literally mean: [[t:16]]what comes to them in advance[[t:17]]; it is a matter, as Ibn-Falaquera explains very well (while criticizing Ibn-Tibbon's version), of [[t:18]]preconceived opinions[[t:19]] to which one abandons oneself at the outset, before having reflected. See [[t:20]]Moré-ha-Moré[[t:21]], p. 150.
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentActiveFn = null;
+        function showFn(id) {
+            const drawer = document.getElementById('fn-drawer');
+            const items = document.querySelectorAll('.footnote-item');
+            items.forEach(item => item.style.display = 'none');
+            
+            if (currentActiveFn === id && drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                currentActiveFn = null;
+                return;
+            }
+            
+            const target = document.getElementById('item-' + id);
+            if (target) {
+                target.style.display = 'block';
+                drawer.classList.add('active');
+                currentActiveFn = id;
+            }
+        }
+        function closeFn() {
+            document.getElementById('fn-drawer').classList.remove('active');
+            currentActiveFn = null;
+        }
+    </script>
+</body>
+</html>
