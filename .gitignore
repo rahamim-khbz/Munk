@@ -1,10 +1,8 @@
-.DS_Store
-.env
-.vscode/
-__pycache__/
-*.pdf
-*.json
-!dist/**/*.json
-build_production.py
-assets/
-docs/
+# Ignore everything by default
+/*
+
+# Allow specific production assets
+!dist/
+!build_production.py
+!.gitignore
+!README.md
