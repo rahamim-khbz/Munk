@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Munk Guide">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/book/materialicons/24dp/2x/baseline_book_black_24dp.png">
+    <title>Reader - Munk Parallel Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reader.css">
+</head>
+<body>
+    <div id="toc-backdrop" class="toc-backdrop" onclick="toggleTOC()"></div>
+    <nav id="toc-drawer" class="toc-drawer">
+        <div class="toc-header-bar">
+            <span onclick="navigateToLanding()" style="cursor:pointer">Contents</span>
+            <button onclick="toggleTOC()">&#x2715;</button>
+        </div>
+        <div class="mobile-theme-panel">
+            <button onclick="setTheme('light')" class="theme-btn">&#9728;&#65039; Light</button>
+            <button onclick="setTheme('sepia')" class="theme-btn">&#128220; Sepia</button>
+            <button onclick="setTheme('dark')" class="theme-btn">&#127769; Dark</button>
+        </div>
+        <div class="toc-column-panel" style="padding: 16px 20px; border-bottom: 1px solid var(--border); background: var(--header-bg);">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <label for="select-left-col" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Left Column</label>
+                    <select id="select-left-col" onchange="updateColumnSelectors()" style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; width: 160px;">
+                        <option value="en" selected>Munk (AI-English)</option>
+                        <option value="fr">Munk (French)</option>
+                        <option value="makbili">&#x05DE;&#x05E7;&#x05D1;&#x05D9;&#x05DC;&#x05D9;</option>
+                        <option value="tibon">&#x05D0;&#x05D1;&#x05DF; &#x05EA;&#x05D9;&#x05D1;&#x05D5;&#x05DF;</option>
+                        <option value="jrb">Judeo-Arabic</option>
+                    </select>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <label for="select-right-col" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Right Column</label>
+                    <select id="select-right-col" onchange="updateColumnSelectors()" style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; width: 160px;">
+                        <option value="none">None (Single Column)</option>
+                        <option value="en">Munk (AI-English)</option>
+                        <option value="fr">Munk (French)</option>
+                        <option value="makbili" selected>&#x05DE;&#x05E7;&#x05D1;&#x05D9;&#x05DC;&#x05D9;</option>
+                        <option value="tibon">&#x05D0;&#x05D1;&#x05DF; &#x05EA;&#x05D9;&#x05D1;&#x05D5;&#x05DF;</option>
+                        <option value="jrb">Judeo-Arabic</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="toc-body" class="toc-body"></div>
+    </nav>
+    <div class="main-container" data-left-col="en" data-right-col="makbili">
+        <div class="header">
+            <div class="header-left">
+                <button id="hamburger-btn" onclick="toggleTOC()" aria-label="Table of Contents">&#9776;</button>
+                <h1 id="main-title">The Guide for the Perplexed</h1>
+                <span class="munk-label">Dalalat al-Ha'irin</span>
+            </div>
+            <div class="theme-controls">
+                <button onclick="toggleLayoutMode()" title="Toggle Layout" class="theme-btn" id="layout-toggle-btn">📖 Parallel</button>
+                <button onclick="setTheme('light')" title="Light" class="theme-btn" id="btn-light">&#9728;&#65039;</button>
+                <button onclick="setTheme('sepia')" title="Sepia" class="theme-btn" id="btn-sepia">&#128220;</button>
+                <button onclick="setTheme('dark')"  title="Dark"  class="theme-btn" id="btn-dark">&#127769;</button>
+            </div>
+        </div>
+        <div class="content" id="chapter-content"></div>
+    </div>
+    <div id="fn-panel" class="fn-panel">
+        <div class="fn-handle"></div>
+        <div class="fn-panel-header">
+            <span class="fn-panel-label">Note</span>
+            <button class="fn-panel-close" onclick="closeFnPanel()">Close</button>
+        </div>
+        <div id="fn-panel-body" class="fn-panel-body"></div>
+    </div>
+    <script src="js/reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Munk Guide">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/book/materialicons/24dp/2x/baseline_book_black_24dp.png">
+    <title>The Guide for the Perplexed - Munk Parallel Reader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reader.css">
+</head>
+<body style="overflow-y:auto; height:auto; display:block;">
+    <div class="content">
+        <div class="toc-landing-page">
+            <h1 class="landing-title" style="font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px;">
+                AI-Assisted Translation of Salomon Munk&#x2019;s French Translation of the Guide to the Perplexed;<br>
+                <span style="font-size: 1.5rem; opacity: 0.8;">Hebrew from Makbili Edition</span>
+            </h1>
+            <div style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                Sources:
+                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> |
+                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a><br>
+                <p style="max-width: 600px; margin: 10px auto; font-style: italic;">
+                    This digital edition is created for research and educational purposes.
+                    The underlying source texts are utilized in accordance with their respective open licenses
+                    and the principles of scholarly fair use.
+                </p>
+            </div>
+            <div id="landing-grid"></div>
+        </div>
+    </div>
+    <script>
+        fetch('data/chapters.json').then(r => r.json()).then(chapters => {
+            const grid = document.getElementById('landing-grid');
+            const groups = { "Munk's Prefaces": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [], "Munk's Endnotes": [] };
+            chapters.forEach(ch => { if (groups[ch.category]) groups[ch.category].push(ch); });
+            let html = '';
+            for (const [name, list] of Object.entries(groups)) {
+                if (list.length === 0) continue;
+                html += '<div class="landing-section"><h3>' + name + '</h3><div class="landing-links">';
+                list.forEach(ch => { html += '<a href="reader.html?ch=' + ch.slug + '">' + ch.title + '</a>'; });
+                html += '</div></div>';
+            }
+            grid.innerHTML = html;
+        });
+    </script>
+</body>
+</html>
