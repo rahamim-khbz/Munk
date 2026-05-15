@@ -88,8 +88,9 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 
 /* Vertical Stacking Mode */
 .main-container[data-layout-mode="vertical"] .parallel-row { display: flex; flex-direction: column; gap: 24px; }
-.main-container[data-layout-mode="vertical"] .left-cell { order: var(--left-order, 1); }
-.main-container[data-layout-mode="vertical"] .right-cell { order: var(--right-order, 2); border-top: 1px solid var(--border); padding-top: 16px; }
+.left-cell { order: var(--left-order, 1); }
+.right-cell { order: var(--right-order, 2); }
+.main-container[data-layout-mode="vertical"] .right-cell { border-top: 1px solid var(--border); padding-top: 16px; }
 .chapter-header { grid-column: span 2; padding: 40px 0 20px; border-bottom: 2px solid var(--accent); margin-bottom: 20px; }
 .chapter-header h2 { margin: 0; color: var(--accent); font-weight: 700; }
 .poem-segment { color: var(--text-muted); font-size: 0.95rem; font-style: italic; }

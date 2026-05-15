@@ -125,8 +125,9 @@ def render_html(page_title, main_content_html, chapter_index_js, footnotes_json,
 
         /* Vertical Stacking Mode */
         .main-container[data-layout-mode="vertical"] .parallel-row {{ display: flex; flex-direction: column; gap: 24px; }}
-        .main-container[data-layout-mode="vertical"] .left-cell {{ order: var(--left-order, 1); }}
-        .main-container[data-layout-mode="vertical"] .right-cell {{ order: var(--right-order, 2); border-top: 1px solid var(--border); padding-top: 16px; }}
+        .left-cell {{ order: var(--left-order, 1); }}
+        .right-cell {{ order: var(--right-order, 2); }}
+        .main-container[data-layout-mode="vertical"] .right-cell {{ border-top: 1px solid var(--border); padding-top: 16px; }}
 
         /* Mobile Layout Optimizations - Threshold lowered to 640px for iPads to see dual column */
         @media (max-width: 640px) {{
