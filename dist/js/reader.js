@@ -1,7 +1,6 @@
 
 let footnotes = {};
 let chapterIndex = [];
-let activeChapterId = null;
 
 async function init() {
     try {
@@ -63,12 +62,12 @@ function buildTOC() {
         if (!isGrid) {
             chapters.forEach(ch => {
                 const tile = document.createElement('div');
-                tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '8px 16px'; tile.style.aspectRatio = 'auto';
+                tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '12px 20px'; tile.style.aspectRatio = 'auto';
                 tile.textContent = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 panel.appendChild(tile);
             });
-            panel.style.padding = '8px 20px 20px'; panel.style.display = 'grid'; panel.style.gap = '8px';
+            panel.style.padding = '8px 32px 24px'; panel.style.display = 'grid'; panel.style.gap = '8px';
         } else {
             const grid = document.createElement('div');
             grid.className = 'toc-tile-grid';
@@ -77,7 +76,7 @@ function buildTOC() {
                 tile.className = 'toc-tile'; 
                 let num = ch.title.match(/Chapter (\d+)/) ? ch.title.match(/Chapter (\d+)/)[1] : "Intro";
                 tile.textContent = num;
-                if (num === "Intro") { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '10px'; }
+                if (num === "Intro") { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '12px'; }
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 grid.appendChild(tile);
             });
@@ -121,7 +120,7 @@ function closeFnPanel() {
 
 async function loadChapter(slug) {
     const content = document.getElementById('chapter-content');
-    content.innerHTML = '<div style="padding:100px; text-align:center; font-style:italic; opacity:0.6;">Loading Manuscript...</div>';
+    content.innerHTML = '<div style="padding:150px; text-align:center; font-style:italic; opacity:0.4; letter-spacing:1px;">Retrieving Manuscript...</div>';
     
     try {
         const res = await fetch(`data/${slug}.json`);
@@ -130,7 +129,7 @@ async function loadChapter(slug) {
         document.getElementById('main-title').textContent = data.title;
         document.title = data.title + " - Munk's Guide";
         
-        let html = `<div class='chapter-header'><h2>${data.title}</h2></div>`;
+        let html = `<div class='chapter-header' style="padding:60px 0 30px; border-bottom:3px solid var(--accent); margin-bottom:40px;"><h2 style="margin:0; color:var(--accent); font-family:var(--font-hebrew); font-weight:400; font-size:2.4rem;">${data.title}</h2></div>`;
         data.rows.forEach(row => {
             html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
                 <div class="left-cell">
@@ -148,10 +147,10 @@ async function loadChapter(slug) {
             </div>`;
         });
         
-        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:60px; padding:40px 0; border-top:2px solid var(--border);">`;
-        if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="landing-links a" style="flex:1; margin-right:10px;">← ${data.prev.title}</a>`;
+        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:100px; padding:60px 0; border-top:2px solid var(--border);">`;
+        if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="landing-links a" style="flex:1; margin-right:15px; border-radius:20px; font-size:0.9rem;">← ${data.prev.title}</a>`;
         else html += '<div style="flex:1;"></div>';
-        if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="landing-links a" style="flex:1; margin-left:10px;">${data.next.title} →</a>`;
+        if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="landing-links a" style="flex:1; margin-left:15px; border-radius:20px; font-size:0.9rem;">${data.next.title} →</a>`;
         else html += '<div style="flex:1;"></div>';
         html += `</div>`;
         
@@ -159,7 +158,7 @@ async function loadChapter(slug) {
         document.querySelector('.main-container').scrollTop = 0;
         updateSelectionState(data.title);
     } catch (e) {
-        content.innerHTML = '<div style="padding:100px; text-align:center; color:red;">Failed to retrieve segment data.</div>';
+        content.innerHTML = '<div style="padding:150px; text-align:center; color:var(--accent-gold); font-weight:700;">Chapter unavailable in modular index.</div>';
     }
 }
 
