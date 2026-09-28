@@ -21,7 +21,9 @@
             <div style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
                 Sources:
                 <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Munk (French) via Sefaria</a> |
-                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a><br>
+                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Makbili (Hebrew) via Sefaria</a> |
+                <a href="https://www.sefaria.org/Guide_for_the_Perplexed" target="_blank" style="color: var(--accent);">Ibn Tibbon (Hebrew) via Sefaria</a> |
+                <a href="https://www.daat.ac.il/daat/mahshevt/more/shaar-2.htm" target="_blank" style="color: var(--accent);">Rabbi Yosef Qafih (Hebrew) via Daat</a><br>
                 <p style="max-width: 600px; margin: 10px auto; font-style: italic;">
                     This digital edition is created for research and educational purposes.
                     The underlying source texts are utilized in accordance with their respective open licenses
@@ -34,7 +36,7 @@
     <script>
         fetch('data/chapters.json').then(r => r.json()).then(chapters => {
             const grid = document.getElementById('landing-grid');
-            const groups = { "Munk's Prefaces": [], "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [], "Munk's Endnotes": [] };
+            const groups = { "Introductions": [], "Part 1": [], "Part 2": [], "Part 3": [] };
             chapters.forEach(ch => { if (groups[ch.category]) groups[ch.category].push(ch); });
             let html = '';
             for (const [name, list] of Object.entries(groups)) {

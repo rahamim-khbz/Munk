@@ -21,16 +21,19 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .left-cell .variant-span, .right-cell .variant-span { display: none; }
 .main-container[data-left-col="en"] .left-cell .variant-en { display: block; }
 .main-container[data-left-col="fr"] .left-cell .variant-fr { display: block; }
+.main-container[data-left-col="qafih"] .left-cell .variant-qafih { display: block; }
 .main-container[data-left-col="makbili"] .left-cell .variant-makbili { display: block; }
 .main-container[data-left-col="tibon"] .left-cell .variant-tibon { display: block; }
 .main-container[data-left-col="jrb"] .left-cell .variant-jrb { display: block; }
 .main-container[data-right-col="en"] .right-cell .variant-en { display: block; }
 .main-container[data-right-col="fr"] .right-cell .variant-fr { display: block; }
+.main-container[data-right-col="qafih"] .right-cell .variant-qafih { display: block; }
 .main-container[data-right-col="makbili"] .right-cell .variant-makbili { display: block; }
 .main-container[data-right-col="tibon"] .right-cell .variant-tibon { display: block; }
 .main-container[data-right-col="jrb"] .right-cell .variant-jrb { display: block; }
 .variant-en { font-family: var(--font-english), var(--font-hebrew); font-size: 1.1rem; line-height: 1.7; text-align: left; direction: ltr; }
 .variant-fr { font-family: var(--font-english); font-size: 1.1rem; line-height: 1.7; text-align: left; direction: ltr; }
+.variant-qafih { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }
 .variant-makbili { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }
 .variant-tibon { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }
 .variant-jrb { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }
@@ -63,6 +66,16 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .content { padding: 20px 40px; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; }
 .parallel-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 24px 0; border-bottom: 1px solid var(--border); transition: background 0.2s; }
 .parallel-row:hover { background: var(--row-hover); }
+
+/* Single Column Mode */
+.main-container[data-right-col="none"] .parallel-row { grid-template-columns: 1fr; }
+.main-container[data-right-col="none"] .right-cell { display: none; }
+
+/* Vertical Stacking Mode */
+.main-container[data-layout-mode="vertical"] .parallel-row { display: flex; flex-direction: column; gap: 24px; }
+.left-cell { order: var(--left-order, 1); }
+.right-cell { order: var(--right-order, 2); }
+.main-container[data-layout-mode="vertical"] .right-cell { border-top: 1px solid var(--border); padding-top: 16px; }
 .chapter-header { grid-column: span 2; padding: 40px 0 20px; border-bottom: 2px solid var(--accent); margin-bottom: 20px; }
 .chapter-header h2 { margin: 0; color: var(--accent); font-weight: 700; }
 .poem-segment { color: var(--text-muted); font-size: 0.95rem; font-style: italic; }
@@ -79,7 +92,8 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
     .header h1 { font-size: 1.1rem; }
     .theme-controls { display: none; }
     .parallel-row { display: flex; flex-direction: column; gap: 16px; padding: 20px 0; }
-    .right-cell { border-top: 1px solid var(--border); padding-top: 12px; }
+    .left-cell { order: var(--left-order, 1); }
+    .right-cell { order: var(--right-order, 2); border-top: 1px solid var(--border); padding-top: 12px; }
     .chapter-header { padding: 24px 0 12px; order: -2; }
     .chapter-header h2 { font-size: 1.4rem; }
     .content { padding: 10px 16px; }

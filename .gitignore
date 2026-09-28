@@ -1,8 +1,40 @@
 # Ignore everything by default
 /*
 
-# Allow specific production assets
+# Allow ONLY production web pages and public assets
 !dist/
-!build_production.py
+!dist/**
+!data/
+!data/**
+!js/
+!js/**
+!css/
+!css/**
+!assets/
+!assets/**
+!index.html
+!reader.html
 !.gitignore
 !README.md
+
+# Strictly ignore underlying code, tools, prompts, scripts, and internal files
+/scripts/
+/docs/
+/*.py
+/*.ipynb
+/*.jsonl
+/*.json
+/hebrew_comparator_viewer.html
+/scratch/
+/tests/
+/viewer/
+/viewer_sefaria_full/
+/viewer_sefaria_part1/
+/data/daat_raw/
+/data/qafih_unaligned/
+/dist/hebrew_comparator_viewer.html
+/dist/qafih_production_v1.json
+.env*
+*.pyc
+__pycache__/
+.DS_Store

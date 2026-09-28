@@ -21,16 +21,19 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .left-cell .variant-span, .right-cell .variant-span { display: none; }
 .main-container[data-left-col="en"] .left-cell .variant-en { display: block; }
 .main-container[data-left-col="fr"] .left-cell .variant-fr { display: block; }
+.main-container[data-left-col="qafih"] .left-cell .variant-qafih { display: block; }
 .main-container[data-left-col="makbili"] .left-cell .variant-makbili { display: block; }
 .main-container[data-left-col="tibon"] .left-cell .variant-tibon { display: block; }
 .main-container[data-left-col="jrb"] .left-cell .variant-jrb { display: block; }
 .main-container[data-right-col="en"] .right-cell .variant-en { display: block; }
 .main-container[data-right-col="fr"] .right-cell .variant-fr { display: block; }
+.main-container[data-right-col="qafih"] .right-cell .variant-qafih { display: block; }
 .main-container[data-right-col="makbili"] .right-cell .variant-makbili { display: block; }
 .main-container[data-right-col="tibon"] .right-cell .variant-tibon { display: block; }
 .main-container[data-right-col="jrb"] .right-cell .variant-jrb { display: block; }
 .variant-en { font-family: var(--font-english), var(--font-hebrew); font-size: 1.1rem; line-height: 1.7; text-align: left; direction: ltr; }
 .variant-fr { font-family: var(--font-english); font-size: 1.1rem; line-height: 1.7; text-align: left; direction: ltr; }
+.variant-qafih { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }
 .variant-makbili { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }
 .variant-tibon { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }
 .variant-jrb { font-family: var(--font-hebrew); font-size: 1.3rem; line-height: 1.6; text-align: right; direction: rtl; color: var(--text); }

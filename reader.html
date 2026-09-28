@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/book/materialicons/24dp/2x/baseline_book_black_24dp.png">
     <title>Reader - Munk Parallel Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reader.css">
+    <link rel="stylesheet" href="css/reader.css?v=1.1.0">
 </head>
 <body>
     <div id="toc-backdrop" class="toc-backdrop" onclick="toggleTOC()"></div>
@@ -30,6 +30,7 @@
                     <select id="select-left-col" onchange="updateColumnSelectors()" style="padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.9rem; font-weight: 600; cursor: pointer; outline: none; width: 160px;">
                         <option value="en" selected>Munk (AI-English)</option>
                         <option value="fr">Munk (French)</option>
+                        <option value="qafih">&#x05E7;&#x05D0;&#x05E4;&#x05D7; (Qafih)</option>
                         <option value="makbili">&#x05DE;&#x05E7;&#x05D1;&#x05D9;&#x05DC;&#x05D9;</option>
                         <option value="tibon">&#x05D0;&#x05D1;&#x05DF; &#x05EA;&#x05D9;&#x05D1;&#x05D5;&#x05DF;</option>
                         <option value="jrb">Judeo-Arabic</option>
@@ -41,6 +42,7 @@
                         <option value="none">None (Single Column)</option>
                         <option value="en">Munk (AI-English)</option>
                         <option value="fr">Munk (French)</option>
+                        <option value="qafih">&#x05E7;&#x05D0;&#x05E4;&#x05D7; (Qafih)</option>
                         <option value="makbili" selected>&#x05DE;&#x05E7;&#x05D1;&#x05D9;&#x05DC;&#x05D9;</option>
                         <option value="tibon">&#x05D0;&#x05D1;&#x05DF; &#x05EA;&#x05D9;&#x05D1;&#x05D5;&#x05DF;</option>
                         <option value="jrb">Judeo-Arabic</option>
@@ -74,6 +76,6 @@
         </div>
         <div id="fn-panel-body" class="fn-panel-body"></div>
     </div>
-    <script src="js/reader.js"></script>
+    <script src="js/reader.js?v=1.1.0"></script>
 </body>
 </html>

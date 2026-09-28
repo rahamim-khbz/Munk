@@ -1,5 +1,7 @@
 
+// Version: 1.1.0 - Rabbi Yosef Qafih Hebrew Translation & Isolated Footnote System
 let footnotes = {};
+let qafihFootnotes = null;
 let chapterIndex = [];
 
 async function init() {
@@ -32,7 +34,7 @@ function buildTOC() {
     const body = document.getElementById('toc-body');
     if (!body) return;
     body.innerHTML = '';
-    const groups = { "Munk's Prefaces": [], 'Introductions': [], 'Part 1': [], 'Part 2': [], 'Part 3': [], "Munk's Endnotes": [] };
+    const groups = { "Introductions": [], 'Part 1': [], 'Part 2': [], 'Part 3': [] };
     chapterIndex.forEach(ch => { if (groups[ch.category]) groups[ch.category].push(ch); });
     for (const [groupName, chapters] of Object.entries(groups)) {
         if (chapters.length === 0) continue;
@@ -47,7 +49,7 @@ function buildTOC() {
             chapters.forEach(ch => {
                 const tile = document.createElement('div');
                 tile.className = 'toc-tile'; tile.style.gridColumn = 'span 5'; tile.style.padding = '12px 20px'; tile.style.aspectRatio = 'auto';
-                tile.textContent = ch.title.replace('Part 1 - ', '').replace('Part 2 - ', '').replace('Part 3 - ', '');
+                tile.textContent = ch.title;
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 panel.appendChild(tile);
             });
@@ -56,9 +58,27 @@ function buildTOC() {
             const grid = document.createElement('div'); grid.className = 'toc-tile-grid';
             chapters.forEach(ch => {
                 const tile = document.createElement('div'); tile.className = 'toc-tile'; 
-                let num = ch.title.match(/Chapter (\d+)/) ? ch.title.match(/Chapter (\d+)/)[1] : "Intro";
-                tile.textContent = num;
-                if (num === "Intro") { tile.style.gridColumn = 'span 5'; tile.style.aspectRatio = 'auto'; tile.style.padding = '12px'; }
+                let isFullWidth = false;
+                let text = ch.title;
+                if (ch.title.includes("Munk's Introduction")) {
+                    text = "Munk's Introduction";
+                    isFullWidth = true;
+                } else if (ch.title.includes("Maimonides' Introduction") || ch.title.endsWith(" - Introduction")) {
+                    text = "Maimonides' Introduction";
+                    isFullWidth = true;
+                } else if (ch.title.includes("Munk's Endnotes") || ch.title.includes("Endnotes")) {
+                    text = "Munk's Endnotes";
+                    isFullWidth = true;
+                } else {
+                    const m = ch.title.match(/Chapter (\d+)/);
+                    if (m) text = m[1];
+                }
+                tile.textContent = text;
+                if (isFullWidth) {
+                    tile.style.gridColumn = 'span 5';
+                    tile.style.aspectRatio = 'auto';
+                    tile.style.padding = '12px';
+                }
                 tile.onclick = () => { window.location.href = 'reader.html?ch=' + ch.slug; };
                 grid.appendChild(tile);
             });
@@ -73,33 +93,82 @@ function buildTOC() {
     }
 }
 
-function showFn(id) {
+function formatFootnoteToken(match, n, label) {
+    let displayLabel = label;
+    if (!displayLabel) {
+        if (n.startsWith('qafih.') || n.startsWith('fn.qafih.')) {
+            const lastPart = n.split('.').pop();
+            displayLabel = lastPart.startsWith('ast') ? '*' + lastPart.slice(3) : lastPart;
+        } else {
+            displayLabel = '*';
+        }
+    }
+    const fullId = n.startsWith('fn.') ? n : 'fn.' + n;
+    return `<sup class="fn-ref" onclick="showFn('${fullId}')">${displayLabel}</sup>`;
+}
+
+async function showFn(id) {
     const panel = document.getElementById('fn-panel');
-    const data = footnotes[id] || {en: 'Note content missing.', fr: ''};
     const mainCont = document.querySelector('.main-container');
+
+    // Check if this is a Rabbi Yosef Qafih note
+    if (id.startsWith('fn.qafih.') || id.startsWith('qafih.')) {
+        const normId = id.startsWith('fn.') ? id : 'fn.' + id;
+        if (!qafihFootnotes) {
+            try {
+                const res = await fetch('data/qafih_footnotes.json');
+                qafihFootnotes = await res.json();
+            } catch (e) {
+                console.error("Failed to load Qafih footnotes", e);
+            }
+        }
+        const noteText = (qafihFootnotes && qafihFootnotes[normId]) || 'הערה אינה נמצאת.';
+        
+        document.getElementById('fn-panel-body').innerHTML = `
+            <div style="direction: rtl; text-align: right; font-family: var(--font-hebrew);">
+                <div style="font-weight: 700; color: #10b981; margin-bottom: 8px; font-size: 0.95rem; letter-spacing: 0.05em;">Qafih's Note:</div>
+                <div style="font-size: 1.15rem; line-height: 1.8;">${noteText}</div>
+            </div>
+        `;
+        panel.classList.add('open');
+        mainCont.classList.add('fn-open');
+        return;
+    }
+
+    // Salomon Munk note
+    const data = footnotes[id] || {en: 'Note content missing.', fr: ''};
     const col1 = mainCont.getAttribute('data-left-col');
     const col2 = mainCont.getAttribute('data-right-col');
-    const enInView = (col1 === 'en' || col2 === 'en');
-    const frInView = (col1 === 'fr' || col2 === 'fr');
+    const isComparingEnglishFrench = (
+        (col1 === 'en' && col2 === 'fr') || 
+        (col1 === 'fr' && col2 === 'en')
+    );
     
     let contentHtml = '';
     const rawEn = data.en;
     const rawFr = data.fr;
     
-    if (rawEn && rawFr) {
+    if (rawEn && rawFr && isComparingEnglishFrench) {
         contentHtml = `<div class="fn-dual-container">
             <div class="fn-col"><span class="fn-lang-label">English</span><div>${rawEn}</div></div>
             <div class="fn-col"><span class="fn-lang-label">French</span><div>${rawFr}</div></div>
         </div>`;
-    } else if (rawFr) {
+    } else if (rawEn && (col1 === 'en' || col2 === 'en')) {
+        contentHtml = `<div>${rawEn}</div>`;
+    } else if (rawFr && (col1 === 'fr' || col2 === 'fr')) {
         contentHtml = `<div>${rawFr}</div>`;
     } else {
-        contentHtml = `<div>${rawEn || 'Note missing.'}</div>`;
+        contentHtml = `<div>${rawEn || rawFr || 'Note missing.'}</div>`;
     }
+
+    contentHtml = contentHtml.replace(/\[\[fn:([^|\]]+)(?:\|([^\]]+))?\]\]/g, formatFootnoteToken);
     
-    contentHtml = contentHtml.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (m, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')" style="cursor:pointer;">${label || '*'}</sup>`);
-    
-    document.getElementById('fn-panel-body').innerHTML = contentHtml;
+    document.getElementById('fn-panel-body').innerHTML = `
+        <div style="direction: ltr; text-align: left; font-family: var(--font-english);">
+            <div style="font-weight: 700; color: #3b82f6; margin-bottom: 8px; font-size: 0.95rem; letter-spacing: 0.05em;">Munk's Note:</div>
+            <div>${contentHtml}</div>
+        </div>
+    `;
     panel.classList.add('open');
     mainCont.classList.add('fn-open');
 }
@@ -122,13 +191,13 @@ async function loadChapter(slug) {
             html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
                 <div class="left-cell">
                     ${Object.entries(row.variants).map(([v, t]) => {
-                        let processed = t.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (match, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">${label || '*'}</sup>`);
+                        let processed = t.replace(/\[\[fn:([^|\]]+)(?:\|([^\]]+))?\]\]/g, formatFootnoteToken);
                         return `<span class="variant-span variant-${v}">${processed}</span>`;
                     }).join('')}
                 </div>
                 <div class="right-cell">
                     ${Object.entries(row.variants).map(([v, t]) => {
-                        let processed = t.replace(/\[\[fn:(\d+)(?:\|([^\]]+))?\]\]/g, (match, n, label) => `<sup class="fn-ref" onclick="showFn('fn.${n}')">${label || '*'}</sup>`);
+                        let processed = t.replace(/\[\[fn:([^|\]]+)(?:\|([^\]]+))?\]\]/g, formatFootnoteToken);
                         return `<span class="variant-span variant-${v}">${processed}</span>`;
                     }).join('')}
                 </div>
@@ -147,7 +216,7 @@ async function loadChapter(slug) {
 }
 
 function updateSelectionState(title) {
-    const isMunkSection = title.includes('Volume') || title === 'Note On The Title';
+    const isMunkSection = title.includes("Munk's") || title.includes('Volume') || title.includes('Note On The Title') || title.includes('Endnote');
     const leftSel = document.getElementById('select-left-col');
     const rightSel = document.getElementById('select-right-col');
     if (!leftSel) return;
@@ -161,11 +230,61 @@ function updateColumnSelectors() {
     if (!leftSel) return;
     const leftVal = leftSel.value;
     const rightVal = rightSel.value;
+    
+    // (2) Force English Left / Hebrew Right swap logic
+    const hebrewVariants = ['makbili', 'tibon', 'jrb', 'qafih'];
+    if (hebrewVariants.includes(leftVal) && rightVal === 'en') {
+        leftSel.value = 'en';
+        rightSel.value = leftVal;
+        updateColumnSelectors();
+        return;
+    }
+
     const mainCont = document.querySelector('.main-container');
-    mainCont.setAttribute('data-left-col', leftVal);
-    mainCont.setAttribute('data-right-col', rightVal);
+    if (mainCont) {
+        mainCont.setAttribute('data-left-col', leftSel.value);
+        mainCont.setAttribute('data-right-col', rightSel.value);
+
+        // Smart Ordering for Vertical Mode
+        const semitic = ['makbili', 'tibon', 'jrb', 'qafih'];
+        const isLeftSemitic = semitic.includes(leftVal);
+        const isRightSemitic = semitic.includes(rightVal);
+        
+        if (isRightSemitic && !isLeftSemitic) {
+            mainCont.style.setProperty('--left-order', '2');
+            mainCont.style.setProperty('--right-order', '1');
+        } else {
+            mainCont.style.setProperty('--left-order', '1');
+            mainCont.style.setProperty('--right-order', '2');
+        }
+    }
+}
+
+function toggleLayoutMode() {
+    const mainCont = document.querySelector('.main-container');
+    const btn = document.getElementById('layout-toggle-btn');
+    if (!mainCont || !btn) return;
+
+    const isVertical = mainCont.getAttribute('data-layout-mode') === 'vertical';
+    const newMode = isVertical ? 'side-by-side' : 'vertical';
+    
+    mainCont.setAttribute('data-layout-mode', newMode);
+    btn.innerHTML = newMode === 'vertical' ? '📜 Stacked' : '📖 Parallel';
+    localStorage.setItem('munk-layout-mode', newMode);
 }
 
 function navigateToLanding() { window.location.href = 'index.html'; }
 
-document.addEventListener('DOMContentLoaded', () => { init(); setTheme(localStorage.getItem('munk-theme') || 'light'); });
+document.addEventListener('DOMContentLoaded', () => { 
+    init(); 
+    setTheme(localStorage.getItem('munk-theme') || 'light');
+    const savedLayout = localStorage.getItem('munk-layout-mode') || 'side-by-side';
+    if (savedLayout === 'vertical') {
+        const mainCont = document.querySelector('.main-container');
+        const btn = document.getElementById('layout-toggle-btn');
+        if (mainCont && btn) {
+            mainCont.setAttribute('data-layout-mode', 'vertical');
+            btn.innerHTML = '📜 Stacked';
+        }
+    }
+});
