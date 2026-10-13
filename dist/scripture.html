@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Munk Guide">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/google/material-design-icons/master/png/action/book/materialicons/24dp/2x/baseline_book_black_24dp.png">
+    <title>Scriptural Index - Munk Parallel Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;700&family=Amiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reader.css">
+    <link rel="stylesheet" href="css/scripture.css">
+</head>
+<body class="scripture-body">
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="back-home-btn" aria-label="Home" style="text-decoration:none; font-size:1.4rem; color:var(--text); padding:4px 8px; border-radius:4px; border:1px solid var(--border); background:var(--surface);">←</a>
+            <h1 id="main-title">Scriptural Index</h1>
+            <span class="munk-label" dir="rtl" lang="he">מפתח פסוקים</span>
+        </div>
+        <div class="theme-controls" style="display:flex; gap:8px;">
+            <button onclick="setTheme('light')" class="theme-btn" style="padding:6px 12px; border-radius:4px; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer;">Light</button>
+            <button onclick="setTheme('sepia')" class="theme-btn" style="padding:6px 12px; border-radius:4px; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer;">Sepia</button>
+            <button onclick="setTheme('dark')" class="theme-btn" style="padding:6px 12px; border-radius:4px; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer;">Dark</button>
+        </div>
+    </header>
+
+    <main class="scripture-page">
+        <div class="scripture-selects" dir="rtl" lang="he">
+            <label>ספר <select id="sel-book"><option value="">— בחר ספר —</option></select></label>
+            <label>פרק <select id="sel-chapter" disabled><option value="">—</option></select></label>
+            <label>פסוק <select id="sel-verse" disabled><option value="">—</option></select></label>
+        </div>
+        <section id="results" aria-live="polite"></section>
+    </main>
+
+    <script src="js/scripture.js"></script>
+</body>
+</html>

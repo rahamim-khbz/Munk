@@ -126,3 +126,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-englis
 .feedback-footer a { display: inline-block; padding: 10px 20px; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: all 0.2s; }
 .feedback-footer a:hover { background: var(--accent); color: white; border-color: var(--accent); }
 .chapter-nav-link { text-decoration: none; color: var(--accent); font-weight: bold; }
+.parallel-row.row-highlight {
+    background: color-mix(in srgb, var(--accent, #1e3a8a) 22%, transparent);
+    transition: background 1.5s ease-out;
+}

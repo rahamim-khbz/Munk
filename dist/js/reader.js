@@ -15,6 +15,7 @@ async function init() {
         if (slug) loadChapter(slug);
         else if (window.location.pathname.endsWith('reader.html')) loadChapter(chapterIndex[0].slug);
         updateColumnSelectors();
+        window.addEventListener('hashchange', focusHashRow);
     } catch (e) { console.error("Init failed", e); }
 }
 
@@ -34,6 +35,20 @@ function buildTOC() {
     const body = document.getElementById('toc-body');
     if (!body) return;
     body.innerHTML = '';
+
+    const indexLink = document.createElement('a');
+    indexLink.href = 'scripture.html';
+    indexLink.className = 'toc-section-btn';
+    indexLink.style.textDecoration = 'none';
+    indexLink.style.color = 'var(--accent)';
+    indexLink.style.display = 'flex';
+    indexLink.style.alignItems = 'center';
+    indexLink.style.justifyContent = 'space-between';
+    indexLink.style.padding = '14px 16px';
+    indexLink.style.fontWeight = '700';
+    indexLink.innerHTML = `<span>📖 Scriptural Index</span><span dir="rtl" lang="he" style="font-family:var(--font-hebrew); font-weight:600;">מפתח פסוקים</span>`;
+    body.appendChild(indexLink);
+
     const groups = { "Introductions": [], 'Part 1': [], 'Part 2': [], 'Part 3': [] };
     chapterIndex.forEach(ch => { if (groups[ch.category]) groups[ch.category].push(ch); });
     for (const [groupName, chapters] of Object.entries(groups)) {
@@ -212,7 +227,17 @@ async function loadChapter(slug) {
         content.innerHTML = html;
         document.querySelector('.main-container').scrollTop = 0;
         updateSelectionState(data.title);
+        focusHashRow();
     } catch (e) { content.innerHTML = '<div style="padding:80px; text-align:center; color:var(--text-muted);">Chapter unavailable.</div>'; }
+}
+
+function focusHashRow() {
+    if (!location.hash.startsWith('#row-')) return;
+    const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    el.scrollIntoView({ block: 'center' });
+    el.classList.add('row-highlight');
+    setTimeout(() => el.classList.remove('row-highlight'), 2500);
 }
 
 function updateSelectionState(title) {
