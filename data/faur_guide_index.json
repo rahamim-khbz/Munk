@@ -1,0 +1,571 @@
+{
+  "title": "José Faur Guide for the Perplexed Translation Lexicon and Chapter Index",
+  "source_work": "Homo Mysticus: A Guide to Maimonides's Guide for the Perplexed (Syracuse University Press, 1998)",
+  "purpose": "Targeted conflict-resolution reference for Munk AI English Second Edition review pipeline",
+  "global_lexicon": {
+    "term_1": {
+      "term": "‘Aql* ( عقل)\\",
+      "faur_translation": "Reason; Intellect; The Cognitive Faculty**\\",
+      "erroneous_translations_to_avoid": "Mind; Intellection (when reified as purely passive contemplation)\\",
+      "scholarly_analysis": "In Maimonides, *‘aql* is not merely an analytical calculator. It is the faculty of intellectual perception that abstracts the essential from the incidental. It operates under the binary of **truth and falsehood** (*haqq* / *batil*). It stands in sharp, irreducible contrast to the imaginative faculty (*al-quwwa al-mutkhayyila*).\\"
+    },
+    "term_2": {
+      "term": "Khay āl* (خيال) / *Takhayyul* (تخيّل)\\",
+      "faur_translation": "Imagination; Imaginative Projection; Fancy; Phantom**\\",
+      "erroneous_translations_to_avoid": "Creative imagination; Thought; Conception\\",
+      "scholarly_analysis": "*Khayal* is biological, somatic, and continuous with animal psychology. It operates according to the laws of association, spatial contiguity, and physical sensory impressions. It is incapable of true abstraction. *Khayal* does not grasp essences; it combines disparate physical properties into synthetic chimeras (such as an elephant with wings). In its corrupted state (*fasad al-khayal*), it becomes the source of anthropomorphic theology, pagan mythology, superstition, neurosis, and moral sin (*yeser ha-ra’*).\\"
+    },
+    "term_3": {
+      "term": "Burh ān* (برهان) (pl. *Barāhīn* / *Burāhīn*)\\",
+      "faur_translation": "Apodictic Proof; Conclusive Demonstration; Scientific Proof**\\",
+      "erroneous_translations_to_avoid": "Evidence; Proof (generic); Argument\\",
+      "scholarly_analysis": "*Burhan* represents deductive demonstration based strictly on the laws of necessary causality and the principle of non-contradiction. It yields absolute, objective certainty. When a subject cannot be demonstrated by *burhan*, it belongs either to inductive inference (*istidlal*), dialectical speculation (*nazar*), or subjective conjecture (*shubha*). A *burhan* cannot be refuted by authority or consensus.\\"
+    },
+    "term_4": {
+      "term": "Istidl āl* (استدلال) / *Dalīl* (دليل)\\",
+      "faur_translation": "Istidlal*: Inductive Inference; Inferential Demonstration.** ***Dalil*: Sign-post; Signifier; Inductive Marker; Pointer.**\\",
+      "erroneous_translations_to_avoid": "Proof; Evidence; Syllogism\\",
+      "scholarly_analysis": "Borrowed via Stoic logic (*semeion* / Hebrew *simman*), *dalil* does not establish a necessary causal or intrinsic link between two entities. Instead, it points to a relationship based on external indicators (e.g., milk in a woman's breast is a *dalil* that she gave birth). *Istidlal* establishes probable or possible relations, but never apodictic certainty. It operates within the realm of the *probable* (*al-amr al-mumkin*).\\"
+    },
+    "term_5": {
+      "term": "Ba ḥth* (بحث)\\",
+      "faur_translation": "Direct Analysis; Unbiased Inquiry; Direct Examination**\\",
+      "erroneous_translations_to_avoid": "Research; Discussion; Investigation (generic)\\",
+      "scholarly_analysis": "*Ba ḥth* is an investigation conducted directly on the phenomenon itself, shorn of prior theological or authoritarian dogmas (*authoritas*). It is the hallmark of genuine scientific and philosophical methodology as opposed to the apologetic rationalizations of the *Kalam*.\\"
+    },
+    "term_6": {
+      "term": "I‘tiq ād* (اعتقاد)\\",
+      "faur_translation": "Cognitive-Construct; Conceptual Conviction; Intellectual Faith**\\",
+      "erroneous_translations_to_avoid": "Belief; Faith (in the sense of blind, uncritical belief or dogma); Credence\\",
+      "scholarly_analysis": "For Maimonides, *i'tiqad* is not a blind emotional stance. It is defined as a belief that matches an outer reality that exists independently of the human psyche (*Guide*, 1:50). If a person asserts a formula with their mouth or imagines it in their head, but no external reality corresponds to it (e.g., asserting God is corporeal or composed of persons), that assertion is merely empty words (*lafdh mujarrad*) and an illusion—not *i'tiqad*.\\"
+    },
+    "term_7": {
+      "term": "Taql īd* (تقليد)\\",
+      "faur_translation": "Uncritical Adoption of Authority; Blind Tradition; Authoritarian Dogma**\\",
+      "erroneous_translations_to_avoid": "Tradition; Acceptance; Heritage\\",
+      "scholarly_analysis": "*Taqlid* is accepting an idea or dogma solely because an ancestor, teacher, or sovereign asserted it, without testing it through reason or demonstrating it via *burhan*. While permissible in the initial pedagogical stages of childhood, remaining in *taqlid* stunts the individual's intellectual potential and traps them in the imaginative conventionalities of the masses (*al-jamhur*).\\"
+    },
+    "term_8": {
+      "term": " Ḥaqīqa* (حقيقة)\\",
+      "faur_translation": "True Reality; Essence; Literal Reality**\\",
+      "erroneous_translations_to_avoid": "Truth (generic); Fact\\",
+      "scholarly_analysis": "The intrinsic reality of a thing as it exists in its specific, constitutive nature, free of the projections, conventional associations, or metaphorical displacements imposed by human perception.\\"
+    },
+    "term_9": {
+      "term": "Kal ām* (كلام) / *Mutakallimūn* (متكلّمون)\\",
+      "faur_translation": "Kalam*: Dialectical Theology; Scholastic Apologetics.** ***Mutakallimun*: Theologians; Scholastic Apologists.**\\",
+      "erroneous_translations_to_avoid": "Philosophy; Dialecticians; Words/Speech\\",
+      "scholarly_analysis": "Maimonides views the *Kalam* (Christian and Islamic) as a pseudo-rational enterprise. Unlike true philosophers who examine physical reality through *bahth* to discover the truth, the *Mutakallimun* start with a dogmatic conclusion demanded by their religious and political masters, then subordinate reality to imagination by devising premises to defend that conclusion.\\"
+    },
+    "term_10": {
+      "term": " Ṣifāt* (صفات) / *Nafy al-Ṣifāt* (نفي الصفات)\\",
+      "faur_translation": "Sifat*: Attributes.** ***Nafy al-Sifat*: Negation of Attributes; Apophasis.**\\",
+      "erroneous_translations_to_avoid": "Characteristics; Negative Theology (too generic)\\",
+      "scholarly_analysis": "Essential attributes cannot apply to God because attributes imply multiplicity, composition, accidental qualities, and an ontological affinity (*nisba*) between God and creatures. Maimonidean apophasis is not a passive rejection of words; it is a rigorous, dynamic process of demonstrating via *burhan* that every positive predicate (e.g., living, wise, powerful, existent) is inapplicable to God in any humanly conceivable sense.\\"
+    },
+    "term_11": {
+      "term": "Salb* ( سلب)\\",
+      "faur_translation": "Differential Negation; Non-predicative Exclusion**\\",
+      "erroneous_translations_to_avoid": "Deprivation; Privation; Rejection\\",
+      "scholarly_analysis": "A negation of a predicate in a manner that does not assume the subject belongs to the genus of the predicate. When we say \"the wall does not see,\" we are not attributing blindness to the wall, but stating that the category of sight is completely outside its genus. In this sense alone can negative attributes be applied to God.\\"
+    },
+    "term_12": {
+      "term": "W ājib al-Wujūd* (واجب الوجود)\\",
+      "faur_translation": "The Necessary Existent; Absolute Being**\\",
+      "erroneous_translations_to_avoid": "Uncaused cause; Necessary being\\",
+      "scholarly_analysis": "An entity whose non-existence is an absolute impossibility and whose existence is entirely uncaused and identical with His very essence. God is the sole *Wajib al-Wujud*. Everything else is merely *mumkin al-wujud* (contingent being).\\"
+    },
+    "term_13": {
+      "term": "Nisba* ( نسبة)\\",
+      "faur_translation": "Analogy; Ontological Affinity; Correlation**\\",
+      "erroneous_translations_to_avoid": "Relation; Proportion; Ratio\\",
+      "scholarly_analysis": "Analogy can exist only between two objects belonging to the same immediate species or the same proximate genus. Since God is uncaused, non-corporeal, and categorically transcendent, there is zero *nisba* between God and His creatures. To posit a *nisba* is to commit idolatrous anthropomorphism.\\"
+    },
+    "term_14": {
+      "term": "Tanz īh* (تنزيه)\\",
+      "faur_translation": "Transcendental Demarcation; Absolute De-anthropomorphization**\\",
+      "erroneous_translations_to_avoid": "Purification; Praise; Exaltation\\",
+      "scholarly_analysis": "The systematic theological and semiotic removal of all corporeal, temporal, accidental, and imaginative associations from the divine realm.\\"
+    },
+    "term_15": {
+      "term": "Dumya* ( דומיה / دمية) / *Lekha Dumya Tehilla* (לך דומיה תהלה)\\",
+      "faur_translation": "Apophatic Silence; Praise-in-Silence**\\",
+      "erroneous_translations_to_avoid": "Quietness; Resignation; Passive silence\\",
+      "scholarly_analysis": "Based on Psalms 65:2, this term signifies that after exhausting all intellectual capacities in negating attributes, the highest human apprehension of God resolves into silence. Speech and positive praise inevitably distort God's essence; silence is the only praise appropriate to the infinite abyss of divine transcendence.\\"
+    },
+    "term_16": {
+      "term": "Ibd ā‘* (إبداع) / *Khalq* (خلق)\\",
+      "faur_translation": "Ibda'*: Absolute Creation ex nihilo; Acausal Origination.** ***Khalq*: Creation; Fashioning.**\\",
+      "erroneous_translations_to_avoid": "Formation; Generation; Production\\",
+      "scholarly_analysis": "*Ibda'* designates bringing existence into being out of absolute nothingness (*creatio ex nihilo*), with no pre-existing substrate or temporal precursor. It is entirely outside the mechanical causality of Aristotelian physics. It reflects pure divine purpose and unconditioned will.\\"
+    },
+    "term_17": {
+      "term": "Qidam* ( قدم) vs. *Ḥudūth* (حدوث)\\",
+      "faur_translation": "Qidam*: Eternity (Uncreatedness); Primordiality.** ***Huduth*: Temporal Origination; Emergence; Createdness.**\\",
+      "erroneous_translations_to_avoid": "Antiquity vs. Novelty; Pre-existence vs. Modernity\\",
+      "scholarly_analysis": "The fundamental metaphysical division between Aristotle's model (the world is *qadim*—eternal, uncreated, governed by iron necessity) and the Tora's model (the world is *hadith*—temporally originated by a deliberate act of divine volition).\\"
+    },
+    "term_18": {
+      "term": "Takh ṣīṣ* (تخصيص)\\",
+      "faur_translation": "Particularization; Determination; Intentional Differentiation**\\",
+      "erroneous_translations_to_avoid": "Specification; Allocation; Limitation\\",
+      "scholarly_analysis": "The deliberate divine act of choosing one specific cosmological possibility out of an infinite array of equiprobable alternatives (e.g., determining why celestial spheres rotate in one specific direction rather than the opposite). *Takhsis* shatters the Aristotelian thesis of blind necessity and demonstrates sovereign divine volition (*irada* / *qasd*).\\"
+    },
+    "term_19": {
+      "term": "Qa ṣd* (قصد) / *Qaṣda* (قصدة)\\",
+      "faur_translation": "Purposiveness; Intentionality; Deliberate Design**\\",
+      "erroneous_translations_to_avoid": "Purpose (generic); Intention; Goal\\",
+      "scholarly_analysis": "The quality of conscious volition and teleological planning behind creation, entirely distinct from the mechanical, unintentional emanations posited by Neoplatonists or the deterministic necessity of the Aristotelian Prime Mover.\\"
+    },
+    "term_20": {
+      "term": "Tarj īḥ* (ترجيح)\\",
+      "faur_translation": "Tipping the Balance (between Equiprobables); Existential Decisiveness**\\",
+      "erroneous_translations_to_avoid": "Preference; Preponderance; Inclination\\",
+      "scholarly_analysis": "When two opposing propositions (such as *Creation ex nihilo* vs. *Eternity of the Universe*) cannot be conclusively resolved by an apodictic proof (*burhan*), an impartial intellectual must deliberately \"tip the balance\" based on external criteria, such as the survival of moral agency and prophetic authority.\\"
+    },
+    "term_21": {
+      "term": "Al-Amr al-Mumkin* ( الأمر الممكن)\\",
+      "faur_translation": "The Realm of the Probable; Contingency**\\",
+      "erroneous_translations_to_avoid": "The possible; Potentiality\\",
+      "scholarly_analysis": "In Maimonides' epistemology, the natural universe does not operate on deterministic mechanical certainty alone, but contains genuine indeterminacy and probabilistic outcomes. Knowledge of these systems relies on statistical, inductive reasoning (*istidlal*).\\"
+    },
+    "term_22": {
+      "term": "Nubuwwa* ( نبوّة)\\",
+      "faur_translation": "Prophecy; Prophetic Consciousness**\\",
+      "erroneous_translations_to_avoid": "Divination; Foretelling; Soothsaying\\",
+      "scholarly_analysis": "Prophecy is the pinnacle of human development. It occurs when the divine intellectual flow (*al-faid al-ilahi*) pours into the cognitive faculty (*al-quwwa al-natiqa*) and subsequently overflows into the perfected imaginative faculty (*al-quwwa al-mutkhayyila*). It requires a threefold perfection: ethical, intellectual, and imaginative.\\"
+    },
+    "term_23": {
+      "term": "Al-Quwwa al-Mutkhayyila* ( القوة المتخيلة)\\",
+      "faur_translation": "The Imaginative Faculty; Creative Imagination (in prophets)**\\",
+      "erroneous_translations_to_avoid": "Phantasm; Illusory power\\",
+      "scholarly_analysis": "While unrefined imagination traps ordinary humans in mythology and political delusion, the prophet uses a fully perfected imaginative faculty to translate abstract metaphysical insights into concrete political, legal, and linguistic symbols that educate and guide humanity.\\"
+    },
+    "term_24": {
+      "term": "Mal’akh* / *Malak* ( מלאך / ملك)\\",
+      "faur_translation": "Messenger; Signifier; Natural Force; The Angelic Medium**\\",
+      "erroneous_translations_to_avoid": "Angel (as an autonomous, winged divine being)\\",
+      "scholarly_analysis": "An angel is an intermediary or instrument through which God communicates or operates. In prophecy, the angel is the *signifier* (*dalil*), not the *signified*. Confusing the angel for God is the root mistake of Gnosticism and the tragic error of Elisha ben Abuya.\\"
+    },
+    "term_25": {
+      "term": "‘Al āmāt* (علامات) / *Rumūz* (رموز)\\",
+      "faur_translation": "Signs; Semiotic Markers; Cryptograms; Enigmatic Hints**\\",
+      "erroneous_translations_to_avoid": "Symbols; Riddles; Secrets (generic)\\",
+      "scholarly_analysis": "Structural textual markers placed by the biblical text or Maimonides to lead the qualified decoder toward esoteric meaning while diverting the literalist crowd.\\"
+    },
+    "term_26": {
+      "term": " Āthār* (آثار) (sing. *Athar*)\\",
+      "faur_translation": "Traces; Lingering Archetypal Impressions; Psychic Residues**\\",
+      "erroneous_translations_to_avoid": "Effects; Remnants; Antiquities\\",
+      "scholarly_analysis": "Deep-seated, unconscious habits, mythic memories, and cultural impressions left behind by paganism in the human psyche. These traces cannot be eradicated instantly; they require gradual therapeutic reconditioning via divine benevolence (*lutf*).\\"
+    },
+    "term_27": {
+      "term": "Al-Jumh ūr* (الجمهور) / *Al-‘Āmma* (العامة)\\",
+      "faur_translation": "The General Public; The Masses; The Common People**\\",
+      "erroneous_translations_to_avoid": "The Vulgar; Plebeians; Populace\\",
+      "scholarly_analysis": "Those whose cognitive horizon is entirely bounded by sensory perception, the imaginative faculty, and socio-political conventions (*mashhurat*). They process religion anthropomorphically and require metaphorical, pedagogical guidance for social cohesion and survival.\\"
+    },
+    "term_28": {
+      "term": "Naw āmīs* (نواميس) (sing. *Nāmūs*)\\",
+      "faur_translation": "Constitutional Laws; Political Statutes; Human Legislations**\\",
+      "erroneous_translations_to_avoid": "Laws (generic); Rules; Religions\\",
+      "scholarly_analysis": "Purely human political constitutions created by political leaders or philosophers to maintain order, property, and physical peace, as opposed to the Divine Law (Tora), which secures both somatic welfare (*tikkun ha-guf*) and ultimate intellectual perfection (*tikkun ha-nefesh*).\\"
+    },
+    "term_29": {
+      "term": "Rayyis* ( ريّس)\\",
+      "faur_translation": "Authoritarian Political Boss; Prince; Overbearing Ruler**\\",
+      "erroneous_translations_to_avoid": "Leader; Chief; Master\\",
+      "scholarly_analysis": "Maimonides uses this term with irony when referring to Aristotle's authority in metaphysics. A *rayyis* rules by power, intimidation, or uncritical acclaim (*authoritas*), rather than by rational, apodictic demonstration.\\"
+    },
+    "term_30": {
+      "term": "Lu ṭf* (لطف)\\",
+      "faur_translation": "Benevolent Cunning; Divine Subtlety; Pedagogical Stratagem**\\",
+      "erroneous_translations_to_avoid": "Kindness; Grace; Clemency\\",
+      "scholarly_analysis": "The sophisticated divine psychological method of educating humanity gradually. Instead of overriding human psychology with violent miracles, God implements subtle legal stratagems (e.g., channeling ancient sacrificial worship into a single centralized Temple) to gently wean humanity off pagan practices.\\"
+    },
+    "term_31": {
+      "term": "Shaj ā‘a* (شجاعة)\\",
+      "faur_translation": "Collected Reckoning; True Stamina; Courage**\\",
+      "erroneous_translations_to_avoid": "Bravery; Valour; Boldness\\",
+      "scholarly_analysis": "The disciplined, deliberate emotional balance between cowardice and reckless heroism. It is exemplified by the generation of the desert, who learned to withstand hardship and build a national identity grounded in historical, sober reality rather than pagan fatalism.\\"
+    },
+    "term_32": {
+      "term": "‘Ib āda ‘Aqliyya* (عبادة عقلية)\\",
+      "faur_translation": "Intellectual Worship; Liturgical Contemplation**\\",
+      "erroneous_translations_to_avoid": "Rational service; Mental worship\\",
+      "scholarly_analysis": "The highest human stage, where an individual who has mastered science, law, and philosophy concentrates their entire cognitive apparatus on meditating on God and His universe. This state is exemplified by Moses and the Patriarchs, who remained united with the divine intellect even while engaging in practical worldly matters.\\"
+    },
+    "term_33": {
+      "term": "‘Aboda Zara* ( עבודה זרה / عبادة غريبة)\\",
+      "faur_translation": "Unprescribed Cult; Alien Worship; Foreign Ritual**\\",
+      "erroneous_translations_to_avoid": "Idolatry (conceived merely as bowing to physical statues)\\",
+      "scholarly_analysis": "*‘Aboda zara* is not just polytheistic idol-worship; it is **any religious cult not explicitly commanded by the Tora**. Because God cannot be grasped through positive attributes, inventing an unauthorized cultic action—even with the pure intention of honoring God—is a form of idolatrous psychological projection.\\"
+    },
+    "term_34": {
+      "term": "K āmil* (كامل) (pl. *Kāmilūn*)\\",
+      "faur_translation": "Person of Perfection; The Perfected Individual**\\",
+      "erroneous_translations_to_avoid": "Complete man; Whole person\\",
+      "scholarly_analysis": "The individual who has successfully traversed the crisis of skepticism, overcome the illusions of the imagination, mastered the sciences, and attained apophatic clarity, standing ready to enter the inner sanctuary of true intellectual communion with God.\\"
+    },
+    "french_idiom_docteurs": {
+      "term": "docteurs (Munk French) / ḥakhamim / fuqahā' (Judeo-Arabic)",
+      "faur_translation": "Rabbis; Sages; Talmudic Authorities; Jurists (in legal context)",
+      "erroneous_translations_to_avoid": "doctors; medical doctors; physicians (when not discussing medicine)",
+      "scholarly_analysis": "In 19th-century French scholarship, Salomon Munk frequently rendered the Talmudic Sages (Hebrew ḥakhamim, Judeo-Arabic fuqahā' / ḥukamā') as 'les docteurs'. A literal French-to-English translation renders 'doctors', misleading modern readers. In 1950s academic English, translate as 'Rabbis' or 'Sages' when referring to rabbinic authorities, or 'Jurists' when Maimonides refers to legalists."
+    }
+  },
+  "chapter_citations": {
+    "Introductory Epistle": {
+      "summary": "Maimonides dedicates the Guide to R. Joseph b. Judah. Uses the term 'manthura' (scattered prose) to disperse esoteric headings ('rashe peraqim') so only qualified students can synthesize them.",
+      "key_concepts": [
+        "al-Natr / manthura (scattering of headings)",
+        "rashe peraqim (chapter headings)",
+        "pedagogical esotericism",
+        "perplexed student (ha'iran)"
+      ],
+      "faur_pages": [
+        193,
+        207,
+        244
+      ]
+    },
+    "Prefatory Remarks": {
+      "summary": "Analysis of intentional contradictions. The 7th contradiction is deliberately placed to conceal esoteric truths (Ma'ase Merkaba) from the uninitiated while disclosing them to the enlightened.",
+      "key_concepts": [
+        "Seventh Contradiction",
+        "Parergon (ornament concealing core)",
+        "rashe peraqim",
+        "gold apples in silver filigree"
+      ],
+      "faur_pages": [
+        192,
+        193,
+        194,
+        197,
+        208,
+        209,
+        210
+      ]
+    },
+    "Part 1, Chapter 1": {
+      "summary": "Distinction between Tselem (Intellectual Form / Divine Image) and Demut / Temuna (accidental physical likeness). Humans are in God's image solely through intellectual perception ('aql), not somatic morphology.",
+      "key_concepts": [
+        "Tselem (essential intellectual form)",
+        "Temuna / Demut (physical shape)",
+        "Intellectual communion"
+      ],
+      "faur_pages": [
+        211,
+        214,
+        231
+      ]
+    },
+    "Part 1, Chapter 2": {
+      "summary": "The Fall of Adam. Before sin, Adam operated by Reason ('aql) under the binary of Truth and Falsehood (haqq / batil). By yielding to imagination (the serpent), he fell into socio-political conventionalities (al-mashhurat) governed by Good and Evil (hasan / qabih).",
+      "key_concepts": [
+        "Intellect vs Imagination",
+        "Truth/Falsehood (haqq/batil) vs Good/Evil (hasan/qabih)",
+        "Conventionalities (al-mashhurat)",
+        "Adam before Seth"
+      ],
+      "faur_pages": [
+        203,
+        210,
+        211,
+        212,
+        214,
+        215
+      ]
+    },
+    "Part 1, Chapter 5": {
+      "summary": "Censure of Aristotle as 'rayyis' (political boss / authoritarian prince) when exceeding apodictic limits into metaphysics. Princes of Israel faulted for charging rashly into divine contemplation before intellectual perfection.",
+      "key_concepts": [
+        "rayyis (authoritarian ruler)",
+        "Princes of Israel charging impulsively",
+        "burhan vs conjecture"
+      ],
+      "faur_pages": [
+        188,
+        217,
+        218,
+        219,
+        226
+      ]
+    },
+    "Part 1, Chapter 8": {
+      "summary": "The term 'Makom' (place) applied to God. God is the 'place of the world' in the sense that He sustains all being, not spatial container.",
+      "key_concepts": [
+        "Makom",
+        "mamsi (bestower of existence)",
+        "she-yesh sham"
+      ],
+      "faur_pages": [
+        190,
+        210,
+        220
+      ]
+    },
+    "Part 1, Chapter 31": {
+      "summary": "The perimeters of human intellect. Three areas of knowledge: mathematics (certain), physics (investigable by bahth), and metaphysics (cannot be demonstrated by burhan alone).",
+      "key_concepts": [
+        "bahth (direct examination)",
+        "burhan (apodictic proof)",
+        "ha'ira (perplexity)"
+      ],
+      "faur_pages": [
+        192,
+        224,
+        225,
+        226,
+        228,
+        233
+      ]
+    },
+    "Part 1, Chapter 32": {
+      "summary": "The danger of corrupt imagination rushing into the divine realm. Moses covered his face in intellectual modesty, while Elisha ben Abuya cut the plants.",
+      "key_concepts": [
+        "corrupt imagination (fasad al-khayal)",
+        "intellectual modesty",
+        "Elisha ben Abuya"
+      ],
+      "faur_pages": [
+        192,
+        202,
+        203,
+        204,
+        206,
+        218,
+        224,
+        225,
+        226
+      ]
+    },
+    "Part 1, Chapter 34": {
+      "summary": "Five causes preventing the masses from studying esoteric sciences directly: difficulty of subjects, intellectual capacity, prerequisites, moral training, and worldly distractions.",
+      "key_concepts": [
+        "pedagogical accommodation",
+        "protection of esoterics",
+        "moral and scientific training"
+      ],
+      "faur_pages": [
+        204,
+        214
+      ]
+    },
+    "Part 1, Chapter 35": {
+      "summary": "Every Israelite must be taught God's incorporeality as an absolute foundation; holding God is corporeal is fatal apostasy.",
+      "key_concepts": [
+        "incorporeality",
+        "universal dogma for the masses",
+        "rejection of anthropomorphism"
+      ],
+      "faur_pages": [
+        192,
+        205,
+        243
+      ]
+    },
+    "Part 1, Chapter 36": {
+      "summary": "Corporealism and anthropomorphic theology constitute 'Aboda Zara (unprescribed cult / alien worship). Conceiving God as corporeal is worshipping an imaginary phantom.",
+      "key_concepts": [
+        "'Aboda Zara (unprescribed cult)",
+        "phantom of imagination",
+        "idolatry as psychological projection"
+      ],
+      "faur_pages": [
+        188,
+        213,
+        223
+      ]
+    },
+    "Part 1, Chapter 50": {
+      "summary": "Definition of Faith (i'tiqad). True belief is not verbal utterance (lafdh) but an internal cognitive-construct (tasawwur) whose external reality corresponds strictly to what is conceived.",
+      "key_concepts": [
+        "i'tiqad (cognitive conviction / construct)",
+        "tasawwur (conceptualization)",
+        "rejection of blind verbal faith"
+      ],
+      "faur_pages": [
+        209,
+        226
+      ]
+    },
+    "Part 1, Chapter 51": {
+      "summary": "Negation of essential attributes. Attributes imply plurality, accident, and composition in the deity.",
+      "key_concepts": [
+        "sifat (attributes)",
+        "nafy al-sifat (apophasis)",
+        "simplicity of divine essence"
+      ],
+      "faur_pages": [
+        206,
+        209
+      ]
+    },
+    "Part 1, Chapter 58": {
+      "summary": "Negative attributes (salb). Negative attributes lead to true knowledge of God without attributing accidental qualities or likeness.",
+      "key_concepts": [
+        "salb (differential negation)",
+        "non-predicative exclusion",
+        "transcendence"
+      ],
+      "faur_pages": [
+        186
+      ]
+    },
+    "Part 1, Chapter 59": {
+      "summary": "The apex of apophatic theology: Lekha Dumya Tehilla (To You silence is praise). Exhaustion of language resolves into sacred intellectual silence.",
+      "key_concepts": [
+        "Dumya (apophatic silence)",
+        "inadequacy of human liturgical praise",
+        "silence as highest apprehension"
+      ],
+      "faur_pages": [
+        193,
+        206,
+        209,
+        213
+      ]
+    },
+    "Part 1, Chapter 71": {
+      "summary": "Historical origin and critique of the Kalam. The Mutakallimun subordinate reality to imagination to defend preconceived sectarian dogmas, unlike genuine philosophers.",
+      "key_concepts": [
+        "Kalam (dialectical apologetics)",
+        "Mutakallimun (scholastic theologians)",
+        "loss of authentic Hebrew wisdom"
+      ],
+      "faur_pages": [
+        196,
+        197,
+        198,
+        205,
+        214,
+        222,
+        223,
+        225,
+        229
+      ]
+    },
+    "Part 2, Introduction": {
+      "summary": "Twenty-six premises of Aristotle and the philosophers demonstrating the existence, unity, and incorporeality of God.",
+      "key_concepts": [
+        "Aristotelian premises",
+        "prime mover",
+        "Wajib al-Wujud"
+      ],
+      "faur_pages": [
+        224,
+        229
+      ]
+    },
+    "Part 2, Chapter 12": {
+      "summary": "Divine emanation (al-faid al-ilahi) and the functions of the cognitive and imaginative faculties.",
+      "key_concepts": [
+        "faid (emanation / intellectual flow)",
+        "active intellect",
+        "imaginative faculty"
+      ],
+      "faur_pages": [
+        211,
+        229
+      ]
+    },
+    "Part 2, Chapter 19": {
+      "summary": "Particularization (takhsis). The variety and specific motions of celestial spheres prove deliberate divine intentionality (qasd / irada) against mechanical Aristotelian necessity.",
+      "key_concepts": [
+        "takhsis (particularization)",
+        "qasd (intentionality)",
+        "rejection of blind necessity"
+      ],
+      "faur_pages": [
+        228,
+        230
+      ]
+    },
+    "Part 2, Chapter 24": {
+      "summary": "The limits of Ptolemaic and Aristotelian astronomy. Astronomers devise mathematical models to save appearances, not to describe actual ontological reality.",
+      "key_concepts": [
+        "astronomy as mathematical fiction",
+        "limits of human scientific knowledge",
+        "epicycles and eccentrics"
+      ],
+      "faur_pages": [
+        228,
+        230
+      ]
+    },
+    "Part 2, Chapter 25": {
+      "summary": "Why Creation ex nihilo (huduth) is accepted: not because texts cannot be allegorized, but because Aristotle's eternity destroys miracles, purpose, and the foundation of the Tora.",
+      "key_concepts": [
+        "huduth vs qidam",
+        "tarjih (tipping the balance)",
+        "preservation of divine voluntarism"
+      ],
+      "faur_pages": [
+        229,
+        230
+      ]
+    },
+    "Part 2, Chapter 36": {
+      "summary": "The essence of prophecy. Requires intellectual perfection, ethical discipline, and an active imaginative faculty capable of translating truths into symbols.",
+      "key_concepts": [
+        "prophecy (nubuwwa)",
+        "triple perfection",
+        "imaginative faculty as symbolic instrument"
+      ],
+      "faur_pages": [
+        212,
+        215,
+        226
+      ]
+    },
+    "Part 3, Chapter 32": {
+      "summary": "Divine subtlety and benevolence (lutf). God does not violently change human nature, but gently redirects ancient pagan sacrificial habits into a single centralized Temple.",
+      "key_concepts": [
+        "lutf (divine cunning / pedagogical stratagem)",
+        "historical psychology",
+        "evolution of commandments"
+      ],
+      "faur_pages": [
+        218,
+        224,
+        228,
+        233,
+        238,
+        240,
+        241
+      ]
+    },
+    "Part 3, Chapter 51": {
+      "summary": "The Parable of the Royal Palace. Ranks of humanity from humanoids outside the city to jurists, scientists, and prophets. True intellectual worship ('ibada 'aqliyya) inside the inner court.",
+      "key_concepts": [
+        "Royal Palace parable",
+        "'ibada 'aqliyya (intellectual worship)",
+        "jurists (fuqaha')",
+        "contemplation"
+      ],
+      "faur_pages": [
+        206,
+        209,
+        232,
+        244,
+        245,
+        246
+      ]
+    },
+    "Part 3, Chapter 54": {
+      "summary": "The four perfections: possessions, bodily health, moral virtues, and true intellectual perfection. Culmination is Jacob's Ladder descent to practice hesed, mishpat, and tsedaqa on earth.",
+      "key_concepts": [
+        "four perfections",
+        "prophetic descent",
+        "hesed, mishpat, tsedaqa (munificence, justice, righteousness)",
+        "imitatio Dei"
+      ],
+      "faur_pages": [
+        206,
+        244,
+        247
+      ]
+    }
+  }
+}
