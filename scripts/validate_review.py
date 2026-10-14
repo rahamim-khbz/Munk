@@ -25,8 +25,15 @@ class StrictApparatusValidator:
         'rest', 'test', 'west', 'east', 'nest', 'guest', 'chest', 'pest',
         'quest', 'manifest', 'suggest', 'attest', 'request', 'digest', 'invest',
         'divest', 'interest', 'earnest', 'honest', 'modest', 'forest', 'harvest',
-        'priest', 'crest', 'crest', 'oldest', 'newest', 'greatest', 'highest',
-        'lowest', 'first', 'purest', 'closest', 'brightest', 'finest', 'deepest'
+        'priest', 'crest', 'oldest', 'newest', 'greatest', 'highest',
+        'lowest', 'first', 'purest', 'closest', 'brightest', 'finest', 'deepest',
+        'noblest', 'vilest', 'lest', 'northwest', 'northeast', 'southwest', 'southeast',
+        'darkest', 'clearest', 'subtlest', 'fullest', 'earliest', 'latest', 'richest',
+        'simplest', 'grossest', 'weakest', 'strongest', 'wisest', 'rarest', 'densest',
+        'hardest', 'softest', 'crudest', 'boldest', 'strangest', 'broadest', 'warmest',
+        'farthest', 'furthest', 'nearest', 'northernmost', 'southernmost', 'easternmost', 'westernmost',
+        'uppermost', 'lowermost', 'daleth', 'heth', 'yod', 'shin', 'resh', 'teth', 'aleph', 'bet', 'gimel',
+        'zayin', 'lamed', 'mem', 'nun', 'samekh', 'pe', 'tsade', 'qof', 'tav'
     }
 
     # French functional markers
