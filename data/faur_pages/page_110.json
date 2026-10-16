@@ -1,0 +1,41 @@
+{
+  "page_id": "110",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 63,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_110.png",
+  "note_pages": [
+    "226",
+    "227"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_226.png",
+    "data/faur_scans/page_227.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p110_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "totelian view concerning the eternity of the world with a rabbinic quotation: “Our perfect Tora shall not be like their worthless babble.”[^111] The distance between rationality and prophecy is greater than the distance between imagination and reason. Apodictic proof, which constitutes the very essence of human rationality, is totally inoperative at the ‘meta-physical’ realm, represented by the Hebrew *shamayim*. Playing on the motifs of the verse, “The heaven is heaven for the Lord, and the earth He gave to the children of man” (Ps 115:16), Maimonides proposed a fundamental distinction between the realm where scientific methodology is applicable and the ‘yonder’ (*shamayim*). Matters pertaining to the realm of reason may be analyzed (*baḥat*), demonstrated (*istidlal*) and confirmed with conclusive proof (*burhan*). Beyond the cutting edge of reason, however, lies another realm where scientific understanding and methodology are inoperative. *Shamayim*, generally translated ‘heaven’, is related to the particle *sham* (there), meaning ‘that which is there’, ‘the yonder’, ‘the beyond’.[^112] Accordingly, it may be interpreted as ‘what lies beyond human boundaries’, what can be intuited from afar but cannot be adequately examined because of lack of proper scientific tools. Rather than scientific knowledge and objectivity, at the *shamayim* level only opinion (*ra'i*) and inference (*istidlal*) are possible. Concerning this pivotal point, Maimonides noted:"
+    },
+    {
+      "block_id": "p110_b2",
+      "type": "blockquote",
+      "markdown": "Permit me to tell you in the manner of poetic oddities [*nawadir*]: “The heavens are heavens of the Lord, and the earth He gave to the children of Adam” (Ps 115:16), meaning, God alone knows perfectly well the truth about the heavens, their natures, substances, shapes, motions, and causes. For man, however, it is possible to know only that which is below heavens, since he can study it,[^113] because it is the habitat in which he was placed and he forms a part of it. This is the truth. Since in what applies to the heavens we lack the grounds for inference [*al-istidlal*] since they are far above us in space and category, the general inference [*istidlal*] that can be gathered from them (the heavens), which is that they point out to their mover [God], is a subject that the human mind cannot study. To exhaust the thoughts trying to reach that which cannot be apprehended and which [human] has no instruments to reach is the effect of either some biological weakness or a kind of madness.[^114]"
+    }
+  ],
+  "footnotes": {
+    "111": "Maimonides, *Guide*, sec. 2, chap. 23, p. 225 (lines 6–7). The reference is to *Baba Batra* 116a.",
+    "112": "It is connected to the expression *she-yesh sham* discussed above, p. 99. The final *mem* is not a sign of the plural or dual but an appendix designed to close an atonic final syllable as in *yeraḥim* (Dt 33:14), or *ṣahorayim* (Gn 43:16). In Maimonides, *Guide*, sec. 2, chap. 30, p. 245 (line 5), Maimonides translated *shamayim* ‘the above’.",
+    "113": "Note that unlike God, humans cannot ever know it “perfectly well”; see above, pp. 91–93.",
+    "114": "Maimonides, *Guide*, sec. 2, chap. 24, p. 228 (lines 19–28)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_110.png and notes scans page_226.png and page_227.png; set continues_from_prev_page: true with unindented continuation paragraph p110_b1 continuing 'Aris-' from page 109; segmented into 2 blocks (continuation paragraph p110_b1 and indented blockquote p110_b2); healed line-end hyphenations ('imagi-nation', 'repre-sented', 'scien-tific', 'can-not', 'Mai-monides', 'sub-stances', 'infer-ence', 'try-ing'); restored italics and Arabic/Hebrew transliterations (*shamayim*, *baḥat*, *istidlal*, *burhan*, *sham*, *ra'i*, [*nawadir*], [*al-istidlal*], [*istidlal*]); restored curly quotes and brackets; recovered footnote callouts [^111], [^112], [^113], and [^114]; transcribed and verified footnotes 111–112 from page 226 and 113–114 from page 227 with en-dashes, book titles (*Guide*, *Baba Batra*), and transliterations (*she-yesh sham*, *mem*, *yeraḥim*, *ṣahorayim*, *shamayim*); updated note_pages to ['226', '227'] and note_scan_images to ['data/faur_scans/page_226.png', 'data/faur_scans/page_227.png']; confirmed ends_with_hyphen: false terminating with 'biological weakness or a kind of madness.[^114]'; set status: visual_verified."
+  ]
+}

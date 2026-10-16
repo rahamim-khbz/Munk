@@ -1,0 +1,42 @@
+{
+  "page_id": "108",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 62,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_108.png",
+  "note_pages": [
+    "226"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_226.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p108_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "and deference. Upon consideration, the title is confusing. In the same chapter Maimonides examined the story of “*aṣile* of the children of Israel” (Ex 24:10). Maimonides did not give a translation of that term. The educated reader, however, already knows that it is the exact translation of *rayyis*, the title used by Maimonides to introduce Aristotle. This is how it was rendered by the Aramaic Targum. The same Aramaic term, *rabrebaya*, was used by the Targum to translate *elohim* in Gn 3:5.[^95] More poignant is the fact that Maimonides used the term *rayyis* in the sense of a ‘political leader’, a ‘political boss’, and *ri’asa* in the sense of ‘authoritarian’, ‘domineering’.[^96] This is particularly disturbing in light of the fact that Maimonides associates political leadership with imagination, not reason.[^97] Finally, according to Maimonides, the ‘princes/political leaders’ of the children of Israel were guilty of charging impulsively into the field of esoterics and were punished for their affront.[^98] Generally, it is presumed that Aristotle was mentioned here as an authority by which to evaluate the “princes of the children of Israel.” It will be obvious in this discussion that the opposite was the case: the purpose was to assess Aristotle in light of the Scripture."
+    },
+    {
+      "block_id": "p108_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The other two terms, ‘analysis’ (*baḥat*) and ‘inference’ (*istidlal*), are germane to the Aristotelian methodology. ‘Analysis’ (*baḥat*) is the direct examination of a subject without recourse to *authoritas*. Significantly, in his introduction of Aristotle Maimonides omitted any reference to apodictic proof (*burhan*). Thus, at the same time that Maimonides was acknowledging Aristotle’s preeminence because of his investigative methodology, he was faulting him for not always adhering to it. Aristotle’s admission that he was now investigating [*yubḥat*] without recourse (even) to *istidlal*, but solely moved by the “yearning and struggle to find and acquire true beliefs [*i‘tiqadat*]” must indeed be construed as “an affront or audacity and impulsiveness” because now he is “speaking on what” admittedly, he “has no knowledge.” Aristotle’s defense that he should be excused to proceed in this manner because he desires to “acquire true beliefs [*i‘tiqadat*]” is senseless in light of the Maimonidean definition of ‘faith’ [*i‘tiqad*] as a belief corresponding to an outer reality independent of human projections.[^99] After citing Aristotle’s apology, Maimonides added, “And so say we!” thereafter proceeding to list the requirements necessary for esoteric investigation on the bases of biblical and rabbinic sources and “the authentic tradition” (*al-naqal al-ṣaḥiḥ*) of Israel.[^100] The hasty reader will presume that Maimonides intended to draw support to the rabbis from Aristotle. This is not the case. The remark, “And"
+    }
+  ],
+  "footnotes": {
+    "95": "See above, p. 65.",
+    "96": "See Maimonides, *Guide*, sec. 2, chap. 40, p. 271 (lines 17, 22); sec. 1, chap. 31, p. 44 (line 30). For a description of *rayyis*, see R. Abraham Maimon, *Teshubot* (Jerusalem: Mekize Nirdamim, 1937), 19–20, 183. Maimonides himself was recognized as the *ra’is* (*rayyis*) of the Jews; see Shlomo D. Goitein, “Moses Maimonides, Man of Action,” in *Hommages à Georges Vajda*, ed. Gérard Nahon and Charles Touati, (Louvain: Editions Peeters, 1983), 161, 167.",
+    "97": "See above, p. 66.",
+    "98": "See above, pp. 80–82.",
+    "99": "Maimonides, *Guide*, sec. 1, chap. 50, p. 75 (lines 12–13). Cf. above, p. 57.",
+    "100": "Maimonides, *Guide*, sec. 1, chap. 5, pp. 19 (line 17)–20 (line 12)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_108.png and notes scan page_226.png; set continues_from_prev_page: true for paragraph p108_b1 continuing from page 107 ('and deference...'); segmented page into 2 blocks (p108_b1 continuation paragraph with indent none, p108_b2 indented paragraph starting with 'The other two terms...' and continuing onto page 109 with 'The remark, “And'); healed mid-line hyphenations ('Tar-gum', 'dis-turbing', 'acknowledg-ing', 'i‘tiqa-dat'); restored italics and transliterations (*aṣile*, *rayyis*, *rabrebaya*, *elohim*, *ri’asa*, *baḥat*, *istidlal*, *authoritas*, *burhan*, *yubḥat*, *i‘tiqadat*, *i‘tiqad*, *al-naqal al-ṣaḥiḥ*); fixed OCR corruption 'rerm' -> 'term'; recovered footnote callouts [^95], [^96], [^97], [^98], [^99], [^100]; restored typographic curly quotes, apostrophes, and en-dashes; transcribed and verified footnotes 95–100 from note page 226; updated note_pages to ['226'] and note_scan_images to ['data/faur_scans/page_226.png']; verified ends_with_hyphen: false; set status: visual_verified."
+  ]
+}

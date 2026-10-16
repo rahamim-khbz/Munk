@@ -1,0 +1,54 @@
+{
+  "page_id": "111",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 63,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_111.png",
+  "note_pages": [
+    "227"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_227.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p111_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "Beyond the cutting edge of reason lies a higher reality that rational humanity can intuitively grasp but cannot articulate. To enter the *shamayim*—that is, pass from the realm of reason to the realm of prophecy—the individual must switch from an anthropocentric to a cosmic perspective.[^115] At the cutting edge of reason, before crossing into the threshold of prophecy, a human faces a crisis of knowledge. He must choose between renouncing the realm of prophecy by turning to the realm of the rational or abandoning the realm of objectivity and apodictic proof on behalf of a new universe enshrouded in darkness. Louis Vax designates the borderline between two orders “the pure fantastic” where there is a “rupture of the constants of the daily world, which is the point of departure of the organization of a new universe ruled by new laws.”[^116] Since at this juncture neither rationality nor prophecy are operative, there is ḥa'ira (perplexity). Borrowing a rabbinic expression, the individual “has one leg on the ferry and one leg on the dock”—he is neither here nor there. Common language cannot articulate the fantastic, hence, the need for metaphor. As with Borges, for Maimonides, too, the function of metaphor is “to penetrate the mysterious relations between the different orders of things.”[^117]"
+    },
+    {
+      "block_id": "p111_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "One can now appreciate why Maimonides, who consistently disparaged poetry as an expression of imagination,[^118] referred here to “the manner of poetic oddities [*nawadir*].” Since at this juncture the terms of imagination have lost their original connotation, they can be used as empty indicators to denote the relation between the realm of rationality and prophecy.[^119] To serve this purpose the relation imagination → reason must be inverted to reason → imagination.[^120]"
+    },
+    {
+      "block_id": "p111_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE REALM OF THE PROBABLE"
+    },
+    {
+      "block_id": "p111_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides recognized two distinct systems of thought: one rabbinic and the other Aristotelian. To the Aristotelian system he dedicated a small handbook, *The Treatise on Logic*, written in his youth. His mature efforts were dedicated to the rabbinic system, resulting in three monumental works: the *Pirush ha-Mishnayot*, *Sefer ha-Miṣvot*, and *Mishne Tora*. None of these works was ever duplicated. They constitute the most authoritative works on rabbinics. Aristotelian logic, which is mainly deductive, is based on universal principles and categories and the classification and development of syllogisms. The aim is nothing less than perfect knowledge. Since for the rabbis knowl-"
+    }
+  ],
+  "footnotes": {
+    "115": "See above, pp. 79–82.",
+    "116": "Louis Vax, *La Séduction de l'étrange* (Paris: Presses Universitaires de France, 1965), 178. See above, pp. x–xi.",
+    "117": "Joaquina Navarro, “Jorge Luis Borges, taumaturgo de la metáfora,” *Revista Hispánica Moderna* 31 (1965): 339. The same occurs with physical laws when systems are thrust past their natural limit, see Ilya Prigogine and Isabelle Stengers, *Order out of Chaos* (New York: Bantam Books, 1984).",
+    "118": "See above, p. 66.",
+    "119": "See Faur, *Golden Doves*, xix. An absolute condition to discern the metaphoric passages in the Scripture is the rejection of the magical in nature. Otherwise, the reader is unable to realize that the text at hand is metaphoric.",
+    "120": "See above, pp. 69–72."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_111.png and notes scan page_227.png; set continues_from_prev_page: true with unindented paragraph p111_b1 continuing the main text after page 110 blockquote; segmented into 4 blocks (continuation paragraph p111_b1, indented paragraph p111_b2, level 3 section heading p111_b3 'THE REALM OF THE PROBABLE', and indented paragraph p111_b4); healed line-end hyphenations ('human-ity', 'cut-ting', 'dispar-aged', 'rea-son', 'rab-binics', 'prin-ciples'); restored italics and transliterations (*shamayim*, ḥa'ira, [*nawadir*], *The Treatise on Logic*, *Pirush ha-Mishnayot*, *Sefer ha-Miṣvot*, *Mishne Tora*); preserved arrows 'imagination → reason' and 'reason → imagination'; recovered footnote callouts [^115], [^116], [^117], [^118], [^119], and [^120]; transcribed and verified footnotes 115–120 from page 227 with en-dashes, book/journal titles (*La Séduction de l'étrange*, *Revista Hispánica Moderna*, *Order out of Chaos*, *Golden Doves*), and accents; updated note_pages to ['227'] and note_scan_images to ['data/faur_scans/page_227.png']; verified ends_with_hyphen: true terminating with 'Since for the rabbis knowl-'; set status: visual_verified."
+  ]
+}

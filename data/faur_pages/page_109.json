@@ -1,0 +1,58 @@
+{
+  "page_id": "109",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 62,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_109.png",
+  "note_pages": [
+    "226"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_226.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p109_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "so say we!” is addressed to Aristotle; meaning, “And so say we *to you*!” *We* comprises the Community of Israel.[^101] Thus, Maimonides was censuring Aristotle for discarding his own methodology and “investigating” such “profound subjects” on the basis of conjecture and supposition. After pointing out what happened to the princes of Israel for their impudence, Maimonides offered an afterword: “If this has taken place with them, how much more would the case be with us who are beneath them and with those who are beneath us?”[^102] Since in the first clause “us” refers to members of the Community of Israel, the second clause, “those who are beneath us,” must allude to those who do not belong to the same group.[^103]"
+    },
+    {
+      "block_id": "p109_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The title “rayyis of the philosophers” is a sarcasm.[^104] In his metaphysical investigations Aristotle behaved like the aṣile of Israel, expecting special latitude of his *authoritas*. Explicitly, Maimonides stipulated as a condition for perfection that the individual should have already “canceled his design, and annulled his passion for false leadership [*al-ri’asat*], I mean, wanting to triumph or the admiration of the public or gaining their respect and obedience for its own sake.”[^105] Spiritual adventurism, like that of Elisha, invariably leads to disaster.[^106] It will be seen that the antipode of “Aristotle, rayyis of the philosophers,” is “Moses, *sid* [sir, lord] of the sages.”[^107] *Rayyis* represents a hierarchical relationship effected by power. *Sid* is an individual recognized by his peers for his excellence."
+    },
+    {
+      "block_id": "p109_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "AT THE CUTTING EDGE OF REASON"
+    },
+    {
+      "block_id": "p109_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The Tora does not contradict rationality: it transcends it. Rationality pertains to the second stage of human development. Prophecy, as represented by the Law of Moses, concerns the final unfolding of humankind. In his praise of Aristotle Maimonides was mindful to point out that his achievements do not represent the highest peak of humanity. The authority for this distinction is rabbinic. The rabbis taught: “If you are told that there is wisdom among the nations, you may believe it. But if they tell you that there is Tora among the nations, do not believe it.”[^108] Thus, in a very exact language Maimonides described Aristotle as “the finality of the human mind, *with the exception of one . . . [who] had reached the state of prophecy, which is the highest state there is*.”[^109] In terms of Maimonides’s famous parable Aristotle had only entered level six:[^110] he had emerged from the realm of imagination but had not been privy to prophecy. Nonchalantly, Maimonides dismissed the Aris-"
+    }
+  ],
+  "footnotes": {
+    "101": "See below, p. 122.",
+    "102": "Maimonides, *Guide*, sec. 1, chap. 5, p. 20 (lines 12–13).",
+    "103": "Maimonides does not use the first person plural indiscriminately; cf., for example, Maimonides, *Guide*, sec. 1, chap. 28, p. 41 (lines 2–3); sec. 3, Introduction, but only when speaking on behalf of Jewish tradition.",
+    "104": "See above, n. 96, and below, p. 192.",
+    "105": "Maimonides, *Guide*, sec. 2, chap. 36, p. 262 (lines 20–23).",
+    "106": "See ibid., sec. 1, chap. 32.",
+    "107": "Ibid., sec. 3, chap. 54, p. 470 (line 24). See below, p. 176.",
+    "108": "*Ekha Rabba*, 2:13.",
+    "109": "Cited above, p. 98.",
+    "110": "See below, p. 169."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_109.png and notes scan page_226.png; set continues_from_prev_page: true for paragraph p109_b1 continuing from page 108 ('so say we!”...'); segmented page into 4 blocks (p109_b1 continuation paragraph with indent none, p109_b2 indented paragraph starting with 'The title “rayyis...', p109_b3 level 3 section heading 'AT THE CUTTING EDGE OF REASON', p109_b4 indented paragraph terminating with hyphenated 'Aris-'); healed mid-line hyphenations ('pro-found', 'Com-munity', 'metaphys-ical', 'hierarchi-cal', 'distinc-tion', 'Mai-monides'); restored italics and transliterations (*to you*!, *We*, *authoritas*, *al-ri’asat*, *sid*, *Rayyis*, *Sid*, *Ekha Rabba*, and italicized translation passage 'with the exception of one . . . [who] had reached the state of prophecy, which is the highest state there is.'); recovered footnote callouts [^101], [^102], [^103], [^104], [^105], [^106], [^107], [^108], [^109], [^110]; restored typographic curly quotes, apostrophes, and en-dashes; transcribed and verified footnotes 101–110 from note page 226; updated note_pages to ['226'] and note_scan_images to ['data/faur_scans/page_226.png']; verified ends_with_hyphen: true; set status: visual_verified."
+  ]
+}
