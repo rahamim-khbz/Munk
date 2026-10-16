@@ -1,0 +1,48 @@
+{
+  "page_id": "41",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 28,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_041.png",
+  "note_pages": [
+    "204",
+    "205"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_204.png",
+    "data/faur_scans/page_205.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p41_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "sexual promiscuity. After exiting the orchard he propositioned a prostitute. To prove to her that he was not [no longer?] the famous scholar he uprooted a radish on the Sabbath and ate it.[^145] The rabbis offered the following illustration: “A model, to what may this be compared? To a royal orchard having an upper chamber built on the top. What a man can do?—to take a glimpse! providing that he would not nourish his eyes [*yazin et ‘enav*] from him [the king].”[^146] The model conveys the lure present in esoteric discourse. Upon crossing into the orchard one may choose a wrong perspective and fell prey to the temptation of a forbidden insight insinuated by the expression (*yazin et ‘enav*)."
+    },
+    {
+      "block_id": "p41_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "To illustrate the crossroad structuring this crisis the rabbis offered a second model. Rather than to tread on one of the paths lying ahead, the chartering of a new path is required. In our terms, this means that the only way outside the orchard is through the realm of subjectivity. Since subjectivity cannot be mediated, it cannot be constructed on the basis of someone else’s knowledge or authority. By crossing into the orchard and looking at things from within the student places himself outside the realm of objectivity, facing the mystery of God and Creation on his own. The crisis of absolute choice is bound up with the specific subjectivity of each individual. It cannot be processed by a superior authority that would finish the student’s unconcluded chapters. Because it cannot be structured on someone else’s experience, it involves the final breach of the teacher-student relation. In this manner direct perception—an esoteric insight—is effected. The crisis of subjectivity involves chartering a new road and treading upon a path that no one else has trod before. In this specific way an esoteric insight is necessarily subjective, and subjectivity is necessarily esoteric. The principle is illustrated with a second model: “They further presented another model: to what may this be compared? To a street leading to two paths, one of fire and the other of snow. If he would turn here, he would be consumed by fire, if he would turn there he would be consumed by snow. What is one to do? He must walk in the middle, providing that he would not turn either here or there.”[^147] A slightly different version was preserved in the Talmud *Yerushalmi*. In it, the “street” leading to the crossroad is explicitly identified with the Tora: “‘The Tora is analogous to two paths, one [leading] to fire and another to snow. Anyone bearing toward this will perish by fire. Anyone bearing toward that will perish by snow. What is one to do? Let him walk in the middle!’”[^148]"
+    },
+    {
+      "block_id": "p41_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There are no clues as to what these paths are. In a rabbinic source now lost the rabbis associated this model with the verse, “He who walks perfectly shall be saved, but he who is warped by the paths shall fall in one of them”"
+    }
+  ],
+  "footnotes": {
+    "145": "See *Ḥagiga* 15a. Cf. below, p. 43.",
+    "146": "*Tosefta Ḥagiga* 2:5.",
+    "147": "Ibid.",
+    "148": "*Ḥagiga* 2, 1, 77a."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Rehabilitated against 300 DPI scan page_041.png and note scans page_204.png and page_205.png; split into 3 paragraph blocks; set continues_from_prev_page: true and indent: continuation for block p41_b1; healed mid-line hyphenations (charter-ing, supe-rior, eso-teric); restored em-dashes and typographic quotes; corrected OCR corruption of Hebrew transliteration [*yazin et ‘enav*] and restored italics; restored italics on *Yerushalmi*; recovered footnote callouts [^145]–[^148]; transcribed and verified all 4 footnote definitions across note pages 204 and 205."
+  ]
+}

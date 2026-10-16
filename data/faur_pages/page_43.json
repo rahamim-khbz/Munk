@@ -1,0 +1,53 @@
+{
+  "page_id": "43",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 29,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_043.png",
+  "note_pages": [
+    "205"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_205.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p43_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "here it means ‘Rabbanite’ in opposition to ‘Karaite’. In this sense it was used by Maimonides when he wrote that in the introduction to his commentary to the Mishna he had presented “the principles of prophecy and the principles of the Oral tradition that every *rabbani* is required to believe in.”[^159] This is also how it was understood by the early Hebrew translators and is commonly used by Arabic-speaking Jews. The reference to a Rabbanite public is particularly significant in light of the fact that Maimonides believed that he was using the same methodology and pursuing the esoteric tradition of the rabbis.[^160]"
+    },
+    {
+      "block_id": "p43_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Therefore, it should not be improper to suggest that Maimonides identified the rabbinic model discussed above and thereby the introductory issue of esoterics with the problem of divine attributes.[^161] Concerning the place of attributes, he wrote:"
+    },
+    {
+      "block_id": "p43_b3",
+      "type": "blockquote",
+      "markdown": "However, reference to the [divine] attributes, how are they to be negated from Him, and what is the significance of the attributes assigned to Him. . . . Behold all these are very profound subjects and truly belong to the secrets of the Tora [*sitre tora*] and are the mysteries [*al-sodot*] that are always mentioned in the writings of the Prophets and the words of the sages of blessed memory. These are the matters that one ought to speak about only in headings of the chapters [*be-rashe ha-peraqim*], as we have mentioned, and also to a qualified individual.[^162]"
+    },
+    {
+      "block_id": "p43_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The problem of attributes in Judaism may be best grasped in terms of the preceding model. The Tora refers to God with positive attributes. At the same time God is described as absolutely one and absolutely different. This could lead to a Gnostic theology, positing two distinct and totally separate aspects of God: a lower one as a creator-demiurge, who revealed himself in the Tora, and a superior *deus absconditus*, transcending the Tora and the concerns of humankind. The first path may be compared to “fire” because it consumes the believer by positing an anthropomorphic deity, too close and too similar to humans. In such a situation one will “delight his eyes from Him” and feed his own narcissistic delusions.[^163] The second path may be compared to “snow,” a deity disinterested in the affairs of humans. Either of these two paths results in total perdition. In the case of Elisha, who “cut the plants,” this doctrine led to immorality, antinomism, and the doctrine of ‘two authorities’ (*shete rashuyot*) characteristic of the ‘heretics’ (*minim*).[^164]"
+    }
+  ],
+  "footnotes": {
+    "159": "Maimonides, *Treatise on Resurrection*, Arabic text, 4.",
+    "160": "See Maimonides, *Guide*, sec. 2, chap. 29, p. 244 (lines 10–11).",
+    "161": "See Maimonides, *Pirush ha-Mishnayot*, *Ḥagiga* 2:1, vol. 2, p. 377, where the problem of attributes is related to *Merkaba* studies, cf. Maimonides, *Guide*, sec. 1, chap. 70.",
+    "162": "Maimonides, *Guide*, sec. 1, chap. 35, 54 (lines 20–28).",
+    "163": "So it was with much of the mystical experience narrated by the *alumbrados* in the sixteenth and seventeenth centuries, both Jewish and non-Jewish. See above, pp. 37–38.",
+    "164": "See *Yerushalmi Ḥagiga* 2, 1, 77b–c; cf. *Ḥagiga* 15a–b. In *Ḥagiga* 15a belief in “two authorities” is explicitly attributed to Elisha ben Abuya. As with Paul, this type of antinomism is a theological strategy designed to “cut the plants” and to gain direct access to the king. Cf. Morton Smith, “The Reason for the Persecution of Paul and the Obscurity of Acts,” in *Studies in Mysticism and Religion Presented in Honor of Gershom G. Scholem* (Jerusalem: Magnes Press, 1967), 261–68. Cf. above, p. 204 n. 145."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visual verification against 300 DPI scan page_043.png and note scans page_205.png/page_206.png; set continues_from_prev_page: true and indent: continuation for block p43_b1 continuing from page 42; split draft into 3 paragraphs and 1 blockquote block; healed mid-line hyphenations (attrib-utes -> attributes, con-sumes -> consumes); restored italics (*rabbani*, *sitre tora*, *al-sodot*, *be-rashe ha-peraqim*, *deus absconditus*, *shete rashuyot*, *minim*); recovered mangled footnote callouts [^159]–[^164]; transcribed and verified all 6 footnote definitions from note page 205, confirming note 164 terminates before note page 206."
+  ]
+}

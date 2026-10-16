@@ -1,0 +1,46 @@
+{
+  "page_id": "40",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 28,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_040.png",
+  "note_pages": [
+    "204"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_204.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p40_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "asked by R. Joshua to explicate, he dwelt on the distance between the waters. According to Maimonides, the mistake consisted in believing that the separation between the upper and lower waters was only spatial, both retaining the same original nature. In reality, their separation involved a radical change in their respective natures, just like the separation of light and darkness in the first day (Gn 1:4). Out of the original stuff designated ‘water’ (Gn 1:2), different substances were created.[^135] R. ‘Aqiba’s warning, “When you reach marble stones, do not say ‘Water’, ‘Water’,”[^136] came to correct ben Zoma’s mistake: the water above heaven was not the same as the water below heaven. A radical change had taken place. The upper water was transformed into a substance designated “marble stone.” Therefore, it would be false to designate them by the same name. Hence R. ‘Aqiba’s warning, “Do not say ‘Water’, ‘Water’.”[^137] Because the heavenly abode is somehow associated with the upper water, it would be offensive to regard it as of the same substance as the lower water. The point was illustrated with the following metaphor: “To a king who built a palace in a place of sewers, a place of garbage, a place of rubbish. And one comes and says, “This palace is in a place of sewers, in a place of garbage, in a place of rubbish.” Isn’t he insulting? In the same manner, whoever says that at the beginning the world was water with water, he would be insulting.”[^138] By “water with water” the similarity of both types of substances was meant. R. ‘Aqiba’s reference to “marble stones” together with “water, water” acquires precision in light of the rabbinic tradition that the Herodian Temple was built with a marble given the impression of waves.[^139] It follows that R. ‘Aqiba’s warning pertained to the time when ben Zoma was standing *outside* the Temple building, attempting to find the gate to the divine precinct. Thus, his remark was synonymous to R. Joshua’s statement, “ben Zoma still is outside” (*‘adayin ba-ḥuṣ*).[^140] A final note, in rabbinic literature the expression “water, water” has sexual connotations.[^141]"
+    },
+    {
+      "block_id": "p40_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The third member of the group was Elisha ben Abuya (second century). According to the version preserved by Maimonides, the rabbis applied to him the verse, “Have you found honey? Eat only what you can! Lest you are loaded with it and will vomit it” (Prv 26:16). This means that he trespassed the boundaries of his understanding.[^142] Thus, he cut some of the plants (*qiṭṭea‘ ba-neṭi‘ot*) to take a further look.[^143] The “plants” are the fundamental teachings or “words of the Tora” “planted” by the ancient rabbis.[^144] Elisha ben Abuya not only did not further develop these “plants,” but cut some of them out. He “delighted his eyes” with the esoteric vision, became lustful, and engaged in"
+    }
+  ],
+  "footnotes": {
+    "135": "See Maimonides, *Guide*, sec. 2, chap. 30, pp. 247 (line 4)–48 (line 7).",
+    "136": "*Ḥagiga* 14b.",
+    "137": "See Maimonides, *Guide*, sec. 2, chap. 30, pp. 247 (line 4)–48 (line 7).",
+    "138": "*Yerushalmi Ḥagiga* 2, 1, 77c. Cf. *Ta‘aniyot* 10a; *Bereshit Rabba* 4, 2, vol. 1, p. 27.",
+    "139": "*Baba Batra* 4a.",
+    "140": "*Tosefta Ḥagiga* 2:6. This is Maimonides’s reading; see *Guide*, sec. 3, chap. 51, p. 456 (line 1), and the standard version in *Ḥagiga* 15a. In the *Tosefta* and in a responsum by Hayye Ga’on, *Oṣar ha-Ge'onim*, *Ḥagiga*, p. 15, the reading is *kebar* ‘he is already’, implying that before he had been inside and that only now he went outside. The expression *ba-ḥuṣ* comes from the Greek; see David Daube, “Ecstasy in a Statement by Rabbi Joshua ben Hanina,” in *Collected Works of David Daube*, ed. Calum M. Carmichael, vol. 1 (Berkeley and Los Angeles: Univ. of California Press, 1992), 455–58. It may have been intended as a criticism, implying that his demeanor did not conform to Jewish mystical practice; cf. above, pp. 36–37.",
+    "141": "See *Vayyiqra Rabba* 23, 3, vol. 2, p. 530. It is worth recalling that ben Zoma never married; see above, p. 195 n. 43, and p. 203 n. 125.",
+    "142": "Maimonides, *Guide*, sec. 1, chap. 32, p. 46 (lines 18–19). Cf. below, p. 44.",
+    "143": "*Tosefta Ḥagiga* 2:3. On the fault of Elisha see below, p. 51.",
+    "144": "See above, p. 36. On the conceptual relation of ‘planting’ to ‘text’ and ‘studying’ see Faur, *Golden Doves*, 183 n. 58."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Rehabilitated against 300 DPI scan page_040.png and note scan page_204.png; split into 2 paragraph blocks; set continues_from_prev_page: true and indent: continuation for block p40_b1; healed mid-line hyphenations (mar-ble, cen-tury); restored italics (*outside*, *‘adayin ba-ḥuṣ*, *qiṭṭea‘ ba-neṭi‘ot*); restored typographic curly quotes and transliteration diacritics; recovered footnote callouts [^135]–[^144]; transcribed and verified all 10 footnote definitions from note page 204."
+  ]
+}

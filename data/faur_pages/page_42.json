@@ -1,0 +1,52 @@
+{
+  "page_id": "42",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 29,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_042.png",
+  "note_pages": [
+    "205"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_205.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p42_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "(Prv 28:18).[^149] Being “warped (*ne‘qash*) by the paths” alludes to a trap lying on the way. The plural “ways” indicates that trap involves more than one way.[^150] The puzzle is difficult to solve because the rabbis associated these paths with the Tora itself. What could that be?"
+    },
+    {
+      "block_id": "p42_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "AT THE CROSSROADS"
+    },
+    {
+      "block_id": "p42_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides maintained that authentic esoteric material has been encoded in rabbinic literature. One may discover “a few remarks and allusions in the Talmud and Midrashot, containing a small pulp and many peels.”[^151] In the footsteps of the Scripture the rabbis spoke about esoteric subjects in riddles. Many “wondrous and true subjects attained by the most prominent intellect of the philosophers are scattered throughout the Midrashot.”[^152] The riddles were only “hinted” at by the rabbis. Since “they are mixed” with the sayings of other scholars and with other types of material, they will not be noticed except by those with the proper background.[^153] In his youth Maimonides began to prepare two works designed to decode this material: *Kitab al-Nubu’a* (The book on prophecy) was designed to decode the biblical metaphors and *Kitab al-Muṭabaqat* (The book of correlations) on rabbinic metaphors and homilies (*derashot*) bearing on esoteric subjects.[^154] As the title of the second work implies, its purpose was to decode the rabbinic metaphors and homilies by pointing to ‘the correlations’ (*muṭabaqat*) between the metaphor and the referent object.[^155] Since by understanding the proper meaning of biblical metaphors one could decode the words of the rabbis, and vice versa, these works were to complement one another. Because of religious and intellectual scruples, Maimonides was displeased with the results yielded by that methodology and desisted from completing these works.[^156] Instead he decided to pursue a different plan: “the significance of prophecy, explanation of its degrees, and the clarification of the metaphors in those writings will be explained in this work [the *Guide*] with a different methodology.”[^157] This means that the *Guide* will only address the topics of the “Book on Prophecy.” The new methodology will enable the qualified reader to accomplish on his own the objectives of the work on rabbinic esoterics interrupted by Maimonides. Indeed, Maimonides associated the use of metaphors and riddles with the methodology used by “every Rabbanite [*rabbani*] theologian [*ilahi*] sage.”[^158] In this context the term *rabbani* does not mean ‘theologian’ because then it would be synonymous with *ilahi* and, therefore, meaningless. Rather,"
+    }
+  ],
+  "footnotes": {
+    "149": "Cited in R. Menaḥem Me’iri, *Pirush ha-Me’iri le-Sefer Mishle* (*Commentary to Proverbs*) (Jerusalem: Hoṣa’at ha-Posqim, 5729/1969), ad loc., 267. This passage further elaborates but, contrary to the editor’s note ad loc., does not come from the *Yerushalmi Ḥagiga* cited above but, as indicated by R. Me’iri, from a *derash*.",
+    "150": "R. Menaḥem Me’iri identified the “right” and “left” roads with “faulty perception” (*shibbush ha-haśaga*) caused by either too much or too little knowledge. See his *Pirush ha-Me’iri le-Sefer Mishle*, (Commentary to Proverbs), ad loc.",
+    "151": "Maimonides, *Guide*, sec. 1, chap. 71, p. 121 (lines 25–27); cf. sec. 1, chap. 70, 120 (lines 4–8); sec. 2, chap. 29, p. 244 (lines 7–9). See Faur, *Studies in the Mishne Tora*, 191–93.",
+    "152": "Maimonides, *Guide*, sec. 1, chap. 70, p. 120 (lines 4–8).",
+    "153": "Ibid. sec. 2, chap. 29, p. 244 (lines 7–10).",
+    "154": "Maimonides, *Pirush ha-Mishnayot*, *Sanhedrin* 10:1, vol. 4, 209.",
+    "155": "See Maimonides, *Guide*, Introduction, p. 9 (lines 15–16) and p. 4 (lines 21–22).",
+    "156": "See ibid., p. 5 (line 18)–6 (line 7).",
+    "157": "Ibid., p. 6 (lines 5–6).",
+    "158": "Ibid., p. 4 (lines 17–18)."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visual verification against 300 DPI scan page_042.png and note scan page_205.png; set continues_from_prev_page: true and indent: continuation for block p42_b1 completing Prv 28:18 from page 41; formatted H3 heading AT THE CROSSROADS; healed mid-line hyphenations (rid-dles -> riddles, intel-lect -> intellect); restored italics (*ne‘qash*, *Kitab al-Nubu’a*, *Kitab al-Muṭabaqat*, *derashot*, *muṭabaqat*, *Guide*, *rabbani*, *ilahi*); recovered mangled footnote callouts [^149]–[^158]; transcribed and verified all 10 footnote definitions from note page 205."
+  ]
+}
