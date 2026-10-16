@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faur Homo Mysticus — Dual-Scan Redline Reader</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel-bg: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --redline-strike: #ef4444;
+      --redline-insert: #16a34a;
+      --highlight: #fef08a;
+      --accent: #d97706;
+      --font-serif: "Cardo", "Gentium Plus", "Times New Roman", Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Top Navigation Header */
+    header {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      flex-shrink: 0;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      background: #3b82f6;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    select, button {
+      font-family: inherit;
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #475569;
+      background: #334155;
+      color: #f8fafc;
+      cursor: pointer;
+      outline: none;
+      transition: background 0.15s;
+    }
+    select:focus, button:hover {
+      background: #475569;
+    }
+    button.primary-btn {
+      background: #16a34a;
+      border-color: #15803d;
+      font-weight: 600;
+    }
+    button.primary-btn:hover { background: #15803d; }
+    button.flag-btn {
+      background: #dc2626;
+      border-color: #b91c1c;
+    }
+    button.flag-btn:hover { background: #b91c1c; }
+
+    /* Main Split-Pane Workspace */
+    .workspace {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Left Pane: Dual PDF Scan Viewer */
+    .pane-scans {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      background: #e2e8f0;
+      min-width: 320px;
+    }
+    .scan-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      border-bottom: 2px solid #cbd5e1;
+    }
+    .scan-section:last-child {
+      border-bottom: none;
+    }
+    .scan-header {
+      background: #cbd5e1;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #334155;
+      flex-shrink: 0;
+    }
+    .scan-tabs {
+      display: flex;
+      gap: 4px;
+    }
+    .scan-tab {
+      background: #e2e8f0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      border: 1px solid #94a3b8;
+      cursor: pointer;
+    }
+    .scan-tab.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #0284c7;
+    }
+    .scan-scroll {
+      flex: 1;
+      overflow: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 15px;
+      background: #475569;
+    }
+    .scan-img {
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      border-radius: 2px;
+      background: #fff;
+    }
+
+    /* Right Pane: Markdown Redline Reader */
+    .pane-reader {
+      flex: 1.1;
+      background: var(--panel-bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .reader-toolbar {
+      padding: 8px 16px;
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .reader-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 30px 40px;
+      font-family: var(--font-serif);
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    /* Typography & Block Styles */
+    .reader-scroll h1, .reader-scroll h2, .reader-scroll h3 {
+      font-family: var(--font-sans);
+      margin-top: 1.2em;
+      margin-bottom: 0.5em;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+    .reader-scroll h1 { font-size: 24px; }
+    .reader-scroll h2 { font-size: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; }
+    .reader-scroll h3 { font-size: 17px; }
+
+    .reader-block {
+      position: relative;
+      margin-bottom: 1.1em;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .reader-block:hover {
+      background: #f8fafc;
+    }
+    .reader-block.blockquote {
+      border-left: 3px solid #94a3b8;
+      padding-left: 18px;
+      margin-left: 10px;
+      color: #334155;
+      font-style: italic;
+    }
+    .reader-block.continuation {
+      text-indent: 0;
+    }
+    .reader-block.indented {
+      text-indent: 1.8em;
+    }
+    .reader-block.first_para {
+      text-indent: 0;
+    }
+
+    .fn-callout {
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 0 2px;
+      text-decoration: none;
+      vertical-align: super;
+    }
+    .fn-callout:hover {
+      text-decoration: underline;
+    }
+
+    /* Redlines & Highlights */
+    .redline-strike {
+      text-decoration: line-through;
+      color: var(--redline-strike);
+      background: #fee2e2;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    .redline-insert {
+      color: var(--redline-insert);
+      background: #dcfce7;
+      font-weight: 600;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    .comment-highlight {
+      background: var(--highlight);
+      padding: 0 2px;
+      border-radius: 2px;
+      cursor: help;
+    }
+
+    /* Footnotes section */
+    .notes-container {
+      margin-top: 40px;
+      border-top: 2px solid #e2e8f0;
+      padding-top: 20px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .note-item {
+      margin-bottom: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .note-item.active-note {
+      background: #eff6ff;
+      border-left: 3px solid #2563eb;
+    }
+    .note-num {
+      font-weight: 700;
+      color: #1e40af;
+      margin-right: 6px;
+    }
+
+    /* Selection Annotation Popover */
+    #selection-popover {
+      position: absolute;
+      background: #1e293b;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 100;
+      gap: 8px;
+      align-items: center;
+      font-family: var(--font-sans);
+      font-size: 13px;
+    }
+    #selection-popover input {
+      background: #334155;
+      border: 1px solid #475569;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    #selection-popover button {
+      background: #2563eb;
+      border: none;
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+    #selection-popover button:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>📖 Faur <em>Homo Mysticus</em></span>
+      <span class="badge" id="page-status-badge">draft</span>
+    </div>
+    <div class="nav-controls">
+      <label for="page-selector" style="font-size: 13px; color: #94a3b8;">Page:</label>
+      <select id="page-selector"></select>
+      <button id="btn-prev">◀ Prev</button>
+      <button id="btn-next">Next ▶</button>
+      <button class="primary-btn" id="btn-approve">Approve Page ✅</button>
+      <button class="flag-btn" id="btn-flag">Flag Redlines 🚩</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <!-- Left Pane: Dual PDF Scan Viewer -->
+    <div class="pane-scans">
+      <!-- Top Half: Main Text Scan -->
+      <div class="scan-section">
+        <div class="scan-header">
+          <span id="main-scan-title">Main Page Scan</span>
+          <span id="main-scan-spread-info" style="font-weight: 400; font-size: 11px;">Spread</span>
+        </div>
+        <div class="scan-scroll">
+          <img id="main-scan-img" class="scan-img" alt="Main scan loading..." />
+        </div>
+      </div>
+
+      <!-- Bottom Half: Back-of-Book Notes Scan -->
+      <div class="scan-section">
+        <div class="scan-header">
+          <span>Back-of-Book Notes Scan (pp. 183–248)</span>
+          <div class="scan-tabs" id="notes-tabs"></div>
+        </div>
+        <div class="scan-scroll">
+          <img id="notes-scan-img" class="scan-img" alt="No notes scan for this page" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Pane: Rendered Continuous Markdown + Redlines -->
+    <div class="pane-reader">
+      <div class="reader-toolbar">
+        <span id="reader-stats">0 blocks | 0 footnotes</span>
+        <span>Select text to Redline or Add Comments</span>
+      </div>
+      <div class="reader-scroll" id="reader-content">
+        <!-- Rendered blocks and footnotes inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Text Selection Floating Popover -->
+  <div id="selection-popover">
+    <span id="popover-selected-preview" style="max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #94a3b8;"></span>
+    <input type="text" id="popover-replace-input" placeholder="Type replacement or comment..." />
+    <button id="popover-btn-strike">Strike & Replace</button>
+    <button id="popover-btn-comment">Comment</button>
+  </div>
+
+  <script>
+    let currentPageId = "ix";
+    let currentPageData = null;
+    let currentFeedback = {};
+    let activeSelectedRange = null;
+
+    const pageSelector = document.getElementById("page-selector");
+    const mainScanImg = document.getElementById("main-scan-img");
+    const notesScanImg = document.getElementById("notes-scan-img");
+    const mainScanTitle = document.getElementById("main-scan-title");
+    const mainScanSpreadInfo = document.getElementById("main-scan-spread-info");
+    const notesTabs = document.getElementById("notes-tabs");
+    const readerContent = document.getElementById("reader-content");
+    const readerStats = document.getElementById("reader-stats");
+    const statusBadge = document.getElementById("page-status-badge");
+    const popover = document.getElementById("selection-popover");
+
+    async function init() {
+      try {
+        const qRes = await fetch("/api/queue");
+        const qData = await qRes.json();
+        const pages = qData.pages || {};
+        
+        // Populate selector
+        pageSelector.innerHTML = "";
+        for (const pid of Object.keys(pages)) {
+          const opt = document.createElement("option");
+          opt.value = pid;
+          opt.textContent = `Page ${pid} (${pages[pid].section_file || ''})`;
+          pageSelector.appendChild(opt);
+        }
+      } catch (e) {
+        console.warn("Queue fetch error:", e);
+      }
+
+      // Default preface pages if queue not served
+      if (!pageSelector.options.length) {
+        ["ix", "x", "xi", "xii", "xiii", "1", "2"].forEach(p => {
+          const opt = document.createElement("option");
+          opt.value = p;
+          opt.textContent = `Page ${p}`;
+          pageSelector.appendChild(opt);
+        });
+      }
+
+      pageSelector.addEventListener("change", (e) => loadPage(e.target.value));
+      document.getElementById("btn-prev").addEventListener("click", () => navigatePage(-1));
+      document.getElementById("btn-next").addEventListener("click", () => navigatePage(1));
+      document.getElementById("btn-approve").addEventListener("click", () => saveStatus("approved"));
+      document.getElementById("btn-flag").addEventListener("click", () => saveStatus("redlined"));
+
+      setupSelectionPopover();
+      loadPage("ix");
+    }
+
+    function navigatePage(delta) {
+      const idx = pageSelector.selectedIndex;
+      const nextIdx = idx + delta;
+      if (nextIdx >= 0 && nextIdx < pageSelector.options.length) {
+        pageSelector.selectedIndex = nextIdx;
+        loadPage(pageSelector.value);
+      }
+    }
+
+    async function loadPage(pageId) {
+      currentPageId = pageId;
+      popover.style.display = "none";
+      try {
+        const res = await fetch(`/api/page/${pageId}`);
+        currentPageData = await res.json();
+        renderPage();
+      } catch (e) {
+        readerContent.innerHTML = `<div style="padding: 20px; color: #dc2626;">Failed to load data for page ${pageId}. Make sure server is running.</div>`;
+      }
+    }
+
+    function renderPage() {
+      if (!currentPageData) return;
+      statusBadge.textContent = currentPageData.status || "draft";
+      mainScanTitle.textContent = `Main Text Page ${currentPageData.page_id}`;
+      mainScanSpreadInfo.textContent = `Spread ${currentPageData.spread_index} (${currentPageData.spread_side})`;
+      mainScanImg.src = currentPageData.scan_image;
+
+      // Setup Notes scans & tabs
+      notesTabs.innerHTML = "";
+      const notePages = currentPageData.note_pages || [];
+      if (notePages.length > 0) {
+        notePages.forEach((np, i) => {
+          const btn = document.createElement("div");
+          btn.className = `scan-tab ${i === 0 ? 'active' : ''}`;
+          btn.textContent = `p. ${np}`;
+          btn.onclick = () => {
+            document.querySelectorAll(".scan-tab").forEach(t => t.classList.remove("active"));
+            btn.classList.add("active");
+            notesScanImg.src = `data/faur_scans/page_${np}.png`;
+          };
+          notesTabs.appendChild(btn);
+        });
+        notesScanImg.src = `data/faur_scans/page_${notePages[0]}.png`;
+        notesScanImg.style.display = "block";
+      } else {
+        notesScanImg.style.display = "none";
+      }
+
+      // Render Markdown Blocks
+      readerContent.innerHTML = "";
+      const blocks = currentPageData.blocks || [];
+      blocks.forEach((b) => {
+        const el = document.createElement("div");
+        el.className = `reader-block ${b.type} ${b.indent || ''}`;
+        el.dataset.blockId = b.block_id;
+
+        // Render callouts as interactive spans
+        let html = escapeHtml(b.markdown);
+        html = html.replace(/\[\^(\d+)\]/g, (match, num) => {
+          return `<span class="fn-callout" onclick="highlightFootnote('${num}')" title="Jump to note ${num}">[^${num}]</span>`;
+        });
+        el.innerHTML = html;
+        readerContent.appendChild(el);
+      });
+
+      // Render Footnotes
+      const fns = currentPageData.footnotes || {};
+      const fnKeys = Object.keys(fns);
+      if (fnKeys.length > 0) {
+        const fnContainer = document.createElement("div");
+        fnContainer.className = "notes-container";
+        fnContainer.innerHTML = "<h3>Back-of-Book Endnotes</h3>";
+        fnKeys.forEach(k => {
+          const item = document.createElement("div");
+          item.className = "note-item";
+          item.id = `fn-item-${k}`;
+          item.innerHTML = `<span class="note-num">[${k}]</span> ${escapeHtml(fns[k])}`;
+          fnContainer.appendChild(item);
+        });
+        readerContent.appendChild(fnContainer);
+      }
+
+      readerStats.textContent = `${blocks.length} blocks | ${fnKeys.length} footnotes`;
+    }
+
+    window.highlightFootnote = function(num) {
+      document.querySelectorAll(".note-item").forEach(el => el.classList.remove("active-note"));
+      const target = document.getElementById(`fn-item-${num}`);
+      if (target) {
+        target.classList.add("active-note");
+        target.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    };
+
+    function escapeHtml(str) {
+      return (str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function setupSelectionPopover() {
+      document.addEventListener("selectionchange", () => {
+        const sel = window.getSelection();
+        if (!sel || sel.isCollapsed || !sel.rangeCount) {
+          return;
+        }
+        const text = sel.toString().trim();
+        if (!text || text.length < 2) return;
+
+        const range = sel.getRangeAt(0);
+        // Only trigger within readerContent
+        if (!readerContent.contains(range.commonAncestorContainer)) return;
+
+        activeSelectedRange = range;
+        const rect = range.getBoundingClientRect();
+        popover.style.display = "flex";
+        popover.style.top = `${rect.top + window.scrollY - 45}px`;
+        popover.style.left = `${Math.max(10, rect.left + (rect.width / 2) - 150)}px`;
+        document.getElementById("popover-selected-preview").textContent = `"${text}"`;
+      });
+
+      document.getElementById("popover-btn-strike").onclick = () => {
+        const replaceVal = document.getElementById("popover-replace-input").value;
+        applyRedline("replace", replaceVal);
+      };
+
+      document.getElementById("popover-btn-comment").onclick = () => {
+        const commentVal = document.getElementById("popover-replace-input").value;
+        applyRedline("comment", commentVal);
+      };
+    }
+
+    async function applyRedline(action, val) {
+      if (!activeSelectedRange) return;
+      const selectedText = activeSelectedRange.toString();
+      popover.style.display = "none";
+      document.getElementById("popover-replace-input").value = "";
+
+      const redlineRecord = {
+        action: action,
+        target_text: selectedText,
+        value: val,
+        timestamp: new Date().toISOString()
+      };
+
+      if (!currentFeedback[currentPageId]) {
+        currentFeedback[currentPageId] = { page_id: currentPageId, redlines: [], status: "redlined" };
+      }
+      currentFeedback[currentPageId].redlines.push(redlineRecord);
+      currentFeedback[currentPageId].status = "redlined";
+
+      // POST to backend
+      await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(currentFeedback[currentPageId])
+      });
+      statusBadge.textContent = "redlined";
+      statusBadge.style.background = "#dc2626";
+    }
+
+    async function saveStatus(status) {
+      if (!currentFeedback[currentPageId]) {
+        currentFeedback[currentPageId] = { page_id: currentPageId, redlines: [], status: status };
+      } else {
+        currentFeedback[currentPageId].status = status;
+      }
+      await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(currentFeedback[currentPageId])
+      });
+      statusBadge.textContent = status;
+      statusBadge.style.background = status === "approved" ? "#16a34a" : "#dc2626";
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>
