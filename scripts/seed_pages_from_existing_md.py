@@ -79,7 +79,12 @@ def seed_canonical_pages(md_dir: str = "docs/faur_homo_mysticus", out_dir: str =
     manifest = build_book_page_manifest()
     manifest_by_id = {m["page_id"]: m for m in manifest}
 
-    for md_file in sorted(glob.glob(os.path.join(md_dir, "*.md"))):
+    # Only seed from actual chapter markdown files (00_... through 08_...)
+    target_files = sorted([
+        f for f in glob.glob(os.path.join(md_dir, "*.md"))
+        if os.path.basename(f).startswith(("00_", "01_", "02_", "03_", "04_", "05_", "06_", "07_", "08_"))
+    ])
+    for md_file in target_files:
         with open(md_file, "r", encoding="utf-8") as f:
             text = f.read()
         sliced = slice_md_by_page_anchors(text)
