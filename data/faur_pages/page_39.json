@@ -1,0 +1,67 @@
+{
+  "page_id": "39",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 27,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_039.png",
+  "note_pages": [
+    "203",
+    "204"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_203.png",
+    "data/faur_scans/page_204.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p39_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "shalom ve-yaṣa be-shalom). This means that his prologue (*nikhnas*) and main dissertation (*ve-yaṣa*) had been approved.[^129]"
+    },
+    {
+      "block_id": "p39_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The others failed to take adequate precautions. They “peeked,” “delighted” their “eyes from Him,” and were unable to exit in peace. One of them died shortly thereafter. Another lost his mind.[^130] According to the Babylonian Talmud, it was ben ‘Azai who died. R. Hayye Ga’on explained that he died suddenly before he could finish his (erroneous) dissertation.[^131] A rabbinic metaphor illustrates that incident."
+    },
+    {
+      "block_id": "p39_b3",
+      "type": "blockquote",
+      "markdown": "To someone who said: “I want to see the Glory of the King!” They told him: “Go to the city and you will see him.” He entered [*nikhnas*] and saw a curtain inlaid with precious stones and pearls stretched over the gate of the city. Unable to delight his eyes from it [*lazun et ‘enav mi-mennu*] he collapsed.[^132] They told him: “If you were unable to delight your eyes from the curtain stretching over the city’s gate, that only has precious stones and pearls, and consequently you collapsed, how much worst would it have been if you had entered the city.”[^133]"
+    },
+    {
+      "block_id": "p39_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "A rabbinic source preserved an important statement that must have been pronounced by one of the participants soon after exiting the orchard: “Do not glance at someone else’s vineyard. If you glanced at it, do not come down. If you looked at it, do not touch it. And if he [meaning: you] ate [from it], behold this man maimed his soul in this world and in the world to come.”[^134]"
+    },
+    {
+      "block_id": "p39_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The reference to a “vineyard” rather than to an “orchard” indicates that the statement was pronounced shortly after the event before it was officially formulated by the Academies. The warning not to “glance at the vineyard of another man” brings to mind the biblical prohibition against coveting another man’s wife and property. The caution “do not come down,” alludes to the descent from the “upper chamber” (*‘aliya*). It is a warning against the temptation to peek at the Divine Presence while descending to the inner Sanctuary, finally tampering with the forbidden fruit. In due course the reason for the failure will be evident."
+    },
+    {
+      "block_id": "p39_b6",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Ben Zoma succeeded in entering the orchard but failed to find the Temple’s gate. The topic of his opening dialogue was the separation between the waters taking place in the second day of creation (Gn 1:6–7). When he was"
+    }
+  ],
+  "footnotes": {
+    "129": "See above, p. 36. This reading was preserved in *Yerushalmi Ḥagiga* 1, 2, 77b; in the margin of the Erfut ms., critical apparatus, line 21, *Tosefta Ḥagiga* 2:4; and in Maimonides, *Guide*, sec. 1, chap. 32, p. 46 (line 10). The standard reading *‘ala* in the *Tosefta* is a transposition from paragraph 3, line 17, where it is said that R. ‘Aqiba “went up” (*‘ala*). There it means that “he went up” to the “upper chamber” (*‘aliya*) mentioned in paragraph 5; see preceding n. 128. The copyist mistook it as a reference to the orchard and, therefore, corrected paragraph 4 in the standard editions to read *‘ala* instead of *nikhnas*. Concerning the actual topic of R. ‘Aqiba’s dissertation, *Ḥagiga* 15b–16a, has preserved four traditions. Possibly, it comprised all these topics, but each rabbi reported a single aspect.",
+    "130": "There is disagreement as to who died and who lost his mind; see Lieberman, *Tosefta Ki-Fshuṭa*, 1289. On the meaning of ‘losing the mind’ see the brilliant note of Lieberman, “Yaṣa le-‘Olamo,” *Ginze Kedem* 5 (1934): 177–79.",
+    "131": "*Ḥagiga* 14b; *Oṣar ha-Ge'onim*, *Ḥagiga*, *Ha-Teshubot*, 14. A similar view was held by Maimonides; see *Guide*, sec. 1, chap. 34, p. 50 (lines 26–27).",
+    "132": "This is the correct reading; see critical apparatus ad loc., and Lieberman, *Tosefta Kifshuṭa*, *Mo‘ed*, 1291.",
+    "133": "*Sifre* no. 355, pp. 422–23.",
+    "134": "*Abot de-R. Natan*, 33, B, p. 72. See Lieberman, *Tosefta Ki-Fshuṭa*, 1291."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Rehabilitated against 300 DPI scans page_039.png, page_203.png, and page_204.png; split into 5 paragraph blocks and 1 blockquote block; healed mid-line hyphenations (vine- yard -> vineyard); recovered severely corrupted text in block p39_b4; restored italics (*nikhnas*, *ve-yaṣa*, *lazun et ‘enav mi-mennu*, *‘aliya*); restored footnote callouts [^129]–[^134] and transcribed corresponding note definitions."
+  ]
+}

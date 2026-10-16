@@ -1,0 +1,49 @@
+{
+  "page_id": "36",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 26,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_036.png",
+  "note_pages": [
+    "199",
+    "200"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_199.png",
+    "data/faur_scans/page_200.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p36_b1",
+      "type": "blockquote",
+      "markdown": "The words of the Tora were compared to a goad. To teach you: Just like a goad directs the [plowing] cow to its furrow, bringing thus life to the world, in the same manner the words of the Tora direct those who study it away from the paths of death into the paths of life. Lest you might say: Just like a goad could be removed, perhaps, also the words of the Tora could be removed? The text teaches: “nails.” Lest you might say: Just like nails decay and do not grow, in the same manner the words of the Tora decay and do not grow? The text teaches: “planted.” Just like a plant bears fruits and grows, the words of the Tora, too, bear fruits and grow.[^104]"
+    },
+    {
+      "block_id": "p36_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The “orchard” is the grove where the “plants” cultivated by the rabbis grow."
+    },
+    {
+      "block_id": "p36_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "This text centers around the famous four scholars who had “entered into the orchard” (*nikhnesu la-pardes*).[^105] The verb *entered* is to be understood in the technical sense of ‘to ingress in order to present their respective opening prologue’ (*petiḥa*), under the tutelage of R. Joshua (first and second centuries). Since the foursome were outstanding scholars, one must assume that they had properly decoded the numerous informal references to esoteric material made by their teachers during their education.[^106] When R. Joshua wanted to be initiated into the realm of esoterics, he began the prologue (*pataḥ*) on his own without his teacher’s permission. Only later did he present the main lecture (*hirṣa*) before his teacher.[^107] The orchard model pertains to the third step of the procedure mentioned above, before the student had delivered the initial prologue. The task of the student was to present his dissertation for approval.[^108] The “orchard” stands for the maze of unconcluded chapters or “plants” that “bear fruits and grow” designed by the teacher.[^109] A successful student would find his way through the maze and reach the final destination. An unsuccessful student would be caught up in the maze, failing to complete the dissertation. Approval of the opening prologue is designated ‘to enter in peace’ (*nikhnas be-shalom*). Approval of the main dissertation is designated ‘to exit in peace’ (*yaṣa be-shalom*). Only R. ‘Aqiba ‘entered in peace and exited in peace’ (*nikhnas be-shalom ve-yaṣa be-shalom*).[^110] This means that he not only counted on his teacher’s approval to proceed with the opening prologue but that he had also gained approval for the main dissertation. R. Joshua declined to say *shalom* to one of the students who had lost his way in the"
+    }
+  ],
+  "footnotes": {
+    "104": "*Ḥagiga* 3b; see *Tosefta Soṭa* 7:11. For parallel sources see *Tosefta Ki-Fshuṭa* ad loc.",
+    "105": "*Tosefta Ḥagiga* 2:3. There is a fine discussion of the standard views and the variants and further developments of the sources in Urbach, *World of the Sages*, 486–513. Much of the pertinent bibliography may be found in Yehuda Liebes, *Ḥeṭ’o shel Elisha‘* (Jerusalem: Academon, 1990).",
+    "106": "On ben Zoma and ben ‘Azai see *Sanhedrin* 17b; *Horayot* 2b; and Maimonides’s remark on ben Zoma, Introduction to *Pirush ha-Mishnayot*, vol. 1: 45. Cf. above, p. 195 n. 43.",
+    "107": "*Ḥagiga* 14b. Cf. *Tosefta Ḥagiga* 2:2. Thus, he was required to obtain divine approval; see *Ḥagiga* 14b.",
+    "108": "See above, p. 25. Evidence for this is the order in which the paragraph appears. It is the third in a series of seven paragraphs in *Tosefta Ḥagiga* chap. 2, dealing with esoteric instruction. Paragraph 1 stipulates that *Merkaba* studies cannot be taught except to a single qualified student. The principle is substantiated by the story of R. Eleazar ben ‘Arakh and his teacher examined above, pp. 24–27. Paragraph 2 contains a list of scholars who, like R. Eleazar ben ‘Arakh, submitted (*hirṣa*) their expositions successfully under the tutelage (*lifne*) of their teacher. Paragraph 3 contains the story of the four who entered the orchard and the failure of three of them. Paragraph 4 reports that unlike the others R. ‘Aqiba was successful in his exposition of both the prologue and the main dissertation; see below, p. 38ff. Paragraph 5 presents two models that illustrate the specific predicament facing the four. Paragraph 6 describes what happened to one of the three failing scholars. Paragraph 7 establishes the perimeters of esoteric material that could be investigated. Then, it stands to reason that the story in paragraph 3 is the continuation of the initiation process developed in the first paragraph. Specifically, this paragraph deals with the very beginning of the initiation procedure when the student develops the *petiḥa*. The next four paragraphs explain what happened to each of them. See below, pp. 39–41.",
+    "109": "Cf. Maimonides, *Mishne Tora*, *Yesode ha-Tora* 4:13, 7:1.",
+    "110": "See below, p. 203 n. 129."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_036.png, page_199.png, and page_200.png; verified line-by-line."
+  ]
+}

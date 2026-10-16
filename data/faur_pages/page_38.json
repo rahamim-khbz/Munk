@@ -1,0 +1,63 @@
+{
+  "page_id": "38",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 27,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_038.png",
+  "note_pages": [
+    "202",
+    "203"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_202.png",
+    "data/faur_scans/page_203.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p38_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "‘whoring/heresy’ rests on the principle that an individual who has not yet learned to control his sexual impulses would end up confusing his own delusions with the divine: the numinous is a function of repression and narcissistic obsessions.[^122] Accordingly, heretics are invariably promiscuous and vice versa, thus, the rabbinic doctrine that someone who “delights his eyes” in sexual matters could not possibly behold the divine. Conversely, “Whoever sees a sexual object (*debar ‘erva*) and does not delight his eyes from it (*zan ‘enav mi-mennu*) will merit to receive the countenance of the Shekhina (Divine Presence).”[^123] Moses, taught the rabbis, “did not delight his eyes from the Shekhina. [This is why] he enjoyed the Shekhina.”[^124] By contrast, Nadab and Abihu “delighted their eyes from Him” and were punished,[^125] hence, Maimonides’s view that someone who is unable to control his sexual impulses cannot be a prophet.[^126]"
+    },
+    {
+      "block_id": "p38_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Since the descent from the upper chamber into the inner Sanctuary is fraught with danger lest the initiate would be lured to peek at the Divine Presence and “delight his eyes from Him,” special caution was warranted. Those daring to enter the orchard mentally and to find the Temple through the maze had to climb to the upper chamber and descend to the inner Sanctuary via the trap. The process is referred to as “descending to the Merkaba.” The Merkaba or Divine Chariot was pulled by the heavenly cherubs. Although the actual Ark and the cherubs were no longer at the Second Temple, the Shekhina was still present in the inner Sanctuary. Hence, to descend to the Sanctuary was “to descend to the Merkaba.”"
+    },
+    {
+      "block_id": "p38_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides designated the esoteric journey into the Sanctuary ‘to parade’ (*le-ṭayyel*)—in the sense of a ceremonial march—‘through the orchard’. The same term was used by the rabbis to describe the march of the righteous in Paradise in company of the Almighty.[^127]"
+    },
+    {
+      "block_id": "p38_b4",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE REALM OF SUBJECTIVITY"
+    },
+    {
+      "block_id": "p38_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In the story of the sages entering the orchard only R. ‘Aqiba was successful. Rabbinic literature has preserved two statements describing his accomplishment. One states that he “ascended in peace and descended in peace” (*‘ala be-shalom ve-yarad be-shalom*).[^128] This refers to his ascension to the Temple’s upper chamber and descending to the inner Sanctuary via the trap. Since he had taken the necessary precautions (as did the workers at the Temple) not to peek on the way down, he “descended in peace.” Another source reports that he “entered in peace and exited in peace” (*nikhnas be-"
+    }
+  ],
+  "footnotes": {
+    "122": "See Kristeva, *Powers of Horror*, 45; Faur, *In the Shadow of History*, 6–7.",
+    "123": "*Vayyiqra Rabba* 23, 13, vol. 3, p. 548.",
+    "124": "Ibid., xx, 10, vol. 2, p. 466.",
+    "125": "Ibid., 466–67. They did not marry; see below, p. 204 n. 141, and p. 218 n. 194. Since those who maintain proper sexual conduct become the location of the Shekhina, they are designated *mal'akhe ha-sharet* (ministering angels); see *Nedarim* 20b. Cf. below, p. 174.",
+    "126": "Maimonides, *Guide*, sec. 2, chap. 40, p. 272 (lines 1–15); *Mishne Tora*, *De'ot* 7:1. The source indicated by Maimonides is *Sanhedrin* 89a. This was the reason why Judaism rejected the view that Jesus (and Mohammed) had been privy to divine revelation; see the uncensored editions, *Sanhedrin* 107b. See, however, the analysis of R. Travers Herford, *Christianity in Talmud and Midrash* (London: William and Norgate, 1903), 50–54, showing that this passage is chronologically impossible. Maimonides used the expression *laddathu* (his delights), *Guide*, sec. 1, chap. 2, p. 17 (line 16), to indicate narcissistic pleasure in contradistinction with *laddat* (pleasure); ibid. (line 15).",
+    "127": "*Mishne Tora*, *De'ot* 4:14. This term refers to a mental kind of parading, as in *Sanhedrin* 102a, where David is said to be marching by the side of God in paradise, see above, p. 200 n. 117. In accordance with Geonic tradition Maimonides associated *pardes* with paradise; see *Oṣar ha-Ge'onim*, *Ḥagiga*, 61; R. Ḥanan'el on *Ḥagiga* 14b. Cf. however, Urbach, *World of the Sages*, 498.",
+    "128": "*Tosefta Ḥagiga* 2:4."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Rehabilitated against 300 DPI scans page_038.png, page_202.png, and page_203.png; split into 4 paragraph blocks and 1 heading block; healed mid-line hyphenations; restored italics (*debar ‘erva*, *zan ‘enav mi-mennu*, *le-ṭayyel*, *‘ala be-shalom ve-yarad be-shalom*, *nikhnas be-*); fixed OCR typo R. 'Agiba -> R. ‘Aqiba; restored footnote callouts [^122]–[^128] and transcribed note definitions."
+  ]
+}
