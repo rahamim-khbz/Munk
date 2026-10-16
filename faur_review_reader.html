@@ -410,7 +410,7 @@
 
     async function init() {
       try {
-        const qRes = await fetch("/api/queue");
+        const qRes = await fetch(`/api/queue?t=${Date.now()}`);
         const qData = await qRes.json();
         const pages = qData.pages || {};
         
@@ -459,7 +459,7 @@
       currentPageId = pageId;
       popover.style.display = "none";
       try {
-        const res = await fetch(`/api/page/${pageId}`);
+        const res = await fetch(`/api/page/${pageId}?t=${Date.now()}`);
         currentPageData = await res.json();
         renderPage();
       } catch (e) {
@@ -467,9 +467,58 @@
       }
     }
 
+    function formatMarkdownInline(text) {
+      let html = escapeHtml(text);
+      // Italics *...*
+      html = html.replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
+      // Footnote callouts [^N]
+      html = html.replace(/\[\^(\d+)\]/g, (match, num) => {
+        return `<span class="fn-callout" onclick="highlightFootnote('${num}')" title="Jump to note ${num}">[${num}]</span>`;
+      });
+      return html;
+    }
+
+    function renderMarkdownBlock(b) {
+      const raw = b.markdown || "";
+      if (b.type === "heading") {
+        const level = Math.min(Math.max(b.level || 2, 1), 4);
+        const h = document.createElement(`h${level}`);
+        h.innerHTML = formatMarkdownInline(raw);
+        return h;
+      }
+      // Markdown pipe table support
+      if (raw.trim().startsWith("|") && raw.includes("\n|")) {
+        const lines = raw.trim().split("\n").map(l => l.trim()).filter(Boolean);
+        const table = document.createElement("table");
+        table.style.cssText = "width:100%; border-collapse:collapse; margin:12px 0; font-size:15px;";
+        lines.forEach((line, idx) => {
+          if ( idx === 1 && /^\|[\s:-]+\|$/.test(line.replace(/\|/g, "|")) && line.includes("---") ) return;
+          const cells = line.replace(/^\|/, "").replace(/\|$/, "").split("|");
+          const tr = document.createElement("tr");
+          cells.forEach(c => {
+            const cellEl = document.createElement(idx === 0 ? "th" : "td");
+            cellEl.style.cssText = "border:1px solid #cbd5e1; padding:6px 10px; text-align:left;";
+            if (idx === 0) cellEl.style.background = "#f1f5f9";
+            cellEl.innerHTML = formatMarkdownInline(c.trim());
+            tr.appendChild(cellEl);
+          });
+          table.appendChild(tr);
+        });
+        return table;
+      }
+      const el = document.createElement("div");
+      el.className = `reader-block ${b.type} ${b.indent || ''}`;
+      el.dataset.blockId = b.block_id;
+      el.innerHTML = formatMarkdownInline(raw).replace(/\n/g, "<br>");
+      return el;
+    }
+
     function renderPage() {
       if (!currentPageData) return;
-      statusBadge.textContent = currentPageData.status || "draft";
+      pageSelector.value = currentPageData.page_id;
+      const st = currentPageData.status || "draft";
+      statusBadge.textContent = st;
+      statusBadge.style.background = st === "visual_verified" || st === "approved" ? "#16a34a" : (st === "redlined" ? "#dc2626" : "#3b82f6");
       mainScanTitle.textContent = `Main Text Page ${currentPageData.page_id}`;
       mainScanSpreadInfo.textContent = `Spread ${currentPageData.spread_index} (${currentPageData.spread_side})`;
       mainScanImg.src = currentPageData.scan_image;
@@ -499,17 +548,7 @@
       readerContent.innerHTML = "";
       const blocks = currentPageData.blocks || [];
       blocks.forEach((b) => {
-        const el = document.createElement("div");
-        el.className = `reader-block ${b.type} ${b.indent || ''}`;
-        el.dataset.blockId = b.block_id;
-
-        // Render callouts as interactive spans
-        let html = escapeHtml(b.markdown);
-        html = html.replace(/\[\^(\d+)\]/g, (match, num) => {
-          return `<span class="fn-callout" onclick="highlightFootnote('${num}')" title="Jump to note ${num}">[^${num}]</span>`;
-        });
-        el.innerHTML = html;
-        readerContent.appendChild(el);
+        readerContent.appendChild(renderMarkdownBlock(b));
       });
 
       // Render Footnotes
@@ -523,7 +562,7 @@
           const item = document.createElement("div");
           item.className = "note-item";
           item.id = `fn-item-${k}`;
-          item.innerHTML = `<span class="note-num">[${k}]</span> ${escapeHtml(fns[k])}`;
+          item.innerHTML = `<span class="note-num">[${k}]</span> ${formatMarkdownInline(fns[k])}`;
           fnContainer.appendChild(item);
         });
         readerContent.appendChild(fnContainer);

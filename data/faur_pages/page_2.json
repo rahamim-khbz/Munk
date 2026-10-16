@@ -6,27 +6,13 @@
   "scan_image": "data/faur_scans/page_002.png",
   "note_pages": [
     "184",
-    "185",
-    "186",
-    "187",
-    "188",
-    "189",
-    "190",
-    "191",
-    "192"
+    "185"
   ],
   "note_scan_images": [
     "data/faur_scans/page_184.png",
-    "data/faur_scans/page_185.png",
-    "data/faur_scans/page_186.png",
-    "data/faur_scans/page_187.png",
-    "data/faur_scans/page_188.png",
-    "data/faur_scans/page_189.png",
-    "data/faur_scans/page_190.png",
-    "data/faur_scans/page_191.png",
-    "data/faur_scans/page_192.png"
+    "data/faur_scans/page_185.png"
   ],
-  "status": "draft",
+  "status": "visual_verified",
   "continues_from_prev_page": true,
   "ends_with_hyphen": false,
   "blocks": [
@@ -34,23 +20,33 @@
       "block_id": "p2_b1",
       "type": "paragraph",
       "indent": "continuation",
-      "markdown": "involves a crisis of choice. The road bifurcates, demanding subjective judgment, thus creating a defining moment, a unique Now. Those having the courage to face it, rather than escape to the realm of conventionalities, would be rewarded by a brilliance piercing the thick darkness\u2014an instant of mystical illumination. It is at this Now that individuals discover\u2014more precisely, forge\u2014their true identities. *Homo mysticus* is one who has forged his / *or her own* individualistic type of perfection, \"acquired *his* world\" (*qana 'olamo*) in the language of the rabbis.[^7]"
+      "markdown": "involves a crisis of choice. The road bifurcates, demanding subjective judgment, thus creating a defining moment, a unique Now. Those having the courage to face it, rather than escape to the realm of conventionalities, would be rewarded by a brilliance piercing the thick darkness—an instant of mystical illumination. It is at this Now that individuals discover—more precisely, forge—their true identities. *Homo mysticus* is one who has forged *his / or her own* individualistic type of perfection, “acquired *his* world” (*qana ‘olamo*) in the language of the rabbis.[^7]"
     },
     {
       "block_id": "p2_b2",
       "type": "paragraph",
       "indent": "indented",
-      "markdown": "Perfection is not measured in absolute terms, but according to the specific capacities of the individual.[^8] \"Every human can be as righteous as Moses,\" taught Maimonides.[^9] A similar view was expressed by Judah Abarbanel (ca. 1460\u2013ca. 1523). In a golden passage he wrote, \"And the soul which has achieved such excellence, thus loosed from its fleshy bonds, enjoys without impediment forever its happy union with the Light, even as do the blessed angels and disembodied intelligences, the heavenly bodies and the spirits that move them, each according to the degree of its dignity and perfection forever.\"[^10]"
+      "markdown": "Perfection is not measured in absolute terms, but according to the specific capacities of the individual.[^8] “Every human can be as righteous as Moses,” taught Maimonides.[^9] A similar view was expressed by Judah Abarbanel (ca. 1460–ca. 1523). In a golden passage he wrote, “And the soul which has achieved such excellence, thus loosed from its fleshy bonds, enjoys without impediment forever its happy union with the Light, even as do the blessed angels and disembodied intelligences, the heavenly bodies and the spirits that move them, each according to the degree of its dignity and perfection forever.”[^10]"
     },
     {
       "block_id": "p2_b3",
       "type": "paragraph",
       "indent": "indented",
-      "markdown": "Because at the level of individuation everyone has something absolutely unique to contribute, it is as if God had designed the entire cosmos\u2014launching the chain of events from the inauguration of time\u2014to offer *this* Now for the benefit of *this* individual. Within the infinite concatenation of cause and effect every particular act has cosmological implications. Therefore, advised the rabbis, an individual ought to look at himself and the entire world as if in a state of perennial equilibrium of merits and faults: a single act will suffice to tilt the chain of events affecting his future and that of the world.[^11] Similarly, Jorge Luis Borges (1900\u20131986) wrote, \"There is no fact, however insignificant, that does not involve universal history and the infinite concatenation of cause and effect.\"[^12] \"No one resembles someone else,\" taught the rabbis, therefore, \"every human must assert, 'For me the universe has been created'!\"[^13] In the pagan mind human redemption is effected by a backward motion toward a primordial past. The present is insignificant. Human salvation is attained by returning to a mythical beginning. In Judaism the most important time is Now. \"If not Now, when?!\" asked Hillel (died ca. 20 B.C.E.).[^14] The saintly Rabbi of Ger (1789\u20131866), explained: \"This Now, the moment in which we are speaking, has not been from the creation of the world, and it will never be again. Before it there was another Now, and every Now has its sacred duty,\"[^15] hence, the idea of progress, both collective and personal. Progress takes place when the Now is realized. \"There is no"
+      "markdown": "Because at the level of individuation everyone has something absolutely unique to contribute, it is as if God had designed the entire cosmos—launching the chain of events from the inauguration of time—to offer *this* Now for the benefit of *this* individual. Within the infinite concatenation of cause and effect every particular act has cosmological implications. Therefore, advised the rabbis, an individual ought to look at himself and the entire world as if in a state of perennial equilibrium of merits and faults: a single act will suffice to tilt the chain of events affecting his future and that of the world.[^11] Similarly, Jorge Luis Borges (1900–1986) wrote, “There is no fact, however insignificant, that does not involve universal history and the infinite concatenation of cause and effect.”[^12] “No one resembles someone else,” taught the rabbis, therefore, “every human must assert, ‘For me the universe has been created’!”[^13] In the pagan mind human redemption is effected by a backward motion toward a primordial past. The present is insignificant. Human salvation is attained by returning to a mythical beginning. In Judaism the most important time is Now. “If not Now, when?!” asked Hillel (died ca. 20 B.C.E.).[^14] The saintly Rabbi of Ger (1789–1866), explained: “This Now, the moment in which we are speaking, has not been from the creation of the world, and it will never be again. Before it there was another Now, and every Now has its sacred duty,”[^15] hence, the idea of progress, both collective and personal. Progress takes place when the Now is realized. “There is no"
     }
   ],
-  "footnotes": {},
+  "footnotes": {
+    "7": "See *‘Aboda Zara* 10b, 17a, 18a.",
+    "8": "See *Ketubot* 66b, *‘Aboda Zara* 17b; *Ta‘aniyot* 29a (the story with Rabban Gamli’el); the extraordinary story about Elijah and the jail keeper, *Ta‘aniyot* 22a and in Nissim ben Jacob ibn Shahin, *An Elegant Composition Concerning Relief and Adversity*, trans. William M. Brinner (New Haven, Conn.: Yale Univ. Press, 1977), 4–5; the story of the two clowns, *Ta‘aniyot* 22a; and the story with Abba Ummana, ibid. 21b. Cf. ‘Azarya de Fijo, *Bína le-‘Ittim*, vol. 1 (Jerusalem: Ch. Wagschel, 5749/1989), 5b; Moses Ḥayyim Luzzato, *The Path of the Upright*, trans. Mordecai M. Kaplan (Philadelphia: Jewish Publication Society, 1936), end of chap. 26.",
+    "9": "Maimonides, *Mishne Tora*, *Teshuba* 5:2.",
+    "10": "Leone Ebreo (R. Judah Abarbanel), *Dialoghi d’Amore*, English translation, *The Philosophy of Love*, by F. Friedberg-Seeley and Jean H. Barnes (London: Soncino Press, 1937), sect. 1, 51.",
+    "11": "*Tosefta Qiddushin* 1:13, cited in *Qiddushin* 40a–b.",
+    "12": "Jorge Luis Borges, “The Zahir,” trans. Dudley Fitts, in *Labyrinths* (New York: New Directions, 1964), 163.",
+    "13": "Mishna *Sanhedrin* 4:5.",
+    "14": "*Pirqe Abot* 1:14.",
+    "15": "Quoted in Neumann, “Mystical Man,” 409."
+  },
   "audit_log": [
-    "Seeded from 01_introduction.md"
+    "Rehabilitated against 300 DPI scans page_002.png, page_184.png, and page_185.png; verified line-by-line."
   ]
 }

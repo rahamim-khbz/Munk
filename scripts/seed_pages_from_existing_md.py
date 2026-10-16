@@ -90,6 +90,14 @@ def seed_canonical_pages(md_dir: str = "docs/faur_homo_mysticus", out_dir: str =
         sliced = slice_md_by_page_anchors(text)
         for pid, data in sliced.items():
             out_file = os.path.join(out_dir, f"page_{pid}.json")
+            if os.path.exists(out_file):
+                try:
+                    with open(out_file, "r", encoding="utf-8") as existing_f:
+                        existing_record = json.load(existing_f)
+                    if existing_record.get("status") in ("visual_verified", "approved", "redlined"):
+                        continue
+                except Exception:
+                    pass
             meta = manifest_by_id.get(pid, {})
             record = {
                 "page_id": pid,

@@ -1,0 +1,47 @@
+{
+  "page_id": "1",
+  "section_file": "01_introduction.md",
+  "spread_index": 8,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_001.png",
+  "note_pages": [
+    "184"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_184.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p1_b1",
+      "type": "heading",
+      "level": 2,
+      "markdown": "Introduction"
+    },
+    {
+      "block_id": "p1_b2",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "THE UNDERLYING THESIS OF this work is that for Maimonides Hebrew mysticism is an anthropological dimension and the very purpose of the human race. For Erich Neumann (1905–1960) this ascertains that mysticism is “a fundamental category of human experience.”[^1] Unlike Neumann, however, for Maimonides the mystical experience can take place only at the final stage of human development when the individual has reached perfection.[^2] Mysticism cannot be experienced through faith or be grounded on rational proof. *Homo mysticus* is, first and foremost, *a postrational individual*. A serious student of the *Guide* concluded that although *“faith in God is not grounded on the annihilation of rational perception”* and that “rational perception constitutes the very basis for man’s relation to God.” At the same time, Maimonides maintains that “there is *a perception that is higher than it*, which opens the gates *to a suprarational knowledge*.” In fact, for Maimonides, “Through it alone can man reach the ultimate possible closeness to the absolute” [italics in original].[^3]"
+    },
+    {
+      "block_id": "p1_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The basic premise of all forms of surrealism is that ordinary reality “does not exists in terms of itself, but as an anteroom of another possible reality.”[^4] The rabbis, too, taught that “This world resembles an anteroom before the world to come.”[^5] The superior reality cannot be apprehended in terms of ordinary categories.[^6] To become *homo mysticus* the individual must transcend the realms of mythology and rationality and develop a new level of consciousness. A postrational individual knows not by means of ordinary reason but “by virtue of perfection.” At a rudimentary level mysticism is the faculty to exercise subjectivity. Humans are conditioned by the ordinary: linguistic, social, and cultural conventionalities. Ordinarily, people are objective. They follow definite patterns of thought and feeling; their behavior and ideas can be categorized and valued according to generally agreed criteria: intellectual, social, political, and so on. The realm of mysticism escapes objectivity. It"
+    }
+  ],
+  "footnotes": {
+    "1": "Erich Neumann, “Mystical Man,” in Joseph Campbell ed., *The Mystic Vision: Papers from the Eranos Yearbooks*, ed. Joseph Campbell (6) (Princeton, N.J.: Princeton Univ. Press, 1982), 377. On Maimonides’s “philosophical mysticism” see the very valuable studies of David R. Blumenthal, “Maimonides: Prayer, Worship and Mysticism,” in *Priére, Mystique et Judaisme* (Strasbourg: Collection Strasbourg, 1984), 89–106; idem, “Maimonides’s Intellectualist Mysticism and the Superiority of the Prophecy of Moses,” *Medieval Culture* 10 (1978): 51–67. On Maimonides and the Kabbalah in general see the very erudite and illuminating work of Moshe Idel, *Maimonide et la mystique juive* (Paris: Editions du Cerf, 1991).",
+    "2": "The Maimonidean concept of perfection has been the subject of a succinct, eminently useful monograph by Menachem Kellner, *Maimonides on Human Perfection* (Atlanta, Ga.: Scholars Press, 1989).",
+    "3": "Yehudah Evenshmuel, *More Nebukhim*, pt. 2, vol. 1 (Jerusalem: Mossad Harav Kook, 5718/1958), Introduction, 126.",
+    "4": "R. M. Albérès, *Histoire du roman modern* (Paris: Editions Albin Michel, 1962), 436. See André Breton, *Manifestes du surrealism* (Paris: J.-J. Pauvert, 1962), 40.",
+    "5": "*Pirqe Abot* 4:21.",
+    "6": "See Maimonides, *Mishne Tora*, *Teshuba* 8:7. It is as if a blind or deaf person would attempt to apprehend color or sound, see idem, *Pirush ha-Mishnayot*, ed. and trans. Joseph Qafiḥ, 7 vols. (Jerusalem: Mossad Harav Kook, 1967), 4: 203–4. The source is rabbinic; see *Sifre*, no. 356, p. 424. Cf. *Berakhot* 34b."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_001.png and page_184.png; verified line-by-line."
+  ]
+}
