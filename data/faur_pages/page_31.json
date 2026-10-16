@@ -1,0 +1,61 @@
+{
+  "page_id": "31",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 23,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_031.png",
+  "note_pages": [
+    "197",
+    "198"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_197.png",
+    "data/faur_scans/page_198.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p31_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "(halakha). Carefully, approval was mentioned in the third person, \"many sages had believed,\" not in the first person.[^73] After expounding the view identifying rabbinic esoterics with the *Hekhalot* literature, he cited the view that these texts are not \"authoritative\" (halakha).[^74] Indeed, in a different responsum he included the *Hekhalot* writings with other theurgic texts that \"frighten\" those who read them.[^75]"
+    },
+    {
+      "block_id": "p31_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The fact that the *Hekhalot* literature is ancient does not necessarily prove that it contains authoritative esoteric teaching. More to the point, one must distinguish between the notion of a 'palace' (or 'Temple', see below, p. 37–38) symbolizing the divine abode, which is found in rabbinic literature and was elaborated by Maimonides himself, and what was included in the *Hekhalot* literature.[^76] There is little doubt that there were circles, even in pre-Rabbinic times, that indulged in some of the Gnostic views and practices contained in the *Hekhalot* literature.[^77] Some rabbis, too, may have indulged in those views. What needs to be determined is not merely the time of a given text but to what extent it is representative of the views of the rabbinic authorities of the Mishna and Talmud. Obviously, rabbinic legislation restricting the dissemination of esoteric material[^78] was designed to discredit certain types of esoteric lore circulating at the time among some rabbis. The same applies to statements such as, \"Many have expounded [*darshu*] on the *Merkaba* but have never seen it,\" and \"I looked at the dwellers of the upper chamber, and they are few.\"[^79]"
+    },
+    {
+      "block_id": "p31_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Hence Maimonides's argument: because these writings are in flagrant contradiction with the rabbinic interdiction against writing precisely this type of literature, they cannot represent the esoteric teachings of the rabbis."
+    },
+    {
+      "block_id": "p31_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Scholem recognized the problem. He raised the question but failed to explore it rigorously. He simply sidestepped it."
+    },
+    {
+      "block_id": "p31_b5",
+      "type": "blockquote",
+      "markdown": "Still, both texts [of the *Hekhalot*] together present us with such an abundance of particulars, in contradistinction to the talmudic material, that we begin to wonder about the relation of these Hekhaloth traditions to the talmudic injunction against precisely this kind of revelation. Tannaitic tradition has it that a pupil who is found worthy to begin a study of mystical lore is given *Rashei Perakim* only. Instead of these \"beginnings of chapters,\" whose function is only to point to the subject matter to be dealt with and leaves to the student the task of proving his understanding, the Hekhaloth texts omit nothing at all that is relevant."
+    }
+  ],
+  "footnotes": {
+    "73": "*Oṣar ha-Ge'onim*, *Ḥagiga*, 14; *Newly Discovered Geonic Responsa*, no. 115, p. 132. See Idel, *Kabbalah*, 90–91.",
+    "74": "*Oṣar ha-Ge'onim*, *Ḥagiga*, 15 (2).",
+    "75": "Ibid., 21; *Newly Discovered Geonic Responsa*, no. 115, p. 132.",
+    "76": "The heavenly *teraqlin* (*tricliniam*) in *Pirqe Abot* 4:21 (which in rabbinic literature is associated with the marriage chamber; see *Yerushalmi Sanhedrin* 10, 8, 30c) is translated by Maimonides *al-qaṣar* ‘palace’, ‘castle’; see Maimonides, *Pirush ha-Mishnayot*, 4: 448, and ibid., 96. This is the term that he used to designate his famous castle; see Maimonides, *Guide*, sec. 3, chap. 51. There is a highly informative and accurate analysis of this metaphor in Kellner, *Maimonides on Human Perfection*, chap. 3. For other such mystical palaces or castles in rabbinic literature see *Yerushalmi Ḥagiga* 2, 1, 77c, cited below, p. 40; cf. below, p. 208, n. 4.",
+    "77": "See Morton Smith, \"Ascent to the Heavens and the Beginnings of Christianity,\" *Eranosjahrbuch* 50 (1981): 403–29. See below, pt. 1, n. 119.",
+    "78": "Mishna *Ḥagiga* 2:1, and so on.",
+    "79": "Tosefta *Megilla* 3 (4):28; *Sukka* 45b."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_031.png, page_197.png, and page_198.png; verified line-by-line."
+  ]
+}

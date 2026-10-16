@@ -1,0 +1,48 @@
+{
+  "page_id": "28",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 22,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_028.png",
+  "note_pages": [
+    "196",
+    "197"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_196.png",
+    "data/faur_scans/page_197.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p28_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The limits imposed on the dissemination of esoteric knowledge affected the methodology and aims underlying the teacher-student relationship. In other disciplines knowledge is transmitted vertically. The student recognizes the authority of the teacher: the teacher transmits (*moser*) and the student accepts (*meqabbel*) authoritative knowledge. The vertical process *mesira* → *qabbala* (passing on → accepting) determines the objectivity and authority of the Oral Law.[^52] This process, although applicable to the headings, cannot apply to esoteric learning. Because the teacher cannot fully test the student’s understanding, the rabbinic authorities never applied the term *qabbala* to the reception of esoteric lore.[^53] A major objective of the *Guide* was to discredit the esoteric teachings current in his time. Maimonides maintained that the ancient Jewish esoteric lore had been totally lost. There were two reasons for this, one legal and the other linguistic. The rabbinic authorities have been unequivocal against the dissemination of esoteric material to unqualified students. Concerning this prohibition, Maimonides remarked: “You already know about their opposition to those who would uncover the secrets of the Tora. And they explained that the reward for concealing the secrets of the Tora—which are known and clear to the learned—is very great.”[^54] This measure prevented the free circulation of Jewish esoteric lore:"
+    },
+    {
+      "block_id": "p28_b2",
+      "type": "blockquote",
+      "markdown": "It already has been explained that even the measure [apprehended] by someone to whom [this knowledge] had been opened [*futaḥ*][^55] via his own understanding, he is forbidden to teach or explain—a prohibition by the Law—except face to face to a qualified individual. Then he could mention to him only the headings of chapters. This is the reason that this knowledge has totally disappeared from the nation [of Israel]. Nothing could be found of it, whether little or much.[^56]"
+    },
+    {
+      "block_id": "p28_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The esoteric teachings of Israel had to be “transmitted from an exceptional individual to an exceptional individual. . . . This is the cause for the disappearance of those awesome fundaments from the nation.”[^57] A similar position was maintained by R. Hayye Ga'on (939–1038). Concerning the pronunciation and use of the divine name—a key element in Rabbinic esoterics—he wrote, “that it was not transmitted [*nimsar*] to us from a teacher who received it from another teacher to whom it was transmitted to him [*she-mesaro*] from another teacher, a triplicate transmission [*mesora meshulleshet*],"
+    }
+  ],
+  "footnotes": {
+    "52": "On the precise meaning and function of these terms see Faur, *Golden Doves*, 14, 123–24.",
+    "53": "The usual sense of this term among post-Talmudic authorities is ‘tradition’. Occasionally, it was used in the sense of ‘trustworthy lore’, probably translating the Arabic *taqlīd*; see R. Ḥanan'el on *Sukka* 45b and *Ḥagiga* 12b, 13a; cf. *Oṣar ha-Ge'onim*, *Ḥagiga*, pp. 11 n. 5, 15. The usage of this term by the anti-Maimonideans as a synonym of mysticism was intended to validate, and thus to displace, the chain of rabbinic tradition; cf. Faur, “A Crisis of Categories,” 46.",
+    "54": "Maimonides, *Guide*, sec. 3, Introduction, p. 297 (lines 8–10).",
+    "55": "This term is analogous to the Hebrew *pataḥ* and *petiḥa*, the ‘opening’ prologue preceding the induction into esoteric matters. See above, p. 195 n. 36.",
+    "56": "Maimonides, *Guide*, sec. 3, Introduction, 297 (lines 15–18).",
+    "57": "Ibid., sec. 1, chap. 71, p. 121 (lines 22–24)."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_028.png, page_196.png, and page_197.png; verified line-by-line."
+  ]
+}

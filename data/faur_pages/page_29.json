@@ -1,0 +1,52 @@
+{
+  "page_id": "29",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 22,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_029.png",
+  "note_pages": [
+    "196",
+    "197"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_196.png",
+    "data/faur_scans/page_197.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p29_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "but we heard it not from tradition [*be-mesira*], but casually from people who differ as to its pronunciation.”[^58] He further indicated that the esoteric texts in their possession were not “authoritative” [*halakha*].[^59] The rabbinic prohibition against disseminating esoteric knowledge was accepted by the Ge'onim. “We cannot open (*li-ftoaḥ*) these matters in writing,” responded a Geonic authority, “and even not by word of mouth, except to those who are qualified.”[^60] Compliance with such restrictions precludes the writing of esoteric literature. “If one were to explain all of these matters in a book,” argued Maimonides, “is as if he had expounded them to a thousand men.”[^61] This is why the rabbis opposed “that any of those secrets of the Tora [*sitre tora*] should be composed [in a treatise] and delivered to the people.”[^62] Moreover, genuine esoteric insight transcends articulation. The composition of esoteric treatises is impossible because this type of knowledge “no intelligent individual could articulate even to someone face to face. How then could one put it down in writing—lest every ignoramus, thinking to be wise, would use it as a target and aim the arrows of his ignorance toward it.”[^63] Since rabbinic authorities were unequivocal about the prohibition against disseminating esoteric lore to the general student body and since such a knowledge transcends articulation, Maimonides concluded that the esoteric views and insights of the rabbis were “never laid down in a book.”[^64] In this fashion Maimonides was making clear that Jewish Gnostic writings, such as those preserved in the *Hekhalot* literature and *Shi‘ur Qoma* are spurious and do not contain the esoteric teachings of the rabbis. It is true that the rabbis had encoded some of these doctrines in their writings, but they had hidden the “pulp” under many layers of peels.[^65] In what must be understood as an oblique reference to the mystics of his time Maimonides added, “and people busy themselves with those peels and fancy that underneath there is no pulp at all.”[^66]"
+    },
+    {
+      "block_id": "p29_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "HEKHALOT LITERATURE AND RABBINIC ESOTERICS"
+    },
+    {
+      "block_id": "p29_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides's view runs contrary to contemporary scholarship. Appealing on intuitive grounds, no lesser a figure than Gershom Scholem (1897–1982) and Saul Lieberman (1898–1982) identified the esoteric teachings of the rabbis with the *Hekhalot* literature and other mystical material such as *Shi‘ur Qoma*. To substantiate this view Scholem argued, “There is no reason to assume that the names of great heroes of talmudic learning, such as Ishmael and Akiba, were used by the authors of these writings to cloak unortho-"
+    }
+  ],
+  "footnotes": {
+    "58": "In *Newly Discovered Geonic Responsa*, (in Hebrew), ed. Simcha Emanuel (Jerusalem: Ofeq Institute, 5755/1995), no. 115, p. 135. My son, R. Abraham Faur, pointed out to me that the source for “a triplicate transmission” is the passage in *Ḥagiga* 14b: *shalosh harṣa'ot hen . . . de-'arṣe ve-'arṣu qamme, qa-ḥashib, de-'arṣe ve-lo 'arṣu qamme, la qa-ḥashib*. See *Tosafot* ad loc. According to this interpretation, the “third group” (*kat ha-shelishit*) in *Ḥagiga* 14b, refers to those who had the privilege to triplicate their transmission, hence the expression, “You and your disciples and the disciples of your disciples are invited to the third group”; see *Gaonic Responsa*, ed. Simcha Assaf (Jerusalem: Darom, 1928), 77 n. 2. Cf. *Baba Meṣi'a* 85a.",
+    "59": "See below, p. 197 nn. 73–74.",
+    "60": "*Newly Discovered Geonic Responsa*, no. 115, p. 218.",
+    "61": "Maimonides, *Guide*, Introduction, 3 (lines 19–20).",
+    "62": "Ibid., sec. 1, chap. 71, 121 (lines 21–22).",
+    "63": "Ibid., Introduction, p. 3 (lines 5–7). Similarly, in the introduction to Maimonides, *Pirush ha-Mishnayot*, 1: 35: “If one were to expose the truth to them they would reject it . . . because their mind was not (sufficiently) developed to accept the truth as it is.”",
+    "64": "Maimonides, *Guide*, sec. 3, Introduction, p. 297 (lines 19–20).",
+    "65": "Quoted below, p. 42.",
+    "66": "Maimonides, *Guide*, sec. 1, chap. 71, p. 121 (lines 27–28)."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_029.png, page_196.png, and page_197.png; verified line-by-line."
+  ]
+}

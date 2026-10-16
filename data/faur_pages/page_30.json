@@ -1,0 +1,41 @@
+{
+  "page_id": "30",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 23,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_030.png",
+  "note_pages": [
+    "197"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_197.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p30_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "dox teachings.\"[^67] One can only ponder at the merits of such argument in view of the fact that the entire corpus of Gnostic literature is pseudographic. Did Scholem mean to say that works attributed to other \"folk heroes\" such as R. Neḥunya ben Ha-Qana and R. Simon bar Yoḥai, from the tannaitic period, or Enoch, Abraham, and Moses, from the biblical period, could not possibly have been used to \"cloak unorthodox teachings\"? Scholem's notion of \"orthodox\" and \"halakhic\" Judaism merits some attention. To substantiate the thesis that those writings are in \"strict conformity . . . to halakhic Judaism\" he presented two arguments. The first argument is that one of these writings mentions the theurgic use of a cloth touched by a woman whose immersion was not totally satisfactory to bring down somebody from an ecstatic experience.[^68] The second argument is the use of the magical name Yophiel, an angel \"who is also responsible for distributing its [the Tora] knowledge among men.\" The invocation of that name served \"in acquiring a perfect knowledge of the Torah and to protect him from its loss through forgetfulness.\"[^69] The arguments are circular. They rest on the highly debatable premise that halakhic Judaism is essentially magical—in which case there would be no need to prove that theurgic material, such as the ones under discussions, are rabbinic. It is only on this basis that one can argue that the magical use of a Jewish motif is in itself halakhic Judaism. Scholem's view on this matter has been prompted by his yearning to authenticate medieval Hasidism and the ensuing French and Spanish mysticism.[^70] At the end of the chapter he offered a final argument for his thesis, which should be read tail end first: \"As a matter of fact, we have a long chain of such prescriptions, reaching from the Lesser Hekhaloth and the Sar Torah [at the end of the Greater Hekhaloth] through the time of the Geonim and the German Hasidism of the Middle Ages.\"[^71]"
+    },
+    {
+      "block_id": "p30_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The expression \"time of the Geonim\" is misleading. Scholem was quite aware that not everything coming from the Rabbinic and Geonic periods necessarily represents Geonic tradition and approval. R. Hayye Ga'on mentioned with disapproval the theurgic practices of some of his contemporaries and had strong reservations about the mystical use of divine names.[^72] A close reading of his famous *responsum* mentioning the *Hekhalot* literature and practices shows that he refrained from issuing an unequivocal endorsement. Referring to the esoteric texts circulating at the time, he commented: \"Certainly, there are many texts [*mishnayot*] that are not authoritative [*she'enan halakha*], and we explain them according to the view of those who transmit them.\" Explicitly, he advised, \"we cannot now guarantee that these matters are authoritative\""
+    }
+  ],
+  "footnotes": {
+    "67": "Scholem, *Jewish Gnosticism*, 10.",
+    "68": "Ibid., 10–12. The same \"proof\" is found in Gershom Scholem, *Major Trends in Jewish Mysticism* (New York: Schocken, 1961), 359 n. 359.",
+    "69": "Scholem, *Jewish Gnosticism*, 12–13.",
+    "70": "Cf. Moshe Idel, *Kabbalah: New Perspectives* (New Haven, Conn.: Yale Univ. Press, 1988), 91.",
+    "71": "Ibid., 13. A similar claim is found in Scholem, *Major Trends in Jewish Mysticism*, 52.",
+    "72": "*Oṣar ha-Ge'onim*, *Ḥagiga*, 14–27; cf. *Newly Discovered Geonic Responsa*, no. 115, pp. 124–25, 127–35, 145. See Idel, *Kabbalah*, 90–91."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_030.png and page_197.png; verified line-by-line."
+  ]
+}
