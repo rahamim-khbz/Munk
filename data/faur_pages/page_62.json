@@ -1,0 +1,55 @@
+{
+  "page_id": "62",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 39,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_062.png",
+  "note_pages": [
+    "211"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_211.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p62_b1",
+      "type": "heading",
+      "level": 3,
+      "markdown": "IMAGINATION AND THE LOSS OF INDIVIDUAL FREEDOM"
+    },
+    {
+      "block_id": "p62_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Imagination and reason represent two distinct levels of consciousness and, therefore, two distinct thinking processes. Before sinning, Adam was free because he inhabited the realm of reason. Upon sinning, he passed into imagination and conventionality—a specific form of discourse—and henceforth, to the realm of political authority and its concomitant violence. Imagination triggered a sequence of mental processes blocking intellectual perception and distorting reality. It was how Satan enticed Eve.[^60] Maimonides called attention to the fact that in Hebrew *saṭan* (lit. ‘deceiver’) stems from the root *saṭa* (to deviate, to stray from the right path), implying a distorted image of reality produced by the imaginative faculty. This is why the rabbis associate Satan with the *yeṣer ha-ra‘* (evil instinct), moving humankind to sin (*ḥeṭ*), that is, ‘to deviate’ from the right path.[^61] Accordingly, imagination is symbolized by the fallen woman, in contradistinction to the virtuous woman, who represents the realm of the intellectual.[^62]"
+    },
+    {
+      "block_id": "p62_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In Maimonides’s intellectual apparatus the real world can be grasped by reason; it can never match the imaged object. Somehow, physical phenomena do not unfold according to patterns that can be grasped by the imaginal consciousness. “There are things that if man were to examine on the basis of his imagination could not possibly be conceptualized.”[^63] Maimonides substantiated this premise by pointing to some geometrical models impossible according to imagination yet mathematically true.[^64] Thus, imagination is excluded from the ontological world. Adam’s story concerns the retrogression from the realm of the rational to the realm of imagination. Paleological man had not yet developed a level of consciousness to sense his passing into rationality.[^65] Hence, the Scripture only records the retrogression from the realm of the rational to the realm of imagination. It was only *after* retrogressing to the world of imagination that Adam realized what he had lost.[^66]"
+    },
+    {
+      "block_id": "p62_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Adam fell prey to “his imaginary desires” sinning and losing [more precisely, sinning *by* losing] his rational grasp of reality. In this fashion Adam shifted directions from the level of rational consciousness governed by the principle of ‘truth/falsehood,’ to the level of imaginative consciousness governed by a semiological system of ‘good/bad’, a fictional world defined by the tyranny of the conventional. Adam’s punishment matched the sin—banishment to the realm of the imaginary. After explaining how Adam fell prey to “his imaginary desires,” Maimonides commented:"
+    }
+  ],
+  "footnotes": {
+    "60": "Maimonides, *Guide*, sec. 2, chap. 30, p. 250 (lines 10–19); see the commentaries of Efodi, Shem Ṭob, and Crescas ad loc.",
+    "61": "See ibid., sec. 3, chap. 22; and sec. 2, chap. 12, p. 195 (lines 15–17)]. Cf. above, pp. 11–12, and below, pp. 137–38.",
+    "62": "Cf. Maimonides, *Guide*, sec. 3, chap. 8, p. 312 (line 3ff.).",
+    "63": "Ibid., sec. 1, chap. 73, p. 146 (lines 28–29).",
+    "64": "Ibid., pp. 146 (line 39)–47 (line 17).",
+    "65": "On paleologic thinking see Arieti, *Creativity*, chap. 5; on the role of imagination see ibid., 75. For further material see his bibliographical note on p. 67.",
+    "66": "Maimonides, *Guide*, sec. 1, chap. 2, pp. 17 (line 30)–18 (line 1)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_062.png and note scan page_211.png (NOTES TO PAGES 61–64); set continues_from_prev_page: false with section heading 'IMAGINATION AND THE LOSS OF INDIVIDUAL FREEDOM'; split blocks into heading p62_b1 and three distinct paragraphs p62_b2, p62_b3, and p62_b4; healed mid-line hyphenations (imag- inal -> imaginal, Paleologi- cal -> Paleological); restored transliterations, diacritics, and italics (*saṭan*, *saṭa*, *yeṣer ha-ra‘*, *ḥeṭ*, *after*, *by*, *Guide*, Shem Ṭob, *Creativity*); recovered footnote callouts [^60]–[^66]; transcribed and verified footnotes 60–66 from note page 211; updated note_pages to [\"211\"] and note_scan_images to [\"data/faur_scans/page_211.png\"]; confirmed ends_with_hyphen: false terminating with 'commented:'."
+  ]
+}

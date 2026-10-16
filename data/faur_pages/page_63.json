@@ -1,0 +1,39 @@
+{
+  "page_id": "63",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 39,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_063.png",
+  "note_pages": [
+    "211"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_211.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p63_b1",
+      "type": "blockquote",
+      "markdown": "He was punished because that intellectual perception was removed [from him]. Therefore, he transgressed the commandment that he was ordered on account of his intellect, falling prey to the conventionalities that he perceived, and submerging into the [realm] of evil and good. Then, he realized the measure of what he had forfeited and what had been taken away from him. This is why it was said: “You shall be like divinities [*elohim*] who know good and evil” (Gn 3:5). It was not said: “You shall be like divinities who know falsehood and truth” or “who perceive falsehood and truth.” There is nothing necessary about good and evil but [only] about falsehood and truth. Note that the text says, “and the eyes of both of them opened and they knew that they were naked” (Gn 3:7). It does not say, “And the eyes of both of them opened and they saw”—because what they saw before [sinning] was what they saw after [sinning]. There was no cover removed from over their eyes. Rather, what had changed, was, his situation whereby [now] he would perceive as evil that which before [sinning] was not perceived as evil.[^67]"
+    },
+    {
+      "block_id": "p63_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Imagination processes reality as if it were a pure semiotical system. At this level of human development the mind is incapable of distinguishing between what is felt and objective reality.[^68] “Reality” consists of a series of mental projections designed to internalize the world. These projections effectively prevent direct contacts with the outside. Sensory perceptions and natural phenomena are interpreted in terms of human projections. Natural phenomena are not regulated by necessary and universal laws but by an essentially random semiotical system. The order perceived in nature is not the effect of an internal organization regulated by absolute laws, but merely ‘incidents of habit’ (*jarya ‘adat*), much like the habits of human society.[^69] In the Arab world the exponents of this view were theologians known as *mutakallimun* who adhered to a philosophy known as *Kalam*.[^70] They regarded imagination as the criterion by which to distinguish between ‘possible’ and ‘impossible’. Everything imaginable—namely, whatever could be envisaged jointly such as a centaur or any other mythological figure—is probable and may be found in nature. There are linguistic grounds for such a notion. In Arabic *mumkin* ‘possible’, comes from the root *k’n/kwn* ‘to be’, ‘to happen’,"
+    }
+  ],
+  "footnotes": {
+    "67": "Ibid., pp. 16 (line 26)–17 (line 7).",
+    "68": "See Lucien Lévy-Bruhl, *The Notebooks on Primitive Mentality*, trans. Peter Riviere (New York: Harper and Row, 1978), 5, 6, 13. At this stage it is not possible to distinguish between semantic memory and experiential memory. On these two type of memories see Daniel L. Schacter, *Searching for Memory* (New York: Basic Books, 1996), 150–53.",
+    "69": "*Guide*, 73, p. 144 (line 17). For a discussion of this theory see Harry A. Wolfson, *The Philosophy of the Kalam* (Cambridge, Mass.: 1976), 544–58.",
+    "70": "See below, pp. 95–96."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_063.png and note scan page_211.png (NOTES TO PAGES 61–64); set continues_from_prev_page: true as top begins with blockquote extract continuing Maimonides commentary introduced at bottom of page 62; structured page into blockquote p63_b1 and indented paragraph p63_b2; healed OCR artifacts ([Gom him] -> [from him], healed quotation marks and em dashes); healed mid-line hyphenations (com-mandment -> commandment, sub-merging -> submerging, noth-ing -> nothing, effec-tively -> effectively, nat-ural -> natural); restored transliterations, diacritics, and italics ([*elohim*], *jarya ‘adat*, *mutakallimun*, *Kalam*, *mumkin*, *k’n/kwn*, *The Notebooks on Primitive Mentality*, *Searching for Memory*, *Guide*, *The Philosophy of the Kalam*, Lévy-Bruhl); recovered footnote callouts [^67]–[^70]; transcribed and verified footnotes 67–70 from note page 211; updated note_pages to [\"211\"] and note_scan_images to [\"data/faur_scans/page_211.png\"]; confirmed ends_with_hyphen: false terminating with comma 'to happen',."
+  ]
+}

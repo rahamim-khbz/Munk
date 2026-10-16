@@ -1,0 +1,52 @@
+{
+  "page_id": "60",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 38,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_060.png",
+  "note_pages": [
+    "210"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_210.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p60_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "other than itself.[^49] At the religious level, seeing ‘as’ constitutes idolatry. Through a process of displacement and projection a sensory object (a totem, a star, an image, etc.) is imaginatively transfigured into a supernatural being. Linguistically, it allows for a syntactical procedure whereby transference of meaning is possible.[^50]"
+    },
+    {
+      "block_id": "p60_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Transference of meaning is at the core of the first sin. Eve associated the fact that the “tree is a pleasure to the eyes” with “good for eating,” thereby concluding that “it was delightful for understanding” (Gn 3:6).[^51] It is no coincidence that thereon, God’s presence is grasped through transference of meaning. Before the sin, Adam and Eve heard sound per se, thereafter—borrowing from Wittgenstein—the sound was heard “as.” Like the first Vichian giants who associated the “sound” of the thunder with the “voice” of Jove,[^52] after the sin Adam and Eve associated the sound of “the daily wind”—a common, natural phenomenon—with the “voice” of God and hide themselves in fear (Gn 3:8, 10)."
+    },
+    {
+      "block_id": "p60_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Adam’s acquisition of language permitted him to perceive reality in terms of auditory experience. It has been noted that “Whereas the phantasmatic world is mainly visual and is populated by images and ghosts, the paleologic world is predominantly auditory.”[^53] A similar transformation took place at the visual level. Immediately after sinning “their eyes were opened and they *knew [vayyede‘u]* that they were naked” (Gn 3:7). Scripture, Maimonides observed, does not say that “their eyes were opened and they *saw* that they were naked.” The change did not take place at the optical or physiological level. Neither was it a case of perceptual alteration as with acute types of schizophrenia. It only affected their *mode* of perception: whereas before the sin they *saw*, thereafter they ‘saw as’. It involved a radical change of orientation. Citing “he changes his face and you expelled him” (Jb 14:20), a verse alluding to Adam’s expulsion from Eden, Maimonides noted that in Hebrew ‘face’ stands for ‘direction’, ‘purpose’. Adam’s banishment from Paradise was a direct result of a change in orientation: turning away from the world of reason, Adam transfigured the Garden of Eden into a barren land. This conforms with Maimonides’s thesis, whereby *deus absconditus* is the effect of *homo absconditus*."
+    },
+    {
+      "block_id": "p60_b4",
+      "type": "blockquote",
+      "markdown": "Because he [Adam] had changed his direction, striving toward things that he was previously ordered not to aim at, he was expelled from the Garden of Eden. The punishment fits the sin, measure for measure because he had been authorized to eat"
+    }
+  ],
+  "footnotes": {
+    "49": "See Lüdwig Wittgenstein, *Philosophical Investigations*, trans. G. E. Anscombe (New York: Macmillan, 1968), 2, xi, 193e–229e. There is a fine discussion of Wittgenstein’s view by Mary Warnock, *Imagination* (Berkeley and Los Angeles: Univ. of California Press, 1976), 183–95; cf. ibid., 156–61. For a psychological analysis of this type of association see Silvano Arieti, *Intrapsychic Self* (New York: Basic Books, 1976), 184–88. Conceptually, the *as* corresponds to the semantic context, which cannot be said but only indicated by words, discussed above, p. 6.",
+    "50": "Before sinning Adam’s language consisted of what Wittgenstein designates “elementary propositions,” that is propositions that do not derive their sense from other propositions. Like names (see Gn 2:13), this type of proposition is absolutely simple and cannot be subjected to linguistic analysis. The different elements of the proposition are logically constructed and connected; see Gn 2:23–24.",
+    "51": "The Hebrew particle *ve-khi* means ‘since’, thus inverting the relation between the two segments of the sentence.",
+    "52": "See Vico, *New Science*, no. 398, p. 125.",
+    "53": "Arieti, *Intrapsychic Self*, 121."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_060.png and note scan page_210.png (NOTES TO PAGES 58–61); set continues_from_prev_page: true with indent: continuation for block p60_b1 continuing clause from page 59 ('perceived \"as\" something other than itself.[^49]'); partitioned text into blocks p60_b1 (continuation paragraph), p60_b2 (indented paragraph), p60_b3 (indented paragraph), and p60_b4 (blockquote ending with 'eat'); healed mid-line hyphenations (coin-cidence -> coincidence, bor-rowing -> borrowing, them-selves -> themselves, phantas-matic -> phantasmatic, pale-ologic -> paleologic, schizo-phrenia -> schizophrenia, Mai-monides's -> Maimonides's); restored transliterations, diacritics, and italics (*knew [vayyede‘u]*, *saw*, *mode*, *deus absconditus*, *homo absconditus*); recovered footnote callouts [^49]–[^53]; transcribed and verified footnotes 49–53 from note page 210 (*Philosophical Investigations*, Lüdwig, *Imagination*, *Intrapsychic Self*, *as*, *ve-khi*, *New Science*); confirmed ends_with_hyphen: false terminating with 'eat'."
+  ]
+}

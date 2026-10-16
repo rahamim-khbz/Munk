@@ -1,0 +1,55 @@
+{
+  "page_id": "61",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 38,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_061.png",
+  "note_pages": [
+    "210",
+    "211"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_210.png",
+    "data/faur_scans/page_211.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p61_b1",
+      "type": "blockquote",
+      "markdown": "from the best and to delight in leisure and calm. But instead, as mentioned before, he frolicked in the pursuit of his delight and his imagination[^54] and ate what had been forbidden to him. . . . He resembled the animals in his eating and in most of his habits.[^55]"
+    },
+    {
+      "block_id": "p61_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides distinguished between the delights that Adam was authorized to indulge in before the sin and “his imaginary pleasures”—newly arisen craving for immediate satisfaction—that caused his perdition.[^56] The latter were harmful because they were not motivated by need but by imagination alone."
+    },
+    {
+      "block_id": "p61_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Before sin, Adam inhabited a world governed by the law of reason. Sinning involved a shift to the realm of conventionality. Reason is expressed in terms of ‘truth/falsehood’. Its laws are necessary and universal and are determined by rational principles. Conventionality is governed by a semiological system of binary terms standing in hierarchical opposition to each other. At this juncture it is important to remember that ‘conventionality’, in the Maimonidean sense, parallels *sensus communis* in Vico.[^57] It constitutes the ‘normal’, including not only socially and politically correct behavior but also association of ideas and transference of meaning. Things are not perceived per se but through a series of key-symbols, beginning with ‘good/evil’ and leading to ‘pleasant/ugly’, ‘proper/improper’, and so on. Because at the realm of the conventional there is no internal criterion by which to distinguish between ‘good/evil’, the world of conventionality, like its matrix, imagination depends on *authority* and *violence*, that is, on a *political* system with power to enforce ‘the normative’. By contrast, truth/falsehood are rational, that is, they do not depend on an *authority*. Contrary to Charles Peirce (1839–1914) and other pragmatists, for Maimonides the truth is not a consensus formed by the community of scholars over time. “Everything that was demonstrated,” he declares, “does not increase in validity or become more certain because all the sages agree on it, nor will its validity decrease because the whole world disagrees on it.”[^58]"
+    },
+    {
+      "block_id": "p61_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "At the realm of imagination reality itself is marginal. People don’t ‘see’. Rather, as with Ossorio, the main character of one of Baroja’s novels, man “contemplates with his imagination what he could not perceive with his eyes.”[^59] Whereas the laws of reason are universal, conventionalities are necessarily local. Hence, they breed division and strife. The realm of imagination/conventionality can function only within a political system with a hierarchy empowered to support the ‘accepted canons’ of ‘right/wrong’ and all such subsequent dichotomies."
+    }
+  ],
+  "footnotes": {
+    "54": "This expression brings to mind the rabbinic expression “delight for eyes,” discussed above, pp. 37–38.",
+    "55": "Maimonides, *Guide*, sec. 1, chap. 2, p. 17 (lines 11–20).",
+    "56": "Maimonides, *Guide*, sec. 1, chap. 2, p. 16 (line 26). Cf. quotation below, p. 63.",
+    "57": "For an in-depth analysis of this fundamental concept in Vico see John D. Schaeffer, *Sensus Communis* (Durham, N.C.: Duke Univ. Press, 1990). I have examined this concept Faur, “Basic Concepts in Rabbinic Hermeneutics,” *Shofar* 16 (1997): 1–12. The binary system good/bad originated in a primary split of the *logos*; see Faur, “The Splitting of the *Logos*,” 85–103.",
+    "58": "Maimonides, *Guide*, sec. 2, chap. 15, p. 202 (lines 21–23). Cf. Aristotle, *Analytica Posteriora*, 1, 6, 74b in *The Complete Works of Aristotle*, ed. Jonathan Barnes (Princeton, N.J.: Princeton Univ. Press), 1986. This underlies Sánchez’s epistemology and his criticism of the scholastic concept of *authoritas*; see Faur, “Sánchez’ Critique of *Authoritas*: Converso Skepticism and the Emergence of Radical Hermeneutics,” in *The Return to Scripture in Judaism and Christianity*, ed. Peter Ochs, (Mahwah, N. Y.: Paulist Press, 1993), 256–76.",
+    "59": "Baroja, *Camino de Perfección*, chap. 23, p. 100. See above, Introduction, p. 9."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_061.png and note scans page_210.png / page_211.png (NOTES TO PAGES 58–61 and 61–64); set continues_from_prev_page: true with block p61_b1 continuing blockquote from page 60; partitioned into blocks p61_b1 (continuation blockquote), p61_b2 (indented paragraph), p61_b3 (indented paragraph), and p61_b4 (indented paragraph); healed mid-line hyphenations (autho-rized -> authorized, Sin-ning -> Sinning, deter-mined -> determined, sys-tem -> system, valid-ity -> validity, nec-essarily -> necessarily, imagina-tion/conventionality -> imagination/conventionality); restored italics and typography (*sensus communis*, *authority*, *violence*, *political*, *authority*, ‘truth/falsehood’, ‘conventionality’, ‘normal’, ‘good/evil’, ‘pleasant/ugly’, ‘proper/improper’, ‘the normative’, ‘see’, ‘accepted canons’, ‘right/wrong’); recovered footnote callouts [^54]–[^59]; transcribed and verified footnotes 54–59 from note pages 210 and 211 (*Guide*, *Sensus Communis*, *Shofar*, *logos*, *Logos*, *Analytica Posteriora*, *The Complete Works of Aristotle*, Sánchez’s, *authoritas*, *The Return to Scripture in Judaism and Christianity*, *Camino de Perfección*); confirmed ends_with_hyphen: false terminating with 'dichotomies.'."
+  ]
+}
