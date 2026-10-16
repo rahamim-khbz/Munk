@@ -1,0 +1,55 @@
+{
+  "page_id": "16",
+  "section_file": "01_introduction.md",
+  "spread_index": 16,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_016.png",
+  "note_pages": [
+    "191",
+    "192"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_191.png",
+    "data/faur_scans/page_192.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p16_b1",
+      "type": "blockquote",
+      "markdown": "rational matters being the conceptualization of the Oneness of God and all that pertaining to the Divinity.[^75]"
+    },
+    {
+      "block_id": "p16_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Before reaching rationality humans are entrapped in a world of fantasy, like Borges's troglodytes, who are \"absorbed in their own thoughts, scarcely perceiving the physical world.\"[^76] Maimonides describes them as brutes having nothing in their \"imagination, but eating, drinking, and sex.\"[^77]"
+    },
+    {
+      "block_id": "p16_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Human nature is not a given. There are traces—a particular type of psychic forces originating in the collective psyche of a group or culture (what Jung designates archetypes)—affecting the patterns of thought and feeling of a people. These traces are akin to what Freud refers to as \"the impression left behind them by great leading personalities,\" helping shape the \"super-ego\" of the community, \"under whose influence cultural evolution proceeds.\"[^78] Depending on their character, they may either hinder or promote the psychological well being of both society and the individual. Maimonides believed that pagan civilization has sickened humanity. Like the poison of the primeval snake, their traces paralyze the soul, preventing the rise of human consciousness. Those traces cannot be eliminated through suppression any more than a person can heal himself by ignoring his sickness. The individual and society must undergo a specific therapeutic process. The Israelites were part of pagan humanity.[^79] The traces lingering from their pagan past were suspended at Sinai. Accordingly, the purpose of the Tora is twofold: to heal and control the pagan traces and to aid in the attainment of human perfection."
+    },
+    {
+      "block_id": "p16_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonidean perfection is individual and individualistic. Like the angels in Jacob's vision (Gn 28:12), a human can ascend to heaven. Rationality is the means for climbing up. Upon reaching the summit a metamorphosis takes place whereby the individual realizes a new level of consciousness, knowing \"by virtue of perfection.\" This knowledge is of the same genus as prophecy and is categorically superior to common rationality. Perfection, however, is beyond the reach of 'the general public' (*al-jamhur*). This is not because the public is stupid or unworthy. Unlike 'the masses' (*al-'awamm*),[^80] the *jamhur* is not necessarily made up of uneducated, substandard people.[^81] The reason that they cannot attain perfection is because collective thinking is the function of imagination. A collective entity, social, political, or religious, can only find unity and psychological wholeness through key-symbols. These symbols are grounded on imagination, not reason. Apophatic knowledge shatters the standard, collective understanding of these symbols. In this fashion the individual"
+    }
+  ],
+  "footnotes": {
+    "75": "Maimonides, *Pirush ha-Mishnayot*, Introduction, 1: 41–42.",
+    "76": "\"The Immortal,\" in *Labyrinths* (New York: New Directions, 1964), 113. My translation.",
+    "77": "Maimonides, *Pirush ha-Mishnayot*, Introduction, vol. 1: 42.",
+    "78": "Sigmund Freud, *Civilization and Its Discontents*, trans. Joan Riviere (New York: Doubleday Anchor Books, 1958), 100. See below, pp. 131–37.",
+    "79": "See Jos 24:2; and Kellner, *Maimonides on Human Perfection*, 21. Legally, however, \"from the moment that Abraham was consecrated\" [to the service of God], his children are no longer regarded as \"the descendants of Noah\" but as \"the descendants of Abraham,\" Maimonides, *Mishne Tora*, *Nedarim* 9:20–21; see *Nedarim* 31a; *Pesaḥim* 67a; *Mishne Tora*, *Bi’at ha-Migdash* 3:4. Therefore, contrary to common practice the graves of the Patriarchs and other pre-Sinaitic figures of Israel have the same legal status as those of the Israelites after Sinai; see Jacob Ḥai Zrehen, *Bikkure Ya‘aqob* (Tiberias, 5666/1906), *Yore De‘a* no. 20, 85a–89c.",
+    "80": "Maimonides used this term in the pejorative, both in the singular, *Pirush ha-Mishnayot*, 2: 177, and the plural, ibid. 360; vol. 4: 201, 449. Cf. *Teshubot ha-Rambam* no. 1, vol. 1, p. 1.",
+    "81": "See Maimonides, *Pirush ha-Mishnayot*, Introduction, vol. 1: 22, 23, 36; vol. 4: 200."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_016.png, page_191.png, and page_192.png; verified line-by-line."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "page_id": "14",
+  "section_file": "01_introduction.md",
+  "spread_index": 15,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_014.png",
+  "note_pages": [
+    "190",
+    "191"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_190.png",
+    "data/faur_scans/page_191.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p14_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "many waters. And” in the Hebrew sense of ‘yet’ “your footprints cannot be known” (Ps 67:20). R. Joseph ibn Abitur (ibn Śatnaś) (tenth to eleventh centuries), the first biblical commentator to emerge from Europe, called attention to the fact that “traces” come as the result of an object resisting a thing “standing” on it. Because God sustains everything (and nothing sustains Him), there can be no *vestigium pedi* to His presence. “A human when walking upon something of substance will invariably leave his footprints. This, however, is not the case with the God of the universe. As it is written, ‘And your footprints are not known.’ ”[^67] Reiterating the same principle, Newton noted that “bodies find no resistance from the omnipresence of God.”[^68] Similarly, the rabbis taught, “God is the place of the world, and” in the Hebrew sense of ‘therefore’ “the world is not His place.”[^69] The Scripture describes the entire Cosmos as it “hangs from the arms” of the Creator (Dt 33:27).[^70] In this fashion God, author of the universe, simultaneously bestows existence to the universe and covers His traces “out of existence.”[^71]"
+    },
+    {
+      "block_id": "p14_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The Maimonidean doctrine of Creation cannot be demonstrated; it can only be indicated. It is structurally connected with the doctrine of silence discussed previously. If one were to regard Creation as God’s speech or writing—as the Scripture and rabbis teach—then a distinction must be established between what the system *says* and what it only *indicates*. To decode God’s speech and writing, the hearer/reader must fill in the intervals between the letters and words, discovering the syntax that is *manifested* but not *located* in them, like Bezalel, the builder of the Tabernacle who “knew how to join the letters by which Heavens and earth were created.”[^72] Thus, “proving” Creation is the same kind of oxymoron as a proposition articulating the syntax of its own syntax."
+    },
+    {
+      "block_id": "p14_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Theologians have argued that the Aristotelian system rejects the possibility of religion. For the pious masses (*al-‘awamm*) religion must be mythological. Rationality, scientific analysis, and objectivity debunk mythological thinking. Accordingly, they are incompatible with revelation.[^73] Since things making sense cannot be related to archetypal myths, they are ultimately meaningless. To be meaningful religion must be mythological and irrational. At this level the numinous is the function of a specific syntax and morphology, establishing identity not on the basis of identical subjects but of identical predicates, no matter how trivial. What cannot be processed on the basis of this syntax and morphology does not pertain to the numinous. Accordingly, the pious masses consistently interpret the Scripture in mythical terms."
+    }
+  ],
+  "footnotes": {
+    "67": "In *Ḥadashim Gam Yeshanim*, ed. Abraham E. Harkavi, (Jerusalem: Carmiel, 5730/1970), 4. For some interesting insights on the “tracks of the miraculous” see Mircea Eliade, *Autobiography*, vol. 2, trans. Mac Linscott Ricketts (Chicago: Univ. of Chicago Press, 1988), 22–25.",
+    "68": "Isaac Newton, *Principia* (Berkeley and Los Angeles: Univ. of California Press, 1934), 2: 545. See “Newton, Maimonides and Esoteric Knowledge,” 526–38.",
+    "69": "*Bereshit Rabba* 68, 28 (II), vol. 2, 777–78; cf. *Nedarim* 25a; *Shebu‘ot* 29a; *‘Aboda Zara* 40b; and *Diqduqe Soferim* ad loc. Similarly, Philo, *The Migration of Abraham*, 32, 183 (Loeb Classical Library), 4: 237–39, writes that “the existent Being can contain. But he cannot be contained.” And see *ibid*. 35, 193, p. 245: “God, has not His abiding-place outside all material nature, containing, not contained.” Cf. *ibid*. 33 131, p. 207. This doctrine teaches that the relationship between God and the universe is to be understood in the sense proposed by ibn Abitur; cf. Maimonides, *Guide*, sec. 1, chap. 8, p. 70. Maimonides began the *Mishne Tora*, *Yesode ha-Tora* 1:1, by reformulating this doctrine into the famous principle that God’s relation to creation is that of *mamṣi/nimṣa* (Creator/created). The elementary sense of this doctrine escaped later Jewish thinkers; cf. Harry A. Wolfson, *Crescas’ Critique of Aristotle* (Cambridge, Mass.: Harvard Univ. Press, 1929), 123–24. The hyperspace of the rabbis cannot be measured in terms of ordinary geometry. Thus, the area of the Ark of the Covenant at the Holy of Holies did not displace ordinary space; see *Megilla* 10b. On hyperspace in general see Michio Kaku, *Hyperspace* (New York: Anchor Books, 1994). This critical point has been overlooked by Max Jammer, *Concepts of Space* (New York: Dover, 1993), in his treatment of space in Judeo-Christian tradition.",
+    "70": "See Abraham ibn ‘Ezra’s Commentary ad loc., *Bereshit Rabba* 48, 10, vol. 2, p. 778; Maimonides, *Guide*, sec. 1, chap. 70, pp. 118 (line 26)–20 (line 12).",
+    "71": "See Faur, “God as a Writer: Omnipresence and the Art of Dissimulation,” *Cross Currents: Religion and Intellectual Life* 6 (1989): 37–38.",
+    "72": "*Berakhot* 55a. See Faur, *Golden Doves*, 18–27; and Faur, “God as a Writer,” 31–43.",
+    "73": "This is also the perspective of the secularist. In spite of all the rhetoric, secularism expresses the same archetypes and value system dominating the mythological realm; see Introduction, n. 74, below. Both the secular and the mythical mind conceive of biblical revelation as mythical and, therefore, mutually exclusive with rationality. The Tora, however, marks not only the realm of the sacred but also of the profane, establishing a dialectical relationship between them. This is the theme of the *habdala* prayer recited at the end of the Sabbath; see Faur, *Golden Doves*, xxiv. It is worthy of note that *Qadashim* (The Sacred), forming the fifth order of the Mishna, includes not only the tractates dealing with the sacramental but also Tractatus *Ḥolin* ‘Profane’."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_014.png, page_190.png, and page_191.png; verified line-by-line."
+  ]
+}

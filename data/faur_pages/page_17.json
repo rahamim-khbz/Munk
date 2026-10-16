@@ -1,0 +1,44 @@
+{
+  "page_id": "17",
+  "section_file": "01_introduction.md",
+  "spread_index": 16,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_017.png",
+  "note_pages": [
+    "192"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_192.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p17_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "becomes independent of the ways of the public, beginning a process of self-assertion and individuation. The uniqueness of the Tora lies in the fact that its key-symbols are significant in both the realms of imagination and reason. Therefore, they contribute to the welfare of both the general public and the individual."
+    },
+    {
+      "block_id": "p17_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Perfection reaches the general public via individuals coming down Jacob's ladder. A dimension of Hebrew perfection is the urge to share it with others. Thus, a special relation is forged between society and the individual. Those climbing Jacob's ladder must come down and translate their visions into norms and institutions that will directly advance society.[^82] According to Maimonides, the prophet is superior to the philosopher simply because the prophet—through the mastery of imagination—starts a chain of events that over time will produce the necessary apparatus to give access to their ideality to the rest of humanity, through the establishment of proper political and legal institutions. It is in this precise sense, too, that Maimonides points to the failure of the philosophers (not of philosophy!). Unlike the biblical prophets, Greek idealism did not result in the establishment of social and legal institutions that benefited and elevated humanity. Prophetic communication differs from the instruction imparted by the philosopher-king via myths and noble lies because these myths and lies will not unleash a chain of events that will bring about the establishment of legal, social, and political institutions benefiting all. Quite the contrary. As it were, the prophet not only returns to the Platonic cave, but he also sows the seeds that will enable the rest of the people to climb up. The God of the prophets is superior to that of the philosophers because the latter is not a God of kindness and justice. As the rabbis taught, \"One who occupies himself only with Tora,\" without practicing acts of human kindness (*gemilut ḥasadim*) \"resembles one who has no [true] God.\"[^83] Likewise, \"Great is the study of Tora because it leads into [good] action.\"[^84]"
+    },
+    {
+      "block_id": "p17_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The esoteric truth is the truth that individuals discover with their own eyes. It comes to pass at the moment of mystical illumination—\"the flash\" piercing the darkness of the night. It is subjective because at that specific time and place, society has not designed the intellectual apparatus to express it. Occasionally, the apparatus is realized, and the esoteric truth becomes the patrimony of society or a particular group. When the Patriarch Abraham discovered monotheism, there was no such term in the intellectual lexicon of his contemporaries: monotheism could not yet be enunciated. It was the genius of Abraham accompanied by a series of events marked in the Scrip-"
+    }
+  ],
+  "footnotes": {
+    "82": "The *Mishne Tora* begins with the fundamental doctrines pertaining to the Hebrew concept of God (*Hilkhot Yesode ha-Tora*), and concludes with the basic political principles of Jewish Government (*Hilkhot Melakhim*). Likewise, Maimonides’s famous thirteen doctrines of Judaism begin by postulating (1) the existence of God, and (2) His Oneness, concluding with the credo in (12) the political redemption of Israel, established by the Messiah, and (13) eventual resurrection, in its bodily dimension, of the people of Israel.",
+    "83": "*‘Aboda Zara* 17b.",
+    "84": "*Qiddushin* 40b. See Maimonides, *Pirush ha-Mishnayot*, Introduction, 1: 42."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_017.png and page_192.png; verified line-by-line."
+  ]
+}
