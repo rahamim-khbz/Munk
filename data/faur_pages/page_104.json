@@ -1,0 +1,44 @@
+{
+  "page_id": "104",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 60,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_104.png",
+  "note_pages": [
+    "225"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_225.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p104_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "ity, however, “it is not within the faculty of the human mind to bring proofs [burahin] on these matters.” Evidence to this, are the numerous controversies on these subjects, whereas, in reality “anything whose truth was learned with a proof [burahin], there is no controversy about it.” Perplexity (ḥa’ira) pertains, exclusively, to areas transcending apodictic proofs. This is why perplexity is “very numerous in theological subjects, infrequent in subjects of physics, and nonexistent in mathematical subjects.”[^78]"
+    },
+    {
+      "block_id": "p104_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The discovery of a scientific methodology splits reality into two: what can be known by means of burhan and what transcends scientific methodology and is, therefore, scientifically unknown. Since real things transcend the aspect that has been scientifically grasped, it follows that they cannot be perfectly known. Different sciences have different aims, areas of interest, and methodologies. The following is a fruitful analogy. An astronomical charter may appear to be certain from a mathematician’s point of view. Yet to an astronomer dealing with concrete bodies and motions it may only be a conjecture. “If someone who is only a mathematician,” remarked Maimonides, would examine an astronomical charter, “he would think that it is an absolute proof [burhan], concerning the shape and numbers of spheres. This, however, is neither the case nor purpose of the science of astronomy.” The purpose of astronomy is to postulate the fewest orbits at a uniform velocity.[^79] Accordingly, when making astronomical computations and proposing hypotheses about the shape of heavenly bodies, their trajectories and orbits, the knowledge of the astronomer is fragmentary and conjectural. There can be no certainty that those hypotheses are actually true. The aim of the astronomer is to appraise—rather than to instruct—about the possible movements between two points. Because such a view on science could have a negative impact on the unlearned public, Maimonides alerted the *reader* that he had communicated this doctrine to his student only *orally*. After discussing the different trajectories and orbits of the celestial bodies, Maimonides remarked: “I have explained to you face to face that what astronomers maintain is not necessarily [factual], since their intention is not to estimate for us what the real shape and existence of the spheres are. Rather, their sole intention is to propose to us an astronomical system according to which there can be uniform orbital motions, corresponding to what we perceive visually—irrelevantly whether that is the case or not.”[^80]"
+    },
+    {
+      "block_id": "p104_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "All scientific systems, Aristotelian rationalism included, must acknowledge their limits and delineate the areas transcending their particular method-"
+    }
+  ],
+  "footnotes": {
+    "78": "Maimonides, *Guide*, sec. 1, chap. 31, pp. 43 (line 25)–44 (line 29).",
+    "79": "Ibid., sec. 2, chap. 11, pp. 190 (line 24)–91 (line 9).",
+    "80": "Ibid., chap. 24, p. 228 (lines 5–9). Maimonides held a formalistic view of nature whereby scientific models do not represent physical reality but are mere aids designed to help one conceptualize how certain physical phenomena unfold. For a discussion of this issue and the pertaining bibliography on the subject, see Menachem Kellner, “On the Status of the Astronomy and Physics in Maimonides’s *Mishne Tora* and the *Guide of the Perplexed*,” *British Journal for the History of Science* 24 (1991): 453–63. Maimonides’s formalism, however, is a function of the basic skepticism underlying his theory of science discussed in this section. This, too, was the position of R. David Nieto; see Faur, *Golden Doves*, 159 n. 4."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_104.png and page_225.png; verified line-by-line."
+  ]
+}

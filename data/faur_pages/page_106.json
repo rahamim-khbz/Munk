@@ -1,0 +1,54 @@
+{
+  "page_id": "106",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 61,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_106.png",
+  "note_pages": [
+    "225",
+    "226"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_225.png",
+    "data/faur_scans/page_226.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p106_b1",
+      "type": "blockquote",
+      "indent": "none",
+      "markdown": "[*burahin*], we may rely on the person who said it or taught the proof that was exposed and the reason which was discerned.[^85]"
+    },
+    {
+      "block_id": "p106_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Since the Aristotelian views on metaphysics and the trajectory of celestial bodies above the lunar orbit cannot be verified, they must be regarded as pure fabrication. Aristotelian astronomy, “does not conform with the real order of things.”[^86] In general, Maimonides believed “that the sciences at his [Aristotle’s] time were inadequate and were not yet properly developed.”[^87] After examining the Aristotelian views in light of contemporaneous astronomy, Maimonides concluded: “The truth is that he [Aristotle] did not understand or hear about it [contemporary astronomy] at all because the mathematical sciences were not adequately developed at his time. And if he would have heard about it [contemporary astronomy] he would have rejected it totally. And if he would have accepted it, he would have been totally perplexed [*ḥa’iran*] about all that which he had proposed on this subject.”[^88]"
+    },
+    {
+      "block_id": "p106_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides censured those philosophers who invested Aristotle with *authoritas*, claiming “that whatever [Aristotle] mentioned is categorically proven (*burhan*) with no doubt whatsoever. For them, it is hideous to either disagree with him or to attribute to him ignorance of something or an error on any subject.”[^89] Some Aristotelian views were plainly unscientific and a leading cause of the dissemination of harmful misconceptions. Carefully distinguishing Aristotelian metaphysics and astronomy from Aristotelian physics, Maimonides introduced the following critical principle:"
+    },
+    {
+      "block_id": "p106_b4",
+      "type": "blockquote",
+      "markdown": "Let me formulate a general principle. Although I am quite aware that many of the [Aristotelian] zealots would attribute this to my lack of understanding or to being deliberately misleading, I will not refrain on this account from expressing what I perceived and understood, my limitations notwithstanding. The general principle is: Whatever Aristotle said about all that which exists below the moon’s sphere up to the center of the earth is undoubtedly true. No one would differ from him unless he has either misunderstood him, or has already formed an opinion that he now wants to defend or because those [Aristotelian] views lead him to deny a factual datum. Aristotle’s discussions on [subjects] from the moon’s sphere and above, however, are a kind of conjecture and fancy, except for a few"
+    }
+  ],
+  "footnotes": {
+    "85": "Maimonides, *Mishne Tora*, *Qiddush ha-Ḥodesh* 17:24. Cf. *idem*, *Guide*, sec. 2, chap. 8; sec. 3, chap. 14, p. 331 (lines 15–22).",
+    "86": "Maimonides, *Guide*, sec. 2, chap. 22, p. 223 (lines 8–9).",
+    "87": "Ibid., chap. 4, pp. 178 (line 30)–79 (line 1).",
+    "88": "Ibid., chap. 24, p. 228 (lines 12–14).",
+    "89": "Ibid., chap. 15, p. 202 (lines 11–13)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_106.png and note scans page_225.png and page_226.png; set continues_from_prev_page: true for blockquote p106_b1 continuing from page 105; segmented page into 4 blocks (p106_b1 top continuation blockquote with indent none, p106_b2 indented paragraph, p106_b3 indented paragraph, p106_b4 opening blockquote at bottom continuing onto page 107); healed mid-line hyphenations ('devel-oped', 'per-plexed', 'dis-tinguishing', 'mis-leading', '[Aris-totelian]', 'dis-cussions'); restored italics and transliterations (*burahin*, *ḥa’iran* with underdot ḥ, *authoritas*, *burhan*); fixed OCR error 'buthan' -> '(*burhan*)' and typo 'Wharever' -> 'Whatever'; recovered footnote callouts [^85], [^86], [^87], [^88], [^89]; restored typographic curly quotes, apostrophes, and en-dashes; transcribed and verified footnotes 85–89 from note page 225 (notes 85–88) and note page 226 (note 89); updated note_pages to ['225', '226'] and note_scan_images to ['data/faur_scans/page_225.png', 'data/faur_scans/page_226.png']; verified ends_with_hyphen: false terminating with 'except for a few'; set status: visual_verified."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "page_id": "107",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 61,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_107.png",
+  "note_pages": [
+    "226"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_226.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p107_b1",
+      "type": "blockquote",
+      "indent": "none",
+      "markdown": "items. This is all the more true in his discussions about the order of the [disembodied] intellects and some of those theological opinions that he happened to believe in, containing many absurdities and resulting in palpable harm that is evident among all the nations and the [cause for the] propagation of injuries. And there is no proof [*burhan*] on them.”[^90]"
+    },
+    {
+      "block_id": "p107_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The last sentence—that Aristotle had conducted his investigation without the benefit of apodict proof (*burhan*)—is particularly important. It is the critical principle by which to differentiate Aristotelian astronomy and metaphysics from his physics. On the one hand, “Whatever Aristotle mentioned about the sublunary [world] was carried on according to the rule of logic [*qiyas*].” On the other hand, “What lies in heaven, the human mind cannot apprehend except for the little measure acquired through mathematics”[^91]—a science, which, as noted by Maimonides, had not been sufficiently developed during Aristotle’s time. Within the Aristotelian system, however, physics and metaphysics are interlinked.[^92] Therefore, by challenging Aristotelian metaphysics, Maimonides was, in fact, questioning the authority of Aristotelian physics. It is no wonder, then, that the twenty-six propositions to demonstrate the creation of the world, based on Aristotelian physics, were formulated in the introduction to part 2 and, thus, were excluded from the main body of the *Guide*."
+    },
+    {
+      "block_id": "p107_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides’s first reference to Aristotle is in the fifth chapter of the first part of the *Guide*. The chapter opens with [1] a brief introductory remark about Aristotle, and [2] a reference to a passage in *De Caelo* (ii. 12, 291b). It reads:"
+    },
+    {
+      "block_id": "p107_b4",
+      "type": "blockquote",
+      "markdown": "[i] As the leader [*rayyis*] of the philosophers proceeded in the investigation [*al-baḥat*] and demonstration [*wal-istidlal*] of very profound subjects; [ii] he said by way of apology, something to the effect, that those examining his writings should not regard his investigation [*yubḥat*] [of this type of subject] as an affront or audacity and impulsiveness for speaking on what he has no knowledge. It should be ascribed, rather, to his yearning and struggle to find and acquire true beliefs [*i‘tiqadat*] as much as is humanly possible.[^93]"
+    },
+    {
+      "block_id": "p107_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Aristotle was not introduced by name, but by the title *rayyis* ‘prince’, in the sense of ‘political leader’.[^94] At first sight this seems to be a sign of rank"
+    }
+  ],
+  "footnotes": {
+    "90": "Ibid., chap. 22, p. 223 (lines 14–24).",
+    "91": "Ibid., chap. 24, p. 228 (lines 15–19).",
+    "92": "See Jaeger, *Aristotle*, 380 ff.",
+    "93": "Maimonides, *Guide*, sec. 1, chap. 5, p. 19 (lines 12–17).",
+    "94": "See Faur, *Studies in the Mishne Tora*, 7 n. 27."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_107.png and notes scan page_226.png; set continues_from_prev_page: true for blockquote p107_b1 continuing from page 106; segmented page into 5 blocks (p107_b1 top continuation blockquote with indent none, p107_b2 indented paragraph, p107_b3 indented paragraph, p107_b4 blockquote from Guide 1:5, p107_b5 indented paragraph continuing onto page 108); healed mid-line hyphenations ('theo-logical', 'with-out', 'crit-ical', 'inter-linked', 'i‘tiqa-dat'); restored italics and transliterations (*burhan*, *qiyas*, *Guide*, *De Caelo*, *rayyis*, *al-baḥat*, *wal-istidlal*, *yubḥat*, *i‘tiqadat* with underdot ḥ and ‘ayin); healed optical swap '[I]' -> '[1]' in paragraph 3; recovered duplicated '[i]' -> '[ii]' in blockquote; recovered footnote callouts [^90], [^91], [^92], [^93], [^94]; restored typographic curly quotes, apostrophes, and em/en-dashes; transcribed and verified footnotes 90–94 from note page 226; updated note_pages to ['226'] and note_scan_images to ['data/faur_scans/page_226.png']; verified ends_with_hyphen: false terminating with 'sign of rank'; set status: visual_verified."
+  ]
+}

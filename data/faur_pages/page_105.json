@@ -1,0 +1,50 @@
+{
+  "page_id": "105",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 60,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_105.png",
+  "note_pages": [
+    "225"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_225.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p105_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "ology. In this precise sense a scientific methodology must be structurally linked to a formal skepticism. Only the specific aspect that was properly examined by a scientific method could actually be known. The rest belongs to the realm of the unknown."
+    },
+    {
+      "block_id": "p105_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE FAULT WITH ARISTOTLE"
+    },
+    {
+      "block_id": "p105_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "As mentioned before, Maimonides regarded Aristotle as the highest representation of pagan humanity. This perception passed from Maimonides to other philosophers in the Middle Ages, including the Scholastics. Modern scholars have confused esteem with subservience, surmising that Maimonides had invested Aristotle with *authoritas*. This is not the case. In sharp contrast with the Scholastics Maimonides rejected the notion of *authoritas*.[^81] Concerning physical phenomena, Maimonides formulated the principle that “facts do not follow opinions, but true opinions ought to follow the facts.”[^82] He could have cited Aristotle. Instead, he cited Themistius, a minor philosopher. The message is clear: rejection of *authoritas* is not the effect of *authoritas*.[^83] Explicitly, Maimonides dismissed the notion of *authoritas* in the realm of physics and metaphysics. Although Maimonides regarded Aristotelian physics as sound, this was because he believed that Aristotle’s physics was usually demonstrable. He pointed out, however, that when contradicted by “factual datum,” Aristotelian physics is to be rejected. “I shall not contradict at all that which he had actually proven,” he declared.[^84] What counts is the proof (*al-burhan*), not who proved it. This principle applies even to Jewish law. Concerning the application of Greek astronomy for the computation of the Jewish calendar, Maimonides taught:"
+    },
+    {
+      "block_id": "p105_b4",
+      "type": "blockquote",
+      "markdown": "The proofs for every item are [to be found] in the science of astronomy and geometry about which Greek scholars wrote plentifully, and they [their writings] are now found in the hands of scholars. The books [on astronomy written] by Jewish scholars from the children of Issachar at the time of the prophets, however, have not reached us. Nonetheless, since all these matters are [based on] clear and unambiguous proofs, which no one can doubt, it is unimportant who the author is, whether a prophet or a gentile. Because every item whose reason is exposed and its truth is discerned with unambiguous proofs"
+    }
+  ],
+  "footnotes": {
+    "81": "See Faur, “Sánchez’ Critique of *Authoritas*,” 256–76.",
+    "82": "Maimonides, *Guide*, sec. 1, chap. 71, p. 123 (lines 29–30).",
+    "83": "See Faur, *Studies in the Mishne Tora*, 8 n. 38.",
+    "84": "Maimonides, *Guide*, sec. 1, chap. 71, p. 126 (lines 5–6)."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_105.png and page_225.png; verified line-by-line."
+  ]
+}
