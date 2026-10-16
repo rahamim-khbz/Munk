@@ -1,0 +1,46 @@
+{
+  "page_id": "100",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 58,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_100.png",
+  "note_pages": [
+    "223"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_223.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p100_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "between Judaism and Christianity. Maimonides had postulated as an article of faith to worship God directly without recourse to an intercessor or a hierarchically superior entity as did the Church in Christendom.[^53] Now, if humankind cannot discover the existence of God unless ‘assisted’ by the point of the sword, then it would follow that Creation—the very essence of scriptural religion—implies the establishment of a hierarchically superior *authoritas* empowered to impose this higher truth,[^54] hence, the need to find an alternative to the thesis that the existence of God could (only) be demonstrated on the basis of the doctrine of Creation. Addressing this pivotal point, Maimonides reasoned:"
+    },
+    {
+      "block_id": "p100_b2",
+      "type": "blockquote",
+      "markdown": "It is, therefore, clear to you that the demonstrations [*dala'il*] for the existence of God, His oneness, and incorporeality must be drawn, however, from the premise of the eternity (of the world), in order to have a thoroughly apodictic proof [*burhan*] [of His existence], regardless of whether the world is eternal or created. This is why you will always find that in the legal writings that I compose, when it happens that I must mention a doctrine based on the existence of God, I establish it with statements pointing toward the eternity [of the world]. This is not because I believe in the eternity [of the world] but because I want to establish the existence of God in our beliefs, in an apodictic method that would not be faulted at all. We should not base this true, awesome and exalted opinion [*ra'i*] [the existence of God], on a doctrine [Creation *ex nihilo*] which anyone could unsettle and undo, or could venture to propose that it was never created. Specially, since the philosophical demonstrations (*dala'il*) on these three subjects [existence of God, His oneness, and His incorporeality] are drawn from the nature of things as they are experienced, and they cannot be negated except by someone who is already committed to another opinion.[^55]"
+    },
+    {
+      "block_id": "p100_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "This is also the position of the Scripture and the rabbis.[^56] By contrast, the demonstrations of the *mutakallimun* “are based on premises contrary to the nature of empirical phenomena so that they were required to posit that there is no nature at all.”[^57] For the *mutakallimun* there is no objectivity. Truth is a function of *authoritas*. Aristotle reasoned that what is moved, that is,"
+    }
+  ],
+  "footnotes": {
+    "53": "See ibid., 74. For Maimonides the essence of idolatry consists in positing a hierarchically superior entity through which humankind worships God; see Maimonides, *Pirush ha-Mishnayot*, *Sanhedrin* 10:1, vol. 4, p. 212; idem, *Mishne Tora*, *‘Aboda Zara* 1:1; idem, *Guide*, sec. 1, chap. 36.",
+    "54": "Maimonides regarded Christianity as idolatry, see Faur, *Studies in the Mishne Tora*, 230–37. Essential to the Maimonidean juridical concept is the separation of power between the Temple (church), the Judiciary, and the political sovereign; see Faur, “Law and Hermeneutics in Rabbinic Jurisprudence,” *Cardozo Law Review* 14 (May 1993), 1664–69. Sephardim maintained that religion is outside the perimeter of political authority. It is not incumbent upon the state to defend a particular religion but to protect the rights of the citizens to worship; see Faur, *In the Shadow of History*, 184–85.",
+    "55": "Maimonides, *Guide*, sec. 1, chap. 71, pp. 125 (line 21)–126 (line 1).",
+    "56": "See ibid., chap. 70.",
+    "57": "Ibid., chap. 71, p. 126 (lines 1–3)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_100.png and notes scan page_223.png; set continues_from_prev_page: true with unindented continuation paragraph p100_b1 starting with 'between Judaism and Christianity.' continuing from page 99; segmented page into 3 blocks (top continuation paragraph p100_b1, indented blockquote p100_b2, and indented paragraph p100_b3); healed line-end hyphenations ('demon-strated', 'awe-some', 'doc-trine', 'com-mitted', 'main-tained'); restored italics for *authoritas*, *mutakallimun*, and Latin *ex nihilo*; restored Arabic transliterations [*dala'il*], [*burhan*], [*ra'i*], and (*dala'il*); restored curly single quotes around ‘assisted’ and typographic curly double quotes in block 3; recovered footnote callouts [^53], [^54], [^55], [^56], and [^57]; transcribed and verified footnotes 53–57 from note page 223 with en-dashes and book titles (*Pirush ha-Mishnayot*, *Sanhedrin*, *Mishne Tora*, *‘Aboda Zara*, *Guide*, *Studies in the Mishne Tora*, *Cardozo Law Review*, *In the Shadow of History*); updated note_pages to ['223'] and note_scan_images to ['data/faur_scans/page_223.png']; verified ends_with_hyphen: false terminating with 'Aristotle reasoned that what is moved, that is,'; set status: visual_verified."
+  ]
+}

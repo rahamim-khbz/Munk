@@ -1,0 +1,53 @@
+{
+  "page_id": "101",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 58,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_101.png",
+  "note_pages": [
+    "223",
+    "224"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_223.png",
+    "data/faur_scans/page_224.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p101_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "the entire universe, “could have been otherwise than it is.” In contrast, the prime mover, “which moves while itself unmoved, existing actually, this can in no way be otherwise than as it is.” In other words, “The prime mover, then, exists of necessity . . . and it is in this sense a first principle. On such a principle, then, depend the heavens and the world of nature.”[^58] This had been interpreted to mean that the prime mover is of a “necessary existence,” whereas the universe moved by him is only of “possible existence.”[^59] Things in the realm of creation owe their existence to an external cause,[^60] and they are subject to the processes of becoming and decaying. Maimonides concluded that “since, as we can see, are there (*an ṯamma*) things that are generated and decay, [and] is there (*an ṯamma*) an Existent who is neither generated nor does He decay, that there is no possibility for His decay at all, but [He] is of necessary existence, not of possible existence.”[^61]"
+    },
+    {
+      "block_id": "p101_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "On this basis Maimonides distinguished two categories of existence: one absolute and autonomous and another contingent and dependent.[^62] In the second paragraph of the *Mishne Tora* Maimonides stated: “If it would be imagined that He does not exist, nothing else could exist.”[^63] There is a hierarchy of existence whereby Creation is subordinated to and dependent on God the absolute Existent: “If it would be imagined that nothing except He exists, He alone would exist. He would not vanish when they vanish. Because everything that exists depend on Him, and He blessed be! does not depend on them or on any one of them. His verity, therefore, is unlike the verity of anything else.”[^64] This doctrine passed from Maimonides to Newton, who in the *General Scholium* wrote, “that the Supreme God exists necessarily” and is “a Being necessarily existing.”[^65]"
+    },
+    {
+      "block_id": "p101_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Rationality emerges upon discovering a reality *transcendent and independent* of humans. Maimonides’s physical theory is pre-Newtonian and, therefore, inadmissible to modern scientific thinking. His methodology, however, is essentially clear: the *scientific* discovery of reality leads to the discovery of God, the *ultimate* reality. Viewed rationally, the whole universe is perceived as a semiological entity that “points out toward Him.”[^66] The discovery of two categories of reality, one thorough and necessary and another limited and conditional, demarcates the absolute chasm separating the prime mover from the universe that He is constantly generating and preserving. A proper understanding of the abysmal difference between the prime mover and the universe leads to the doctrine of negative attributes and apophasis. Since antiquity, the Aristotelian doctrine of the unmoved mover was plagued"
+    }
+  ],
+  "footnotes": {
+    "58": "Aristotle *Metaphysics*, 12, 7, 1072b (lines 4–14), in *The Complete Works of Aristotle*.",
+    "59": "According to Averroes, *Tahafut al-Tahafut*, ed. Simon Van den Bergh, 2 vols. (Oxford: Oxford Univ. Press, 1954), 1: 232, and the corresponding note in vol. 2, p. 132, in the realm of creation things do not exist necessarily: they merely “happen” to exist. Consequently, the essence of a thing does not coincide perfectly with its existence, hence, the fundamental difference between the “essence” of something, and its actual “existence.” In Maimonides, *Guide*, sec. 1, chap. 57, p. 90 (lines 4–9), one reads that “existence is an accident that happened to the existent. Therefore, it is an additional meaning to the existent’s essence. This applies to everything whose existence is the effect of a cause—thus, its existence is appended to its essence. However, something whose existence is not the effect of a cause, and this is God alone, is of ‘necessary existence’. His existence is His reality and verity, and His reality is His existence. It is not a reality which happened to exist, and His existence [is not] a meaning appended to [His essence]; since He always is of ‘necessary existence’.”",
+    "60": "See Maimonides, *Guide*, sec. 2, Introduction, Axioms 19–20.",
+    "61": "Ibid., chap. 1, p. 172 (lines 14–17). For a further analysis of this concept see R. Joseph b. Jehuda, *Drei Abhandlungen*, ed. Moritz Lowy, (Berlin, 1879). Cf. Harry A. Wolfson, *The Philosophy of Spinoza*, 2 vols. (Cambridge, Mass.: Harvard Univ. Press, 1934), 1: 67.",
+    "62": "This parallels the Hebrew doctrine of Creation, discussed above, p. 89ff.",
+    "63": "Maimonides, *Mishne Tora*, *Yesode ha-Tora* 1:2.",
+    "64": "Ibid., 1:3.",
+    "65": "Newton, *Principia*, 546.",
+    "66": "Maimonides, *Guide*, sec. 1, chap. 19. Cf. ibid., sec. 2, chap. 17, p. 206 (line 24). See Faur, *Golden Doves*, 23–27."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_101.png and notes scans page_223.png, page_224.png; set continues_from_prev_page: true with unindented continuation paragraph p101_b1 starting with 'the entire universe,' continuing from page 100; segmented page into 3 blocks (top continuation paragraph p101_b1, indented paragraph p101_b2, and indented paragraph p101_b3); healed line-end hyphenations ('princi-ple', 'inter-preted', 'sub-ject', 'hierar-chy', 'inde-pendent', 'how-ever', 'discov-ery', 'dis-covery'); restored Arabic transliteration (*an ṯamma*) with line-below ṯ; restored italics for *Mishne Tora*, *General Scholium*, *transcendent and independent*, *scientific*, and *ultimate*; restored typographic curly double and single quotes; recovered footnote callouts [^58], [^59], [^60], [^61], [^62], [^63], [^64], [^65], and [^66]; transcribed and verified footnotes 58–66 across note pages 223 and 224 with en-dashes and book titles (*Metaphysics*, *The Complete Works of Aristotle*, *Tahafut al-Tahafut*, *Guide*, *Drei Abhandlungen*, *The Philosophy of Spinoza*, *Mishne Tora*, *Yesode ha-Tora*, *Principia*, *Golden Doves*); updated note_pages to ['223', '224'] and note_scan_images to ['data/faur_scans/page_223.png', 'data/faur_scans/page_224.png']; verified ends_with_hyphen: false terminating with 'Since antiquity, the Aristotelian doctrine of the unmoved mover was plagued'; set status: visual_verified."
+  ]
+}

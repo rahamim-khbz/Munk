@@ -1,0 +1,54 @@
+{
+  "page_id": "102",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 59,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_102.png",
+  "note_pages": [
+    "224"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_224.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p102_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "with serious textual and conceptual difficulties.[^67] Maimonides exploited these problems to demonstrate either that Aristotle never believed that the world is uncreated, or that such a view could never be proven.[^68]"
+    },
+    {
+      "block_id": "p102_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE PERIMETERS OF ARISTOTELIAN RATIONALITY"
+    },
+    {
+      "block_id": "p102_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides regarded Aristotelian logic as the basis of human rationality. The special esteem for Aristotle concerned his monumental contributions in the field of logic. Aristotle had “taught humankind the method of apodictic proof [al-burhan], its canons and stipulations.”[^69] In an early work Maimonides commented on the importance of the works contained in Aristotle’s *Organon* and his contribution to the development of a methodology of investigation based on objective, verifiable data: “And because this art, originated and developed in eight parts [the *Organon*] by Aristotle, it imparts to the rational faculty rules for the attainment of ideas, which are the inner speech, guarding it against error and leading it in the right path until it acquires the truth insofar as it is in human power to attain truth, and it also impart those rules, common to all languages, which lead external speech in the right path, guarding it against error.”[^70]"
+    },
+    {
+      "block_id": "p102_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "On the basis of Aristotelian logic Arab philosophers distinguished between an apodictic, deductive proof [burhan], and an inductive inference (*istidlal*). The latter, is related to *dalala* ‘a sign-post’. The verb *dalla* means ‘to show’, ‘to point out’, ‘to denote’. *Dalil* (indicator, inference) translates the Stoic term *semeion* (Hebrew: *simman* sign). In opposition to *burhan*, establishing necessary relations on the basis of causality and universal principles, *dalil* establishes connections on the basis of external factors without stipulating any causal or necessary relation between them. For example, the fact that a woman’s breasts have milk is a *dalil* that she has given birth. Knowledge gained from burhan is deductive. Istidlal is inferential. Although it may be critical and sophisticated, because it is not apodictic it is not absolutely necessary.[^71] Therefore, it is inferior to burhan.[^72] A third term, ‘opinion’ (ra’i), stands for a thesis that is not proven apodictically but only supported by *ḥijaj* (argument) or at best *istidlal*. Although some of these opinions may be highly probable, they should not be regarded as certain; hence, the fundamental distinction between something confirmed by a scientific demonstration, which one must accept, and an approximation, which is ‘like the truth’ (verisimilitude) where there is room for disagreement.[^73]"
+    }
+  ],
+  "footnotes": {
+    "67": "For a thorough discussion of this doctrine see Jaeger, *Aristotle*, chap. 14.",
+    "68": "See Maimonides, *Guide*, sec. 2, Introduction, pp. 168 (line 23)–69 (line 1); ibid., chaps. 15, 17–24.",
+    "69": "Ibid., chap. 15, p. 202 (line 8).",
+    "70": "Maimonides, *Treatise on Logic*, chap. 14, pp. 61–62.",
+    "71": "See Averroes,’ *Tahafut al-Tahafut*, 2: 179.",
+    "72": "Maimonides, *Guide*, sec. 2, chap. 19, p. 211 (lines 20–21); cf. ibid., chap. 15, p. 203 (lines 5–10). See below, pp. 108–9. For a formal definition of *burhan* see Maimonides, *Treatise on Logic*, chap. 8.",
+    "73": "See Faur, *Studies in the Mishne Tora*, 188–90; Maimonides, *Guide*, sec. 1, chap. 32, p. 46 (lines 6–17). Cf. ibid., chap. 31, p. 44 (lines 13–29); ibid., sec. 2, chap. 25, p. 230 (lines 2–5). On this fundamental distinction see Nachum L. Rabinovitch, *Probability and Statistical Inference in Ancient and Medieval Jewish Literature* (Toronto: Univ. of Toronto Press, 1973), 152–57; idem, “The Concept of Possibility in Maimonides” (in Hebrew), in *Studies in Maimonides*, ed. M. Idel, (Likkute Tarbiz V) (Jerusalem: Hebrew Univ. Press, 1985), 403–15."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_102.png and page_224.png; verified line-by-line."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "page_id": "103",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 59,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_103.png",
+  "note_pages": [
+    "225"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_225.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p103_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Scientific knowledge is not perfect knowledge. Scientific knowledge is a function of reason; perfect knowledge is a function of creation. Moreover, since the whole universe is interrelated and everything is interconnected with everything else, perfect knowledge is humanly impossible. Finally, there are both absolute and relative boundaries to the human mind. The rabbis taught that some concepts and subjects transcend, absolutely, the boundaries of human reason and will never be understood by any mortal at any time in history.[^74] Likewise, Maimonides maintained that there are areas of knowledge transcending human understanding. There are other subjects that could be understood only partially by some members of the species at certain periods of human development.[^75] The historical boundaries of human understanding are not necessarily rigid and fixed for all time. Today’s unknown may well fall within the grasp of tomorrow’s scientific horizon. At the same time an individual cannot transcend the perimeters of his period. If somehow one could travel back in history and confront Aristotle with the astronomy prevalent at the time of Maimonides, “he would reject it totally.” Simply, such a knowledge would have caused havoc in his mind. “If he would have accepted it, [then] he would have become totally perplexed (*ḥa’iran*).”[^76]"
+    },
+    {
+      "block_id": "p103_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "It follows that scientific knowledge must be structurally connected to a fundamental skepticism. Scientific knowledge is restricted to areas that can be submitted to direct analysis (*baḥat*). Thus ‘certainty’, which is a function of scientific knowledge, is not operative in areas such as metaphysics and astronomy where only inference (istidlal) is possible, but no direct proofs (burahin). In such areas there is only opinion (ra’i). This leads to a classification of human knowledge. Not all ‘knowledge’ is equivalent. There are areas where scientific investigation is possible, and the subjects can be demonstrated on the basis of ‘proof’ (burhan). In areas where no adequate tools of investigations are available, nothing can be known scientifically, and, therefore, knowledge is not certain. In such a situation one can only form an ‘opinion’ (ra’i). Since it cannot be deduced but only inferred (istidlal), such an opinion falls into the realm of the ‘possible’. On this basis Maimonides distinguished three areas of human endeavor: mathematics, where knowledge is positive,[^77] physics, where knowledge is partial, and matters pertaining to theology where “proof [burhan] transcends the human faculty.” Since apodictic proof in those matters is impossible, “opinions proliferate, disagreements between investigators prevail, and there are always doubts.” Generally, each party is thoroughly convinced it has “discovered the way by which the truth of the subject can be determined.” In real-"
+    }
+  ],
+  "footnotes": {
+    "74": "See *Berakhot* 34b.",
+    "75": "Maimonides, *Guide*, sec. 1, chaps. 31–32.",
+    "76": "Ibid., sec. 2, chap. 24, p. 228 (lines 13–14).",
+    "77": "Because mathematics is a human creation, it is perfectly known, in contradistinction to physics and other applied sciences that deal with elements not created by humans, and are, therefore deficient; see above, pp. 91–92. Vico, too, in *On the Wisdom of the Italians* (in *Vico: Selected Writings*, 68) writes: Thus, arithmetic and geometry and their offspring, mechanics, lie within human faculties, since in them we demonstrate the true because we make it. Physics, on the other hand, lies within a faculty of Almighty God, in whom alone the faculty is true, because it is in the highest degree easy and ready, so that what is a faculty in man is purest act in God."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_103.png and page_225.png; verified line-by-line."
+  ]
+}
