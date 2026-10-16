@@ -1,0 +1,47 @@
+{
+  "page_id": "80",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 48,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_080.png",
+  "note_pages": [
+    "218"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_218.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p80_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "this means that the imaginative consciousness can contemplate others but not itself. Unlike rational consciousness, it is incapable of reflection and critical judgment. It operates by focusing the mirror on the ‘outside’ and on the ‘other’.[^184] This is why, although *teshuba* (repentance) is one of the pillars of the Hebrew Scripture instituted *before* the actual creation of the world,[^185] upon retrogressing to the realm of imagination it was no longer an option for Adam. Within the realm of imagination the only option is atonement—the transference of guilt to ‘an-other’. Repentance is possible at the level of rational consciousness. It requires a high level of mental organization to focus on the ‘inside’ rather than on the ‘outside’ (and thereby reflect on the ‘self’ rather than on ‘an-other’). When Adam was asked why he ate the forbidden fruit, he blamed Eve; in turn, she blamed the snake (Gn 3:12–13). Retrogressing to the realm of imagination meant that fault lies invariably with the ‘other’ and the ‘outside’, never ‘inside’ the ‘self’, thus forfeiting the possibility of admitting mea culpa."
+    },
+    {
+      "block_id": "p80_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The ability to discern ‘good/evil’ without any concern for ‘truth/falsehood’ is grounded on the imagination’s inability to reflect on itself. This radical self-opacity creates *homo absconditus*. It also cultivates the illusion that the ‘outside/other’, invariably perceived ‘as’ ‘good/evil’, is not a projection. In this fashion imagination creates its own universe, displacing the empirical world outside consciousness. In archaic times nature was not a given, arising bare and in full splendor before humans: “[O]n the contrary, the whole material world appeared shrouded in mythical thinking and mythical fantasy. It was these which gave its objects their form, color, and specific character. Long before the world appeared to consciousness as a totality of empirical things and a complex of empirical attributes it was manifested as an aggregate of mythical powers and effects.”[^186]"
+    },
+    {
+      "block_id": "p80_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In Borges’s story Paracelso asks: “Can you believe that the divinity could have created a place that is not Paradise? Can you believe that the Fall is another thing but ignoring that we are in Paradise?”[^187] A consequence of the paleologic mechanism is alienation—“expulsion” in the language of the Scripture (Gn 3:24). “Whereas normal thinking has the purpose of interpreting reality, paleologic thinking becomes a substitute for reality.”[^188] Before gaining access to the real world, man has to free himself from the tyranny of imagination. The same is true when approaching the realm of the divine. The application of human attributes to God, and the whole gamut of anthropocentric theology, are—like the rest of the realm of imagination—human"
+    }
+  ],
+  "footnotes": {
+    "184": "Cf. Faur, *In the Shadow of History*, 4–8.",
+    "185": "See *Pesaḥim* 54b.",
+    "186": "Cassirer, *Philosophy of Symbolic Forms*, 2,1.",
+    "187": "Borges, “La Rosa de Paracelso,” in *Obras Completas* (Madrid: Ultramar, 1977), 390.",
+    "188": "Arieti, “Primitive Intellectual Mechanisms,” 14."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_080.png and notes scan page_218.png; set continues_from_prev_page: true; structured into 3 blocks (p80_b1 continuing from p79 with indent none, p80_b2 indented paragraph, p80_b3 indented paragraph continuing to p81); healed mid-line hyphenations (truth/false-hood -> truth/falsehood, empiri-cal -> empirical, aris- ing -> arising, ag-gregate -> aggregate, anthro-pocentric -> anthropocentric); fixed OCR errors (contemplate.others -> contemplate others, hurnans -> humans, 'self\" -> ‘self’); recovered callouts [^184], [^185], [^186], [^187], [^188]; restored italics (*teshuba*, *before*, *homo absconditus*); transcribed and verified footnotes 184–188 against page_218.png (restoring italics for In the Shadow of History, Pesaḥim with underdot, Philosophy of Symbolic Forms, Obras Completas, and publisher Ultramar); updated note_pages to [\"218\"] and note_scan_images to [\"data/faur_scans/page_218.png\"]; verified ends_with_hyphen: false; set status: visual_verified."
+  ]
+}

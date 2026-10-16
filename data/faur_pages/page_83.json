@@ -1,0 +1,53 @@
+{
+  "page_id": "83",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 49,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_083.png",
+  "note_pages": [
+    "218",
+    "219"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_218.png",
+    "data/faur_scans/page_219.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p83_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "discarded. Elsewhere, the rabbis compare a sage capable of “demonstrating his scholarship” to a “wealthy banker” (*shulḥani ‘ashir*).[^202] Accordingly, Maimonides identifies “wealthy” as a sage who has erudition and critical knowledge. The paragraph begins: “[1] [a] One of the foundations of the Law is that God prophetize humans. [b] Prophecy will not occur but to someone who is [i] great in wisdom; [ii] strong in his mores—who is not overpowered by his impulse on any matter but always controls his impulse with his mind;[^203] [iii] and who has wide and highly precise knowledge.”[^204]"
+    },
+    {
+      "block_id": "p83_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The second segment expands on these qualities and the steps to attain esoteric experience. The purpose is shifting to a higher form of consciousness from the rational to the prophetic. As mentioned earlier, Maimonides maintains that prophecy is within the realm of the natural.[^205] Rational consciousness is not the final phase of human development. It is possible to attain a higher class of “rational perceptions”[^206] but only after developing ordinary rationality to the fullest. “Only someone who has reached perfect cognition is capable of perceiving other [forms] of knowledge when the divine intellect rests upon him.”[^207] A barrier excluding the divine light are the sensations, imageries, and ideas resulting from sense → imagination → reason. Therefore, an absolute condition for prophecy is freeing oneself from all types of sensory imagery. This will heighten the level and scope of the conscious mind.[^208] Apophasis, or the negation of knowledge processed through imagination → reason, dispells the world of imagination and frees the mind from the fancies of anthropocentric theology. Here, the function of *via negativa* is not demolition of the ego but to divest it from illusory knowledge, thus allowing for the rise of a higher level of rationality and human consciousness. Maimonides continues:"
+    },
+    {
+      "block_id": "p83_b3",
+      "type": "blockquote",
+      "markdown": "[2] A man who is total in all these virtues and in perfect health;[^209] [i] who enters into the *pardes* and proceeds [to examine] those great and complex subjects,[^210] having a proper knowledge for comprehension and realization;[^211] [ii] who sanctifies himself, avoiding the ways of the common people walking in the darkness of time; stirring and teaching himself not to have any thoughts on meaningless subjects or on the vanities and deceptions of time; [iii] having his mind focused always upward, linked under the [divine] throne, [in order] to comprehend those holy"
+    }
+  ],
+  "footnotes": {
+    "202": "*Sifre*, no. 13, p. 22; this is the plain meaning of Prv 14:24. Cf. ibid., no. 18; and Se‘adya, *Commentary on Proverbs*, *Version Arabe de Proverbs*, ed. Joseph Derenbourg, (Paris: Librairie de la Société Asiatique de l’Ecole des Langues Orientales Vivant, 1894), ad loc. Hence, the rabbinic doctrine, “‘There is no poverty except for [poverty] of mind” (*Berakhot* 33a); cf. *Midrash Rabba Qohelet* 6, 1 (b). For a full analysis of this subject see Faur, *Golden Doves*, 142–43.",
+    "203": "Instead of trying to control the impulses through imagination, leading to neurotic deformations.",
+    "204": "See Maimonides, *Guide*, sec. 1, chap. 5, p. 19 (lines 18–20), quoted above, p. 81, where Maimonides wrote that a man “should not initially charge onto this awesome and sublime subject with his initial impulse, [i] without [having] trained his soul in the sciences and knowledge, [ii] educated his mores as much as possible, [iii] and killed his desires and imaginary passions.”",
+    "205": "See above, p. 204 n. 134.",
+    "206": "Maimonides, *Guide*, sec. 2, chap. 38, p. 266 (lines 25–26).",
+    "207": "Ibid., p. 267 (lines 26–27).",
+    "208": "Maimonides, *Mishne Tora*, *Yesode ha-Tora* 7:2. This could not apply to Moses; see ibid., 7:6; idem, *Guide*, sec. 2, chap. 35.",
+    "209": "An allusion to *jabiliya*; cf. above, p. 204 n. 130.",
+    "210": "That is, *Ma‘ase Bereshit* and *Ma‘ase Merkaba*; cf. Maimonides, *Mishne Tora*, *Yesode ha-Tora* 4:13.",
+    "211": "*Comprehension* refers to the “head of chapters,” and *realization* is the further development required of the proper student; see above, pp. 24–27."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Rehabilitated against 300 DPI scans page_083.png, page_218.png, and page_219.png; verified line-by-line."
+  ]
+}

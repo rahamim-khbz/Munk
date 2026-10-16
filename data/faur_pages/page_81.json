@@ -1,0 +1,57 @@
+{
+  "page_id": "81",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 48,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_081.png",
+  "note_pages": [
+    "218"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_218.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p81_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "projections shrouding the divine in terms of mythical fantasy. A prior condition to the realm of the divine is casting off the shackles of imagination. Maimonides warned, “not to charge to speculate” into the realm of the divine, “with the corrupt imagination.”[^189] When considering matters pertaining to the divine,"
+    },
+    {
+      "block_id": "p81_b2",
+      "type": "blockquote",
+      "markdown": "one should not begin by charging with his initial impulse onto this awesome and sublime subject, without [having first] trained his soul in the sciences and knowledge, educated his mores as much as possible, and killed his desires and imaginary passions. Only after attaining true and valid axioms, understanding them, learning the canons of syllogisms and demonstrations, and learning the ways to guard against mental errors can one proceed to investigate this matter. One should not settle on the first view that comes to him, nor should one project one’s thoughts from the beginning and put them in command and proceed to march toward the perception of God.[^190]"
+    },
+    {
+      "block_id": "p81_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The danger is greater when the individual trespasses the boundaries of his rational powers, attempting to glance at the divine through his imagination. Then, like Elisha"
+    },
+    {
+      "block_id": "p81_b4",
+      "type": "blockquote",
+      "markdown": "not only that you would not be perfect, but you will be faultier than the faultiest. You will be overpowered by imagination. A tendency toward faultiness, vice and evil will emerge because of mental disturbances [resulting from] having extinguished its [the mind’s] light. In the same manner that when the pressure [on the cornea] of the eye is weakened among the sick, they will see [various] types of false imaginings as do those who force themselves to look at very bright or small items.[^191]"
+    },
+    {
+      "block_id": "p81_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "This, precisely, was the fault with the “princes of the children of Israel” (Ex 24:10), who “charged” to comprehend these sublime subjects “before they were perfect.” Their vision of God “involved corporeality,” because “they charged and projected their own thoughts.”[^192] Other medieval scholars have interpreted the vision of the princes approvingly.[^193] Maimonides’s authority is Rab, who supported the doctrine “that . . . in the next"
+    }
+  ],
+  "footnotes": {
+    "189": "Maimonides, *Guide*, sec. 1, chap. 32, p. 47 (lines 8–9).",
+    "190": "Ibid., chap. 5, p. 19 (lines 17–24). Cf. above, p. 211 n. 68.",
+    "191": "Ibid., chap. 32, p. 46 (lines 13–17). The source is Geonic; see the citation from R. Ḥanan’el, above, p. 72.",
+    "192": "Maimonides, *Guide*, sec. 1, chap. 5, p. 20 (lines 4–9).",
+    "193": "See *Kuzari* 4, 3; and Moshe Idel, “The World of Angels in Human Form” (in Hebrew), in *Studies in Jewish Mysticism, Philosophy, and Ethical Literature Presented to Isaiah Tishby*, ed. J. Dan and J. Hacker (Jerusalem: Magnes Press, 1986), 15–19."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_081.png and notes scan page_218.png (with cross-reference check on page_219.png); set continues_from_prev_page: true (healing 'human' from p80 with 'projections'); structured into 5 blocks (p81_b1 continuing paragraph with indent none, p81_b2 blockquote from Guide 1:5, p81_b3 indented paragraph leading into second quotation, p81_b4 blockquote from Guide 1:32, p81_b5 indented paragraph leading into Rab's doctrine continuing to p82); healed mid-line hyphenations (condi-tion -> condition, under-standing -> understanding, demon-strations -> demonstrations, set-tle -> settle, imag-ination -> imagination, Mai-monides -> Maimonides); recovered and corrected callouts [^189], [^190], [^191], [^192], [^193]; restored italics and diacritics (*Guide*, *Ibid.*, *Kuzari*, Ḥanan’el with underdot Ḥ); transcribed and verified footnotes 189–193 spanning page_218.png (all confirmed located on note page 218); updated note_pages to [\"218\"] and note_scan_images to [\"data/faur_scans/page_218.png\"]; verified ends_with_hyphen: false; set status: visual_verified."
+  ]
+}

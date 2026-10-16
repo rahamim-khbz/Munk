@@ -1,0 +1,56 @@
+{
+  "page_id": "82",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 49,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_082.png",
+  "note_pages": [
+    "218"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_218.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p82_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "world there is no eating and no drinking” from the verse stating that these princes “contemplated God and ate and drank” (Ex 24:11).[^194] Only by positing that they were sinful could Rab have concluded from the fact that they *have* eaten and drunk that in the world to come there would be none of that."
+    },
+    {
+      "block_id": "p82_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Anthropocentric theology (like anthropocentric science) is affected by human projections; it pertains to the realm of imagination rather than the divine.[^195] Within the Kabbalah system the purpose of *via negativa* is the “demolition of the ego” to reach an “anthropocentric form of mystical experience.”[^196] In extreme cases, this may lead to a *unio mystica* with God.[^197] Ultimately, there is no difference between seeking the dissolution of the ego by claiming that the conscious *I* became absorbed by the divinity or claiming that the divinity was absorbed by the *I*. Both cases are extreme forms of dissolution of the self and unbridled omnipotence of thought: they are two movements of the same narcissistic experience. Addressing himself to this type of experience, Johannes Eckhart (ca. 1220–1327) wrote: “If therefore I am changed into God and He makes me one with Himself, then by the living God there is no distinction between us.” As he explained: “By knowing God I take him to myself. By loving God, I penetrate him.”[^198]"
+    },
+    {
+      "block_id": "p82_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "JOINING THE ANGELICAL BEINGS IN CHORUS AND DANCE"
+    },
+    {
+      "block_id": "p82_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In the Maimonidean scheme prophecy and esoterics are different phases of the same process: prophecy is the last attainable phase of esoterics and esoterics is the first step toward prophecy. The initiation into the realm of esoterics (“entering into the *pardes*”) begins a long process of deanthropomorphization whose final phase involves encountering the *Ruwaḥ ha-Qodesh* (the spirit at the sanctuary). In his legal code, *Mishne Tora* (*Yesode ha-Tora* 7:1), Maimonides begins his dissertation on prophecy by ascertaining the link between esoterics and prophecy. The paragraph comprises three distinct segments. The first segment introduces prophecy as a fundamental doctrine and the essential qualities required for receiving prophecy. Following the rabbis,[^199] these qualities are [1] wisdom, identified with the full development of the rational faculties, [2] strength, identified with moral fortitude,[^200] and [3] wealth (*‘ashir*). At one time, Maimonides followed the standard interpretation and identified it with ‘contentment’, ‘happiness’.[^201] Because in this case “wealth” would be an instance of virtue and moral fortitude, it was later"
+    }
+  ],
+  "footnotes": {
+    "194": "*Berakhot* 17a; cf. Maimonides, *Mishne Tora*, *Teshuba* 8:2. In *Vayyiqra Rabba*, 20, 10, vol. 2, pp. 464–65, it was explicitly said that “they delighted their eyes from the Shekhina.” See above p. 203 n. 125.",
+    "195": "See above, pp. 3–5.",
+    "196": "Neumann, “Mystical Man,” 411.",
+    "197": "On this important subject see Idel, *Kabbalah*, chap. 4.",
+    "198": "Johannes Eckhart, *Meister Eckhart*, trans. R. B. Blankey (New York: Harper Brothers, 1941), 181–82. See Faur, *In the Shadow of History*, 6–7.",
+    "199": "See *Shabbat* 92a; *Nedarim* 38a.",
+    "200": "Like the Romans, the rabbis identified *vigor* with *virtue*.",
+    "201": "See *Shemona Peraqim* 7, in Maimonides, *Pirush ha-Mishnayot*, 4: 393–94."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Rehabilitated against 300 DPI scans page_082.png and page_218.png; verified line-by-line."
+  ]
+}
