@@ -1,0 +1,50 @@
+{
+  "page_id": "75",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 45,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_075.png",
+  "note_pages": [
+    "216",
+    "217"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_216.png",
+    "data/faur_scans/page_217.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p75_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "who had “prophetized” (*nitnabbe’u*), that is, individuals who were the recipients of prophecy.[^150] Likewise, although Maimonides stated that Daniel was not a prophet, he illustrated the mechanism of prophecy from the book of Daniel.[^151] This distinction leads to the most fundamental aspect of the relation ‘reason → imagination’. The prophet must reach a level of reflective consciousness: the prophecy coming from above is to be reflectively interpreted by the rational faculties of the prophet. The point will be better understood upon considering Maimonides’s discussion of the Hebrew terms *tabnit* (outline) and *temuna* (image). The first term, from the root *bana* (to build), refers to the outer shape of a thing *outside* the consciousness of the observer, such as a square or a triangle. The Scripture never applies this term to God.[^152] The second term refers to the shape of a thing as it is reflected *in* the consciousness of the observer. *Temuna* (from the root *mwn*/*myn* species, tally) is an ‘image’ exhibiting the inner nature and structure of a thing. Scripture applies this term to three different types of impressions. First, it applies to the impression produced by “the sensory perception [of an object] outside consciousness.”[^153] It corresponds to the “sensory impressions” discussed by David Hume (1711–1776). Second, it applies to “the imaginative structure of an entity found in the imagination after discontinuing from the senses.”[^154] It corresponds to Hume’s ideas.[^155] Third, it may refer to the image captured by the mind, “the true significance [of an object] perceived by reason.”[^156] This corresponds to the “synthetic unity” discussed by Sartre.[^157] It is in this last sense that it was said of Moses “that he would glance (*yabbiṭ*) at the *temuna* of God” (Nm 12:8).[^158]"
+    },
+    {
+      "block_id": "p75_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Like the Romans, the rabbis conceived of the human mind as a kind of a mirror. They used the Latin *speculum* (in the form *speclaria*) from which *speculation* derives, to explain how Moses was able to glance at the *temuna* of God. One of the consequences of this simile is that human perception at once reflects and distorts reality. Just like a mirror reduces a three-dimensional object to a two-dimensional image, human perception, too, reflects and distorts the dimensionality of the Divine.[^159] The difference between Moses and other prophets is that Moses beheld the Divine Presence from “a *speclaria* that illuminates,” whereas all other prophets beheld it, from “a *speclaria* that does not illuminate.”[^160] The *temuna* is not the image of God but the *impression* projected by God onto the *speclaria*-mirror.[^161] The rabbis meant to say, that whereas all other prophets glanced at the impression of God as reflected in the mirror of their imaginations, Moses glanced at the image of God as reflected in his reason. On the basis of the preceding R."
+    }
+  ],
+  "footnotes": {
+    "150": "*Megilla* 15a. It meant that they “aspired to prophetize” but were not actual prophets; see below, p. 217, n. 176. The status of a prophet is higher than that of someone who is merely the recipient of prophecy; see Maimonides, *Mishne Tora*, *Yesode ha-Tora* 7:7. Occasionally, someone may be referred to as a “prophet” in a vernacular, casual sense; see Maimonides, *Guide*, sec. 2, chap. 32, p. 255 (lines 15–18).",
+    "151": "See Maimonides, *Guide*, sec. 2, chap. 41, p. 272 (lines 21–24); chap. 42, p. 276 (lines 23–26); chap. 43, pp. 277 (lines 23–24), 278 (lines 1–4, 14–15); chap. 44, pp. 279 (line 23), 280 (line 1); Maimonides, *Mishne Tora*, *Yesode ha-Tora* 7:2.",
+    "152": "Maimonides, *Guide*, sec. 1, chap. 3, pp. 17 (line 26)–18 (line 4). It pertains to the exteriority of a thing and is accidental to its inner structure. On the legal status of such a shape in rabbinic law, see *Baba Qamma* 96b.",
+    "153": "Maimonides, *Guide*, sec. 1, chap. 3, p. 18 (lines 4–7).",
+    "154": "Ibid., p. 18 (lines 4–7).",
+    "155": "David Hume, *Enquiries Concerning Human Understanding* (Oxford: Clarendon Press, 1975); on his “Ideas” see sec. 2. On his “sensory perceptions” see ibid., 12, p. 18; 17, p. 20.",
+    "156": "Maimonides, *Guide*, sec. 1, chap. 3, p. 18 (lines 7–10).",
+    "157": "See above, p. 214 n. 109.",
+    "158": "Maimonides, *Guide*, sec. 1, chap. 3, p. 18 (lines 10–12); cf. below, p. 217 n. 171.",
+    "159": "Cf. Leone Ebreo, *Dialoghi d’amore* [I], 35.",
+    "160": "*Yebamot* 49b. See Faur, *Golden Doves*, 127–29.",
+    "161": "This motif appears also in Hermetic literature; see Gedaliahu G. Stroumsa, “Form(s) of God,” *Harvard Theological Review* 76 (1983): 274–76."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated and verified against page_075.png, page_216.png, page_217.png"
+  ]
+}

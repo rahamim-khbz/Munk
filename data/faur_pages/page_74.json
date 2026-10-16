@@ -1,0 +1,63 @@
+{
+  "page_id": "74",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 45,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_074.png",
+  "note_pages": [
+    "215",
+    "216"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_215.png",
+    "data/faur_scans/page_216.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p74_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "This special type of intelligence allows the individual to bypass standard epistemological procedures, and to reach new forms of consciousness as well as “the true significance of prophecy and those views that distinguish prophetic wisdom.”[^137]"
+    },
+    {
+      "block_id": "p74_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "A creative mind requires the proper development at both the intellectual and imaginative levels and the ability to link them together. Not all those who develop their intellectual faculties have the ability to develop their imaginative faculties or have the biopsychological energy to link them effectively, hence, the intense preparation in the schooling of the prophet.[^138]"
+    },
+    {
+      "block_id": "p74_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE PROPHET S REFLECTIVE CONSCIOUSNESS"
+    },
+    {
+      "block_id": "p74_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides distinguished between ‘prophecy’ and a ‘prophet’. ‘Prophecy’ is a state of consciousness triggered by the divine flow of intelligence embracing the cosmos. Except for Moses, it is effected invariably by an angel.[^139] It can reach the common folk indirectly: through an individual who, moved by divine providence, tells or points out something to them; through a prophet who delivers an oracle;[^140] or through their own dreams and imagination.[^141] In all these cases the medium is designated *mal’akh* (angel), not in the common sense of a celestial being but in the sense of a ‘messenger’.[^142] Maimonides counted eleven degrees of direct prophetic inspiration. In the first two classes the recipients are the object of divine inspiration, but are not prophets.[^143] In the first class divine inspiration moves the recipients solely to *act* superlatively on behalf of a just cause. At this level it does not touch their cognitive faculties, and the recipients are not inspired to articulate the experience verbally.[^144] In the second case divine inspiration touches their cognitive faculties, and they are able to verbalize their experiences. It is designated by the rabbis *Ruwaḥ ha-Qodesh* (spirit of the Sanctuary). These individuals are not prophets. In his youth Maimonides counted King Solomon among the prophets.[^145] In the *Guide*, however, David, Solomon, Daniel, although privy to divine inspiration, are not prophets. In fact, the Jewish canon does not include their writings with the *Prophets* (*Nebi’im*), but with the *Hagiographa* (*Ketubim*).[^146] These two classes pertain to individuals who did not come up to the level of having their “night illuminated by lightning but by a radiant body or some type of rock that is radiant by night.”[^147] The other nine classes belong to prophets proper.[^148] The distinction ‘prophecy/prophet’ is rabbinic. The rabbis declared that Daniel “was not a prophet.”[^149] At the same time they counted Daniel among those"
+    }
+  ],
+  "footnotes": {
+    "137": "Ibid., p. 267 (lines 10–11).",
+    "138": "See ibid., chap. 32; cf. chap. 36, pp. 262 (line 1)–63 (line 1); chap. 42, p. 277 (lines 3–11).",
+    "139": "See above, p. 70.",
+    "140": "See Maimonides, *Guide*, sec. 2, chap. 41, p. 275 (lines 2–10); cf. chap. 45, p. 283 (lines 25–26).",
+    "141": "See ibid., 41, pp. 274 (line 10)–75 (line 2); cf. chap. 46, p. 289 (lines 19–23).",
+    "142": "See ibid., sec. 2, chap. 42, pp. 276 (line 16)–77 (line 11); cf. sec. 1, chap. 2, p. 15 (lines 24–25); chap. 15, p. 28 (lines 3–4). The source is rabbinic; see *Midrash Tehillim*, ed. Salomon Buber (New York: Om Publishing, 1947), 103, 17, p. 438, and parallels indicated by editor.",
+    "143": "See Maimonides, *Guide*, sec. 2, chap. 45, pp. 280 (line 26)–81 (line 15).",
+    "144": "See ibid., pp. 281 (line 19)–82 (line 22), especially line 14.",
+    "145": "See *Shemona Peraqim*, 7, in Maimonides, *Pirush ha-Mishnayot* 4:394.",
+    "146": "See Maimonides, *Guide*, sec. 2, chap. 45, pp. 282 (line 25)–85 (line 3). See R. David Qamḥi, *Pirush Sefer Tehillim*, ed. A. Darom (Jerusalem: Mossad Harav Kook, n.d.), Introduction. Thus, the books contained in the Hagiographa are not canonically “read” in the liturgical services; see Faur, *Golden Doves*, 85.",
+    "147": "Maimonides, *Guide*, Introduction, p. 4 (lines 4–5).",
+    "148": "Ibid., sec. 2, chap. 45, pp. 285 (line 5)–86 (line 18).",
+    "149": "*Sanhedrin* 94a. Accordingly, Raba declared that Daniel had erred in his computation of the rebuilding of the Temple; see *Megilla* 12a—prophets are not susceptible to error in their prophetic message; see *Shulḥan Kesef*, 145. Jewish commentators in Christian lands dismissed rabbinic tradition and adopted the Christian doctrine that Daniel was indeed a prophet; see, for example, R. Isaac Abarbanel’s commentary to the *Guide* ad loc.; and the discussion of R. Samuel Valero, *Ḥazon la-Mo‘ed* (Venice, 5346/1586), Introduction, 2b–4b. The book of Daniel was extensively used by Christian exegetes for Christological purposes, and, therefore, it had to be regarded as prophetic. There was no such need in Judaism. Rather, this is another instance of Christian influence on medieval Jewish thought. On this type of influence see Faur, *In the Shadow of History*, chap. 1."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated and verified against page_074.png, page_215.png, page_216.png"
+  ]
+}

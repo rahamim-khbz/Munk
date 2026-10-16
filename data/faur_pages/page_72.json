@@ -1,0 +1,52 @@
+{
+  "page_id": "72",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 44,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_072.png",
+  "note_pages": [
+    "215"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_215.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p72_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "the ‘essential’ (the function of the wings thereon) from the ‘particular’ (eagle, butterfly) and ‘incidental’—(feathers, since some insects fly). Whereas individuals following ‘sense → imagination → reason’ proceed to fly by putting on wings and jumping from a tall building, those who follow ‘sense → reason → imagination’ first discover the universal principle of aerodynamics, then determine the essential elements required to realize that principle, and finally proceed to design an airplane. Creative thinking not only requires *reason*—the accurate decoding of natural phenomena—but also *imagination*—the ability to associate hitherto disconnected elements by discovering the link that would effectively transform them into a new entity. In this manner a creative thinker, like the righteous in rabbinic literature, becomes “a partner in the creation of the world.”[^125] This follows a general principle formulated by R. ‘Aqiba whereby “the acts of humans,” that is, artificiality, “excel the acts of God.”[^126]"
+    },
+    {
+      "block_id": "p72_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Reason alone is static and unproductive. The *aletheia* (truth) of the philosopher is contemplative. It is a kind of verbal *mimesis* of nature and, therefore, incapable of providing humankind with effective direction.[^127] Indeed, pagan humanity and civilization have been guided by imagination, not philosophy. But imagination alone is deceiving and destructive. To be creative and nondestructive reason and imagination must complement one another. The epistemology of creativity and the prophetic mind involves three separate steps:[^128] the development of the rational faculty, the development of the imaginative faculty, and the conjunction of both of them thereby generating a new form of cognition. The cognition that emerges from this conjunction is not reducible to the sum of its parts. Thus, Maimonides’s seminal distinction between ordinary rationality, operating without the aid of imagination, and the rationality emerging from the conjunction reason → imagination.[^129] At this level of cognition, the mind bypasses standard epistemological procedures and knows by means transcending ordinary rationality."
+    },
+    {
+      "block_id": "p72_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The prophet is *intellectually* superior to the philosopher because he has fully developed both his rational and imaginative faculties and learned how to link them:"
+    },
+    {
+      "block_id": "p72_b4",
+      "type": "blockquote",
+      "markdown": "[T]his intellectual flow, if flowing solely on the cognitive faculty, spilling nothing from it onto the imaginative faculty either because the flowing substance is scanty or [the person] cannot receive the flow of reason because of some impediment in"
+    }
+  ],
+  "footnotes": {
+    "125": "See *Shabbat* 10a, 119b.",
+    "126": "See *Baba Batra* 10a; *Sanhedrin* 65b; *Midrash Tanḥuma*, ed. Solomon Buber, 2 vol. (Vilna, 5645/1885); *Tazria‘* 7, 2:18. Cf. Faur, *Golden Doves*, xxii–xiv.",
+    "127": "See Faur, *Golden Doves*, 28. Therefore the philosopher is an ineffectual leader; see below, p. 165.",
+    "128": "The affinity between the phenomenology of creativity and the mystical experience was noted by Neumann, “Mystical Man,” 377.",
+    "129": "Cf. R. David Qamḥi’s commentary *Nebi’im Aḥaronim* on Jer 23:28."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_072.png and notes scan page_215.png; set continues_from_prev_page: true (continuing from page 71); segmented into 4 blocks (p72_b1 continuation paragraph, p72_b2 indented paragraph, p72_b3 indented intro paragraph, p72_b4 blockquote); healed mid-line hyphenations (indi-viduals -> individuals, rea-son -> reason, sepa-rate -> separate, distinc-tion -> distinction, proce-dures -> procedures, can-not -> cannot); healed OCR errors ('episterology' -> 'epistemology', 'Maironides's' -> 'Maimonides’s', '(T)his' -> '[T]his'); verified arrow typography (→); restored italics (*reason*, *imagination*, *aletheia*, *mimesis*, *intellectually*); recovered footnote callouts [^125]–[^129]; transcribed and verified footnotes 125–129 from note page 215; updated note_pages to [\"215\"] and note_scan_images to [\"data/faur_scans/page_215.png\"]; verified ends_with_hyphen: false; set status: visual_verified."
+  ]
+}
