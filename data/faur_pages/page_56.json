@@ -1,0 +1,52 @@
+{
+  "page_id": "56",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 36,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_056.png",
+  "note_pages": [
+    "209"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_209.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p56_b1",
+      "type": "heading",
+      "level": 3,
+      "markdown": "APOPHASIS AND IMAGINATION"
+    },
+    {
+      "block_id": "p56_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "To be meaningful negative knowledge must presuppose the *possibility* of gaining some positive notion of the subject at hand. Maimonides’s illustration, that through a series of descriptions of what a boat is not it may be possible to come close to the idea of what a boat is,[^25] may be applicable to matters that fall within the perimeters of human epistemology, not to God. Furthermore, negative knowledge is effective only a posteriori: after gaining a positive knowledge of what a boat is, it would be possible to determine that such a negative description did, in fact, correspond to the actual boat. This process could not apply a priori. Unless one had some prior knowledge that a given vegetable is a banana, its identity could not be determined just by knowing that it is none of the recognizable fruits. More precisely, because God’s beingness is hierarchically superior and categorically different than anything else, whatever positive attributes are negated of Him belong to a different genus. Therefore, it would be like negating that a banana has hair and other characteristics peculiar to mammals. Such negative information could not contribute to a meaningful understanding of the object at hand. Similarly, since God transcends the boundaries of human understanding, negative knowledge could not render Him epistemologically knowable.[^26]"
+    },
+    {
+      "block_id": "p56_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Apophatic knowledge is structurally connected with the Maimonidean theory of imagination. Imagination is incapable of matching the real, ontological world. The ‘proofs’ (*burhan*) designed to bring about apophatic knowledge serve to counteract the effects of imagination, thus, the doctrine “that prophecy cannot descend but upon a sage who is eminent in wisdom.”[^27] Maimonides opposed the application of positive attributes to God because these attributes are the figments of human imagination. There is nothing, outside human fantasy, corresponding to such a ‘God’. People indulging in positive attributes have nothing in their faith except empty words: “But one who applies an attribute to Him knows nothing except an empty word. The thing that he had imagined that this name applies to, however, is a subject that does not exist—a fraudulent illusion. It is as if he had applied that name to a nonexisting subject because there is nothing in reality resembling it.”[^28]"
+    },
+    {
+      "block_id": "p56_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The situation may be compared to someone who imagines that an elephant is a three-winged beast with a single leg and a transparent body that inhabits the depths of the ocean, that swims like a fish, flies like a bird, and speaks like a man. Obviously, this is nothing but “a design of the imagination"
+    }
+  ],
+  "footnotes": {
+    "25": "See Maimonides, *Guide*, sec. 1, chap. 60.",
+    "26": "See ibid., chap. 58.",
+    "27": "Maimonides, *Mishne Tora*, *Yesode ha-Tora* 7:1.",
+    "28": "Maimonides, *Guide*, sec. 1, chap. 60, p. 99 (lines 25–28)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_056.png and note scan page_209.png (NOTES TO PAGES 54–58); set continues_from_prev_page: false with section heading 'APOPHASIS AND IMAGINATION'; split blocks into heading p56_b1 and three distinct paragraphs p56_b2, p56_b3, and p56_b4; healed mid-line hyphenations (illus-tration -> illustration, any-thing -> anything, dif-ferent -> different, Simi-larly -> Similarly, nega-tive -> negative, onto-logical -> ontological, knowl-edge -> knowledge, out-side -> outside, posi-tive -> positive, nonex-isting -> nonexisting, ele-phant -> elephant); restored italics (*possibility*, *burhan*); recovered footnote callouts [^25], [^26], [^27], [^28]; transcribed and verified footnotes 25–28 from note page 209; confirmed ends_with_hyphen: false terminating cleanly with 'imagination'."
+  ]
+}

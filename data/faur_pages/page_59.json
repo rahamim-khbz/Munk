@@ -1,0 +1,46 @@
+{
+  "page_id": "59",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 37,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_059.png",
+  "note_pages": [
+    "210"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_210.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p59_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "mental discourse standing at the basis of the political, social, religious, and artistic activities of pagan humanity: it is the method by which gentile civilization unfolds.[^44] It constitutes a pathological retrogression from Adam’s ability to reason. Before sinning, Adam was endowed with the ability to reason—a radically different mental process than imagination. At that stage human language consisted of names (Gn 2:20); it was capable of predication (see Gn 2:23), and it excluded the syntactical apparatus enabling transference of meaning. Adam’s sin consisted in suppressing this mental process in favor of imagination. Maimonides called attention to the Hebrew term for snake, *naḥash*—a term that, as the commentators noted, means also ‘divination’.[^45] This leads directly into the Vichian concept of ‘divination/divine’.[^46] R. Isaac Abarbanel (1437–1508) incorporated this radical idea in his commentary on Genesis (3:22). Imagination is connected with divination and transference of meaning:"
+    },
+    {
+      "block_id": "p59_b2",
+      "type": "blockquote",
+      "markdown": "“And the snake was more cunning than all the animals of the field” (Gn 3:10). It means that Adam’s imaginative faculty was more crafty than the imaginative faculty of all the other animals of the field. Because human imagination is capable of making syllogisms and arguments appearing to be true [transference of meaning]—something that the imagination of other animals cannot do. . . . The snake was regarded by them [the rabbis] as [symbolic] of the imaginative faculty because it [the imagination], which is peculiar to diviners [*menaḥashim*], leads to corruption."
+    },
+    {
+      "block_id": "p59_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Divination is not only the most primitive form of religion but, more importantly, represents transference of meaning whereby a given phenomenon or object is associated with a specific augury and is perceived, not as it is per se, but “as” something else. This is common in schizophrenics. It is also present in the thought development of a child, as when a child plays with a stick and calls it a horse.[^47] Borrowing from Eliade, in this realm, things undergo an “imaginative transfiguration” and are perceived in terms transcending sensory perception.[^48] In modern philosophy ‘seeing as’ was discussed by Wittgenstein. Invariably, the *as* is not part of the object itself but is projected onto the object by the viewer. Mythological discourse involves a fundamental process of transformation and displacement: through reflexive associations the object per se is displaced and perceived “as” something"
+    }
+  ],
+  "footnotes": {
+    "44": "See below, p. 62ff.",
+    "45": "The connection between “snake/ divination/ imagination” was made by the standard commentators in the Hebrew version of the *Guide*, *More ha-Nebukhim*; see Rabbis Shem Ṭob and Efodi on Maimonides, *Guide*, sec. 2, chap. 30.",
+    "46": "Vico, *New Science*, no. 398, p. 125.",
+    "47": "See J. S. Kasanin, “Disturbance of Conceptual Thinking in Schizophrenia,” in *Language and Thought in Schizophrenia*, ed. J. S. Kasanin (Berkeley and Los Angeles: Univ. of California Press, 1944), 41–42.",
+    "48": "See Eliade, *Myth and Reality*, 156. Accordingly, ugly and corpulent women are perceived by the travelers to “paradisiacal islands” as perfect beauties; see idem, *Images and Symbols*, 12."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_059.png and note scan page_210.png (NOTES TO PAGES 58–61); set continues_from_prev_page: true with indent: continuation for block p59_b1 continuing sentence from page 58; identified blockquote p59_b2 and indented paragraph p59_b3; healed mid-line hyphenations (civi-lization -> civilization, abil-ity -> ability, lan-guage -> language, imagina-tion -> imagination, ani-mals -> animals, trans-ference -> transference, phenom-enon -> phenomenon, tran-scending -> transcending, dis-cussed -> discussed, reflex-ive -> reflexive); restored transliterations, diacritics, and italics (*naḥash*, *menaḥashim*, *as*, *Guide*, *More ha-Nebukhim*, Shem Ṭob, *New Science*, *Language and Thought in Schizophrenia*, *Myth and Reality*, *Images and Symbols*); recovered footnote callouts [^44]–[^48]; transcribed and verified footnotes 44–48 from note page 210; confirmed ends_with_hyphen: false terminating with 'something'."
+  ]
+}

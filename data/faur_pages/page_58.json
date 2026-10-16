@@ -1,0 +1,63 @@
+{
+  "page_id": "58",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 37,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_058.png",
+  "note_pages": [
+    "209",
+    "210"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_209.png",
+    "data/faur_scans/page_210.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p58_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "or following a belief [*i‘tiqād*] that he received as a tradition [*qallad*] from someone else, he is not only outside the [divine] abode and far from it, but in my opinion, he is not truly mentioning God or thinking of Him because the term in his imagination that he is articulating verbally does not correspond to anything in existence. It is an illusion fabricated by his imagination as we have explained when discussing the attributes [of God].[^37]"
+    },
+    {
+      "block_id": "p58_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Second, since the young and the general public (*al-jamhur*) inhabit the realm of imagination, special care is required not to say something that could prompt them to understand something contrary to our intention. Because, “to them, anything that is not a body or is not found in a body does not exist,”[^38] to refer to God in pure abstract terms is tantamount to a denial of His existence. Therefore, when addressing the public, it is important to formulate the basic doctrines and beliefs in terms that will not give rise to misinterpretation and confusion. Commenting on the rabbinic doctrine, “The Tora speaks in the language of man,” Maimonides explained that this doctrine comes to instruct that when formulating religious tenets, “the popular imagination” (*al-khayal al-jamhuri*) must be taken into account.[^39] It is incumbent upon all “the people of religion” not to say something that the imagination (*tukhayal*) of the public would interpret to mean the opposite of what was intended.[^40] Equal caution must be exercised when instructing complex subjects to the uninitiated student.[^41] Because the key-symbols that give cohesion to the general public are grounded on imagination,[^42] the public is unable to think in terms of reason and will remain totally blind throughout its earthly existence. Consequently, “the truth in its totality is concealed from them, notwithstanding the potency of its radiance, as it was said concerning them, ‘And now they have not seen the light, shining brightly in the firmaments’ (Jb 37:21). These are the general public [*al-jamhur*].”[^43]"
+    },
+    {
+      "block_id": "p58_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Imagination is a veil shrouding human rationality. Apophatic knowledge does not, cannot, generate understanding of God. Its purpose is to puncture imagination and to let the light come in, thus, allowing humans to be rational."
+    },
+    {
+      "block_id": "p58_b4",
+      "type": "heading",
+      "level": 3,
+      "markdown": "TRANSFERENCE OF MEANING"
+    },
+    {
+      "block_id": "p58_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In the Maimonidean economy of ideas imagination is not a “concept” to be analyzed by a “rational” methodology but is itself an independent"
+    }
+  ],
+  "footnotes": {
+    "37": "Maimonides, *Guide*, sec. 3, chap. 51, p. 456 (lines 19–24); cf. ibid., chap. 23, p. 357 (lines 5–19).",
+    "38": "Ibid., sec. 1, chap. 26, p. 37 (line 24).",
+    "39": "Ibid., p. 38 (lines 8–9); cf. ibid., Introduction, p. 12 (line 11).",
+    "40": "Maimonides, *Guide*, sec. 1, chap. 17, p. 29 (lines 15–17).",
+    "41": "This is the cause for the fifth type of contradictions; see *Guide*, Introduction, p. 11 (lines 19–26). Cf. above, p. 198 n. 95.",
+    "42": "On the function of key-symbols see Faur, *Golden Doves*, 2–4.",
+    "43": "Maimonides, *Guide*, Introduction, p. 4 (lines 9–12)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_058.png and note scans page_209.png and page_210.png (NOTES TO PAGES 54–58, 58–61); set continues_from_prev_page: true with indent: continuation for block p58_b1 continuing sentence from page 57; split blocks into distinct paragraphs p58_b1, p58_b2, p58_b3, heading p58_b4, and paragraph p58_b5; healed mid-line hyphenations (qal-lad -> qallad, for-mulate -> formulate, mis-interpretation -> misinterpretation, doc-trine -> doctrine, incum-bent -> incumbent, imagi-nation -> imagination, cohe-sion -> cohesion, concern-ing -> concerning, fir-maments -> firmaments, con-cept -> concept); restored transliterations and italics (*i‘tiqād*, *qallad*, *al-jamhur*, *al-khayal al-jamhuri*, *tukhayal*, *Guide*, *Golden Doves*); recovered footnote callouts [^37]–[^43]; transcribed and verified footnotes 37–43 from note pages 209 and 210; confirmed ends_with_hyphen: false terminating with 'independent'."
+  ]
+}

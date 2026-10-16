@@ -1,0 +1,55 @@
+{
+  "page_id": "57",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 36,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_057.png",
+  "note_pages": [
+    "209"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_209.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p57_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "to which was applied the name of something that does exist.”[^29] Although there is such a thing as an elephant, the “elephant” “that he imagined having those attributes is a fraudulent illusion. Nothing in reality corresponds to it. It is a nonexisting thing to which was applied the name of something that does exist.”[^30] The passion and devotion felt for such a deity has nothing to do with scriptural love. As noted by Judah Abarbanel in a different context, to be real, love must have an actual object outside imagination. Thus, a love “inasmuch as it exists in our imagination” alone is fictitious “for it lacks a real object.”[^31]"
+    },
+    {
+      "block_id": "p57_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Imagination involves human projection. When applied to God it tells us what *we* “regard as perfection.”[^32] Maimonides defined ‘faith’ (*i‘tiqad*) as a belief that matches an outer reality, independent of ourselves.[^33] The terms of imagination are projections having nothing to do with God but with the human psyche. As a creation of the imagination, positive attributes are not only intrinsically false but they displace God from the mind of the believer: “I am not [merely] saying that one who applies positive attributes to God has a faulty perception or that he is associating [God with something else] or that his perception is different than what He is, but I am saying that he, without being aware, has dislodged God from his faith [*i‘tiqadahu*].”[^34]"
+    },
+    {
+      "block_id": "p57_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The semantic connotations of people void of rationality are the result of imagination. There are two consequences to this fact. First, unless the semantic connotation of an article of faith is intellectually meaningful—and, in fact, corresponds to an outer reality independent from people—it will be altered by the imagination of the believer. Although creeds accepted on the basis of ‘tradition’ (*taqlid*) are valuable at the early stages of human development,[^35] they are meaningless when internalized on the basis of ‘tradition’ (*taqlid*) alone, regardless of their intrinsic merits. Invariably, the faithful would be interpreting them in terms of their own imaginations. It would be like one admitting that there are “elephants” but insisting that they look like the three winged-beast described above: the same name is applied to two things with no real affinity between them.[^36] Maimonides classified those who base their beliefs on ‘tradition’ (*taqlid*) together with those who base their ‘faith’ (*i‘tiqad*) on imagination. In either case the object of faith is internalized in terms of human fantasy. When discussing the people outside the city of the royal palace, representing God’s abode, Maimonides remarked:"
+    },
+    {
+      "block_id": "p57_b4",
+      "type": "blockquote",
+      "markdown": "One who is always thinking about God and mentions Him repeatedly without knowledge, following only his imagination"
+    }
+  ],
+  "footnotes": {
+    "29": "Ibid., p. 100 (lines 7–8).",
+    "30": "Ibid., (lines 4–6).",
+    "31": "Leone Ebreo, *Dialoghi d’amore* [1], 10. This subject was developed by Miguel de Cervantes, *Don Quijote*, ed. Fernandez de Avel (Madrid: Espasa-Calpe, 1984) I, 7, one of many chapters with anti-Christian subtexts.",
+    "32": "Maimonides, *Guide*, sec. 1, chap. 59, p. 97 (line 19); cf. chaps. 26, 51; and sources indicated above, p. 206 n. 171.",
+    "33": "Maimonides, *Guide*, sec. 1, chap. 50.",
+    "34": "Ibid., chap. 60, p. 99 (lines 10–12). As noted by Maimonides (ibid., lines 5–6), it would be improper “to refer to God with positive attributes, to exalt Him in your fancy.”",
+    "35": "See ibid., chap. 36, p. 57 (line 22); chap. 72, p. 134 (lines 16–20); sec. 3, chap. 51, p. 455 (lines 21–23).",
+    "36": "On this phenomenon in human psychology see Silvano Arieti, *Creativity the Magic Synthesis* (New York: Basic Books, 1976), 107."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_057.png and note scan page_209.png (NOTES TO PAGES 54–58); set continues_from_prev_page: true with indent: continuation for block p57_b1 continuing sentence from page 56; split blocks into continuation paragraph p57_b1, indented paragraphs p57_b2 and p57_b3, and extract blockquote p57_b4; healed mid-line hyphenations (‘tra-dition’ -> ‘tradition’, faith-ful -> faithful); restored transliterations and italics (*we*, *i‘tiqad*, *i‘tiqadahu*, *taqlid*, *Dialoghi d’amore*, *Don Quijote*, *Guide*, *Creativity the Magic Synthesis*); recovered footnote callouts [^29]–[^36]; transcribed and verified footnotes 29–36 from note page 209; confirmed ends_with_hyphen: false terminating with 'imagination'."
+  ]
+}
