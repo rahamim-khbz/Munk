@@ -1,0 +1,46 @@
+{
+  "page_id": "50",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 33,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_050.png",
+  "note_pages": [
+    "207"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_207.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p50_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "story, “The Garden of Forking Paths,” Maimonides was simultaneously writing a book and constructing a maze. Only the student/reader worthy of being initiated into the “secrets of the Prophetic writings” would make the right choices, find his way out of the network of labyrinths, and “exit in peace.” An effect of this technique is that the apophatic experience of the student/reader will be absolutely unique and absolutely subjective."
+    },
+    {
+      "block_id": "p50_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The teacher is not an intermediary shaping, affecting, and controlling the perception of the student/reader. His task is to guide by insinuation rather than by imparting authoritative, objective knowledge. In the language of Maimonides such a teacher functions as a *dalala*, a ‘signpost’ pointing externally. It results in bifurcation: by giving direction the *dalala* branches the path into two. Because in such a situation the truth could be linked with either of the two paths, it appears casual. Thus, a signpost generates, simultaneously, direction and *ḥa’ira* (perplexity).[^197]"
+    },
+    {
+      "block_id": "p50_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The source of Maimonides’s signpost pointing externally to the truth is rabbinic. It has been noted that the Rabbinic Angel Meṭaṭron, prominent among the celestial beings, derives his name from *meṭaṭor*, a Latin loanword that in rabbinic literature stands for a ‘signpost’, or a ‘guide’, ‘scout’, “pointing at the way.”[^198] The specific function of this angel is to herald God’s presence. In a dialogue with a heretic, believing in the Gnostic doctrine of “two authorities,” a rabbi taught that the name of this angel “is like the name of His master.” It means that because his presence announces the presence of God, he is addressed as if he were God. In linguistic terms it means that the angel functions as the *signifier*, not the *signified*. In Maimonidean terminology it is the ‘knowledge’ preceding the ‘un-knowledge’, or the ‘light’ preceding the ‘darkness’ of the spinning sword.[^199] At the existential level the individual must not confuse the angel with God. This is why the esoteric experience involves a first act of nonseeing, of refusing to accept the initial stage of the esoteric experience as revelatory of God, like Moses, who initially “hid his face because he was afraid to glance at the Lord” (Ex 3:6). It was in compensation for this initial act of nonseeing, the rabbis taught, that Moses eventually perceived God (see Nm 12:8).[^200] Linguistically, one addresses oneself to the *person* to whom one says *you* rather than to the grammatical *pronoun you*. Similarly, the object of one’s address is God himself, not the angel. Only in this fashion the angel does not displace God. As the rabbi explained to the heretic, one is cautioned not to “worship him” or “substitute him” (the angel) for God. Because unlike the inferior deity of the Gnostics this angel has no authority"
+    }
+  ],
+  "footnotes": {
+    "197": "See Faur, *Golden Doves*, 75–76.",
+    "198": "See R. Nathan bar Yeḥiel, *‘Arukh-Aruch Completum*, ed. Alexander Kohut, 8 vols. (Vienna: Menora, 1926), vol. 5, s.v. *miṭaṭor* p. 110 ff. For a discussion of this term see Saul Lieberman, “Metatron, the Meaning of His Name and His Functions,” in *Apocalyptic and Medieval Mysticism* by I. Gruenwald (Leiden: Brill, 1980), 235–41.",
+    "199": "See Faur, *Golden Doves*, xix, 72–73. Thus, God’s light comes from His stole, which He uses to *cover* Himself; see *Bereshit Rabba* 3, 4, vol. 1, p. 20.",
+    "200": "See below, p. 77."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visually rehabilitated against 300 DPI scan page_050.png and notes scan page_207.png; recovered mangled callouts [^197]–[^200], restored missing sentence at bottom of page, verified italics, transliterations, and footnotes."
+  ]
+}

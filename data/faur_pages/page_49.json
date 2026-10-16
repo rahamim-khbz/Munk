@@ -1,0 +1,35 @@
+{
+  "page_id": "49",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 32,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_049.png",
+  "note_pages": [
+    "207"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_207.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p49_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "tering” of the material concerns the literary style and structure of the *Guide*. Maimonides could have chosen one of two styles: an expository style, without a dialogue, like the philosophical work of Se‘adya Ga’on (882–942), or a dialogic form in which he converses with a partner, like the philosophical works of Solomon ibn Gabirol (ca. 1020–ca. 1057) and Judah ha-Levi (ca. 1075–1141). Instead, he developed a special type of expository technique. At the surface the *Guide* contains no dialogues. At the subtextual level, however, a sustained dialogue is initiated not by Maimonides but by a student in search of “the secrets of the Prophetic writings,” a student representing the reader for whom the *Guide* was written. Maimonides, a teacher limited by the constraints of the Law and the nature of the subject, is a partner responding to the student/reader. The principal task of the teacher is to develop a technique of indirect communication. The technique is closely related to another aspect of *nathara*. The form *nathrī* means both ‘prosaic’ and ‘small fragment’. Maimonides’s technique consisted in the *nathr* (scattering) of *nuthar* (small tiny fragments). Essential for the understanding of this technique is the distinction between formal and casual, indirect teaching. As mentioned, although the teacher is restricted from transmitting (*mosrin*) formally esoteric material, he may, at his discretion, casually enlighten a student on esoteric matters.[^192] As Maimonides wrote to his student, when the occasion arose, he ‘unsheathed’ (*alwaḥ*) and ‘insinuated’ (*ashir*) to him some of the esoteric teachings in the Scripture.[^193] “Whenever we met, and a Scriptural passage or a statement of the rabbis was mentioned, insinuating some unusual concepts, I never refrained from explaining it to you.” Similarly, responding to an inquiry, Hayye Ga’on ascertained that he did not learn about the divine names through tradition, but “casually.”[^194] Maimonides, however, wanted the student [eventually] to “comprehend the truth methodically, not casually.” The system of indirect or casual communication leads into the concept of parergon, or ornamentation of the text.[^195] In the *Guide* the function of the parergon is exactly the opposite of that described by Kant. Rather than to expose and to enhance the object that it contains, in the *Guide* the function of the parergon is to conceal the tiny fragments containing the headings of the chapters and to make them appear casual. In turn, because these fragments are scattered in a(n apparently) disorderly fashion, they, too, function as the parergon of the parergon.[^196] It would be the task of the student/reader to determine what is ornamental and what is substantive in the *Guide*, or what is the light and what is the darkness concealing the light. As with the Chinese nobleman in Borges’s"
+    }
+  ],
+  "footnotes": {
+    "192": "See above, pp. 25–26 n. 38.",
+    "193": "The same technique was used by the rabbis; see Maimonides, *Guide*, sec. 2, chap. 29, p. 244 (lines 7–8).",
+    "194": "*Oṣar ha-Ge’onim*, *Ḥagiga*, 23. See above, p. 196 n. 58; and Maimonides, *Guide*, sec. 2, chap. 29, p. 244 (lines 7–11).",
+    "195": "On this fundamental concept see Faur, *Golden Doves*, xxvii–xxviii, 216.",
+    "196": "The same technique was used by the rabbis; see above, n. 193."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visual verification against 300 DPI scan page_049.png and note scan page_207.png (NOTES TO PAGES 48–51); set continues_from_prev_page: true and indent: continuation for block p49_b1 continuing mid-word 'scat-tering' from page 48; healed mid-line hyphenations (with-out -> without, con-straints -> constraints, frag-ments -> fragments, tra-dition -> tradition, eventu-ally -> eventually, orna-mentation -> ornamentation); corrected OCR corruptions ('in Gabirol' -> 'ibn Gabirol', 'Oșar' -> 'Oṣar', 'Hagiga' -> 'Ḥagiga'); restored italics (*Guide*, *nathara*, *nathrī*, *nathr*, *nuthar*, *mosrin*, *alwaḥ*, *ashir*, *Oṣar ha-Ge’onim*, *Ḥagiga*, *Golden Doves*); recovered footnote callouts [^192]–[^196]; transcribed and verified footnotes 192–196 from note page 207; set ends_with_hyphen: false terminating cleanly at 'Borges’s'."
+  ]
+}

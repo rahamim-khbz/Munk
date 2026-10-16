@@ -1,0 +1,66 @@
+{
+  "page_id": "48",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 32,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_048.png",
+  "note_pages": [
+    "206",
+    "207"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_206.png",
+    "data/faur_scans/page_207.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p48_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "book)[^187] but with *waḍa‘a* (to fashion, to author). This term also means ‘to give birth’. Therefore, the absence of the student was not only a stimulus but a condition sine qua non for composing the *Guide* to him."
+    },
+    {
+      "block_id": "p48_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The *Guide* is “made” into “scattered (*manthūra*) chapters” that will “reach you one by one wherever you are.” Maimonides explained that the “headings of chapters” or basic doctrines contained in the *Guide* are neither “in order nor in succession but mingled and combined” with other matters requiring explanation.[^188] Thereby, he was assuring the student and the attentive reader as well that eventually, after a period of maturation, the subtextual order of the *Guide* would “reach” him “one by one” regardless of time and place. Maimonides does not say that the chapters will be sent to the student but that they will “reach” him in due course. A similar point is made later. Addressing the attentive reader, he counsels:"
+    },
+    {
+      "block_id": "p48_b3",
+      "type": "blockquote",
+      "markdown": "If you want to attain all that is enclosed [in this work] so that nothing escapes you, apply each chapter on one another. Your aim should not merely be understanding the general significance of a chapter but grasping each word that is mentioned in the development of theme although it does not pertain to the subject of the chapter. Because in this work words are not used haphazardly but with much discrimination, high precision, and care from flaw, in the exposition of a problem. Nothing in it is said out of place but to explain some subject in its place.[^189]"
+    },
+    {
+      "block_id": "p48_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Proper decoding of the *Guide* requires arduous investigation and careful analysis. The reader should not expect immediate results. In the end, however, the *Guide* will elucidate the most difficult problems of the Law. Maimonides continues: “Do not pursue it with your presumptions because you would be hurting me and not benefit yourself.[^190] But you must [first] study whatever you need to study, reflect always on it, and it will explain to you the greatest problems of the Law facing every rational person.”[^191]"
+    },
+    {
+      "block_id": "p48_b5",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE GUIDE IN FUNCTION OF MEṬAṬRON"
+    },
+    {
+      "block_id": "p48_b6",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There are other aspects to the term *manthūra* (scattered) essential for a proper understanding of the *Guide*. The root *nathara*, also means ‘to write in prose’. The form *nathr* not only means ‘prose’ but ‘style’. Accordingly, the “scat-"
+    }
+  ],
+  "footnotes": {
+    "187": "See ibid., sec. 3, Introduction, p. 298 (line 6).",
+    "188": "Ibid., Introduction, p. 3 (lines 12–14).",
+    "189": "Ibid., p. 9 (line 26)–10 (line 2).",
+    "190": "My son, R. Abraham Faur, pointed out to me that the source for this idea is the story with Minyamin Sasqana’a in *Nidda* 65a.",
+    "191": "Maimonides, *Guide*, Introduction, p. 10 (lines 2–4)."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visual verification against 300 DPI scan page_048.png, note scan page_206.png (NOTES TO PAGES 44–48), and note scan page_207.png (NOTES TO PAGES 48–51); set continues_from_prev_page: true and indent: continuation for block p48_b1 continuing mid-sentence from page 47; structured page into 4 paragraphs, 1 blockquote, and 1 level-3 heading; healed mid-line hyphenations (signifi-cance -> significance, how-ever -> however, Mai-monides -> Maimonides); restored italics (*waḍa‘a*, *Guide*, *manthūra*, *nathara*, *nathr*); corrected OCR corruption in heading (MEȚAȚRON -> MEṬAṬRON); recovered footnote callouts [^187]–[^191]; transcribed and verified footnotes 187 from note page 206 and 188–191 from note page 207; set ends_with_hyphen: true for 'scat-' hyphenated across page boundary."
+  ]
+}

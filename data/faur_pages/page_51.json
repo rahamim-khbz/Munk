@@ -1,0 +1,47 @@
+{
+  "page_id": "51",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 33,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_051.png",
+  "note_pages": [
+    "207"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_207.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p51_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "of its own, it cannot forgive the sins of Israel. “There is a firmly established creed in our hands,” continued the rabbi, “that it would not be accepted even as a letter carrier [another version: as an intermediary] [of God].”[^201]"
+    },
+    {
+      "block_id": "p51_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The preceding dialogue illustrates Elisha ben Abuya’s predicament. The Talmud relates that in his esoteric vision Elisha saw Angel Meṭaṭron “seating and registering the merits of Israel.” In rabbinic Hebrew ‘seating’ implies authority. Since no one may ‘seat’ in heaven except God, Elisha concluded that Meṭaṭron must be the deity whom the Gnostics claimed has revealed the Tora to Israel and administers their affairs.[^202] His error consisted in mistaking the signifier for the signified, or, in the language of the rabbis, the herald for the king. This is why, when Elisha heard a “heavenly voice, coming from behind the veil” announcing that he could not repent, he believed it to be irrevocable.[^203] Within this context the following story is highly instructive. R. Sheshat (third and fourth centuries), who was blind, went to a parade honoring the king. A heretic made fun of him. “I could discern more than you,” responded the rabbi. When the first battalion marched, there was a tumult. The heretic exclaimned “The king has arrived!” “The king has not arrived!” replied R. Sheshat. The same was repeated when the second battalion marched. Again, R. Sheshat replied, “The king has not arrived!” Finally, when the third battalion marched, there was silence. R. Sheshat told the heretic, “Surely, the king has arrived!” When asked how he knew, he responded, “The earthly kingdom is like the heavenly kingdom.” He then illustrated his point from God’s revelation to Elijah. The wind, the sound, and the fire were only the heralds of God; His presence was not revealed in them but in the “silent voice” (1Kgs 19:12).[^204] R. Sheshat was alluding to the controversy with the Gnostic mentioned before, concerning the distinction between the heavenly herald and God. A similar point had been made by R. Johanan on the basis of the same verse.[^205]"
+    },
+    {
+      "block_id": "p51_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Entering into the realm of the esoteric means having to differentiate between the herald and the king, or the parergon and the object of the parergon. The choice will have lasting consequences. The rabbis tell that the students came to visit R. Johanan ben Zakkai, the great master of esoteric knowledge, at his deathbed. When he saw them, he began to cry. Responding to their query, he explained that he was about to face his Maker, and his destiny would be irrevocably determined for all eternity, adding: “Furthermore, two paths lie before me, one toward the Garden of Eden and the other toward Hell, and I do not know through which one I will be taken. And I"
+    }
+  ],
+  "footnotes": {
+    "201": "*Sanhedrin* 38b. The first explanation reads *ke-farvanqa* ‘as a letter carrier’; the second explanation reads *be-farvanqa* ‘with an epistle’, that is, with an official credential attesting to his mission. There is a fine discussion of this passage in Herford, *Christianity in Talmud and Midrash*, 285–90.",
+    "202": "*Ḥagiga* 15a.",
+    "203": "See ibid., 16a–b. For some valuable remarks on the Talmudic story of Elisha, see R. Travers Herford, “Elisha ben Abujah,” In *Essays in Honour of the Very Rev. Dr. J. Hertz* (London: Edward Goldston, ca. 1942), 215–25.",
+    "204": "*Berakhot* 58a. Concerning the “silent voice,” R. Levi ben Gereshom (1288–1344) explained, “It is a voice composed of sound and silence.” See his commentary ad loc., the Aramaic version of Jonathan ben ‘Uzziel, and Jb 4:16. This is exactly how the rabbis interpreted the term *ḥashmal* (Ez 1:4); see *Ḥagiga* 13b; R. Ḥanan’el ad loc.; and Maimonides, *Guide*, sec. 3, chap. 7, p. 309 (lines 3–4).",
+    "205": "*Ḥagiga* 16a. For an interpretation of this passage see Faur, *Golden Doves*, 83. R. Sheshat had access to the teachings of R. Johanan via R. Amme; see *Oṣar ha-Ge’onim*, *Ketubot*, (*Ha-Teshubot*), 56."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visually rehabilitated against 300 DPI scan page_051.png and notes scan page_207.png; recovered mangled callouts [^201]–[^205], split paragraphs, fixed OCR error 'Pinally' to 'Finally' and 'esciny' to 'destiny', restored omitted text regarding the two paths to Eden and Hell, verified italics, transliterations, and footnotes."
+  ]
+}
