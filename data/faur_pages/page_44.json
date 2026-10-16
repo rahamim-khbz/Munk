@@ -1,0 +1,53 @@
+{
+  "page_id": "44",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 30,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_044.png",
+  "note_pages": [
+    "206"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_206.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p44_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Concerning this situation the Mishna warned, “Whoever does not care for the honor of his Maker, better for him not to have come to the world.”[^165] According to Maimonides, this is the opposite of a sage, such as R. Eleazar ben ‘Arakh, “who knows how to understand and expound on the Glory of his Father in Heaven.”[^166] Referring to Elisha ben Abuya, who blundered because he had trespassed the limits of his understanding, Maimonides commented: “It alludes to our explanation, that a man should not charge to speculate with his corrupt imagination. If any misgivings should arise or if a subject is not clear to him, he should not reject it, discard it, and hasten to deny it, but he should be calm ‘and care for the honor of his Maker.’ He should be fearful and stop.”[^167] This doctrine was expounded by Rab (second and third centuries). Referring to the above-mentioned Mishna, he applied the following verse:"
+    },
+    {
+      "block_id": "p44_b2",
+      "type": "blockquote",
+      "markdown": "“Let the lips of falsehood be mute (which express heinously against the righteous, in pride and scorn)” (Ps 31:19). Let them be hushed, let them be fastened, let them be silent! . . . “Which express heinously [*‘ataq*] against the righteous”—which express against the Righteous of the Universe [God], things that He removed from his creatures. “In pride and scorn”—this is one who is arrogant and says, “I expound [*doresh*] on *Ma‘ase Bereshit*.” He thinks that he is exalting [*ki-mga‘e*], but he is in fact only insulting.[^168]"
+    },
+    {
+      "block_id": "p44_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In this fashion Rab was chastising those who applied to God attributes taken from His creation. Similarly, it was reported in his name, “We have not found the might and strength of the Holy One,” meaning that God is beyond human expression. This leads directly to the doctrine of praise → silence discussed above. Addressing the absolute ineffability of God’s majesty, R. Abun (third century) elaborated further, “The elixir of everything is silence.” He went on to compare this situation, “to a flawless pearl, where all praise is faltering” because it is beyond articulation.[^169]"
+    },
+    {
+      "block_id": "p44_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides developed his negative theology on the basis of these two doctrines. With Rab, he ascertained that “there is no [ontological] affinity between Him and anything of what He created.” This is based on the principle that God’s existence is categorically different than that of His creation with no point of comparison between Him and anything else.[^170] The application of positive attributes to God is the effect of human projections. The"
+    }
+  ],
+  "footnotes": {
+    "165": "Mishna *Ḥagiga* 2:1.",
+    "166": "*Tosefta Ḥagiga* 2:1, quoted above, pp. 26–27.",
+    "167": "Maimonides, *Guide*, sec. 1, chap. 32, p. 47 (lines 8–11). Here Maimonides was alluding to Elisha, whom Maimonides regarded as a sage who had attempted to understand more than he could; see above, p. 204 n. 142.",
+    "168": "*Yerushalmi Ḥagiga* 2, 1, 77c; see *Bereshit Rabba* 1, 5, vol. 1, pp. 2–3. The correct version is *ki-mga’e* from the root *ge’e*. On the relation of this term to the *Merkaba* see Maimonides, *Guide*, sec. 1, chap. 70, pp. 120 (line 26)–21 (line 4). Cf. the rabbinic expression cited in *The World of the Sages*, 511, *ṣippita be-ga’ava*. On this theme see *Ḥagiga* 13b where the *ge’e* is associated with the semblance of man in the *Merkaba*.",
+    "169": "*Yerushalmi Berakhot* 9, 1, 11d.",
+    "170": "Maimonides, *Guide*, sec. 1, chap. 52, p. 79 (lines 21–22); see ibid., 79 (line 22)–80 (line 15)."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visual verification against 300 DPI scan page_044.png and note scan page_206.png; verified continues_from_prev_page: false; segmented page into 3 paragraphs and 1 blockquote; restored corrupted text in p44_b1 ('with his corrupt imagination... discard it, and hasten to deny it'); restored italics in blockquote (*Ma‘ase Bereshit*, *ki-mga‘e*, *‘ataq*, *doresh*); transcribed right arrow 'praise → silence'; recovered footnote callouts [^165]–[^170]; transcribed and verified footnotes 165–170 from note page 206; set ends_with_hyphen: false."
+  ]
+}

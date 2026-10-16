@@ -1,0 +1,61 @@
+{
+  "page_id": "45",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 30,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_045.png",
+  "note_pages": [
+    "206"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_206.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p45_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "attributes are deemed “perfection in Him because you find them to be perfection in us,”[^171] thus, the rabbinic warning, “not to delight his eyes from Him.”[^172] Silence is the highest praise of God."
+    },
+    {
+      "block_id": "p45_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "With the rabbis, Maimonides regarded the Tora (*al-tanzil*), that is, the Tora itself, as the ‘path’ (*derekh*) leading some people to assign positive attributes to God. To alert the attentive reader that he was alluding to the “path” of rabbinic literature he used the Hebrew *derekh*. This is a code-term used to designate “attributes.”[^173] Because it can be taken for an Arabic homonym, it was missed by some translators.[^174] “Some people followed the course of comparison, and believed Him to be a body with positive attributes. Others have raised above this path [*al-derekh*] negating [from Him] a body but preserving the attributes. All this is the effect of following the overt meaning of the revealed books.”[^175]"
+    },
+    {
+      "block_id": "p45_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Concerning the inappropriateness of applying to God the attributes of his creatures, a Talmudic authority, R. Yose bar Ḥanina (third century), followed the explanation of Rab. Quoting an old rabbinic text, he taught: “‘He who honors himself by putting to shame his fellowman has no portion in the world to come.’”[^176] How much more so one who honors himself by [dis]honoring the Eternal one![^177] Paraphrasing the above, Maimonides commented, “You should reflect and think: if slander and defamation are awesome sins, how much more so is to speak freely about the essence of God and to describe Him with attributes which He is above.” Reflecting on some liturgical poems applying to God all kind of attributes, Maimonides continued:"
+    },
+    {
+      "block_id": "p45_b4",
+      "type": "blockquote",
+      "markdown": "I am not saying that these are [mere] sins, but a sacrilege and a blasphemy, inadvertent on the part of the audience and the ignoramus who compose them. Nonetheless, whoever perceives the fault of those sayings and recites them is, in my opinion, one of those about whom it was said, “And the children of Israel attributed things that were not so to the Lord their God” (2Kgs 17:9). [About such a person] it was said, too: “And they spoke unfairness of God” (Is 32:6). If you are one of those who does care “for the Honor of his Maker,” it would be unworthy of you to hear them and much more so to utter them.[^178]"
+    },
+    {
+      "block_id": "p45_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Hence, assigning positive attributes to God constitutes an affront “to the honor” of the Maker."
+    }
+  ],
+  "footnotes": {
+    "171": "Maimonides, *Guide*, sec. 1, chap. 59, p. 94 (lines 27–28); cf. ibid., 97 (lines 18–19), and end of 53.",
+    "172": "See above pp. 37–38.",
+    "173": "See Maimonides, *Guide*, sec. 1, chap. 54, p. 83 (line 27)–84 (line 20). On the sense of *tanzil* see the valuable comment of Solomon Munk in his translation *Le Guide des Égarés*, 3 vols. (Paris: Editions G. P. Maisonneuve, 1960), 1:206 n. 1.",
+    "174": "See Munk, *Le Guide des Égarés*, 1:188 n. 5.",
+    "175": "Maimonides, *Guide*, sec. 1, chap. 51, p. 77 (lines 12–14).",
+    "176": "A quotation from a lost rabbinic source, codified by Maimonides, *Mishne Tora*, *De‘ot* 6:3, *Teshuba* 3:14.",
+    "177": "*Yerushalmi Ḥagiga* 2, 1, 77c. See *Bereshit Rabba* 1, 5, vol. 1, pp. 2–3.",
+    "178": "Maimonides, *Guide*, sec. 1, chap. 59, pp. 96 (lines 25)–97 (line 4)."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visual verification against 300 DPI scan page_045.png and note scan page_206.png; set continues_from_prev_page: true and indent: continuation for block p45_b1; segmented page into 4 paragraphs (including top continuation and final concluding sentence) and 1 blockquote; healed mid-line hyphenations (per-fection -> perfection, attrib-utes -> attributes, [dis]hon-oring -> [dis]honoring, unwor-thy -> unworthy); restored italics (*al-tanzil*, *derekh*, *al-derekh*); recovered footnote callouts [^171]–[^178]; transcribed and verified footnotes 171–178 from note page 206; verified note 178 terminates on page 206 without crossing to page 207; set ends_with_hyphen: false."
+  ]
+}

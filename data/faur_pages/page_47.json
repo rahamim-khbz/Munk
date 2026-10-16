@@ -1,0 +1,55 @@
+{
+  "page_id": "47",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 31,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_047.png",
+  "note_pages": [
+    "206"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_206.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p47_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "and had acquired a critical knowledge of the Tora. Unlike the sage, however, he has not yet resolved the conflicting views and systems to which he was exposed. A psychological profile distinguishes the sage from the advanced student. The sage (*ḥakham*) chartered his own path and then moved beyond the crossroad. Having experienced his own subjectivity, he is intellectually autonomous. The advanced student has yet to unravel the subscripts—the text beneath the text—and to resolve the unconcluded chapters structuring his education. At that stage subjectivity is impossible. He is not *at* a crossroad, but, as the rabbis put it, he *is* a crossroad. Maimonides designated such an individual ‘perplexed’ (*ḥa’iran*). The *Guide* was composed for him."
+    },
+    {
+      "block_id": "p47_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE EPISTLE TO THE STUDENT/READER"
+    },
+    {
+      "block_id": "p47_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides begins the *Guide* with an epistle addressed to a student. In it he narrates the circumstances that brought to him a student who wanted to know the “secrets of the Prophetic writings.” He tells about the student’s educational and intellectual background, his stay and eventual departure, and how his parting prompted him to write the *Guide*. It ends with a dedicatory note stating that [1] his absence induced him “to fashion (*li-waḍa‘a*) this work which I had fashioned (*waḍa‘taha*) for you and those who are like you, although are few”; [2] and that he had “made” the *Guide* into “scattered (*manthūra*) chapters, and all that was written would reach you one by one wherever you are. You (be in) peace.”"
+    },
+    {
+      "block_id": "p47_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There are several problems with this epistle. It seems anecdotal and out of character with the *Guide*. The few points of interest about the educational and intellectual background of the student, serving to identify the readership for which the *Guide* was intended, were spelled out in the introduction.[^186] The circumstances prompting Maimonides to write the *Guide* seem irrelevant. What could be the significance of the fact that the *Guide* was written after the student left? Or that instead of a complete volume the student would be receiving the *Guide* in installments?"
+    },
+    {
+      "block_id": "p47_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Only upon breaking the umbilical cord with the teacher and deciding to face ‘perplexity’ on his own can a student be exposed to the technique leading to apophatic knowledge and esoteric insight. In the dedicatory note Maimonides did not refer to the writing of the *Guide* with the more common terms *allafa* (to write, to compose) and *ta’alif* (composition of a"
+    }
+  ],
+  "footnotes": {
+    "186": "See p. 6 (lines 10–12); and sec. 1, chap. 35."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visual verification against 300 DPI scan page_047.png and note scan page_206.png (NOTES TO PAGES 44–48); set continues_from_prev_page: true and indent: continuation for block p47_b1 continuing mid-sentence from page 46; structured page into 4 paragraphs and 1 level-3 heading; healed mid-line hyphenations (stu-dent -> student, indi-vidual -> individual, chap-ters -> chapters, reader-ship -> readership, decid-ing -> deciding, tech-nique -> technique); corrected OCR artifacts ([x] -> [1]); restored italics (*ḥakham*, *at*, *is*, *ḥa’iran*, *Guide*, *li-waḍa‘a*, *waḍa‘taha*, *manthūra*, *allafa*, *ta’alif*); recovered footnote callout [^186]; transcribed and verified footnote 186 from note page 206; set ends_with_hyphen: false as page 47 terminates mid-sentence at 'composition of a' before page 48 'book)187'."
+  ]
+}
