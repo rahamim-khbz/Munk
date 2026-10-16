@@ -1,0 +1,49 @@
+{
+  "page_id": "21",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 18,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_021.png",
+  "note_pages": [
+    "193"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_193.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p21_b1",
+      "type": "blockquote",
+      "markdown": "would appear], that whatever was comprehended by our Teacher Moses and by Solomon is the same as what was comprehended by a common student.[^7]"
+    },
+    {
+      "block_id": "p21_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Epistemologically, positive attributes are a hindrance to one’s knowledge of God. Those applying positive attributes, such as corporeality, which is demonstrably inapplicable to God, are “blind.”[^8] The more attributes are negated of God, the nearer one comes to Him. Maimonides made the essential point that in the same fashion that positive attributes increase one’s knowledge of an object, the negation of positive attributes increases one’s knowledge of God:"
+    },
+    {
+      "block_id": "p21_b3",
+      "type": "blockquote",
+      "markdown": "The more one increases in a positive description of an object, the more definite the described [object] becomes. Thus, upon describing [an object] one comes closer to comprehending its true essence. In the same fashion the more [positive attributes] one negates of Him, blessed be He, the closer one comprehends. One is closer to Him than one who does not negate [from Him] what had been demonstrated [*tubarhan*] [by] its negation.[^9]"
+    },
+    {
+      "block_id": "p21_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Apophatic knowledge is not merely the rejection of a positive attribute or the correction of a mistaken opinion. It involves a dynamic process: apophasis is defined by the very process of negating a positive attribute. This type of negation is not accomplished by removing a contradiction or amending a mistake and accepting the “right” view on the basis of faith. It must be demonstrated by a *burhan* (plural *burahin*) ‘proof established on the principle of contradiction’. There are two stages. Initially, there is only negation without a positive proof (*burhan*). At this level there is no apophatic knowledge, and doubt will linger in the mind of the believer. The second stage requires a positive proof (*burhan*), demonstrating why such a positive attribute cannot apply to God. Only then apophatic knowledge is realized. At the first level one is yet “intellectually ineffectual.” Because the fallacy of the positive attribute was not “demonstrated” (*tubarhan*) to him, he is in doubt. By contrast, those “who know with a proof (*bi-al-burhan*) that it is impossible to apply such a subject to Him” know with certainty.[^10] The second level is attained after arduous work. Occasionally, one “would have to toil for several years, studying a science and"
+    }
+  ],
+  "footnotes": {
+    "7": "Ibid., chap. 59, pp. 93 (line 29)–94 (line 3).",
+    "8": "Ibid., p. 94 (line 13). Cf. ibid., Introduction, 4 (lines 8–12).",
+    "9": "Ibid., sec. 1, chap. 59, p. 94 (lines 5–8).",
+    "10": "Ibid., (lines 4–13)."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_021.png and page_193.png; verified line-by-line."
+  ]
+}

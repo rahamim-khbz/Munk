@@ -1,0 +1,54 @@
+{
+  "page_id": "23",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 19,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_023.png",
+  "note_pages": [
+    "193",
+    "194"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_193.png",
+    "data/faur_scans/page_194.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p23_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "Upon realizing [*sha‘ara*] that there is no means to grasp what can be potentially perceived [of God] but negatively and that a negation cannot teach anything about the truth of the subject, it became transparent to all humans, past and future, that God, blessed be He, cannot be comprehended by any mind, that nobody but He can comprehend who He is, that to comprehend Him is the inability to comprehend Him fully.[^18]"
+    },
+    {
+      "block_id": "p23_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Second, as a consequence of the first, the perception effected via apophaticism defies linguistic expression. Absolute silence, in the sense of total absence of articulated speech and thought, is essential to the apophatic experience.[^19] This perception, too, involves an essential paradox: silence is praise and praise is silence."
+    },
+    {
+      "block_id": "p23_b3",
+      "type": "blockquote",
+      "markdown": "All the philosophers say [*yaqulun*]: \"We were illuminated by His Splendor but [He] is hidden from us by the might of His lucidity, like the sun, hiding from the sight because it is too weak to perceive it.\"[^20] This was extensively elaborated [by others] and needs not to be repeated here. The culminating statement on this topic is found in the Psalms (65:2): *Lekha Dumya Tehilla*. Translation: \"To You silence is praise.\" This is a very profound observation! Whatever was intended to have been expressed by way of exaltation and praise of Him will be found to be faulty when applied to Him, sensing that it [the praise] is somehow wanting. Accordingly, silence is fundamental: brevity is proportional to the apprehension of the minds. As it was prescribed by those who are perfect [*al-kamilun*] (Ps 4:5), \"Speak up in your hearts upon your beds and be silent. Selah.\"[^21]"
+    },
+    {
+      "block_id": "p23_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Because of its paradoxical structure, expressed in the dialects 'knowledge → un-knowledge' and its concomitant 'praise → silence', apophatic knowledge may be compared to a succession of light flashes in the darkness. \"Sometimes,\" noted Maimonides, \"the truth shines upon us, and we suppose it to be [as clear as] daylight. And behold, it is then concealed by body and habits!\"[^22] This type of truth may be compared \"to the flame of the spinning sword\" guarding the road to Eden (Gn 3:24) that \"shines and then conceals itself.\"[^23] Therefore, apophatic knowledge cannot be communicated."
+    }
+  ],
+  "footnotes": {
+    "18": "Ibid., sec. 1, chap. 59, p. 95 (lines 1–5).",
+    "19": "Concerning the function of silence see Faur, *Golden Doves*, 116–17.",
+    "20": "This paragraph was misunderstood by commentators and translators because they took the form *yaqulun* as a perfect (said), when, in fact, it is the present continuum (they say). Maimonides could not possibly have written that *all* philosophers have *made* such a statement. What he was saying, which somehow escaped the grasp of translators and commentators, is that all (*genuine*) philosophers, that is, those who have attained apophatic knowledge, do acknowledge the above. The acknowledgment serves to identify the \"(genuine) philosopher.\"",
+    "21": "Maimonides, *Guide*, sec. 1, chap. 59, p. 95 (lines 5–13). Cf. ibid., chap. 50, p. 75 (lines 21–22). The source of this doctrine is rabbinic; see below, p. 44.",
+    "22": "Maimonides, *Guide*, Introduction, p. 3 (lines 25–26). The model of a truth that glows and then conceals itself is suggested in a Talmudic passage comparing the light of the heavenly beings to the flashing of lightning. See *Ḥagiga* 13b and R. Ḥanan'el ad loc.",
+    "23": "Maimonides, *Guide*, Introduction, p. 3 (lines 6–7). The Hebrew *mithappekhet*, commonly translated as 'revolving', 'spinning', stems from *hafakh* 'to turn around', 'to change and become its opposite'; see Ex 14:5. Rather than 'the spinning sword', the exact translation is 'the sword which is constantly becoming its opposite'."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_023.png, page_193.png, and page_194.png; verified line-by-line."
+  ]
+}

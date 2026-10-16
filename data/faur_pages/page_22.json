@@ -1,0 +1,65 @@
+{
+  "page_id": "22",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 19,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_022.png",
+  "note_pages": [
+    "193"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_193.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p22_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "the demonstration (tubarhan) of its foundations, until one is assured. The sole objective of such a study would be to negate from God certain subjects that were demonstrated (bi-al-burhan) to be impossible to apply to Him.\"[^11]"
+    },
+    {
+      "block_id": "p22_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Those gaining apophatic knowledge on the basis of demonstrable proofs (burahin),[^12] reaching *kamala*, human 'perfection', are designated by the code-term *kamilun* 'perfects'.[^13] They are 'men of perfection' (*al-kamalun*), worthy of knowing \"the secrets of the Prophetic writings.\"[^14] There are degrees to perfection:"
+    },
+    {
+      "block_id": "p22_b3",
+      "type": "blockquote",
+      "markdown": "It has thus been explained to you that whenever the negation of something that does not apply to Him has been proven [tubarhan] to you, you have become more perfect [*akmal*]. Conversely, that when you posit something about Him, you have become confused and distanced yourself further from knowing His true [essence].\n\nIn this fashion one comes to understand Him, through scrutiny and investigation, until realizing the impossibility of applying to Him what is impossible to apply to Him: not ascribing to Him something in addition to His essence.[^15]"
+    },
+    {
+      "block_id": "p22_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Because apophasis results in a definite knowledge of God, the more attributes are negated of Him, the better understanding one has of His essence,[^16] hence the excellence of the educated concept of God over the notions of a \"common student.\"[^17]"
+    },
+    {
+      "block_id": "p22_b5",
+      "type": "heading",
+      "level": 3,
+      "markdown": "APOPHASIS AND PARADOX"
+    },
+    {
+      "block_id": "p22_b6",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Structurally, apophasis involves a double paradox whereby 'knowledge/un-knowledge' gives rise to 'praise/silence'. There are two fundamental aspects to apophasis. First, it involves an essential paradox. On the one hand, it is the only means by which humankind can achieve perfection and true knowledge of God. On the other hand, only upon fully developing their intellectual abilities, realizing the inability to comprehend God, can humans fulfill their potential. Apophatic knowledge is *not* to understand Him in a double sense. Understanding Him is attained upon realizing that He cannot be known, and then, upon believing that one has understood Him, realizing that one has failed to understand Him."
+    }
+  ],
+  "footnotes": {
+    "11": "Ibid., (lines 8–11).",
+    "12": "See ibid., (lines 8–13). The term *apophasis* appears in rabbinic literature; see Saul Lieberman’s note in *Pesikta de-Rav Kahana*, ed. Bernard Mandelbaum, 2 vols. (New York: Jewish Theological Seminary of America, 1962), 2: 476.",
+    "13": "This was one of the qualities of the disciple to whom Maimonides dedicated the *Guide*, see \"Introductory Epistle\"; see p. 1 (lines 6–7); and ibid., Introduction, pp. 4 (line 12), 5 (line 2), 6 (line 1). See below, pp. 168–71.",
+    "14": "For a definition of such individuals see ibid., \"Introductory Epistle,\" 1, especially lines 14–15; Introduction, p. 4 (lines 7–8).",
+    "15": "Ibid., chap. 59, p. 94 (lines 23–27). See below, p. 168.",
+    "16": "See Maimonides, *Guide*, sec. 1, chap. 59, 94 (lines 5–8), quoted above, p. 21.",
+    "17": "See ibid., Introduction, p. 4 (lines 7–8)."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_022.png and page_193.png; verified line-by-line."
+  ]
+}
