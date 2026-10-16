@@ -1,0 +1,53 @@
+{
+  "page_id": "35",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 25,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_035.png",
+  "note_pages": [
+    "198",
+    "199"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_198.png",
+    "data/faur_scans/page_199.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p35_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "First are contradictions peculiar to the instruction of any complex subject. At the early stages of instruction, a teacher may have to ignore precision and present the subject in an unconcluded form to help the student grasp the lesson.[^94] The “headings” are only “beginnings,” requiring further development and refinement as progress is made.[^95] The second type of contradiction is peculiar to the instruction of esoterics.[^96] The teacher cannot reveal all at once. As with the spinning sword guarding the road to Eden, the teacher must conceal and then reveal.[^97] The technique includes the dissemination of contradictions and encoding a subscript that only the qualified student can discover and decode.[^98] The model for the tension teacher-student is the metaphor “golden apples in a silver mesh,” illustrating the “inner” and “outer” levels of a well-articulated speech.[^99] Precisely, because the student has not reached a level to process the “golden apples,” the teacher must camouflage the ideas as silver.[^100] It would be the specific task of the student to discover and decode the subscript of gold underneath the mesh. The contradictions between the fine-chiseled eyelet themselves and between them and the inner gold bring the student into a state of ‘perplexity’ (*ḥa’ira*)—a crisis that could only be resolved by shifting from the realm of objectivity to the realm of subjectivity. At this level perplexity cannot be mediated. The resolution requires a breach in the relationship teacher-student whereby knowledge does not proceed from a hierarchical authority but “is transferred”—that is, horizontally—“from one bosom to the other.”[^101] The crisis is resolved, at the point that the perplexed (*ḥa’iran*) student chooses to probe into his own inwardness rather than to appropriate someone else’s truth.[^102]"
+    },
+    {
+      "block_id": "p35_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "DESCENDING TOWARD THE INNER SANCTUARY"
+    },
+    {
+      "block_id": "p35_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Rabbinic literature has preserved two models illustrating the crisis underlying the esoteric insight. The first model is a royal ‘orchard’ (*pardes*). The rabbis identified the scriptural expression “they are planted like nails” (Eccl 12:11) with “the words of the Tora,” that is, the teachings of the old masters, adding, “just like plants bear fruits and grow, similarly the words of the Tora bear fruits and grow.” In a different context Maimonides identified the “words of the Tora” with the esoteric teachings of Israel.[^103] There are two distinct qualities to these teachings. Like nails they are deeply instilled and are not easy to remove. At the same time like plants they “bear fruits and grow.”"
+    }
+  ],
+  "footnotes": {
+    "94": "See ibid., “Fifth Contradiction,” p. 11 (lines 19–26).",
+    "95": "See ibid., p. 13 (lines 8–9). Cf. below, p. 210 n. 41.",
+    "96": "The “Seventh Contradiction.” See ibid., p. 12 (lines 7–12).",
+    "97": "Not the inverse. Cf. Maimonides, *Guide*, sec. 1, chap. 33.",
+    "98": "Ibid., Introduction, p. 12 (lines 7–12); sec. 2, chap. 29, p. 244 (lines 10–11).",
+    "99": "Ibid., Introduction, p. 7 (lines 15–28). See Faur, *Golden Doves*, 115.",
+    "100": "Cf. Maimonides, *Guide*, sec. 1, chap. 33.",
+    "101": "Ibid., sec. 3, Introduction, p. 297 (line 19).",
+    "102": "See Faur, *Golden Doves*, 75–76.",
+    "103": "Maimonides, *Guide*, Introduction, p. 7 (lines 2–6). In this precise sense it was said (*Ḥagiga* 14a), “When he opens (*poteaḥ*) with ‘the words of the Tora’ all become speechless before him.” And “He is one worthy of surrendering to him ‘the words of the Tora’ which were given in silence.” Similarly, ibid., 13a, “not to surrender ‘the words of the Tora’ to an alien”; see Faur, *Golden Doves*, 124. On the expression “open” in reference to esoteric exposition see above, p. 195 n. 36. On the expression “before him,” see above, p. 25. The “Tora given in silence” refers to the creative silence intrinsic to apophatic knowledge; see *Ḥagiga* 13b, about the celestial beings keeping silent when God speaks. For the same reason “all are speechless” when “before,” that is, under the tutelage of, an individual who expounds esoteric teaching."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_035.png, page_198.png, and page_199.png; verified line-by-line."
+  ]
+}

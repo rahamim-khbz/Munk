@@ -1,0 +1,46 @@
+{
+  "page_id": "32",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 24,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_032.png",
+  "note_pages": [
+    "197",
+    "198"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_197.png",
+    "data/faur_scans/page_198.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p32_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In an uncharacteristic argument he concluded: \"We can safely say that such an additional step indicates a post-Tannaitic composition, even though much of the material itself may belong to the Tannaitic period—which of course, was, at the same time, the flowering season of Gnosticism.\"[^80] Whatever that may mean, it would be a bit strenuous to ascertain that that material is \"in strict conformity with . . . halakhic Judaism.\""
+    },
+    {
+      "block_id": "p32_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There is another, more complex problem. In a different context Erich Neumann noted that \"any mysticism that consists in the experience of dogmatically defined or definable content is either low-level mysticism or disguised mysticism.\" He went on to describe low-level mysticism, \"when a personality unable to assimilate the cultural canon and the religious dogma is overpowered by one of the archetypal contents of the canon and experiences it mystically.\" He illustrated the point, as \"when an archetypal content of the Christian cultural canon is mystically experienced by the Negroes in an African mission.\" This type of mysticism \"is not infrequent when a higher cultural canon is imposed on a group whose consciousness is less developed than that of the group to whom the cultural canon belongs.\" Disguised mysticism is defined as when to escape the \"fatal imputation of heresy,\" mystics \"were driven to compromise and who, consciously or unconsciously, redogmatize their authentic mystical experience—i.e., adapted it to the form imposed by the prevailing dogma.\" One would seldom find \"authentic Indian symbolism among Catholic mystics, and vice versa.\" The only anomaly to this rule is Scholem's Kabbalah: \"In this respect the cabala seems to be rather the exception. According to G. Scholem (*Major Trends* . . . ), it clearly reveals archetypal Gnostic symbolism strongly at variance with the Jewish system of consciousness. But why from the first apocalypses to Hasidism the Jewish stream of true, antidogmatic mysticism never ran dry is a matter that cannot concern us here.\"[^81] It should be the concern, however, of anyone who is seriously interested in the history and development of Jewish mysticism."
+    },
+    {
+      "block_id": "p32_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In \"La Rosa de Paracelso\" by Borges, Paracelso prays \"to his God, to his indeterminate God, to any God, that should send him a disciple.\" Soon, a young man knocks on his door, seeking instruction. Paracelso was reputed to have had the power to annihilate a rose and then resurrect it from the ashes. Before accepting him as a master, the young man demanded to see the miracle. \"I am speaking of the Word that the science of the Cabala teaches us,\" replied Paracelso. \"If I would do it,\" he added, \"you would say that this is an appearance imposed upon your eyes by magic. The wonder will not pro-"
+    }
+  ],
+  "footnotes": {
+    "80": "Scholem, *Jewish Gnosticism*, 13. See the valuable remarks of Ephraim E. Urbach, *The World of the Sages* (in Hebrew) (Jerusalem: Magnes Press, 1988), 486–513.",
+    "81": "Neumann, \"Mystical Man,\" 386–87, and n. 8. For a glimpse at this problem in Spain, see Faur, \"Crisis of Categories,\" 45–46."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Rehabilitated against 300 DPI scans page_032.png, page_197.png, and page_198.png; split into 3 paragraph blocks; fixed typo 'thar' -> 'that'; restored italics for Major Trends and quotation marks; healed mid-line hyphenations; restored footnote callouts [^80] and [^81] and transcribed note definitions."
+  ]
+}

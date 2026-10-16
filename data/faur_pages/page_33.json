@@ -1,0 +1,57 @@
+{
+  "page_id": "33",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 24,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_033.png",
+  "note_pages": [
+    "198"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_198.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p33_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "vide you with the faith that you are searching for: Forsake, then, the rose.\" The young man was not dissuaded. Impulsively, he took the rose and threw it unto the fire. Paracelso remained unperturbed. Eventually, the young man departed. Only then, when alone, Paracelso took the ashes, whispered a word, and \"the rose reappeared.\" The mystical lore discussed by Scholem and the Gnostics can be displayed and portrayed and pertains to magic. It is of no interest to the rabbis. What the rabbis (see *Berakhot* 55a) and Paracelso as well sought is the instrument \"which the divinity used to create heavens and earth.\"[^82] In a paradoxical sense Paracelso's prayer was answered. For Maimonides, as with Borges's Paracelso and the rabbis, esoterics is imparted by an initial act of refusal, by *not* teaching."
+    },
+    {
+      "block_id": "p33_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Authoritative dissemination of esoteric knowledge is not only impossible it is forbidden to attempt—more precisely—to pretend."
+    },
+    {
+      "block_id": "p33_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "SUBJECTIVITY AND THE ESOTERIC INSIGHT"
+    },
+    {
+      "block_id": "p33_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "From the preceding a fundamental difference emerges between rabbinic esoterics and Scholem's Gnosticism and mysticism. Gnosticism and mysticism focus on the *content* of the experience. What counts for the rabbis is the *structure* of the esoteric insight. The esoteric insight is not in itself communicable. It does not involve a mysterious, secret knowledge. Rather, it flows from a different level of consciousness. Communication expresses objectivity. The esoteric is subjective: it vanishes as soon as it is translated into the realm of the objective and the ordinary."
+    },
+    {
+      "block_id": "p33_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Two closely related factors concern the subjective character of an esoteric insight. One is external, pertaining to the mode of transmission. Because esoteric knowledge cannot be transmitted through the regular chain of tradition, it cannot be authenticated on the basis of authority. It cannot be hierarchically transmitted from a \"superior\" to an \"inferior,\" but, in the words of Maimonides, it can only be \"transferred,\" that is, horizontally.[^83] The other factor concerns the uncertainty of the esoteric insight. Maimonides was careful to point out that although he was subjectively convinced of his esoteric views, they were objectively uncertain. To stress the point, when discussing the merits of his esoteric insights, Maimonides was mindful to doubly qualify them with the subjunctive 'might be' (*‘aṣa*) and 'for me' (*‘indi*), underscoring that \"it *might* be that it was revealed, comprehended, and had became clear without any doubt *for me* of what I understood of this.\"[^84] Reflecting on his own"
+    }
+  ],
+  "footnotes": {
+    "82": "Jorge Luis Borges, \"La Rosa de Paracelso,\" in *Obras Completas* (Madrid: Ultramar, 1977), 389–92.",
+    "83": "See below, n. 101.",
+    "84": "Maimonides, *Guide*, sec. 3, Introduction, p. 297 (lines 20–21)."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Rehabilitated against 300 DPI scans page_033.png and page_198.png; split blocks into 4 paragraphs and 1 heading; healed mid-line hyphenations; restored italics (*Berakhot*, *not*, *content*, *structure*, *‘aṣa*, *‘indi*, *might*, *for me*); restored callouts [^82], [^83], [^84] and transcribed corresponding note definitions."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "page_id": "34",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 25,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_034.png",
+  "note_pages": [
+    "198"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_198.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p34_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "understanding of esoterics he admitted, “that what I have ascertained here is the result of conjecture and supposition. I neither had a divine inspiration that taught me what had been intended [by the esoteric texts] nor was I instructed in what I believe by a teacher.”[^85] In his own style[^86] Maimonides was defining the nature of esoteric insight: subjective certainty cannot be attested on objective grounds. On the one hand, he was convinced that he had succeeded in unraveling the true meaning of Jewish esoterics, “that the thing is like this, without a doubt.” On the other hand, he recognized “that the thing could be the opposite [*bi-khalafha*], and what was intended may have been something different.”[^87] Thus, esoteric insight is structurally connected with subjectivity."
+    },
+    {
+      "block_id": "p34_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Paradoxically, the historical loss of Jewish esoteric tradition served to further strengthen and preserve Jewish esoteric tradition: esoterics must be absolutely subjective, admitting of a (hypothetical) possibility to the contrary. Put another way, objective certainty is objective proof of esoteric inauthenticity. Esoteric insight may develop only within the realm of subjectivity when “the object will surface and emit, and then conceal itself” as with the spinning sword guarding the road to Eden.[^88] This is why Maimonides did not view the loss of the ancient esoteric knowledge as tragic. Since the loss of the *content* of Jewish esoterics was the result of the *method* of Jewish esoterics, “it was correct that this had occurred.”[^89] Anticipating G. E. Lessing (1729–1781), this means that if one would have to choose between the ability to know the truth and the ability to investigate the truth, it would be wiser to choose the latter. From the position of a teacher or outside viewer the content of the student’s esoteric insight is irrelevant. As with prophecy, the vision varies according to personal circumstances.[^90] What matters is the structure of the insight: the message is in the method.[^91]"
+    },
+    {
+      "block_id": "p34_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "From this point of view the works of gnosticism and mysticism dealing with the content of esoterics are a self-contradiction."
+    },
+    {
+      "block_id": "p34_b4",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE RESOLUTION OF UNCONCLUDED SUBSCRIPTS"
+    },
+    {
+      "block_id": "p34_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides structured the *Guide* as an intellectual maze designed to “scatter” the headings of chapters. “Don’t ask of me here,” Maimonides writes in the Introduction to the *Guide*, “for more than the headings of chapters.”[^92] The task of the teacher is to goad the student to a crossroad, thus generating a crisis of choice. The crisis is brought about by the headings of chapters, underlying the unconcluded subscripts. They involve two types of contradictions.[^93]"
+    }
+  ],
+  "footnotes": {
+    "85": "Ibid., (lines 26–28).",
+    "86": "See below, pp. 47–50.",
+    "87": "Maimonides, *Guide*, sec. 3, Introduction, pp. 297 (line 29)–98 (line 1).",
+    "88": "See above, p. 193 n. 23.",
+    "89": "Maimonides, *Guide*, sec. 3, Introduction, p. 297 (lines 18–19). Cf. ibid., sec. 1, chap. 71, p. 121 (lines 24–25).",
+    "90": "See Maimonides, *Mishne Tora*, *Yesode ha-Tora* 1:9.",
+    "91": "To illustrate, what was consequential for the foursome entering the “orchard” mentioned below on pp. 36–42 was not the “what” but the “how” of their experience; namely, that one “went up,” and so on. A teacher confronts one of the faltering students with the question, “From where to where?” See below, p. 200 n. 112.",
+    "92": "Maimonides, *Guide*, Introduction, p. 3 (line 11).",
+    "93": "The fifth and seventh type, ibid., p. 13 (lines 13–15). See ibid., 11–13."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_034.png and page_198.png; verified line-by-line."
+  ]
+}
