@@ -1,0 +1,68 @@
+{
+  "page_id": "98",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 57,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_098.png",
+  "note_pages": [
+    "222",
+    "223"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_222.png",
+    "data/faur_scans/page_223.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p98_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "assimilated to them, and their opinions have passed onto us, just like had passed onto us their mores and behavior.”[^40] In an early work Maimonides had censured “members of our religion who mimic the gentiles—because I am addressing myself particularly to them—” for having adopted ascetic ideologies from their gentile neighbors.[^41]"
+    },
+    {
+      "block_id": "p98_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides regarded the theological approach to religion as faulty and oppressive. Although professing reason and the God of the Scripture, the *mutakallimun* operated within the realm of imagination and political power. Instead, Maimonides enlisted Aristotelian reason to the aid of prophecy. It seems that it was more meaningful to maintain a dialogue about the God of Scripture with a rational pagan than with a theologian—Jew or gentile—immersed in mythical thinking."
+    },
+    {
+      "block_id": "p98_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE GOD OF REASON"
+    },
+    {
+      "block_id": "p98_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides adapted Aristotle’s doctrine of the prime mover to prove the existence of the God of the Scripture. To explain the motion of heavens Aristotle concluded that “there is something which moves without being moved, being eternal, substance, and actuality.”[^42] Briefly, this doctrine had been interpreted to mean that “the unmoved mover . . . moves the heavens by itself, and through the medium of them, which move themselves, it moves this world of things whose motion is purely external to it.”[^43]"
+    },
+    {
+      "block_id": "p98_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The Maimonidean strategy seems highly problematic. The relation between the unmoved mover and the heavens, which it is perpetually moving, is based on the law of causality. It is purely mechanical, with no room for intentionality, design, or volition. This doctrine necessitates the eternity of the universe, positing a totally impotent deity with no control over natural and human phenomena.[^44] It is a critical point for those who believe in the Scripture. If somehow “they would succeed in proving [*burhan*] the eternity [of the universe] according to Aristotle’s opinion (*ra’i*),” noted Maimonides, “the Law in its entirety would collapse.”[^45] Yet Maimonides preferred the prime mover of the Aristotelians to the deity of the theologians. Why?"
+    },
+    {
+      "block_id": "p98_b6",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides regarded Aristotle as the highest representation of pagan humanity. In a letter addressed to Samuel ibn Tibbon (ca. 1160–ca. 1230), the Hebrew translator of the *Guide*, Maimonides described Aristotle’s mind as “the finality of the human mind, with the exception of one on whom the divine flow had poured and reached the state of prophecy, which is the"
+    }
+  ],
+  "footnotes": {
+    "40": "Maimonides, *Guide*, sec. 2, chap. 11, p. 192 (lines 21–25).",
+    "41": "*Shemona Peraqim* 4, in Maimonides, *Pirush ha-Mishnayot*, vol. 4, p. 384. Pagan asceticism, too, is the sanction of violence against oneself.",
+    "42": "Aristotle *Metaphysics* 12, 7, 1072a (lines 24–25). For a thorough discussion of this doctrine see Jaeger, *Aristotle*, chap. 14.",
+    "43": "Jaeger, *Aristotle*, 345–46.",
+    "44": "See Maimonides, *Guide*, sec. 2, chap. 25.",
+    "45": "Ibid., p. 230 (lines 23–24)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_098.png and notes scans page_222.png and page_223.png; set continues_from_prev_page: true with unindented continuation paragraph p98_b1 continuing from page 97; segmented into 6 blocks (continuation paragraph, indented paragraph, level-3 heading 'THE GOD OF REASON', and three indented paragraphs p98_b4, p98_b5, p98_b6); healed line-end hyphenations ('ideolo-gies', 'uni-verse'); restored italics for *mutakallimun*, [*burhan*], (*ra’i*), and *Guide*; restored curly quotes, typographic apostrophes, and en-dashes; recovered footnote callouts [^40]–[^45] (recovering mangled callouts * -> [^41], * -> [^44], 4s -> [^45]); transcribed and verified footnotes 40–43 from note page 222 and 44–45 from note page 223; updated note_pages to ['222', '223'] and note_scan_images to ['data/faur_scans/page_222.png', 'data/faur_scans/page_223.png']; verified ends_with_hyphen: false terminating with 'which is the'; set status: visual_verified."
+  ]
+}

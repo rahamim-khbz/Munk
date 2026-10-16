@@ -1,0 +1,46 @@
+{
+  "page_id": "96",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 56,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_096.png",
+  "note_pages": [
+    "222"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_222.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p96_b1",
+      "type": "blockquote",
+      "markdown": "from it a demonstration [*dalīl*] that would either corroborate a given opinion [*ra’y*] or not contradict it.[^29] And when this fantasy [*al-tukhayal*] was established, they postulated that the reality is of such a form. Then they proceeded to argue on behalf of those claims on which the premises [needed] to either verify a doctrine or to reject an objection raised against it rest. This is the fashion in which those wise [theologians] first acted to establish this system and presented it in their books. They claimed, however, that they had concluded those [ideas] on the basis of pure thought with no favoritism on behalf of doctrine or preconceptions.[^30]"
+    },
+    {
+      "block_id": "p96_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The *Kalam* methodology disregards empirical data and substitutes imagination for reason: “I discovered that all the *mutakallimin* had adopted a single type of methodology although there are different varieties. The doctrine [espoused] by everyone is to disregard reality as it is because [in their opinion] it is only a habit [*‘ada*], which intellectually may be conceived as different.”[^31] Moreover, in many instances, “they follow imagination [*al-khayal*] and call it reason.”[^32] More gravely, they concocted all types of specious ‘proofs’ (*burahin*) designed to deceive rather than to illuminate. Only those who know not how to distinguish between ‘proof’, ‘dialectics’, and ‘sophistry’ will admit their demonstrations.[^33] The method in the *Kalam* to demonstrate the existence of God by ‘proving’ creation was of strategic significance. The aim was to consolidate the theological-political axis. Since there could not be any apodictic proofs for Creation,[^34] the real basis for belief in God and religion must be coercion. Invariably, this type of system is doctrinaire and authoritarian. Underneath the slick, eloquent style of theological discourse lurks violence and the threat of violence. This is why Maimonides pointed out that the *Kalam* originated"
+    },
+    {
+      "block_id": "p96_b3",
+      "type": "blockquote",
+      "markdown": "when kings intent upon the defense of religion arose and the learned men of those times among the Greeks and the Syrians saw that their professed belief consisted of assertions exceedingly and patently at odds with philosophical opinions. Thus arose among them this science of *Kalam*. Accordingly, they began to set up propositions that could be useful to them in support of what they themselves believed and by which they"
+    }
+  ],
+  "footnotes": {
+    "29": "On the meaning of these terms see below, p. 102.",
+    "30": "Maimonides, *Guide*, sec. 1, chap. 71, p. 123 (lines 10–18).",
+    "31": "See above, p. 211 n. 70.",
+    "32": "Maimonides, *Guide*, sec. 1, chap. 71, p. 124 (lines 2–5).",
+    "33": "Ibid., (lines 5–16). For a definition of these three terms see Maimonides, *Treatise on Logic*, chap. 8.",
+    "34": "See below, pp. 119–25."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually verified against 300 DPI scan page_096.png and notes scan page_222.png; set continues_from_prev_page: true for blockquote continuing from page 95; structured page into 3 blocks (top continuation blockquote p96_b1, indented paragraph p96_b2, and opening blockquote p96_b3 at bottom continuing onto page 97); healed mid-line hyphenations ('doc-trine', 'disre-gard', 'spe-cious', 'sig-nificance', 'theo-logical', 'Mai-monides', 'exceed-ingly'); restored italics and transliterations (*dalīl*, *ra’y*, *al-tukhayal*, *Kalam*, *mutakallimin*, *‘ada*, *al-khayal*, *burahin*); healed OCR corruption and recovered footnote callouts [^29], [^30], [^31], [^32], [^33], [^34]; restored typographic curly quotes, apostrophes, and en-dashes; transcribed and verified footnotes 29–34 from note page 222; updated note_pages to ['222'] and note_scan_images to ['data/faur_scans/page_222.png']; verified ends_with_hyphen: false terminating with 'by which they'."
+  ]
+}

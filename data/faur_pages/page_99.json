@@ -1,0 +1,49 @@
+{
+  "page_id": "99",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 57,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_099.png",
+  "note_pages": [
+    "223"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_223.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p99_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "highest state there is.”[^46] Aristotle’s logic in particular, represents human emergence from the realm of imagination, before prophecy.[^47] In the pagan world religion is conceived in mythical terms. Consequently, people inhabiting the realm of imagination argue that the Aristotelian system excludes the possibility of scriptural revelation.[^48] Maimonides intended to demonstrate that the opposite was the case. Not only are Scripture and myth mutually exclusive but reason—Aristotelian reason in particular—necessitates a prime mover transcending the physical universe. Therefore, “If the world is eternal, then it would be necessary because of such and such a demonstration (*dalil*), that there is (*an ṯamma*) an existent, who is not the body of the universe, who is neither corporeal nor a corporeal force, who is one, continuously eternal, uncaused and unchangeable, and He is God.”[^49]"
+    },
+    {
+      "block_id": "p99_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The Arabic adverb *an ṯamma* (that is there) is used as an interjection to point at something *outside* the mind of the speaker. Transcending myth and imagination involves locating a reality that is not a product of the human psyche but is the source of everything that exists. By discovering his absolute dependence on an absolute reality *outside* himself, man succeeds in breaking the grip of imagination and enters the realm of reason. At once, this discovery leads to the recognition of God and the beginning of wisdom (see Ps 111:10; Prv 1:7). Using the same adverb in Hebrew, Maimonides began the first paragraph of the *Mishne Tora*: “The Foundation of [all] Foundations and the Pillar of [all] sciences is to know that is there [*she-yesh sham*] a First Existent. He bestows existence [*mamṣi*] to all that which exists. Whatever exists from heavens to earth and between them, does not exist but from the verity of His existence.”[^50] The expression “that is there” (*she-yesh sham*) is semantically identical to the Arabic *an ṯamma*. In both languages, it points at something *outside* the psyche, and, therefore, a ‘concrete’, ‘sure’ fact, not a fabrication of the mind. In the context here, it stipulates that God is not a human creation, but the other way around. The use of the active participle *mamṣi* (bestows existence) underscores the continuous dependence of all creatures on His transcendental existence and thereby His continuous omnipresence and omniscience.[^51]"
+    },
+    {
+      "block_id": "p99_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The Aristotelian prime mover breaks the axis *authoritas*/religion. The strategy of the *Kalam* was to predicate the existence of God and thereby the whole gamut of religion on the doctrine of Creation. Since Creation cannot be proven, religion cannot stand on its own: it requires support from the political authorities, hence, the sanction of institutionalized violence and the dependence of religion on *authoritas*.[^52] This is a major point of contention"
+    }
+  ],
+  "footnotes": {
+    "46": "Maimonides, *Letters and Essays of Moses Maimonides* (in Hebrew), ed. Isaac Shailat, 2 vols. (Maaleh Adumim: Maaliyot Press, 5748 [1988]), 2: 553. There are variants to this version; see Faur, *Studies in the Mishne Tora*, 7 n. 27.",
+    "47": "See below, pp. 109–10. Cf. Kellner, *Maimonides on Human Perfection*, 30.",
+    "48": "Hence, the antirationalistic movement common in the Christian and Jewish Middle Ages; see Faur, *In the Shadow of History*, 11–12.",
+    "49": "Maimonides, *Guide*, sec. 1, chap. 71, pp. 125 (lines 18–21).",
+    "50": "Maimonides, *Mishne Tora*, *Yesode ha-Tora* 1:1.",
+    "51": "See Faur, *Golden Doves*, 36.",
+    "52": "Spinoza further developed the logic of this principle, concluding that God and religion must be subordinated to the political sovereign; see Faur, *In the Shadow of History*, 172."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_099.png and notes scan page_223.png; set continues_from_prev_page: true with unindented continuation paragraph p99_b1 starting with 'highest state there is.' from page 98; segmented text into 3 blocks (top continuation paragraph p99_b1, indented paragraph p99_b2, and indented paragraph p99_b3); healed line-end hyphenations ('emer-gence', 'possi-bility', 'psy-che', 'para-graph', 'heav-ens', 'exis-tence', 'under-scores', 'polit-ical'); healed OCR corruption 'Ps IrI:to; Prv 1:7' -> 'Ps 111:10; Prv 1:7'; restored Arabic transliteration *an ṯamma* with macron-below ṯ and (*dalil*); restored Hebrew transliterations [*she-yesh sham*], (*she-yesh sham*), [*mamṣi*], and *mamṣi* with dot-below ṣ; restored italics for *outside*, *Mishne Tora*, *authoritas*, and *Kalam*; restored curly single/double quotes, typographic apostrophes, and en-dashes; recovered footnote callouts [^46]–[^52]; transcribed and verified footnotes 46–52 from note page 223; updated note_pages to ['223'] and note_scan_images to ['data/faur_scans/page_223.png']; verified ends_with_hyphen: false terminating with 'This is a major point of contention'; set status: visual_verified."
+  ]
+}

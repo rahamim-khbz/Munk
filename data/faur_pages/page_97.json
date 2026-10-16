@@ -1,0 +1,51 @@
+{
+  "page_id": "97",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 56,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_097.png",
+  "note_pages": [
+    "222"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_222.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p97_b1",
+      "type": "blockquote",
+      "markdown": "could also refute those philosophical opinions that could threaten the foundations of their religion.[^35]"
+    },
+    {
+      "block_id": "p97_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The mention of “kings intent upon the defense of religion” underscores the close association between this type of discourse and political power. Alluding to religious coercion common in Islam and Christianity, Maimonides pointed out that such ‘proofs’ could only be maintained by institutionalized violence. Concerning the doctrine of Creation ex nihilo, he asked:"
+    },
+    {
+      "block_id": "p97_b3",
+      "type": "blockquote",
+      "markdown": "How can it be used as a proposition to build upon it [belief in] the existence of God, and have the existence of God depending on it with uncertainty, [and argue] if the world is created then there is a God, but if the world is eternal there is no God? It is either that or to proclaim that there is an apodictic proof [*burhan*] for the creation of the world and impose it by the sword so that we could proclaim that we had taught God apodicticly.[^36]"
+    },
+    {
+      "block_id": "p97_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "One may now appreciate why Maimonides censured Jewish scholars in the East, both Rabbanites and Karaites, “those of our nation [*millatna*], who mimic them”—Christian and Muslim *mutakallimun*—“and tread on their paths.”[^37] The term “our nation” (*millatna*) is not perfunctory. The chapter opened with a statement that as a result of subjugation “to the ignorant nations” (*al-milal al-jahiliya*) the esoteric subjects that were “in our nation” (*millatna*) were lost, and now “the great fundamentals of the nation” (*al-milla*) have disappeared completely.[^38] Since the methodology in the *Kalam* had been developed by the people who were bent on eradicating Judaism and the Jewish people, it would be wrong to assume that it has some affinity with the faith of Israel. In fact, by using their methodology, Jewish *mutakallimun* were surrendering the values of Israel to the very system bent on their destruction. Maimonides was particularly concerned with mental assimilation—the adoption of violent ideologies disguised under the cloak of ‘religion’. Through conquest and subjugation Jews were bereft of their own culture and value system. Ironically, misguided Jewish *mutakallimun* endeavored to fill the vacuum by adopting the values and institutions of their persecutors.[^39] In an impassioned cry Maimonides denounced the fact that “the evil people from among the ignorant nations [*al-milal al-jahiliya*] destroyed our wisdom and our works, and annihilated our sages, until we became ignorant like them. . . . We"
+    }
+  ],
+  "footnotes": {
+    "35": "Maimonides, *Guide*, sec. 1, chap. 71, p. 122 (lines 18–22). Except for a few departures the translation of this passage comes from Wolfson, *Philosophy of the Kalam*, 50.",
+    "36": "Maimonides, *Guide*, sec. 1, chap. 71, p. 124 (lines 24–28).",
+    "37": "Ibid., (line 10).",
+    "38": "Ibid., p. 121 (lines 9–11, 25).",
+    "39": "On the propensity of the persecuted to assimilate patterns of thought and feeling of the persecutor see Faur, *In the Shadow of History*, 9–10. This type of relationship was energetically pursued by anti-Maimonideans and other self-righteous Jews, past and present; see *idem*, *In the Shadow of History*, 11–13, and *idem*, “Two Forms of Jewish Spirituality,” 5–46."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually verified against 300 DPI scan page_097.png and notes scan page_222.png; set continues_from_prev_page: true for blockquote p97_b1 continuing from page 96; structured page into 4 blocks (p97_b1 top continuation blockquote, p97_b2 indented paragraph, p97_b3 blockquote, p97_b4 indented paragraph continuing onto page 98); healed mid-line hyphenations ('under-scores', 'adop-tion', 'vac-uum'); restored italics and transliterations (*burhan*, *millatna*, *mutakallimun*, *al-milal al-jahiliya*, *al-milla*, *Kalam*); recovered footnote callouts [^35], [^36], [^37], [^38], [^39]; restored typographic curly quotes, em-dashes, and spaced ellipsis; transcribed and verified footnotes 35–39 from note page 222; updated note_pages to ['222'] and note_scan_images to ['data/faur_scans/page_222.png']; verified ends_with_hyphen: false terminating with 'We'."
+  ]
+}
