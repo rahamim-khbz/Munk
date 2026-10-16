@@ -1,0 +1,48 @@
+{
+  "page_id": "xiii",
+  "section_file": "00_front_matter.md",
+  "spread_index": 6,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_xiii.png",
+  "note_pages": [],
+  "note_scan_images": [],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "pxiii_b1",
+      "type": "heading",
+      "level": 2,
+      "markdown": "Transliterated Characters"
+    },
+    {
+      "block_id": "pxiii_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "HEBREW AND ARAMAIC"
+    },
+    {
+      "block_id": "pxiii_b3",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "| Hebrew/Aramaic | Transliteration | Hebrew/Aramaic | Transliteration |\n| :--- | :--- | :--- | :--- |\n| א | ’ | ס | s |\n| ב | b, bh | ע | ‘ |\n| ג | g, gh | פ, ף | p, f |\n| ד | d, dh | צ, ץ | ṣ |\n| ה | h | ק | q |\n| ו | v, w | ר | r |\n| ז | z | שׁ | sh |\n| ח | ḥ | שׂ | ś |\n| ט | ṭ | ת | t, th |\n| י | y | | |\n| כ, ך | k, kh | | |\n| ל | l | | |\n| מ, ם | m | | |\n| נ, ן | n | | |"
+    },
+    {
+      "block_id": "pxiii_b4",
+      "type": "heading",
+      "level": 3,
+      "markdown": "ARABIC"
+    },
+    {
+      "block_id": "pxiii_b5",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "| Arabic | Transliteration | Arabic | Transliteration |\n| :--- | :--- | :--- | :--- |\n| ا | ’ | ط | ṭ |\n| ب | b | ظ | ẓ |\n| ت | t | ع | ‘ |\n| ث | th | غ | gh |\n| ج | j | ف | f |\n| ح | ḥ | ق | q |\n| خ | kh | ك | k |\n| د | d | ل | l |\n| ذ | dh | م | m |\n| ر | r | ن | n |\n| ز | z | ه | h |\n| س | s | و | w |\n| ش | sh | ي | y |\n| ص | ṣ | | |\n| ض | ḍ | | |"
+    }
+  ],
+  "footnotes": {},
+  "audit_log": [
+    "Rehabilitated against 300 DPI scan page_xiii.png; verified line-by-line."
+  ]
+}

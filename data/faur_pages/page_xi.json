@@ -1,0 +1,45 @@
+{
+  "page_id": "xi",
+  "section_file": "00_front_matter.md",
+  "spread_index": 5,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_xi.png",
+  "note_pages": [
+    "183",
+    "184"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_183.png",
+    "data/faur_scans/page_184.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "pxi_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "ture and rabbinic texts are to be read as the literature of the fantastic. The *Guide* is to help free the reader from conventional reading. Its purpose is “to elucidate the uncertainties of religion [the Tora] and to expose the truths that lay in her bosom which are above the comprehension of the masses (*jamhur*).”[^11]"
+    },
+    {
+      "block_id": "pxi_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Naïve readers believe that the *Guide* is a literary unit with a beginning, an end, and a middle. Rather, it is a puzzle that can be resolved in a variety of ways: for every solution there is a countersolution, and for every proof there is a counterproof. The prose is chilling and moody, the wit ice-cold. The style is nonlinear, at times scintillating and exasperating. Abruptly, the road bifurcates, compelling the reader to make a critical decision either to pursue an avenue that may (or may not) lead from a linguistic suggestion to a shrewd, radical political analysis, finding at the end a trapdoor or to explore a perfunctory note, encoding, perhaps, an unresolved message. Following Maimonides’s train of thought is like moving at a vertiginous speed along a labyrinth, branching up and down in all directions. Throughout the text are concealed ideas affecting the ebb and flow of moods and thoughts. Stark, primordial emotions insinuate themselves into the reader's consciousness. The *Guide* functions like a multifaceted mirror, reflecting distant, unmapped regions in the readers’ psyches. What the reader finds at the conclusion of the road is a jazzy, kaleidoscopic portrait of himself/herself as reflected in the work of the great master. In this type of “reading” the most arduous task comes *afterward*: she/he will spend the rest of her/his life writing a postscript to his/her own *Guide*."
+    },
+    {
+      "block_id": "pxi_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides forbade the readers of the *Guide* to analyze (*yishraḥ*) and explain (*yubayan*) what they had understood to others.[^12] There are several reasons for this prohibition. One is that the *Guide* demands an existential metamorphosis: in the end through their own hermeneutics, successful readers will become the author. (Or, what amounts to the same, the author will live in the reader). Therefore, the aim is not “to prove” or “to demonstrate” or “to establish some ultimate truth,” but to point out as a ‘signpost,’ which is the accurate meaning of *Guide* (Arabic: *Dalala*). Accordingly, the present work is not an elaborated *sharaḥ*, designed to present a scientific analysis of the *Guide*. There are plenty of these around, and there is no point in adding another one to the list. The methodology of the *Guide*, and that which I apply in this work, corresponds to the *derasha* (hermeneutics) methodology, idiosyncratic to rabbinic tradition—the earmark of the Talmudic sage. As with the literature of the fantastic, the objective is not the systematic exposition of the text but to puncture the ordinary and to awaken new levels of consciousness. Mircea Eliade (1907–1986) designates this type of discourse “creative hermeneutics”:"
+    }
+  ],
+  "footnotes": {
+    "11": "Maimonides *Guide*, part 2, chap. 2, p. 176 (lines 9–10).",
+    "12": "Ibid., Introduction, 10 (lines 4–8)."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_xi.png, page_183.png, page_184.png; verified line-by-line."
+  ]
+}

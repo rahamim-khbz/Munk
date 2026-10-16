@@ -1,0 +1,55 @@
+{
+  "page_id": "x",
+  "section_file": "00_front_matter.md",
+  "spread_index": 5,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_x.png",
+  "note_pages": [
+    "183",
+    "184"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_183.png",
+    "data/faur_scans/page_184.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "px_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "the task of the poet is to repair the breach and to restore the *word* to its original state. Referring to the overwhelming sense of alienation resulting from the breach word/thing, Juan Ramón Jiménez (1881–1956) wrote:"
+    },
+    {
+      "block_id": "px_b2",
+      "type": "blockquote",
+      "markdown": "Que mi palabra sea\nla cosa misma,\ncreada por mi alma nuevamente.[^4]\n\n“Let my word be the thing itself, newly created by my soul.”"
+    },
+    {
+      "block_id": "px_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Vico (1668–1744) noted that originally, the “logos, or word, meant also deed to the Hebrews and thing to the Greeks.”[^5] Because the Hebrews perceived reality in monotheistic terms—as a cosmic Book written by a single hand—the *logos*/*dabar* did not split. Reality is essentially holistic. As with the Book, the various semiological elements integrate into an all-comprehensive semantic unit.[^6] Thus, all facets of knowledge must be organically connected to the “tree of life” (Prv 3:18): they are either contained in the Book, or they branch off the Book as a *pirush* (commentary) to the Book. One of the designations for sages in rabbinic tradition is *ba‘ale asupot* ‘the authors of aggregate [knowledge]’, that is, a type of wisdom that is *essentially integrative*.[^7] Modern Jewish scholarship, inaugurated by *Wissenschaft des Judentums* (1819), grew amid a profound spiritual and intellectual alienation. It is essentially Oedipal and antibook. The methodology shears Jewish texts from their *literary* character, treating them as “documents” void of literary sense, and then applies to them the categories and subdivisions growing in the West as a consequence of the splitting of the *logos*.[^8] A similar methodology affects the “scientific” study of Jewish Philosophy, Maimonidean texts in particular. Maimonides explicitly disclaimed any interest in, or preeminence on, either physics or theology: “The works written about these are sufficient, and if they are wanting in some of their aspects, whatever I would have to say about that particular subject would not be better than what has already been said.”[^9] Philosophers deal with ideas; Jewish thinkers deal with texts. For a philosopher the text is marginal to the idea. The inverse is true with Jewish thinkers. Yet the *Guide* is treated as if it were a book on philosophy."
+    },
+    {
+      "block_id": "px_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The *Guide* is a work *on critical theory*, focusing on the *esoteric* elements of biblical and rabbinic literature. These elements belongs to a genre that the French designate *littérature fantastique*. The intention of this type of literature is to liberate the reader from the constants making up the ordinary world on behalf of a higher class of reality.[^10] For Maimonides, too, the esoteric elements of the Scrip-"
+    }
+  ],
+  "footnotes": {
+    "4": "Juan Ramón Jiménez, “Inteligencia,” in *Segunda Antología Poética* (Madrid: Espasa Calpe, 1920).",
+    "5": "Giambattista Vico, *New Science*, tran. Thomas Goddard Bergin and Max Harold Fisch (Ithaca, N.Y.: Cornell Univ. Press, 1968), par. 401.",
+    "6": "See Faur, *Golden Doves*, 23–27.",
+    "7": "Sifre, ed. Louis Finkelstein (New York: Jewish Theological Seminary of America, 1969), par. 41, 86; the expression comes from Eccl 12:11. See Faur, “The Splitting of the Logos: Some Remarks on Vico and Rabbinic Tradition,” *New Vico Studies* 3 (1985): 83–103.",
+    "8": "The intellectual value of such a methodology is analogous to someone applying to Shakespeare’s *Julius Caesar* the canons of early nineteenth century German historiography. For some further insights see José Faur, “Monolingualism and Judaism,” *Cardozo Law Review* 14 (May 1993): 1713–44.",
+    "9": "Maimonides *Guide* sect. 2, chap. 2, p. 176 (lines 13–16).",
+    "10": "On this type of literature see Roger Caillois, *Anthologie du fantastique* (Paris: Editions Gallimard, 1955); André Breton, *Manifestation du surréalisme* (Paris: J.-J. Pauvert, 1962); Marcel Schneider, *La Littérature fantastique en France* (Paris: Librairie Arthème Fayard, 1964). Cf. below, p. 111."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_x.png, page_183.png; verified line-by-line."
+  ]
+}

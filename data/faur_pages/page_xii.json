@@ -1,0 +1,41 @@
+{
+  "page_id": "xii",
+  "section_file": "00_front_matter.md",
+  "spread_index": 6,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_xii.png",
+  "note_pages": [
+    "184"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_184.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "pxii_b1",
+      "type": "blockquote",
+      "markdown": "From a certain point of view, one can compare the hermeneutics to a scientific or technological “discovery.” Before the discovery, the reality that one came to discover was there, only one did not see it, or did not understand it, or did not know how to use it. In the same way, a creative hermeneutics unveils significations that one did not grasp before, or puts them in relief with such a vigor that after having assimilated this new interpretation the consciousness is no longer the same.[^13]"
+    },
+    {
+      "block_id": "pxii_b2",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "Unless specified all translations are mine."
+    },
+    {
+      "block_id": "pxii_b3",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "—JOSÉ FAUR, JERUSALEM, ISRAEL\nOCTOBER 1997"
+    }
+  ],
+  "footnotes": {
+    "13": "Mircea Eliade, *The Quest: History and Meaning in Religion* (Chicago: Univ. of Chicago Press, 1984), 61–62."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_xii.png, page_184.png; verified line-by-line."
+  ]
+}

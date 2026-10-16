@@ -1,0 +1,46 @@
+{
+  "page_id": "ix",
+  "section_file": "00_front_matter.md",
+  "spread_index": 4,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_ix.png",
+  "note_pages": [
+    "183",
+    "184"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_183.png",
+    "data/faur_scans/page_184.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "pix_b1",
+      "type": "heading",
+      "level": 2,
+      "markdown": "Preface"
+    },
+    {
+      "block_id": "pix_b2",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "For reasons that I can only conceive of as providential, my grandfather, Joseph Faur ז\"ל, wanted me to learn Arabic and taught me the rudiments of that language when I was a child. This opened for me the whole field of Judeo-Arabic literature, particularly that of Old Sepharad, which I was able to read in the original. The central figure of that tradition was Maimonides (1135/38–1204). I began reading the *Guide* in Hebrew when I was eighteen. One year later, while browsing in a bookstore, I found a copy of the Arabic original, *Dalālat al-Ḥā’irīn* (Ed. Isacchar Joel and Solomon Munk, Jerusalem, 1931). Ever since it has been an integral part of my library. The following pages contain ideas upon which I reflected while reading the *Guide* since those early years."
+    },
+    {
+      "block_id": "pix_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The purpose of this book, as of my preceding *Golden Doves with Silver Dots: Semiotics and Textuality in Rabbinic Tradition* (1986) is to apply to classical Jewish texts some of the ideas, perspectives, and methodologies developed in modern critical theory and poststructural analysis. Western intellectual tradition owes its creation to the splitting of the *logos*. In an inaugural debate between Gorgias and Socrates the *logos* was formally broken up into two categories, rhetoric and philosophy, each standing in hierarchical opposition to the other.[^1] Aristotle, too, proceeded by breaking up *ontology*, “the only form of logic known in Pre-Aristotelian philosophy . . . into the elements Word (*logos*) and Thing (*on*).”[^2] Thus, Western intellectual history is punctured by a series of opposing subdivisions, such as logic/metaphysics, physics/theology, and so on. The compartmentalization of knowledge into discrete categories, disjointed from one another, reflects a polytheistic view of reality, whereby every natural phenomenon—a storm, the wind, rain, the blossoming of a tree—is viewed as a disparate event, the direct manifestation of different gods. In modern times the splitting of the *logos* has led to what José Ortega y Gasset (1883–1955) called the “real disarticulation of knowledge.”[^3] The splitting of the *logos* affected the very integrity of speech. In a profound sense"
+    }
+  ],
+  "footnotes": {
+    "1": "See José Faur, *Golden Doves with Silver Dots: Semiotics and Textuality in Rabbinic Tradition* (Bloomington: Indiana Univ. Press, 1986), xxvi, 63–64.",
+    "2": "Werner Jaeger, *Aristotle* (Oxford: Oxford Univ. Press, 1962), 370.",
+    "3": "José Ortega y Gasset, *The Revolt of the Masses*, trans. anonymous (New York: W. W. Norton, 1957), 111."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_ix.png, page_183.png; verified line-by-line."
+  ]
+}
