@@ -1,0 +1,42 @@
+{
+  "page_id": "112",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 64,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_112.png",
+  "note_pages": [
+    "227"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_227.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p112_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "edge is a function of creation, the Aristotelian definition, “science is the perfect cognition of a thing,” is humanly impossible.[^121] The rabbinic system is inductive rather than deductive. It focuses on the probable, not the absolute. The rabbis deal with probability, analogical inference, discrete sets, equiprobable and nonequiprobable logical alternatives, and subjects pertaining to statistical knowledge and indeterminacy, conceptual analogs and analog constructs.[^122] If the prophets are the conduits of a perfect truth revealed by God, then, borrowing two expressions from Maimonides, the aim of the rabbis is “what is approximate to the truth,” or ‘by way of frequency’ (*‘al derekh ha-rob*).[^123] The most important categories governing rabbinic jurisprudence are based on statistical inference. Unlike Aristotelian categories, rabbinic categories are quantitative, not qualitative. Similarly, Philo distinguished between the “truth” and “opinion.” The latter “is based on likelihoods and plausibilities.”[^124] The rational and the probable represent two distinct systems of thought and reality. Within the realm of probability, necessity, causality and, therefore, *burhan* are inoperative; it only operates within the boundaries of *istidlal*. The function of *burhan* is to establish necessary relationships; *istidlal* establishes a possible, that is, statistical, relationship. Rationality deals with *qualitative* differences. These differences are categorical: something could either be true or false. Probability establishes *quantitative* differences: things are more or less close to a given model. Regarding probability, Maimonides noted: “Concerning probable things, some of them are highly probable and some of them highly improbable. The probability of some of them ranges between these [two extremes]. The probable has a very wide range.”[^125] Within the category of the rational, things are determined by a necessary chain of cause and effect. The ‘probable’ is only apparent ignorance of the specific causes that have determined it. The opposite is within the realm of the possible: ‘necessary’ relationships pertain to a contingent system. Thus, the Aristotelian and rabbinic systems are grounded on two irreconcilable concept of God and the universe."
+    },
+    {
+      "block_id": "p112_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Aristotle conceived of the universe as an uncreated system governed by the law of causality. This law embraces everything, including the relation between the prime mover and the universe. From this perspective it is senseless to speak of the prime mover in terms of intentionality (*qaṣda*), will (*radiya*), or volition (*sha'a*).[^126] The doctrine of Creation teaches that ‘necessity’ and ‘causality’ are not intersystematic but were freely instituted by God. Contrary to Aristotle, “since there cannot be any analogy [*nisba*] between"
+    }
+  ],
+  "footnotes": {
+    "121": "See the article cited above, p. 221 n. 11.",
+    "122": "The best book on the subject continues to be the pioneer work of Nachum L. Rabibnovitch, *Probability and Statistical Inference in Ancient and Medieval Jewish Literature* (Toronto: Univ. of Toronto Press, 1973).",
+    "123": "On this expression see Maimonides, *Teshubot ha-Rambam*, no. 259, vol. 2, 460, cited in *Kesef Mishne*, *Ḥameṣ wu-Maṣṣa* 1:9. On its precise meaning see Faur, *Studies in the Mishne Tora*, 57 n. 75. For the distinction between rabbinic interpretation and the “Law” see Faur, “Law and Hermeneutics,” 1674–76.",
+    "124": "*On Rewards and Punishments*, 5, 28–29, vol. 8, p. 329.",
+    "125": "*Sefer ha-Miṣvot*, Negative Commandment no. 290, p. 316.",
+    "126": "*Radiya* is motivated, see Maimonides, *Guide*, sec. 2, chap. 18, p. 209 (line 20), whereas *sha'a* is a primary wish, which seeks “no goal and cannot be asked why?” Ibid., sec. 3, chap. 25, p. 366 (lines 12–13)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_112.png and notes scan page_227.png; confirmed continuation from page 111 ('knowl-') with indent: 'none' for p112_b1 and continues_from_prev_page: true; segmented into two paragraph blocks (p112_b1 continuing paragraph and p112_b2 indented paragraph); healed line-end hyphenations ('per-fect', 'equiprob-able', 'con-structs', 'plausibili-ties', 'istid-lal', 'con-cept', 'neces-sity'); restored italics and transliterations (*‘al derekh ha-rob*, *burhan*, *istidlal*, *qualitative*, *quantitative*, *qaṣda*, *radiya*, *sha'a*, [*nisba*]); recovered footnote callouts [^121], [^122], [^123], [^124], [^125], and [^126]; transcribed and verified footnotes 121–126 from page 227 with proper diacritics (*Teshubot ha-Rambam*, *Kesef Mishne*, *Ḥameṣ wu-Maṣṣa*, *Studies in the Mishne Tora*, *On Rewards and Punishments*, *Sefer ha-Miṣvot*, *Guide*), en-dashes, and typographical quotes; updated note_pages to ['227'] and note_scan_images to ['data/faur_scans/page_227.png']; confirmed ends_with_hyphen: false terminating with 'between'; set status: visual_verified."
+  ]
+}

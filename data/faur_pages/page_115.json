@@ -1,0 +1,55 @@
+{
+  "page_id": "115",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 65,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_115.png",
+  "note_pages": [
+    "228"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_228.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p115_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "would need to overcome “conventional thinking” before accessing the realm of rabbinic probability and esoterics.[^143]"
+    },
+    {
+      "block_id": "p115_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Causality is not a primary law but was itself established by an acausal act of creation. Indeed, although governed by the principle of causality, the laws of physics are only statistical. The statistical character of nature was indicated by Maimonides in an early work. It is on the basis of a probabilistic concept of the laws of physics that there can be a distinction between essential and accidental. Frequent (‘*ala al-akṯar*) phenomena are designated ‘essential’, and what is infrequent, for example, a man with six fingers, is ‘accidental’.[^144] Elsewhere, Maimonides wrote that “the major subjects of nature are, however, [a matter of] frequency [*akṯariya*].”[^145] Indeed, “What happens frequently, this is something ‘natural’ . . . [and] what ensues rarely, that is the ‘miraculous’.”[^146] The source of this concept is rabbinic. Commenting on the verse, “and the sea returned in the first light of morning to its course [*le-’etano*]” (Ex 14:27), the rabbis explained: “*le-’etano*—to the first condition [*le-tena’o*] that I had stipulated from the beginning.” Note that the ‘course’ (*’etano*) or primary state of the sea, is described as a ‘condition’ (*tena’o*).[^147] Thus, the rabbis were teaching that the physical laws themselves are contingent. Anticipating Joshiah Willard Gibbs (1839–1903), this means that the universe is a contingent entity, predictable only within statistical limits."
+    },
+    {
+      "block_id": "p115_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "MA‘AŚE BERESHIT"
+    },
+    {
+      "block_id": "p115_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In accordance with rabbinic tradition Maimonides maintained that there is a general cosmological organization. *Ma‘aśe Bereshit* is the conceptual model that permits the explanation of the basic principles of such an organization, and, as it were, surveys the entire cosmological system in a single ray of light.[^148] Since the very concept of ‘organization’ implies the integration of disparate systems into a ‘whole,’ before their final integration phenomena lacked (present) structural uniformity. Therefore, a basic premise of the Maimonidean general theory of cosmology is that “what is found in the state of completion and full development” (i.e., presently, after being integrated into a system and total organization) “that state does not indicate [what] its state [was] before it was completed.”[^149] The referent of *bereshit* (in the beginning), the first word of the Hebrew Scripture (Gn 1:1), is not time, but the verb *bara* (created), meaning, “at the principal [stage] of creating the"
+    }
+  ],
+  "footnotes": {
+    "143": "On mental habits see Maimonides, *Guide*, Introduction, p. 3 (lines 25–26); sec. 1, chap. 31, p. 45 (line 12).",
+    "144": "*Treatise on Logic*, chap. 11. The same expression ‘*ala al-akṯar* is used Maimonides in the source cited in n. 145.",
+    "145": "Maimonides, *Pirush ha-Mishnayot*, *‘Eduyot* 2:9, vol. 4, p. 299.",
+    "146": "*Pirqe Abot* 5:5, Maimonides, *Pirush ha-Mishnayot*, 4: 456.",
+    "147": "*Bereshit Rabba* 5, 5, vol. 1, p. 35. Maimonides, *Guide*, sec. 2, p. 242 (line 16), described this view as “strange” (*gariba*), a term not implying disapproval, but ‘wonder’, ‘astonishment’. See, Introduction, p. 5 (lines 19–20); sec. 1, chap. 70, pp. 118 (line 27), 120 (lines 4, 8); sec. 2, chap. 19, pp. 213 (line 22), 215 (line 16); chap. 30, p. 250 (line 23); sec. 3, chap. 8, p. 313 (line 3); chap. 21, p. 349 (line 24); chap. 22, p. 351 (line 23); chap. 31, p. 383 (line 9); chap. 37, pp. 397 (lines 8–9), 399 (line 2); chap. 45, p. 421 (line 28); chap. 46, pp. 431 (line 27), 433 (line 2); chap. 54, p. 467 (line 9), and so on.",
+    "148": "See *Ḥagiga* 12a.",
+    "149": "Maimonides, *Guide*, sec. 2, chap. 17, p. 207 (lines 18–19)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_115.png and notes scan page_228.png (NOTES TO PAGES 113–16); set continues_from_prev_page: true (top line continues sentence from bottom of page 114); structured into 4 blocks (p115_b1 continuation paragraph with indent: none, p115_b2 indented paragraph on causality and statistical laws of physics, p115_b3 level 3 section heading 'MA‘AŚE BERESHIT' with ayn ‘ and acute Ś, p115_b4 indented paragraph introducing Ma‘aśe Bereshit); healed mid-line hyphenations (con-cept -> concept, how-ever -> however, Antici-pating -> Anticipating, orga-nization -> organization, phe-nomena -> phenomena, inte-grated -> integrated); restored italics and transliterations (‘*ala al-akṯar*, *akṯariya*, *le-’etano*, *le-tena’o*, *’etano*, *tena’o*, *Ma‘aśe Bereshit*, *bereshit*, *bara*); fixed biblical citation (Gn xx -> Gn 1:1); recovered and verified footnote callouts [^143], [^144], [^145], [^146], [^147], [^148], [^149]; transcribed and verified footnotes 143–149 on note page 228; updated note_pages to [\"228\"] and note_scan_images to [\"data/faur_scans/page_228.png\"]; verified ends_with_hyphen: false terminating with 'the' continuing to page 116; set status: visual_verified."
+  ]
+}

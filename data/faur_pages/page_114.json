@@ -1,0 +1,50 @@
+{
+  "page_id": "114",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 65,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_114.png",
+  "note_pages": [
+    "228"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_228.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p114_b1",
+      "type": "blockquote",
+      "markdown": "of a cause, which determines necessarily that a thing be what is. To this cause, there is another cause. To that cause another, until reaching the first cause, which to him [Aristotle] is the cause of everything—since it is impossible to have an infinite regression [of cause and effect].[^134]"
+    },
+    {
+      "block_id": "p114_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Will and necessity are two mutually exclusive concepts. Intentionality and selection are synonymous with purposiveness and creation. Necessity is a mechanical function determined by an inexorable principle controlling the chain of cause and event.[^135] Since Aristotle’s prime mover lacks intentionality and determination, it has nothing in common with the Hebrew Creator."
+    },
+    {
+      "block_id": "p114_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Scriptural Creation is willful.[^136] Thus it is declared in the *Qaddish*: “*Di bera khir‘uteh*” (that [He] created according to His will). It is also acausal. The question ‘why?’—presupposing causality—does not apply to ‘will’. “The verity of will and its essence,” wrote Maimonides, “has the following meaning: to will and not to will.”[^137] This is akin to the principle of probability. The possible is a function of God’s dynamic willing: “[He] does not will but what is probable, and nothing is probable unless His wisdom intended that it be so.”[^138] There are three major implications to this principle. First, the probable is not erratic, but a function of God’s wisdom.[^139] Second, the occurrence of one contingency over the other is acausal: “The nature of the probable is unattainable unless one of the probabilities is realized. It is improper to ask, ‘What for was this probability and not another probability?’ since the same question would apply if the other probability instead of this one would have occurred. Know this concept and understand it!”[^140] Finally, since probability does not fall within the realm of causality, it cannot be ‘determined’. Indeed, if it were possible to forecast a particular outcome, it would still retain all the characteristics of a probability. Therefore, although God knows the future, it remains indeterminate. “From the verses of Scripture it became clear to me that God’s knowledge that a given probability will come to be does not affect in any way the nature of the probable: it will still retain the nature of the probable. Knowledge of the outcome of probabilities does not necessitate any of these probabilities. This is one of the fundamental doctrines of the Law of Moses. There is no doubt about it or disagreement.”[^141] “This,” Maimonides concedes, “is very difficult to be conceptualize, according to our diminutive minds.”[^142] Our thinking habits are Aristotelian. One"
+    }
+  ],
+  "footnotes": {
+    "134": "Ibid., chap. 20, pp. 218 (line 23)–19 (line 2).",
+    "135": "See ibid., chap. 19, p. 211 (lines 15–18).",
+    "136": "See ibid., sec. 3, chap. 13; and sec. 2, chap. 25, p. 230 (lines 5–17).",
+    "137": "Ibid., sec. 2, chap. 18, p. 210 (lines 4–5).",
+    "138": "Ibid., sec. 3, chap. 25, p. 367 (lines 6–7).",
+    "139": "Cf. ibid., sec. 2, chap. 18, p. 210 (lines 18–21), and above, n. 132.",
+    "140": "Maimonides, *Guide*, sec. 3, chap. 26, pp. 370 (line 26)–71 (line 2); chap. 17, p. 342 (lines 16–22).",
+    "141": "Ibid., chap. 20, p. 349 (lines 2–6).",
+    "142": "Ibid., (lines 9–10)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_114.png and notes scan page_228.png (NOTES TO PAGES 113–16); set continues_from_prev_page: true (continuing blockquote from bottom of page 113); structured into 3 blocks (p114_b1 continuing blockquote from Guide 2:20, p114_b2 indented paragraph on intentionality vs mechanical necessity, p114_b3 indented paragraph on willful creation, probability, and divine knowledge); recovered and verified footnote callouts [^134], [^135], [^136], [^137], [^138], [^139], [^140], [^141], [^142]; healed line breaks and hyphenations (intentional-ity -> intentionality, mean-ing -> meaning, prob-able -> probable, doc-trines -> doctrines, accord-ing -> according); restored italics (*Qaddish*, *Di bera khir‘uteh* with ayn ‘, *Guide*); restored typographic quotes, apostrophes, and em-dashes; transcribed and verified footnotes 134–142 on note page 228; updated note_pages to [\"228\"] and note_scan_images to [\"data/faur_scans/page_228.png\"]; verified ends_with_hyphen: false terminating with 'One' continuing to page 115; set status: visual_verified."
+  ]
+}

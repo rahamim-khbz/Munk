@@ -1,0 +1,50 @@
+{
+  "page_id": "113",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 64,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_113.png",
+  "note_pages": [
+    "227",
+    "228"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_227.png",
+    "data/faur_scans/page_228.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p113_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "matter and that which is not matter,” Creation is not the necessary effect of a sublime prime mover.[^127] It is a spontaneous act of pure volition, free and undetermined. The universe is contingent, not necessary. Causality is the effect, not the grounds, of creation.[^128] One might argue that since Aristotle rejected the Epicurean notion that the universe is the result of chance, the Aristotelian prime mover may be somehow analogous to the Creator of the Scripture. Maimonides rejected this view.[^129] An integral dimension of creation is ‘will’—a dynamic process having ‘intentionality’ (*qaṣda*) and ‘determination’ (*takhṣiṣ*), neither of which is conditioned by causality. Like the ideality in the mind of the first person, represented in Hebrew tradition by the “golden doves,” intentionality and determination precede the “silver dots,” or pragmatic realization of a thing.[^130] Intentionality comprises a series of alternative models. It involves ‘will’ (*rias*)—in the sense of consent on the part of the Creator—and ‘selection’ (*ikhtar*). Determination is the implementation of a model, for example, determining that a particular plant should have white flowers rather than red or sweet fruits rather than bitter. Therefore, any given model is a ‘probability’ that theoretically could have been made differently. Selections and determinations are not random: God’s volition (*mashiya*) is synonymous with His wisdom. Thus, the probable, too, is contained within the limits imposed by the very nature of the possible.[^131] As a statistical possibility, the actual universe represents the deliberate selection of one model over another.[^132]"
+    },
+    {
+      "block_id": "p113_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Although Aristotle conceived of the first cause as a pure and sublime intellect that ‘wants’—in the sense of being ‘pleased’—what was effected by it, “it is impossible for it to will something else.” “This,” Maimonides noted, “can neither be called ‘intentionality’ nor has the sense of ‘purpose’.”[^133] Above all, the scriptural Creator is willful and deliberate:"
+    },
+    {
+      "block_id": "p113_b3",
+      "type": "blockquote",
+      "markdown": "To argue, however, that since it [the universe] is not self-generated, it was purposely and willfully [made by God]—I don’t think that Aristotle believes such a thing. Indeed, to try to merge the [notion] of existence by way of necessity with [the doctrine of] Creation by way of intentionality and will and to reduce them to a single concept is, in my opinion, close to one wanting to merge two opposites. Because the concept of ‘necessity’—as believed by Aristotle—is that everything in this world that was not artificially made is the inexorable result"
+    }
+  ],
+  "footnotes": {
+    "127": "Ibid., sec. 2, chap. 18, p. 208 (lines 27–28).",
+    "128": "See Faur, *Golden Doves*, 67–68.",
+    "129": "Maimonides, *Guide*, sec. 2, 21.",
+    "130": "See Faur, *Golden Doves*, xvi–xviii.",
+    "131": "Maimonides, *Guide*, sec. 2, chap. 18, p. 210 (lines 18–21). Hence, the difference with *‘ada*, cited above, p. 96. This leads to the Maimonidean concept of the “impossible”; see Maimonides, *Guide*, sec. 3, chap. 15.",
+    "132": "See ibid., sec. 2, chap. 19, pp. 211 (line 15)–12 (line 1). The difference between this thesis and the *‘ada* of the *Kalam* is that *takhṣiṣ* is not random, see ibid. and below, n. 139.",
+    "133": "Maimonides, *Guide*, sec. 2, chap. 19, p. 219 (lines 8–9)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_113.png and notes scans page_227.png and page_228.png; confirmed continuation from page 112 with indent: 'none' for p113_b1 and continues_from_prev_page: true; segmented into 3 blocks (p113_b1 continuation paragraph, p113_b2 indented paragraph, and p113_b3 blockquote); healed line-end hyphenations ('deter-mination', 'pos-sible', 'self-gen-erated') and corrected OCR error 'whire' -> 'white'; restored italics and transliterations (*qaṣda*, *takhṣiṣ*, *rias*, *ikhtar*, *mashiya*); restored curly quotation marks, em-dashes, and brackets; recovered footnote callouts [^127], [^128], [^129], [^130], [^131], [^132], and [^133]; transcribed and verified footnotes 127–131 from page 227 and 132–133 from page 228 with en-dashes, italics (*Golden Doves*, *Guide*, *‘ada*, *Kalam*, *takhṣiṣ*, *ibid.*), and curly quotes; updated note_pages to ['227', '228'] and note_scan_images to ['data/faur_scans/page_227.png', 'data/faur_scans/page_228.png']; confirmed ends_with_hyphen: false terminating with 'inexorable result'; set status: visual_verified."
+  ]
+}
