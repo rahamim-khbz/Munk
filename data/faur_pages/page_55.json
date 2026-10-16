@@ -1,0 +1,54 @@
+{
+  "page_id": "55",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 35,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_055.png",
+  "note_pages": [
+    "209"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_209.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p55_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "ated by inner faculties, hence, the Maimonidean doctrine, that the light beamed by God is the active intellect continuously gushing toward His creations. “One who does not perceive intellectually [*yu‘qal*] God at all is like one who is in darkness and has never seen the light.”[^18] Genuine worship of God must involve the active participation of the human intellect. It can only take place after the individual “has formed an intellectual concept (of God). If you perceived God and His actions according to what the intellect determines, you could thereafter consign yourself to Him, march toward His nearness, and strengthen the link between you and Him, which is the intellect.”[^19]"
+    },
+    {
+      "block_id": "p55_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "By applying their minds, humans can be illuminated and gain access to the divine intellect: “But he who had perceived and directs all of himself according to his understanding is like one who stands by the pure light of the sun.”[^20] While in the state of intellectual propinquity, the individual “is with God and God is with him.”[^21] God is ceaselessly projecting His light and does not ‘hide’ from humans. As mentioned earlier, at the ontological level—outside the perimeters of revelation—*deus absconditus* is human inability to comprehend God. Within revelation, however, this doctrine concerns human attitude toward God. God ‘hides’ from humans as a result of humans ‘hiding’ from God. “Only when one departs from Him,” by turning off his intellect, then “is hidden from God,” and “God becomes hidden from him.”[^22]"
+    },
+    {
+      "block_id": "p55_b3",
+      "type": "blockquote",
+      "markdown": "This doctrine I found corroborated also in the text of the Tora. God, blessed be He, said: “And I shall hide my face from them and it [the people] shall be devoured, and many evils and afflictions will find it [the people]. And in that day it [the people] shall say: because my God is not in my midst these evils have found me” (Dt 31:17). He [God] clarified that (His) “hiding of the face” was caused by us and that we have effected the hiding. As He says, “And I shall surely hide my face in that day because of all the evil that he did” (Dt 31:18).[^23]"
+    },
+    {
+      "block_id": "p55_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "*Deus absconditus* is human hiding from God, not God from human (see Is 29:15). Because human refuses to let himself be touched by the light of reason, *homo absconditus* is more dangerous than all the other species in the animal kingdom.[^24]"
+    }
+  ],
+  "footnotes": {
+    "18": "Maimonides, *Guide*, sec. 3, chap. 51, p. 460 (lines 19–20).",
+    "19": "Ibid., p. 456 (lines 24–27).",
+    "20": "Ibid., p. 460 (lines 20–21).",
+    "21": "Ibid., p. 461 (line 7).",
+    "22": "Ibid., (lines 7–8).",
+    "23": "Ibid., (lines 11–17). Hence the expression *al-maḥjubun ‘an Alla* ‘those who are fenced away from God’ (ibid., sec. 3, chap. 8, p. 311 (line 19).",
+    "24": "See below, pp. 128–29."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_055.png and note scan page_209.png (NOTES TO PAGES 54–58); set continues_from_prev_page: true with indent: continuation for block p55_b1 continuing mid-word 'gener-ated' from page 54; structured blocks into p55_b1 (continuation paragraph), p55_b2 (indented paragraph), p55_b3 (indented blockquote of Maimonides citing Dt 31:17–18), and p55_b4 (indented paragraph); healed mid-line hyphenations (cre-ations -> creations, him-self -> himself, indi-vidual -> individual, doc-trine -> doctrine, afflic-tions -> afflictions, hid-ing -> hiding, rea-son -> reason, ani-mal -> animal); corrected OCR typos and optical digit swaps ('cieations' -> 'creations', 'Dt 31:I7' -> 'Dt 31:17', 'Dt 3r:18' -> 'Dt 31:18', 'Is 29:T5' -> 'Is 29:15', '2z' -> '22'); restored italics (*yu‘qal*, *deus absconditus*, *Deus absconditus*, *homo absconditus*); recovered footnote callouts [^18]–[^24]; transcribed and verified footnotes 18–24 from note page 209 (including *al-maḥjubun ‘an Alla* with underdot ḥ); set ends_with_hyphen: false terminating cleanly at 'kingdom.[^24]'."
+  ]
+}

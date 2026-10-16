@@ -1,0 +1,54 @@
+{
+  "page_id": "54",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 35,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_054.png",
+  "note_pages": [
+    "208",
+    "209"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_208.png",
+    "data/faur_scans/page_209.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p54_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "mists) stands for human ability to pierce the night with their own intellectual faculties.[^8] The conceptual basis of this model comes from rabbinic literature."
+    },
+    {
+      "block_id": "p54_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "R. Eleazar (d. 279) taught that the primeval light created in the first day (Gn 1:3) was to be a brilliance by which humans could “contemplate the universe from one end to the other.” It is inaccessible to the wicked, and it is “reserved for the righteous in the future to come.”[^9] This light is the culmination of human development. It is not the mystical light known in phenomenology and general religious experience.[^10] The primeval light is akin to the Philonic *logos* and the rabbinic *memra*.[^11] Maimonides identified it with “the Glory of God,”[^12] which is “the active intellect flowing from God.”[^13] The motif of a pristine light beamed by God to make Himself manifest is developed at the end of the daily prayer (*‘Amida*). Its purpose is to guide humankind: “Because with the light of Your countenance You gave to us Tora and life, love and favor, charity and mercy, blessing and peace.” This light, like the Philonic *logos* and the rabbinic *memra* is essentially intellectual. Indeed, R. Amme (third century), a colleague of R. Eleazar, taught, “Great is intelligence (*da‘at*) that was given between two Signs (*otiyot*) [Names of God].”[^14] The expression “given between two Signs” means that intelligence—like the divine light mentioned at the end of the *‘Amida*—proceeds from God and directs [the individual] to Him, thus establishing a link between them. It parallels the Temple, where the Divine Glory (*Shekhina*) coming from God dwells, establishing a link between the people and their Maker. Elaborating on this basic theme, the same R. Eleazar taught, “Great is the Temple that was given between two Signs.” Since both the Temple and intelligence fulfill parallel functions—the former in the realm of the collective and the latter in the realm of the individual—R. Eleazar concluded, “Whoever has intelligence is as if the Temple had been built in his days.”[^15] Following up this doctrine, R. Amme eloquently laid out the thesis that “Great is intelligence that was inserted in the first blessing of the daily (prayer).”[^16] The blessing reads: “You [God] freely distribute [*ḥonen*] intelligence [*da‘at*] to man and teach discernment to humans. We supplicate from You to distribute freely to us [*ve-ḥonnenu*]: wisdom, discernment, and intelligence. Blessed are You, O Lord! who distributes intelligence freely [*ḥonen*].”[^17]"
+    },
+    {
+      "block_id": "p54_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Ḥonen not only means ‘a freely bestowed gift’ but also something coming from without. The message is clear. Human intelligence comes from God and is freely bestowed to human—in the sense that it is not gener-"
+    }
+  ],
+  "footnotes": {
+    "8": "See below, p. 74.",
+    "9": "*Ḥagiga* 12a.",
+    "10": "On the “mystical light” see Mircea Eliade, “Spirit, Light, and Seed,” in *Occultism Witchcraft and Cultural Fashions*, by Mircea Eliade (Chicago: Univ. of Chicago Press, 1978), 93–119.",
+    "11": "See Faur, *Golden Doves*, 23–24.",
+    "12": "See Maimonides, *Guide*, sec. 1, chap. 19.",
+    "13": "See ibid., sec. 2, chap. 12, pp. 194 (line 19)–95 (line 8). On the symbolism of “light,” “cloud,” and “dense fog” in the Scripture and their relation to the pillars of “cloud” and “fire” see the very valuable comments of R. Isaac Abarbanel, in *Pirush Nebi’im Rishonim* (Commentary to the early prophets) (Pesaro, 5280/1520) on 1 Kgs 8:65.",
+    "14": "*Berakhot* 33a. Likewise the rabbis (*Vayyiqra Rabba*, 1, 6, vol. 1, pp. 18–19) taught, “If you had acquired intelligence, you are missing nothing; and if you are missing intelligence, you have acquired nothing.” The source for this idea is Prv 20:15; see *Teshubot ha-Ge’onim ha-Ḥadashot*, no. 41, p. 42. On the designation *ot* ‘sign’ for God see Faur, *Golden Doves*, 83. Cf. R. Joseph ben Judah ibn ‘Aqnin, *Hitgallut ha-Sodot*, ed. and trans. Abraham Halkin (Jerusalem: Mekize Nirdamim, 1964), 10–12.",
+    "15": "*Berakhot* 33a.",
+    "16": "Ibid.",
+    "17": "Cf. Faur, *Golden Doves*, xxiv–xxv."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_054.png and note scans page_208.png and page_209.png (NOTES TO PAGES 52–54, 54–58); set continues_from_prev_page: true with indent: continuation for block p54_b1 continuing mid-word 'alche-mists)' from page 53; separated into three distinct paragraph blocks p54_b1, p54_b2, and p54_b3 matching scan paragraph structure; healed mid-line hyphenations (uni-verse -> universe, culmina-tion -> culmination, phenome-nology -> phenomenology, Tem-ple -> Temple, func-tions -> functions, elo-quently -> eloquently, dis-tribute -> distribute, dis-cernment -> discernment, intelli-gence -> intelligence); corrected optical digit swap 'Gn r:3' -> 'Gn 1:3'; restored italics (*logos*, *memra*, *‘Amida*, *da‘at*, *otiyot*, *Shekhina*, *ḥonen*, *ve-ḥonnenu*); restored diacritics (da'at -> da‘at, honen -> ḥonen, ve-honnenu -> ve-ḥonnenu, Honen -> Ḥonen); recovered footnote callouts [^8]–[^17]; transcribed and verified footnotes 8–17 from note pages 208 and 209; confirmed ends_with_hyphen: true terminating with 'gener-'."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "page_id": "52",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 34,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_052.png",
+  "note_pages": [
+    "207",
+    "208"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_207.png",
+    "data/faur_scans/page_208.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p52_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "should not cry?”[^206] Addressing this type of situation, Borges wrote: “Hope not that the straightness of your path/ that stubbornly branches off in two, and/ stubbornly branches off in two, will have an end.”[^207]"
+    },
+    {
+      "block_id": "p52_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The (*ḥa’iran*) ‘perplexed’ is an individual facing a crisis of pure choice and pure subjectivity—a crisis effected by the ‘signpost’, hence, the two terms making up the title of the *Guide (Dalālat) for the Perplexed (al-Ḥa’irīn)*.[^208] It would then be up to the student/reader to establish (or not to establish) a direct relationship with God and to determine (or not to determine) the perception ‘knowledge → un-knowledge’, ‘praise → silence’."
+    }
+  ],
+  "footnotes": {
+    "206": "*Berakhot* 28b. This story should be read in conjunction with the passage in *Soṭa* 21a stating that death itself is a crossroad. Cf. above, p. 206 n. 185.",
+    "207": "Jorge Luis Borges, “Labyrinths,” in *In Praise of Darkness*, trans. Norman di Giovanni (New York: Dutton, 1974), 39.",
+    "208": "On this fundamental concept and the precise sense of *dalala* see Faur, *Golden Doves*, 74–76."
+  },
+  "audit_log": [
+    "Seeded from 02_part_one_apophasis.md",
+    "Visually rehabilitated against 300 DPI scan page_052.png and notes scan page_208.png; healed top continuation line from page 51, recovered callouts [^206], [^207], [^208], verified typography, italics (*ḥa’iran*, *Guide (Dalālat) for the Perplexed (al-Ḥa’irīn)*, *dalala*, *Golden Doves*), arrows (→), and footnotes 206–208."
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "page_id": "53",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 34,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_053.png",
+  "note_pages": [
+    "208"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_208.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p53_b1",
+      "type": "heading",
+      "level": 3,
+      "markdown": "DEUS ABSCONDITUS, HOMO ABSCONDITUS"
+    },
+    {
+      "block_id": "p53_b2",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "REVELATION, IN THE SENSE that God can make Himself known to human, is the cornerstone of Scripture and the Maimonidean intellectual apparatus. Although God as He is to Himself *ad intra* is *deus absconditus* and totally inaccessible, the whole point of the Hebrew Scripture is that God does reveal Himself to humankind.[^1] God’s essence cannot be known to human, especially in his somatic condition, yet human is privy to discern God through revelation.[^2] Following the rabbis, who taught that this world is like “a pitch dark night,”[^3] Maimonides compared human’s earthly station to someone standing in a pitch dark night. Alluding to the ‘palace’ symbolizing the divine abode,[^4] the rabbis taught that “in the inner chambers” of God’s dwelling “luminescence abides with Him,” whereas “in the outer chambers” He is surrounded by darkness.[^5] The tension “inner/outer chambers” is resolved in a successive series of “flashes/darkness.”[^6] Referring to the individual grasping the lightning flashing through the night, Maimonides commented:"
+    },
+    {
+      "block_id": "p53_b3",
+      "type": "blockquote",
+      "markdown": "He would be illuminated by flashes of lightning rapidly succeeding each other, and, therefore, he would appear to be in continuous light with no interruption. . . . To another the lightning flashes only once during his [entire] night. There are also some, who, from one lightning flash to another [experience] long or short intervals. There are also some that cannot come up to the level of having their night illuminated by lightning but by a radiant body or some type of rock that is iridescent by night.[^7]"
+    },
+    {
+      "block_id": "p53_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The “flashes of lightning” represent divine inspiration reaching from above. The “radiant body” or “rock” (like the *lapis philosophorum* of the alche-"
+    }
+  ],
+  "footnotes": {
+    "1": "See Maimonides, *Mishne Tora*, *Yesode ha-Tora* 7:1; idem, *Guide*, sec. 2, chap. 32; sec. 3, chap. 45.",
+    "2": "See Maimonides, *Guide*, sec. 3, chap. 9; cf. sec. 1, chap. 21, p. 33 (lines 7–8). Cf. Joseph ben Judah ibn ‘Aqnin, *Hitgallut ha-Sodot*, ed. and trans. Abraham Halkin (Jerusalem: Mekize Nirdamim, 1964), 114–16, cf. 43, 94.",
+    "3": "*Soṭa* 21a, see *Pesaḥim* 2b; *Ḥagiga* 12b; *Baba Meṣi‘a* 83b; *Yerushalmi Ḥagiga* 2, 1.",
+    "4": "See above, p. 197 n. 76.",
+    "5": "*Ḥagiga* 12b–13a. Cf. Maimonides, *Guide*, sec. 3, chap. 9.",
+    "6": "See commentary of R. Ḥanan’el on *Ḥagiga* 13b. This implies successive synthesis; see Faur, *Golden Doves*, 32–37.",
+    "7": "Maimonides, *Guide*, Introduction, p. 3 (line 27)–4 (line 5)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_053.png and notes scan page_208.png; structured section heading 'DEUS ABSCONDITUS, HOMO ABSCONDITUS' (level 3), healed paragraph start 'REVELATION, IN THE SENSE...', extracted Maimonides lightning flash quotation into blockquote, recovered callouts [^1]–[^7], verified italics (*ad intra*, *deus absconditus*, *lapis philosophorum*), healed hyphenation ('continuous', 'alche-'), and transcribed footnotes 1–7."
+  ]
+}
