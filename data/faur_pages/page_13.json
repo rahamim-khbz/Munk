@@ -1,0 +1,53 @@
+{
+  "page_id": "13",
+  "section_file": "01_introduction.md",
+  "spread_index": 14,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_013.png",
+  "note_pages": [
+    "189",
+    "190"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_189.png",
+    "data/faur_scans/page_190.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p13_b1",
+      "type": "blockquote",
+      "markdown": "have abandoned all these common characteristics of your countrymen, what is there left to you that is Jewish?” he would reply: “A very great deal, and probably its very essence.” He could not now express that essence clearly in words, but some day, no doubt, it will become accessible to the scientific mind.[^62]"
+    },
+    {
+      "block_id": "p13_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Regardless of Freud’s thinking on Judaism, a fundamental principle of Maimonides is the rabbinic doctrine that whoever rejects *‘aboda zara* is as if he had accepted the entire Tora.[^63] According to this doctrine, such an “atheist” is closer to the God of the Scripture than someone who worships his own displacement-substitutes."
+    },
+    {
+      "block_id": "p13_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In part 3 (Cosmology) I examine the Maimonidean doctrine of Creation. In the Maimonidean system knowledge of God as a transcendental Supreme Being means knowledge of God as the absolute Creator. It involves three closely interrelated steps: exiting the realm of imagination, discovering objective reality, and cognizance of the Creator. The first step consists in freeing the mind from the grip of imagination. Because those inhabiting the realm of imagination would process the divine message in mythological terms, at this stage revelation is useless. The antidote to imagination is rationality. Aristotelian logic represents humanity’s emergence from the world of imagination into the world of reason. The second step consists of penetrating the realm of reason and perceiving reality as an objective entity governed by precise and universal laws. Only then can humans begin to realize that the universe in which they reside may be the design of a Creator, Absolute and Supreme. The source for this doctrine is rabbinic. In a lost source cited by Maimonides R. Me’ir (second century) stated, “Scrutinize His creations, for thus you would discern He who had spoken and the World came to be.”[^64] Observing God’s creation is only the first step in a process culminating in love of God and ecstasy.[^65]"
+    },
+    {
+      "block_id": "p13_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Only a mythological deity leaves traces of its presence. The God of Israel, even when performing the most astounding miracles, leaves no evidence of His presence. Referring to the splitting of the sea, the rabbis taught that the sea returned to its original condition, bearing no marks of God’s intervention. The same is true of all other miracles.[^66] Concerning this fundamental principle, the psalmist sang: “Your path is in the sea, your trails are in the"
+    }
+  ],
+  "footnotes": {
+    "62": "Printed in Sigmund Freud, *Standard Edition of the Complete Psychological Works of Sigmund Freud* (S.E.), ed. and trans. James Strachey (London: Hogarts Press, 1953–74) 13: XV. Austrio-German literature of the time written by assimilated Jews must be read as the literature of *conversos*. In which case, Freud’s *Moses and Monotheism*, is a code-term for “Christ” and “Christians.” The principal thesis is that the Roman, that is, proto-Christian murder of Jesus was the ground for his eventual deification. See Faur, *In the Shadow of History: Jews and Conversos at the Dawn of Modernity* (New York: SUNY, 1992), 260 n. 130. Accordingly, the Oedipus complex is the matrix not of universal culture and religion but of the specific process of displacement and substitution peculiar to Christianity and Western culture. In Freud, “An Autobiographical Study,” S.E., 20: 68, Freud wrote: The son’s rebelliousness and his affection for his father struggled against each other through a constant succession of compromises, which sought on the one hand to atone for the act of parricide and on the other to consolidate the advantage it had brought. *This view of religion throws a particular clear light upon the psychological basis of Christianity*, [italics added] in which, as we know, the ceremony of the totem meal still survives, with but little distortion, in the form of the *Communion*. See Faur, “De-authorization of the Law,” 222–43. Freud’s characterization of religion as “the enemy” of science, *New Introductory Lectures*, S.E., 22: 160, is perfectly understood to every individual who had to camouflage his or her thoughts as a converso. Küng’s reproach to Freud, “Is it possible, however, to provide historical evidence of such a parricide?” (*Freud and the Problem of God*, 38), and his criticism that ethnological research shows that the Oedipus complex cannot be the source of religion, (138); or his point that both the Oedipus complex and the castration complex in woman, “have not been shown clinically, ontogenetically, or phylogentically to be *universal phenomena*,” [italics added] (107), and so on, fail to take into account that in the overheated, finger-pointing atmosphere characterizing the cultural and religious discourse of the time “universal phenomena,” may have been the most prudent (and appropriate) way to refer to “Catholic”—that is, universal—Christianity. The same applies to the criticism raised by Mircea Eliade, *Images and Symbols*, trans. Philip Mairet (Princeton, N.J.: Princeton Univ. Press, 1991), 23 n. 8.",
+    "63": "*Qiddushin* 40a; *Horayot* 8a–b; cf. *Megilla* 13a.",
+    "64": "Cited by Maimonides in his *Teshubot ha-Rambam*, ed. and trans. J. Blau, 3 vols. (Jerusalem: Mekize Nirdamim, 1975), no. 150, 1: 280; see editor’s note ad loc. Similarly, in the *Sifre* no. 355, p. 422, Moses teaches: “from the measure of the lower heaven you may know what is the measure of the Glory above.” On the lower and higher heaven see *Bereshit Rabba*, ed. J. Theodor and C. Albeck, 3 vols. (Jerusalem: Wahrmann Books, 1965), sec. 4, chap. 2, vol. 1, p. 26. According to the same R. Me’ir, there is a higher form of knowledge of God that is attained through knowledge of the Tora; see *Sifre* no. 33, p. 59; cf. no. 49, p. 115, and Introduction, n. 65, below.",
+    "65": "Maimonides, *Sefer ha-Miṣvot*, ed. and trans. R. Joseph Qafih (Jerusalem: Mossad Harav Kook, 1971), positive commandment no. 3, p. 59.",
+    "66": "See Maimonides, *Guide*, sec. 2, chap. pp. 242 (line 15)–43 (line 5). Cf. Joseph Heller, “Maimonides’s Theory of Miracle,” in *Between East and West*, ed. Alexander Altmann (London: East and West Library, 1958), 112–27."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_013.png, page_189.png, and page_190.png; verified line-by-line."
+  ]
+}

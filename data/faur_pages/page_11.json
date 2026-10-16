@@ -1,0 +1,49 @@
+{
+  "page_id": "11",
+  "section_file": "01_introduction.md",
+  "spread_index": 13,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_011.png",
+  "note_pages": [
+    "188"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_188.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p11_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "this point of view it is irrelevant whether a deity is worshiped in the shape of an image or as a pure intellectual concept intended to serve as an intermediary between human and God. In either case *‘aboda zara* is committed, simply, because such a cult was not stipulated by the Law."
+    },
+    {
+      "block_id": "p11_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Jewish monotheism is not a concept, philosophical or otherwise, representing, as with the Polynesians and the Ewe, “the speculation of a fraternity of priests who have been consciously selected to be the custodians of certain esoteric knowledge and esoteric rites.”[^56] Rather, it is the official *faith* of the people in the Supreme Being, absolute Creator of everything, with whom they contracted a *berit* or bilateral “covenant” at Mount Sinai. Thus, the One God, *issues a series of commandments* regulating all aspects of both the spiritual and political life of Israel. In this specific sense Jewish monotheism necessitates monolatry—the worship of God exclusively according to the stipulation of the Sinaitic covenant—just like Jewish monolatry necessitates Jewish monotheism. The whole point of rabbinic tradition and, consequently, of Judaism proper is that worship of God is not a matter of religion—notions and rituals connected with either the experience or the meaning of the sacred—it must involve the fulfillment of a *miṣva* ([divine] commandment) charged by God Himself. The commandments are not general concepts to be fulfilled according to personal endeavor and understanding but definite ordinances to be followed in accordance to the specification of the Law. Hence, halakha, the legal definition of a commandment, is integral to the biblical idea of monolatry. Outside the realm of *miṣva* all forms of devotion are *‘aboda zara*, a supreme act of human defiance camouflaged as worship. When performed according to one’s fancy, a *miṣva* is a curse rather than a blessing.[^57]"
+    },
+    {
+      "block_id": "p11_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides regarded the cultural creations and cultural facts of the pagan world and all religious expressions as well, including such notions as sacramental life and the mystery of faith, to be the effect of a sick imagination (*khayal*), distorting reality and camouflaging what is harmful and deviant as beautiful and beneficial. Ethics implies the ability to govern the imagination. An unethical individual cannot know the truth. Conversely, people dominated by imagination cannot be ethical."
+    },
+    {
+      "block_id": "p11_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The radical distinction between the general ideal of religion and Judaism proper permits a Maimonidean reading of Freud (1856–1939). It is worth noting that the title of Freud’s main criticism of religion is *The Future of an Illusion*. (In fact, ‘illusion’ is a more accurate rendition of the Maimonidean term *khayal*, usually translated as ‘imagination’.) More to the point, Mai-"
+    }
+  ],
+  "footnotes": {
+    "56": "Paul Radin, *Primitive Religion* (New York: Dover Publications, 1957), 259.",
+    "57": "On the rabbinic doctrine of monolatry see R. Ila, *Yerushalmi Shabbat* 13, 3, 14a. For a further examination of this subject see Faur, “Understanding the Covenant,” *Tradition* 9 (1968): 44–48; and *idem*, “Two Forms of Jewish Spirituality,” *Shofar* 10 (1992): 7–10."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_011.png and page_188.png; verified line-by-line."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "page_id": "10",
+  "section_file": "01_introduction.md",
+  "spread_index": 13,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_010.png",
+  "note_pages": [
+    "188"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_188.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p10_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "offense, a human assault upon the Creator. In this fashion man displaces God, transforming Him into his own deformed image. This is synonymous with the scriptural prohibition of idol worship. Since no normal individual has ever “imagined” in the past, nor would “imagine in the future, that the image which he had manufactured from metal, stone, or wood” had actually created the heavens and earth, the worship of a fetish “out of love or fear” does not—cannot—constitute idolatry. Fear and love of the fetish represent a preverbal stage of human development when the outside world is made up of internal projections of pleasure and pain.[^50] At this stage people could not be ruled by law. Therefore, the Scripture does not condemn pagan humanity for the sin of idolatry. The sin of idolatry is committed at a later stage of mental development when the image is conceived in terms of a theological system “as a symbol of something that is an intermediary between us and God.”[^51] The preceding leads to the distinction between *religion*—rituals and devotional values based on the notion of a cosmic sacrality—and Tora. “It is unfortunate,” wrote Eliade, “that we do not have at our disposal a more precise word than ‘religion’ to denote the experience of the sacred,” adding, “One wonders how it can be indiscriminately applied to the ancient Near East, to Judaism, Christianity, and Islam, or to Hinduism, Buddhism, and Confucianism as well as to the so-called primitive peoples.”[^52] The term *religion* is essentially Christian and carries on certain connotations that effectively impede an integral concept of Judaism. It is as if one would designate Christianity *halakha* and then try to understand it through its canon law system alone.[^53] Properly understood, *religion* is antithetical to the most fundamental principles of Judaism."
+    },
+    {
+      "block_id": "p10_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The scriptural prohibition of *‘aboda zara* wrongly translated ‘idolatry’, actually is the prohibition of “an alien service,” that is, a service “not prescribed” by the Law (see Lv 10:1; cf. Ex 30:9; Dt 17:3). Images are proscribed because they are *‘aboda zara*, an “unprescribed service,” not the other way around. Indeed, Judaism recognizes a legitimate iconology. The cherubim at the Holy of Holies, since they were ordered by the Law, form an integral part of the Temple service.[^54] Conversely, not all unprescribed services concern worship images. Talmudic law regards Christianity as *‘aboda zara* not because it worships images—the worship of images was introduced into Christianity after the Talmudic period—but because it worships with a cult not stipulated by the Law. For the same reason the rabbis taught that even to worship Angel Michael, “Israel’s ministering angel,” constitutes *‘aboda zara*.[^55] From"
+    }
+  ],
+  "footnotes": {
+    "50": "See above, Introduction, n. 57; and Julia Kristeva, *Powers of Horror*, trans. Leon S. Roudiez (New York: Columbia Univ. Press, 1982), 61–63.",
+    "51": "Maimonides, *Guide*, sec. 1, chap. 36, p. 56 (lines 19–24); *idem*, *Mishne Tora, ‘Aboda Zara* 2:1. The rabbis did not regard the worship of idols by the uneducated masses of Babel as *‘aboda zara* because they were merely “following the practices of their ancestors.” For a full examination of this subject see Faur, *Studies in the Mishne Tora*, 219–230.",
+    "52": "Eliade, *Quest*, Preface (no pagination).",
+    "53": "On its precise etymology and meaning see Émile Benveniste, *Indo-European Language and Society*, trans. Elizabeth Palmer (Coral Gables, Fla.: Univ. of Miami Press, 1973), 516–28. It was only recently introduced to Judaism as a result of mental assimilation. It came to Judeo-Spanish about one hundred years ago as a direct influence of French.",
+    "54": "See Faur, “Idolatry,” *Encyclopaedia Judaica*, vol. 8, cols. 1227–32. Reprinted in *Jewish Values* (Israel Pocket Library, 1974), 52–60; and *idem*, “The Biblical Idea of Idolatry,” *Jewish Quarterly Review*, 69 (1978): 1–26. Of particular significance is the Septuagint version noted by the rabbis in *Megilla* 9b.",
+    "55": "See Faur, *Studies in the Mishne Tora*, 230–37."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_010.png and page_188.png; verified line-by-line."
+  ]
+}

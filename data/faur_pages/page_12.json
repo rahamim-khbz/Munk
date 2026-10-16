@@ -1,0 +1,55 @@
+{
+  "page_id": "12",
+  "section_file": "01_introduction.md",
+  "spread_index": 14,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_012.png",
+  "note_pages": [
+    "188"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_188.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p12_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "monides and Freud view culture and religion as the effect of neurotic deformations and pathological deficits, causing humankind to sin (*ḥeṭ*), that is, ‘to deviate’ from the right path.[^58] Both determine that to accept the validity of religion is to reject science and critical knowledge. Both regard this type of thinking as essentially neurotic, precluding the recognition of an objective reality, independent of man. Both consider the deities of such a system a displacement-substitute. Finally, both concur that individuals and societies affected by this type of culture are emotionally troubled and in dire need of mental therapy."
+    },
+    {
+      "block_id": "p12_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Students of Freud have assumed an un-Maimonidean view of Judaism and, therefore, have concluded that he was in effect *repressing* his Judaism. A typical example is Hans Küng. Projecting his own theology, he assumes that in his criticism of religion Freud was, in fact, rejecting his own Jewish roots. Otherwise, he should have specified that he was only criticizing one form of religion and not the other.[^59] Such presumption is disingenuous. It is a well-known fact, verified by no lesser a figure than Jean-Paul Sartre (1905–1980), that the religion attacked by “atheistic” Jews is Christianity, not the faith of the Talmud:"
+    },
+    {
+      "block_id": "p12_b3",
+      "type": "blockquote",
+      "markdown": "[A]theistic Jews whom I have questioned admit that their dialogue on the existence of God is carried on against the Christian religion. The religion which they attack and of which they wish to rid themselves is Christianity; their atheism differs in no way from that of Roger Martin du Gard, who says he has disengaged himself from the Catholic faith. *Not for a moment are Jews atheistic against the Talmud; and priest, to all of them, means the vicar, not the rabbi*. [italics added][^60]"
+    },
+    {
+      "block_id": "p12_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Indeed, Freud made it quite clear that in his criticism of religion, “we are concerned here with European Christian culture.”[^61] Küng knows well that within the oppressive society of the time it would have been suicidal for a Jew to be more specific. Freud never disassociated himself from Jews or Judaism. In the “Preface to the Hebrew Translation,” of *Totem and Taboo* Freud expressed “the emotional” impact of seeing his work in Hebrew. Although admittedly “completely estranged from the religion of his fathers” he"
+    },
+    {
+      "block_id": "p12_b5",
+      "type": "blockquote",
+      "markdown": "feels that he is in his essential nature a Jew and has no desire to alter that nature. If the question were put to him: “Since you"
+    }
+  ],
+  "footnotes": {
+    "58": "See Maimonides, *Guide*, sec. 3, chap. 22; and Sigmund Freud, *The Future of an Illusion*, trans. W. D. Robson-Scott (New York: Doubleday Anchor Books, 1957). See below, p. 62.",
+    "59": "See Hans Küng, *Freud and the Problem of God*, trans. Edward Quinn (New Haven, Conn.: Yale Univ. Press, 1990).",
+    "60": "Jean-Paul Sartre, *Anti-Semite and Jew*, trans. George J. Becker (New York: Schocken Books, 1976), 66.",
+    "61": "Freud, *Future of an Illusion*, 68. Similarly, ibid., 31; “I have singled out one such phase of development, which more or less corresponds to the final form of our contemporary Christian culture in the west.” In Freud, *Group Psychology and the Analysis of the Ego*, trans. James Strachey (New York: Bantam Books, 1965), chap. 5, Freud compared the morphology of the Catholic Church to the morphology of an army."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_012.png and page_188.png; verified line-by-line."
+  ]
+}
