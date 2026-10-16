@@ -1,0 +1,56 @@
+{
+  "page_id": "65",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 40,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_065.png",
+  "note_pages": [
+    "212"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_212.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p65_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "whether or not it may be corroborated by facts; whatever cannot be imagined is impossible.”[^79] Because theories cannot be corroborated by facts, independent scientific research and experimentation is impossible. Hence the imperative to submit to authority to determine what is ‘possible’ and what is ‘impossible’ in the same manner that one is required to submit to authority to determine what is ‘good/evil,’ ‘proper/improper,’ and all that which pertains to the realm of conventionality. In this type of science ‘truth/falsehood’ is a function of the same system of conventionalities determining the content of ‘good/evil’: it is essentially political."
+    },
+    {
+      "block_id": "p65_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Following the Aramaic translation of the Pentateuch, Maimonides interpreted the verse “you shall be like divinities [*elohim*] knowing good and evil” (Gn 3:5), to mean not ‘gods’ but ‘political leaders’.[^80] Maimonides observed that *elohim* has three meanings. Generally, it is used for ‘God’ or ‘divinity’. It is also used for ‘angel’. Because in Hebrew (as in Greek) an ‘angel’ is a ‘messenger’, a divine messenger representing God could be designated by the name of the sender.[^81] The third connotation ‘political leader’ reflects the deification of kings common in the ancient world and archaic societies.[^82] By specifying that *elohim* here refers to those having the power to regulate good and evil, that is, the realm of the conventional, the snake was ascertaining that by *elohim* ‘political authority’ was intended. In the same chapter Maimonides cited a biblical passage describing humans as a “little less” than *elohim* (Ps 8:6). Within that context, it means ‘angel’, ‘messenger of God’. Adam had the choice of reason—in which case he would have been a messenger of God. He also had the choice of imagination, leading to political mastery. The subsequent development of humankind would depend on this choice."
+    },
+    {
+      "block_id": "p65_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE EPISTEMOLOGY OF REASON AND IMAGINATION"
+    },
+    {
+      "block_id": "p65_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides held a positivistic view of imagination. To begin with, imagination is not a distinct human faculty.[^83] It is related to biological and genetic factors.[^84] Psychologically, it is connected with sensory perception, kinetics, conditioned reflexes, and other traits that humankind shares with members of the animal kingdom. *Khayal* (imagination), mental imaging, and *takhayul* (imagining), the forming of new images from the old, are common to the operations of the animal and human mind.[^85] There are also basic instincts and urges, such as parental bonding with offspring, that in both humans and animals are related to the imaginative faculty.[^86] Imagination is"
+    }
+  ],
+  "footnotes": {
+    "79": "Ibid., (lines 5–7).",
+    "80": "Ibid., sec. 1, chap. 2, p. 15 (lines 24–27).",
+    "81": "See below, p. 215 n. 142. For a thorough discussion of this term see Umberto Cassuto, “The Episode of the Sons of God and the Daughters of Man,” (in Hebrew) *Biblical and Canaanite Literatures*, vol. 1 (Jerusalem: Magnes Univ. Press, 1972), 98–107. Cassuto believed that ‘angels’, ‘divine beings’ are correct, whereas the rabbinic rendition, ‘judges’, ‘political leaders’, was polemical, designed to rebuff Christological interpretations. This view overlooks the fact that in the ancient world kings and political leaders were gods; see below, n. 82. The Maimonidean/rabbinic interpretation reflects the early state of primitive humans when kings were gods.",
+    "82": "On this theme see Henry Frankfort, *Kingship and the Gods* (Chicago: Univ. of Chicago Press, 1948).",
+    "83": "Maimonides, *Guide*, sec. 1, chap. 73, p. 146 (line 14).",
+    "84": "See ibid., sec. 2, chap. 36, pp. 260 (line 26)–61 (line 2), 263 (line 8); cf. chap. 32, p. 253 (line 25); sec. 3, chap. 49, p. 448 (lines 18–19).",
+    "85": "Ibid., sec. 1, chap. 73, p. 146 (lines 12–14); sec. 2, Introduction, p. 168 (line 15).",
+    "86": "Ibid., sec. 3, chap. 48, p. 440 (lines 15–17); cf. chap. 49, p. 448 (lines 20–28)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_065.png and note scan page_212.png (NOTES TO PAGES 64–66); set continues_from_prev_page: true continuing paragraph from page 64 ('...whatever they deem imaginable is possible, regardless of'); split merged paragraph block into continuation paragraph p65_b1 and indented paragraph p65_b2; preserved heading p65_b3 and indented paragraph p65_b4; healed mid-line hyphenations (imag-ined -> imagined, inde-pendent -> independent, per-tains -> pertains, con-tent -> content, messen-ger -> messenger, deifica-tion -> deification, speci-fying -> specifying, subse-quent -> subsequent); restored transliterations and italics ([*elohim*], *elohim*, *Khayal*, *takhayul*, *Biblical and Canaanite Literatures*, *Kingship and the Gods*, *Guide*, *Ibid.*, *see ibid.*); recovered footnote callouts [^79]–[^86]; transcribed and verified footnotes 79–86 from note page 212; updated note_pages to [\"212\"] and note_scan_images to [\"data/faur_scans/page_212.png\"]; confirmed ends_with_hyphen: false terminating with 'Imagination is'."
+  ]
+}

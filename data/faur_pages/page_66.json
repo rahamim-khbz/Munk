@@ -1,0 +1,58 @@
+{
+  "page_id": "66",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 41,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_066.png",
+  "note_pages": [
+    "212",
+    "213"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_212.png",
+    "data/faur_scans/page_213.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p66_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "also connected with memory, the combination of discrete images and ideas, transference of meaning, and the formation of dreams.[^87] Contrary to Vico’s imaginative universals, for Maimonides the imaginative faculty is incapable of abstraction: invariably the imaged object is conceptualized as a body or a bodily force.[^88]"
+    },
+    {
+      "block_id": "p66_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Imagination is the source of pagan civilization. Maimonides regarded politics, religion, some forms of philosophical speculations, and poetry (the equivalent of ‘secular literature’) as the work of imagination. In a chapter dealing with the demarcation of cultures Maimonides classified “political leaders, the legislators of governmental laws (*al-nu’amis*)” or *nomoi*,[^89] together with “the sorcerers, diviners, the dreamers of accurate dreams, and also the performers of wonders with unusual tricks, and the performers of magic.” All of them form part of a single class, excelling by virtue of their powerful imagination.[^90] This applies even to honest and wise politicians who succeeded in establishing good political systems. They are described as “those who excel in the imaginative faculty alone.”[^91] Pagan myths and rituals, too, are the result of imagination.[^92] Some philosophers’—the *mutakallimun* were the most prominent, but others as well—basic methodology was grounded on imagination.[^93] Maimonides’s position on poetry is highly significant. “Orators and poets” are censured for their “corrupt imagination.”[^94] Elsewhere, he distinguishes between poets and jurists (*fuqaha’a*), implying that the former are ignorant of the Law and do not know the basic doctrines of religion.[^95] His main objection, however, is not against the content but the *structure* of poetry, particularly the fact that meter and rhyme are used to manipulate ideas. This is evident from the fact that, on the one hand, he consistently opposes the recitation of *piyuṭim* ‘liturgical poems’ in the services.[^96] At the same time, he approves the private recitation of liturgical hymns that are patterned according to biblical psalms and rabbinic liturgy.[^97] The only difference between them is that the piyuṭim (in the Sephardic liturgy) contain rhyme and meter, whereas the hymns patterned according to the biblical and rabbinic models, do not.[^98] Poetry is manipulative and deceptive because concepts and ideas are developed, approved, or rejected not on substantive grounds but on the trivia of rhyme and meter.[^99]"
+    },
+    {
+      "block_id": "p66_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "For Maimonides imagination is more or less what anthropologists and philosophers designate ‘mythical’ thinking,[^100] and psychologists call ‘paleologic’. Its purpose is not to interpret but to substitute reality. It functions according to the principle formulated by Von Domarus that, whereas in nor-"
+    }
+  ],
+  "footnotes": {
+    "87": "Ibid., sec. 2, chap. 36, p. 261 (lines 6–8).",
+    "88": "Ibid., chap. 12, p. 195 (lines 8–9).",
+    "89": "They are the constitutional laws of the state; see below, p. 165. On the political character of the *nomoi* see Maimonides, *Treatise on Logic*, ed. and trans. Israel Efros (New York: American Academy for Jewish Research, 1938), ibn Tibbon’s version, 14, p. 63. The same term appears in the original Arabic, see Israel Efros, “Maimonides, *Treatise on Logic*,” *Proceedings of the American Academy for Jewish Research* 34 (1966): 14, 41.",
+    "90": "Maimonides, *Guide*, sec. 2, chap. 37, p. 264 (lines 15–20). See below, p. 165. Concerning the dreamers of “accurate dreams,” cf. Maimonides, *Guide*, sec. 2, chap. 45, p. 282 (lines 16–17). On the difference between “accurate dreams” and prophecy see ibid., pp. 284 (line 2)–85 (line 3), and below, p. 74ff.",
+    "91": "Maimonides, *Guide*, sec. 2, chap. 40, p. 271 (lines 17–24).",
+    "92": "See ibid., sec. 1, chap. 36, p. 57 (lines 21–22); sec. 3, chap. 29, p. 377 (lines 2–3); cf. sec. 1, chap. 36, p. 56 (lines 20–21); sec. 3, chap. 37, p. 397 (lines 4–7).",
+    "93": "See above, pp. 63–65.",
+    "94": "See Maimonides, *Guide*, sec. 2, chap. 59, p. 96 (lines 20–22); cf. sec. 3, chap. 8, p. 313 (lines 10–22); chap. 12, p. 318 (lines 9–12).",
+    "95": "See Maimonides, *Sefer ha-Miṣvot*, 5. On the status of the *fuqaha* see idem, *Guide*, sec. 3, chap. 51, p. 455 (lines 21–23).",
+    "96": "See *Teshubot ha-Rambam*, vol. 2, no. 180, p. 328; no. 207, pp. 365–66; no. 208, p. 369; no. 254, pp. 467–68.",
+    "97": "See ibid., no. 261, pp. 490–91. The authority for this distinction is the Yerushalmi as cited and explained by R. Nissim Ga’on, *Sefer ha-Mafteaḥ* ed. J. Goldenthol (Vienna, 1947), on *Berakhot* 33b.",
+    "98": "This means that Maimonides would have objected to some of the poetry current in the Sephardic liturgy, but not necessarily to the hymns in the Ashkenazic liturgy.",
+    "99": "See Maimonides, *Guide*, sec. 1, chap. 74, p. 150 (lines 10–20). In this context, it is worth considering the fact that after 1916 Juan Ramón Jiménez, one of the most accomplished poets of modern times, went through a process of *depuración* (purification) and abandoned rhyme, fixed meter, and other poetic paraphernalia to write free verse. As with biblical poetry, the *piyuṭim*, and hymns in Ashkenazic liturgy.",
+    "100": "See Ernst Cassirer, *The Philosophy of Symbolic Forms*, trans. Ralph Manheim, vol. 2, *Mythical Thought* (New Haven, Conn.: Yale Univ. Press, 1955); Georges Gudsorf, *Myth et métaphysique* (Paris: Flammarion, 1953)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_066.png and note scans page_212.png and page_213.png (NOTES TO PAGES 64–66 and 66–67); set continues_from_prev_page: true as top continues sentence from bottom of page 65; split page into three blocks (p66_b1 paragraph continuation indent: none, p66_b2 indented paragraph, p66_b3 indented paragraph); healed mid-line hyphenations (ritu-als -> rituals, muta-kallimun -> mutakallimun, imagina-tion -> imagination, con-tent -> content, litur-gical -> liturgical, manipula-tive -> manipulative, paleo-logic -> paleologic); healed OCR defects ('do nor.' -> 'do not.', restored typographic quotes, apostrophes, and em-dashes); restored transliterations, diacritics, and italics (*al-nu’amis*, *nomoi*, *mutakallimun*, *fuqaha’a*, *structure*, *piyuṭim*); recovered 14 footnote callouts [^87]–[^100]; transcribed and verified footnotes 87–89 from note page 212 and 90–100 from note page 213; updated note_pages to [\"212\", \"213\"] and note_scan_images to [\"data/faur_scans/page_212.png\", \"data/faur_scans/page_213.png\"]; confirmed ends_with_hyphen: true terminating with 'nor-' hyphenating to 'mative thinking' on page 67; set status: visual_verified."
+  ]
+}

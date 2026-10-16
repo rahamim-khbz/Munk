@@ -1,0 +1,51 @@
+{
+  "page_id": "64",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 40,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_064.png",
+  "note_pages": [
+    "211",
+    "212"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_211.png",
+    "data/faur_scans/page_212.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p64_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "from which the noun *makan* ‘place’ derives.[^71] This is why, anything that can be imagined as spatially contiguous is ‘possible’ and theoretically probable.[^72] Thinking is spatial and related to simultaneous synthesis.[^73] In paleologic thinking “ideas associate only by contiguity, because similarity leads only to identification, not association.”[^74] The *mutakallimun* concept of nature was formulated on the basis “that whatever may be imagined is rationally possible.”[^75] Two fundamental corollaries follow. First, the ‘rational’ must be subordinated to, and determined by, imagination. Because the intellect is hierarchically dependent on the dictates of imagination, “What the *mutakallimun* designate ‘rational’” is, in fact, “imagination and conjecture, not reason.”[^76] Second, and as a consequence of the first, the laws governing the physical world, like all semiotical systems, may be freely exchanged and substituted for one another. Concerning this last point, the *mutakallimun* argued that although the physical world appears to be regulated by precise patterns, these patterns are incidental and could have been designed differently. Even size is incidental. There is no reason why there cannot be a man with multiple heads, tall as a mountain; or an elephant minute as a tick, or a tick large as an elephant.[^77] Although admitting"
+    },
+    {
+      "block_id": "p64_b2",
+      "type": "blockquote",
+      "markdown": "that what exists has a definite structure, precise measurement, and necessary properties that cannot change or be substituted, these are mere incidents of habit. Just like the king’s habit is to parade in the boulevards of the city only mounted on a horse and has never been seen otherwise. Yet it is not intellectually impossible [to conceive of the king] walking in the city on foot. Indeed, it is undoubtedly possible, and it may happen. Similarly, the fact that the earth moves toward its center and fire [moves] straight up, or that fire heats and the water chills, are incidents of habit. It is not intellectually impossible [to conceive] that such habit could change whereby the fire would chill and move downward while still [retaining the properties of] fire, and water would heat and move upward, while still [retaining the properties of fluid] water. Their entire thesis rests on this methodology.[^78]"
+    },
+    {
+      "block_id": "p64_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The preceding excludes the possibility of a scientific comprehension of nature because “whatever they deem imaginable is possible, regardless of"
+    }
+  ],
+  "footnotes": {
+    "71": "See the brilliant remarks of the Hebrew grammarian R. Jonah ibn Jannaḥ, *Sefer ha-Riqma*, ed. M. Wilensky (Jerusalem: Ha-Aqademya lil-Shon ha-‘Ibrit, 5724/1964), 22. This term is related to the Hebrew preposition *kan* ‘here’.",
+    "72": "Cf. Silvano Arieti, “Some Basic Problems Common to Anthropology and Modern Psychiatry,” *American Anthropologist* 58 (1956): 27.",
+    "73": "See Faur, *Golden Doves*, xxiv, 30–35.",
+    "74": "Sylvano Arieti, “Primitive Intellectual Mechanisms in Psychopathological Conditions,” *American Journal of Psychotherapy* 4 (1950): 12.",
+    "75": "Maimonides, *Guide*, sec. 1, chap. 73, p. 144 (line 4).",
+    "76": "Ibid., p. 145 (lines 1–5).",
+    "77": "Ibid., p. 144 (lines 8–12).",
+    "78": "Ibid., (lines 15–23)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_064.png and note scans page_211.png and page_212.png (NOTES TO PAGES 61–64 and 64–66); set continues_from_prev_page: true continuing paragraph from page 63 ('...comes from the root k'n/kwn 'to be', 'to happen','); structured page into continuation paragraph p64_b1, indented blockquote p64_b2, and indented paragraph p64_b3; healed OCR word scrambling (“What the hierarchically dependent...”); healed mid-line hyphenations (think-ing -> thinking, identi-fication -> identification, pos-sible -> possible, sub-ordinated -> subordinated, sub-stituted -> substituted, pat-terns -> patterns, Simi-larly -> Similarly, con-ceive -> conceive); restored transliterations and italics (*makan*, *mutakallimun*, *Sefer ha-Riqma*, *kan*, *American Anthropologist*, *Golden Doves*, *American Journal of Psychotherapy*, *Guide*, *Ibid.*); recovered footnote callouts [^71]–[^78]; transcribed and verified footnotes 71–78 from note pages 211 and 212; updated note_pages to [\"211\", \"212\"] and note_scan_images to [\"data/faur_scans/page_211.png\", \"data/faur_scans/page_212.png\"]; confirmed ends_with_hyphen: false terminating with 'regardless of'."
+  ]
+}

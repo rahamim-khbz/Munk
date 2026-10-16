@@ -1,0 +1,44 @@
+{
+  "page_id": "67",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 41,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_067.png",
+  "note_pages": [
+    "213",
+    "214"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_213.png",
+    "data/faur_scans/page_214.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p67_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "mative thinking, identity is established on the basis of identical subjects, in schizophrenia and paleologic thinking identity is established on the basis of identical predicates with no concern for the subject itself. Since reality is purely semiological, anything could be a ‘sign’ for anything else. Thus, a schizophrenic believed “that Jesus, cigar boxes, and sex were identical.” Investigation revealed that the identifying link was the fact that the three were encircled: the head of Jesus by a halo, the package of cigars by the tax band, and the woman by the sex glance of the man.[^101] Because in a semiological system symbols can be freely exchanged, the color of eyes or a piece of clothing may serve as the identifying link with a bird or another object with the same color, ignoring the rest. Silvano Arieti noted that the same type of mental associations affects dreams. Indeed, “this type of thinking occurs not only in schizophrenia; it is at the root of every type of Freudian symbolism.”[^102] It is also the normative way of mythical and archaic thinking. “A world paleologically interpreted,” wrote Arieti, “corresponds in many ways to the mythical world of ancient people and to many cultural repertories of various aboriginal societies today.”[^103] In the mythical mind names are the most compelling identifying links, functioning, precisely, on the Von Domarus principle whereby dissimilar subjects are equated on the basis of their names regardless of context. Lévi-Strauss described the thinking process peculiar to archaic humans as “bricolage.” The totemic logic of classification is grounded on “a logic whose terms consist of odds and ends . . . devoid of necessity.” In the same manner that a handyman “detaches the cogwheels of an old alarm clock, and *they can be used again either for the same purpose or for a different one*,” archaic thinking can “detach” certain aspects of reality and incorporate them into a myth.[^104] Lévi-Strauss did not explain the grounds of such an odd “logic.” It can be well understood, however, upon considering that in paleologic thinking identity is established through the predicates regardless of their context. According to this type of thinking, “a = a + b + c because the two terms of the equation have *a* in common.”[^105]"
+    },
+    {
+      "block_id": "p67_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In this precise sense imagination pertains to semiotics. It is worth repeating: as in all semiotical systems the terms of imagination are context-free. Thus, identifying links may be “extracted” from one context and “inserted”—either in spatial or temporal contiguity—into another, establishing thereby identity between them.[^106] This type of logic underlies much of modern advertisement, whereby the object (or fashion item) functions as the identifying link: [1] the object is “inserted” into context A; [2] the viewer"
+    }
+  ],
+  "footnotes": {
+    "101": "E. Von Domarus, “The Specific Laws of Logic in Schizophrenia,” in *Language and Thought in Schizophrenia*, ed. J. S. Kasanin (Berkeley and Los Angeles: Univ. of California Press, 1944), 110–111.",
+    "102": "Arieti, *Creativity*, 70.",
+    "103": "Ibid., 71.",
+    "104": "Claude Lévi-Strauss, *The Savage Mind* (Chicago: Univ. of Chicago Press, 1970), 35.",
+    "105": "Arieti, “Basic Problems” 27. Racism operates on the same principle whereby identity is established on the basis of a predicate—skin pigmentation—rather than on the basis of subject or person.",
+    "106": "See Faur, *Golden Doves*, 1–3, 27–29."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_067.png and note scans page_213.png and page_214.png (NOTES TO PAGES 66–67 and 67–70); set continues_from_prev_page: true as top begins with 'mative thinking' healing 'nor-mative' hyphenation from bottom of page 66; structured page into two blocks (p67_b1 paragraph continuation indent: none, p67_b2 indented paragraph); healed mid-line hyphenations (schizo-phrenic -> schizophrenic, dissimi-lar -> dissimilar, think-ing -> thinking, context-free -> context-free compound, estab-lishing -> establishing); healed OCR artifacts and optical swaps ('[x] the object' -> '[1] the object', 'ends. devoid' -> 'ends . . . devoid'); restored italics in Lévi-Strauss quotation (*they can be used again either for the same purpose or for a different one*) and formula term (*a* in common); restored typographic quotes, apostrophes, and em-dashes; recovered 6 footnote callouts [^101]–[^106]; transcribed and verified footnotes 101–105 from note page 213 and 105–106 from note page 214, healing hyphenation defect 'skin pigmen-tion' to 'skin pigmentation' in note 105; updated note_pages to [\"213\", \"214\"] and note_scan_images to [\"data/faur_scans/page_213.png\", \"data/faur_scans/page_214.png\"]; confirmed ends_with_hyphen: false terminating with unhyphenated word 'viewer' continuing onto page 68; set status: visual_verified."
+  ]
+}
