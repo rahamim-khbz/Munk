@@ -1,0 +1,61 @@
+{
+  "page_id": "93",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 54,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_093.png",
+  "note_pages": [
+    "221"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_221.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p93_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "than human knowledge of the universe. Not only human knowledge is partial, whereas God’s knowledge is total, but, more important, God knows the universe as Creator, whereas humans have to acquire knowledge through inference and conjecture.[^14] One knowledge is creative, the other is contemplative. Hence, even when knowing the same thing, God and man know it differently. The only thing in common between God’s knowledge and human knowledge is “partaking of the same noun: ‘knowledge.’”[^15]"
+    },
+    {
+      "block_id": "p93_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Denying creation, or postulating an eternal, uncreated substance coeval with God is to deny from God perfect knowledge. It also denies the Hebrew concept of an absolute omnipotent God. Referring to the view that God created the universe from an eternal matter coeval with Him, Maimonides declares:"
+    },
+    {
+      "block_id": "p93_b3",
+      "type": "blockquote",
+      "markdown": "To us there is no difference between someone believing that heaven was generated from a necessary thing or that it decays into [another] thing or Aristotle’s belief that it [the heaven] was neither generated nor will decay. Since the purpose of all those who follow the Law of Moses and our Patriarch Abraham or those who tread on their paths, however, is that surely there is nothing there [*an laisa ṯamma*] co-eternal with God in any way.[^16]"
+    },
+    {
+      "block_id": "p93_b4",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "Accordingly, Maimonides formulated the doctrine that a fundamental aspect of Jewish monotheism is that only God is eternal.[^17]"
+    },
+    {
+      "block_id": "p93_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "At first sight the Hebrew doctrine of freedom of choice and that of God’s perfect omniscience and total omnipresence seem irreconcilable.[^18] If God knows the future perfectly, then the present has been already determined and man cannot be free; conversely, if man is free, then the future is undetermined and God cannot possibly be perfectly omniscient. Technically, however, each type of knowledge belongs to two mutually exclusive axes, and, therefore, they cannot possibly contradict one another: knowledge of the future pertains to the diachronic axis, whereas freedom of choice is operative only on the synchronic axis.[^19] Maimonides’s thrust, however, is that one cannot know *how* God ‘knows’; to know that one would have to be Him.[^20] Since His existence and knowledge are categorically different than that of man, God’s omnipresence and omniscience cannot possibly interfere with ours. Isaac Newton further explained this point: “God suffers nothing from the motion of bodies; bodies find no resistance from the omnipresence of God.”[^21]"
+    }
+  ],
+  "footnotes": {
+    "14": "Maimonides, *Guide*, sec. 3, chap. 21.",
+    "15": "Ibid., chap. 20, p. 348 (line 30). The full passage is cited below, p. 121.",
+    "16": "Maimonides, *Guide*, sec. 2, chap. 13, p. 199 (lines 4–8).",
+    "17": "See *Pirush ha-Mishnayot*, *Sanhedrin* 10:1, vol. 4, pp. 210–12, doctrine 4, cited below, p. 125. Cf. Maimonides, *Mishne Tora*, *Teshuba* 3:7.",
+    "18": "See Maimonides, *Mishne Tora*, *Teshuba* 5:5, cf. 6:5. On this problem in general philosophy see Nelson Pike, “Divine Omniscience and Voluntary Action,” *Philosophical Review* 74 (1965): 27–46; Linda Trinkaus Zagzebski, *The Dilemma of Freedom and Foreknowledge* (London: Oxford Univ. Press, 1993).",
+    "19": "Cf. Faur, *Golden Doves*, xiv–xv.",
+    "20": "See Maimonides, *Mishne Tora*, *Teshuba* 5:5; cf. *Yesode ha-Tora* 1:9, 2:10.",
+    "21": "Newton, *Principia*, 545."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_093.png and notes scan page_221.png; set continues_from_prev_page: true; segmented into 5 blocks (paragraph continuation with indent none, indented paragraph, Maimonides blockquote, paragraph with indent none, indented paragraph); recovered callouts [^14]–[^21]; transcribed and verified footnotes 14–21 from note page 221; healed line-end hyphenations ('par-tial', 'contem-plative', 'Mai-monides', 'undeter-mined', 'omnipres-ence', 'fur-ther'); verified Arabic transliteration [*an laisa ṯamma*] with macron-below ṯ; verified curly quotes, single quotes (‘knows’), en-dashes, and italics (*how*, *Guide*, *Ibid.*, *Pirush ha-Mishnayot*, *Sanhedrin*, *Mishne Tora*, *Teshuba*, *Yesode ha-Tora*, *Philosophical Review*, *The Dilemma of Freedom and Foreknowledge*, *Golden Doves*, *Principia*); updated note_pages to [\"221\"] and note_scan_images to [\"data/faur_scans/page_221.png\"]; verified ends_with_hyphen: false; set status: visual_verified."
+  ]
+}

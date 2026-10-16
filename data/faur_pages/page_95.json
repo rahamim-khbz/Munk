@@ -1,0 +1,44 @@
+{
+  "page_id": "95",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 55,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_095.png",
+  "note_pages": [
+    "222"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_222.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p95_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "“the Greeks” (because that was the language in which they wrote) and “the Syrians” (from their place of origin) theologians.[^26] He further pointed out how the early Muslim theologians first applied and then developed Christian theological methodology. Modern scholars rejected Maimonides’s view on two grounds: Muslim historians did not acknowledge Christian influence in this respect, and many of the subjects developed by the *Kalam* are not found in Christian theological writings. The first argument is specious. It seems disingenuous to expect a people to acknowledge freely that one of their major intellectual movements is indebted to another religion. Concerning the second point, Harry A. Wolfson (1887–1974) showed that Christian theological topics have indeed passed to, and were subsequently developed by, Muslim theologians. Finally, lest he should be misunderstood, Maimonides emphasized that what was particularly significant was the *methodology*—not the subjects—inaugurated by Christian theologians and then expanded by their counterparts in Islam.[^27]"
+    },
+    {
+      "block_id": "p95_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides regarded theology as a form of polemics and apologetics. Although using philosophical terminology and argumentation, the aim of the theologian—unlike the philosopher—is not to expose the truth but to defend and promote a set of doctrines. Maimonides traced the origin of this method to early Christendom. Christianity arose in an hostile environment heavily influenced by philosophy. To succeed, Christianity had to defend itself against the objections raised by pagan philosophers. The task of the theologians was to accommodate the truth to Christian doctrine, rather than the other way around. Thus, in framing their arguments and polemics they outlined a series of principles with no regard to the canons of logic and to physical phenomena. Within that system science and truth are subordinated to dogma. Using a rabbinic expression, Maimonides charged that in their zeal to demonstrate creation these “fundamentalists” (*al-uṣuliyun*) had “overturned the universe and transfigured the order of the world.”[^28] Although pretending to be objective and unprejudiced, their arguments are deceptive. What is purported as nature is pure imagination:"
+    },
+    {
+      "block_id": "p95_b3",
+      "type": "blockquote",
+      "markdown": "Generally, in the formulation of their [philosophical] premises, all the early Greek *mutakallimin* who had converted to Christianity and those from Islam did not first follow what is evident from the subjects at hand. Rather, they first considered how the existent subject must be in order that they could draw"
+    }
+  ],
+  "footnotes": {
+    "26": "See Wolfson, *Philosophy of the Kalam*, 50–51.",
+    "27": "See ibid., 43–56.",
+    "28": "Maimonides, *Guide*, sec. 1, chap. 71, p. 125 (lines 11–13)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually verified against 300 DPI scan page_095.png and notes scan page_222.png; set continues_from_prev_page: true with unindented continuation paragraph from page 94 ('whom he designated'); segmented text into 3 blocks (top continuation paragraph, indented second paragraph, and blockquote at bottom); restored italics for *Kalam*, *methodology*, *al-uṣuliyun* (with dot below ṣ), and *mutakallimin*; healed mid-line hyphenations ('theologi-cal', 'Mus-lim', 'theolo-gians', 'out-lined', 'pretend-ing', 'Chris-tianity', 'evi-dent'); recovered footnote callouts [^26], [^27], [^28]; transcribed and verified footnotes 26–28 from note page 222; updated note_pages to ['222'] and note_scan_images to ['data/faur_scans/page_222.png']; verified ends_with_hyphen: false ('draw')."
+  ]
+}

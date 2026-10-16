@@ -1,0 +1,58 @@
+{
+  "page_id": "94",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 55,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_094.png",
+  "note_pages": [
+    "222"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_222.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p94_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Because God created everything out of nothing, His creative knowledge gives sustenance and duration to everything. “If one were to imagine that He is not existent [now], then nothing else could exist.” Therefore, His relation to the universe is categorically different from the relation of a creature to Him or to each other, “everything that exists needs Him, whereas He, blessed be! needs not any or all of them.”[^22] Since man is created, his knowledge and existence have nothing in common with God. Therefore, neither the ‘existence’ (omnipresence) nor ‘knowledge’ (omniscience) of God interfere with man’s existence and knowledge. To deny Creation ex nihilo it would be necessary to postulate an ontological link between the deity and man, and either deny perfect omniscience and omnipresence from the deity or human freedom of choice."
+    },
+    {
+      "block_id": "p94_b2",
+      "type": "heading",
+      "level": 3,
+      "markdown": "IN SEARCH OF THE ULTIMATE REALITY"
+    },
+    {
+      "block_id": "p94_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In the realm of imagination man is the ultimate reality: the roots of the numinous lie in the human psyche. The Hebrew Scripture posits God as the ultimate reality. The prohibition of idolatry—a central theme in the Hebrew Scripture—expresses the belief that whereas God could make man in *His* image, man cannot make God in *his* image: the relation Creator → creature is one-directional and irreversible."
+    },
+    {
+      "block_id": "p94_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Between imagination and prophecy lies reason. Maimonides’s central thesis is that it is impossible to pass from the domain of imagination directly to prophecy: the only route is via reason. To ascertain the existence of the scriptural God Christian, Muslim, and Jewish theologians developed a system designed to support the main tenets of revealed religion by rational arguments. The system was designated in Arabic by the term *Kalam* (word) and its spokesmen by *mutakallimun*.[^23] To prove the existence of God these theologians sought to demonstrate Creation ex nihilo, concluding that since that which is created must have a creator, there must be a Creator. Maimonides acknowledged that Creation ex nihilo is “necessarily the foundation of the whole Law.”[^24] It is the only doctrine that Judaism shares in common with Christianity and Islam.[^25] One then would have expected that Maimonides would applaud the effort of his correligionists in emulating Christian and Muslim *mutakallimun*. Yet he rejected the theological approach to religion because of the methodology: it is faulty and grounded on violence."
+    },
+    {
+      "block_id": "p94_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In a remarkable chapter (part 1, chap. 71), Maimonides traced the methodology of the *Kalam* to the Church Fathers, whom he designated"
+    }
+  ],
+  "footnotes": {
+    "22": "*Mishne Tora, Yesode ha-Tora* 1:2–3. One can thus respond to Leibnitz famous paradox that if God were the perfect Clock Maker, as Robert Boyle depicted Him, then one would have to admit that God no longer has a role in the universe, see Edwin Arthur Burtt, *The Metaphysical Foundations of Modern Physical Science* (London: Routledge and Kegan Paul, 1949), 288–93. Only a human clockmaker, who creates neither the parts of the clock ex nihilo nor the physical laws governing its mechanism, could be displaced by a perfect clock.",
+    "23": "For a detailed study of this school see Wolfson’s monumental work, *The Philosophy of the Kalam*.",
+    "24": "*Guide*, sec. 2, chap. 27, p. 232 (lines 15–16).",
+    "25": "Ibid., sec. 1, chap. 71, p. 123 (lines 4–5)."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually verified against 300 DPI scan page_094.png and notes scans page_221.png and page_222.png; confirmed continues_from_prev_page: false with indented opening paragraph; confirmed level-3 heading 'IN SEARCH OF THE ULTIMATE REALITY'; segmented text into 5 distinct blocks (top paragraph, heading, and 3 indented paragraphs); healed OCR corruption in p94_b3 ('the n in the realm of imagination... roots o the ultimate reality' -> 'In the realm of imagination man is the ultimate reality: the roots of the numinous lie in the human psyche'); restored italics for *His* and *his*, *Kalam*, and *mutakallimun*; restored directional arrow 'Creator → creature'; recovered footnote callouts [^22], [^23], [^24], [^25]; transcribed and verified footnotes 22–25 (note 22 bridging pages 221–222, notes 23–25 on page 222); updated note_pages to ['222'] and note_scan_images to ['data/faur_scans/page_222.png']; verified ends_with_hyphen: false ('designated')."
+  ]
+}

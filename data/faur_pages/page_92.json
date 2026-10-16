@@ -1,0 +1,56 @@
+{
+  "page_id": "92",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 54,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_092.png",
+  "note_pages": [
+    "221"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_221.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p92_b1",
+      "type": "blockquote",
+      "markdown": "sent motions] to know about these new motions until they take place, and then he would know what he knows from what had taken place.[^10]"
+    },
+    {
+      "block_id": "p92_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "On the basis of this principle Francisco Sánchez (1550/51–1623) developed his famous *modus sciendi* (scientific methodology) since only that which is made is truly known, nature could only be known to the extent that it is humanmade, that is, through scientific experimentation.[^11] Vico applied the same principle to explain the concept of *verum*/*factum* among the ancient Italians. This concept means that one can know (perfectly) only that which one has made, and conversely that one cannot know that which one has not made. Vico defined this principle as follows:"
+    },
+    {
+      "block_id": "p92_b3",
+      "type": "blockquote",
+      "markdown": "One can thus infer that the ancient philosophers of Italy held the following beliefs about the true: that the true is what is made; that the first truth is therefore in God, because God is the first Maker; that the first truth is infinite, because God is the Maker of all things; and that it is complete, because it makes manifest to God since He contains them, the elements of things, extrinsic and intrinsic alike. Furthermore, to know is to arrange these elements. Thought is therefore proper to the human mind, but understanding proper to the divine mind. For God surveys all the elements of things, extrinsic and intrinsic, because He both contains and arranges them, whereas the human mind, because it is finite and external to everything other than itself, collects only the outermost elements of things, rather than all of them. Consequently, while it can, indeed, think about things, it cannot understand them. It therefore participates in reason, but lacks mastery of it.[^12]"
+    },
+    {
+      "block_id": "p92_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Rodolfo Mondolfo (1877–1976) explained the epistemological process underlying the *verum*/*factum* concept. “Factum” is not a “reality [of an event or a thing] offered to the knowing subject, but it indicates the creative action” of the author of something, who possesses “knowledge (*verum*) of that which he makes [*factum*]” by virtue of being its author.[^13]"
+    },
+    {
+      "block_id": "p92_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "God has a perfect knowledge of everything because He had created everything. Hence, God’s knowledge of the universe is categorically different"
+    }
+  ],
+  "footnotes": {
+    "10": "Maimonides, *Guide*, sec. 3, chap. 21, p. 350 (line 14–28). The two categories of knowledge are implicit in the rabbinic distinction between the “golden doves” in the mind of the first person and the “silver dots” as processed in the mind of the second person; see Faur, *Golden Doves*, xvi–xviii, 114–16. Ideality is perceived simultaneously in the mind of the first person. To the second person the “silver dots”—in this case the unfolding of the created universe—appear invariably in successive terms; see ibid., xxii, 22. Because the “golden doves” are not reducible to the “silver dots,” they result in countless variations; see ibid., xviii.",
+    "11": "See Faur, “Francisco Sánchez’ Theory of Cognition and Vico’s *verum*/*factum*,” *New Vico Studies* 5 (1987): 131–46.",
+    "12": "Giambattista Vico, *On the Ancient Wisdom of the Italians*, in *Vico: Selected Writings*, ed. and trans. Leon Pompa (London: Cambridge Univ. Press, 1982), 1, 1, p. 51. See “Francisco Sánchez’ Theory of Cognition,” 131–46.",
+    "13": "Rodolfo Mondolfo, *Il “Verum-Factum” prima di Vico* (Naples: Guida, 1969), 17."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_092.png and notes scan page_221.png; set continues_from_prev_page: true (continuing water clock blockquote from page 91); segmented into 5 blocks (blockquote continuation, indented paragraph, Vico blockquote, indented paragraph, indented paragraph ending without hyphen); recovered callouts [^10]–[^13]; transcribed and verified footnotes 10–13 from note page 221; verified curly quotes, en-dashes, em-dashes, italics (*modus sciendi*, *verum*/*factum*, *verum*, *factum*, *Guide*, *Golden Doves*, *New Vico Studies*, *On the Ancient Wisdom of the Italians*, *Vico: Selected Writings*, *Il “Verum-Factum” prima di Vico*); updated note_pages to [\"221\"] and note_scan_images to [\"data/faur_scans/page_221.png\"]; set ends_with_hyphen: false; set status: visual_verified."
+  ]
+}
