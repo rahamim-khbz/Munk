@@ -88,7 +88,7 @@ Perfection reaches the general public via individuals coming down Jacob's ladder
 
 The esoteric truth is the truth that individuals discover with their own eyes. It comes to pass at the moment of mystical illumination—"the flash" piercing the darkness of the night. It is subjective because at that specific time and place, society has not designed the intellectual apparatus to express it. Occasionally, the apparatus is realized, and the esoteric truth becomes the patrimony of society or a particular group. When the Patriarch Abraham discovered monotheism, there was no such term in the intellectual lexicon of his contemporaries: monotheism could not yet be enunciated. It was the genius of Abraham accompanied by a series of events marked in the Scripture that made monotheism accessible to all. Likewise, the genius of men like Newton and Einstein is not limited to the conception of a "brilliant idea" but in the formulation of a series of intellectual instruments (calculus, the theory of relativity, etc.) designed to give access to their ideas to the rest of humanity, thus, giving rise to a special kind of technology that could benefit and elevate humanity.
 
-Since a mystical experience lies outside the realm of factual discourse, talk about it cannot be meaningful. The task of the mystic is to translate the vision apprehended at the top of the ladder into expressive actions of human kindness, as did Rabbis 'Aqiba (50–135) and Simon bar Yoḥai (second century).[^85] Two examples from the Scripture suffice. The doctrine that humankind was created in the image of God (Gn 1:26) is translated into the sanctity of human life and the sacrilege of murder, "since in God's image was man created" (Gn 8:6). Likewise, the doctrine that the world was created in six days and God rested at the seventh day (Gn 2:2–3), is translated into the prohibition of work on the Sabbath, awarding workers and slaves one day a week of absolute rest (Ex 20:7–10). No legislation in recorded history had done more for the rights of people, in general, and the proletariat, in particular, than the Biblical prohibition against shedding blood and the institution of the Sabbath rest.
+Since a mystical experience lies outside the realm of factual discourse, talk about it cannot be meaningful. The task of the mystic is to translate the vision apprehended at the top of the ladder into expressive actions of human kindness, as did Rabbis ‘Aqiba (50–135) and Simon bar Yoḥai (second century).[^85] Two examples from the Scripture suffice. The doctrine that humankind was created in the image of God (Gn 1:26) is translated into the sanctity of human life and the sacrilege of murder, "since in God's image was man created" (Gn 8:6). Likewise, the doctrine that the world was created in six days and God rested at the seventh day (Gn 2:2–3), is translated into the prohibition of work on the Sabbath, awarding workers and slaves one day a week of absolute rest (Ex 20:7–10). No legislation in recorded history had done more for the rights of people, in general, and the proletariat, in particular, than the Biblical prohibition against shedding blood and the institution of the Sabbath rest.
 
 Because the key-symbols of pagan civilization operate only at the level of imagination, lacking intellectual significance, they contribute to the disequilibrium of the individual and collective psyche. In his *Civilization and its Discontent*, Freud showed that civilization itself may be the principal source of neurosis and mental illness. Closing with an overwhelming question, "Would not the diagnosis be justified that many systems of civilization or epochs of it—possibly the whole of humanity—have become 'neurotic' under the pressure of the civilizing trends?"[^86] He expressed the hope "that one day someone will venture upon this research into the pathology of civilized communities."[^87]
 
@@ -265,3 +265,23 @@ I deliberately refrained from examining the Maimonidean view of the *Merkaba* (C
 [^83]: *‘Aboda Zara* 17b.
 
 [^84]: *Qiddushin* 40b. See Maimonides, *Pirush ha-Mishnayot*, Introduction, 1: 42.
+
+[^85]: See below, pp. 179–80.
+
+[^86]: Freud, *The Future of an Illusion*, 103.
+
+[^87]: Ibid., 104.
+
+[^88]: See Maimonides, *Guide*, sec. 1, chap. 70; sec. 2, chap. 2.
+
+[^89]: See ibid., sec. 2, 1.
+
+[^90]: Ibid., sec. 2, chap. 6, 184 (lines 3–19).
+
+[^91]: Cf. ibid. chap. 43, 278 (line 22)–279 (line 14). See S. D. Luzzato, *Commentary to the Pentateuch* (in Hebrew), (Jerusalem: Horev, 1993), 367.
+
+[^92]: *Bereshit Rabba*, 69, 28, (13), vol. 2, 791.
+
+[^93]: See *Sifre*, no. 356, 423; *Midrash ha-Gadol*, *Debarim*, ed. Solomon Fisch (Jerusalem: Mossad Harav Kook, 1972), 477.
+
+[^94]: *Bereshit Rabba* 82, 13, vol. 2, 983.

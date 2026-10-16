@@ -1,0 +1,50 @@
+{
+  "page_id": "18",
+  "section_file": "01_introduction.md",
+  "spread_index": 17,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_018.png",
+  "note_pages": [
+    "192"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_192.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p18_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "ture that made monotheism accessible to all. Likewise, the genius of men like Newton and Einstein is not limited to the conception of a \"brilliant idea\" but in the formulation of a series of intellectual instruments (calculus, the theory of relativity, etc.) designed to give access to their ideas to the rest of humanity, thus, giving rise to a special kind of technology that could benefit and elevate humanity."
+    },
+    {
+      "block_id": "p18_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Since a mystical experience lies outside the realm of factual discourse, talk about it cannot be meaningful. The task of the mystic is to translate the vision apprehended at the top of the ladder into expressive actions of human kindness, as did Rabbis ‘Aqiba (50–135) and Simon bar Yoḥai (second century).[^85] Two examples from the Scripture suffice. The doctrine that humankind was created in the image of God (Gn 1:26) is translated into the sanctity of human life and the sacrilege of murder, \"since in God's image was man created\" (Gn 8:6). Likewise, the doctrine that the world was created in six days and God rested at the seventh day (Gn 2:2–3), is translated into the prohibition of work on the Sabbath, awarding workers and slaves one day a week of absolute rest (Ex 20:7–10). No legislation in recorded history had done more for the rights of people, in general, and the proletariat, in particular, than the Biblical prohibition against shedding blood and the institution of the Sabbath rest."
+    },
+    {
+      "block_id": "p18_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Because the key-symbols of pagan civilization operate only at the level of imagination, lacking intellectual significance, they contribute to the disequilibrium of the individual and collective psyche. In his *Civilization and its Discontent*, Freud showed that civilization itself may be the principal source of neurosis and mental illness. Closing with an overwhelming question, \"Would not the diagnosis be justified that many systems of civilization or epochs of it—possibly the whole of humanity—have become 'neurotic' under the pressure of the civilizing trends?\"[^86] He expressed the hope \"that one day someone will venture upon this research into the pathology of civilized communities.\"[^87]"
+    },
+    {
+      "block_id": "p18_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "I deliberately refrained from examining the Maimonidean view of the *Merkaba* (Chariot)—the most important subject of rabbinic esoterics. The standard interpretations offered by the commentators of the *Guide* stand in such flagrant contradiction with the biblical text that to accept them the reader must presume that Maimonides was scripturally illiterate. Rather, I believe that the Maimonidean *Merkaba* is connected with the doctrine of perfection. There is a specific direction to Cosmology or *Ma'ase Bereshit*—the"
+    }
+  ],
+  "footnotes": {
+    "85": "See below, pp. 179–80.",
+    "86": "Freud, *The Future of an Illusion*, 103.",
+    "87": "Ibid., 104."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_018.png and page_192.png; verified line-by-line."
+  ]
+}

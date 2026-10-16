@@ -1,0 +1,36 @@
+{
+  "page_id": "19",
+  "section_file": "01_introduction.md",
+  "spread_index": 17,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_019.png",
+  "note_pages": [
+    "192"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_192.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p19_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "other theme of rabbinic esoterics. The \"Chariot\" represents God's Divine Providence steering the Cosmos, like a rider steering his mount (Dt 33:26). The *Kerubim* (Cherubs, singular: *kerub*) are the holy beings pulling the Chariot.[^88] They seem like full-grown humans with children's faces[^89] and are identified with \"the natural individual forces\" in humans effecting human rationality.[^90] Probably, *kerub* is a metathesis of *rakhub* (mount).[^91] Upon perfection, the individual and community undergo a metamorphosis, becoming God's 'mount', a medium carrying on His will. R. Johanan (ca. 180–279) contrasted the righteous, like Jacob, that \"God is standing on him\" (Gn 28:13), with the wicked, like Pharaoh who was \"standing on the Nile,\" his deity (Gn 41:2).[^92] In the latter the divine becomes an instrument designed to promote the interest of the sinful. In the former the individual becomes the conduit of the divine. In this precise sense the world \"stands\" on the people of Israel, and they constitute \"its vigor.\"[^93] Righteous individuals are not only the kerubim pulling the Merkaba they constitute the Merkaba itself. As the rabbis taught, \"The Patriarchs, they themselves are the Merkaba.\"[^94]"
+    }
+  ],
+  "footnotes": {
+    "88": "See Maimonides, *Guide*, sec. 1, chap. 70; sec. 2, chap. 2.",
+    "89": "See ibid., sec. 2, 1.",
+    "90": "Ibid., sec. 2, chap. 6, 184 (lines 3–19).",
+    "91": "Cf. ibid. chap. 43, 278 (line 22)–279 (line 14). See S. D. Luzzato, *Commentary to the Pentateuch* (in Hebrew), (Jerusalem: Horev, 1993), 367.",
+    "92": "*Bereshit Rabba*, 69, 28, (13), vol. 2, 791.",
+    "93": "See *Sifre*, no. 356, 423; *Midrash ha-Gadol*, *Debarim*, ed. Solomon Fisch (Jerusalem: Mossad Harav Kook, 1972), 477.",
+    "94": "*Bereshit Rabba* 82, 13, vol. 2, 983."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_019.png and page_192.png; verified line-by-line."
+  ]
+}
