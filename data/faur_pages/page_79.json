@@ -1,0 +1,55 @@
+{
+  "page_id": "79",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 47,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_079.png",
+  "note_pages": [
+    "217",
+    "218"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_217.png",
+    "data/faur_scans/page_218.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p79_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "tinguish between the image and the object of the image. Since the divine transcends direct human experience, the task is difficult. To illustrate, suppose someone is visiting a country where there are no bananas, and the people have never seen a photograph. When a native tells the visitor that he has never seen a banana, the visitor replies, “I happen to have a picture of it,” and hands him a photograph of a banana. Since the native never saw a photograph, he may believe that the picture *is* the actual banana and try to eat it. Accordingly, he may either conclude that the previous information about the qualities of the bananas was false or that the visitor has deceived him. A more sophisticated approach, as with the case of the Gnostic mystics, would be to postulate that there are *two* bananas: one transcendental, perennially functioning as *banana absconditus*, and another, accessible to man, but having a funny taste."
+    },
+    {
+      "block_id": "p79_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Moses’s uniqueness rests on the fact that only about him did the Scripture testify that God had spoken to him “mouth to mouth” (Nm 12:8). At the beginning, however, when he was growing up in Egypt, Moses was only moved by divine inspiration.[^179] Afterward he received his prophecy through an angel, that is, through his imagination.[^180] Subsequently, the Scripture attested that he perceived God’s temuna directly reflected *on* his mind rather than *on* his imagination. Therefore, he did not have to decoded the meaning and could perceive it directly without reflective analysis. Although the verbs *ra’a* and *hibbiṭ* mean ‘to see’, there is a critical difference between them. In the Scripture *hibbiṭ* is used for a *direct* vision, never for an indirect sight.[^181] The verse “and the temuna of God he would *yabbiṭ*” (Nm 12:8), means that he had perceived God’s temuna directly, not reflectively: it had been reflected on Moses’s intellect, rather than on his imagination, hence Moses’s superiority over all prophets, past and future.[^182]"
+    },
+    {
+      "block_id": "p79_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "ANTHROPOCENTRIC THEOLOGY"
+    },
+    {
+      "block_id": "p79_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There is a fundamental difference between the “speclaria that does not illuminate,” identified by Maimonides with imagination and reason, and the “speclaria that illuminates.” The former cannot reflect the face of the viewer, the latter does. An early version of the Talmud—later doctored by scribes who could no longer understand its meaning—reads: “speclaria which illuminates the eyes (*‘enayyim*),”[^183] that is, of the viewer, implying thereby that he could see on it *his* own reflection. Translated into our terminology,"
+    }
+  ],
+  "footnotes": {
+    "179": "See above, p. 74ff. The difference between him and David was that he had the divine spirit from the time that he reached manhood, whereas David received it after he was anointed by Samuel. See Maimonides, *Guide*, sec. 2, chap. 45, p. 282 (lines 6–7, 11–12).",
+    "180": "Maimonides, *Guide*, sec. 3, chap. 45, p. 422 (lines 19–21); cf. sec. 2, chap. 6, p. 184 (lines 17–24).",
+    "181": "See ibid., sec. 1, chap. 4.",
+    "182": "See ibid., sec. 2, chap. 35; idem, *Mishne Tora*, *Yesode ha-Tora* 7:6.",
+    "183": "See *Shemona Peraqim*, 7, in *Pirush ha-Mishnayot*, 4:393."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_079.png and notes scans page_217.png and page_218.png; set continues_from_prev_page: true (healing 'dis-' from page 78 with 'tinguish'); structured into 4 blocks (p79_b1 continued paragraph, p79_b2 indented paragraph, p79_b3 heading level 3, p79_b4 indented paragraph); healed mid-line hyphenations (sup- pose -> suppose, pho- tograph -> photograph, func- tioning -> functioning, Scrip- ture -> Scripture); recovered missing callout [^179] after 'inspiration.' and corrected mangled callouts (' 180' -> '[^180]', ' 181' -> '[^181]', ' 182' -> '[^182]', '\"183' -> '”[^183]'); restored italics (*is*, *two*, *banana absconditus*, *on*, *on*, *ra’a*, *hibbiṭ*, *hibbiṭ*, *direct*, *yabbiṭ*, *‘enayyim*, *his*); restored diacritics (*hibbiṭ*, *yabbiṭ* with ṭ); transcribed and verified footnotes 179–183 spanning note pages 217 and 218; updated note_pages to [\"217\", \"218\"] and note_scan_images to [\"data/faur_scans/page_217.png\", \"data/faur_scans/page_218.png\"]; verified ends_with_hyphen: false; set status: visual_verified."
+  ]
+}

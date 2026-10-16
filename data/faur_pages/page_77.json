@@ -1,0 +1,54 @@
+{
+  "page_id": "77",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 46,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_077.png",
+  "note_pages": [
+    "217"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_217.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p77_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The model for the reflective consciousness of the prophet is the burning bush. Upon realizing that it was a prophetic vision, Moses covered his face and refused to glance (*me-habbiṭ*) at the elohim (angel/God) producing the vision (see Ex 3:6). In this fashion Moses ruptured the link between the burning bush, which he “turned to see,” and elohim of which the bush was the sign but which he refused to look at. To focus *on* the vision one must first turn *away* from the source of the vision. In the words of the rabbis in reward for “hiding his face” from glancing at (*me-habbiṭ*) God (Ex 3:6) Moses was privileged to glance at (*le-habbiṭ*) the temuna of God (Nm 12:8).[^171]"
+    },
+    {
+      "block_id": "p77_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "A reflective consciousness involves passing from the realm of imagination (the interpreted system) to the realm of reason (the interpreter system). It is clear now why Maimonides insisted that only someone who had optimally developed both his imaginative and rational faculties could be a prophet. The prophet’s reflective consciousness serves to articulate the prophetic experience and to communicate it to others. By virtue of his interpretation the prophet transforms the prophetic experience into ḥokhma ‘wisdom’, ‘knowledge’—something that both instructs and elevates people. “Accordingly,” Maimonides concluded:"
+    },
+    {
+      "block_id": "p77_b3",
+      "type": "blockquote",
+      "markdown": "[I]t is necessary to discard someone who has not developed his intellectual faculty to perfection. Only someone who has reached perfect cognition is capable of perceiving other [forms] of knowledge when the divine intellect rests upon him. He is the one who is truly a prophet. This has been clearly expounded. As it is written: “And the prophet is the heart [*lebab*] of wisdom” (Ps 90:12). It means, that the true prophet is the heart of wisdom. This, too, is something that ought to be known.[^172]"
+    },
+    {
+      "block_id": "p77_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The distinction between the perception of the image of an object and reflection on that image was explained by Sartre. In the first case consciousness is focused on the object, not on the image. In the second, it is focused on the image, not on the object:"
+    },
+    {
+      "block_id": "p77_b5",
+      "type": "blockquote",
+      "markdown": "[I]t is certain that when I produce the image of Peter, it is Peter who is the object of my actual consciousness. As long as that consciousness remains unaltered, I could give a description of the object as it appears to me in the form of an image but not"
+    }
+  ],
+  "footnotes": {
+    "171": "See *Berakhot* 7a as paraphrased in Maimonides, *Guide*, sec. 1, chap. 5, pp. 19 (line 24)–20 (line 4). See above, p. 25ff.",
+    "172": "Maimonides, *Guide*, sec. 2, chap. 38, p. 267 (lines 25–29); cf. chap. 32, pp. 254 (line 27)–55 (line 3). The term *lebab* ‘heart’, rather than the more common *leb*, is interpreted by the rabbis to include both the good and evil inclinations; see *Mishna Berakhot* 9:1, which for Maimonides stand for the intellect and imagination. Cf. Maimonides, *Guide*, sec. 1, chap. 39, p. 60 (lines 17–19). Maimonides treats *ve-nabi* as a homonym; its plain meaning, however, is “we shall bring.” See the commentaries of R. Abraham ibn ‘Ezra and Radaq ad loc."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated and verified against page_077.png, page_217.png"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "page_id": "78",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 47,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_078.png",
+  "note_pages": [
+    "217"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_217.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p78_b1",
+      "type": "blockquote",
+      "markdown": "of the image as such. To determine the properties of the image I must turn to a new act of consciousness: I must *reflect*. Thus the image as image is describable only by an act of the second degree in which attention is turned away from the object and directed to the manner in which the object is given. It is this reflective act which permits the judgment “I have an image.”[^173]"
+    },
+    {
+      "block_id": "p78_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Certainty is a function of this class of judgment. The prophet has absolute certainty of the temuna he saw: “[W]hatever the prophet is seeing in the prophetic vision is thoroughly certain for the prophet—having absolutely no doubts at all about it. For him, it [the prophecy] belongs to the order of the rest of the real things which are perceived either by the senses or by the intellect.”[^174]"
+    },
+    {
+      "block_id": "p78_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Through this type of reflection absolute certainty is gained. As noted by Sartre:"
+    },
+    {
+      "block_id": "p78_b4",
+      "type": "blockquote",
+      "markdown": "It is necessary to repeat at this point what has been known since Descartes: that a reflective consciousness gives us knowledge of absolute certainty; that he who becomes aware “of having an image” by an act of reflection cannot deceive himself. . . . If this consciousness is immediately distinguishable from all others, it is because it presents itself to reflection with certain traits, certain characteristics, which at once determine the judgment “I have an image.” The act of reflection thus has a content of immediate certainty which we shall call the *essence* of the image.[^175]"
+    },
+    {
+      "block_id": "p78_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In the first two cases there is no reflective consciousness.[^176] The recipient is a passive instrument moved by divine inspiration as with Moses intervening to save the Hebrew from his Egyptian oppressor and David confronting Goliath in battle.[^177] In the other nine cases the prophet focuses his consciousness *on* the prophetic vision. Significantly, R. Judah bar Il'ai (second century) maintained that there were nine mirrors where the Divine Presence reflected itself,[^178] the original radiation being so potent that a series of nine reflections from one mirror to another may be required to pale it down, the more reflections and mirrors, the more propensity for distortion, and the greater the need for proper decoding. It would be the specific task of the prophet to dis-"
+    }
+  ],
+  "footnotes": {
+    "173": "Sartre, *Psychology of Imagination*, 3.",
+    "174": "Maimonides, *Guide*, sec. 3, chap. 24, p. 364 (lines 13–15).",
+    "175": "Sartre, *Psychology of Imagination*, 3–4.",
+    "176": "See Maimonides, *Mishne Tora*, *Yesode ha-Tora* 7:5 where Maimonides defined *mitnabbe’im* not as those who actually prophetized but as those “who aspire to be prophets.” See above, p. 216 n. 150.",
+    "177": "See Maimonides, *Guide*, sec. 2, chap. 45, pp. 281 (line 19)–282 (line 22). On the early stage of Moses’s prophecy see R. Joseph ibn Kaspi, *Meṣaref la-Kesef* (Krakow, 5666/1906), 125; R. Isaac Caro, *Derashot R. Yiṣḥaq Qaro*, ed. Shaul Regev (Ramat Gan: Bar Ilan Univ., 1995), 85; R. DeFijo, *Bina le-‘Ittim*, 1:167–69.",
+    "178": "See *Vayyiqra Rabba*, 1, 14, vol. 1, pp. 30–32."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_078.png and notes scan page_217.png; set continues_from_prev_page: true (continuing Sartre blockquote from page 77); structured into 5 blocks (p78_b1 blockquote continuation, p78_b2 indented paragraph, p78_b3 indented lead-in paragraph, p78_b4 Sartre blockquote, p78_b5 indented paragraph ending with hyphenated 'dis-'); healed OCR errors ('inter- vening' -> 'intervening', 'I-lebrew' -> 'Hebrew', mangled callouts '\\74' -> '[^174]', ''75' -> '[^175]', ' 76' -> '[^176]', ' '' -> '[^177]', ',178' -> ',[^178]'); restored italics (*reflect*, *essence*, *on*); recovered footnote callouts [^173]–[^178]; transcribed and verified footnotes 173–178 from note page 217; updated note_pages to [\"217\"] and note_scan_images to [\"data/faur_scans/page_217.png\"]; verified ends_with_hyphen: true; set status: visual_verified."
+  ]
+}

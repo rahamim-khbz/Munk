@@ -1,0 +1,51 @@
+{
+  "page_id": "76",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 46,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_076.png",
+  "note_pages": [
+    "217"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_217.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p76_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "Ḥanan'el (d. 1055–1056) concluded: “All the prophets perceived His Glory as a dim light from a *speclaria* that does not illuminate, and they imagined [*venidma*] that they had perceived a vision, like an elderly person whose eyesight is weak and sees that which is short as if it were tall, and one as if it were two, and other similar cases although that is not the case [in reality].”[^162] Elaborating on the verse, “And in the hand of the prophets I am imagined [*adamme*]” (Hos 12:11)—in the sense that God projects Himself onto the imagination of the prophets—R. Ḥanan'el formulated the doctrine that the prophetic “vision that they [the prophets] behold is imagination, and not the reality.”[^163] Maimonides accepted this doctrine.[^164]"
+    },
+    {
+      "block_id": "p76_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There are two components to prophecy: the vision and the *interpretation* (*pitron*) of the vision.[^165] Human imagination is faltering and deceiving. There is a need for a reflective examination—a kind of psychoanalytic investigation—to decode properly the prophetic image. The prophet is to function as his own analyst, carefully decoding the temuna in terms of its linguistic components.[^166] The examination must be carried on by the prophet himself.[^167] Consequently, prophecy involves a semiotic relationship between the vision reflected in the imagination and the intellect of the prophet: prophecy-imagination is the *interpreted* system; the *pirush*-reason is the *interpreter* system.[^168] Like the revolving sword guarding the way to Eden, this process involves a succession of dark (imagination) and light (reason) flashes. Like Borgesian mirrors, the vision of the prophets is blurred. In the language of the rabbis, it is “a *speclaria* that does not illuminate.”[^169]"
+    },
+    {
+      "block_id": "p76_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There are two movements to the reflective consciousness of the prophet: a movement *away* from the prophetic vision and then directing the attention *toward* it. A precondition for reflective consciousness and the type of analysis required of the prophet is to shatter the illusion of immanence present in the temuna. As it were, the mirror/mind/imagination reduces the absolute reality of God to a two-dimensional entity. Thus, the prophet must perceive the revelation of the divine as a *reflection*, not as the actual divine. Apophasis is indispensable to distinguish between the object of revelation and the object itself. This type of abstraction is impossible at the imaginative level. For the imaginative consciousness and the paleologic mind the temuna does not stand for a thing: it is the thing. As with classical Pavlovian physiology, there is a reflexive condition linking the sign to the thing that the sign represents: the sign of the object cannot be differentiated from the object. Indeed, for Elisha and the Gnostic mentioned earlier the herald is the king.[^170]"
+    }
+  ],
+  "footnotes": {
+    "162": "Edited in Faur, *Rabbi Yiśrael Moshe Ḥazzan*, p. 145. Cf. below, p. 218 n. 191.",
+    "163": "Faur, *Rabbi Yiśrael Moshe Ḥazzan*, p. 145.",
+    "164": "See Maimonides, *Guide*, Introduction, pp. 6 (line 19)–7 (line 15).",
+    "165": "Maimonides, *Mishne Tora*, *Yesode ha-Tora* 7:3. On the meaning of this term see Faur, *Golden Doves*, p. 28; it is synonymous with *pirush*. See ibid. 12, 111–13.",
+    "166": "See Maimonides, *Guide*, sec. 2, chap. 43. On the precise definition and function of *sharaḥ* see Faur, *Golden Doves*, 72–76.",
+    "167": "See Maimonides, *Guide*, sec. 2, chap. 43.",
+    "168": "On this type of relationship see Faur, *Golden Doves*, pp. 111–12.",
+    "169": "*Yebamot* 49b.",
+    "170": "See above pp. 50–51."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated and verified against page_076.png, page_217.png"
+  ]
+}
