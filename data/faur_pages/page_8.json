@@ -1,0 +1,54 @@
+{
+  "page_id": "8",
+  "section_file": "01_introduction.md",
+  "spread_index": 12,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_008.png",
+  "note_pages": [
+    "187"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_187.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p8_b1",
+      "type": "blockquote",
+      "markdown": "fully translated. *We would finally become the one true text*.[^40] [italics in original]"
+    },
+    {
+      "block_id": "p8_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There is a further transformation. Miguel de Unamuno (1864–1936) called attention to the process by which “the knower, becomes, in knowing, the known; the lover, in loving, the beloved.” Pointing to his own personal experience, he continued:"
+    },
+    {
+      "block_id": "p8_b3",
+      "type": "blockquote",
+      "markdown": "I have encountered in some books a man rather than a philosopher or a savant or a thinker, when I encountered a soul rather than a doctrine, I have exclaimed: “But I have been this man myself!” And thus I have lived again with Pascal in his own century and place, and I have lived again with Kierkegaard in Copenhagen, and so with others. And are these phenomena perhaps not the supreme proof of the immortality of the soul? May not these people live in me as I live in them?[^41]"
+    },
+    {
+      "block_id": "p8_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Applied to the Tora, this means that in the process of studying the student will encounter the divine Author and realize God’s image within. “And they shall build me a Tabernacle,” said God, “and I shall dwell within them” (Ex 25:8). The object of the sentence is not the Tabernacle: the Scripture does not say that God will dwell within it (*betokho*), the Tabernacle, but within “them” (*betokham*) in the plural, the *people* who built the Tabernacle."
+    },
+    {
+      "block_id": "p8_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The preceding considerations underlie the literary strategy of the Tora. Maimonides pointed out that a key characteristic of the Tora is to ascertain its basic doctrines without showing how they are established. To take one obvious example, monotheism is the most fundamental doctrine of the Law. Yet the Scripture does not attempt to demonstrate the validity of such a belief. Maimonides showed that the rabbis distinguished between a scholar having general knowledge of the Tora and a sage (*ḥakham*). The former is one who has mastered the traditional doctrines of the Law on the basis of authority but cannot examine them critically. Wisdom (*ḥokhma*) is the specific methodology by which the doctrines of the Tora are analyzed and made coherent. Accordingly, special deference is owed to a teacher “who taught him wisdom (*ḥokhma*) because he is bringing him to the life of the world to come.”[^42] Maimonides did not explain why the Tora refrained from presenting the bases and steps required to demonstrate its doctrines. One of the rea-"
+    }
+  ],
+  "footnotes": {
+    "40": "David Michael Levin, “The Loving Body of Tradition,” *Religious Traditions* (Univ. of Sidney) 5 (1983): 54.",
+    "41": "Miguel de Unamuno, “What is Christianity?” in *The Agony of Christianity*, trans. Anthony Kerrigan, (Princeton, N. J.: Princeton Univ. Press, 1974), 16.",
+    "42": "Mishna *Baba Meṣi‘a* 2:11. See Maimonides, *Guide*, sec. 3, chap. 54, p. 467 (lines 2–27), and below, pp. 4, 129–30."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_008.png and page_187.png; verified line-by-line."
+  ]
+}

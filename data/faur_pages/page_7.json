@@ -1,0 +1,41 @@
+{
+  "page_id": "7",
+  "section_file": "01_introduction.md",
+  "spread_index": 11,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_007.png",
+  "note_pages": [
+    "186",
+    "187"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_186.png",
+    "data/faur_scans/page_187.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p7_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "the letters, or if a letter or a word touches another, even at a minuscule point, the scroll of the Tora is *pasul* (liturgically void). The intervals between letters and between words are not absence of space. They represent the hyperspace of the Tora contained between the lines (*shīrṭūṭ*) traced on the parchment of the scroll with a blunt instrument. Even when the intervals between the letters are only symbolically filled, that is, when the consonantal text is vocalized and its phormology and syntax definite, the scroll is liturgically void.[^35] Accordingly, ‘wisdom’ (*ḥokhma*) includes two elements: the text, or *rashe peraqim*, imparted by the teacher and the subtext woven by the student, giving meaning and coherence to the text. Commenting on the verse, “His desire is in God’s Tora, and he meditates on his own Tora day and night” (Ps 1:2), the rabbis taught: “At the beginning it [the Tora] is called on God’s name, but in the end it is called on his [the student’s] name.”[^36] The tension God’s Tora/student’s Tora is resolved in a dynamic process of decoding and interpretation designed to weave together the *rashe peraqim*. In the process the reader becomes the writer and the text becomes the reader. Initially, God’s given text is superior to the student. The rabbis observed, “If people stand up [in reverence] for those who study it [the Tora], how much more so [should they stand up] for it [the Tora] itself!”[^37] At a later stage a textuological transformation takes place: the student becomes the living text of the Tora. Concerning that stage, the rabbis taught, “Whoever honors the Tora his body will be honored by the people.”[^38] The living, humanized text embodied in the student is superior to the text written on a scroll. Such a person had become, “a great individual” (*gabra rabba*). Reflecting the belief that the human text is textuologically superior to the text written on a scroll, Raba (d. 352) cried out, “How boorish are those who stand up [in reverence] for the scroll of the Tora, but don’t stand up for a great individual (*gabra rabba*)!”[^39] In a different context Michael David Levin described the existential metamorphosis whereby the student becomes the text:"
+    },
+    {
+      "block_id": "p7_b2",
+      "type": "blockquote",
+      "markdown": "As we perform the prescribed rituals with greater and greater skill, we begin to be inhabited by the powerful living *sense* of the outer texts. With the passage of time continuously repeated in the reading, inner and outer texts begin to coincide. Were there no longer any difference between them, understanding would be complete: thanks to the performance of the rituals prescribed by the outer texts, the *sense* of the inner would be"
+    }
+  ],
+  "footnotes": {
+    "35": "See Faur, *Golden Doves*, 116, and ibid., 10–12. On the *shirṭuṭ* see ibid. 10. In my view, a vocalized scroll cannot be used for liturgical purposes because under this condition there is no “reading” but a “recitation from memory” instead. According to this theory, even authorities such as Maimonides, who permit reading from a “void scroll” (see Faur, *Studies in the Mishne Tora* (in Hebrew) [Jerusalem: Mossad Harav Kook, 1978], 180–181), would disqualify reading from a vocalized scroll. Similarly, those who had read the *Megilla* from a vocalized text would not have fulfilled their obligation because they had only “recited the text from memory” rather than “read” it. The same applies to a *geṭ* (bill of divorce) and other documentation requiring “reading” from a “written text.” Conversely, because there is no requirement to “read” a *mezuza* or a *tefillin*, a vocalized text is not void. Maimonides distinguished between the calligraphic requirements of the *mezuza* and the *tefillin* because they were not designed for reading and the scroll of the Tora, which is designed for reading; see Maimonides, *Mishne Tora*, *Tefillin* 1:2. The standard view on this matter overlooks a fundamental dimension of Hebrew reading; cf. R. Joseph Refael ‘Uzziel, in R. Ben-Ṣion Uzziel, *Mishpaṭe ‘Uzziel* (Tel-Aviv, 5695/1935), 1:165b.",
+    "36": "*‘Aboda Zara* 19a.",
+    "37": "*Qiddushin* 33b.",
+    "38": "*Pirqe Abot* 4:8. Cf. Maimonides, *Pirush ha-Mishnayot*, 4:446.",
+    "39": "*Makkot* 22b. On the meaning of *gabra rabba* cf. *Baba Qamma* 59b. See Faur, *Golden doves*, 23–32, 167 n. 1."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_007.png, page_186.png, and page_187.png; spliced note 35 across pages 186-187; verified line-by-line."
+  ]
+}
