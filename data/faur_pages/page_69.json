@@ -1,0 +1,56 @@
+{
+  "page_id": "69",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 42,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_069.png",
+  "note_pages": [
+    "214"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_214.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p69_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Since such fundamental categories, as “particular and universal” and “essential and accidental” are the function of reason, reason is at the basis of inductive and deductive thinking. By contrast, imagination is incapable of any of these functions. [1] It is incapable of abstraction. Things are processed globally because they are perceived by the senses not in terms of their constitutive parts. Moreover, [2] it associates and links disparate things without regard to their real nature. Maimonides continued:"
+    },
+    {
+      "block_id": "p69_b2",
+      "type": "blockquote",
+      "markdown": "Imagination has none of these functions [1] since imagination can perceive a particular object made up (of various parts) in general terms, [2] and it can combine things that are separate in reality, combining one part with another. All [this type of combinations pertains to] a body or a faculty in a body,[^114] as when one imagines a person with the head of a horse and with wings and other such similar things. This is called a “false fabrication” since it does not correspond to anything in reality. Even when abstracting a form to the maximum, imagination can never free its perception from the physical. This is why nothing can be examined on the basis of imagination.[^115]"
+    },
+    {
+      "block_id": "p69_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "A rational cognitive-construct (*taṣawar*) is different than an imaginative cognitive-construct.[^116]"
+    },
+    {
+      "block_id": "p69_b4",
+      "type": "heading",
+      "level": 3,
+      "markdown": "PROPHECY AND THE EPISTEMOLOGY OF THE CREATIVE MIND"
+    },
+    {
+      "block_id": "p69_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "On the surface Maimonides’s treatment of imagination is puzzling, attributing to it contradictory functions and results. In the preceding chapters imagination was depicted as the cause of Adam’s fall, the perdition of humankind, and the medium by which magicians, soothsayers, and politicians perform their craft. Yet Maimonides maintains that God communicates with prophets via imagination. It is through the development of imagination that humankind reaches perfection. Indeed, the biblical prophet is superior to the philosopher because of the former’s imaginative powers. At the same time, Moses is the greatest of all prophets precisely because God did not communicate with him through imagination but only through reason! A close reading"
+    }
+  ],
+  "footnotes": {
+    "114": "See above, p. 66.",
+    "115": "Maimonides, *Guide*, sec. 1, chap. 73, p. 146 (lines 15–26).",
+    "116": "See ibid., chap. 68, p. 114 (line 20); cf. chap. 73, p. 147 (lines 27–30)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visual verification against 300 DPI scan page_069.png and note scan page_214.png; set continues_from_prev_page: true per specification; structured page into 5 blocks (p69_b1 indented paragraph, p69_b2 blockquote, p69_b3 indented single-sentence paragraph, p69_b4 level 3 section heading, p69_b5 indented paragraph); healed mid-line hyphenations (con-stitutive -> constitutive, imag-ination -> imagination, max-imum -> maximum, phys-ical -> physical, imagina-tive -> imaginative, human-kind -> humankind, per-form -> perform, communi-cate -> communicate); healed OCR bracket and optical swaps ('[x] It is incapable' -> '[1] It is incapable', '[r] since imagination' -> '[1] since imagination'); restored typographic curly quotes, apostrophes, and en-dashes; restored transliteration and italics in (*taṣawar*); recovered 3 footnote callouts [^114]–[^116] from mangled OCR superscripts; transcribed and verified footnotes 114–116 from note scan page_214.png (restoring italics in *Guide* and en-dashes in line ranges); updated note_pages to [\"214\"] and note_scan_images to [\"data/faur_scans/page_214.png\"]; verified ends_with_hyphen: false terminating with unhyphenated word 'reading' continuing onto page 70; set status: visual_verified."
+  ]
+}

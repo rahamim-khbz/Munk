@@ -1,0 +1,37 @@
+{
+  "page_id": "71",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 43,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_071.png",
+  "note_pages": [
+    "215"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_215.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p71_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "truth is the real world, reason based on distorted sensory information, that is, on data processed through the imagination, will necessarily result in falsehood. To illustrate this point consider Ptolomean astronomy in which the solar system is seen as moving around the earth, in contrast to Copernican astronomy in which the earth is seen as moving around the sun. In the second case sensory perception is processed through reason. Thus, further astronomical calculations and observations provide an adequate understanding of the solar system. In the first case sensory perception is processed through imagination. Accordingly, all further calculations and scientific observations are skewed. In response to Johann Kepler’s (1571–1630) mathematical demonstrations that Ptolomean astronomy was based on “sensory illusion,” Francesco Patrizzi (1529–1597) argued that all of Kepler’s calculations about the interlocking orbits, cycles, and epicycles of the planets were meaningless because the planets are animate beings endowed with will and freedom.[^124] In this type of situation the ultimate basis of reason is imagination. The result is an anthropocentric universe that, like the natural world of the mutakallimun, is shaped to fit certain human projection—the specific conventionalities of the time. As with Adam, imagination first subverts and then subdues and controls the intellectual faculty."
+    },
+    {
+      "block_id": "p71_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Imagination can be creative and valuable after reason has accurately decoded and processed the data provided by the senses. In the Maimonidean general epistemology not only can imagination not process any of the functions of reason but also reason cannot process any of the functions of imagination. Reason does not have the faculty [1] to perceive things globally and [2] to associate disparate things—the two indispensable ingredients for *creativity*. A creative idea [1] first conceived globally in the mind can be effected only by discovering the proper [2] link between the disparate elements. This cannot be realized by ‘inserting’ ingredients as with the imaginative world of the mutakallimun and Lévi-Strauss’s *bricolage*. To realize a creative idea Maimonidean methodology is indispensable. The link between the components of a creative idea may be discovered by [1] properly differentiating the multiple significances (ma‘ani) making up the context of the link one wants to insert, [2] establishing the distinction between the universal and the particular, [3] and the differentiation of essential and incidental predicates. To illustrate, to enable humans to fly it would be necessary to discern [1] the multiple elements making up a “flying bird,” such as wings, feathers, color, and so forth; and proceed to discover the [2] ‘universal’ (the principle of aerodynamics), and [3]"
+    }
+  ],
+  "footnotes": {
+    "124": "See Cassirer, *Philosophy of Symbolic Forms*, 2:139–40."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_071.png and notes scan page_215.png; set continues_from_prev_page: true; healed midline hyphens and OCR errors ('planes' -> 'planets', optical bracket swaps [x]/[z]/[t] -> [1]/[2]/[3]); restored italics (*creativity*, *bricolage*); recovered callout [^124]; transcribed footnote 124 from note page 215; ends_with_hyphen: false."
+  ]
+}

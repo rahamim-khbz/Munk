@@ -1,0 +1,72 @@
+{
+  "page_id": "70",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 43,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_070.png",
+  "note_pages": [
+    "214"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_214.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p70_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "of these materials shows that Maimonides is weaving, with wit and sophistication, a revolutionary theory, pointing to a fresh view of imagination and the role it plays in the development of human creativity."
+    },
+    {
+      "block_id": "p70_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Prophecy, or divine inspiration, is regarded by Maimonides as humankind’s highest realization. It may come about when an individual has attained a threefold perfection: ethical, intellectual, and imaginative.[^117] Ethical excellence, as a precondition for perfection, is well understood in light of the biblical tradition, insisting on moral conduct and individual accountability.[^118] Ethics, too, is an essential prerequisite for intellectual excellence. The reasoning of individuals who fail to regulate their passions is flawed.[^119] Intellectual perfection, too, conforms with Maimonidean thinking, whereby reason is humankind’s quintessential attribute, pertaining to the very “image of God” in which Adam was created.[^120]"
+    },
+    {
+      "block_id": "p70_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Concerning the role of imagination in the realization of prophecy, Maimonides explains:"
+    },
+    {
+      "block_id": "p70_b4",
+      "type": "blockquote",
+      "markdown": "You ought to know that the reality of prophecy and its essence consists of an emanation flowing from God, blessed be He, through the active intellect, first onto the cognitive faculty and thereafter onto the imaginative faculty [*al-quwat al-mutkhayala*]. It represents the highest human level and the supreme perfection that can be found in this species. This state is the supreme perfection of the imaginative faculty.[^121]"
+    },
+    {
+      "block_id": "p70_b5",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "The biblical prophet received prophecy through an angel,[^122] which Maimonides associated with imagination.[^123]"
+    },
+    {
+      "block_id": "p70_b6",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The role of imagination as a factor of human perfection seems highly problematic. As mentioned before, Maimonides held a positivistic view of imagination. It is a faculty that humans share with other members of the animal kingdom. It constitutes a lower level of consciousness, distorting reality, and incapable of providing valid criteria to know the real universe."
+    },
+    {
+      "block_id": "p70_b7",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "A pivotal factor in Maimonides’s epistemology is the relation of imagination to reason. In the total equation regulating mental activities there is a radical difference between ‘sensory perception → imagination → reason’ and ‘sensory perception → reason → imagination’. Whereas ‘sense → reason’ results in an accurate perception, per se, ‘sense → imagination’ results in a distorted perception ‘as’. Since the ultimate criterion for the Maimonidean"
+    }
+  ],
+  "footnotes": {
+    "117": "Ibid., sec. 2, chap. 32, p. 254 (lines 14–15); chap. 36, pp. 260 (line 22)–63 (line 6).",
+    "118": "Cf. ibid., chap. 40, p. 272 (lines 1–15).",
+    "119": "Ibid., sec. 1, chap. 34, p. 52 (lines 6–9); cf. sec. 2, chap. 36, p. 262 (lines 1–7). Cf. Maimonides, *Pirush ha-Mishnayot*, *Abot* 3:11, 4:432–33.",
+    "120": "Maimonides, *Guide*, sec. 1, chap. 1, p. 14 (lines 20–23); chap. 2, p. 16 (lines 13–15); sec. 3, chap. 8, p. 311 (line 15).",
+    "121": "Ibid., sec. 2, chap. 36, p. 260 (lines 20–23); cf. chap. 38, pp. 266 (line 25)–67 (line 11).",
+    "122": "Ibid., chap. 34; cf. sec. 1, chap. 15; sec. 3, chap. 45, p. 423 (lines 3–6).",
+    "123": "See ibid., sec. 1, chap. 49; sec. 2, chap. 42; cf. sec. 2, chap. 6, especially p. 184 (lines 15–18)."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_070.png and notes scan page_214.png; set continues_from_prev_page: true; segmented into 7 blocks (including blockquote and flush post-quote paragraph); recovered callouts [^117]–[^123]; transcribed footnotes 117–123 from note page 214; verified right arrow typography (→), transliterations (*al-quwat al-mutkhayala*), and italics; ends_with_hyphen: false."
+  ]
+}
