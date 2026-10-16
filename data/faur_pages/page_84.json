@@ -1,0 +1,61 @@
+{
+  "page_id": "84",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 50,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_084.png",
+  "note_pages": [
+    "219"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_219.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p84_b1",
+      "type": "blockquote",
+      "markdown": "and immaculate figures,[^212] glancing at the entire wisdom of God from the first figure until the core of the earth and knowing from them His greatness:[^213] immediately would the Ruwaḥ ha-Qodesh rest upon him."
+    },
+    {
+      "block_id": "p84_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The Ruwaḥ ha-Qodesh is the lightning flashing through the night. Encounter with it spawns a new class of reflective consciousness. It demands introspection and will emerge upon contrasting the new to the old self. The new self *knows* “that he is not as he was”—that it has surpassed conventional rationality. The knowledge spawned by the new consciousness effects a metamorphosis, resulting in a fundamental change of perspective. To attain it, the individual must *integrate* with the angelic beings and become a link in the big chain of creation, thus, switching from an anthropocentric perspective, to the perspective of a universe orbiting around God. The paragraph concludes:"
+    },
+    {
+      "block_id": "p84_b3",
+      "type": "blockquote",
+      "markdown": "[3] At the moment that the Ruwaḥ ha-Qodesh rests on him, [i] his soul integrates with the class of angels called *ishim*.[^214] [ii] He is transformed into a different person and would understand with his mind that he is not whom he was but that he had surpassed the class of the rest of human sages. As it was said concerning Saul, “And you shall prophetize with them and be transformed into another man” (1 Sm 10:6)."
+    },
+    {
+      "block_id": "p84_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The ultimate purpose of “entering into the pardes” is *dumya*—the supreme silence and absolute darkness required for the voice of God to sound and His light to shine.[^215] Realization of [i] the limits of reason, [ii] and human subjectivity, [iii] will dispel the realm of imagination, [iv] permitting the Divine Spirit to “rest” on the individual. [v] Then, a transformed consciousness emerges, [vi] linking the individual to the rest of the world, [vii] orbiting around the Creator."
+    },
+    {
+      "block_id": "p84_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The idea of joining in a chorus dancing around God is rabbinic. The rabbis tell that upon crossing the Red Sea every Israelite"
+    },
+    {
+      "block_id": "p84_b6",
+      "type": "blockquote",
+      "markdown": "pointed out with his finger and exclaimed: “This [*ze*] is my God [*Eli*] and I shall make for Him a dwelling” (Ex 15:2). God responded to Israel: “In this world you say to me, ‘This is my God’ only once. But in the future you shall say it twice.” As it"
+    }
+  ],
+  "footnotes": {
+    "212": "The *Merkaba*; cf. *Kuzari* 4, 3; and Idel, *Kabbalah*, 335 n. 104. This state, however, is not attained upon entering the *pardes* but at a later phase; see the *Sifre* cited above, p. 39. Cf. however, Idel, *Kabbalah*, 125.",
+    "213": "The source of this doctrine is *Sifre* no. 355, p. 422.",
+    "214": "On these angels see Maimonides, *Mishne Tora*, *Yesode ha-Tora* 2:7. Cf. Joseph, *Hitgallut ha-Sodot*, 6, and editor’s note on line 14.",
+    "215": "See above, pp. 22–24."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Rehabilitated against 300 DPI scans page_084.png and page_219.png; verified line-by-line."
+  ]
+}

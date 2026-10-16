@@ -1,0 +1,56 @@
+{
+  "page_id": "87",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 51,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_087.png",
+  "note_pages": [
+    "220"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_220.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p87_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "*Qedusha* is a delocutive expression.[^227] It derives from a special class of verb, meaning ‘to say’ that particular word (e.g. ‘to welcome’, that means: ‘to say: welcome’!). Similarly, in Hebrew *le-qaddesh* (to sanctify) means: ‘to say: *qadosh*! (holy!). Thus, in the *qedusha* of the *ḥazara*, before exclaiming “Holy! Holy! Holy!” it is stated: *Neqaddesh et Shimkha be-‘Olamakh, keshem shemeqaddeshim Otakh bi-Shme Marom*. Properly translated it means: “We shall declare that your name is ‘Holy’, just like it is declared among the heavenly beings.” Similarly in the Sephardic liturgy: *Naqdishakh ve-Na‘ariṣakh ke-No‘am Śiaḥ Sod Śarfe Qodesh*, “We shall declare: ‘You are Holy! You are Exalted! as in the reverential chanting of the congregation of holy Seraphim.” In turn, *qadosh* (an adjective, plural: *qedoshim*) may be the *object* of a delocutive—the term about which it is said ‘*qadosh*’—or the *subject* saying, qadosh! Thus, in the section of the *‘Amida-Ḥazara* where the *qedusha* is inserted, one reads: “You [God] are Qadosh! and Your Name is Qadosh!”—that is the *object* of our delocutive. It continues: “and *Q(e)doshim* every day praise You. Selah.” Literally understood, this means that ‘holiness’ is not a ‘concept’ or some ‘mysterious force’ but the result of a delocutive relationship with God: those capable of declaring Him Qadosh! are indeed Qedoshim."
+    },
+    {
+      "block_id": "p87_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "There are ethical implications in joining in the cosmic dance. Selfishness is overcome upon realizing that the universe is not a part of oneself, but that one is part of the universe. Interpreting the passage those who “beget for themselves” (Gn 6:4), as referring to egocentric, self-centered individuals, Philo wrote:"
+    },
+    {
+      "block_id": "p87_b3",
+      "type": "blockquote",
+      "markdown": "We must indeed reject all those who “beget for themselves,” that is, all those who pursue only their own profit and think not of others. For they think themselves born for themselves only and not for the innumerable others, for father, for mother, for wife, for children, for country, for the human race, and if we must extend the list, for heaven, for earth, for the universe, for knowledge, for virtues, for the Father and Captain of all; to each of whom we are bound according to our powers to render what is due, not holding all things to be an adjunct of ourselves, but rather ourselves an adjunct of all.[^228]"
+    },
+    {
+      "block_id": "p87_b4",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "Hence is the radical Jewish concept of acting “for the sake of Heaven.”[^229]"
+    },
+    {
+      "block_id": "p87_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In Hebrew (in Greek as well) an ‘angel’ (*mal’akh*) is a ‘messenger’, that is, someone *not* acting on *his own* behalf but for the sake of someone else. As"
+    }
+  ],
+  "footnotes": {
+    "227": "I have dealt extensively with this kind of words in “Delocutive Expressions in the Hebrew Liturgy,” *The Journal of the Ancient Near Eastern Society* 16–17 (1984–85): 41–54.",
+    "228": "Philo, *The Unchangableness of God*, in Philo, *Complete Works*, 10 vls. (Loeb Classical Editions), v, 19, vol. 3: 19–21.",
+    "229": "See Maimonides, *Mishne Tora, Teshuba* 10:1."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_087.png and notes scan page_220.png; set continues_from_prev_page: true; segmented into 5 blocks (including blockquote, flush post-quote paragraph, and final paragraph continuing to page 88); recovered callouts [^227]–[^229]; transcribed footnotes 227–229 from note page 220; purged OCR hallucination at bottom of page; verified italics, transliterations (Qedusha, le-qaddesh, qadosh, qedoshim, Neqaddesh..., Naqdishakh..., ‘Amida-Ḥazara, mal’akh), and quotes; ends_with_hyphen: false."
+  ]
+}

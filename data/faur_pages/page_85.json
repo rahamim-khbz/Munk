@@ -1,0 +1,54 @@
+{
+  "page_id": "85",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 50,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_085.png",
+  "note_pages": [
+    "219",
+    "220"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_219.png",
+    "data/faur_scans/page_220.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p85_b1",
+      "type": "blockquote",
+      "markdown": "is written: “And on that day he shall say: ‘Behold our God [*Elohenu*] this [*ze*], we have hoped for Him and He has saved us. This [*ze*] is the Lord (YHWH) we hoped for Him, we shall dance [*nagila*] and rejoice in His salvation [Is 25:9].’”[^216]"
+    },
+    {
+      "block_id": "p85_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In Hebrew, *ze* is a deictic pronoun pointing at something ‘out here’ in space-now. It stands for ‘pointing with the finger’ at an object *outside* consciousness.[^217] The rabbis taught that every Israelite perceived God as is, outside human consciousness. “A maid was able to see in the [Red] Sea, what [Prophets] Isaiah and Ezekiel were unable to see” [in their vision of the Divine Chariot].[^218] Elsewhere, Rab declared that during the crossing of the Red Sea, “the bellies of the mothers became like a brilliant speclaria,” thus enabling even the embryos to witness the presence of the Lord.[^219] Maimonides associated “brilliant speclaria” with rational perception. Accordingly, this would mean that the Israelites were able to transcend imagination and perceive God not in terms of human projection but as a *ze*. In the second part of the homily God assures the Jewish people that in the future they would be able to say *ze* twice. It is related to a statement made by R. Eleazar (a pupil of Rab):"
+    },
+    {
+      "block_id": "p85_b3",
+      "type": "blockquote",
+      "markdown": "In the future, God would make a dance-chorus (*maḥol*) for the righteous, when He would be seated among them in the Garden of Eden, and each one would point out with his finger. As it is written: “And in that day he shall say: ‘Behold our God [*Elohenu*] this [*ze*], we have hoped for Him and He had saved us [*vay-yoshi‘enu*]. This [*ze*] is the Lord [YHWH] we have hoped for Him, let us dance [*nagila*] and rejoice in His salvation (*bi-yshu‘ato*) (Is 25:9).”[^220]"
+    },
+    {
+      "block_id": "p85_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The root of *maḥol* is *ḥyl/ḥwl*, which means ‘encircling’ something or someone. In our context, it means to encircle the *rosh maḥol*, the person leading the public in the ‘dance-chorus’ (*maḥol*). The *rosh maḥol* acts as a precentor. The public respond in antiphonal singing as when Miriam called the women to dance and sing (Ex 15:20–21). In a parallel source found in the *Talmud Yerushalmi*, describing the dance-chorus of the righteous, God is explicitly identified as the *rosh maḥol*, that is, the one standing at the center, inviting the public to participate.[^221] In the text of the *Babylonian Talmud* quoted above, *maḥol* is related to the term *nagila* from the root *gyl/gwl* ‘to"
+    }
+  ],
+  "footnotes": {
+    "216": "*Shemot Rabba* 23, 15.",
+    "217": "For a philological analysis of this pronoun and its legal connotation see Faur, “Ma Ben ‘Ḥamor Ze’ le-‘Ḥamor ha-Hu’,” *Sinai* 76 (1975): 189–92.",
+    "218": "*Mekhilta de-R. Yishma‘el*, ed. H. S. Horovitz and I. A. Rabin (Jerusalem: Wahrman Books, 1970), *Beshallaḥ*, 3, p. 126.",
+    "219": "*Midrash Tehillim* 8, 5, p. 77. Maimonides accepted this view and maintained that certain experiences were phylogentically encoded in the collective memory of the people; see Faur, “Intuitive Knowledge of God in Medieval Jewish Theology,” *Jewish Quarterly Review* 67 (1976–77), 100–110; idem, *In the Shadow of History*, 206; and below, pp. 139–42.",
+    "220": "*Ta‘aniyot* 31a.",
+    "221": "*Yerushalmi Megilla* 2, 3, 73b; and *Mo‘ed Qaṭan* 3, 7, 83b. Cf. *Hitgallut ha-Sodot*, 30; R. Baḥye bar Asher, *Bi’ur ‘al ha-Tora*, 2:574, and below, n. 222."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Rehabilitated against 300 DPI scans page_085.png, page_219.png, and page_220.png; verified line-by-line."
+  ]
+}

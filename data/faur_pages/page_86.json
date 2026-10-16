@@ -1,0 +1,41 @@
+{
+  "page_id": "86",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 51,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_086.png",
+  "note_pages": [
+    "220"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_220.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p86_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "revolve’, ‘to circle’, and, therefore, ‘to dance around’.[^222] Hence, the above passage was interpreted to mean that God would be seated at the center while the righteous would be dancing around pointing at Him, singing His praises (“This is my God”).[^223] The first ze is related to the earlier deliverance of Israel; the past tense “we hoped for Him and He saved us (vay-yoshi‘enu)” warrants such an interpretation. Accordingly, it was associated with the ze sung by the Israelites at the crossing of the Red Sea. Since the second ze appears in a future context (“This [ze] is God. . . . We shall dance [nagila] and rejoice in His salvation (bi-yshu‘ato),” it was associated with “the future” stage or “the Garden of Eden.” Saying ze for a second time is a function of the perspective acquired by “dancing around God.” Whereas the first ze points to a God transcending imagination, the second ze points to a God transcending common rationality. The first ze is anthropocentric. At this level of consciousness God may be apprehended in *positive* terms only, from the perspective of past experience: “We hoped for Him and He saved us [vay-yoshi‘enu]” throughout the unfolding of history. His presence is discerned upon realizing that He had fulfilled our individual [Eli, *my God*] and collective [Elohenu, *our God*] expectations.[^224] In rabbinic tradition these names are associated with *middat ha-din*, standing not only for ‘stern judgment’ but also for ‘rational logic’. The second ze is spoken from the exocentric perspective of those orbiting the Creator. At this level, God is referred to with the Tetragrammaton (YHWH), which in rabbinic tradition is connected with *middat ha-raḥamim*, standing not only for a God behaving according to the ‘measure of mercy’ but also implying a God behaving in a manner transcending common rationality. This coincides with a tradition stemming from the Ge’onim and Judah ha-Levi that Elohim (from which Eli/Elohenu derive), is apprehended through common rationality, whereas the Tetragrammaton (YHWH) could only be grasped through revelation.[^225]"
+    },
+    {
+      "block_id": "p86_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Liturgy is the means by which common mortals escape anthropocentric claustrophobia and join in the cosmic dance-chorus. One of the four categories of the Jewish liturgy is the *qedusha* (holiness, sanctification; plural: *qedushot*).[^226] It is the most solemn theme of the liturgy. It reaches its zenith when, joining hands with the celestial beings, the faithful participate in the cosmic chorus, exclaiming: “Holy! Holy! Holy! God (YHWH) of the Hosts! The Fullness of the whole earth is His Glory” (Is 6:3). The *qedusha* is recited at three places: in the *Yoṣer*, before the *Shema‘*; in the *ḥazara*, after the Silent Prayer; and finally in *wu-Ba le-Ṣion*. To bring out its concrete meaning some linguistic remarks are of the essence."
+    }
+  ],
+  "footnotes": {
+    "222": "See the brilliant note of Albert Hazan, *Le Cantique de cantiques enfin expliqué* (Paris: Librairie Lipschutz, 1936), 78–80. Because the biblical sense of *gyl/gwl* was no longer evident, the *Yerushalmi* (see above, n. 221), did not connect the notion of dance to the verse in Is 25:9 but to Ps 48:14 where the term *ḥw(y)la* appears.",
+    "223": "See the commentary of R. Gereshom ad loc.",
+    "224": "For a further analysis of the concepts involved in this perspective see Faur, *In the Shadow of History*, 273 n. 10; and *idem*, *Golden Doves*, 131.",
+    "225": "See Faur, “Intuitive Knowledge of God,” 100–4, 106–8; and below, pp. 140–42.",
+    "226": "According to rabbinic tradition these liturgies were instituted by the Great Assembly, the rabbinic body governing the Jewish people during the Persian period (until Alexander’s conquest of the Persian empire in the year 332 B.C.E.): see *Berakhot* 33a. The text of the *Shema‘* is scriptural and, thus, is not included among these categories."
+  },
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually rehabilitated against 300 DPI scan page_086.png and notes scan page_220.png; set continues_from_prev_page: true; segmented into 2 blocks; recovered callouts [^222]–[^226]; transcribed footnotes 222–226 from note page 220; verified italics, transliterations (middat ha-din, middat ha-raḥamim, qedusha, qedushot, Yoṣer, Shema‘, ḥazara, wu-Ba le-Ṣion), and curly quotes; ends_with_hyphen: false."
+  ]
+}
