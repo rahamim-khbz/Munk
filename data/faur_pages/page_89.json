@@ -1,0 +1,51 @@
+{
+  "page_id": "89",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 52,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_089.png",
+  "note_pages": [
+    "220"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_220.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p89_b1",
+      "type": "heading",
+      "level": 3,
+      "markdown": "CREATION EX NIHILO"
+    },
+    {
+      "block_id": "p89_b2",
+      "type": "paragraph",
+      "indent": "first_para",
+      "markdown": "IN THE MAIMONIDEAN economy of ideas Creation ex nihilo, negative attributes, and freedom of choice are intimately connected with one another."
+    },
+    {
+      "block_id": "p89_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Polytheism and monotheism are two distinct ways of apprehending the variety and heterogeneity making up the world. To the pagan mind the multiplicity of existence is the effect of a polytheistic universe. Referring to the Mesopotamian deities, J. J. Finkelstein (1922–1974) noted: “A god’s very being was in effect coterminous with the phenomena he ‘controlled’. It is, of course, this quality above all that differentiates the ‘immanence’ that characterizes Mesopotamia deity from the ‘transcendence’ which characterizes the god of the Bible.”[^1] In fact, “The single most significant constant through this entire theological history is that speculation never arrives at the notion of the absolute omnipotence of any single deity.”[^2] The only possible relation between absolute monotheism and a world brimming with diversity is Creation ex nihilo, repudiating an ontological relation between God and the universe. Thus, the story of Creation is the essence of the Hebrew Scripture. God, the ultimate reality, precedes everything and creates everything. He is omnipotent and completely free: there is nothing external or internal to Him that can limit or condition His will. Things are what they are because He willed thus, freely and unrestrictedly. The miracle is testimony that God, author of the laws of universe, can change them at His will. “Belief in the creation of the world,” wrote Maimonides, “necessarily requires that all the miracles are possible.” Consequently, “Whoever believes in the eternity [of the world] does not belong at all to the congregation of Moses and Abraham.”[^3]"
+    },
+    {
+      "block_id": "p89_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The Hebrew concept of creation is essentially *ex nihilo*: there are no ontological links between the Creator and the created. An unbridgeable chasm separates Him from everything else. Therefore, He cannot be com-"
+    }
+  ],
+  "footnotes": {
+    "1": "Finklestein, *The Ox That Gored*, 10.",
+    "2": "Ibid., 9.",
+    "3": "Maimonides, *Treatise on Resurrection*, 30. On the reason that Creation is associated with Moses and Abraham in particular see below, p. 123, and the sources indicated below, p. 299 n. 172. On the reason that Moses is mentioned before Abraham, see Faur, *Studies in the Mishne Tora*, 13–14, 148–49, and below, pp. 146, 158."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually verified against 300 DPI scan page_089.png and notes scan page_220.png; opens Part Three (Cosmology) with level-3 heading 'CREATION EX NIHILO'; resolved OCR false heading of 'IN THE MAIMONIDEAN' and correctly joined opening paragraph with indent 'first_para'; segmented into 4 blocks (heading, opening paragraph, main paragraph, continuing paragraph); recovered footnote callouts [^1], [^2], [^3]; transcribed footnotes 1–3 from note page 220 under 'PART 3: COSMOLOGY'; updated note_pages to ['220'] and note_scan_images to ['data/faur_scans/page_220.png'] because notes 1–3 are physically printed on page 220 (page 221 begins with note 6); verified typography: Finkelstein quote, italics for *ex nihilo* in paragraph 4, and citations (*The Ox That Gored*, *Treatise on Resurrection*, *Studies in the Mishne Tora*); ends_with_hyphen: true ('com-')."
+  ]
+}

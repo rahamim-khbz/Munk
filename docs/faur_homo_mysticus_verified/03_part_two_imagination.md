@@ -208,9 +208,7 @@ There are ethical implications in joining in the cosmic dance. Selfishness is ov
 
 Hence is the radical Jewish concept of acting “for the sake of Heaven.”[^229]
 
-In Hebrew (in Greek as well) an ‘angel’ (*mal’akh*) is a ‘messenger’, that is, someone *not* acting on *his own* behalf but for the sake of someone else. As
-
-such, the essence of an angelic being is pure unselfishness. The ultimate human experience is becoming such an angelic being. It is accomplished by partaking in the cosmic dance-chorus and "rejoicing in His salvation (bi-yshu ato)," a salvation coming from Him, not us. Because God is infinite, those partaking in the dance-chorus will be "rejoicing," pointing at Him forevermore.
+In Hebrew (in Greek as well) an ‘angel’ (*mal’akh*) is a ‘messenger’, that is, someone *not* acting on *his own* behalf but for the sake of someone else. As such, the essence of an angelic being is pure unselfishness. The ultimate human experience is becoming such an angelic being. It is accomplished by partaking in the cosmic dance-chorus and “rejoicing in His salvation (*bi-yshu‘ato*),” a salvation coming from Him, not us. Because God is infinite, those partaking in the dance-chorus will be “rejoicing,” pointing at Him forevermore.
 
 ---
 

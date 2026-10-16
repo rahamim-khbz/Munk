@@ -1,0 +1,25 @@
+{
+  "page_id": "88",
+  "section_file": "03_part_two_imagination.md",
+  "spread_index": 52,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_088.png",
+  "note_pages": [],
+  "note_scan_images": [],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p88_b1",
+      "type": "paragraph",
+      "indent": "none",
+      "markdown": "such, the essence of an angelic being is pure unselfishness. The ultimate human experience is becoming such an angelic being. It is accomplished by partaking in the cosmic dance-chorus and “rejoicing in His salvation (*bi-yshu‘ato*),” a salvation coming from Him, not us. Because God is infinite, those partaking in the dance-chorus will be “rejoicing,” pointing at Him forevermore."
+    }
+  ],
+  "footnotes": {},
+  "audit_log": [
+    "Seeded from 03_part_two_imagination.md",
+    "Visually verified against 300 DPI scan page_088.png and notes scan page_220.png; concludes Part Two (Imagination); set continues_from_prev_page: true with indent 'none' continuing from page 87 ('...As'); verified italics for (*bi-yshu‘ato*) with ‘ayn transliteration; verified quotes and roman type for 'rejoicing in His salvation' and 'rejoicing'; verified no footnote callouts on page 88 or note page 220; updated note_pages and note_scan_images to empty list []; set ends_with_hyphen: false."
+  ]
+}

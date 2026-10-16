@@ -1,0 +1,38 @@
+{
+  "page_id": "91",
+  "section_file": "04_part_three_cosmology.md",
+  "spread_index": 53,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_091.png",
+  "note_pages": [
+    "221"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_221.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p91_b1",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides postulated the principle that perfect knowledge is a function of creation. “Therefore, He does not perceive the creations and know them by virtue of themselves, as we know them, but He knows them by virtue of Himself” as a Creator.[^7] The modern concept of nature and science began with a metaphor comparing the universe to a clock. It was introduced by Maimonides to explain how God’s knowledge of the universe is categorically different from ours. Maimonides conceived of the entire universe as interrelated, whereby everything is interconnected with everything else.[^8] To know perfectly a single particle of the universe it would be necessary to know perfectly everything else. The metaphor of the universe as a cosmic clock illustrates the absolute distinctness of God’s knowledge. As the cosmic clockmaker, God knows the universe by virtue of having created it, just like a clockmaker knows the different movements of the clock and the relationship between the parts. “There is a great difference between the knowledge that a creator has of what he created and the knowledge that another has of that creation.” In the first case the thing created follows from the knowledge in the mind of the creator. In the second case knowledge follows from the thing created. One type of knowledge is creative, the other is contemplative. Depicting a water clock,[^9] Maimonides proceeded:"
+    },
+    {
+      "block_id": "p91_b2",
+      "type": "blockquote",
+      "markdown": "To illustrate: The artisan who fashioned that box where weights are moved by the movement of water to mark the passage of the hours of day or night—all the flow of water and the change in the position of the flow, every string that is pulled, and every plug that comes down—all these were [previously] known to the artisan who made it. He did not learn about those movements as a result of examining the movements taking place now. On the contrary, those movements taking place now are taking place in accordance with his knowledge. The same is not the case with someone [gaining knowledge about the clock by] examining this apparatus. Someone examining [this apparatus] would be gaining new knowledge through each movement that he observes. As long as he observes, he would continue to increase new knowledge, step by step, until he gained in this manner knowledge of the entire apparatus. If it would be possible for [the variety] of motions in that apparatus to be endless, then it would be impossible through examination [of the pre-"
+    }
+  ],
+  "footnotes": {
+    "7": "Maimonides, *Mishne Tora, Yesode ha-Tora* 2:10.",
+    "8": "See Maimonides, *Guide*, sec. 1, chap. 72.",
+    "9": "On water clocks in Medieval Arab countries see Ahmad Y. al-Hassan and Donald R. Hill, *Islamic Technology: An Illustrated History* (Cambridge: Cambridge Univ. Press, 1986); Donald R. Hill, “Mechanical Engineering in the Medieval Near East,” *Scientific American* (May 1991): 100–105. A clock of al-Jazari was reconstructed for exhibition at the Science Museum, London."
+  },
+  "audit_log": [
+    "Seeded from 04_part_three_cosmology.md",
+    "Visually rehabilitated against 300 DPI scan page_091.png and notes scan page_221.png; set continues_from_prev_page: true; segmented into 2 blocks (indented paragraph, blockquote); recovered callouts [^7]–[^9]; transcribed footnotes 7–9 from note page 221; verified curly quotes, em-dashes, italics (*Mishne Tora, Yesode ha-Tora*, *Guide*, *Islamic Technology: An Illustrated History*, *Scientific American*), and healed hyphens; ends_with_hyphen: true ([of the pre-)."
+  ]
+}
