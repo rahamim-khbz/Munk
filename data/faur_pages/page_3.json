@@ -1,0 +1,46 @@
+{
+  "page_id": "3",
+  "section_file": "01_introduction.md",
+  "spread_index": 9,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_003.png",
+  "note_pages": [
+    "185"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_185.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p3_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "human, who does not have a moment (*sha‘a*),” taught ben ‘Azai (second century).[^16] There are common folks, even uneducated heathens and inveterate sinners, who had the courage to seize the Now, gaining eternal salvation. Upon hearing about some such cases, R. Judah the Prince (ca. 160–220), the editor of the Mishna, and one of the most significant figures of the Rabbinic period, wept. Saying: “There are some who acquire their world in a moment (*sha‘a*), and there are some who acquire their world in many years.”[^17] Concerning this supreme moment, Borges wrote: “Sometimes I have suspected that all human life, regardless of how complex and long it may be, comprises really a [single] moment: the moment in which man knows forever who he is.”[^18]"
+    },
+    {
+      "block_id": "p3_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The differences between the esoteric views of Maimonides and the Kabbalah developed by the anti-Maimonideans in France and Spain are too complex to be summarized coherently here. They are not, however, merely a matter of content, such as the Theosophy of the Sefirot, and so on. They pertain to different stages of human development, expressing different spiritual and intellectual syntaxes and morphologies. For Maimonides the esoterics of the Tora is theocentric. It concerns postrational human, involving a progressive process of deanthropomorphization.[^19] Kabbalah is essentially ethnographic and anthropocentric. Eliade noted that the Kabbalah is akin to the “cosmic religion that disappeared after the triumph of Christianity, surviving only among the European peasants.” It presupposes a system of ‘cosmic sacrality’ that the rabbis tried to suppress and the Kabbalah successfully retrieved “thanks mainly to the tradition embodied in the Kabbalah,” a “cosmic sacrality, which seemed to have been irretrievably lost after the rabbinical reform had been successfully recovered.”[^20] Unlike Kabbalah, for Maimonides the content of a mystic experience is marginal. What defines the experience is the *level* at which it took place: to perceive the most insignificant thing at the postrational level is infinitely more exalting than to listen to the most sublime symphony at the ethnographic stage."
+    },
+    {
+      "block_id": "p3_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Maimonides’s investigations lead to an elemental, conclusive, question: Is the ultimate reality God or Man? The Hebrew Scripture posits God as the Supreme reality preceding and, therefore, categorically independent from anything else. What exists is the result of His will, free and undetermined. Creation ex nihilo postulates a limitless chasm between the Creator and His"
+    }
+  ],
+  "footnotes": {
+    "16": "*Pirqe Abot* 4:3.",
+    "17": "*‘Aboda Zara* 10b, 17a, 18a.",
+    "18": "Jorge Luis Borges, “Prólogo,” in *Evaristo Carriego*, by Evaristo Carriego (Buenos Aires: Emecé Editores, 1955), 139.",
+    "19": "A similar process takes place in the formulation of modern scientific theory; see Ludwig von Bertalanffy, *General System Theory* (New York: George Braziller, 1993), 239–48.",
+    "20": "Eliade, *The Quest*, preface (no pagination). See *Maimonide et la mystique juive*, 14 ff. Cf. below, p. 237 n. 114. It is similar to the “cosmic force” and “cosmic religious feeling” of the scientists; see Albert Einstein, “Religion and Science,” in *Ideas and Opinions*, trans. Sonja Bargmann (New York: Crown Trade Paperbacks, 1982), 36–40. I have further developed this subject in Faur, “A Crisis of Categories: Kabbalah and the Rise of Apostasy in Spain,” in *The Jews of Spain and the Expulsion of 1492*, ed. Moshe Lazar, (Lancaster, California: Labyrinthos, 1997), 41–63."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_003.png and page_185.png; verified line-by-line."
+  ]
+}

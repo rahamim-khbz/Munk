@@ -37,7 +37,7 @@
       "block_id": "px_b4",
       "type": "paragraph",
       "indent": "indented",
-      "markdown": "The *Guide* is a work *on critical theory*, focusing on the *esoteric* elements of biblical and rabbinic literature. These elements belongs to a genre that the French designate *littérature fantastique*. The intention of this type of literature is to liberate the reader from the constants making up the ordinary world on behalf of a higher class of reality.[^10] For Maimonides, too, the esoteric elements of the Scrip-"
+      "markdown": "The *Guide* is a work *on* critical theory, focusing on the *esoteric* elements of biblical and rabbinic literature. These elements belongs to a genre that the French designate *littérature fantastique*. The intention of this type of literature is to liberate the reader from the constants making up the ordinary world on behalf of a higher class of reality.[^10] For Maimonides, too, the esoteric elements of the Scrip-"
     }
   ],
   "footnotes": {
@@ -50,6 +50,7 @@
     "10": "On this type of literature see Roger Caillois, *Anthologie du fantastique* (Paris: Editions Gallimard, 1955); André Breton, *Manifestation du surréalisme* (Paris: J.-J. Pauvert, 1962); Marcel Schneider, *La Littérature fantastique en France* (Paris: Librairie Arthème Fayard, 1964). Cf. below, p. 111."
   },
   "audit_log": [
-    "Rehabilitated against 300 DPI scans page_x.png, page_183.png; verified line-by-line."
+    "Rehabilitated against 300 DPI scans page_x.png, page_183.png; verified line-by-line.",
+    "Applied user redline: changed '*on critical theory*' to '*on* critical theory' per scan verification."
   ]
 }

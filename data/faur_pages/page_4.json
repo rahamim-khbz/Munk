@@ -1,0 +1,38 @@
+{
+  "page_id": "4",
+  "section_file": "01_introduction.md",
+  "spread_index": 10,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_004.png",
+  "note_pages": [
+    "185"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_185.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p4_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "creatures. Hebrew ‘mysticism’ is a dimension of this chasm. Because humans abide in a plane of existence other than that of the Creator, the God of the Scripture cannot be discovered.[^21] Rather, He *reveals* Himself to humankind. The God of revelation is absolutely unique and omnipotent. A deity fitting a polytheistic system has nothing to do with biblical revelation. This cardinal doctrine is the focus of a verse in Deuteronomy. The Hebrew prosodic mark *atnaḥ* (in function a semicolon) divides the verse into two parallel segments. The first segment reads, “To you it was revealed [at Sinai] that you may know that the Lord (YHWH) is the God.” The second part reads, “There is nothing else beside Him” (Dt 4:35). In biblical parallelism each segment comes to complement and further elucidate the other.[^22] Accordingly, biblical revelation is not a contact between entities sharing a common realm of existence. There are neither common metaphysical grounds nor ontological links between them. Revelation is a *communicative* act between entities whose existences are irreducible to each other. It posits the principle that God, the Creator, and humans, the created, can transcend their specific realities and *communicate* with one another. Being created in the image of God (Gn 1:26) means, precisely, that God and humans have the faculty to transcend each other’s realities and to *reveal* themselves to one another. This type of relation is linguistically (rather than metaphysically) structured. It concerns the dynamic participation of the first and second persons: revelation is the act of speech between God and human. As such, it involves linguistic subjectivity, the faculty to say *‘I’* to a *you*. *You* is someone who could address the first person as *‘I.’*[^23] Structurally, there is no difference between prophecy (where the revelation is initiated by the first person, God, and addressed to the second person, human) and prayer (where the revelation is initiated by the first person, human, and addressed to the second person, God). Prophecy/prayer is the essence of Hebrew mysticism."
+    },
+    {
+      "block_id": "p4_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Outside the realm of direct revelation the numinous is the effect of protological projections. Idolatry, whether cultic (in the form of image worship), mythological (in the form of anthropomorphic theology), or intellectual (in the form of philosophical or scientific anthropocentrism), posits man as the ultimate reality. At that level communication is inoperative. There is only ‘communion’—a physical or metaphysical contact—allowing the lower entity to be absorbed by the higher entity. Communion is operative only at the mythological level. It excludes dialogue. The ‘other’ is not a *you* capable of saying *‘I,’* but a *thing*, a *force* or an *idea* like the nebulous deity of the deists or the “cosmic force” giving rise to the “cosmic religious feelings” that scientists and mystics"
+    }
+  ],
+  "footnotes": {
+    "21": "See below, Introduction, pp. 13–15.",
+    "22": "The same idea is more succinctly stated in the first half of Dt 32:39.",
+    "23": "See Faur, *Golden Doves*, 41–48."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_004.png and page_185.png; verified line-by-line."
+  ]
+}

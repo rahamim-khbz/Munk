@@ -1,0 +1,60 @@
+{
+  "page_id": "5",
+  "section_file": "01_introduction.md",
+  "spread_index": 10,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_005.png",
+  "note_pages": [
+    "185",
+    "186"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_185.png",
+    "data/faur_scans/page_186.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p5_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "experience. The first boundaries that a human recognizes—essential for mental organization and debunking omnipotence of thought—is the second person, *you*. Because anthropocentric thinking posits the ultimate other as void of speech and subjectivity, it could be totally incorporated into the mind of the viewer. Omnipotence of thought is unbound: monodialogue is the only possible form of discourse; interpersonal relations are hierarchical and therefore, necessarily Oedipal.[^24] Anthropocentric knowledge, like Platonic hermeneutics, is Greek *a-lethia*, a passive process of ‘un-covering’. Regardless of how the ontic-ontological reality is conceived, whether as something transcendental or not, it must be subjected to an anthropomorphic process. A theocentric universe could be meaningful only if the supreme reality is in the image of man. From this perspective the God of Scripture is nothing more than “the image of man magnified to infinite dimension.”[^25] Truth is total and absolute. In the footsteps of Balaam, the pagan prophet bent on cursing Israel, who claimed to “know the mind of the Most High” (Nm 24:16), the quest of anthropocentric science is to “truly,” that is, anthropomorphically, “know the mind of God.”[^26] At that point human progress stops, inaugurating a platonic paradise, eternally perfect and eternally static."
+    },
+    {
+      "block_id": "p5_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The theocentric perspective separates creation from nature and the Book from a book.[^27] From this perspective truth unfolds within the limitless chasm separating God and human. Because the Creator can never be fully known, revelation and the truly mystical are limitless and never ending. The ‘known/unknown’ are relative. What may lay beyond the pale of knowledge at a given historical period may be ‘self-evident’ at a different time and place. ‘Mysticism’ is the perennial tension between the knowable and the unknowable."
+    },
+    {
+      "block_id": "p5_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Rather than believing to have unraveled “the mind of God,” those privy to revelation are overcome by a pathos of humility before the vast, never-ending mystery of the unknown. Shortly before his death, Isaac Newton (1642–1727) wrote: “I do not know what I may appear to the world; but to myself I seem to have been only like a boy, playing on the seashore, and diverting myself, in now and then finding a smoother pebble or a prettier shell than ordinary, while the great ocean of truth lay undiscovered before me.”[^28]"
+    },
+    {
+      "block_id": "p5_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The present work has been structured in terms of this question."
+    },
+    {
+      "block_id": "p5_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In part 1 (Apophasis) I examine Maimonides’s doctrine of negative theology, positing that knowledge of God is attained *via negativa*. This knowl-"
+    }
+  ],
+  "footnotes": {
+    "24": "On the “cosmic force”, and so on, see above, Introduction, n. 20. Linguistically, it stands for the third person, formally excluded from the act of speech; see Faur, “The Third Person in Semitic Grammatical Theory and General Linguistics,” *Linguistica Biblica Bonn* 46 (1979): 106–13. On the Oedipal structure of anthropocentric thought see Faur, “De-authorization of the Law: Paul and the Oedipal Model,” in *Psychoanalysis and Religion*, ed. Joseph H. Smith and Susan Handelman (Baltimore, Md.: Johns Hopkins Univ. Press, 1990), 222–43.",
+    "25": "See J. J. Finkelstein, *The Ox That Gored* (Philadelphia: American Philosophical Society, 1981), 12.",
+    "26": "Stephen Hawking, *A Brief History of Time* (New York: Bantam, 1990), 175. Concerning Balaam’s claim, the Rabbis (*Berakhot* 7a) noted in humor, “Now, the mind of his beast he did not know, the mind of the Most High, how would he know?!”",
+    "27": "See Faur, *Golden Doves*, chap. 2–3.",
+    "28": "Cited in Faur, “Newton, Maimonides, and Esoteric Knowledge,” *Cross Currents: Religious and Intellectual Life* 8 (1990): 536."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_005.png, page_185.png, and page_186.png; verified line-by-line."
+  ]
+}
