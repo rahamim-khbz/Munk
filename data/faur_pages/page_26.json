@@ -1,0 +1,49 @@
+{
+  "page_id": "26",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 21,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_026.png",
+  "note_pages": [
+    "195"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_195.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p26_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "was forbidden *formally* to transmit to a student (mosrin) esoteric lore, it was permitted *casually* to point out (*le-ha‘ir*) to him esoteric themes.[^38] There are two conditions for the transmission of esoteric knowledge. The student [1] must be a \"sage\" (ḥakham) [2] who \"understands with his own mind.\" These conditions imply that he had previously gained a cursory instruction in esoterics. In particular, such a sage must have been someone capable of decoding the casual remarks made by the teacher. The purpose of the opening prologue (petiḥa) is to avail the teacher of the opportunity to verify that the student does indeed \"understand with his own mind.\" [2] The teacher signals his willingness to transmit the headings and listen to the dissertation by descending from the donkey and wrapping himself in the prayer shawl.[^39] The text continues: \"[1] R. Eleazar ben ‘Arakh opened [pataḥ] and expounded [darash] on the *Proceeding of the Chariot*. [2] Rabban Johanan ben Zakkai descended from the donkey and wrapped himself in his prayer shawl.\""
+    },
+    {
+      "block_id": "p26_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The fourth step concerns the selection of an adequate place [1] where the teacher can pass on the headings to the student and [2] hear his dissertation. \"[1] And both of them sat on a rock under an olive tree [where he received the headings of the chapters], [2] and [R. Eleazar ben ‘Arakh] submitted (ḥirṣa) [his derasha] before him [*le-fanav*].\""
+    },
+    {
+      "block_id": "p26_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Rabbinic literature reports several cases where the student failed to develop an esoteric dissertation, meeting a tragic end.[^40] In this case the procedure ends happily. Although the text does not explicitly state so, it is clear from the context that the headings were transmitted, and the student had the opportunity to develop them fully in the presence of the teacher. Formal approval was expressed [1] by a kiss on the head and [2] by a laudatory oration by the teacher. The text concludes:"
+    },
+    {
+      "block_id": "p26_b4",
+      "type": "blockquote",
+      "markdown": "[1] [Rabban Johanan ben Zakkai] stood up, and kissed him on the head, [2] exclaiming: \"Blessed be the Lord, the God of Israel, who gave the Patriarch Abraham a son who knows how to understand and expose [*lidrosh*] about his Father in Heaven. There are those who know to expound [*doresh*] properly, but do not know how to certify [*meqayyem*] properly; others who (know how) to certify [*meqayyem*] properly, but do not (know how) to expound [*doresh*] properly. Lazar ben ‘Arakh [knows how] to expound properly and to certify properly. Fortunate are you, O Patriarch Abraham! who have fathered Eleazar"
+    }
+  ],
+  "footnotes": {
+    "38": "See Maimonides, *Guide*, sec. 2, chap. 29, p. 244 (lines 3–11), and below, nn. 58, 192, 193.",
+    "39": "According to other versions, he descended from the donkey before the opening prologue; see Saul Lieberman, *Tosefta Ki-Fshuṭa, Mo‘ed* (New York: Jewish Theological Seminary of America, 1962–90), 1287. The version here is confirmed by *Yerushalmi Ḥagiga* 2, 1, 77a. Cf. above, n. 37.",
+    "40": "As was the case with three students of R. Joshua, see *Tosefta Ḥagiga* 2:3; *Ḥagiga* 15a; and *Yerushalmi Ḥagiga* 2, 1, 77b. A somehow similar story is told about a disciple of R. Judah the Prince, ibid., 2, 1, 77a."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_026.png and page_195.png; verified line-by-line."
+  ]
+}

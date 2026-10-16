@@ -1,0 +1,60 @@
+{
+  "page_id": "24",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 20,
+  "spread_side": "left",
+  "scan_image": "data/faur_scans/page_024.png",
+  "note_pages": [
+    "194"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_194.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": false,
+  "ends_with_hyphen": true,
+  "blocks": [
+    {
+      "block_id": "p24_b1",
+      "type": "blockquote",
+      "markdown": "Know that unlike other sciences commonly studied when a person of perfection [*al-kamlin*] in accordance with the level of his perfection [*kamalhu*] wishes to express either orally or in writing something of what he understands about these secrets, he will not be explainable in a thoroughly and orderly fashion even a measure of what he understands. When teaching others, however, he will have the same experience when he had when he [first] comprehended it, namely, that the subject will surface and emit and then conceal itself, as if the nature of this subject would remain unchanged, whether [comprehending] of it little or much.[^24]"
+    },
+    {
+      "block_id": "p24_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Esoteric knowledge is not epistemological. It is not grounded on a concept but on apophasis. The entire structure of the *Guide* rests on this principle."
+    },
+    {
+      "block_id": "p24_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "THE ACQUISITION OF ESOTERIC INSTRUCTION"
+    },
+    {
+      "block_id": "p24_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The rabbis taught that one may ‘surrender’ (*mosrin*),[^25] that is, teach authoritatively to the proper student, only the ‘headings of chapters’ (*rashe peraqim*). These are the basic doctrines required to develop esoteric knowledge.[^26] Unlike in other disciplines a teacher may not fully develop the subject for the student. The student must be “a sage and understand in his own mind.”[^27] These are two separate qualifications: [1] knowledge of the preliminary disciplines and [2] the ability to grasp a subject in its initial stages and bring it to fruition on his own.[^28] The rabbis designated with the term *derasha* (exposition, dissertation) the type of learning that is expected from a sage.[^29] Only a *ḥakham* (sage)—but not an advanced student (*talmid ḥakhamim*)—is authorized to develop a *derasha*.[^30]"
+    },
+    {
+      "block_id": "p24_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Although esoteric knowledge cannot be transmitted, there is a special procedure whereby, after receiving instruction on the headings of the chapters, the student can submit his *derasha* for approval. Rabbinic literature has preserved one such case. What is particularly revealing about it—and in this one must distinguish between rabbinic esoterics and general mysticism—is that the initiation ceremony does not take place at night or during a magico-religious time. Eliade noted that in the pagan world a particular knowledge is regarded as esoteric “not only because it is secret and is handed on during the course of an initiation but also because the ‘knowledge’ is accompanied by a magico-religious power.”[^31] Rabbinic initiation is not magical but peda-"
+    }
+  ],
+  "footnotes": {
+    "24": "Maimonides, *Guide*, Introduction, p. 4 (lines 12–17). See ibid., sec. 2, chap. 39, pp. 243 (line 29)–44 (line 11).",
+    "25": "This is the standard version. Maimonides, *Pirush ha-Mishnayot* on *Ḥagiga* 2:1, vol. 2, 377, however, reads; *shonin lo rashe peraqim* (they recite to him the heads of chapters), which coincides with the *Tosefta Ḥagiga* 2:1 (cited below, p. 25) “recite to me” (*shene*). Similarly, in the standard editions of the Talmud *Ḥagiga* 13a one finds: *sabe de-pumbedita havu tanu be-ma‘ase bereshit*. Cf. Saul Lieberman, in Gershom G. Scholem, *Jewish Gnosticism, Merkabah Mysticism and Talmudic Tradition* (New York: Jewish Theological Seminary of America, 1960), 118 n. 3. The Aramaic verb *gamir*, *agmerakh*, *agmerun*, and so on, (to teach), ibid., corresponds to *shinun* rather than to *mosrin*. In Maimonides, *Mishne Tora*, *Yesode ha-Tora* 2:12, however, and in the idem, *Guide*, Introduction, p. 3 (line 10), the text is *mosrin*. This term involves the transference of authority, (see Faur, *Golden Doves*, 14, 88, 123–24) and delegation of responsibility (see, e.g., the *baraita* cited in *Baba Qamma* 9b). Most probably, the reading *shinun* was the version of the Talmud with which Maimonides was familiar in his youth. Upon arriving in Egypt and discovering the ancient versions of the Talmud preserved in the Orient, Maimonides changed it to *mosrin*. Cf. Faur, “Maimonides’s Discovery of a Saboraitic Version of Tractate *Nidda*” (in Hebrew), *Tarbiz* 65 (1996), 721–28.",
+    "26": "In general, this expression refers to the basic axioms upon which the entire education of the student is structured. Therefore, they are the last matters that a student will forget; see *Abot de R. Natan*, ed. Salomon Schechter (Vienna, 5647/1887), 24, p. 78. Cf. Faur, *Golden Doves*, 90. These are equivalent to the “plants” quoted below, p. 36.",
+    "27": "Mishna *Ḥagiga* 2:1, *Tosefta Ḥagiga* 2:1. This is the version preserved by Maimonides, *Guide*, sec. 1 chap. 33, 48 (line 20); and the Ge’onim; see *Oṣar ha-Ge’onim*, ed. B. M. Lewin vol. 4 (Jerusalem, 5691/1931), *Ḥagiga*, 12.",
+    "28": "See Maimonides, *Guide*, sec. 1, chap. 33, p. 48 (lines 22–25).",
+    "29": "See *Ḥagiga* 15b and the sources cited above, n. 27. For a further analysis see Faur, *Golden Doves*, 126.",
+    "30": "See Faur, *Golden Doves*, xviii. The reason is examined below, pp. 46–47.",
+    "31": "Mircea Eliade, *Myth and Reality*, trans. Willard R. Trask (New York: Harper and Row, 1963), 15."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_024.png and page_194.png; verified line-by-line."
+  ]
+}

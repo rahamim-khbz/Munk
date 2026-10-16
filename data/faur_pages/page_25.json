@@ -1,0 +1,59 @@
+{
+  "page_id": "25",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 20,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_025.png",
+  "note_pages": [
+    "194",
+    "195"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_194.png",
+    "data/faur_scans/page_195.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p25_b1",
+      "type": "paragraph",
+      "indent": "continuation",
+      "markdown": "gogical. The protagonists are R. Eleazar ben ‘Arakh (first century) and his teacher Rabban Johanan ben Zakkai. The procedure comprises five steps, each unfolding into two sections. The first step is initiated by the student.[^32] It consists of [1] a request to be taught “the headings of the chapters,” a reference to the esoteric texts that are not available to the general student body.[^33] Protocol requires [2] rejection of the request on the ground that there is no evidence that the student is a “sage, and understands with his own mind.” The text reads:"
+    },
+    {
+      "block_id": "p25_b2",
+      "type": "blockquote",
+      "markdown": "A story about Rabban Johanan ben Zakkai who was riding on a donkey and R. Eleazar ben ‘Arakh who was marching behind him. [1] He [R. Eleazar ben ‘Arakh] asked him: “Recite to me [*shene*][^34] a chapter of the *Procedure of the Chariot* [*Ma‘ase Merkaba*].” [2] He [Rabban Johanan ben Zakkai] responded: “Haven’t I told you that one may not recite [a chapter] on the *Merkaba* [even] to a single person unless he is a sage [*ḥakham*] [and] understands with his own mind [*mebin meda‘to*]?”"
+    },
+    {
+      "block_id": "p25_b3",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "Step two demonstrates that the student is qualified. It begins with [1] a declaration by the student expressing his willingness to submit his *derasha* for inspection. The formula used by the student contains two key terms: *arṣe* (I shall submit for inspection) and *le-fanekha* (before you). The first is a banking term related to *hirṣa* (submit for inspection), a procedure whereby a coin is submitted to a certified banker for inspection. The rabbis used this term to indicate the submission of a tradition or a teaching to the proper authorities for certification and evaluation.[^35] In rabbinic literature the second term frequently means ‘under the tutelage of’. This step concludes [2] when the teacher authorizes the student to speak, as follows:"
+    },
+    {
+      "block_id": "p25_b4",
+      "type": "blockquote",
+      "markdown": "[1] He [R. Eleazar ben ‘Arakh] responded: “Now I shall submit [*arṣe*] before you [*le-fanekha*].”\n\n[2] He [the teacher] replied: “Speak up.”"
+    },
+    {
+      "block_id": "p25_b5",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In the third step [1] the student “opens” (*pataḥ*)—this is a reference to the ‘prologue’ (*petiḥa*) preceding rabbinic dissertations.[^36] In this case it demonstrates the student’s qualification to develop the headings that he is about to receive.[^37] Its purpose becomes clear upon realizing that although it"
+    }
+  ],
+  "footnotes": {
+    "32": "See below, p. 27ff.",
+    "33": "Such as the texts mentioned above, p. 24.",
+    "34": "See above, p. 194 n. 25.",
+    "35": "See Faur, *Golden Doves*, 142.",
+    "36": "See Mishna *Sheqalim* 5:1; *Yerushalmi Ḥagiga* 2, 1, 77b. The same term was used to introduce esoteric material; see quotation below, n. 37. It was used by the Ge’onim; see *responsum* in *Oṣar ha-Ge’onim*, vol. 4, *Ḥagiga*, 12, and Maimonides to allude to esoteric openings, for example, Maimonides, *Guide*, sec. 1, chap. 33, p. 48 (line 21); cf. sec. 3, chap. 7, and below, nn. 37, 46, 55, 60, 103, 107. A close reading of the end of the last paragraph of the introduction to the *Guide* reveals that Maimonides regarded the explanation of ambiguous biblical terminology dealt with in part 1 as the opening prologue to esoteric discourse. The choice of verse, “Open (*pitḥu*) the gates, and let a righteous people pass” (Is 26:2), as the introduction of the first chapter of the *Guide*, is precise and to the point.",
+    "37": "According to another tradition preserved in *Yerushalmi Ḥagiga* 2, 1, 77a, the prologue is said by the teacher. The task of the student is to develop it: *keṣad hu ‘ośe? be-teḥilla rabbo poteaḥ lo rashe peraqim, wu-maskim*. Within this context *maskim* must be understood in the sense of ‘to supplement’."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_025.png, page_194.png, and page_195.png; verified line-by-line."
+  ]
+}

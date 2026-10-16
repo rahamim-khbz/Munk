@@ -1,0 +1,59 @@
+{
+  "page_id": "27",
+  "section_file": "02_part_one_apophasis.md",
+  "spread_index": 21,
+  "spread_side": "right",
+  "scan_image": "data/faur_scans/page_027.png",
+  "note_pages": [
+    "195",
+    "196"
+  ],
+  "note_scan_images": [
+    "data/faur_scans/page_195.png",
+    "data/faur_scans/page_196.png"
+  ],
+  "status": "visual_verified",
+  "continues_from_prev_page": true,
+  "ends_with_hyphen": false,
+  "blocks": [
+    {
+      "block_id": "p27_b1",
+      "type": "blockquote",
+      "markdown": "ben ‘Arakh,[^41] who knows how to understand and expound [*lidrosh*] for the glory of his Father in Heaven.[^42]"
+    },
+    {
+      "block_id": "p27_b2",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "The term *meqayyem* in the text should not be interpreted in its usual sense, ‘to fulfill’, but in its technical sense, ‘to certify’, as with the legal procedure of ‘certification of the signatures of contracts’ (*qiyyum sheṭarot*) by which a document acquires legal tenure.[^43] A sage (ḥakham) is defined as one \"who can certify [*leqayyem*] his studies,\" namely, someone who knows how to authenticate the sources of his studies and have them gain acceptability.[^44] What was particularly valuable about R. Eleazar ben ‘Arakh was that in addition to his ability to expound the esoteric headings he knew the proper procedure by which to validate his dissertation. Other sages went through a similar procedure, each ‘submitting’ (ḥirṣa) his dissertation before the teacher.[^45]"
+    },
+    {
+      "block_id": "p27_b3",
+      "type": "heading",
+      "level": 3,
+      "markdown": "DISSEMINATION OF ESOTERIC KNOWLEDGE"
+    },
+    {
+      "block_id": "p27_b4",
+      "type": "paragraph",
+      "indent": "indented",
+      "markdown": "In Rabbinic tradition a distinction is made between transmission of an esoteric text and the explanation of the text. A teacher was authorized to explain the headings of chapters but not the entire text. Thus, whereas a text containing the esoteric material could be entrusted to a qualified student, it was absolutely forbidden to transmit its actual meaning to anyone. The purpose of the student's dissertation was to have the teacher evaluate his comprehension of the material and to corroborate whether the mind of the teacher ‘approved’ (*hiskima*) of his exposition.[^46] One is told of a \"meticulous student\" (*talmid vatiq*) who \"had expounded a chapter of the *Procedure of the Chariot*,\" but the mind of his teacher \"did not approve\" (*hiskima*) of it.[^47] Some esoteric subjects one may only expound to oneself, in order to explore whether one could adequately express one's own ideas on the subjects and could verify that, indeed, one's own articulation \"approves,\" that is, coincides, with one's inner thoughts. In the words of the rabbis, \"You expound and your mind approves\" (*maskim*) of what you yourself are saying.[^48] Finally, certain esoteric themes transcend articulation, \"and you have no authority to speak about them.\"[^49] Such themes, the rabbis counsel, \"should remain under your tongue,\"[^50] that is, inarticulated. Maimonides explained: \"There are some significances, traced in the soul of the perfect individual, that if articulated linguistically or expressed in metaphors, would turn coarse and elude one's design.\"[^51]"
+    }
+  ],
+  "footnotes": {
+    "41": "For a similar expression see *Qiddushin* 66b and cf. *‘Erubin* 53b.",
+    "42": "*Tosfeta Ḥagiga* 2:1. For parallel sources see editor’s notes ad loc.",
+    "43": "See *Ketubot* 21b, in *Yebamot* 63b and *Tosefta Yebamot* 8:7. This expression was used as a wordplay to ridicule the fact that ben Zoma was praising the virtues of marriage while he himself remained unmarried. See, however, Lieberman, *Tosefta ki-Fshuṭa Mo‘ed*, 1288.",
+    "44": "See Faur, *Golden Doves*, 142–43. Therefore, it is used in contrast to ‘forget’ as in *Yerushalmi Ḥagiga* 2, 1, 77b: *le-adam shelamad tora be-na‘aruto wu-shkhahah, wub-ziqnuto ve-qiyemah*. Cf. *Pirqe Abot* 4:18.",
+    "45": "*Tosefta Ḥagiga* 2:2; see *Yerushalmi Ḥagiga* 2, 1, 77b.",
+    "46": "*Yerushalmi Ḥagiga* 2, 1, 76a: *rabbo poteaḥ lo rashe peraqim wu-maskim*. See the note of Z. W. Rabinovitz, *Sha‘are Torath Eretz Israel* (Jerusalem: Rabinovitz, 5700/1940), 320.",
+    "47": "*Yerushalmi Ḥagiga* 2, 1, 76a. For a definition of such a student see Maimonides, *Mishne Tora, Gezela* 14:13.",
+    "48": "*Yerushalmi Ḥagiga* 2, 1, 77c.",
+    "49": "*Ḥagiga* 13a.",
+    "50": "Ibid.",
+    "51": "Maimonides, *Pirush ha-Mishnayot*, 2: 376. Cf. Introduction to idem, *Pirush ha-Mishnayot*, 1: 35–36; idem, *Guide*, sec. 2, chap. 29, pp. 243 (line 29)–44 (line 3)."
+  },
+  "audit_log": [
+    "Rehabilitated against 300 DPI scans page_027.png, page_195.png, and page_196.png; verified line-by-line."
+  ]
+}
