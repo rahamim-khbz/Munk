@@ -103,7 +103,7 @@ function formatFootnoteToken(match, n, label) {
             displayLabel = '*';
         }
     }
-    const fullId = n.startsWith('fn.') ? n : 'fn.' + n;
+    const fullId = (n.startsWith('fn.') ? n : 'fn.' + n).replace(/'/g, "\\'");
     return `<sup class="fn-ref" onclick="showFn('${fullId}')">${displayLabel}</sup>`;
 }
 
@@ -135,18 +135,47 @@ async function showFn(id) {
         return;
     }
 
-    // Salomon Munk note
-    const data = footnotes[id] || {en: 'Note content missing.', fr: ''};
-    const col1 = mainCont.getAttribute('data-left-col');
-    const col2 = mainCont.getAttribute('data-right-col');
+    // Salomon Munk note - resolve canonical fn.N key and support flat string or mapped format
+    if (!footnotes || Object.keys(footnotes).length === 0) {
+        try {
+            const res = await fetch('data/footnotes.json');
+            footnotes = await res.json();
+        } catch (e) {
+            console.error("Failed to load footnotes", e);
+        }
+    }
+
+    let data = footnotes[id];
+    if (data === undefined && typeof id === 'string') {
+        if (!id.startsWith('fn.')) {
+            data = footnotes['fn.' + id];
+        } else {
+            data = footnotes[id.replace(/^fn\./, '')];
+        }
+    }
+
+    let rawEn = '';
+    let rawFr = '';
+    if (typeof data === 'string') {
+        rawEn = data;
+        rawFr = '';
+    } else if (data && typeof data === 'object') {
+        rawEn = data.en || data.text || '';
+        rawFr = data.fr || '';
+    }
+
+    if (!rawEn && !rawFr) {
+        rawEn = 'Note content missing.';
+    }
+
+    const col1 = mainCont ? mainCont.getAttribute('data-left-col') : 'en';
+    const col2 = mainCont ? mainCont.getAttribute('data-right-col') : 'fr';
     const isComparingEnglishFrench = (
         (col1 === 'en' && col2 === 'fr') || 
         (col1 === 'fr' && col2 === 'en')
     );
     
     let contentHtml = '';
-    const rawEn = data.en;
-    const rawFr = data.fr;
     
     if (rawEn && rawFr && isComparingEnglishFrench) {
         contentHtml = `<div class="fn-dual-container">
@@ -180,6 +209,10 @@ function closeFnPanel() {
 
 async function loadChapter(slug) {
     const content = document.getElementById('chapter-content');
+    if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+        content.innerHTML = '<div style="padding:80px; text-align:center; color:var(--text-muted);">Invalid chapter identifier.</div>';
+        return;
+    }
     content.innerHTML = '<div style="padding:150px; text-align:center; font-style:italic; opacity:0.4;">Retrieving Manuscript...</div>';
     try {
         const res = await fetch(`data/${slug}.json`);
