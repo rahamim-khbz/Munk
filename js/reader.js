@@ -15,14 +15,23 @@ async function init() {
         if (slug) loadChapter(slug);
         else if (window.location.pathname.endsWith('reader.html')) loadChapter(chapterIndex[0].slug);
         updateColumnSelectors();
+        window.addEventListener('hashchange', focusHashRow);
     } catch (e) { console.error("Init failed", e); }
 }
 
 function setTheme(mode) {
+    if (!['light', 'sepia', 'dark'].includes(mode)) {
+        mode = 'light';
+    }
     document.documentElement.className = mode === 'light' ? '' : mode;
-    localStorage.setItem('munk-theme', mode);
-    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('btn-' + mode)?.classList.add('active');
+    try {
+        localStorage.setItem('munk-theme', mode);
+        localStorage.setItem('reader-theme', mode);
+    } catch (e) {}
+    document.querySelectorAll('.theme-btn').forEach(b => {
+        const text = b.textContent.trim().toLowerCase();
+        b.classList.toggle('active', b.id === ('btn-' + mode) || text.includes(mode));
+    });
 }
 
 function toggleTOC() {
@@ -34,6 +43,20 @@ function buildTOC() {
     const body = document.getElementById('toc-body');
     if (!body) return;
     body.innerHTML = '';
+
+    const indexLink = document.createElement('a');
+    indexLink.href = 'scripture.html';
+    indexLink.className = 'toc-section-btn';
+    indexLink.style.textDecoration = 'none';
+    indexLink.style.color = 'var(--accent)';
+    indexLink.style.display = 'flex';
+    indexLink.style.alignItems = 'center';
+    indexLink.style.justifyContent = 'space-between';
+    indexLink.style.padding = '14px 16px';
+    indexLink.style.fontWeight = '700';
+    indexLink.innerHTML = `<span>📖 Scriptural Index</span><span dir="rtl" lang="he" style="font-family:var(--font-hebrew); font-weight:600;">מפתח פסוקים</span>`;
+    body.appendChild(indexLink);
+
     const groups = { "Introductions": [], 'Part 1': [], 'Part 2': [], 'Part 3': [] };
     chapterIndex.forEach(ch => { if (groups[ch.category]) groups[ch.category].push(ch); });
     for (const [groupName, chapters] of Object.entries(groups)) {
@@ -157,9 +180,11 @@ async function showFn(id) {
     let rawEn = '';
     let rawFr = '';
     if (typeof data === 'string') {
+        // Flat string format from canonical data/footnotes.json
         rawEn = data;
         rawFr = '';
     } else if (data && typeof data === 'object') {
+        // Mapped keys format { en: '...', fr: '...' } or { text: '...' }
         rawEn = data.en || data.text || '';
         rawFr = data.fr || '';
     }
@@ -243,9 +268,50 @@ async function loadChapter(slug) {
         else html += '<div></div>';
         html += `</div>`;
         content.innerHTML = html;
-        document.querySelector('.main-container').scrollTop = 0;
+        if (!location.hash || !location.hash.startsWith('#row-')) {
+            const mainCont = document.querySelector('.main-container');
+            if (mainCont) mainCont.scrollTop = 0;
+        }
         updateSelectionState(data.title);
+        focusHashRow();
     } catch (e) { content.innerHTML = '<div style="padding:80px; text-align:center; color:var(--text-muted);">Chapter unavailable.</div>'; }
+}
+
+let highlightTimeout = null;
+
+function focusHashRow() {
+    if (!location.hash || !location.hash.startsWith('#row-')) return;
+    const rawId = location.hash.slice(1);
+    let decodedId = rawId;
+    try {
+        decodedId = decodeURIComponent(rawId);
+    } catch (e) {
+        decodedId = rawId;
+    }
+
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollBehavior = prefersReduced ? 'auto' : 'smooth';
+
+    const attemptScroll = (retryCount = 0) => {
+        const el = document.getElementById(decodedId) || document.getElementById(rawId);
+        if (el) {
+            el.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
+            document.querySelectorAll('.row-highlight').forEach(r => r.classList.remove('row-highlight'));
+            el.classList.add('row-highlight');
+            if (highlightTimeout) {
+                clearTimeout(highlightTimeout);
+                highlightTimeout = null;
+            }
+            highlightTimeout = setTimeout(() => {
+                el.classList.remove('row-highlight');
+                highlightTimeout = null;
+            }, 3000);
+        } else if (retryCount < 6) {
+            setTimeout(() => attemptScroll(retryCount + 1), 60 * (retryCount + 1));
+        }
+    };
+
+    requestAnimationFrame(() => attemptScroll(0));
 }
 
 function updateSelectionState(title) {
@@ -303,15 +369,22 @@ function toggleLayoutMode() {
     
     mainCont.setAttribute('data-layout-mode', newMode);
     btn.innerHTML = newMode === 'vertical' ? '📜 Stacked' : '📖 Parallel';
-    localStorage.setItem('munk-layout-mode', newMode);
+    try {
+        localStorage.setItem('munk-layout-mode', newMode);
+    } catch (e) {}
 }
 
 function navigateToLanding() { window.location.href = 'index.html'; }
 
 document.addEventListener('DOMContentLoaded', () => { 
     init(); 
-    setTheme(localStorage.getItem('munk-theme') || 'light');
-    const savedLayout = localStorage.getItem('munk-layout-mode') || 'side-by-side';
+    let savedTheme = 'light';
+    let savedLayout = 'side-by-side';
+    try {
+        savedTheme = localStorage.getItem('munk-theme') || localStorage.getItem('reader-theme') || 'light';
+        savedLayout = localStorage.getItem('munk-layout-mode') || 'side-by-side';
+    } catch (e) {}
+    setTheme(savedTheme);
     if (savedLayout === 'vertical') {
         const mainCont = document.querySelector('.main-container');
         const btn = document.getElementById('layout-toggle-btn');
