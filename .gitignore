@@ -14,6 +14,7 @@
 !assets/**
 !index.html
 !reader.html
+!scripture.html
 !.gitignore
 !README.md
 
@@ -38,3 +39,18 @@
 *.pyc
 __pycache__/
 .DS_Store
+
+# Working/draft material and large scan sources: never publish
+/data/reviews/
+/data/packets/
+/data/faur_scans/
+/data/faur_pages/
+/data/faur_*/
+/data/audits/
+/data/golden_doves_scans/
+/data/verification_screenshots/
+/assets/faur_*
+/Homo_Mysticus*
+/Golden_Doves*
+/*.epub
+/*.pdf

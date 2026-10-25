@@ -20,10 +20,18 @@ async function init() {
 }
 
 function setTheme(mode) {
+    if (!['light', 'sepia', 'dark'].includes(mode)) {
+        mode = 'light';
+    }
     document.documentElement.className = mode === 'light' ? '' : mode;
-    localStorage.setItem('munk-theme', mode);
-    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('btn-' + mode)?.classList.add('active');
+    try {
+        localStorage.setItem('munk-theme', mode);
+        localStorage.setItem('reader-theme', mode);
+    } catch (e) {}
+    document.querySelectorAll('.theme-btn').forEach(b => {
+        const text = b.textContent.trim().toLowerCase();
+        b.classList.toggle('active', b.id === ('btn-' + mode) || text.includes(mode));
+    });
 }
 
 function toggleTOC() {
@@ -118,7 +126,7 @@ function formatFootnoteToken(match, n, label) {
             displayLabel = '*';
         }
     }
-    const fullId = n.startsWith('fn.') ? n : 'fn.' + n;
+    const fullId = (n.startsWith('fn.') ? n : 'fn.' + n).replace(/'/g, "\\'");
     return `<sup class="fn-ref" onclick="showFn('${fullId}')">${displayLabel}</sup>`;
 }
 
@@ -150,18 +158,49 @@ async function showFn(id) {
         return;
     }
 
-    // Salomon Munk note
-    const data = footnotes[id] || {en: 'Note content missing.', fr: ''};
-    const col1 = mainCont.getAttribute('data-left-col');
-    const col2 = mainCont.getAttribute('data-right-col');
+    // Salomon Munk note - resolve canonical fn.N key and support flat string or mapped format
+    if (!footnotes || Object.keys(footnotes).length === 0) {
+        try {
+            const res = await fetch('data/footnotes.json');
+            footnotes = await res.json();
+        } catch (e) {
+            console.error("Failed to load footnotes", e);
+        }
+    }
+
+    let data = footnotes[id];
+    if (data === undefined && typeof id === 'string') {
+        if (!id.startsWith('fn.')) {
+            data = footnotes['fn.' + id];
+        } else {
+            data = footnotes[id.replace(/^fn\./, '')];
+        }
+    }
+
+    let rawEn = '';
+    let rawFr = '';
+    if (typeof data === 'string') {
+        // Flat string format from canonical data/footnotes.json
+        rawEn = data;
+        rawFr = '';
+    } else if (data && typeof data === 'object') {
+        // Mapped keys format { en: '...', fr: '...' } or { text: '...' }
+        rawEn = data.en || data.text || '';
+        rawFr = data.fr || '';
+    }
+
+    if (!rawEn && !rawFr) {
+        rawEn = 'Note content missing.';
+    }
+
+    const col1 = mainCont ? mainCont.getAttribute('data-left-col') : 'en';
+    const col2 = mainCont ? mainCont.getAttribute('data-right-col') : 'fr';
     const isComparingEnglishFrench = (
         (col1 === 'en' && col2 === 'fr') || 
         (col1 === 'fr' && col2 === 'en')
     );
     
     let contentHtml = '';
-    const rawEn = data.en;
-    const rawFr = data.fr;
     
     if (rawEn && rawFr && isComparingEnglishFrench) {
         contentHtml = `<div class="fn-dual-container">
@@ -195,6 +234,10 @@ function closeFnPanel() {
 
 async function loadChapter(slug) {
     const content = document.getElementById('chapter-content');
+    if (!/^[a-zA-Z0-9_-]+$/.test(slug)) {
+        content.innerHTML = '<div style="padding:80px; text-align:center; color:var(--text-muted);">Invalid chapter identifier.</div>';
+        return;
+    }
     content.innerHTML = '<div style="padding:150px; text-align:center; font-style:italic; opacity:0.4;">Retrieving Manuscript...</div>';
     try {
         const res = await fetch(`data/${slug}.json`);
@@ -225,19 +268,50 @@ async function loadChapter(slug) {
         else html += '<div></div>';
         html += `</div>`;
         content.innerHTML = html;
-        document.querySelector('.main-container').scrollTop = 0;
+        if (!location.hash || !location.hash.startsWith('#row-')) {
+            const mainCont = document.querySelector('.main-container');
+            if (mainCont) mainCont.scrollTop = 0;
+        }
         updateSelectionState(data.title);
         focusHashRow();
     } catch (e) { content.innerHTML = '<div style="padding:80px; text-align:center; color:var(--text-muted);">Chapter unavailable.</div>'; }
 }
 
+let highlightTimeout = null;
+
 function focusHashRow() {
-    if (!location.hash.startsWith('#row-')) return;
-    const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-    if (!el) return;
-    el.scrollIntoView({ block: 'center' });
-    el.classList.add('row-highlight');
-    setTimeout(() => el.classList.remove('row-highlight'), 2500);
+    if (!location.hash || !location.hash.startsWith('#row-')) return;
+    const rawId = location.hash.slice(1);
+    let decodedId = rawId;
+    try {
+        decodedId = decodeURIComponent(rawId);
+    } catch (e) {
+        decodedId = rawId;
+    }
+
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollBehavior = prefersReduced ? 'auto' : 'smooth';
+
+    const attemptScroll = (retryCount = 0) => {
+        const el = document.getElementById(decodedId) || document.getElementById(rawId);
+        if (el) {
+            el.scrollIntoView({ behavior: scrollBehavior, block: 'center' });
+            document.querySelectorAll('.row-highlight').forEach(r => r.classList.remove('row-highlight'));
+            el.classList.add('row-highlight');
+            if (highlightTimeout) {
+                clearTimeout(highlightTimeout);
+                highlightTimeout = null;
+            }
+            highlightTimeout = setTimeout(() => {
+                el.classList.remove('row-highlight');
+                highlightTimeout = null;
+            }, 3000);
+        } else if (retryCount < 6) {
+            setTimeout(() => attemptScroll(retryCount + 1), 60 * (retryCount + 1));
+        }
+    };
+
+    requestAnimationFrame(() => attemptScroll(0));
 }
 
 function updateSelectionState(title) {
@@ -295,15 +369,22 @@ function toggleLayoutMode() {
     
     mainCont.setAttribute('data-layout-mode', newMode);
     btn.innerHTML = newMode === 'vertical' ? '📜 Stacked' : '📖 Parallel';
-    localStorage.setItem('munk-layout-mode', newMode);
+    try {
+        localStorage.setItem('munk-layout-mode', newMode);
+    } catch (e) {}
 }
 
 function navigateToLanding() { window.location.href = 'index.html'; }
 
 document.addEventListener('DOMContentLoaded', () => { 
     init(); 
-    setTheme(localStorage.getItem('munk-theme') || 'light');
-    const savedLayout = localStorage.getItem('munk-layout-mode') || 'side-by-side';
+    let savedTheme = 'light';
+    let savedLayout = 'side-by-side';
+    try {
+        savedTheme = localStorage.getItem('munk-theme') || localStorage.getItem('reader-theme') || 'light';
+        savedLayout = localStorage.getItem('munk-layout-mode') || 'side-by-side';
+    } catch (e) {}
+    setTheme(savedTheme);
     if (savedLayout === 'vertical') {
         const mainCont = document.querySelector('.main-container');
         const btn = document.getElementById('layout-toggle-btn');

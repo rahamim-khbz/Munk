@@ -64,6 +64,29 @@
     background: var(--surface);
 }
 
+.theme-btn {
+    font-family: var(--font-english);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.theme-btn:hover {
+    border-color: var(--accent);
+}
+
+.theme-btn.active {
+    border-color: var(--accent) !important;
+    background: var(--row-hover) !important;
+    font-weight: 700;
+}
+
 .results-header {
     text-align: center;
     margin-bottom: 28px;
@@ -141,18 +164,11 @@
 
 .badge {
     font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 600;
     padding: 3px 8px;
     border-radius: 4px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
     white-space: nowrap;
-}
-
-.badge-text {
-    background: color-mix(in srgb, var(--accent) 15%, transparent);
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 .badge-note {
@@ -180,6 +196,7 @@ html.sepia .badge-note {
     margin: 8px 0 6px;
     color: var(--text);
     text-align: right;
+    direction: rtl;
 }
 
 .snippet-en {
@@ -188,6 +205,8 @@ html.sepia .badge-note {
     line-height: 1.55;
     margin: 4px 0 0;
     color: var(--text-muted);
+    text-align: left;
+    direction: ltr;
 }
 
 .empty-state {
@@ -195,4 +214,24 @@ html.sepia .badge-note {
     padding: 40px 20px;
     color: var(--text-muted);
     font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .scripture-body .header .theme-controls {
+        display: flex !important;
+        gap: 6px;
+        flex-shrink: 0;
+    }
+    .scripture-body .header .theme-btn {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hit,
+    .theme-btn,
+    .scripture-selects select {
+        transition: none !important;
+    }
 }

@@ -142,6 +142,15 @@
             },
             {
               "slug": "part-2---chapter-30",
+              "row": "root.text.Part 2..29.2",
+              "title_en": "Part 2, Chapter 30",
+              "title_he": "חלק ב, פרק ל",
+              "source": "note",
+              "snippet_he": "חכמים הסוברים שהיה זמן קודם לעולם3 אך מה שתמצא בדבריהם של כמה מהחכמים, שהם קובעים את קיומו של זמן לפני בריאת העולם, הרי זה קשה מאוד, כי זוהי…",
+              "snippet_en": "Vide Beréschith rabbâ, sect. 3 (fol. 3, col. 3). It is to be remarked that here, as elsewhere, Maimonides does not precisely reproduce the t…"
+            },
+            {
+              "slug": "part-2---chapter-30",
               "row": "root.text.Part 2..29.7",
               "title_en": "Part 2, Chapter 30",
               "title_he": "חלק ב, פרק ל",
@@ -615,6 +624,15 @@
               "source": "text",
               "snippet_he": "20 וממה שעליך לדעת ולשים לב אליו, הוא שהנחש לא היה בשום אופן בקשר ישיר עם אדם ולא דיבר אליו, ושיחתו והקשר שלו היו עם חוה בלבד, ובאמצעות חוה…",
               "snippet_en": "That which further merits your attention is that the serpent had no manner of relation with Adam and addressed him not, but conversed and ha…"
+            },
+            {
+              "slug": "part-2---chapter-30",
+              "row": "root.text.Part 2..29.21",
+              "title_en": "Part 2, Chapter 30",
+              "title_he": "חלק ב, פרק ל",
+              "source": "note",
+              "snippet_he": "20 וממה שעליך לדעת ולשים לב אליו, הוא שהנחש לא היה בשום אופן בקשר ישיר עם אדם ולא דיבר אליו, ושיחתו והקשר שלו היו עם חוה בלבד, ובאמצעות חוה…",
+              "snippet_en": "One must recall that God spoke to the serpent: And I will put enmity between you and the woman, between your seed and her seed (Genesis, 3,…"
             }
           ],
           "16": [
@@ -791,6 +809,15 @@
               "source": "text",
               "snippet_he": "אבל הפירוש הנאה והטוב הזה, שאין בו ספק, השתבש לי בשלושה מקומות שהיה ראוי לפי ההיגיון הזה שיתרגם אותם \"וגלי קדם ה'\" ואילו אנחנו מוצאים בנוסחא…",
               "snippet_en": "Nevertheless, this excellent and useful interpretation, which is in no wise doubtful, fails in three passages1 which, according to the rule…"
+            },
+            {
+              "slug": "part-2---chapter-12",
+              "row": "root.text.Part 2..11.3",
+              "title_en": "Part 2, Chapter 12",
+              "title_he": "חלק ב, פרק יב",
+              "source": "note",
+              "snippet_he": "הרי התברר שפעולת הגופים זה על זה כפי צורותיהם מחייבת הכנת החומר לקבלת פעולתו של מה שאינו גוף, כשהפעולות האלה הן הצורות. כיוון שרשמי השכל הנב…",
+              "snippet_en": "The word יצר (formation, creation) denotes, figuratively, the natural inclination (Genesis, 6, 5; VIII, 21), and the rabbis designate by יצר…"
             }
           ],
           "6": [
@@ -1346,6 +1373,15 @@
             },
             {
               "slug": "part-2---chapter-45",
+              "row": "root.text.Part 2..44.11",
+              "title_en": "Part 2, Chapter 45",
+              "title_he": "חלק ב, פרק מה",
+              "source": "note",
+              "snippet_he": "ח. מראה הנבואה: ראיית משל בסמלים21 הדרגה השמינית שבאה אליו התגלות במראה הנבואה והוא רואה משלים, כאברהם במראה בין הבתרים (בראשית טו,ט-י), כי…",
+              "snippet_en": "That is to say, as the biblical text itself has declared, by stating: the sun was about to set (Genesis, 15, 12), whence it follows that it…"
+            },
+            {
+              "slug": "part-2---chapter-45",
               "row": "root.text.Part 2..44.15",
               "title_en": "Part 2, Chapter 45",
               "title_he": "חלק ב, פרק מה",
@@ -1486,6 +1522,15 @@
               "source": "text",
               "snippet_he": "ראיית מלאך – רק במופע נבואי8 על כך שכל צורה שהמלאך נראה בה היא במראה הנבואה כבר דיברנו (פסקה 3; א,מט). א) אתה מוצא נביאים הרואים את המלאכים…",
               "snippet_en": "We have already stated elsewhere that whenever an angel manifests himself in any form whatsoever, it is in a prophetic vision1. You find2 pr…"
+            },
+            {
+              "slug": "part-2---chapter-42",
+              "row": "root.text.Part 2..41.0",
+              "title_en": "Part 2, Chapter 42",
+              "title_he": "חלק ב, פרק מב",
+              "source": "note",
+              "snippet_he": "הופעת המלאךראיית מלאך – רק בחלום או במראה הנבואה1 כבר ביארנו (ב:ו8, לד3, מא3 ועוד) שכל אימת שנזכרה ראיית מלאך או פנייה בדיבור ממנו, הוא רק ב…",
+              "snippet_en": "For example, the three men that Abraham saw (Genesis, 18, 2), and the man that Joshua saw (Joshua, 5, 13)."
             }
           ],
           "3": [
@@ -1706,6 +1751,15 @@
               "snippet_en": "In the name of the Eternal God of the Universe1"
             },
             {
+              "slug": "maimonides-letter-to-r-joseph-son-of-judah",
+              "row": "root.text.Letter to R Joseph son of Judah.0",
+              "title_en": "Maimonides' Letter to R Joseph son of Judah",
+              "title_he": "איגרת הרמב\"ם לתלמידו ר' יוסף",
+              "source": "note",
+              "snippet_he": "בשם יי אל עולם (בראשית כא,לג)",
+              "snippet_en": "We have translated here the words אל עולם in the sense that Maimonides himself lends to them in several places, and notably in chapter 29 of…"
+            },
+            {
               "slug": "maimonides-introduction-to-part-2",
               "row": "root.text.Part 2.Introduction.0",
               "title_en": "Maimonides' Introduction to Part 2",
@@ -1857,6 +1911,17 @@
           ]
         },
         "23": {
+          "3": [
+            {
+              "slug": "part-1---chapter-12",
+              "row": "root.text.Part 1..11.0",
+              "title_en": "Part 1, Chapter 12",
+              "title_he": "חלק א, פרק יב",
+              "source": "note",
+              "snippet_he": "המונח קימהארבע משמעויות. משמעות א: פיזית1 \"קימה\" – מונח רבמשמעי, א) ואחת ממשמעויותיו היא הקימה (=העמידה) שהיא כנגד הישיבה: \"ולא קם ולא זע ממ…",
+              "snippet_en": "Some commentators wonder why the author, when speaking of the proper and material sense of the verb קום, said: one of its meanings, instead…"
+            }
+          ],
           "8": [
             {
               "slug": "part-1---chapter-41",
@@ -2703,6 +2768,15 @@
               "source": "text",
               "snippet_he": "טיפול בפסוקים המקשים על דעת הרמב\"ם7 א) אל יטעה אותך הכתוב \"בטרם אצרך בבטן ידעתיך ובטרם תצא מרחם הקדשתיך\" (ירמיהו א,ה). כי זה מצבו של כל נביא…",
               "snippet_en": "Suffer not yourself to be led into error by this passage: Before I formed you in the belly (of your mother), I knew you, and before you came…"
+            },
+            {
+              "slug": "part-2---chapter-32",
+              "row": "root.text.Part 2..31.5",
+              "title_en": "Part 2, Chapter 32",
+              "title_he": "חלק ב, פרק לב",
+              "source": "note",
+              "snippet_he": "טיפול בפסוקים המקשים על דעת הרמב\"ם7 א) אל יטעה אותך הכתוב \"בטרם אצרך בבטן ידעתיך ובטרם תצא מרחם הקדשתיך\" (ירמיהו א,ה). כי זה מצבו של כל נביא…",
+              "snippet_en": "The author appears to be alluding to the words of the chief cupbearer of Pharaoh (Genesis, 41, 12), who designates Joseph as NA’AR, or young…"
             }
           ],
           "43": [
@@ -2738,6 +2812,17 @@
           ]
         },
         "42": {
+          "15": [
+            {
+              "slug": "part-1---chapter-68",
+              "row": "root.text.Part 1..67.0",
+              "title_en": "Part 1, Chapter 68",
+              "title_he": "חלק א, פרק סח",
+              "source": "note",
+              "snippet_he": "מנגנון ההכרה, האל – \"שכל משכיל ומושכל\"השכל המשכיל והמושכל1 אתה יודע כמה מפורסמת האמירה שאמרו הפילוסופים על האל יתעלה, והיא דבריהם שהוא \"השכל…",
+              "snippet_en": "The words חי י״י signify, according to the author: by the living God, in such wise that the two words designate but one thing, and express t…"
+            }
+          ],
           "26": [
             {
               "slug": "part-1---chapter-20",
@@ -2963,6 +3048,19 @@
             }
           ]
         },
+        "49": {
+          "9": [
+            {
+              "slug": "part-3---chapter-1",
+              "row": "root.text.Part 3..0.0",
+              "title_en": "Part 3, Chapter 1",
+              "title_he": "חלק ג, פרק א",
+              "source": "note",
+              "snippet_he": "דמות אדם לחיות – גלגלים חיים ומשכיליםלכל אחת מן החיות \"פני אדם\"1 ידוע שיש אנשים שצורות פניהם דומות לצורת אחד משאר בעלי החיים, כך שאתה רואה א…",
+              "snippet_en": "It is thus, as Abravanel observes (l. c., fol. 53 b), that Judah is called a young lion (Genesis, 49, 9), and Joseph a bull (Deuteronomy, XX…"
+            }
+          ]
+        },
         "50": {
           "3": [
             {
@@ -3055,6 +3153,17 @@
           ]
         },
         "3": {
+          "1": [
+            {
+              "slug": "part-1---chapter-66",
+              "row": "root.text.Part 1..65.2",
+              "title_en": "Part 1, Chapter 66",
+              "title_he": "חלק א, פרק סו",
+              "source": "note",
+              "snippet_he": "ביאור אונקלוס: ה' ברא אצבע לכתיבה3 אך אנקלוס נקט בעניין זה פירוש מפליא, ואמר: \"כתיבין באצבעא דה'\" (=כתובים באצבע ה'), כי הוא הבין את \"אצבע\"…",
+              "snippet_en": "The sense of this entire passage is as follows: Onkelos, in permitting the words finger of God to subsist in his version, must have regarded…"
+            }
+          ],
           "2": [
             {
               "slug": "part-1---chapter-39",
@@ -3606,6 +3715,17 @@
               "snippet_en": "The verb bâ (בא), in the Hebrew tongue, signifies to come, being said of a living being moving toward any place or toward another individual…"
             }
           ],
+          "30": [
+            {
+              "slug": "part-1---chapter-12",
+              "row": "root.text.Part 1..11.0",
+              "title_en": "Part 1, Chapter 12",
+              "title_he": "חלק א, פרק יב",
+              "source": "note",
+              "snippet_he": "המונח קימהארבע משמעויות. משמעות א: פיזית1 \"קימה\" – מונח רבמשמעי, א) ואחת ממשמעויותיו היא הקימה (=העמידה) שהיא כנגד הישיבה: \"ולא קם ולא זע ממ…",
+              "snippet_en": "Some commentators wonder why the author, when speaking of the proper and material sense of the verb קום, said: one of its meanings, instead…"
+            }
+          ],
           "46": [
             {
               "slug": "part-3---chapter-46",
@@ -4134,6 +4254,15 @@
         },
         "20": {
           "1": [
+            {
+              "slug": "part-2---chapter-33",
+              "row": "root.text.Part 2..32.0",
+              "title_en": "Part 2, Chapter 33",
+              "title_he": "חלק ב, פרק לג",
+              "source": "note",
+              "snippet_he": "מעמד הר סיני ונבואה ציבוריתפרשנות ראשונה: העם שומע \"קול\", משה מתנבא ומעביר לעם1 ברור לי שבמעמד הר סיני לא כל מה שהגיע למשה הוא שהגיע כולו לכ…",
+              "snippet_en": "See Mekhilthâ, on the verse וידבר אלהים (Exodus, 20, 1): מלמד שאמר המקום עשרת הדברות בדבור אחד חזר ופרשן דבור דבור בפני עצמו."
+            },
             {
               "slug": "part-2---chapter-33",
               "row": "root.text.Part 2..32.3",
@@ -4741,6 +4870,15 @@
           ],
           "9": [
             {
+              "slug": "part-1---chapter-28",
+              "row": "root.text.Part 1..27.5",
+              "title_en": "Part 1, Chapter 28",
+              "title_he": "חלק א, פרק כח",
+              "source": "note",
+              "snippet_he": "5 את פירושו של אנקלוס (לפסוק \"ויראו את אלהי ישראל\" וכו') אתה מכיר כבר, אבל כל מה שעשה הוא לשלול את הגשמות, ואין הוא מבאר לנו איזה דבר השיגו,…",
+              "snippet_en": "It must be recalled that in the passage in question (Exodus, 24, 9-11) it is a matter of a vision of the seventy elders, called the elect fr…"
+            },
+            {
               "slug": "part-2---chapter-26",
               "row": "root.text.Part 2..25.5",
               "title_en": "Part 2, Chapter 26",
@@ -4788,6 +4926,15 @@
               "snippet_en": "As for these words: And under his feet (רגליו) there was as it were a work of the brilliance of sapphire (Exodus 24:10), Onkelos, as you kno…"
             },
             {
+              "slug": "part-1---chapter-28",
+              "row": "root.text.Part 1..27.5",
+              "title_en": "Part 1, Chapter 28",
+              "title_he": "חלק א, פרק כח",
+              "source": "note",
+              "snippet_he": "5 את פירושו של אנקלוס (לפסוק \"ויראו את אלהי ישראל\" וכו') אתה מכיר כבר, אבל כל מה שעשה הוא לשלול את הגשמות, ואין הוא מבאר לנו איזה דבר השיגו,…",
+              "snippet_en": "It must be recalled that in the passage in question (Exodus, 24, 9-11) it is a matter of a vision of the seventy elders, called the elect fr…"
+            },
+            {
               "slug": "part-2---chapter-26",
               "row": "root.text.Part 2..25.5",
               "title_en": "Part 2, Chapter 26",
@@ -4804,6 +4951,15 @@
               "source": "text",
               "snippet_he": "דיון בפירוש אחר של האופניםתרגום יונתן: האופנים הם גלגלי הכוכבים1 ראוי שנעיר לך על עניין מסוים שנקט יונתן בן עזיאל עליו השלום: כיוון שראה אמי…",
               "snippet_en": "I must needs call your attention to an opinion adopted by Jonathan ben Uziel. Having seen that it is clearly said1 (Ezekiel, X, 13): The OPH…"
+            },
+            {
+              "slug": "part-3---chapter-4",
+              "row": "root.text.Part 3..3.0",
+              "title_en": "Part 3, Chapter 4",
+              "title_he": "חלק ג, פרק ד",
+              "source": "note",
+              "snippet_he": "דיון בפירוש אחר של האופניםתרגום יונתן: האופנים הם גלגלי הכוכבים1 ראוי שנעיר לך על עניין מסוים שנקט יונתן בן עזיאל עליו השלום: כיוון שראה אמי…",
+              "snippet_en": "To comprehend this passage, one must recall what the author has said elsewhere concerning the expression במעשה לבנת הספיר, as a work of the…"
             }
           ],
           "11": [
@@ -4833,6 +4989,26 @@
               "source": "text",
               "snippet_he": "6 אחזור להשלים את מה שהתחלנו לבאר, ואומר שיחד עם התקלות שחלו בהשגתם של אצילי בני ישראל, גם מעשיהם התבלבלו בשל כך, והם נטו אל הדברים הגופניים…",
               "snippet_en": "I now return to complete what I had begun to explain, and I say that, the elect among the sons of Israel having made mistakes in their perce…"
+            },
+            {
+              "slug": "part-1---chapter-28",
+              "row": "root.text.Part 1..27.5",
+              "title_en": "Part 1, Chapter 28",
+              "title_he": "חלק א, פרק כח",
+              "source": "note",
+              "snippet_he": "5 את פירושו של אנקלוס (לפסוק \"ויראו את אלהי ישראל\" וכו') אתה מכיר כבר, אבל כל מה שעשה הוא לשלול את הגשמות, ואין הוא מבאר לנו איזה דבר השיגו,…",
+              "snippet_en": "It must be recalled that in the passage in question (Exodus, 24, 9-11) it is a matter of a vision of the seventy elders, called the elect fr…"
+            }
+          ],
+          "12": [
+            {
+              "slug": "part-1---chapter-66",
+              "row": "root.text.Part 1..65.2",
+              "title_en": "Part 1, Chapter 66",
+              "title_he": "חלק א, פרק סו",
+              "source": "note",
+              "snippet_he": "ביאור אונקלוס: ה' ברא אצבע לכתיבה3 אך אנקלוס נקט בעניין זה פירוש מפליא, ואמר: \"כתיבין באצבעא דה'\" (=כתובים באצבע ה'), כי הוא הבין את \"אצבע\"…",
+              "snippet_en": "Vide Mischnâ, fourth part, treatise Abôth, Chapter V, § 6. The words הכתב והמכתב, which, each in turn, signify writing, have been diversely…"
             }
           ],
           "15": [
@@ -5107,6 +5283,15 @@
               "source": "text",
               "snippet_he": "וכן את דבריו \"[והמכתב] מכתב אלהים [הוא]\" (שמות לב,טז), ביאר כיצד יוחס לה' ואמר: \"[לחת אבן] כתבים באצבע אלהים\" (שם לא,יח), ודבריו \"באצבע אלהי…",
               "snippet_en": "In like manner, when it is said a writing of God (Exodus, 32, 16), it is evident that the writing is attributed to God; and indeed it is sai…"
+            },
+            {
+              "slug": "part-1---chapter-66",
+              "row": "root.text.Part 1..65.2",
+              "title_en": "Part 1, Chapter 66",
+              "title_he": "חלק א, פרק סו",
+              "source": "note",
+              "snippet_he": "ביאור אונקלוס: ה' ברא אצבע לכתיבה3 אך אנקלוס נקט בעניין זה פירוש מפליא, ואמר: \"כתיבין באצבעא דה'\" (=כתובים באצבע ה'), כי הוא הבין את \"אצבע\"…",
+              "snippet_en": "Vide Mischnâ, fourth part, treatise Abôth, Chapter V, § 6. The words הכתב והמכתב, which, each in turn, signify writing, have been diversely…"
             }
           ],
           "19": [
@@ -5788,6 +5973,17 @@
           ]
         },
         "10": {
+          "2": [
+            {
+              "slug": "part-1---chapter-5",
+              "row": "root.text.Part 1..4.3",
+              "title_en": "Part 1, Chapter 5",
+              "title_he": "חלק א, פרק ה",
+              "source": "note",
+              "snippet_he": "4 ואילו אצילי בני ישראל (שמות כד,יא) התפרצו ושילחו את מחשבותיהם; הם השיגו, אך השגה שאינה שלמה, ולכן נאמר עליהם: \"ויראו את אלהי ישראל ותחת רג…",
+              "snippet_en": "According to rabbinic tradition, those who were burned at Tab'erâ (Numbers, 11, 1–3) are the same as the 70 elders, who, along with Nadab an…"
+            }
+          ],
           "3": [
             {
               "slug": "part-1---chapter-37",
@@ -6571,6 +6767,15 @@
         "11": {
           "1": [
             {
+              "slug": "part-1---chapter-5",
+              "row": "root.text.Part 1..4.3",
+              "title_en": "Part 1, Chapter 5",
+              "title_he": "חלק א, פרק ה",
+              "source": "note",
+              "snippet_he": "4 ואילו אצילי בני ישראל (שמות כד,יא) התפרצו ושילחו את מחשבותיהם; הם השיגו, אך השגה שאינה שלמה, ולכן נאמר עליהם: \"ויראו את אלהי ישראל ותחת רג…",
+              "snippet_en": "According to rabbinic tradition, those who were burned at Tab'erâ (Numbers, 11, 1–3) are the same as the 70 elders, who, along with Nadab an…"
+            },
+            {
               "slug": "part-1---chapter-30",
               "row": "root.text.Part 1..29.1",
               "title_en": "Part 1, Chapter 30",
@@ -6596,6 +6801,28 @@
               "source": "text",
               "snippet_he": "שאלה: מדוע יש הבדל בשימוש בתוארי החושים2 לפי הנחה זו ראוי אם כן שנבאר מדוע הושאלו לו יתעלה השמיעה והראייה והריח ולא הושאלו לו הטעם והמישוש,…",
               "snippet_en": "This being established1, it behoves us to explain wherefore hearing, sight, and smell have been metaphorically attributed to God, while neit…"
+            }
+          ],
+          "2": [
+            {
+              "slug": "part-1---chapter-5",
+              "row": "root.text.Part 1..4.3",
+              "title_en": "Part 1, Chapter 5",
+              "title_he": "חלק א, פרק ה",
+              "source": "note",
+              "snippet_he": "4 ואילו אצילי בני ישראל (שמות כד,יא) התפרצו ושילחו את מחשבותיהם; הם השיגו, אך השגה שאינה שלמה, ולכן נאמר עליהם: \"ויראו את אלהי ישראל ותחת רג…",
+              "snippet_en": "According to rabbinic tradition, those who were burned at Tab'erâ (Numbers, 11, 1–3) are the same as the 70 elders, who, along with Nadab an…"
+            }
+          ],
+          "3": [
+            {
+              "slug": "part-1---chapter-5",
+              "row": "root.text.Part 1..4.3",
+              "title_en": "Part 1, Chapter 5",
+              "title_he": "חלק א, פרק ה",
+              "source": "note",
+              "snippet_he": "4 ואילו אצילי בני ישראל (שמות כד,יא) התפרצו ושילחו את מחשבותיהם; הם השיגו, אך השגה שאינה שלמה, ולכן נאמר עליהם: \"ויראו את אלהי ישראל ותחת רג…",
+              "snippet_en": "According to rabbinic tradition, those who were burned at Tab'erâ (Numbers, 11, 1–3) are the same as the 70 elders, who, along with Nadab an…"
             }
           ],
           "7": [
@@ -6711,6 +6938,17 @@
               "source": "text",
               "snippet_he": "8 היסודות נזכרו לפי מיקומם הטבעי: הארץ, ומעליה המים, והאוויר צמוד למים, והאש מעל האוויר. על החושך כיסוד האש) כי מכך שדווקא על האוויר נאמר שה…",
               "snippet_en": "—These elements have been enumerated according to their natural positions: the earth (first), above it the water, the air adheres to the wat…"
+            }
+          ],
+          "35": [
+            {
+              "slug": "part-2---chapter-32",
+              "row": "root.text.Part 2..31.4",
+              "title_en": "Part 2, Chapter 32",
+              "title_he": "חלק ב, פרק לב",
+              "source": "note",
+              "snippet_he": "5 יסודנו שיש הכרח בהכנה ובשלמות במעלות המידות ובמעלות השכליות, עולה מדבריהם (של חז\"ל): \"אין הנבואה שורה אלא על חכם גבור ועשיר\" (בבלי שבת צב,…",
+              "snippet_en": "According to the rabbinical commentaries, the word greatnesses, in the words of Jeremiah, denotes the prophecy which Baruch coveted and for…"
             }
           ]
         },
@@ -7483,6 +7721,15 @@
               "source": "text",
               "snippet_he": "מאפייני לשון הקודש16 יש לי גם טעם לכך שלשוננו זאת נקראת \"לשון קדש\". אין לחשוב שזו הפרזה מצדנו, או טעות, אלא זו אמת. כי בלשון מקודשת זו לא נק…",
               "snippet_en": "I deem it also possible to assign the reason why our (Hebrew) tongue is called the Holy Tongue; for it must not be believed that this is on…"
+            },
+            {
+              "slug": "part-3---chapter-8",
+              "row": "root.text.Part 3..7.7",
+              "title_en": "Part 3, Chapter 8",
+              "title_he": "חלק ג, פרק ח",
+              "source": "note",
+              "snippet_he": "מאפייני לשון הקודש16 יש לי גם טעם לכך שלשוננו זאת נקראת \"לשון קדש\". אין לחשוב שזו הפרזה מצדנו, או טעות, אלא זו אמת. כי בלשון מקודשת זו לא נק…",
+              "snippet_en": "The author associates the word קבה, with the suffix קבתהּ (Numbers, 25, 8), anus, vulva, with קבה, estomac (Deuteronomy, XVIII, 3); the two w…"
             }
           ]
         },
@@ -10349,6 +10596,15 @@
           "13": [
             {
               "slug": "part-2---chapter-42",
+              "row": "root.text.Part 2..41.0",
+              "title_en": "Part 2, Chapter 42",
+              "title_he": "חלק ב, פרק מב",
+              "source": "note",
+              "snippet_he": "הופעת המלאךראיית מלאך – רק בחלום או במראה הנבואה1 כבר ביארנו (ב:ו8, לד3, מא3 ועוד) שכל אימת שנזכרה ראיית מלאך או פנייה בדיבור ממנו, הוא רק ב…",
+              "snippet_en": "For example, the three men that Abraham saw (Genesis, 18, 2), and the man that Joshua saw (Joshua, 5, 13)."
+            },
+            {
+              "slug": "part-2---chapter-42",
               "row": "root.text.Part 2..41.2",
               "title_en": "Part 2, Chapter 42",
               "title_he": "חלק ב, פרק מב",
@@ -12862,6 +13118,17 @@
           ]
         },
         "17": {
+          "6": [
+            {
+              "slug": "part-2---chapter-43",
+              "row": "root.text.Part 2..42.4",
+              "title_en": "Part 2, Chapter 43",
+              "title_he": "חלק ב, פרק מג",
+              "source": "note",
+              "snippet_he": "5 מופלא יותר מזה הוא כשההערה היא על ידי מונח כלשהו שאותיותיו הן אותיות מונח אחר בשינוי הסדר, אף על פי שאין גיזרון בין שני המונחים ולא שיתוף…",
+              "snippet_en": "One supposes that Maimonides adopts for the verb האמיר the meaning attributed to it by Ibn-Djanah, in his dictionary: ומענאה ענדי אלעלא ואלת…"
+            }
+          ],
           "13": [
             {
               "slug": "part-3---chapter-4",
@@ -14149,6 +14416,15 @@
           "13": [
             {
               "slug": "part-2---chapter-12",
+              "row": "root.text.Part 2..11.3",
+              "title_en": "Part 2, Chapter 12",
+              "title_he": "חלק ב, פרק יב",
+              "source": "note",
+              "snippet_he": "הרי התברר שפעולת הגופים זה על זה כפי צורותיהם מחייבת הכנת החומר לקבלת פעולתו של מה שאינו גוף, כשהפעולות האלה הן הצורות. כיוון שרשמי השכל הנב…",
+              "snippet_en": "To be more precise, the author ought to have stated that the Hebrew tongue employs an analogous image, terming God a fountain of living wate…"
+            },
+            {
+              "slug": "part-2---chapter-12",
               "row": "root.text.Part 2..11.4",
               "title_en": "Part 2, Chapter 12",
               "title_he": "חלק ב, פרק יב",
@@ -14708,6 +14984,17 @@
           ]
         },
         "29": {
+          "10": [
+            {
+              "slug": "part-2---chapter-40",
+              "row": "root.text.Part 2..39.2",
+              "title_en": "Part 2, Chapter 40",
+              "title_he": "חלק ב, פרק מ",
+              "source": "note",
+              "snippet_he": "משום כך אני אומר שהתורה, אף שאינה טבעית, יש לה קשר לעניין הטבעי. והיה זה מן החכמה האלוהית לצורך קיום המין הזה (=האנושי), כיוון שחפץ במציאותו…",
+              "snippet_en": "See Jeremiah, chap. 28, V. 1 et seq. — This example, at first glance, does not appear well chosen, inasmuch as Hanania, as well as Zedekiah,…"
+            }
+          ],
           "21": [
             {
               "slug": "part-2---chapter-40",
@@ -17072,6 +17359,19 @@
               "source": "text",
               "snippet_he": "בנבואה – פעמים שם הסמל מצביע על הנמשל4 ודע שכמו שהנביאים רואים דברים שהכוונה בהם היא משל, כמו נרות זכריה (שם ד,ב) והסוסים וההרים (שם ו,א-ח)…",
               "snippet_en": "It must be understood that, even as the prophets behold things which have a parabolical sense, — as, for example, the lamps of Zechariah (Ze…"
+            }
+          ]
+        },
+        "10": {
+          "2": [
+            {
+              "slug": "maimonides-introduction-to-part-1",
+              "row": "root.text.Part 1.Introduction.4",
+              "title_en": "Maimonides' Introduction to Part 1",
+              "title_he": "פתיחת הרמב\"ם לחלק א",
+              "source": "note",
+              "snippet_he": "5 הסיבה הרביעית היא שיש תנאי שאינו מפורש במקומו מתוך הכרח כלשהו, או ששני הנושאים שונים זה מזה ואחד מהם אינו מבואר במקומו, כך שתיראה לכאורה ס…",
+              "snippet_en": "According to some commentators, the author intends to speak here of two propositions containing homonymous subjects, where, by taking the ho…"
             }
           ]
         },
@@ -20607,6 +20907,17 @@
           ]
         },
         "27": {
+          "2": [
+            {
+              "slug": "part-1---chapter-68",
+              "row": "root.text.Part 1..67.0",
+              "title_en": "Part 1, Chapter 68",
+              "title_he": "חלק א, פרק סח",
+              "source": "note",
+              "snippet_he": "מנגנון ההכרה, האל – \"שכל משכיל ומושכל\"השכל המשכיל והמושכל1 אתה יודע כמה מפורסמת האמירה שאמרו הפילוסופים על האל יתעלה, והיא דבריהם שהוא \"השכל…",
+              "snippet_en": "The words חי י״י signify, according to the author: by the living God, in such wise that the two words designate but one thing, and express t…"
+            }
+          ],
           "6": [
             {
               "slug": "part-1---chapter-39",
@@ -20936,6 +21247,17 @@
           ]
         },
         "37": {
+          "1": [
+            {
+              "slug": "part-3---chapter-22",
+              "row": "root.text.Part 3..21.3",
+              "title_en": "Part 3, Chapter 22",
+              "title_he": "חלק ג, פרק כב",
+              "source": "note",
+              "snippet_he": "8 דירוג הפגעים) אחר כך דירג את צרותיו ביחס למצבי בני האדם. רכוש) כי יש מבני האדם מי שאינו נבהל מאובדן הנכסים והוא מקל בכך ראש, בנים) אך מות…",
+              "snippet_en": "Instead of ירהאע, some MSS. bear ירהדע. Our editions of Ibn-Tibbon’s version appear to render both verbs at once: מי שלא יבהל ולא יסוב לבבו.…"
+            }
+          ],
           "6": [
             {
               "slug": "part-2---chapter-26",
@@ -21580,6 +21902,15 @@
             }
           ],
           "20": [
+            {
+              "slug": "part-2---chapter-6",
+              "row": "root.text.Part 2..5.3",
+              "title_en": "Part 2, Chapter 6",
+              "title_he": "חלק ב, פרק ו",
+              "source": "note",
+              "snippet_he": "סיכום) אין הכוונה בכל הלשונות האלה מה שחושבים הבורים, שיש לו יתעלה דיבור או מחשבה או סברה או התייעצות והסתייעות בדעת אחרים – וכיצד זה יסתייע…",
+              "snippet_en": "See the Midrasch Kohelet (fol. 82, col. a) on the words כי עוף השמים ובו׳, for the bird of the heaven shall carry the voice, and that which…"
+            },
             {
               "slug": "part-2---chapter-47",
               "row": "root.text.Part 2..46.0",

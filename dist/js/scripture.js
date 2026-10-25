@@ -23,8 +23,18 @@ function intToHeb(n) {
 }
 
 function setTheme(theme) {
+    if (!['light', 'sepia', 'dark'].includes(theme)) {
+        theme = 'light';
+    }
     document.documentElement.className = (theme === 'light') ? '' : theme;
-    localStorage.setItem('reader-theme', theme);
+    try {
+        localStorage.setItem('munk-theme', theme);
+        localStorage.setItem('reader-theme', theme);
+    } catch (e) {}
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+        const text = btn.textContent.trim().toLowerCase();
+        btn.classList.toggle('active', text === theme || btn.id === ('btn-' + theme));
+    });
 }
 
 // Global state
@@ -37,10 +47,14 @@ const selVerse = document.getElementById('sel-verse');
 const resultsSection = document.getElementById('results');
 
 function initTheme() {
-    const savedTheme = localStorage.getItem('reader-theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
+    let savedTheme = null;
+    try {
+        savedTheme = localStorage.getItem('munk-theme') || localStorage.getItem('reader-theme');
+    } catch (e) {}
+    if (!['light', 'sepia', 'dark'].includes(savedTheme)) {
+        savedTheme = 'light';
     }
+    setTheme(savedTheme);
 }
 
 async function init() {
@@ -73,6 +87,9 @@ async function init() {
                 onChapterChange(false);
                 if (v) {
                     selVerse.value = v;
+                    if (selVerse.value !== v) {
+                        selVerse.value = 'all';
+                    }
                     render();
                 } else {
                     selVerse.value = 'all';
@@ -224,12 +241,13 @@ function createHitCard(hit) {
     loc.className = 'hit-loc';
     loc.innerHTML = `${hit.title_en} · <span lang="he" dir="rtl">${hit.title_he}</span>`;
 
-    const badge = document.createElement('span');
-    badge.className = `badge ${hit.source === 'note' ? 'badge-note' : 'badge-text'}`;
-    badge.textContent = hit.source === 'note' ? "Munk's note" : 'Text';
-
     meta.appendChild(loc);
-    meta.appendChild(badge);
+    if (hit.source === 'note') {
+        const noteTag = document.createElement('span');
+        noteTag.className = 'badge badge-note';
+        noteTag.textContent = "Munk's note";
+        meta.appendChild(noteTag);
+    }
     a.appendChild(meta);
 
     if (hit.snippet_he) {
@@ -244,6 +262,8 @@ function createHitCard(hit) {
     if (hit.snippet_en) {
         const pEn = document.createElement('p');
         pEn.className = 'snippet-en';
+        pEn.dir = 'ltr';
+        pEn.lang = 'en';
         pEn.textContent = hit.snippet_en;
         a.appendChild(pEn);
     }
@@ -282,7 +302,7 @@ function render() {
         headerDiv.className = 'results-header';
 
         const h2 = document.createElement('h2');
-        h2.innerHTML = `<span lang="he" dir="rtl">${book.he} ${intToHeb(Number(chapStr))}:${intToHeb(Number(verseStr))}</span> · ${book.en} ${chapStr}:${verseStr}`;
+        h2.innerHTML = `<span lang="he" dir="rtl">${book.he} ${intToHeb(Number(chapStr))}:${intToHeb(Number(verseStr))}</span> · <span lang="en" dir="ltr">${book.en} ${chapStr}:${verseStr}</span>`;
         headerDiv.appendChild(h2);
 
         const pCount = document.createElement('p');
@@ -318,7 +338,7 @@ function render() {
         headerDiv.className = 'results-header';
 
         const h2 = document.createElement('h2');
-        h2.innerHTML = `<span lang="he" dir="rtl">${book.he} ${intToHeb(Number(chapStr))}</span> · ${book.en} ${chapStr}`;
+        h2.innerHTML = `<span lang="he" dir="rtl">${book.he} ${intToHeb(Number(chapStr))}</span> · <span lang="en" dir="ltr">${book.en} ${chapStr}</span>`;
         headerDiv.appendChild(h2);
 
         const pCount = document.createElement('p');
@@ -336,7 +356,7 @@ function render() {
             subHead.className = 'verse-subheading';
             subHead.dir = 'rtl';
             subHead.lang = 'he';
-            subHead.textContent = `פסוק ${intToHeb(vk)} (${book.en} ${chapStr}:${vk})`;
+            subHead.innerHTML = `פסוק ${intToHeb(vk)} <span dir="ltr" lang="en" style="font-family:var(--font-english); font-size:1.05rem; font-weight:500; color:var(--text-muted); unicode-bidi:isolate;">(${book.en} ${chapStr}:${vk})</span>`;
             resultsSection.appendChild(subHead);
 
             for (const hit of hits) {
