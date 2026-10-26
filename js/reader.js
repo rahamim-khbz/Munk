@@ -49,12 +49,10 @@ function buildTOC() {
     indexLink.className = 'toc-section-btn';
     indexLink.style.textDecoration = 'none';
     indexLink.style.color = 'var(--accent)';
-    indexLink.style.display = 'flex';
-    indexLink.style.alignItems = 'center';
-    indexLink.style.justifyContent = 'space-between';
+    indexLink.style.display = 'block';
     indexLink.style.padding = '14px 16px';
     indexLink.style.fontWeight = '700';
-    indexLink.innerHTML = `<span>📖 Scriptural Index</span><span dir="rtl" lang="he" style="font-family:var(--font-hebrew); font-weight:600;">מפתח פסוקים</span>`;
+    indexLink.innerHTML = 'Scriptural Index';
     body.appendChild(indexLink);
 
     const groups = { "Introductions": [], 'Part 1': [], 'Part 2': [], 'Part 3': [] };
@@ -261,7 +259,7 @@ async function loadChapter(slug) {
                 </div>
             </div>`;
         });
-        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; margin-top:40px; padding-top:20px; border-top:1px solid var(--border);">`;
+        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; align-items:center; margin-top:40px; padding-top:20px; padding-bottom:1.5rem; border-top:1px solid var(--border);">`;
         if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="chapter-nav-link">← ${data.prev.title}</a>`;
         else html += '<div></div>';
         if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="chapter-nav-link">${data.next.title} →</a>`;
