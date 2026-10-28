@@ -6,10 +6,16 @@ updating text/footnotes atomically via temp file rename, and recording markdown 
 """
 
 import os
+import sys
 import json
 import fcntl
 import argparse
 from typing import Dict, Any, Optional, List
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
 from scripts.validate_review import StrictApparatusValidator
 
 class ReviewMergeEngine:
@@ -119,7 +125,7 @@ class ReviewMergeEngine:
         os.makedirs(self.audit_dir, exist_ok=True)
         shard_id = review_data.get("shard_id", "unknown_shard")
         ch_name = review_data.get("chapter_name", shard_id)
-        safe_name = ch_name.replace(" ", "_").replace(",", "").replace("'", "")
+        safe_name = ch_name.replace(" ", "_").replace(",", "").replace("'", "").replace("/", "_")
         audit_file = os.path.join(self.audit_dir, f"review_audit_{safe_name}.md")
 
         lines = [

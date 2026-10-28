@@ -25,7 +25,7 @@ class StrictApparatusValidator:
         'rest', 'test', 'west', 'east', 'nest', 'guest', 'chest', 'pest',
         'quest', 'manifest', 'suggest', 'attest', 'request', 'digest', 'invest',
         'divest', 'interest', 'earnest', 'honest', 'modest', 'forest', 'harvest',
-        'priest', 'crest', 'oldest', 'newest', 'greatest', 'highest',
+        'priest', 'crest', 'contest', 'oldest', 'newest', 'greatest', 'highest',
         'lowest', 'first', 'purest', 'closest', 'brightest', 'finest', 'deepest',
         'noblest', 'vilest', 'lest', 'northwest', 'northeast', 'southwest', 'southeast',
         'darkest', 'clearest', 'subtlest', 'fullest', 'earliest', 'latest', 'richest',
@@ -33,7 +33,7 @@ class StrictApparatusValidator:
         'hardest', 'softest', 'crudest', 'boldest', 'strangest', 'broadest', 'warmest',
         'farthest', 'furthest', 'nearest', 'northernmost', 'southernmost', 'easternmost', 'westernmost',
         'uppermost', 'lowermost', 'daleth', 'heth', 'yod', 'shin', 'resh', 'teth', 'aleph', 'bet', 'gimel',
-        'zayin', 'lamed', 'mem', 'nun', 'samekh', 'pe', 'tsade', 'qof', 'tav'
+        'zayin', 'lamed', 'mem', 'nun', 'samekh', 'pe', 'tsade', 'qof', 'tav', 'almagest'
     }
 
     # French functional markers
@@ -70,12 +70,13 @@ class StrictApparatusValidator:
         errors: List[str] = []
 
         # 1. Footnote callout integrity
-        orig_fns = self.FN_MARKER_REGEX.findall(original_text)
-        rev_fns = self.FN_MARKER_REGEX.findall(revised_text)
-        if orig_fns != rev_fns:
-            errors.append(
-                f"footnote_marker_mismatch in {segment_id}: expected {orig_fns}, found {rev_fns}"
-            )
+        if original_text:
+            orig_fns = self.FN_MARKER_REGEX.findall(original_text)
+            rev_fns = self.FN_MARKER_REGEX.findall(revised_text)
+            if orig_fns != rev_fns:
+                errors.append(
+                    f"footnote_marker_mismatch in {segment_id}: expected {orig_fns}, found {rev_fns}"
+                )
 
         # 2. HTML Tag Closure Check
         tag_errors = self._check_html_tags(revised_text, segment_id)
@@ -160,13 +161,77 @@ class StrictApparatusValidator:
                 )
         return errors
 
+    # Foreign-language *citations* (titles of French/German works and journals, and
+    # French-capitalised proper-name elisions such as d'Herbelot) are not untranslated
+    # French prose: Munk cites them in the original language, and so must we.
+    FOREIGN_CITATION_ALLOWLIST = [
+        r"dictionnaire\s+des\s+sc(?:iences|\s*\.)\s+philos(?:ophiques|\s*\.)",
+        r"dict\s*\.\s+des\s+sc\s*\.\s+philos\s*\.",
+        r"notices\s+et\s+extraits(?:\s+des\s+(?:manuscrits|mss\.?))?",
+        r"\bdes\s+(?:manuscrits|mss\.?)\b",
+        r"journal\s+(?:des\s+savants|asiatique)",
+        r"devoirs\s+des\s+c(?:œ|oe)urs",
+        r"m[ée]langes\s+de\s+philosophie\s+juive\s+et\s+arabe",
+        r"r[ée]flexions\s+sur\s+le\s+culte\s+des\s+anciens\s+h[ée]breux",
+        r"histoire\s+des\s+(?:animaux|sectes\s+religieuses\s+et\s+philosophiques|juifs)",
+        r"essai\s+sur\s+les\s+[ée]coles\s+philosophiques\s+chez\s+les\s+arabes",
+        r"la\s+religion\s+des\s+mahom[ée]tans,?\s+tir[ée]e\s+du\s+latin\s+de\s+reland",
+        r"les\s+oiseaux\s+et\s+les\s+fleurs",
+        r"s[ée]ances\s+de\s+hariri",
+        r"comptes?\s+rendus\s+des\s+s[ée]ances\s+de\s+l[’']acad[ée]mie\s+des\s+sciences",
+        r"recueil\s+des\s+historiens\s+des\s+gaules",
+        r"m[ée]moires?\s+(?:sur\s+les\s+nabat[ée]ens|sur\s+l[’']?[ée]poque\s+de\s+l[’']?[ée]tablissement\s+des\s+juifs\s+dans\s+l[’']?\w+|de\s+l[’']acad[ée]mie\s+des\s+inscriptions\s+et\s+belles-lettres)",
+        r"livre\s+des\s+myst[èe]res\s+de\s+la\s+lune",
+        r"ency[ck]lop(?:ä|ae|œ|oe)dische\s+(?:u|ü|ue)bersicht\s+der\s+wissenschaften\s+des\s+orients",
+        r"dict\s*\.\s+des\s+sc\s*\.\s+m[ée]d\s*\.",
+        r"histoire\s+de\s+l[’']astronomie(?:\s+du\s+moyen\s+[âa]ge)?",
+        r"p\.\s+des\s+bosses",
+        r"comment\.\s+sur\s+les\s+aphorismes\s+d[’']hippocrate",
+        r"abr[ée]g[ée]\s+de\s+l[’']organon",
+        r"morale\s+[àa]\s+nicomaque",
+        r"trait[ée]\s+de\s+l[’']intellect",
+    ]
+    # French-capitalised elisions of proper names / titles: d'Herbelot, l'Académie, l'Alliance ...
+    FOREIGN_NAME_ELISION = re.compile(r"\b[dDlL][’'][A-ZÀ-Ý]\w*")
+    # Words that occur only in Latin or Italian (never French); used to recognise an
+    # embedded Latin/Italian quotation so its function words are not mistaken for French.
+    LATIN_ITALIAN_MARKERS = {
+        'quod', 'autem', 'enim', 'sunt', 'quae', 'quia', 'secundum', 'igitur', 'ergo', 'nisi',
+        'ejus', 'eorum', 'quam', 'cujus', 'ipsa', 'ipsum', 'ipsi', 'tunc', 'dicunt',
+        'quomodo', 'accidit', 'motus', 'aer', 'continet', 'fluens', 'nobilior',
+        'orbis', 'circuli', 'planetarum', 'intelligentia', 'movet', 'sphaeram', 'sphæram',
+        'tali', 'casu', 'existit', 'libellus', 'contra', 'eos', 'omnibus', 'animabus',
+        'della', 'degli', 'dei', 'sono', 'cioè', 'tengono', 'essere', 'havere', 'eterno', 'principio', 'temporale', 'ancora', 'alcuni', 'quali', 'perche', 'perché',
+        'eterna', 'cosa', 'quello', 'questo', 'tutti', 'huomini', 'del', 'nel',
+        'quà', 'qua', 'erit', 'apud', 'vel', 'oportet', 'voluerit', 'judicare', 'contradicit',
+        'contradicens', 'propositiones', 'discretionis', 'dignior', 'recipiatur', 'sermo', 'noster',
+        'fecerimus', 'tune', 'odiens', 'diligentem', 'pacificum', 'bonæ', 'molti', 'mondo', 'materia', 'generate', 'prodotto', 'vero',
+    }
+
+    def _strip_foreign_citations(self, raw_text: str) -> str:
+        """Remove cited foreign titles/names from tag-stripped text (case preserved)."""
+        txt = self.TAG_REGEX.sub(' ', raw_text)
+        for pat in self.FOREIGN_CITATION_ALLOWLIST:
+            txt = re.sub(pat, ' ', txt, flags=re.IGNORECASE)
+        return self.FOREIGN_NAME_ELISION.sub(' ', txt)
+
+    def _in_latin_italian_quotation(self, clean_text: str, start: int, end: int) -> bool:
+        """True if the match sits inside an embedded Latin/Italian quotation."""
+        window = clean_text[max(0, start - 140): end + 140]
+        words = re.findall(r"[a-zæœà-ÿ]+", window)
+        return sum(1 for w in words if w in self.LATIN_ITALIAN_MARKERS) >= 3
+
     def _check_french(self, text: str, context_id: str) -> List[str]:
         errors = []
-        # Remove tags for word checking
-        clean_text = self.TAG_REGEX.sub(' ', text).lower()
+        # Remove tags and cited foreign titles/names, then check function words
+        clean_text = self._strip_foreign_citations(text).lower()
         for pattern in self.FRENCH_INDICATORS:
-            if re.search(pattern, clean_text, re.IGNORECASE):
+            for match in re.finditer(pattern, clean_text, re.IGNORECASE):
+                if self._in_latin_italian_quotation(clean_text, match.start(), match.end()):
+                    continue
                 errors.append(f"french_detected in {context_id}: matched '{pattern}'")
+                break
+            if errors:
                 break
         return errors
 

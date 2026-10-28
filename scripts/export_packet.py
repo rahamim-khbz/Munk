@@ -6,10 +6,16 @@ into a single isolated packet JSON for translator and verifier subagents.
 """
 
 import os
+import sys
 import re
 import json
 import argparse
 from typing import List, Dict, Any, Optional
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
 from scripts.munk_aligner import MunkCorpusAligner
 
 # Shard Distribution Matrix mapping shard_id -> list of chapter strings
@@ -52,7 +58,7 @@ SHARD_MATRIX: Dict[str, List[str]] = {
     "p3_w5_s4": _ch_range(3, 17, 21),
     "p3_w5_s5": _ch_range(3, 22, 24),
     # Wave 6
-    "p3_w6_s1": _ch_range(3, 25, 31),
+    "p3_w6_s1": ["Part 3, Introduction"] + _ch_range(3, 25, 31),
     "p3_w6_s2": _ch_range(3, 32, 35),
     "p3_w6_s3": _ch_range(3, 36, 42),
     "p3_w6_s4": _ch_range(3, 43, 49),

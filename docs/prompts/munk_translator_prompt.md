@@ -16,7 +16,12 @@
 
 ## 2. Mandatory Editorial Instructions
 
-### A. Translation Scope & Style (1950s Academic English)
+### A. Critical Fidelity Guard (Zero Friedländer Reliance)
+- **DO NOT rely on model parametric memory or recall of Michael Friedländer’s 1881 English translation.**
+- You MUST translate strictly, exclusively, and directly from Salomon Munk’s 1856 French text (`french` field in packet) and Maimonides’ Judeo-Arabic text (`judeo_arabic` field).
+- Interpolating any verse, phrase, lemma, or citation from Friedländer that is not in Munk's French text is strictly prohibited.
+
+### B. Translation Scope & Style (1950s Academic English)
 - Translate Salomon Munk's French (1856) into elegant, authoritative mid-20th-century academic English prose.
 - Thoroughly purge all Victorian and pseudo-biblical archaisms (`thou`, `thee`, `thine`, `hath`, `doth`, `whilst`, `unto`, `canst`, `-eth`, `-est`).
 - Translate all untranslated French clauses, sentences, and Latin relics (*materia, forma, privatio*, *ex nihilo*, *stare*, *cessare*, *implere*) into natural scholarly English.
