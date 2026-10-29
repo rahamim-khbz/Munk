@@ -1,3 +1,5 @@
+let faurCommentary = null;
+let faurAnnotationsEnabled = true;
 
 // Version: 1.1.0 - Rabbi Yosef Qafih Hebrew Translation & Isolated Footnote System
 let footnotes = {};
@@ -28,10 +30,223 @@ function setTheme(mode) {
         localStorage.setItem('munk-theme', mode);
         localStorage.setItem('reader-theme', mode);
     } catch (e) {}
-    document.querySelectorAll('.theme-btn').forEach(b => {
+    document.querySelectorAll('#btn-light, #btn-sepia, #btn-dark, .mobile-theme-panel button.theme-btn:not(#btn-mobile-faur-toggle)').forEach(b => {
         const text = b.textContent.trim().toLowerCase();
         b.classList.toggle('active', b.id === ('btn-' + mode) || text.includes(mode));
     });
+}
+
+function initFaurAnnotations() {
+    let saved = 'on';
+    try {
+        saved = localStorage.getItem('munk-faur-annotations');
+        if (saved === null) saved = 'on';
+    } catch (e) {
+        saved = 'on';
+    }
+    faurAnnotationsEnabled = (saved !== 'off' && saved !== 'false');
+    applyFaurState();
+}
+
+function applyFaurState() {
+    const mainCont = document.querySelector('.main-container');
+    const stateStr = faurAnnotationsEnabled ? 'on' : 'off';
+    if (mainCont) {
+        mainCont.setAttribute('data-faur', stateStr);
+    }
+    const desktopBtn = document.getElementById('btn-faur-toggle');
+    const mobileBtn = document.getElementById('btn-mobile-faur-toggle');
+    [desktopBtn, mobileBtn].forEach(btn => {
+        if (btn) {
+            btn.classList.toggle('active', faurAnnotationsEnabled);
+            btn.setAttribute('aria-pressed', faurAnnotationsEnabled ? 'true' : 'false');
+        }
+    });
+    const tocSwitch = document.getElementById('btn-toc-faur-toggle');
+    if (tocSwitch) {
+        tocSwitch.classList.toggle('active', faurAnnotationsEnabled);
+        tocSwitch.setAttribute('aria-checked', faurAnnotationsEnabled ? 'true' : 'false');
+    }
+}
+
+function toggleFaurAnnotations() {
+    faurAnnotationsEnabled = !faurAnnotationsEnabled;
+    try {
+        localStorage.setItem('munk-faur-annotations', faurAnnotationsEnabled ? 'on' : 'off');
+    } catch (e) {}
+    applyFaurState();
+}
+
+async function loadFaurCommentary() {
+    if (faurCommentary) return faurCommentary;
+    try {
+        const res = await fetch('data/faur_commentary_map.json');
+        if (res.ok !== undefined && !res.ok) {
+            console.warn('Faur commentary map not found, proceeding without annotations.');
+            faurCommentary = { metadata: {}, chapters: {}, tier2_by_row_key: {} };
+            return faurCommentary;
+        }
+        faurCommentary = await res.json();
+        return faurCommentary;
+    } catch (e) {
+        console.warn('Error loading Faur commentary map:', e);
+        faurCommentary = { metadata: {}, chapters: {}, tier2_by_row_key: {} };
+        return faurCommentary;
+    }
+}
+
+const FAUR_PART_CHAPTER_MAP = {
+    'Part One: Apophasis': 1,
+    'Part Two: Imagination': 2,
+    'Part Three: Cosmology': 3,
+    'Part Four: Anthropology': 4
+};
+
+function formatFaurCitation(entry) {
+    if (!entry) return 'Homo Mysticus';
+    if (entry.citation) return entry.citation;
+    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
+    if (chNum && entry.section_title) {
+        return `Homo Mysticus, Chapter ${chNum} - ${entry.section_title}`;
+    }
+    if (entry.part_title === 'Introduction' || entry.section_title === 'Introduction') {
+        return 'Homo Mysticus, Introduction';
+    }
+    return entry.section_title ? `Homo Mysticus - ${entry.section_title}` : 'Homo Mysticus';
+}
+
+function formatFaurContent(htmlStr, slug) {
+    if (!htmlStr) return '';
+    return htmlStr.replace(/<sup class="fn-callout"><a [^>]*href="#(fn_[^"]+)"[^>]*>(\d+)<\/a><\/sup>/g, (m, fnId, num) => {
+        return `<sup class="fn-ref faur-fn-ref" onclick="showFn('fn.faur.${slug}.${fnId}')" title="View Faur's Footnote">${num}</sup>`;
+    });
+}
+
+function toggleFaurTopBox(forceState) {
+    const topBox = document.getElementById('faur-top-box');
+    const inlineBtn = document.getElementById('btn-chapter-faur');
+    if (!topBox) return;
+    const currentlyOpen = topBox.classList.contains('open');
+    const nextOpen = typeof forceState === 'boolean' ? forceState : !currentlyOpen;
+    topBox.classList.toggle('open', nextOpen);
+    topBox.setAttribute('aria-hidden', nextOpen ? 'false' : 'true');
+    if (inlineBtn) {
+        inlineBtn.classList.toggle('active', nextOpen);
+        inlineBtn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+        const chev = inlineBtn.querySelector('.faur-inline-chevron');
+        if (chev) chev.textContent = nextOpen ? '▲' : '▼';
+    }
+}
+
+function switchFaurSubsection(index) {
+    const topBox = document.getElementById('faur-top-box');
+    if (!topBox) return;
+    const cards = topBox.querySelectorAll('.faur-subsection-card');
+    const tabs = topBox.querySelectorAll('.faur-subsection-tab');
+    cards.forEach((card, idx) => {
+        const isTarget = idx === index;
+        const body = card.querySelector('.faur-subsection-body');
+        const headerBtn = card.querySelector('.faur-subsection-header');
+        const icon = card.querySelector('.faur-subsection-toggle-icon');
+        card.classList.toggle('open', isTarget);
+        if (body) body.classList.toggle('open', isTarget);
+        if (headerBtn) headerBtn.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
+        if (icon) icon.textContent = isTarget ? '▲' : '▼';
+    });
+    tabs.forEach((tab, idx) => {
+        const isTarget = idx === index;
+        tab.classList.toggle('active', isTarget);
+        tab.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+    });
+}
+
+function toggleFaurSubsection(btn) {
+    const card = btn.closest('.faur-subsection-card');
+    if (!card) return;
+    const idx = parseInt(card.getAttribute('data-subsection-index'), 10);
+    const body = card.querySelector('.faur-subsection-body');
+    const icon = btn.querySelector('.faur-subsection-toggle-icon');
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    const nextExpanded = !isExpanded;
+    btn.setAttribute('aria-expanded', nextExpanded ? 'true' : 'false');
+    card.classList.toggle('open', nextExpanded);
+    if (body) body.classList.toggle('open', nextExpanded);
+    if (icon) icon.textContent = nextExpanded ? '▲' : '▼';
+
+    // Synchronize corresponding tab if multiple subsections exist
+    if (nextExpanded && !isNaN(idx)) {
+        const topBox = document.getElementById('faur-top-box');
+        if (topBox) {
+            topBox.querySelectorAll('.faur-subsection-tab').forEach((tab, tIdx) => {
+                const isTarget = tIdx === idx;
+                tab.classList.toggle('active', isTarget);
+                tab.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+            });
+        }
+    }
+}
+
+function renderFaurTopBox(sections, slug) {
+    if (!sections || !sections.length) return '';
+    const hasMultiple = sections.length > 1;
+    const tabsHtml = hasMultiple ? `
+        <div class="faur-subsection-tabs" role="tablist" aria-label="Homo Mysticus Subsections">
+            ${sections.map((entry, idx) => {
+                const cit = formatFaurCitation(entry);
+                return `<button type="button" role="tab" class="faur-subsection-tab ${idx === 0 ? 'active' : ''}" aria-selected="${idx === 0 ? 'true' : 'false'}" onclick="switchFaurSubsection(${idx})">${cit}</button>`;
+            }).join('')}
+        </div>
+    ` : '';
+
+    const cardsHtml = sections.map((entry, idx) => {
+        const citation = formatFaurCitation(entry);
+        const processedContent = formatFaurContent(entry.content_html, entry.slug || slug);
+        const isOpenInitially = (idx === 0);
+        const keyTerms = entry.key_terms || [];
+        const keyTermsHtml = keyTerms.length > 0 ? `
+            <div class="faur-key-terms-bar">
+                ${keyTerms.map(kt => `
+                    <div class="faur-key-term-chip">
+                        <span class="faur-key-term-label">Key Term:</span>
+                        ${kt.term ? `<strong class="faur-key-term-name">${kt.term}</strong>` : ''}
+                        ${kt.original_script ? `<span class="faur-key-term-orig" dir="rtl" lang="he">${kt.original_script}</span>` : ''}
+                        ${kt.anchor_label ? `<span class="faur-key-term-desc">— ${kt.anchor_label}</span>` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        ` : '';
+
+        return `
+            <div class="faur-subsection-card ${isOpenInitially ? 'open' : ''}" data-subsection-index="${idx}">
+                <button type="button" class="faur-subsection-header" onclick="toggleFaurSubsection(this)" aria-expanded="${isOpenInitially ? 'true' : 'false'}">
+                    <div class="faur-subsection-header-main">
+                        <div class="faur-subsection-citation">${citation}</div>
+                        <div class="faur-subsection-author">José Faur · <em>Homo Mysticus</em></div>
+                    </div>
+                    <span class="faur-subsection-toggle-icon" aria-hidden="true">${isOpenInitially ? '▲' : '▼'}</span>
+                </button>
+                <div class="faur-subsection-body ${isOpenInitially ? 'open' : ''}">
+                    ${keyTermsHtml}
+                    <div class="faur-subsection-content">
+                        ${processedContent}
+                    </div>
+                    <div class="faur-subsection-footer">
+                        José Faur, <em>Homo Mysticus: A Guide to Maimonides's Guide for the Perplexed</em> (Syracuse University Press, 1998)
+                    </div>
+                    ${typeof renderHmFeedback === 'function' ? renderHmFeedback(entry.id, entry.slug || slug, entry.section_title) : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <section id="faur-top-box" class="faur-top-box" aria-hidden="true" aria-label="Homo Mysticus Commentary">
+            ${tabsHtml}
+            <div class="faur-subsections-list">
+                ${cardsHtml}
+            </div>
+        </section>
+    `;
 }
 
 function toggleTOC() {
@@ -156,6 +371,52 @@ async function showFn(id) {
         return;
     }
 
+    // Check if this is a José Faur note (fn.faur.slug.fn_X)
+    if (id.startsWith('fn.faur.') || id.startsWith('faur.')) {
+        if (!faurCommentary) {
+            await loadFaurCommentary();
+        }
+        const parts = id.replace(/^faur\./, 'fn.faur.').split('.');
+        // Format: fn.faur.<slug>.<fn_id>
+        const slug = parts[2];
+        const fnId = parts.slice(3).join('.');
+        
+        let fnText = '';
+        if (faurCommentary && faurCommentary.section_6_footnotes && faurCommentary.section_6_footnotes[fnId]) {
+            fnText = faurCommentary.section_6_footnotes[fnId];
+        } else if (faurCommentary && faurCommentary.chapters && faurCommentary.chapters[slug]) {
+            const ch = faurCommentary.chapters[slug];
+            for (const t1 of (ch.tier1 || [])) {
+                if (t1.footnotes && t1.footnotes[fnId]) {
+                    fnText = t1.footnotes[fnId];
+                    break;
+                }
+            }
+            if (!fnText) {
+                for (const t2 of (ch.tier2 || [])) {
+                    if (t2.footnotes && t2.footnotes[fnId]) {
+                        fnText = t2.footnotes[fnId];
+                        break;
+                    }
+                }
+            }
+            if (!fnText && ch.footnotes && ch.footnotes[fnId]) {
+                fnText = ch.footnotes[fnId];
+            }
+        }
+        if (!fnText) fnText = 'Footnote not found.';
+        
+        document.getElementById('fn-panel-body').innerHTML = `
+            <div style="direction: ltr; text-align: left; font-family: var(--font-english);">
+                <div style="font-weight: 700; color: #b45309; margin-bottom: 8px; font-size: 0.95rem; letter-spacing: 0.05em;">Faur's Note:</div>
+                <div style="font-size: 1.05rem; line-height: 1.7; color: var(--text);">${fnText}</div>
+            </div>
+        `;
+        panel.classList.add('open');
+        mainCont.classList.add('fn-open');
+        return;
+    }
+
     // Salomon Munk note - resolve canonical fn.N key and support flat string or mapped format
     if (!footnotes || Object.keys(footnotes).length === 0) {
         try {
@@ -237,12 +498,33 @@ async function loadChapter(slug) {
         return;
     }
     content.innerHTML = '<div style="padding:150px; text-align:center; font-style:italic; opacity:0.4;">Retrieving Manuscript...</div>';
-    try {
-        const res = await fetch(`data/${slug}.json`);
+    try {        const [res, commentary] = await Promise.all([
+            fetch(`data/${slug}.json`),
+            loadFaurCommentary()
+        ]);
         const data = await res.json();
         document.getElementById('main-title').textContent = data.title;
         document.title = data.title + " - Munk's Guide";
-        let html = `<div class="chapter-header"><h2>${data.title}</h2></div>`;
+        let html = '';
+        const faurSections = (commentary && commentary.chapters && commentary.chapters[slug] && commentary.chapters[slug].tier1) || [];
+        const hasFaur = faurSections.length > 0;
+        const inlineFaurBtnHtml = hasFaur ? `
+            <button type="button"
+                    id="btn-chapter-faur"
+                    class="faur-inline-btn"
+                    onclick="toggleFaurTopBox()"
+                    aria-expanded="false"
+                    aria-controls="faur-top-box"
+                    aria-label="Toggle Homo Mysticus Commentary"
+                    title="Open Homo Mysticus Commentary (${faurSections.length} ${faurSections.length === 1 ? 'subsection' : 'subsections'})">
+                <span class="faur-inline-glyph">❦ HM</span>
+                <span class="faur-inline-chevron" aria-hidden="true">▼</span>
+            </button>
+        ` : '';
+        html += `<div class="chapter-header"><div class="chapter-header-row"><h2>${data.title}</h2>${inlineFaurBtnHtml}</div></div>`;
+        if (hasFaur) {
+            html += renderFaurTopBox(faurSections, slug);
+        }
         data.rows.forEach(row => {
             html += `<div class="parallel-row" ${row.key ? `id="row-${row.key}"` : ''}>
                 <div class="left-cell">
@@ -259,7 +541,7 @@ async function loadChapter(slug) {
                 </div>
             </div>`;
         });
-        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; align-items:center; margin-top:40px; padding-top:20px; padding-bottom:1.5rem; border-top:1px solid var(--border);">`;
+        html += `<div class="chapter-nav" style="display:flex; justify-content:space-between; align-items:center; margin-top:40px; padding-top:20px; padding-bottom:calc(2rem + env(safe-area-inset-bottom)); border-top:1px solid var(--border);">`;
         if (data.prev) html += `<a href="reader.html?ch=${data.prev.slug}" class="chapter-nav-link">← ${data.prev.title}</a>`;
         else html += '<div></div>';
         if (data.next) html += `<a href="reader.html?ch=${data.next.slug}" class="chapter-nav-link">${data.next.title} →</a>`;
@@ -383,6 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
         savedLayout = localStorage.getItem('munk-layout-mode') || 'side-by-side';
     } catch (e) {}
     setTheme(savedTheme);
+    initFaurAnnotations();
     if (savedLayout === 'vertical') {
         const mainCont = document.querySelector('.main-container');
         const btn = document.getElementById('layout-toggle-btn');

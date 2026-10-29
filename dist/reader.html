@@ -20,6 +20,7 @@
         </div>
         <div class="mobile-theme-panel">
             <a href="scripture.html" class="theme-btn" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:6px; font-weight:600;">📜 Scriptural Index</a>
+            <button id="btn-mobile-faur-toggle" onclick="toggleFaurAnnotations()" class="theme-btn active" title="Toggle Homo Mysticus annotations" aria-pressed="true">❦ HM</button>
             <button onclick="setTheme('light')" class="theme-btn">&#9728;&#65039; Light</button>
             <button onclick="setTheme('sepia')" class="theme-btn">&#128220; Sepia</button>
             <button onclick="setTheme('dark')" class="theme-btn">&#127769; Dark</button>
@@ -49,6 +50,23 @@
                         <option value="jrb">Judeo-Arabic</option>
                     </select>
                 </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border);">
+                    <div style="display: flex; flex-direction: column; gap: 2px;">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text);">Homo Mysticus Notes</span>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">José Faur commentary (❦ HM)</span>
+                    </div>
+                    <button type="button"
+                            id="btn-toc-faur-toggle"
+                            class="toc-switch-btn active"
+                            onclick="toggleFaurAnnotations()"
+                            role="switch"
+                            aria-checked="true"
+                            aria-label="Toggle Homo Mysticus Notes">
+                        <span class="toc-switch-track">
+                            <span class="toc-switch-thumb"></span>
+                        </span>
+                    </button>
+                </div>
             </div>
         </div>
         <div id="toc-body" class="toc-body"></div>
@@ -63,6 +81,7 @@
             <div class="theme-controls">
                 <a href="scripture.html" title="Scriptural Index · מפתח פסוקים" class="theme-btn" id="btn-scripture-index" style="text-decoration:none; display:inline-flex; align-items:center; gap:4px; font-weight:600;">📜 Index</a>
                 <button onclick="toggleLayoutMode()" title="Toggle Layout" class="theme-btn" id="layout-toggle-btn">📖 Parallel</button>
+                <button class="theme-btn active" id="btn-faur-toggle" onclick="toggleFaurAnnotations()" title="Toggle Homo Mysticus annotations" aria-pressed="true">❦ HM</button>
                 <button onclick="setTheme('light')" title="Light" class="theme-btn" id="btn-light">&#9728;&#65039;</button>
                 <button onclick="setTheme('sepia')" title="Sepia" class="theme-btn" id="btn-sepia">&#128220;</button>
                 <button onclick="setTheme('dark')"  title="Dark"  class="theme-btn" id="btn-dark">&#127769;</button>
@@ -78,6 +97,7 @@
         </div>
         <div id="fn-panel-body" class="fn-panel-body"></div>
     </div>
-    <script src="js/reader.js?v=1.1.0"></script>
+    <script src="js/hm-feedback.js?v=1.0.0"></script>
+    <script src="js/reader.js?v=1.1.2"></script>
 </body>
 </html>
