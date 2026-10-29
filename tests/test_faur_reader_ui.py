@@ -51,8 +51,14 @@ def test_css_grid_protection_and_zero_thrash():
         assert '.main-container[data-faur="off"] .faur-top-box' in css
         assert ".faur-inline-btn" in css
         assert ".faur-top-box" in css
+        assert ".faur-box-banner" in css
+        assert ".faur-subsection-tabs" in css
+        assert ".faur-subsection-tab" in css
+        assert ".faur-ch-badge" in css
+        assert ".faur-tab-title" in css
         assert ".faur-subsection-card" in css
         assert ".faur-key-terms-bar" in css
+        assert ".sr-only" in css
 
 
 def test_root_dist_byte_identity():
@@ -269,7 +275,19 @@ def test_nodejs_faur_reader_ui_simulation():
                 throw new Error('Found deprecated page range "Homo Mysticus, pp." in Chapter 5');
             }
 
-            // 4. Verify Unified Subsection Citations & Key Terms
+            // 4. Verify Option 2 Compact Grid UI, Citations & Key Terms
+            if (!ch5Html.includes('class="faur-box-banner"')) {
+                throw new Error('Missing .faur-box-banner in Chapter 5');
+            }
+            if (!ch5Html.includes('class="faur-ch-badge"')) {
+                throw new Error('Missing .faur-ch-badge in Chapter 5');
+            }
+            if (!ch5Html.includes('class="faur-tab-title"')) {
+                throw new Error('Missing .faur-tab-title in Chapter 5');
+            }
+            if (!ch5Html.includes('class="sr-only"')) {
+                throw new Error('Missing .sr-only in Chapter 5');
+            }
             if (!ch5Html.includes('Homo Mysticus, Chapter 2 - Anthropocentric Theology')) {
                 throw new Error('Missing citation "Homo Mysticus, Chapter 2 - Anthropocentric Theology" in Chapter 5');
             }

@@ -278,6 +278,19 @@ html.dark .toc-switch-btn.active .toc-switch-thumb {
     display: none !important;
 }
 
+/* Accessibility Screen Reader Only Utility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Full-Width Push-Down Collapsible Box */
 .faur-top-box {
     display: none;
@@ -290,26 +303,55 @@ html.dark .toc-switch-btn.active .toc-switch-thumb {
     display: block;
 }
 
-.faur-subsection-tabs {
+.faur-box-banner {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+.faur-box-banner strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+.faur-box-banner-count {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.faur-subsection-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     margin-bottom: 12px;
 }
 .faur-subsection-tab {
     min-height: 44px;
-    padding: 8px 14px;
+    padding: 8px 10px;
     border-radius: 6px;
     border: 1px solid var(--border);
     background: var(--surface);
     color: var(--text);
     font-family: var(--font-english);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    line-height: 1.25;
     cursor: pointer;
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     transition: all 0.18s ease;
     box-sizing: border-box;
+    min-width: 0;
 }
 .faur-subsection-tab:hover {
     border-color: var(--accent);
@@ -326,33 +368,63 @@ html.dark .faur-subsection-tab.active {
     color: #12121e;
 }
 
+.faur-ch-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.faur-subsection-tab.active .faur-ch-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+}
+html.dark .faur-subsection-tab.active .faur-ch-badge {
+    background: rgba(18, 18, 30, 0.2);
+    color: inherit;
+}
+.faur-tab-title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
 .faur-subsection-card {
+    display: none;
     border: 1px solid var(--border);
     border-top: 3px solid var(--accent);
     border-radius: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 0;
     background: var(--surface);
     overflow: hidden;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }
+.faur-subsection-card.open {
+    display: block;
+}
 
 .faur-subsection-header {
     width: 100%;
-    min-height: 52px;
-    padding: 14px 20px;
-    background: var(--surface);
+    min-height: 44px;
+    padding: 10px 16px;
+    background: color-mix(in srgb, var(--accent) 4%, var(--surface));
     border: none;
     text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    cursor: pointer;
+    cursor: default;
     box-sizing: border-box;
     transition: background 0.18s ease;
-}
-.faur-subsection-header:hover {
-    background: var(--row-hover);
 }
 .faur-subsection-header-main {
     display: flex;
@@ -367,16 +439,9 @@ html.dark .faur-subsection-tab.active {
     color: var(--accent);
     line-height: 1.35;
 }
-.faur-subsection-author {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0.03em;
-}
+.faur-subsection-author,
 .faur-subsection-toggle-icon {
-    font-size: 0.9rem;
-    color: var(--accent);
-    flex-shrink: 0;
+    display: none;
 }
 
 .faur-subsection-body {
@@ -388,7 +453,8 @@ html.dark .faur-subsection-tab.active {
     line-height: 1.72;
     color: var(--text);
 }
-.faur-subsection-body.open {
+.faur-subsection-body.open,
+.faur-subsection-card.open .faur-subsection-body {
     display: block;
 }
 

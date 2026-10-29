@@ -115,6 +115,31 @@ function formatFaurCitation(entry) {
     return entry.section_title ? `Homo Mysticus - ${entry.section_title}` : 'Homo Mysticus';
 }
 
+function formatFaurBadge(entry) {
+    if (!entry) return 'HM';
+    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
+    if (chNum) return 'Ch. ' + chNum;
+    if (entry.part_title === 'Introduction' || entry.section_title === 'Introduction') return 'Intro';
+    return 'HM';
+}
+
+function formatFaurCleanTitle(entry) {
+    if (!entry) return 'Commentary';
+    return entry.section_title || 'Commentary';
+}
+
+function formatFaurCardHeading(entry) {
+    if (!entry) return 'Homo Mysticus';
+    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
+    if (chNum) {
+        return 'Chapter ' + chNum + ' — ' + (entry.section_title || 'Commentary');
+    }
+    if (entry.part_title === 'Introduction' || entry.section_title === 'Introduction') {
+        return 'Introduction';
+    }
+    return entry.section_title || 'Homo Mysticus';
+}
+
 function formatFaurContent(htmlStr, slug) {
     if (!htmlStr) return '';
     return htmlStr.replace(/<sup class="fn-callout"><a [^>]*href="#(fn_[^"]+)"[^>]*>(\d+)<\/a><\/sup>/g, (m, fnId, num) => {
@@ -193,13 +218,16 @@ function renderFaurTopBox(sections, slug) {
         <div class="faur-subsection-tabs" role="tablist" aria-label="Homo Mysticus Subsections">
             ${sections.map((entry, idx) => {
                 const cit = formatFaurCitation(entry);
-                return `<button type="button" role="tab" class="faur-subsection-tab ${idx === 0 ? 'active' : ''}" aria-selected="${idx === 0 ? 'true' : 'false'}" onclick="switchFaurSubsection(${idx})">${cit}</button>`;
+                const badge = formatFaurBadge(entry);
+                const cleanTitle = formatFaurCleanTitle(entry);
+                return `<button type="button" role="tab" class="faur-subsection-tab ${idx === 0 ? 'active' : ''}" aria-selected="${idx === 0 ? 'true' : 'false'}" title="${cit}" onclick="switchFaurSubsection(${idx})"><span class="faur-ch-badge">${badge}</span><span class="faur-tab-title">${cleanTitle}</span></button>`;
             }).join('')}
         </div>
     ` : '';
 
     const cardsHtml = sections.map((entry, idx) => {
         const citation = formatFaurCitation(entry);
+        const cardHeading = formatFaurCardHeading(entry);
         const processedContent = formatFaurContent(entry.content_html, entry.slug || slug);
         const isOpenInitially = (idx === 0);
         const keyTerms = entry.key_terms || [];
@@ -218,13 +246,11 @@ function renderFaurTopBox(sections, slug) {
 
         return `
             <div class="faur-subsection-card ${isOpenInitially ? 'open' : ''}" data-subsection-index="${idx}">
-                <button type="button" class="faur-subsection-header" onclick="toggleFaurSubsection(this)" aria-expanded="${isOpenInitially ? 'true' : 'false'}">
+                <div class="faur-subsection-header" aria-expanded="${isOpenInitially ? 'true' : 'false'}">
                     <div class="faur-subsection-header-main">
-                        <div class="faur-subsection-citation">${citation}</div>
-                        <div class="faur-subsection-author">José Faur · <em>Homo Mysticus</em></div>
+                        <div class="faur-subsection-citation" data-citation="${citation}">${cardHeading}<span class="sr-only"> (${citation})</span></div>
                     </div>
-                    <span class="faur-subsection-toggle-icon" aria-hidden="true">${isOpenInitially ? '▲' : '▼'}</span>
-                </button>
+                </div>
                 <div class="faur-subsection-body ${isOpenInitially ? 'open' : ''}">
                     ${keyTermsHtml}
                     <div class="faur-subsection-content">
@@ -241,6 +267,10 @@ function renderFaurTopBox(sections, slug) {
 
     return `
         <section id="faur-top-box" class="faur-top-box" aria-hidden="true" aria-label="Homo Mysticus Commentary">
+            <div class="faur-box-banner">
+                <span class="faur-box-banner-title"><strong>Homo Mysticus</strong> · José Faur Commentary</span>
+                <span class="faur-box-banner-count">${sections.length} ${sections.length === 1 ? 'section' : 'sections'}</span>
+            </div>
             ${tabsHtml}
             <div class="faur-subsections-list">
                 ${cardsHtml}
