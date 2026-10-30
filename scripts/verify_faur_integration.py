@@ -9,7 +9,7 @@ Validates:
 1. Schema & Data Invariants:
    - data/faur_commentary_map.json and dist/data/faur_commentary_map.json exist,
      are valid JSON, and match 100% byte-for-byte.
-   - Maps 124 chapters, containing 100 Tier 1 exegeses, 24 Tier 2 anchors, 531 Tier 3 citations.
+   - Maps 124 chapters, containing 30 Tier 1 exegeses, 24 Tier 2 anchors, 600 Tier 3 citations.
    - All 1,069 footnotes indexed from Section 6 of Homo_Mysticus_Continuous_Edition.html
      with zero ID collisions and zero missing definitions.
    - All 2,500+ inline footnote callouts in commentary entries resolve to defined footnotes.
@@ -50,7 +50,7 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Set, Tuple
 
-WORKSPACE = Path("/Users/rayhabbaz/Munk's Guide").resolve()
+WORKSPACE = Path(__file__).resolve().parent.parent
 ROOT_DATA = WORKSPACE / "data"
 DIST_DATA = WORKSPACE / "dist" / "data"
 ROOT_MAP_PATH = ROOT_DATA / "faur_commentary_map.json"
@@ -137,9 +137,9 @@ def verify_schema_and_data_invariants() -> Tuple[Dict[str, Any], int]:
     meta = cmap.get("metadata", {})
     assert meta.get("version") == "1.0", f"Unexpected version {meta.get('version')}"
     assert meta.get("total_chunks_parsed") == 46, f"Expected 46 chunks parsed, got {meta.get('total_chunks_parsed')}"
-    assert meta.get("total_tier1") == 100, f"Expected 100 Tier 1 exegeses, got {meta.get('total_tier1')}"
+    assert meta.get("total_tier1") == 30, f"Expected 30 Tier 1 exegeses, got {meta.get('total_tier1')}"
     assert meta.get("total_tier2") == 24, f"Expected 24 Tier 2 anchors, got {meta.get('total_tier2')}"
-    assert meta.get("total_tier3") == 531, f"Expected 531 Tier 3 citations, got {meta.get('total_tier3')}"
+    assert meta.get("total_tier3") == 600, f"Expected 600 Tier 3 citations, got {meta.get('total_tier3')}"
     assert meta.get("chapters_mapped") == 124, f"Expected 124 mapped chapters, got {meta.get('chapters_mapped')}"
     checks += 6
     log_pass(
@@ -159,14 +159,14 @@ def verify_schema_and_data_invariants() -> Tuple[Dict[str, Any], int]:
     total_t2 = sum(len(ch.get("tier2", [])) for ch in chapters.values())
     total_t3 = sum(len(ch.get("tier3", [])) for ch in chapters.values())
 
-    assert total_t1 == 100, f"Expected 100 total Tier 1 exegeses across chapters, found {total_t1}"
+    assert total_t1 == 30, f"Expected 30 total Tier 1 exegeses across chapters, found {total_t1}"
     assert total_t2 == 24, f"Expected 24 total Tier 2 anchors across chapters, found {total_t2}"
-    assert total_t3 == 531, f"Expected 531 total Tier 3 citations across chapters, found {total_t3}"
+    assert total_t3 == 600, f"Expected 600 total Tier 3 citations across chapters, found {total_t3}"
     assert len(tier2_by_row_key) == 24, f"Expected 24 keys in tier2_by_row_key, found {len(tier2_by_row_key)}"
     checks += 4
     log_pass(
-        f"Structural Counts verified: 124 chapters mapped, 100 Tier 1 entries, 24 Tier 2 entries "
-        f"(24 row keys in tier2_by_row_key), 531 Tier 3 citations."
+        f"Structural Counts verified: 124 chapters mapped, 30 Tier 1 entries, 24 Tier 2 entries "
+        f"(24 row keys in tier2_by_row_key), 600 Tier 3 citations."
     )
 
     # 4. Footnotes Invariants from Section 6
@@ -342,16 +342,20 @@ def verify_specific_target_passages(cmap: Dict[str, Any]) -> int:
     assert ch5_slug in chapters, f"Missing {ch5_slug} in commentary map"
     ch5 = chapters[ch5_slug]
 
-    # Verify Tier 1: Aristotle as Rayyis
+    # Verify Tier 1: Aristotle as Rayyis (Pruned to exactly 1 curated pericope)
     ch5_t1 = ch5.get("tier1", [])
-    assert len(ch5_t1) > 0, f"Chapter 5 has no Tier 1 exegeses"
+    assert len(ch5_t1) == 1, f"Chapter 5 expected exactly 1 Tier 1 exegesis, found {len(ch5_t1)}"
     rayyis_t1 = [
         t for t in ch5_t1
         if any(term in t.get("thesis_summary", "").lower() or term in t.get("section_title", "").lower() or term in t.get("content_html", "").lower()
                for term in ["rayyis", "aristotle", "leader", "authority"])
     ]
-    assert len(rayyis_t1) > 0, "Chapter 5 missing Tier 1 exegesis analyzing Aristotle as Rayyis"
-    checks += 2
+    assert len(rayyis_t1) == 1, "Chapter 5 missing Tier 1 exegesis analyzing Aristotle as Rayyis"
+    assert "The Fault with Aristotle" in rayyis_t1[0].get("section_title", ""), (
+        f"Unexpected section title: {rayyis_t1[0].get('section_title')}"
+    )
+    assert rayyis_t1[0].get("faur_chapter_num") == 3, f"Expected faur_chapter_num 3, got {rayyis_t1[0].get('faur_chapter_num')}"
+    checks += 3
     log_pass(f"Chapter 5 Tier 1 Postscript verified: '{rayyis_t1[0]['section_title']}' analyzing Aristotle as Rayyis.")
 
     # Verify Tier 2: row root.text.Part 1..4.0 (rayyis)
@@ -380,11 +384,11 @@ def verify_specific_target_passages(cmap: Dict[str, Any]) -> int:
         t for t in ch71_t1
         if ("kalam" in t.get("thesis_summary", "").lower() or "kalam" in t.get("content_html", "").lower())
         and any(term in t.get("thesis_summary", "").lower() or term in t.get("content_html", "").lower()
-                for term in ["coercion", "institution", "state", "political", "mutakallimun"])
+                for term in ["coercion", "institution", "state", "political", "mutakallimun", "mutakallimin", "apologetics", "theology", "church fathers"])
     ]
-    assert len(kalam_t1) > 0, "Chapter 71 missing Tier 1 exegesis on Kalam and institutional coercion"
+    assert len(kalam_t1) > 0, "Chapter 71 missing Tier 1 exegesis on Kalam methodology"
     checks += 2
-    log_pass(f"Chapter 71 Tier 1 Postscript verified: Faur's exegesis on the Kalam and institutional coercion ('{kalam_t1[0]['section_title']}').")
+    log_pass(f"Chapter 71 Tier 1 Postscript verified: Faur's exegesis on the Kalam ('{kalam_t1[0]['section_title']}').")
 
     return checks
 
@@ -615,24 +619,27 @@ def verify_ui_behavior_and_dom_invariants() -> int:
             if (ch5Html.includes('class="faur-postscript-container"')) throw new Error('Found deprecated .faur-postscript-container');
             if (ch5Html.includes('Homo Mysticus, pp.')) throw new Error('Found deprecated page range');
 
-            if (!ch5Html.includes('Homo Mysticus, Chapter 2 - Anthropocentric Theology')) {
-                throw new Error('Missing citation "Homo Mysticus, Chapter 2 - Anthropocentric Theology"');
+            if (ch5Html.includes('Homo Mysticus, Chapter 2 - Anthropocentric Theology')) {
+                throw new Error('Found demoted citation "Homo Mysticus, Chapter 2 - Anthropocentric Theology" in Tier 1');
             }
             if (!ch5Html.includes('Homo Mysticus, Chapter 3 - The Fault with Aristotle')) {
                 throw new Error('Missing citation "Homo Mysticus, Chapter 3 - The Fault with Aristotle"');
             }
             if (!ch5Html.includes('rayyis')) throw new Error('Missing key term rayyis');
             if (!ch5Html.includes('רייס אלפלאספה')) throw new Error('Missing Hebrew script רייס אלפלאספה');
+            if (!ch5Html.includes('Read full section in Homo Mysticus (Chapter 3) ↗')) {
+                throw new Error('Missing .faur-read-link text "Read full section in Homo Mysticus (Chapter 3) ↗"');
+            }
 
             toggleFaurTopBox(true);
             if (!elements['faur-top-box'].classList.contains('open')) throw new Error('toggleFaurTopBox open failed');
 
             // 4. Footnote resolution in #fn-panel
-            await showFn('fn.faur.part-1---chapter-5.fn_part-two_183');
+            await showFn('fn.faur.part-1---chapter-5.fn_part-three_94');
             if (!elements['fn-panel'].classList.contains('open')) throw new Error('fn-panel failed to open');
             const fnBody = elements['fn-panel-body'].innerHTML;
             if (!fnBody.includes("Faur's Note")) throw new Error("Missing Faur's Note label");
-            if (!fnBody.includes("Shemona Peraqim")) throw new Error("Missing footnote content");
+            if (!fnBody.includes("Studies in the Mishne Tora")) throw new Error("Missing footnote content 'Studies in the Mishne Tora'");
 
             closeFnPanel();
 
@@ -697,7 +704,7 @@ def main() -> int:
         print(f"{GREEN}{BOLD}🎉 ALL QUALITY GATES PASSED: 100% VERIFIED ({total_checks} assertions in {elapsed:.2f}s){RESET}")
         print(f"{GREEN}{BOLD}{'=' * 75}{RESET}")
         print(f"  • Root vs dist/ Synchronization: 100% Byte-Identical")
-        print(f"  • Data Invariants: 124 Chapters, 100 Tier 1, 24 Tier 2, 531 Tier 3")
+        print(f"  • Data Invariants: 124 Chapters, 30 Tier 1, 24 Tier 2, 600 Tier 3")
         print(f"  • Footnotes: All 1,069 Notes Indexed with 0 Collisions & 0 Missing Definitions")
         print(f"  • Anchor Resolution: All 24 Tier 2 Anchors Non-Circularly Verified Verbatim")
         print(f"  • Target Passages: Chapter 5 (Rayyis) & Chapter 71 (Kalam) Verified")

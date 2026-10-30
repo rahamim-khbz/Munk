@@ -14,7 +14,7 @@ Verifies:
    - Zero margin anchors, zero popovers, zero postscript containers, zero 'Homo Mysticus, pp.'.
    - Citations format as 'Homo Mysticus, Chapter ## - [[Subtitle/Section]]'.
    - Key terms badges rendered with Hebrew RTL script and labels.
-   - Footnote resolution: showFn('fn.faur.part-1---chapter-5.fn_part-two_183') displays "Faur's Note".
+   - Footnote resolution: showFn('fn.faur.part-1---chapter-5.fn_part-three_94') displays "Faur's Note".
    - Global toggle: toggleFaurAnnotations() sets data-faur="on"|"off" and updates buttons.
    - Theme preservation: setTheme('dark') does not strip .active from #btn-faur-toggle.
    - Load part-1---chapter-71: Tier 1 Kalam commentary rendered with unified citation.
@@ -28,7 +28,7 @@ try:
 except ImportError:
     pytest = None
 
-BASE_DIR = Path("/Users/rayhabbaz/Munk's Guide")
+BASE_DIR = Path(__file__).resolve().parent.parent
 DIST_DIR = BASE_DIR / "dist"
 
 
@@ -282,14 +282,11 @@ def test_nodejs_faur_reader_ui_simulation():
             if (!ch5Html.includes('class="faur-ch-badge"')) {
                 throw new Error('Missing .faur-ch-badge in Chapter 5');
             }
-            if (!ch5Html.includes('class="faur-tab-title"')) {
-                throw new Error('Missing .faur-tab-title in Chapter 5');
-            }
             if (!ch5Html.includes('class="sr-only"')) {
                 throw new Error('Missing .sr-only in Chapter 5');
             }
-            if (!ch5Html.includes('Homo Mysticus, Chapter 2 - Anthropocentric Theology')) {
-                throw new Error('Missing citation "Homo Mysticus, Chapter 2 - Anthropocentric Theology" in Chapter 5');
+            if (ch5Html.includes('Homo Mysticus, Chapter 2 - Anthropocentric Theology')) {
+                throw new Error('Found demoted citation "Homo Mysticus, Chapter 2 - Anthropocentric Theology" in Chapter 5');
             }
             if (!ch5Html.includes('Homo Mysticus, Chapter 3 - The Fault with Aristotle')) {
                 throw new Error('Missing citation "Homo Mysticus, Chapter 3 - The Fault with Aristotle" in Chapter 5');
@@ -299,6 +296,15 @@ def test_nodejs_faur_reader_ui_simulation():
             }
             if (!ch5Html.includes('רייס אלפלאספה')) {
                 throw new Error('Missing Hebrew script רייס אלפלאספה in Chapter 5 key terms chip');
+            }
+
+            // Verify .faur-tab-title renders conditionally for multi-section cases
+            const multiSectionHtml = renderFaurTopBox([
+                { id: 'sec1', section_title: 'Section 1', part_title: 'Part 1', faur_chapter: 1, content_html: '<p>A</p>' },
+                { id: 'sec2', section_title: 'Section 2', part_title: 'Part 2', faur_chapter: 2, content_html: '<p>B</p>' }
+            ], 'test-slug');
+            if (!multiSectionHtml.includes('class="faur-tab-title"')) {
+                throw new Error('Missing .faur-tab-title in multi-section top box');
             }
 
             // 5. Test toggleFaurTopBox()
@@ -311,12 +317,12 @@ def test_nodejs_faur_reader_ui_simulation():
             }
 
             // STEP 4: Footnote Resolution into #fn-panel
-            await showFn('fn.faur.part-1---chapter-5.fn_part-two_183');
+            await showFn('fn.faur.part-1---chapter-5.fn_part-three_94');
             if (!elements['fn-panel'].classList.contains('open')) throw new Error('Footnote panel failed to open for Faur note');
             if (!elements['main-container'].classList.contains('fn-open')) throw new Error('main-container missing fn-open');
             const fnBodyHtml = elements['fn-panel-body'].innerHTML;
             if (!fnBodyHtml.includes("Faur's Note")) throw new Error("Missing Faur's Note label in fn-panel-body");
-            if (!fnBodyHtml.includes("Shemona Peraqim")) throw new Error("Missing expected footnote text in fn-panel-body");
+            if (!fnBodyHtml.includes("Studies in the Mishne Tora")) throw new Error("Missing expected footnote text 'Studies in the Mishne Tora' in fn-panel-body");
 
             // Close footnote panel
             closeFnPanel();

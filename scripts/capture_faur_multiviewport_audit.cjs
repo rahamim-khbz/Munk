@@ -5,7 +5,7 @@ const { spawn } = require('child_process');
 
 const PORT = 8092;
 const CHROME_PORT = 9226;
-const ROOT_DIR = "/Users/rayhabbaz/Munk's Guide";
+const ROOT_DIR = path.resolve(__dirname, '..');
 const PROFILE_DIR = path.join(ROOT_DIR, 'scratch/chrome_audit_profile');
 const SCREENSHOT_DIR = path.join(ROOT_DIR, 'scratch/faur_multiviewport_audit');
 const CHROME_BIN = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
@@ -270,35 +270,35 @@ async function run() {
                 const firstCit = topBox.querySelector('.faur-subsection-citation');
                 const citText = firstCit ? firstCit.textContent.trim() : '';
                 const hasPageRange = topBox.innerHTML.includes('Homo Mysticus, pp.');
+                const readLink = topBox.querySelector('.faur-read-link');
+                const readLinkText = readLink ? readLink.textContent.trim() : '';
 
                 return {
                     isDisplayBlock,
                     pushDownDelta,
                     citText,
-                    hasPageRange
+                    hasPageRange,
+                    readLinkText
                 };
             })()`);
 
             await sleep(400);
             if (!expandAudit.isDisplayBlock) throw new Error(`[${vp.name}] Top box did not expand`);
             if (expandAudit.pushDownDelta < 150) throw new Error(`[${vp.name}] Push-down delta too small: ${expandAudit.pushDownDelta}`);
-            if (!expandAudit.citText.includes('Homo Mysticus, Chapter 2 - Anthropocentric Theology')) {
+            if (!expandAudit.citText.includes('Homo Mysticus, Chapter 3 - The Fault with Aristotle')) {
                 throw new Error(`[${vp.name}] Unexpected citation: ${expandAudit.citText}`);
+            }
+            if (!expandAudit.readLinkText.includes('Read full section in Homo Mysticus (Chapter 3) ↗')) {
+                throw new Error(`[${vp.name}] Unexpected read link text: ${expandAudit.readLinkText}`);
             }
             if (expandAudit.hasPageRange) throw new Error(`[${vp.name}] Found deprecated page range "Homo Mysticus, pp."`);
 
             await cdp.captureScreenshot(path.join(SCREENSHOT_DIR, `02_${vp.name}_ch5_expanded_sub1.png`));
 
-            // 3. Click 3rd subsection tab (Homo Mysticus, Chapter 3 - The Fault with Aristotle)
-            const tabAudit = await cdp.evaluate(`(() => {
-                const tabs = document.querySelectorAll('.faur-subsection-tab');
-                if (tabs.length >= 3) {
-                    tabs[2].click();
-                } else if (tabs.length > 1) {
-                    tabs[1].click();
-                }
+            // 3. Verify active subsection (Homo Mysticus, Chapter 3 - The Fault with Aristotle) and key terms
+            const subAudit = await cdp.evaluate(`(() => {
                 const openBody = document.querySelector('.faur-subsection-card.open .faur-subsection-body') ||
-                                 document.querySelectorAll('.faur-subsection-body')[2];
+                                 document.querySelector('.faur-subsection-body');
                 const contentHtml = openBody ? openBody.innerHTML : '';
                 const activeCit = document.querySelector('.faur-subsection-card.open .faur-subsection-citation');
                 const citText = activeCit ? activeCit.textContent.trim() : '';
@@ -313,37 +313,40 @@ async function run() {
             })()`);
 
             await sleep(300);
-            if (!tabAudit.citText.includes('Chapter 3 - The Fault with Aristotle')) {
-                throw new Error(`[${vp.name}] Tab switch failed to activate subsection: ${tabAudit.citText}`);
+            if (!subAudit.citText.includes('Chapter 3 - The Fault with Aristotle')) {
+                throw new Error(`[${vp.name}] Active subsection citation mismatch: ${subAudit.citText}`);
             }
-            if (!tabAudit.hasRayyis || !tabAudit.hasHebrew) {
+            if (!subAudit.hasRayyis || !subAudit.hasHebrew) {
                 throw new Error(`[${vp.name}] Missing key terms in active subsection`);
             }
 
             await cdp.captureScreenshot(path.join(SCREENSHOT_DIR, `03_${vp.name}_ch5_sub3_rayyis.png`));
 
-            // 4. Click a footnote callout inside #faur-top-box
+            // 4. Click a footnote callout inside #faur-top-box (targeting note 94: Studies in the Mishne Tora)
             const fnAudit = await cdp.evaluate(`(async () => {
-                const fnRef = document.querySelector('.faur-subsection-card.open .faur-fn-ref');
-                if (fnRef) {
-                    fnRef.click();
+                const fnRefs = Array.from(document.querySelectorAll('.faur-subsection-card.open .faur-fn-ref'));
+                const targetRef = fnRefs.find(el => el.getAttribute('onclick') && el.getAttribute('onclick').includes('fn_part-three_94')) || fnRefs[0];
+                if (targetRef) {
+                    targetRef.click();
                 } else {
-                    await showFn('fn.faur.part-1---chapter-5.fn_part-two_183');
+                    await showFn('fn.faur.part-1---chapter-5.fn_part-three_94');
                 }
                 const panel = document.getElementById('fn-panel');
                 const body = document.getElementById('fn-panel-body');
                 const isOpen = panel.classList.contains('open');
                 const hasFaurLabel = body.innerHTML.includes("Faur's Note");
+                const hasNoteContent = body.innerHTML.includes("Studies in the Mishne Tora");
 
                 return {
                     isOpen,
-                    hasFaurLabel
+                    hasFaurLabel,
+                    hasNoteContent
                 };
             })()`);
 
             await sleep(400);
-            if (!fnAudit.isOpen || !fnAudit.hasFaurLabel) {
-                throw new Error(`[${vp.name}] Footnote panel failed to open with Faur label`);
+            if (!fnAudit.isOpen || !fnAudit.hasFaurLabel || !fnAudit.hasNoteContent) {
+                throw new Error(`[${vp.name}] Footnote panel failed to open with Faur label and Studies in the Mishne Tora`);
             }
 
             await cdp.captureScreenshot(path.join(SCREENSHOT_DIR, `04_${vp.name}_ch5_footnote_open.png`));
