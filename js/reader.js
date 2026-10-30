@@ -248,19 +248,6 @@ function renderFaurTopBox(sections, slug) {
         const readLinkHref = `Homo_Mysticus_Sample_Chapters.html?ch=${encodeURIComponent(entry.slug || slug)}`;
         const processedContent = formatFaurContent(entry.content_html, entry.slug || slug);
         const isOpenInitially = (idx === 0);
-        const keyTerms = entry.key_terms || [];
-        const keyTermsHtml = keyTerms.length > 0 ? `
-            <div class="faur-key-terms-bar">
-                ${keyTerms.map(kt => `
-                    <div class="faur-key-term-chip">
-                        <span class="faur-key-term-label">Key Term:</span>
-                        ${kt.term ? `<strong class="faur-key-term-name">${kt.term}</strong>` : ''}
-                        ${kt.original_script ? `<span class="faur-key-term-orig" dir="rtl" lang="he">${kt.original_script}</span>` : ''}
-                        ${kt.anchor_label ? `<span class="faur-key-term-desc">— ${kt.anchor_label}</span>` : ''}
-                    </div>
-                `).join('')}
-            </div>
-        ` : '';
 
         return `
             <div class="faur-subsection-card ${isOpenInitially ? 'open' : ''}" data-subsection-index="${idx}">
@@ -270,7 +257,6 @@ function renderFaurTopBox(sections, slug) {
                     </div>
                 </div>
                 <div class="faur-subsection-body ${isOpenInitially ? 'open' : ''}">
-                    ${keyTermsHtml}
                     <div class="faur-subsection-content">
                         ${processedContent}
                     </div>

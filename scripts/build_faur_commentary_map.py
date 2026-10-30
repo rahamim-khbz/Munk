@@ -704,7 +704,7 @@ def build_tier2_glosses(chunks: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any
                 c27["blocks"][10]["footnote_ids"]
             )
         },
-        # 2. Aristotle as the Aṣīle of Israel (Remediated: Row 4.3 with authentic verbatim script)
+        # 2. Aṣīle of the Children of Israel (Remediated: Row 4.3 with authentic verbatim script)
         {
             "id": "tier2_part-1---chapter-5_asile",
             "slug": "part-1---chapter-5",
@@ -712,7 +712,7 @@ def build_tier2_glosses(chunks: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any
             "term": "aṣīle",
             "original_script": "אצילי בני ישראל",
             "target_variant": "jrb",
-            "anchor_label": "Aristotle as the Aṣīle (Nobles of Israel)",
+            "anchor_label": "Aṣīle of the Children of Israel (Ex 24:10)",
             "faur_pages": [108, 109, 218],
             "analysis_html": f"<p class='book-paragraph'>{c27['blocks'][10]['html']}</p>",
             "footnotes": extract_fn_dict(c27["blocks"][10]["footnote_ids"])
@@ -1216,30 +1216,6 @@ def build_commentary_map() -> Dict[str, Any]:
     # Sort Tier 1 chunks first so numbered chapters precede Introduction deterministically
     for ch_obj in chapters_dict.values():
         ch_obj["tier1"].sort(key=lambda e: (0 if e["faur_chapter"] is not None else 1, e["chunk_id"]))
-
-    # Populate key_terms on matching Tier 1 chunk from Tier 2 entries (using maximum page overlap)
-    for ch_obj in chapters_dict.values():
-        for entry in ch_obj["tier2"]:
-            entry_pages = set(entry.get("faur_pages", []))
-            matching_t1 = None
-            if ch_obj["tier1"]:
-                best_t1 = None
-                best_overlap = 0
-                for t1 in ch_obj["tier1"]:
-                    overlap = len(entry_pages.intersection(set(t1.get("faur_pages", []))))
-                    if overlap > best_overlap:
-                        best_overlap = overlap
-                        best_t1 = t1
-                matching_t1 = best_t1 if best_overlap > 0 else ch_obj["tier1"][0]
-
-            if matching_t1 is not None:
-                term_obj = {
-                    "term": entry["term"],
-                    "original_script": entry["original_script"],
-                    "anchor_label": entry["anchor_label"]
-                }
-                if term_obj not in matching_t1["key_terms"]:
-                    matching_t1["key_terms"].append(term_obj)
 
     # --- Phase 3: Compile Tier 3 (Incidental Proof-Texts & Demoted Mentions) ---
     total_tier3 = 0

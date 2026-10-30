@@ -295,7 +295,7 @@ async function run() {
 
             await cdp.captureScreenshot(path.join(SCREENSHOT_DIR, `02_${vp.name}_ch5_expanded_sub1.png`));
 
-            // 3. Verify active subsection (Homo Mysticus, Chapter 3 - The Fault with Aristotle) and key terms
+            // 3. Verify active subsection (Homo Mysticus, Chapter 3 - The Fault with Aristotle) and pure Faur quote (no synthetic key terms)
             const subAudit = await cdp.evaluate(`(() => {
                 const openBody = document.querySelector('.faur-subsection-card.open .faur-subsection-body') ||
                                  document.querySelector('.faur-subsection-body');
@@ -303,12 +303,12 @@ async function run() {
                 const activeCit = document.querySelector('.faur-subsection-card.open .faur-subsection-citation');
                 const citText = activeCit ? activeCit.textContent.trim() : '';
                 const hasRayyis = contentHtml.includes('rayyis');
-                const hasHebrew = contentHtml.includes('רייס אלפלאספה');
+                const hasKeyTermsBar = contentHtml.includes('faur-key-terms-bar') || contentHtml.includes('Key Term:');
 
                 return {
                     citText,
                     hasRayyis,
-                    hasHebrew
+                    hasKeyTermsBar
                 };
             })()`);
 
@@ -316,8 +316,11 @@ async function run() {
             if (!subAudit.citText.includes('Chapter 3 - The Fault with Aristotle')) {
                 throw new Error(`[${vp.name}] Active subsection citation mismatch: ${subAudit.citText}`);
             }
-            if (!subAudit.hasRayyis || !subAudit.hasHebrew) {
-                throw new Error(`[${vp.name}] Missing key terms in active subsection`);
+            if (!subAudit.hasRayyis) {
+                throw new Error(`[${vp.name}] Missing Faur quote text in active subsection`);
+            }
+            if (subAudit.hasKeyTermsBar) {
+                throw new Error(`[${vp.name}] Found synthetic key terms bar in active subsection`);
             }
 
             await cdp.captureScreenshot(path.join(SCREENSHOT_DIR, `03_${vp.name}_ch5_sub3_rayyis.png`));

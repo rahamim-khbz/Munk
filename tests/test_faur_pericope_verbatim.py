@@ -84,6 +84,11 @@ def test_tier1_counts_and_anti_bloat():
             f"Entry {entry_id} in {slug} violates block limits: {num_blocks} blocks (allowed: 1..5)"
         )
 
+        # Invariant: Zero synthetic key_terms in Tier 1 entries (pure verbatim Faur quotes only)
+        assert entry.get("key_terms", []) == [], (
+            f"Entry {entry_id} in {slug} contains synthetic key_terms: {entry.get('key_terms')}"
+        )
+
         clean_text = re.sub(r'<[^>]+>', ' ', content_html)
         word_count = len(clean_text.split())
         assert word_count <= 800, (

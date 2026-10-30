@@ -275,7 +275,7 @@ def test_nodejs_faur_reader_ui_simulation():
                 throw new Error('Found deprecated page range "Homo Mysticus, pp." in Chapter 5');
             }
 
-            // 4. Verify Option 2 Compact Grid UI, Citations & Key Terms
+            // 4. Verify Option 2 Compact Grid UI, Citations & Zero Synthetic Key Terms
             if (!ch5Html.includes('class="faur-box-banner"')) {
                 throw new Error('Missing .faur-box-banner in Chapter 5');
             }
@@ -291,11 +291,11 @@ def test_nodejs_faur_reader_ui_simulation():
             if (!ch5Html.includes('Homo Mysticus, Chapter 3 - The Fault with Aristotle')) {
                 throw new Error('Missing citation "Homo Mysticus, Chapter 3 - The Fault with Aristotle" in Chapter 5');
             }
-            if (!ch5Html.includes('rayyis')) {
-                throw new Error('Missing key term rayyis in Chapter 5 commentary');
+            if (ch5Html.includes('faur-key-terms-bar') || ch5Html.includes('faur-key-term-chip') || ch5Html.includes('Key Term:')) {
+                throw new Error('Found synthetic key terms bar in Chapter 5 — only pure quotes from Faur are allowed');
             }
-            if (!ch5Html.includes('רייס אלפלאספה')) {
-                throw new Error('Missing Hebrew script רייס אלפלאספה in Chapter 5 key terms chip');
+            if (ch5Html.includes('Aristotle as the Aṣīle')) {
+                throw new Error('Found synthetic anchor label "Aristotle as the Aṣīle" in Chapter 5');
             }
 
             // Verify .faur-tab-title renders conditionally for multi-section cases

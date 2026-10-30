@@ -625,8 +625,10 @@ def verify_ui_behavior_and_dom_invariants() -> int:
             if (!ch5Html.includes('Homo Mysticus, Chapter 3 - The Fault with Aristotle')) {
                 throw new Error('Missing citation "Homo Mysticus, Chapter 3 - The Fault with Aristotle"');
             }
-            if (!ch5Html.includes('rayyis')) throw new Error('Missing key term rayyis');
-            if (!ch5Html.includes('רייס אלפלאספה')) throw new Error('Missing Hebrew script רייס אלפלאספה');
+            if (!ch5Html.includes('rayyis')) throw new Error('Missing term rayyis in Faur commentary quote');
+            if (ch5Html.includes('faur-key-terms-bar') || ch5Html.includes('faur-key-term-chip') || ch5Html.includes('Key Term:')) {
+                throw new Error('Found synthetic key terms bar in Chapter 5 — only pure quotes from Faur are allowed');
+            }
             if (!ch5Html.includes('Read full section in Homo Mysticus (Chapter 3) ↗')) {
                 throw new Error('Missing .faur-read-link text "Read full section in Homo Mysticus (Chapter 3) ↗"');
             }
