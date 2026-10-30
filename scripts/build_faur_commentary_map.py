@@ -6,11 +6,13 @@ Compiles the scholarly commentary map from José Faur's Homo Mysticus (1998)
 into a production-grade 3-tier taxonomy mapped to Salomon Munk's Guide for the Perplexed.
 
 3-Tier Taxonomy:
-  - Tier 1 (Extended Exegesis): Multi-paragraph deep philosophical, structural, or political
-    critiques of entire chapters, preserving Faur's verbatim text, HTML markup, and resolved footnotes.
+  - Tier 1 (Curated Pericopes): Focused, verbatim 1–4 block excerpts (max 600–800 words)
+    of deep philosophical, structural, or political critiques across ~28–30 core chapters,
+    preserving Faur's verbatim text, HTML markup, and resolved footnotes.
   - Tier 2 (Philological & Conceptual Anchors): Targeted analyses of specific Hebrew / Judeo-Arabic
     terminology (e.g. rayyis, burhan, derekh, manthūra, Kalam) anchored to exact paragraph row keys.
-  - Tier 3 (Incidental Proof-Texts): Footnote-only passing citations collated into chapter indices.
+  - Tier 3 (Incidental Proof-Texts & Demoted Mentions): Footnote-only passing citations and
+    demoted secondary thematic mentions collated into chapter indices.
 
 Output Artifacts:
   - data/faur_commentary_map.json
@@ -305,6 +307,192 @@ CHUNK_TIER1_TARGETS: Dict[str, List[str]] = {
         "part-3---chapter-30"
     ]
 }
+
+# Curated Tier 1 Pericopes: strictly 1-4 contiguous blocks, max 600-800 words
+CURATED_TIER1_PERICOPES: List[Dict[str, Any]] = [
+    # a) Chapters with Tier 2 anchors (20 chapters):
+    {
+        "slug": "part-1---chapter-1",
+        "chunk_id": "chunk_33_man_before_seth",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-1---chapter-5",
+        "chunk_id": "chunk_27_the_fault_with_aristotle",
+        "start_block": 6,
+        "end_block": 9,
+    },
+    {
+        "slug": "part-1---chapter-7",
+        "chunk_id": "chunk_33_man_before_seth",
+        "start_block": 4,
+        "end_block": 6,
+    },
+    {
+        "slug": "part-1---chapter-15",
+        "chunk_id": "chunk_44_up_and_down_jacobs_ladder",
+        "start_block": 0,
+        "end_block": 0,
+    },
+    {
+        "slug": "part-1---chapter-31",
+        "chunk_id": "chunk_26_the_perimeters_of_aristotelian_rationality",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-1---chapter-32",
+        "chunk_id": "chunk_26_the_perimeters_of_aristotelian_rationality",
+        "start_block": 3,
+        "end_block": 5,
+    },
+    {
+        "slug": "part-1---chapter-51",
+        "chunk_id": "chunk_11_at_the_crossroads",
+        "start_block": 8,
+        "end_block": 10,
+    },
+    {
+        "slug": "part-1---chapter-58",
+        "chunk_id": "chunk_02_the_dialectics_of_apophatic_knowledge",
+        "start_block": 5,
+        "end_block": 7,
+    },
+    {
+        "slug": "part-1---chapter-59",
+        "chunk_id": "chunk_03_apophasis_and_paradox",
+        "start_block": 1,
+        "end_block": 3,
+    },
+    {
+        "slug": "part-1---chapter-71",
+        "chunk_id": "chunk_24_in_search_of_the_ultimate_reality",
+        "start_block": 2,
+        "end_block": 5,
+    },
+    {
+        "slug": "part-2---chapter-13",
+        "chunk_id": "chunk_23_creation_ex_nihilo",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-2---chapter-30",
+        "chunk_id": "chunk_30_maase_bereshit",
+        "start_block": 0,
+        "end_block": 0,
+    },
+    {
+        "slug": "part-2---chapter-33",
+        "chunk_id": "chunk_37_witnessing_prophecy",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-2---chapter-36",
+        "chunk_id": "chunk_19_prophecy_and_the_epistemology_of_the_creative_mind",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-3---chapter-8",
+        "chunk_id": "chunk_11_at_the_crossroads",
+        "start_block": 11,
+        "end_block": 13,
+    },
+    {
+        "slug": "part-3---chapter-32",
+        "chunk_id": "chunk_38_overcoming_the_pagan_past",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-3---chapter-51",
+        "chunk_id": "chunk_43_training_for_intellectual_worship",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-3---chapter-54",
+        "chunk_id": "chunk_42_knowing_by_virtue_of_perfection",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "maimonides-prefatory-remarks",
+        "chunk_id": "chunk_08_the_resolution_of_unconcluded_subscripts",
+        "start_block": 0,
+        "end_block": 0,
+    },
+    {
+        "slug": "maimonides-letter-to-r-joseph-son-of-judah",
+        "chunk_id": "chunk_12_the_epistle_to_the_student_reader",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    # b) Primary Guide exegesis chapters (10 chapters):
+    {
+        "slug": "maimonides-introduction-to-part-1",
+        "chunk_id": "chunk_04_the_acquisition_of_esoteric_instruction",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-1---chapter-2",
+        "chunk_id": "chunk_16_transference_of_meaning",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-1---chapter-3",
+        "chunk_id": "chunk_20_the_prophets_reflective_consciousness",
+        "start_block": 1,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-1---chapter-33",
+        "chunk_id": "chunk_04_the_acquisition_of_esoteric_instruction",
+        "start_block": 3,
+        "end_block": 5,
+    },
+    {
+        "slug": "part-2---chapter-29",
+        "chunk_id": "chunk_13_the_guide_in_function_of_metatron",
+        "start_block": 0,
+        "end_block": 1,
+    },
+    {
+        "slug": "part-2---chapter-38",
+        "chunk_id": "chunk_22_joining_the_angelical_beings_in_chorus_and_dance",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-2---chapter-45",
+        "chunk_id": "chunk_20_the_prophets_reflective_consciousness",
+        "start_block": 4,
+        "end_block": 6,
+    },
+    {
+        "slug": "part-3---chapter-24",
+        "chunk_id": "chunk_39_the_archetypes_of_israel",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "part-3---chapter-27",
+        "chunk_id": "chunk_41_the_demarcation_of_cultures",
+        "start_block": 0,
+        "end_block": 2,
+    },
+    {
+        "slug": "maimonides-introduction-to-part-3",
+        "chunk_id": "chunk_05_dissemination_of_esoteric_knowledge",
+        "start_block": 0,
+        "end_block": 2,
+    },
+]
 
 
 def load_valid_chapters() -> Dict[str, str]:
@@ -915,37 +1103,70 @@ def build_commentary_map() -> Dict[str, Any]:
             }
         return chapters_dict[slug]
 
-    # --- Phase 1: Compile Tier 1 (Extended Exegesis) ---
+    # --- Phase 1: Compile Tier 1 (Curated Extended Exegesis Pericopes) ---
     total_tier1 = 0
-    for chunk_id, target_slugs in CHUNK_TIER1_TARGETS.items():
-        chunk = chunks[chunk_id]
-        content_html = build_chunk_content_html(chunk["blocks"])
-        footnotes_dict = {fn["id"]: fn["html"] for fn in chunk["footnotes"]}
-        pages = SECTION_PAGE_RANGES.get(chunk_id, [chunk["chunk_index"] + 1])
-        first_text = chunk["blocks"][0]["text"] if chunk["blocks"] else ""
-        faur_ch_num, citation_str = format_faur_citation(chunk["part_title"], chunk["title"])
+    curated_pairs = set((p["chunk_id"], p["slug"]) for p in CURATED_TIER1_PERICOPES)
 
-        for slug in target_slugs:
-            if slug not in valid_slugs_set:
-                print(f"Warning: Skipping invalid slug {slug} in Tier 1")
-                continue
-            ch_obj = get_or_create_chapter(slug)
-            tier1_entry = {
-                "id": f"tier1_{chunk_id}_{slug}",
-                "chunk_id": chunk_id,
-                "slug": slug,
-                "section_title": chunk["title"],
-                "part_title": chunk["part_title"],
-                "faur_chapter": faur_ch_num,
-                "citation": citation_str,
-                "faur_pages": pages,
-                "thesis_summary": first_text,
-                "content_html": content_html,
-                "footnotes": footnotes_dict,
-                "key_terms": []
-            }
-            ch_obj["tier1"].append(tier1_entry)
-            total_tier1 += 1
+    for pericope in CURATED_TIER1_PERICOPES:
+        slug = pericope["slug"]
+        chunk_id = pericope["chunk_id"]
+        start_block = pericope["start_block"]
+        end_block = pericope["end_block"]
+
+        if slug not in valid_slugs_set:
+            print(f"Warning: Skipping invalid slug {slug} in Tier 1")
+            continue
+
+        chunk = chunks[chunk_id]
+        blocks = chunk["blocks"]
+
+        assert 0 <= start_block <= end_block < len(blocks), (
+            f"Invalid block range [{start_block}, {end_block}] for chunk {chunk_id} (len {len(blocks)})"
+        )
+        sliced_blocks = blocks[start_block : end_block + 1]
+        assert len(sliced_blocks) <= 5, (
+            f"Pericope for {slug} exceeds 5 blocks: {len(sliced_blocks)}"
+        )
+        word_count = sum(len(b.get("text", "").split()) for b in sliced_blocks)
+        assert word_count <= 800, (
+            f"Pericope for {slug} exceeds 800 words: {word_count}"
+        )
+
+        # Footnote resolution for sliced blocks only
+        needed_fn_ids = set()
+        for b in sliced_blocks:
+            for fid in b.get("footnote_ids", []):
+                needed_fn_ids.add(fid)
+
+        chunk_fn_map = {fn["id"]: fn["html"] for fn in chunk["footnotes"]}
+        sliced_footnotes = {fid: chunk_fn_map[fid] for fid in needed_fn_ids if fid in chunk_fn_map}
+
+        pages = SECTION_PAGE_RANGES.get(chunk_id, [chunk["chunk_index"] + 1])
+        first_text = sliced_blocks[0]["text"] if sliced_blocks else ""
+        faur_ch_num, citation_str = format_faur_citation(chunk["part_title"], chunk["title"])
+        page_range_str = f"pp. {pages[0]}–{pages[-1]}" if len(pages) > 1 else f"p. {pages[0]}"
+
+        ch_obj = get_or_create_chapter(slug)
+        tier1_entry = {
+            "id": f"tier1_{chunk_id}_{slug}",
+            "chunk_id": chunk_id,
+            "slug": slug,
+            "section_title": chunk["title"],
+            "part_title": chunk["part_title"],
+            "faur_chapter": faur_ch_num,
+            "faur_chapter_num": faur_ch_num,
+            "citation": citation_str,
+            "faur_pages": pages,
+            "page_range": page_range_str,
+            "start_block": start_block,
+            "end_block": end_block,
+            "thesis_summary": first_text,
+            "content_html": build_chunk_content_html(sliced_blocks),
+            "footnotes": sliced_footnotes,
+            "key_terms": []
+        }
+        ch_obj["tier1"].append(tier1_entry)
+        total_tier1 += 1
 
     # --- Phase 2: Compile Tier 2 (Philological & Conceptual Anchors) ---
     tier2_entries = build_tier2_glosses(chunks)
@@ -1020,14 +1241,14 @@ def build_commentary_map() -> Dict[str, Any]:
                 if term_obj not in matching_t1["key_terms"]:
                     matching_t1["key_terms"].append(term_obj)
 
-    # --- Phase 3: Compile Tier 3 (Incidental Proof-Texts) ---
+    # --- Phase 3: Compile Tier 3 (Incidental Proof-Texts & Demoted Mentions) ---
     total_tier3 = 0
-    last_p: Optional[int] = None
     for chunk in chunks.values():
         chunk_id = chunk["chunk_id"]
         sec_title = chunk["title"]
         pages = SECTION_PAGE_RANGES.get(chunk_id, [1])
         base_page = pages[0]
+        last_p: Optional[int] = None
 
         for fn in chunk["footnotes"]:
             fn_id = fn["id"]
@@ -1045,6 +1266,30 @@ def build_commentary_map() -> Dict[str, Any]:
                 }
                 ch_obj["tier3"].append(tier3_entry)
                 total_tier3 += 1
+
+    # Demote original CHUNK_TIER1_TARGETS not in CURATED_TIER1_PERICOPES to Tier 3
+    for chunk_id, target_slugs in CHUNK_TIER1_TARGETS.items():
+        chunk = chunks[chunk_id]
+        pages = SECTION_PAGE_RANGES.get(chunk_id, [chunk["chunk_index"] + 1])
+        base_page = pages[0]
+        pp_range = f"pp. {pages[0]}–{pages[-1]}" if len(pages) > 1 else f"p. {pages[0]}"
+
+        for slug in target_slugs:
+            if slug not in valid_slugs_set:
+                continue
+            if (chunk_id, slug) in curated_pairs:
+                continue
+
+            ch_obj = get_or_create_chapter(slug)
+            demoted_entry = {
+                "id": f"tier3_demoted_{chunk_id}_{slug}",
+                "source_chunk_id": chunk_id,
+                "faur_section": chunk["title"],
+                "faur_page": base_page,
+                "citation_text": f"Homo Mysticus, {chunk['part_title']} — '{chunk['title']}' ({pp_range}) discusses themes relevant to this chapter."
+            }
+            ch_obj["tier3"].append(demoted_entry)
+            total_tier3 += 1
 
     # --- Phase 4: Construct Master Commentary Map ---
     commentary_map = {
