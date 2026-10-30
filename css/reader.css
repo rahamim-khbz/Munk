@@ -438,6 +438,10 @@ html.dark .faur-subsection-tab.active .faur-ch-badge {
     font-weight: 700;
     color: var(--accent);
     line-height: 1.35;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 .faur-subsection-author,
 .faur-subsection-toggle-icon {
@@ -525,6 +529,23 @@ html.dark .faur-subsection-tab.active .faur-ch-badge {
     border-top: 1px dashed var(--border);
     font-size: 0.8rem;
     color: var(--text-muted);
+}
+.faur-read-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.15s ease;
+}
+.faur-read-link:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+}
+.faur-footer-sep {
+    margin: 0 8px;
+    color: var(--border);
 }
 
 /* ---- HM note feedback (thumbs up / down) ---- */

@@ -102,6 +102,15 @@ const FAUR_PART_CHAPTER_MAP = {
     'Part Four: Anthropology': 4
 };
 
+function escapeAttr(str) {
+    return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
 function formatFaurCitation(entry) {
     if (!entry) return 'Homo Mysticus';
     if (entry.citation) return entry.citation;
@@ -138,6 +147,12 @@ function formatFaurCardHeading(entry) {
         return 'Introduction';
     }
     return entry.section_title || 'Homo Mysticus';
+}
+
+function formatFaurReadLink(entry) {
+    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
+    const chLabel = chNum ? `Chapter ${chNum}` : (entry.part_title === 'Introduction' ? 'Introduction' : (entry.section_title || 'Section'));
+    return `Read full section in Homo Mysticus (${chLabel}) ↗`;
 }
 
 function formatFaurContent(htmlStr, slug) {
@@ -220,14 +235,17 @@ function renderFaurTopBox(sections, slug) {
                 const cit = formatFaurCitation(entry);
                 const badge = formatFaurBadge(entry);
                 const cleanTitle = formatFaurCleanTitle(entry);
-                return `<button type="button" role="tab" class="faur-subsection-tab ${idx === 0 ? 'active' : ''}" aria-selected="${idx === 0 ? 'true' : 'false'}" title="${cit}" onclick="switchFaurSubsection(${idx})"><span class="faur-ch-badge">${badge}</span><span class="faur-tab-title">${cleanTitle}</span></button>`;
+                return `<button type="button" role="tab" class="faur-subsection-tab ${idx === 0 ? 'active' : ''}" aria-selected="${idx === 0 ? 'true' : 'false'}" title="${escapeAttr(cit)}" onclick="switchFaurSubsection(${idx})"><span class="faur-ch-badge">${badge}</span><span class="faur-tab-title">${cleanTitle}</span></button>`;
             }).join('')}
         </div>
     ` : '';
 
     const cardsHtml = sections.map((entry, idx) => {
         const citation = formatFaurCitation(entry);
+        const badge = formatFaurBadge(entry);
         const cardHeading = formatFaurCardHeading(entry);
+        const readLinkText = formatFaurReadLink(entry);
+        const readLinkHref = `Homo_Mysticus_Sample_Chapters.html?ch=${encodeURIComponent(entry.slug || slug)}`;
         const processedContent = formatFaurContent(entry.content_html, entry.slug || slug);
         const isOpenInitially = (idx === 0);
         const keyTerms = entry.key_terms || [];
@@ -246,9 +264,9 @@ function renderFaurTopBox(sections, slug) {
 
         return `
             <div class="faur-subsection-card ${isOpenInitially ? 'open' : ''}" data-subsection-index="${idx}">
-                <div class="faur-subsection-header" aria-expanded="${isOpenInitially ? 'true' : 'false'}">
+                <div class="faur-subsection-header">
                     <div class="faur-subsection-header-main">
-                        <div class="faur-subsection-citation" data-citation="${citation}">${cardHeading}<span class="sr-only"> (${citation})</span></div>
+                        <div class="faur-subsection-citation" data-citation="${escapeAttr(citation)}"><span class="faur-ch-badge">${badge}</span> ${cardHeading}<span class="sr-only"> (${citation})</span></div>
                     </div>
                 </div>
                 <div class="faur-subsection-body ${isOpenInitially ? 'open' : ''}">
@@ -257,7 +275,9 @@ function renderFaurTopBox(sections, slug) {
                         ${processedContent}
                     </div>
                     <div class="faur-subsection-footer">
-                        José Faur, <em>Homo Mysticus: A Guide to Maimonides's Guide for the Perplexed</em> (Syracuse University Press, 1998)
+                        <a href="${readLinkHref}" target="_blank" rel="noopener" class="faur-read-link">${readLinkText}<span class="sr-only"> (opens in new tab)</span></a>
+                        <span class="faur-footer-sep">·</span>
+                        <span>José Faur, <em>Homo Mysticus: A Guide to Maimonides's Guide for the Perplexed</em> (Syracuse University Press, 1998)</span>
                     </div>
                     ${typeof renderHmFeedback === 'function' ? renderHmFeedback(entry.id, entry.slug || slug, entry.section_title) : ''}
                 </div>
