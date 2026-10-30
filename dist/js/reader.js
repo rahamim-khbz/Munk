@@ -102,6 +102,15 @@ const FAUR_PART_CHAPTER_MAP = {
     'Part Four: Anthropology': 4
 };
 
+function escapeAttr(str) {
+    return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
 function formatFaurCitation(entry) {
     if (!entry) return 'Homo Mysticus';
     if (entry.citation) return entry.citation;
@@ -113,6 +122,37 @@ function formatFaurCitation(entry) {
         return 'Homo Mysticus, Introduction';
     }
     return entry.section_title ? `Homo Mysticus - ${entry.section_title}` : 'Homo Mysticus';
+}
+
+function formatFaurBadge(entry) {
+    if (!entry) return 'HM';
+    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
+    if (chNum) return 'Ch. ' + chNum;
+    if (entry.part_title === 'Introduction' || entry.section_title === 'Introduction') return 'Intro';
+    return 'HM';
+}
+
+function formatFaurCleanTitle(entry) {
+    if (!entry) return 'Commentary';
+    return entry.section_title || 'Commentary';
+}
+
+function formatFaurCardHeading(entry) {
+    if (!entry) return 'Homo Mysticus';
+    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
+    if (chNum) {
+        return 'Chapter ' + chNum + ' — ' + (entry.section_title || 'Commentary');
+    }
+    if (entry.part_title === 'Introduction' || entry.section_title === 'Introduction') {
+        return 'Introduction';
+    }
+    return entry.section_title || 'Homo Mysticus';
+}
+
+function formatFaurReadLink(entry) {
+    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
+    const chLabel = chNum ? `Chapter ${chNum}` : (entry.part_title === 'Introduction' ? 'Introduction' : (entry.section_title || 'Section'));
+    return `Read full section in Homo Mysticus (${chLabel}) ↗`;
 }
 
 function formatFaurContent(htmlStr, slug) {
@@ -193,13 +233,19 @@ function renderFaurTopBox(sections, slug) {
         <div class="faur-subsection-tabs" role="tablist" aria-label="Homo Mysticus Subsections">
             ${sections.map((entry, idx) => {
                 const cit = formatFaurCitation(entry);
-                return `<button type="button" role="tab" class="faur-subsection-tab ${idx === 0 ? 'active' : ''}" aria-selected="${idx === 0 ? 'true' : 'false'}" onclick="switchFaurSubsection(${idx})">${cit}</button>`;
+                const badge = formatFaurBadge(entry);
+                const cleanTitle = formatFaurCleanTitle(entry);
+                return `<button type="button" role="tab" class="faur-subsection-tab ${idx === 0 ? 'active' : ''}" aria-selected="${idx === 0 ? 'true' : 'false'}" title="${escapeAttr(cit)}" onclick="switchFaurSubsection(${idx})"><span class="faur-ch-badge">${badge}</span><span class="faur-tab-title">${cleanTitle}</span></button>`;
             }).join('')}
         </div>
     ` : '';
 
     const cardsHtml = sections.map((entry, idx) => {
         const citation = formatFaurCitation(entry);
+        const badge = formatFaurBadge(entry);
+        const cardHeading = formatFaurCardHeading(entry);
+        const readLinkText = formatFaurReadLink(entry);
+        const readLinkHref = `Homo_Mysticus_Sample_Chapters.html?ch=${encodeURIComponent(entry.slug || slug)}`;
         const processedContent = formatFaurContent(entry.content_html, entry.slug || slug);
         const isOpenInitially = (idx === 0);
         const keyTerms = entry.key_terms || [];
@@ -218,20 +264,20 @@ function renderFaurTopBox(sections, slug) {
 
         return `
             <div class="faur-subsection-card ${isOpenInitially ? 'open' : ''}" data-subsection-index="${idx}">
-                <button type="button" class="faur-subsection-header" onclick="toggleFaurSubsection(this)" aria-expanded="${isOpenInitially ? 'true' : 'false'}">
+                <div class="faur-subsection-header">
                     <div class="faur-subsection-header-main">
-                        <div class="faur-subsection-citation">${citation}</div>
-                        <div class="faur-subsection-author">José Faur · <em>Homo Mysticus</em></div>
+                        <div class="faur-subsection-citation" data-citation="${escapeAttr(citation)}"><span class="faur-ch-badge">${badge}</span> ${cardHeading}<span class="sr-only"> (${citation})</span></div>
                     </div>
-                    <span class="faur-subsection-toggle-icon" aria-hidden="true">${isOpenInitially ? '▲' : '▼'}</span>
-                </button>
+                </div>
                 <div class="faur-subsection-body ${isOpenInitially ? 'open' : ''}">
                     ${keyTermsHtml}
                     <div class="faur-subsection-content">
                         ${processedContent}
                     </div>
                     <div class="faur-subsection-footer">
-                        José Faur, <em>Homo Mysticus: A Guide to Maimonides's Guide for the Perplexed</em> (Syracuse University Press, 1998)
+                        <a href="${readLinkHref}" target="_blank" rel="noopener" class="faur-read-link">${readLinkText}<span class="sr-only"> (opens in new tab)</span></a>
+                        <span class="faur-footer-sep">·</span>
+                        <span>José Faur, <em>Homo Mysticus: A Guide to Maimonides's Guide for the Perplexed</em> (Syracuse University Press, 1998)</span>
                     </div>
                     ${typeof renderHmFeedback === 'function' ? renderHmFeedback(entry.id, entry.slug || slug, entry.section_title) : ''}
                 </div>
@@ -241,6 +287,10 @@ function renderFaurTopBox(sections, slug) {
 
     return `
         <section id="faur-top-box" class="faur-top-box" aria-hidden="true" aria-label="Homo Mysticus Commentary">
+            <div class="faur-box-banner">
+                <span class="faur-box-banner-title"><strong>Homo Mysticus</strong> · José Faur Commentary</span>
+                <span class="faur-box-banner-count">${sections.length} ${sections.length === 1 ? 'section' : 'sections'}</span>
+            </div>
             ${tabsHtml}
             <div class="faur-subsections-list">
                 ${cardsHtml}
