@@ -369,13 +369,13 @@ CURATED_TIER1_PERICOPES: List[Dict[str, Any]] = [
         "slug": "part-1---chapter-71",
         "chunk_id": "chunk_24_in_search_of_the_ultimate_reality",
         "start_block": 2,
-        "end_block": 5,
+        "end_block": 4,
     },
     {
         "slug": "part-2---chapter-13",
         "chunk_id": "chunk_23_creation_ex_nihilo",
         "start_block": 0,
-        "end_block": 2,
+        "end_block": 3,
     },
     {
         "slug": "part-2---chapter-30",
@@ -387,13 +387,13 @@ CURATED_TIER1_PERICOPES: List[Dict[str, Any]] = [
         "slug": "part-2---chapter-33",
         "chunk_id": "chunk_37_witnessing_prophecy",
         "start_block": 0,
-        "end_block": 2,
+        "end_block": 3,
     },
     {
         "slug": "part-2---chapter-36",
         "chunk_id": "chunk_19_prophecy_and_the_epistemology_of_the_creative_mind",
         "start_block": 0,
-        "end_block": 2,
+        "end_block": 3,
     },
     {
         "slug": "part-3---chapter-8",
@@ -454,7 +454,7 @@ CURATED_TIER1_PERICOPES: List[Dict[str, Any]] = [
         "slug": "part-1---chapter-33",
         "chunk_id": "chunk_04_the_acquisition_of_esoteric_instruction",
         "start_block": 3,
-        "end_block": 5,
+        "end_block": 4,
     },
     {
         "slug": "part-2---chapter-29",
@@ -472,7 +472,7 @@ CURATED_TIER1_PERICOPES: List[Dict[str, Any]] = [
         "slug": "part-2---chapter-45",
         "chunk_id": "chunk_20_the_prophets_reflective_consciousness",
         "start_block": 4,
-        "end_block": 6,
+        "end_block": 5,
     },
     {
         "slug": "part-3---chapter-24",
@@ -1340,6 +1340,25 @@ def main() -> None:
     with open(root_out, "rb") as f1, open(dist_out, "rb") as f2:
         assert f1.read() == f2.read(), "FATAL: Root and dist datasets are not byte-identical!"
     print("✓ Verified byte identity between root and dist datasets.")
+
+    # Master footnotes resolution: index all 1,069 Faur notes into data/footnotes.json
+    fn_path = os.path.join(ROOT_DATA, "footnotes.json")
+    dist_fn_path = os.path.join(DIST_DATA, "footnotes.json")
+    if os.path.exists(fn_path):
+        with open(fn_path, "r", encoding="utf-8") as f:
+            master_footnotes = json.load(f)
+        chunks = load_all_chunks()
+        indexed_count = 0
+        for c in chunks.values():
+            for fn in c.get("footnotes", []):
+                master_footnotes[fn["id"]] = fn["html"]
+                indexed_count += 1
+        with open(fn_path, "w", encoding="utf-8") as f:
+            json.dump(master_footnotes, f, ensure_ascii=False, indent=2)
+        shutil.copy2(fn_path, dist_fn_path)
+        with open(fn_path, "rb") as f1, open(dist_fn_path, "rb") as f2:
+            assert f1.read() == f2.read(), "FATAL: Root and dist footnotes datasets are not byte-identical!"
+        print(f"✓ Indexed {indexed_count} Faur notes into master footnotes dataset ({fn_path}) and verified parity.")
 
     print("\n" + "=" * 70)
     print("Commentary Map Compilation Completed Successfully!")
