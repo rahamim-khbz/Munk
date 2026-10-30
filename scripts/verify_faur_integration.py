@@ -629,8 +629,11 @@ def verify_ui_behavior_and_dom_invariants() -> int:
             if (ch5Html.includes('faur-key-terms-bar') || ch5Html.includes('faur-key-term-chip') || ch5Html.includes('Key Term:')) {
                 throw new Error('Found synthetic key terms bar in Chapter 5 — only pure quotes from Faur are allowed');
             }
-            if (!ch5Html.includes('Read full section in Homo Mysticus (Chapter 3) ↗')) {
-                throw new Error('Missing .faur-read-link text "Read full section in Homo Mysticus (Chapter 3) ↗"');
+            if (ch5Html.includes('faur-read-link') || ch5Html.includes('Read full section in Homo Mysticus')) {
+                throw new Error('Found removed .faur-read-link in Chapter 5');
+            }
+            if (ch5Html.includes('hm-feedback') || ch5Html.includes('Was this Homo Mysticus note helpful?')) {
+                throw new Error('Found removed hm-feedback widget in Chapter 5');
             }
 
             toggleFaurTopBox(true);

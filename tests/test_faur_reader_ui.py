@@ -297,6 +297,12 @@ def test_nodejs_faur_reader_ui_simulation():
             if (ch5Html.includes('Aristotle as the Aṣīle')) {
                 throw new Error('Found synthetic anchor label "Aristotle as the Aṣīle" in Chapter 5');
             }
+            if (ch5Html.includes('faur-read-link') || ch5Html.includes('Read full section in Homo Mysticus')) {
+                throw new Error('Found removed .faur-read-link in Chapter 5');
+            }
+            if (ch5Html.includes('hm-feedback') || ch5Html.includes('Was this Homo Mysticus note helpful?')) {
+                throw new Error('Found removed hm-feedback widget in Chapter 5');
+            }
 
             // Verify .faur-tab-title renders conditionally for multi-section cases
             const multiSectionHtml = renderFaurTopBox([

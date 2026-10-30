@@ -270,15 +270,16 @@ async function run() {
                 const firstCit = topBox.querySelector('.faur-subsection-citation');
                 const citText = firstCit ? firstCit.textContent.trim() : '';
                 const hasPageRange = topBox.innerHTML.includes('Homo Mysticus, pp.');
-                const readLink = topBox.querySelector('.faur-read-link');
-                const readLinkText = readLink ? readLink.textContent.trim() : '';
+                const hasReadLink = Boolean(topBox.querySelector('.faur-read-link'));
+                const hasFeedback = topBox.innerHTML.includes('Was this Homo Mysticus note helpful?');
 
                 return {
                     isDisplayBlock,
                     pushDownDelta,
                     citText,
                     hasPageRange,
-                    readLinkText
+                    hasReadLink,
+                    hasFeedback
                 };
             })()`);
 
@@ -288,8 +289,11 @@ async function run() {
             if (!expandAudit.citText.includes('Homo Mysticus, Chapter 3 - The Fault with Aristotle')) {
                 throw new Error(`[${vp.name}] Unexpected citation: ${expandAudit.citText}`);
             }
-            if (!expandAudit.readLinkText.includes('Read full section in Homo Mysticus (Chapter 3) ↗')) {
-                throw new Error(`[${vp.name}] Unexpected read link text: ${expandAudit.readLinkText}`);
+            if (expandAudit.hasReadLink) {
+                throw new Error(`[${vp.name}] Found removed .faur-read-link`);
+            }
+            if (expandAudit.hasFeedback) {
+                throw new Error(`[${vp.name}] Found removed feedback widget`);
             }
             if (expandAudit.hasPageRange) throw new Error(`[${vp.name}] Found deprecated page range "Homo Mysticus, pp."`);
 

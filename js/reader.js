@@ -149,12 +149,6 @@ function formatFaurCardHeading(entry) {
     return entry.section_title || 'Homo Mysticus';
 }
 
-function formatFaurReadLink(entry) {
-    const chNum = entry.faur_chapter || FAUR_PART_CHAPTER_MAP[entry.part_title];
-    const chLabel = chNum ? `Chapter ${chNum}` : (entry.part_title === 'Introduction' ? 'Introduction' : (entry.section_title || 'Section'));
-    return `Read full section in Homo Mysticus (${chLabel}) ↗`;
-}
-
 function formatFaurContent(htmlStr, slug) {
     if (!htmlStr) return '';
     return htmlStr.replace(/<sup class="fn-callout"><a [^>]*href="#(fn_[^"]+)"[^>]*>(\d+)<\/a><\/sup>/g, (m, fnId, num) => {
@@ -244,8 +238,6 @@ function renderFaurTopBox(sections, slug) {
         const citation = formatFaurCitation(entry);
         const badge = formatFaurBadge(entry);
         const cardHeading = formatFaurCardHeading(entry);
-        const readLinkText = formatFaurReadLink(entry);
-        const readLinkHref = `Homo_Mysticus_Sample_Chapters.html?ch=${encodeURIComponent(entry.slug || slug)}`;
         const processedContent = formatFaurContent(entry.content_html, entry.slug || slug);
         const isOpenInitially = (idx === 0);
 
@@ -261,11 +253,8 @@ function renderFaurTopBox(sections, slug) {
                         ${processedContent}
                     </div>
                     <div class="faur-subsection-footer">
-                        <a href="${readLinkHref}" target="_blank" rel="noopener" class="faur-read-link">${readLinkText}<span class="sr-only"> (opens in new tab)</span></a>
-                        <span class="faur-footer-sep">·</span>
                         <span>José Faur, <em>Homo Mysticus: A Guide to Maimonides's Guide for the Perplexed</em> (Syracuse University Press, 1998)</span>
                     </div>
-                    ${typeof renderHmFeedback === 'function' ? renderHmFeedback(entry.id, entry.slug || slug, entry.section_title) : ''}
                 </div>
             </div>
         `;
